@@ -1,13 +1,114 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team San Presyon</title>
+  <title>Team San Presyon | BSS 1815</title>
+  <style>
+    :root { --orange:#f4a460; --orange-2:#ffba73; --black:#060606; --panel:rgba(255,255,255,0.06); --border:rgba(255,255,255,0.12); --text:#fff8f1; --muted:#dcc6b2; --shadow:0 20px 44px rgba(0,0,0,0.34); --radius:24px; --max:1180px; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at top, rgba(244,164,96,0.18), transparent 30%),linear-gradient(135deg,#000 0%,#101010 35%,#181818 60%,#4c2a11 100%);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 28px));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(6,6,6,0.74);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08)}
+    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand-logo{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,var(--orange-2),#7d4517);color:#fff;box-shadow:0 0 0 4px rgba(244,164,96,0.12)}
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted)}
+    .nav-btn{padding:11px 16px;border-radius:999px;background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#111;font-weight:800}
+    .hero{padding:72px 0 42px}
+    .hero-card,.card{background:var(--panel);border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow)}
+    .hero-card{padding:34px}
+    .eyebrow{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(244,164,96,0.08);border:1px solid rgba(244,164,96,0.34);color:#ffd7b1;margin-bottom:16px}
+    h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;margin-bottom:16px;text-transform:uppercase;color:#ffd1a4}
+    .lead{color:var(--muted);font-size:1.1rem;max-width:800px}
+    .actions{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;font-weight:800}
+    .btn-primary{background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#111}
+    .btn-secondary{border:1px solid rgba(244,164,96,0.45);color:#ffd8b7;background:rgba(255,255,255,0.04)}
+    section{padding:72px 0}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 32px}
+    .section-head h2{font-size:clamp(2rem,4vw,3rem);color:#ffd4ab;margin-bottom:12px}
+    .section-head p,.card p{color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .card{padding:24px}
+    .card h3{color:#ffd7af;margin-bottom:8px}
+    footer{padding:34px 0 48px;text-align:center;color:#d8c7b6}
+    @media (max-width:900px){.grid-3{grid-template-columns:1fr}.nav{flex-direction:column}}
+  </style>
 </head>
 <body>
-  <h1>Team San Presyon</h1>
-  <p>This page is now connected.</p>
-  <a href="index.html">Back Home</a>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-logo">BSS</span><span>BRIYANT SOLEY SIGNO 1815</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#identity">Identity</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-btn" href="index.html">Back to Main Site</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="eyebrow">Official Division • Team San Presyon</div>
+        <h1>Team San Presyon</h1>
+        <p class="lead">Team San Presyon is the BSS team identity section — built for movement, performance, visual presence, discipline, and strong team energy.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#about">Explore Team</a>
+          <a class="btn btn-secondary" href="index.html">Return Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About the Team</h2>
+        <p>This page can become the official digital space for Team San Presyon members, visuals, performance highlights, and identity.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>Performance</h3><p>Showcases movement, discipline, presence, and the energy of the team in action.</p></div>
+        <div class="card"><h3>Recognition</h3><p>Creates a place for member profiles, badges, and visual representation.</p></div>
+        <div class="card"><h3>Public Image</h3><p>Helps Team San Presyon stand strong under the BSS umbrella with its own identity.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="identity">
+    <div class="container">
+      <div class="section-head">
+        <h2>Team Identity</h2>
+        <p>This section is ready for official team branding, dancers, performers, media clips, uniforms, and more.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>Profiles</h3><p>Add individual member cards and portraits later.</p></div>
+        <div class="card"><h3>Media</h3><p>Add rehearsals, performances, and promotional visuals.</p></div>
+        <div class="card"><h3>Growth</h3><p>Use the page as a polished official identity hub for the team.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="hero-card">
+        <div class="section-head" style="margin-bottom:18px;">
+          <h2>Next Upgrade</h2>
+          <p>This page is ready for roster sections, performance photos, event schedules, and official team announcements.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:briyantsigno@gmail.com">Official Contact</a>
+          <a class="btn btn-secondary" href="index.html">Back to Homepage</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="container">© 2026 Briyant Soley Signo 1815 — Team San Presyon Division</div></footer>
 </body>
 </html>
