@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lis Apwobasyon Ti Machann - BSS 1815</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    .approval-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+    }
+
+    .approval-table th,
+    .approval-table td {
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .approval-table th {
+      background: rgba(244,164,96,0.18);
+      color: #f4a460;
+      font-weight: 800;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .approved {
+      background: rgba(40,167,69,0.18);
+      color: #7CFF9B;
+    }
+
+    .pending {
+      background: rgba(255,193,7,0.18);
+      color: #FFD86B;
+    }
+
+    .rejected {
+      background: rgba(220,53,69,0.18);
+      color: #FF8A98;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <img src="logo.png" alt="BSS Logo">
+  <div class="title">BRIYANT SOLÈY SIGNO 1815</div>
+  <nav class="nav">
+    <a href="index.html">Akèy</a>
+    <a href="istwa.html">Istwa</a>
+    <a href="dirijan.html">Dirijan</a>
+    <a href="ansyen-dirijan.html">Ansyen Dirijan</a>
+    <a href="fanatik-zele.html">Fanatik Zèlé</a>
+    <a href="pitit-kay.html">Pitit Kay</a>
+    <a href="ti-machann.html">Ti Machann</a>
+    <a href="ti-machann-form.html">Enskripsyon</a>
+    <a href="ti-machann-approval-list.html">Lis Apwobasyon</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+</header>
+
+<main class="main">
+
+  <section class="card">
+    <h1 class="h1">Lis Apwobasyon Ti Machann</h1>
+    <p class="p">
+      Paj sa a prezante lis ofisyèl ti machann ki soumèt demann, ansanm ak estati apwobasyon yo
+      pou aktivite Briyant Solèy Signo 1815 yo.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2 class="h2">Sitiyasyon Demann yo</h2>
+
+    <div class="table-wrap">
+      <table class="approval-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Non Machann</th>
+            <th>Kategori</th>
+            <th>Pwodwi</th>
+            <th>Telefòn</th>
+            <th>Nimewo Badj</th>
+            <th>Estati</th>
+            <th>Remak</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Non Machann 1</td>
+            <td>Manje</td>
+            <td>Manje / Bwason</td>
+            <td>+1 (000) 000-0000</td>
+            <td>BSS-TM-001</td>
+            <td><span class="status approved">Apwouve</span></td>
+            <td>Otorizasyon konfime</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>Non Machann 2</td>
+            <td>Pwodwi BSS</td>
+            <td>Merch / Rad</td>
+            <td>+1 (000) 000-0000</td>
+            <td>BSS-TM-002</td>
+            <td><span class="status pending">An Atant</span></td>
+            <td>Ap tann validasyon final</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Non Machann 3</td>
+            <td>Atizana</td>
+            <td>Atizana Lokal</td>
+            <td>+1 (000) 000-0000</td>
+            <td>BSS-TM-003</td>
+            <td><span class="status rejected">Refize</span></td>
+            <td>Dokiman pa t konplè</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="h2">Nòt Administratif</h2>
+    <p class="p">
+      Lis sa a kapab mete ajou regilyèman dapre nouvo demann ki antre.
+      Se sèlman administrasyon BSS ki gen dwa valide, mete sou lis, oswa modifye estati ti machann yo.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">© 2025 Briyant Solèy Signo 1815 – Tout dwa rezève</footer>
+
+</body>
+</html>
