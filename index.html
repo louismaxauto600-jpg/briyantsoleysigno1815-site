@@ -432,7 +432,171 @@
     }
   </style>
 </head>
-<body>
+<body><script>
+const translations = {
+  ht: {
+    navHome: "Akèy",
+    navHistory: "Istwa",
+    navLeaders: "Dirijan",
+    navFormer: "Ansyen Dirijan",
+    navFans: "Fanatik Zèlé",
+    navFamily: "Pitit Kay",
+    navVendors: "Ti Machann",
+    navStore: "Magazen",
+    navVideo: "Videyo",
+    navContact: "Kontak",
+
+    eyebrow: "Sit Ofisyèl BSS • Estrikti Premium",
+    heroTitle: "Briyant Solèy Signo 1815",
+    heroText: "Byenveni sou sit ofisyèl Briyant Solèy Signo 1815. Isit la ou jwenn istwa nou, dirijan yo, ansyen dirijan yo, fanatik Onorab yo, pitit kay yo, seksyon Ti Machann nan, magazen, videyo, ak kontak ofisyèl.",
+    tagline: "Yon motè nèf, yon sèl kout kle san bri",
+    heroBtn1: "Louvri Seksyon yo",
+    heroBtn2: "Kontakte BSS",
+
+    panelTitle: "Pòtal Ofisyèl BSS",
+    panelText: "Homepage sa a se pwen antre prensipal la pou tout paj ofisyèl BSS yo. Chak seksyon anba a deja konekte ak paj pa li.",
+
+    sectionsTitle: "Seksyon Ofisyèl yo",
+    sectionsText: "Tout paj ki anba yo deja fini epi pare pou sèvi kòm estrikti prensipal sit ofisyèl BSS 1815 la.",
+
+    cardHistoryTitle: "Istwa BSS",
+    cardHistoryText: "Orijin, fondasyon, valè, vizyon, ak chemen istorik Briyant Solèy Signo 1815.",
+    cardLeadersTitle: "Dirijan",
+    cardLeadersText: "Lidèchip aktyèl la, gran dirijan yo, ak responsab Onorab nan estrikti a.",
+    cardFormerTitle: "Ansyen Dirijan",
+    cardFormerText: "Onè ak rekonesans pou moun ki te pote estrikti a nan lòt epòk yo.",
+    cardFansTitle: "Fanatik Zèlé",
+    cardFansText: "Seksyon Onorab pou sipòtè ki toujou prezan epi ki kenbe limyè BSS la vivan.",
+    cardFamilyTitle: "Pitit Kay",
+    cardFamilyText: "Espas Onorab pou fanmi BSS la ak tout moun ki gen plas espesyal nan kay la.",
+    cardVendorsTitle: "Ti Machann",
+    cardVendorsText: "Seksyon pou ti machann ofisyèl, enskripsyon, badj, ak lis apwobasyon yo.",
+    cardStoreTitle: "Magazen",
+    cardStoreText: "Pwodwi BSS, merch, ak atik Onorab ki pote koulè ak fyète estrikti a.",
+    cardVideoTitle: "Videyo",
+    cardVideoText: "Galri videyo ofisyèl pou pwomosyon, moman espesyal, ak medya BSS yo.",
+    cardContactTitle: "Kontak",
+    cardContactText: "Imèl, enfòmasyon ofisyèl, ak fason pou kominike dirèkteman ak BSS.",
+    openPage: "Louvri paj la"
+  },
+
+  en: {
+    navHome: "Home",
+    navHistory: "History",
+    navLeaders: "Leaders",
+    navFormer: "Former Leaders",
+    navFans: "Dedicated Fans",
+    navFamily: "Family",
+    navVendors: "Vendors",
+    navStore: "Store",
+    navVideo: "Videos",
+    navContact: "Contact",
+
+    eyebrow: "Official BSS Website • Premium Structure",
+    heroTitle: "Briyant Soley Signo 1815",
+    heroText: "Welcome to the official website of Briyant Soley Signo 1815. Here you will find our history, leaders, former leaders, honored fans, family section, vendor section, store, videos, and official contact information.",
+    tagline: "A brand new engine, one smooth turn of the key",
+    heroBtn1: "Open Sections",
+    heroBtn2: "Contact BSS",
+
+    panelTitle: "Official BSS Portal",
+    panelText: "This homepage is the main entrance to all official BSS pages. Every section below is already connected to its own page.",
+
+    sectionsTitle: "Official Sections",
+    sectionsText: "All the pages below are already completed and ready to serve as the main official structure of the BSS 1815 website.",
+
+    cardHistoryTitle: "BSS History",
+    cardHistoryText: "Origins, foundation, values, vision, and the historical path of Briyant Soley Signo 1815.",
+    cardLeadersTitle: "Leaders",
+    cardLeadersText: "Current leadership, major leaders, and honored officials in the structure.",
+    cardFormerTitle: "Former Leaders",
+    cardFormerText: "Honor and recognition for those who carried the organization in earlier times.",
+    cardFansTitle: "Dedicated Fans",
+    cardFansText: "An honored section for supporters who remain present and keep the BSS light alive.",
+    cardFamilyTitle: "Family",
+    cardFamilyText: "An honored space for the BSS family and everyone with a special place in the house.",
+    cardVendorsTitle: "Vendors",
+    cardVendorsText: "Section for official vendors, registration, badges, and approval lists.",
+    cardStoreTitle: "Store",
+    cardStoreText: "BSS products, merchandise, and honored items carrying the colors and pride of the structure.",
+    cardVideoTitle: "Videos",
+    cardVideoText: "Official video gallery for promotions, special moments, and BSS media.",
+    cardContactTitle: "Contact",
+    cardContactText: "Email, official information, and ways to communicate directly with BSS.",
+    openPage: "Open page"
+  },
+
+  es: {
+    navHome: "Inicio",
+    navHistory: "Historia",
+    navLeaders: "Líderes",
+    navFormer: "Ex Líderes",
+    navFans: "Fanáticos Fieles",
+    navFamily: "Familia",
+    navVendors: "Vendedores",
+    navStore: "Tienda",
+    navVideo: "Videos",
+    navContact: "Contacto",
+
+    eyebrow: "Sitio Oficial BSS • Estructura Premium",
+    heroTitle: "Briyant Soley Signo 1815",
+    heroText: "Bienvenido al sitio oficial de Briyant Soley Signo 1815. Aquí encontrarás nuestra historia, líderes, ex líderes, fanáticos reconocidos, sección familiar, sección de vendedores, tienda, videos e información oficial de contacto.",
+    tagline: "Un motor nuevo, una sola vuelta de llave sin ruido",
+    heroBtn1: "Abrir Secciones",
+    heroBtn2: "Contactar BSS",
+
+    panelTitle: "Portal Oficial BSS",
+    panelText: "Esta página principal es la entrada principal a todas las páginas oficiales de BSS. Cada sección de abajo ya está conectada a su propia página.",
+
+    sectionsTitle: "Secciones Oficiales",
+    sectionsText: "Todas las páginas de abajo ya están terminadas y listas para servir como la estructura oficial principal del sitio web BSS 1815.",
+
+    cardHistoryTitle: "Historia BSS",
+    cardHistoryText: "Orígenes, fundación, valores, visión y camino histórico de Briyant Soley Signo 1815.",
+    cardLeadersTitle: "Líderes",
+    cardLeadersText: "Liderazgo actual, grandes líderes y responsables honorables de la estructura.",
+    cardFormerTitle: "Ex Líderes",
+    cardFormerText: "Honor y reconocimiento para quienes llevaron la estructura en otras épocas.",
+    cardFansTitle: "Fanáticos Fieles",
+    cardFansText: "Sección honorable para seguidores que siempre están presentes y mantienen viva la luz de BSS.",
+    cardFamilyTitle: "Familia",
+    cardFamilyText: "Espacio honorable para la familia BSS y todas las personas con un lugar especial en la casa.",
+    cardVendorsTitle: "Vendedores",
+    cardVendorsText: "Sección para vendedores oficiales, registro, credenciales y listas de aprobación.",
+    cardStoreTitle: "Tienda",
+    cardStoreText: "Productos BSS, mercancía y artículos honorables que llevan los colores y el orgullo de la estructura.",
+    cardVideoTitle: "Videos",
+    cardVideoText: "Galería oficial de videos para promociones, momentos especiales y medios de BSS.",
+    cardContactTitle: "Contacto",
+    cardContactText: "Correo electrónico, información oficial y formas de comunicarse directamente con BSS.",
+    openPage: "Abrir página"
+  }
+};
+
+function applyLanguage(lang) {
+  document.documentElement.lang = lang === "ht" ? "ht" : lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  localStorage.setItem("bss-lang", lang);
+}
+
+const savedLang = localStorage.getItem("bss-lang") || "ht";
+applyLanguage(savedLang);
+
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+});
+</script>
 
   <div class="topbar">
     <div class="container nav">
