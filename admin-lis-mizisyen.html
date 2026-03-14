@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rejis Mizisyen – ADMIN</title>
+  <style>
+    body {
+      background:#000;
+      color:#fff;
+      font-family:system-ui, sans-serif;
+      padding:20px;
+    }
+    h1 {
+      text-align:center;
+      color:#f4a460;
+      margin-bottom:20px;
+    }
+    .card {
+      background:#111;
+      border:1px solid #f4a46055;
+      padding:20px;
+      border-radius:10px;
+      max-width:800px;
+      margin:0 auto 30px auto;
+    }
+    label {
+      display:block;
+      margin-top:10px;
+      font-weight:600;
+    }
+    input, textarea {
+      width:100%;
+      padding:8px;
+      border-radius:8px;
+      border:1px solid #444;
+      background:#000;
+      color:#fff;
+      margin-top:4px;
+    }
+    button {
+      margin-top:15px;
+      width:100%;
+      padding:12px;
+      background:#f4a460;
+      color:#000;
+      font-weight:700;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+    th, td {
+      border:1px solid #444;
+      padding:8px;
+      text-align:left;
+    }
+    th {
+      background:#f4a460;
+      color:#000;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Rejis Mizisyen – ADMIN SÈLMAN</h1>
+
+<div class="card">
+  <h2>Antre Nouvo Mizisyen</h2>
+
+  <label>Non Mizisyen / Gwoup</label>
+  <input id="non">
+
+  <label>Telefòn</label>
+  <input id="tel">
+
+  <label>WhatsApp</label>
+  <input id="wa">
+
+  <label>Imèl</label>
+  <input id="email">
+
+  <label>Enstriman yo jwe</label>
+  <input id="instriman">
+
+  <label>Disponiblite</label>
+  <input id="disp">
+
+  <label>Nòt espesyal</label>
+  <textarea id="not"></textarea>
+
+  <button onclick="ajoute()">Ajoute Mizisyen</button>
+</div>
+
+<div class="card">
+  <h2>Lis Mizisyen yo</h2>
+
+  <table id="tab">
+    <tr>
+      <th>Non</th>
+      <th>Telefòn</th>
+      <th>WhatsApp</th>
+      <th>Imèl</th>
+      <th>Enstriman</th>
+      <th>Disponiblite</th>
+      <th>Nòt</th>
+    </tr>
+  </table>
+</div>
+
+<script>
+function ajoute() {
+  let tab = document.getElementById("tab");
+  let row = tab.insertRow(-1);
+
+  row.insertCell(0).innerText = document.getElementById("non").value;
+  row.insertCell(1).innerText = document.getElementById("tel").value;
+  row.insertCell(2).innerText = document.getElementById("wa").value;
+  row.insertCell(3).innerText = document.getElementById("email").value;
+  row.insertCell(4).innerText = document.getElementById("instriman").value;
+  row.insertCell(5).innerText = document.getElementById("disp").value;
+  row.insertCell(6).innerText = document.getElementById("not").value;
+
+  document.getElementById("non").value = "";
+  document.getElementById("tel").value = "";
+  document.getElementById("wa").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("instriman").value = "";
+  document.getElementById("disp").value = "";
+  document.getElementById("not").value = "";
+}
+</script>
+
+</body>
+</html>
