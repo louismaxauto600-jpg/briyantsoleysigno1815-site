@@ -1,476 +1,128 @@
-/* TABLE WRAPPER */
-.table-wrap {
-  overflow-x: auto;
-  margin-top: 16px;
-}
+/* ================= GLOBAL ================= */
 
-/* TABLE */
-.approval-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: rgba(0,0,0,0.45);
-  color: #f4a460 !important;
-  border: 1px solid rgba(244,164,96,0.25);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-}
-
-/* TABLE CELLS */
-.approval-table th,
-.approval-table td {
-  border: 1px solid rgba(244,164,96,0.25);
-  padding: 12px;
-  text-align: left;
-  vertical-align: top;
-}
-
-/* TABLE HEADER */
-.approval-table th {
-  background: rgba(244,164,96,0.18);
-  color: #f4a460 !important;
-  font-weight: 800;
-}
-
-/* STATUS BADGES */
-.status {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 800;
-  color: #111;
-}
-
-/* APPROVED */
-.approved {
-  background: #f4a460;
-}
-
-/* PENDING */
-.pending {
-  background: rgba(244,164,96,0.45);
-}
-
-/* REJECTED */
-.rejected {
-  background: rgba(0,0,0,0.65);
-  color: #f4a460;
-}/* ISTWA PAGE — CARD STYLE */
-.card {
-  background: rgba(0,0,0,0.45);
-  border: 1px solid rgba(244,164,96,0.25);
-  padding: 28px;
-  margin: 26px auto;
-  border-radius: 18px;
-  max-width: 900px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-}
-
-/* TIT ISTWA */
-.h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 16px;
-  color: #f4a460 !important;
-}
-
-.h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 14px;
-  color: #f4a460 !important;
-}
-
-/* PARAGRAF */
-.p {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  margin-bottom: 14px;
-  color: #f4a460 !important;
-}
-
-/* LISTE */
-.list {
-  margin-top: 12px;
-  padding-left: 22px;
-  line-height: 1.9;
-  color: #f4a460 !important;
-}
-.list li {
-  margin-bottom: 6px;
-}/* ============================================================
-   BSS 1815 — GLOBAL STYLE RESET (ORANGE + BLACK THEME)
-   ============================================================ */
-
-/* GLOBAL TEXT COLOR — APRICOT ONLY */
-body, p, h1, h2, h3, h4, h5, h6, span, div, li, strong {
-  color: #f4a460 !important;
-  font-family: Arial, Helvetica, sans-serif;
+body {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  background: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
 }
 
-/* GLOBAL LINK STYLE */
 a {
-  color: #f4a460 !important;
-  text-decoration: none !important;
+  color: #ff6600;
+  text-decoration: none;
 }
+
 a:hover {
-  color: #000000 !important; /* Black hover */
+  opacity: 0.8;
 }
 
-/* GLOBAL BUTTON STYLE */
-.btn {
-  display: inline-block;
-  background: #f4a460 !important;
-  color: #000000 !important;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
 
-/* BACKGROUND THEME — OFFICIAL BSS 1815 GRADIENT */
-body {
-  background: linear-gradient(
-    to bottom,
-    #000000 0%,
-    #0a0a0a 15%,
-    #1a0f07 35%,
-    #3b1f0d 55%,
-    #d98b4c 75%,
-    #f4a460 100%
-  );
-  background-attachment: fixed;
-  background-size: cover;
-}
 
-/* SECTION TITLES */
-h1, h2, h3 {
-  color: #f4a460 !important;
-  font-weight: 800;
-}
+/* ================= HEADER ================= */
 
-/* LISTS */
-.list {
-  margin-top: 12px;
-  padding-left: 22px;
-  color: #f4a460;
-  line-height: 1.9;
-}
-.list li {
-  margin-bottom: 6px;
-}
-
-/* DIVISION CARDS */
-.division-card {
-  display: block;
-  padding: 22px;
-  border-radius: 14px;
+.main-header {
+  background: #000;
+  padding: 20px;
   text-align: center;
-  font-weight: 800;
-  font-size: 1.05rem;
-  background: linear-gradient(135deg, #f4a460, #ff7a18);
-  color: #111;
-  text-decoration: none;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  border: 1px solid transparent;
-}
-.division-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-  border-color: rgba(244,164,96,0.34);
+  border-bottom: 2px solid #ff6600;
 }
 
-/* LEADERSHIP GRID */
-.leadership-grid {
-  display: grid;
-  gap: 20px;
-}
-
-/* LEADER CARDS */
-.leader-card {
-  background: #111;
-  border: 1px solid rgba(244, 164, 96, 0.22);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-}
-.leader-card .thumb {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  display: block;
-}
-.leader-info {
-  padding: 16px;
-}
-.leader-info h3 {
-  color: #f4a460;
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-}
-.leader-role {
-  display: inline-block;
+.header-logo img {
+  width: 120px;
   margin-bottom: 10px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(244, 164, 96, 0.12);
-  color: #f4a460;
-  font-size: 0.9rem;
-  font-weight: bold;
 }
-.leader-info p {
-  color: #f4a460;
-  font-size: 0.95rem;
+
+.site-title {
+  color: #ff6600;
+  font-size: 1.8rem;
+  margin: 5px 0 15px 0;
+  letter-spacing: 2px;
+}
+
+.main-nav a {
+  color: #fff;
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.main-nav a.active {
+  color: #ff6600;
+}
+
+
+
+/* ================= TEAM SECTIONS ================= */
+
+.team-section {
+  padding: 30px 15px;
+}
+
+.team-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #000 0%, #222 40%, #111 100%);
+  border-radius: 16px;
+  border: 1px solid #ff6600;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+  padding: 20px;
+}
+
+.team-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff6600;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.team-photo img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.team-branding img {
+  width: 150px;
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+.team-description,
+.team-closing {
+  font-size: 1rem;
+  color: #f2f2f2;
+  text-align: justify;
+  margin: 10px 10px 0 10px;
+}
+
+
+
+/* ================= FOOTER ================= */
+
+.main-footer {
+  background: #000;
+  padding: 25px;
+  text-align: center;
+  border-top: 2px solid #ff6600;
+  margin-top: 40px;
+}
+
+.footer-title {
+  color: #ff6600;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  color: #ccc;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
-/* FEATURED LEADER */
-.featured {
-  border: 2px solid #f4a460;
-  box-shadow: 0 14px 32px rgba(244, 164, 96, 0.18);
-}/* ============================================================
-   BSS 1815 — BADGE PAGE (ISOLATED STYLES)
-   Apply ONLY when <body class="badge-page"> is used
-   ============================================================ */
-
-.badge-page {
-  background: linear-gradient(
-    to bottom,
-    #000000 0%,
-    #0a0a0a 15%,
-    #1a0f07 35%,
-    #3b1f0d 55%,
-    #d98b4c 75%,
-    #f4a460 100%
-  );
-  color: #f4a460;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 24px;
-}
-
-/* PAGE WRAPPER */
-.badge-page .page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* GRID FOR MULTIPLE BADGES */
-.badge-page .badge-sheet {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 1000px;
-  width: 100%;
-}
-
-/* BADGE CARD */
-.badge-page .badge {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, #000 0%, #141414 45%, #d88432 100%);
-  color: #fff;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
-  border: 3px solid #f4a460;
-}
-
-/* TOP SECTION */
-.badge-page .badge-top {
-  padding: 18px 18px 10px;
-  text-align: center;
-  border-bottom: 2px solid rgba(255,255,255,0.12);
-}
-
-.badge-page .logo-wrap {
-  width: 82px;
-  height: 82px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 2px solid #f4a460;
-}
-
-.badge-page .logo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.badge-page .org-name {
-  font-size: 20px;
-  font-weight: 800;
-  color: #f4a460;
-  text-transform: uppercase;
-}
-
-.badge-page .subtitle {
-  margin-top: 6px;
-  font-size: 13px;
-  color: #f6d9b9;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-/* BODY SECTION */
-.badge-page .badge-body {
-  padding: 18px;
-}
-
-.badge-page .photo {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 14px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 3px solid #f4a460;
-  background: #222;
-}
-
-.badge-page .photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.badge-page .vendor-name {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 900;
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.badge-page .role {
-  text-align: center;
-  font-size: 15px;
-  font-weight: 800;
-  color: #f4a460;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-/* INFO BOXES */
-.badge-page .info-box {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 14px;
-  padding: 12px 14px;
-  margin-bottom: 12px;
-}
-
-.badge-page .label {
-  font-size: 11px;
-  font-weight: 800;
-  color: #f7d8b8;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.badge-page .value {
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-}
-
-/* BADGE NUMBER + NOTICE */
-.badge-page .badge-number {
-  text-align: center;
-  margin: 14px 0 8px;
-  font-size: 18px;
-  font-weight: 900;
-  color: #f4a460;
-}
-
-.badge-page .notice {
-  text-align: center;
-  font-size: 11px;
-  color: #f3e2cf;
-  margin-top: 8px;
-}
-
-/* FOOTER */
-.badge-page .badge-footer {
-  padding: 12px 18px 18px;
-  text-align: center;
-}
-
-.badge-page .signature {
-  border-top: 1px solid rgba(255,255,255,0.22);
-  margin-top: 12px;
-  padding-top: 8px;
-  font-size: 11px;
-  color: #f3d5b1;
-  text-transform: uppercase;
-}
-
-/* BUTTONS */
-.badge-page .controls {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  display: flex;
-  gap: 10px;
-}
-
-.badge-page .btn {
-  border: none;
-  background: #f4a460;
-  color: #111;
-  font-weight: 800;
-  padding: 12px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-}
-
-.badge-page .btn.secondary {
-  background: #111;
-  color: #fff;
-  border: 1px solid #333;
-}
-
-/* PRINT MODE */
-@media print {
-  .badge-page {
-    background: #fff;
-  }
-
-  .badge-page .page {
-    padding: 0;
-  }
-
-  .badge-page .badge-sheet {
-    gap: 14px;
-  }
-
-  .badge-page .controls {
-    display: none !important;
-  }
-
-  .badge-page .badge {
-    box-shadow: none;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-}
-
-/* RESPONSIVE */
-@media (max-width: 920px) {
-  .badge-page .badge-sheet {
-    grid-template-columns: 1fr;
-  }
+.footer-copy {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 10px;
 }
