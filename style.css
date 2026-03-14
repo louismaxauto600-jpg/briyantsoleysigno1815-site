@@ -1,4 +1,33 @@
-/* GLOBAL TEXT RESET — BSS 1815 ORANGE + BLACK */
+/* BSS 1815 GLOBAL COLOR RESET — ORANGE + BLACK ONLY */
+body, p, h1, h2, h3, h4, h5, h6, span, div, a, li, strong {
+  color: #f4a460 !important; /* Zoranj Abriko */
+}
+
+/* LINKS */
+a {
+  color: #f4a460 !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #000000 !important; /* Nwa sou hover */
+}
+
+/* BUTTONS */
+.btn {
+  background: #f4a460 !important;
+  color: #000000 !important;
+}
+
+/* CARDS */
+.card, .portal-card, .division-card {
+  color: #f4a460 !important;
+}
+
+/* TIT */
+h1, h2, h3 {
+  color: #f4a460 !important;
+}/* GLOBAL TEXT RESET — BSS 1815 ORANGE + BLACK */
 body, p, h1, h2, h3, h4, h5, h6, span, div {
   color: #f4a460 !important; /* Zoranj Abriko */
 }
