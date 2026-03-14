@@ -1,4 +1,30 @@
-/* BACKGROUND OFISYÈL BSS 1815 */
+/* GLOBAL TEXT RESET — BSS 1815 BLACK & WHITE THEME */
+body, p, h1, h2, h3, h4, h5, h6, span, div {
+  color: #ffffff !important;
+}
+
+/* GLOBAL LINK RESET */
+a {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f4a460 !important; /* Zoranj Abriko hover */
+}
+
+/* BUTTON TEXT */
+.btn {
+  color: #000000 !important; /* Black text on orange buttons */
+}
+
+/* CARD TEXT */
+.card p,
+.card h3,
+.portal-card p,
+.portal-card h3 {
+  color: #ffffff !important;
+}/* BACKGROUND OFISYÈL BSS 1815 */
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #ffffff;
