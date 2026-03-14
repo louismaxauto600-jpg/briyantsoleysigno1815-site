@@ -1,89 +1,40 @@
-/* BSS 1815 GLOBAL COLOR RESET — ORANGE + BLACK ONLY */
-body, p, h1, h2, h3, h4, h5, h6, span, div, a, li, strong {
-  color: #f4a460 !important; /* Zoranj Abriko */
+/* ============================================================
+   BSS 1815 — GLOBAL STYLE RESET (ORANGE + BLACK THEME)
+   ============================================================ */
+
+/* GLOBAL TEXT COLOR — APRICOT ONLY */
+body, p, h1, h2, h3, h4, h5, h6, span, div, li, strong {
+  color: #f4a460 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
-/* LINKS */
+/* GLOBAL LINK STYLE */
 a {
   color: #f4a460 !important;
   text-decoration: none !important;
 }
-
 a:hover {
-  color: #000000 !important; /* Nwa sou hover */
+  color: #000000 !important; /* Black hover */
 }
 
-/* BUTTONS */
+/* GLOBAL BUTTON STYLE */
 .btn {
+  display: inline-block;
   background: #f4a460 !important;
   color: #000000 !important;
-}
-
-/* CARDS */
-.card, .portal-card, .division-card {
-  color: #f4a460 !important;
-}
-
-/* TIT */
-h1, h2, h3 {
-  color: #f4a460 !important;
-}/* GLOBAL TEXT RESET — BSS 1815 ORANGE + BLACK */
-body, p, h1, h2, h3, h4, h5, h6, span, div {
-  color: #f4a460 !important; /* Zoranj Abriko */
-}
-
-/* GLOBAL LINK RESET */
-a {
-  color: #f4a460 !important; /* Zoranj Abriko */
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
 }
 
-a:hover {
-  color: #ffb97a !important; /* Zoranj pi klere */
-}
-
-/* BUTTON TEXT */
-.btn {
-  color: #000000 !important; /* Nwa */
-}
-
-/* CARD TEXT */
-.card p,
-.card h3,
-.portal-card p,
-.portal-card h3 {
-  color: #f4a460 !important; /* Zoranj Abriko */
-}/* GLOBAL TEXT RESET — BSS 1815 BLACK & WHITE THEME */
-body, p, h1, h2, h3, h4, h5, h6, span, div {
-  color: #ffffff !important;
-}
-
-/* GLOBAL LINK RESET */
-a {
-  color: #ffffff !important;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #f4a460 !important; /* Zoranj Abriko hover */
-}
-
-/* BUTTON TEXT */
-.btn {
-  color: #000000 !important; /* Black text on orange buttons */
-}
-
-/* CARD TEXT */
-.card p,
-.card h3,
-.portal-card p,
-.portal-card h3 {
-  color: #ffffff !important;
-}/* BACKGROUND OFISYÈL BSS 1815 */
+/* BACKGROUND THEME — OFFICIAL BSS 1815 GRADIENT */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #ffffff;
-
   background: linear-gradient(
     to bottom,
     #000000 0%,
@@ -93,46 +44,28 @@ body {
     #d98b4c 75%,
     #f4a460 100%
   );
-
   background-attachment: fixed;
   background-size: cover;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
 }
-/* TIT SEKSIYON */
-.h2 {
-  font-size: 1.5rem;
-  margin-bottom: 14px;
-  color: #f4a460;
+
+/* SECTION TITLES */
+h1, h2, h3 {
+  color: #f4a460 !important;
   font-weight: 800;
 }
 
-/* LIS */
+/* LISTS */
 .list {
   margin-top: 12px;
   padding-left: 22px;
-  color: #f5f5f5;
+  color: #f4a460;
   line-height: 1.9;
 }
 .list li {
   margin-bottom: 6px;
 }
 
-/* BOUTON */
-.btn {
-  display: inline-block;
-  background: #f4a460;
-  color: #000;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* DIVISION CARD */
+/* DIVISION CARDS */
 .division-card {
   display: block;
   padding: 22px;
@@ -152,13 +85,13 @@ body {
   border-color: rgba(244,164,96,0.34);
 }
 
-/* GRID DIRIJAN */
+/* LEADERSHIP GRID */
 .leadership-grid {
   display: grid;
   gap: 20px;
 }
 
-/* KAT DIRIJAN */
+/* LEADER CARDS */
 .leader-card {
   background: #111;
   border: 1px solid rgba(244, 164, 96, 0.22);
@@ -191,12 +124,12 @@ body {
   font-weight: bold;
 }
 .leader-info p {
-  color: #f5f5f5;
+  color: #f4a460;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
-/* DIRIJAN VEDET */
+/* FEATURED LEADER */
 .featured {
   border: 2px solid #f4a460;
   box-shadow: 0 14px 32px rgba(244, 164, 96, 0.18);
