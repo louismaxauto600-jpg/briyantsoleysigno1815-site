@@ -1,4 +1,24 @@
+/* BACKGROUND OFISYÈL BSS 1815 */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
 
+  background: linear-gradient(
+    to bottom,
+    #000000 0%,
+    #0a0a0a 15%,
+    #1a0f07 35%,
+    #3b1f0d 55%,
+    #d98b4c 75%,
+    #f4a460 100%
+  );
+
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
 /* TIT SEKSIYON */
 .h2 {
   font-size: 1.5rem;
