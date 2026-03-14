@@ -1,4 +1,47 @@
-/* ============================================================
+/* ISTWA PAGE — CARD STYLE */
+.card {
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(244,164,96,0.25);
+  padding: 28px;
+  margin: 26px auto;
+  border-radius: 18px;
+  max-width: 900px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+/* TIT ISTWA */
+.h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #f4a460 !important;
+}
+
+.h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #f4a460 !important;
+}
+
+/* PARAGRAF */
+.p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+  color: #f4a460 !important;
+}
+
+/* LISTE */
+.list {
+  margin-top: 12px;
+  padding-left: 22px;
+  line-height: 1.9;
+  color: #f4a460 !important;
+}
+.list li {
+  margin-bottom: 6px;
+}/* ============================================================
    BSS 1815 — GLOBAL STYLE RESET (ORANGE + BLACK THEME)
    ============================================================ */
 
