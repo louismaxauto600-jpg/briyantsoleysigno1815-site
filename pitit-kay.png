@@ -1,3 +1,44 @@
-images/pitit-kay/fredlet.jpg
-images/pitit-kay/glenda.jpg
-images/pitit-kay/placeholder1.jpg
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitit Kay BSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="main-header">
+  <div class="logo-area">
+    <img src="images/logo-bss1815.png" alt="BSS 1815 Logo">
+    <h1>BRIYANT SOLEY SIGNÒ 1815</h1>
+  </div>
+
+  <nav class="main-nav">
+    <a href="index.html">Akèy</a>
+    <a href="istwa.html">Istwa</a>
+    <a href="dirijan.html">Dirijan</a>
+    <a href="ansyen-dirijan.html">Ansyen Dirijan</a>
+    <a href="fanatik-zele.html">Fanatik Zèlé</a>
+    <a href="pitit-kay.html" class="active">Pitit Kay</a>
+    <a href="ti-machann.html">Ti Machann</a>
+    <a href="store.html">Magazen</a>
+    <a href="video.html">Videyo</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>Pitit Kay</h2>
+  <p>Espas pou fanmi ak moun espesyal nan estrikti a.</p>
+</section>
+
+<section class="page-content container">
+  <p>Lis pitit kay yo ap vini isit la...</p>
+</section>
+
+<footer>…(same footer)…</footer>
+
+</body>
+</html>
