@@ -1,4 +1,18 @@
-/* GLOBAL RESET */
+.main-header {
+  background: linear-gradient(
+    to bottom,
+    #f4a460 0%,
+    #e39a54 20%,
+    #c87a3c 45%,
+    #7a4a22 70%,
+    #000 100%
+  );
+  padding: 14px 22px;
+  border-bottom: 3px solid #f4a460;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
