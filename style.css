@@ -2,6 +2,20 @@
   background: linear-gradient(
     to bottom,
     #f4a460 0%,
+    #e39a54 25%,
+    #c87a3c 55%,
+    #000 100%
+  );
+  padding: 20px 22px; /* OGMENTE PADDING */
+  border-bottom: 3px solid #f4a460;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 110px; /* SA A FÈ FADE LA VISIBLE */
+}.main-header {
+  background: linear-gradient(
+    to bottom,
+    #f4a460 0%,
     #e39a54 20%,
     #c87a3c 45%,
     #7a4a22 70%,
