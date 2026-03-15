@@ -1,4 +1,12 @@
 .main-header {
+  background: #d96b2b; /* zoranj fonse motè a */
+  padding: 22px 22px;
+  border-bottom: 3px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 130px;
+}.main-header {
   background: linear-gradient(
     to bottom,
     #d96b2b 0%,   /* zoranj fonse motè a */
