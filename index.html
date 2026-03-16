@@ -6,7 +6,34 @@
   <title>Dirijan BSS 1815</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+(function () {
+  const DEFAULT_LANG = 'ht';
 
+  function setLanguage(lang) {
+    document.querySelectorAll('.i18n').forEach(block => {
+      block.querySelectorAll('[data-lang]').forEach(span => {
+        span.style.display = (span.getAttribute('data-lang') === lang) ? 'inline' : 'none';
+      });
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+
+    localStorage.setItem('bss-lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.getAttribute('data-lang'));
+    });
+  });
+
+  const saved = localStorage.getItem('bss-lang') || DEFAULT_LANG;
+  setLanguage(saved);
+})();
+</script>
 <body>
 
 <header class="main-header">
