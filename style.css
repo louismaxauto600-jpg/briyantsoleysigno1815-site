@@ -382,4 +382,18 @@ footer {
     color: #000000;
        }
 
-       
+       /* HEADER – BSS 1815 */
+.main-header {
+  background: linear-gradient(to bottom, #000000, #f4a460);
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-area img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
