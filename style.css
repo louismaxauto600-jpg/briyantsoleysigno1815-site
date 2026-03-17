@@ -1,3 +1,8 @@
+.brand-logo-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
 /* --------------------------------------------------
    BSS 1815 — STYLE GLOBAL APRIKO (#ffb347)
    Konsepsyon inifye pou TOUT paj yo
