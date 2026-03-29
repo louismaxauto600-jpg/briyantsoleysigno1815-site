@@ -16,7 +16,19 @@
       background: linear-gradient(180deg, #050505, #111, #1b1208);
       color: white;
       min-height: 100vh;
-    }
+    }<!-- LOGIN FORM -->
+<div id="login-box" style="text-align:center; margin-top:100px;">
+  <h2>Admin Login</h2>
+  <input type="email" id="email" placeholder="Email" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="login()">Login</button>
+  <p id="error" style="color:red;"></p>
+</div>
+
+<div id="dashboard" style="display:none; text-align:center;">
+  <h1>WELCOME ADMIN 🔥</h1>
+  <button onclick="logout()">Logout</button>
+</div>
 
     .topbar {
       display: flex;
