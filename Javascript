@@ -1,0 +1,75 @@
+/* ============================================================
+   BSS 1815 OFFICIAL JAVASCRIPT ENGINE
+   Multi‑Function System + Firebase Ready
+   Created for MAX (Super Admin)
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1) LANGUAGE TOGGLE SYSTEM (KRE / FRA / ENG)
+------------------------------------------------------------ */
+function initLanguageToggle() {
+  const buttons = document.querySelectorAll('#language-toggle button');
+  const sections = document.querySelectorAll('.lang-ht, .lang-fr, .lang-en');
+
+  // Load saved language or default to HT
+  const savedLang = localStorage.getItem('bss-lang') || 'ht';
+  applyLanguage(savedLang);
+
+  // Add click events
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      applyLanguage(lang);
+      localStorage.setItem('bss-lang', lang);
+    });
+  });
+
+  function applyLanguage(lang) {
+    sections.forEach(sec => sec.style.display = 'none');
+    document.querySelectorAll('.lang-' + lang).forEach(sec => {
+      sec.style.display = 'block';
+    });
+  }
+}
+
+
+/* ------------------------------------------------------------
+   2) FIREBASE READY (Nou pral aktive pita)
+------------------------------------------------------------ */
+function initFirebase() {
+  console.log("Firebase pare. M ap tann firebaseConfig MAX la.");
+  // Lè ou ban mwen firebaseConfig la, m ap aktive:
+  // firebase.initializeApp(firebaseConfig);
+}
+
+
+/* ------------------------------------------------------------
+   3) GLOBAL UTILITIES (Pou plizyè bagay)
+------------------------------------------------------------ */
+function show(id) {
+  document.getElementById(id).style.display = 'block';
+}
+
+function hide(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+function toggle(id) {
+  const el = document.getElementById(id);
+  el.style.display = (el.style.display === 'none') ? 'block' : 'none';
+}
+
+function log(msg) {
+  console.log("BSS1815:", msg);
+}
+
+
+/* ------------------------------------------------------------
+   4) INITIALIZATION (Tout bagay demare otomatikman)
+------------------------------------------------------------ */
+document.addEventListener('DOMContentLoaded', () => {
+  initLanguageToggle();
+  initFirebase();
+  log("BSS 1815 JavaScript Engine Loaded Successfully.");
+});
