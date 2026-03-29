@@ -16,27 +16,15 @@
       background: linear-gradient(180deg, #050505, #111, #1b1208);
       color: white;
       min-height: 100vh;
-    }<!-- LOGIN FORM -->
-<div id="login-box" style="text-align:center; margin-top:100px;">
-  <h2>Admin Login</h2>
-  <input type="email" id="email" placeholder="Email" /><br><br>
-  <input type="password" id="password" placeholder="Password" /><br><br>
-  <button onclick="login()">Login</button>
-  <p id="error" style="color:red;"></p>
-</div>
-
-<div id="dashboard" style="display:none; text-align:center;">
-  <h1>WELCOME ADMIN 🔥</h1>
-  <button onclick="logout()">Logout</button>
-</div>
+    }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 18px 24px;
-      background: rgba(0,0,0,0.85);
-      border-bottom: 1px solid rgba(255,170,60,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      border-bottom: 1px solid rgba(255, 170, 60, 0.2);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -69,11 +57,11 @@
     .login-box {
       max-width: 420px;
       margin: 80px auto;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,179,71,0.2);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 179, 71, 0.2);
       padding: 28px;
       border-radius: 16px;
-      box-shadow: 0 0 24px rgba(255,179,71,0.08);
+      box-shadow: 0 0 24px rgba(255, 179, 71, 0.08);
     }
 
     .login-box h2 {
@@ -125,11 +113,11 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,179,71,0.16);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 179, 71, 0.16);
       border-radius: 16px;
       padding: 20px;
-      box-shadow: 0 0 18px rgba(255,179,71,0.06);
+      box-shadow: 0 0 18px rgba(255, 179, 71, 0.06);
     }
 
     .card h3 {
@@ -159,8 +147,8 @@
     }
 
     .panel-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,179,71,0.16);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 179, 71, 0.16);
       padding: 16px;
       border-radius: 14px;
     }
@@ -198,21 +186,7 @@
     }
   </style>
 </head>
-<body><html>
-<head>
-</head>
-
 <body>
-
-<!-- LOGIN UI ISIT -->
-
-<!-- 👉 SE ISIT LA SCRIPT LA PRAL ALE -->
-<script type="module">
-  // FIREBASE CODE
-</script>
-
-</body>
-</html>
   <div class="topbar">
     <div class="brand">BSS 1815 ADMIN</div>
     <button id="logoutBtn" class="hidden">Logout</button>
