@@ -1,4 +1,93 @@
-<!DOCTYPE html>
+/* ================================
+   BSS 1815 GLOBAL BACKGROUND
+   ORANGE + BLACK FADE
+================================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #ffb347 0%, #ff7e00 25%, #000000 80%);
+  color: #ffffff;
+}
+
+/* ================================
+   HEADER + LOGO ANIMASYON
+================================= */
+.bss-header {
+  width: 100%;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* LOGO ANIMASYON */
+.bss-logo {
+  height: 64px;
+  width: auto;
+  animation: bss-logo-intro 1.4s ease-out forwards;
+  transform-origin: center;
+}
+
+/* KOUKOU / TRAIL KI SOTI BÒ DWAT LA */
+.logo-trail {
+  position: absolute;
+  right: -120px;
+  width: 140px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent 0%, #ffb347 30%, #ff7e00 70%, transparent 100%);
+  opacity: 0;
+  filter: blur(1px);
+  animation: bss-trail-intro 1s ease-out 0.2s forwards;
+}
+
+/* ANIMASYON LOGO: TI, VIRE, VIN POZE */
+@keyframes bss-logo-intro {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-120deg) translateX(40px);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.1) rotate(10deg) translateX(0);
+  }
+  70% {
+    transform: scale(0.95) rotate(-4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* ANIMASYON TRAIL: SOTI DWAT, VOLE, DISPARÈT */
+@keyframes bss-trail-intro {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+}<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
