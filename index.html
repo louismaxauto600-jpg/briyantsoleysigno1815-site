@@ -111,7 +111,26 @@
   </section>
 <body>
 <body>
+<!-- FIREBASE SETUP -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDenkzhQh5rHMoZYDXrM8zSSCCoX4gBcYY",
+  authDomain: "briyant-soley-signo-1815.firebaseapp.com",
+  projectId: "briyant-soley-signo-1815",
+  storageBucket: "briyant-soley-signo-1815.firebasestorage.app",
+  messagingSenderId: "873317957685",
+  appId: "1:873317957685:web:4cc037fd0a61cd8899717c",
+  measurementId: "G-3QZ98KMJ0Z"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+console.log("🔥 Firebase Connected");
+</script>
 <header>
   <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
 </header>
