@@ -10,43 +10,12 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-    }<script>
-document.getElementById("loginBtn")?.addEventListener("click", function () {
-  alert("Login system ap vini pita.");
-});
+    }
 
-document.getElementById("logoutBtn")?.addEventListener("click", function () {
-  alert("Logout disabled for now.");
-});
-</script>
-<script type="module">
-...
-</script>
-<script>
-const correctEmail = "admin@bss1815.com";
-const correctPassword = "BSS2025";
-
-document.getElementById("loginBtn").addEventListener("click", function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (email === correctEmail && password === correctPassword) {
-    document.getElementById("loginScreen").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-    document.getElementById("logoutBtn").classList.remove("hidden");
-    document.getElementById("loginError").innerText = "";
-    document.getElementById("adminEmail").innerText = "Connected as: " + email;
-  } else {
-    document.getElementById("loginError").innerText = "Wrong email or password";
-  }
-});
-
-document.getElementById("logoutBtn").addEventListener("click", function () {
-  document.getElementById("loginScreen").classList.remove("hidden");
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("logoutBtn").classList.add("hidden");
-});
-</script>
+    body {
+      background: linear-gradient(180deg, #050505, #111, #1b1208);
+      color: white;
+      min-height: 100vh;
     }
 
     .topbar {
@@ -215,33 +184,15 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
       opacity: 0.8;
       margin-top: 4px;
     }
+
+    #loginError {
+      color: #ff7b7b;
+      margin-top: 10px;
+      text-align: center;
+    }
   </style>
 </head>
-<bo<script>
-const correctEmail = "admin@bss1815.com";
-const correctPassword = "BSS2025";
-
-document.getElementById("loginBtn").addEventListener("click", function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (email === correctEmail && password === correctPassword) {
-    document.getElementById("loginScreen").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-    document.getElementById("logoutBtn").classList.remove("hidden");
-    document.getElementById("loginError").innerText = "";
-    document.getElementById("adminEmail").innerText = "Connected as: " + email;
-  } else {
-    document.getElementById("loginError").innerText = "Wrong email or password";
-  }
-});
-
-document.getElementById("logoutBtn").addEventListener("click", function () {
-  document.getElementById("loginScreen").classList.remove("hidden");
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("logoutBtn").classList.add("hidden");
-});
-</script>dy>
+<body>
   <div class="topbar">
     <div class="brand">BSS 1815 ADMIN</div>
     <button id="logoutBtn" class="hidden">Logout</button>
@@ -253,7 +204,7 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
       <input type="email" id="email" placeholder="Admin email" />
       <input type="password" id="password" placeholder="Password" />
       <button id="loginBtn">Login</button>
-      <p id="loginError" class="small" style="color:#ff7b7b;"></p>
+      <p id="loginError" class="small"></p>
     </div>
   </div>
 
@@ -327,14 +278,16 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
     import {
       getFirestore,
       collection,
-      getDocs
+      getDocs,
+      query,
+      limit
     } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDenkzhQh5rHMoZYDXrM8zSSCCoX4gBcYY",
       authDomain: "briyant-soley-signo-1815.firebaseapp.com",
       projectId: "briyant-soley-signo-1815",
-      storageBucket: "briyant-soley-signo-1815.firebasestorage.app",
+      storageBucket: "briyant-soley-signo-1815.appspot.com",
       messagingSenderId: "873317957685",
       appId: "1:873317957685:web:4cc037fd0a61cd8899717c",
       measurementId: "G-3QZ98KMJ0Z"
@@ -391,7 +344,7 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
 
     async function loadCollectionCount(collectionName, countId, listId, formatter) {
       try {
-        const snapshot = await getDocs(collection(db, collectionName));
+        const snapshot = await getDocs(query(collection(db, collectionName), limit(10)));
         document.getElementById(countId).textContent = snapshot.size;
 
         const list = document.getElementById(listId);
@@ -417,7 +370,7 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
 
     async function loadUsersCount() {
       try {
-        const snapshot = await getDocs(collection(db, "users"));
+        const snapshot = await getDocs(query(collection(db, "users"), limit(100)));
         document.getElementById("totalUsers").textContent = snapshot.size;
       } catch {
         document.getElementById("totalUsers").textContent = "0";
@@ -447,39 +400,7 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
         <div>${data.email || "No email"}</div>
         <div>${data.role || "No role set"}</div>
       `;
-    }...
-<!-- tout HTML ou la -->
-
-<script>
-const correctEmail = "admin@bss1815.com";
-const correctPassword = "BSS2025";
-
-document.getElementById("loginBtn").addEventListener("click", function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (email === correctEmail && password === correctPassword) {
-    document.getElementById("loginScreen").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-    document.getElementById("logoutBtn").classList.remove("hidden");
-    document.getElementById("adminEmail").innerText = "Connected as: " + email;
-    document.getElementById("loginError").innerText = "";
-  } else {
-    document.getElementById("loginError").innerText = "Wrong email or password";
-  }
-});
-
-document.getElementById("logoutBtn").addEventListener("click", function () {
-  document.getElementById("loginScreen").classList.remove("hidden");
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("logoutBtn").classList.add("hidden");
-});
-</script>
-
-</body>
-</html>
+    }
   </script>
-</<script type="module">
-...
-</script>>
+</body>
 </html>
