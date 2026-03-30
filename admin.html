@@ -196,7 +196,31 @@ document.getElementById("logoutBtn")?.addEventListener("click", function () {
     }
   </style>
 </head>
-<body>
+<bo<script>
+const correctEmail = "admin@bss1815.com";
+const correctPassword = "BSS2025";
+
+document.getElementById("loginBtn").addEventListener("click", function () {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (email === correctEmail && password === correctPassword) {
+    document.getElementById("loginScreen").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+    document.getElementById("logoutBtn").classList.remove("hidden");
+    document.getElementById("loginError").innerText = "";
+    document.getElementById("adminEmail").innerText = "Connected as: " + email;
+  } else {
+    document.getElementById("loginError").innerText = "Wrong email or password";
+  }
+});
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+  document.getElementById("loginScreen").classList.remove("hidden");
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("logoutBtn").classList.add("hidden");
+});
+</script>dy>
   <div class="topbar">
     <div class="brand">BSS 1815 ADMIN</div>
     <button id="logoutBtn" class="hidden">Logout</button>
