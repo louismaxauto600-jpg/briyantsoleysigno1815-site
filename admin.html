@@ -447,7 +447,37 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
         <div>${data.email || "No email"}</div>
         <div>${data.role || "No role set"}</div>
       `;
-    }
+    }...
+<!-- tout HTML ou la -->
+
+<script>
+const correctEmail = "admin@bss1815.com";
+const correctPassword = "BSS2025";
+
+document.getElementById("loginBtn").addEventListener("click", function () {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (email === correctEmail && password === correctPassword) {
+    document.getElementById("loginScreen").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+    document.getElementById("logoutBtn").classList.remove("hidden");
+    document.getElementById("adminEmail").innerText = "Connected as: " + email;
+    document.getElementById("loginError").innerText = "";
+  } else {
+    document.getElementById("loginError").innerText = "Wrong email or password";
+  }
+});
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+  document.getElementById("loginScreen").classList.remove("hidden");
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("logoutBtn").classList.add("hidden");
+});
+</script>
+
+</body>
+</html>
   </script>
 </<script type="module">
 ...
