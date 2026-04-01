@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#ff8c42, #000000);
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* HEADER */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.logo {
+    width: 90px;
+}
+
+.koukou {
+    width: 90px;
+}
+
+/* TIT DEPATMAN */
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff8c42;
+    margin-top: 10px;
+}
+
+/* FÒM */
+.form-container {
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff8c42;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff8c42;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+/* SILWÈT */
+.silwet img {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* 1815 ANBA */
+.footer-1815 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
