@@ -1,15 +1,5 @@
-rules_version = '2';
-
-service firebase.storage {
-  match /b/{bucket}/o {
-
-    // ADMIN-ONLY ACCESS
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-  }// admin.js — BSS 1815 OFFICIAL ADMIN PANEL
 import { auth, db, storage } from "./firebase.js";
+
 import {
   signInWithEmailAndPassword,
   signOut
@@ -30,24 +20,21 @@ import {
   deleteObject
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-
-// -----------------------------
-// ADMIN LOGIN
-// -----------------------------
 export async function loginAdmin() {
   const email = document.getElementById("adminEmail").value.trim();
   const password = document.getElementById("adminPassword").value.trim();
 
   if (!email || !password) {
-    alert("Antre imel ak modpas admin.");
+    alert("Tanpri antre imel ak modpas admin.");
     return;
   }
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
 
-    document.getElementById("loginSection").style.display = "none";
-    document.getElementById("adminSection").style.display = "block";
+    document.getElementById("loginSection").classList.add("hidden");
+    document.getElementById("adminSection").classList.remove("hidden");
+    document.getElementById("logoutBtn").classList.remove("hidden");
 
     loadMusicians();
   } catch (error) {
@@ -55,20 +42,14 @@ export async function loginAdmin() {
   }
 }
 
-
-// -----------------------------
-// LOGOUT
-// -----------------------------
 export async function logoutAdmin() {
   await signOut(auth);
-  document.getElementById("loginSection").style.display = "block";
-  document.getElementById("adminSection").style.display = "none";
+
+  document.getElementById("loginSection").classList.remove("hidden");
+  document.getElementById("adminSection").classList.add("hidden");
+  document.getElementById("logoutBtn").classList.add("hidden");
 }
 
-
-// -----------------------------
-// ADD MUSICIAN
-// -----------------------------
 export async function addMusician() {
   const name = document.getElementById("musicianName").value.trim();
   const role = document.getElementById("musicianRole").value.trim();
@@ -80,12 +61,10 @@ export async function addMusician() {
   }
 
   try {
-    // Upload photo
     const storageRef = ref(storage, "musicians/" + Date.now() + "_" + photoFile.name);
     await uploadBytes(storageRef, photoFile);
     const photoURL = await getDownloadURL(storageRef);
 
-    // Save Firestore document
     await addDoc(collection(db, "musicians"), {
       name,
       role,
@@ -93,7 +72,8 @@ export async function addMusician() {
       storagePath: storageRef.fullPath
     });
 
-    alert("Mizisyen an ajoute!");
+    alert("Mizisyen an ajoute avèk siksè!");
+
     document.getElementById("musicianName").value = "";
     document.getElementById("musicianRole").value = "";
     document.getElementById("musicianPhoto").value = "";
@@ -104,10 +84,6 @@ export async function addMusician() {
   }
 }
 
-
-// -----------------------------
-// LOAD MUSICIAN LIST
-// -----------------------------
 async function loadMusicians() {
   const listDiv = document.getElementById("musicianList");
   listDiv.innerHTML = "<p>Chaje mizisyen yo...</p>";
@@ -119,8 +95,8 @@ async function loadMusicians() {
     const data = docItem.data();
 
     html += `
-      <div class="card" style="margin-top:15px;">
-        <img src="${data.photoURL}" style="width:100%; border-radius:8px;">
+      <div class="card">
+        <img src="${data.photoURL}">
         <h3>${data.name}</h3>
         <p>${data.role}</p>
         <button onclick="deleteMusician('${docItem.id}', '${data.storagePath}')">Efase</button>
@@ -131,32 +107,22 @@ async function loadMusicians() {
   listDiv.innerHTML = html;
 }
 
-
-// -----------------------------
-// DELETE MUSICIAN
-// -----------------------------
 export async function deleteMusician(id, storagePath) {
   if (!confirm("Ou vle efase mizisyen sa a?")) return;
 
   try {
-    // Delete photo from storage
     const photoRef = ref(storage, storagePath);
     await deleteObject(photoRef);
 
-    // Delete Firestore document
     await deleteDoc(doc(db, "musicians", id));
 
-    alert("Mizisyen efase.");
+    alert("Mizisyen efase avèk siksè.");
     loadMusicians();
   } catch (error) {
     alert("Erè pandan efasman: " + error.message);
   }
 }
 
-
-// -----------------------------
-// MAKE FUNCTIONS GLOBAL FOR HTML
-// -----------------------------
 window.loginAdmin = loginAdmin;
 window.logoutAdmin = logoutAdmin;
 window.addMusician = addMusician;
