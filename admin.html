@@ -1,417 +1,169 @@
-<!// BSS 1815 — Firestore Security Rules
-rules_version = '2';
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-
-    // ADMIN-ONLY ACCESS
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-} html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BSS 1815 Admin Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSS 1815 — ADMIN PANEL</title>
+
   <style>
-    * {
-      box-sizing: border-box;
+    body {
+      background: linear-gradient(180deg, #000000, #0a0a0a, #1b1208);
+      color: white;
+      font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(180deg, #050505, #111, #1b1208);
-      color: white;
       min-height: 100vh;
     }
 
+    /* TOPBAR */
     .topbar {
+      background: #000;
+      padding: 18px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 24px;
-      background: rgba(0, 0, 0, 0.85);
-      border-bottom: 1px solid rgba(255, 170, 60, 0.2);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      border-bottom: 3px solid #ff8c00;
+      box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
     }
 
     .brand {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffb347;
+      font-size: 24px;
+      font-weight: 900;
       letter-spacing: 1px;
-    }
-
-    .topbar button {
-      background: #ffb347;
-      color: black;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .login-screen,
-    .dashboard {
-      max-width: 1200px;
-      margin: auto;
-      padding: 24px;
-    }
-
-    .login-box {
-      max-width: 420px;
-      margin: 80px auto;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 179, 71, 0.2);
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 0 24px rgba(255, 179, 71, 0.08);
-    }
-
-    .login-box h2 {
-      margin-bottom: 18px;
-      color: #ffb347;
-      text-align: center;
-    }
-
-    .login-box input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #111;
-      color: white;
-    }
-
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 12px;
-      border: none;
-      border-radius: 10px;
-      background: #ffb347;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
+      color: #ff8c00;
+      text-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
     }
 
     .hidden {
       display: none;
     }
 
-    .welcome {
-      margin-bottom: 24px;
+    /* MAIN CONTAINER */
+    .container {
+      padding: 25px;
+      max-width: 650px;
+      margin: auto;
     }
 
-    .welcome h1 {
-      color: #ffb347;
-      margin-bottom: 8px;
+    h2 {
+      color: #ff8c00;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-bottom: 28px;
+    /* INPUTS */
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background: #0d0d0d;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: 0.2s;
     }
 
+    input:focus {
+      border-color: #ff8c00;
+      box-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
+    }
+
+    /* BUTTONS */
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #ff8c00;
+      color: black;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #ffa733;
+      box-shadow: 0 0 12px rgba(255, 140, 0, 0.7);
+    }
+
+    /* MUSICIAN CARDS */
     .card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 179, 71, 0.16);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 0 18px rgba(255, 179, 71, 0.06);
+      background: #0d0d0d;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+      border: 1px solid #ff8c00;
+      box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+    }
+
+    .card img {
+      border-radius: 8px;
+      width: 100%;
+      margin-bottom: 10px;
     }
 
     .card h3 {
-      color: #ffb347;
-      margin-bottom: 10px;
-      font-size: 17px;
+      margin: 5px 0;
+      color: #ff8c00;
     }
 
-    .stat-number {
-      font-size: 32px;
-      font-weight: bold;
+    .card p {
+      margin: 0;
+      color: #ccc;
     }
 
-    .section {
-      margin-top: 26px;
+    .card button {
+      margin-top: 12px;
+      background: #b30000;
+      color: white;
     }
 
-    .section-title {
-      margin-bottom: 14px;
-      color: #ffb347;
-      font-size: 22px;
-    }
-
-    .panel-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .panel-item {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 179, 71, 0.16);
-      padding: 16px;
-      border-radius: 14px;
-    }
-
-    .panel-item strong {
-      color: #ffb347;
-    }
-
-    .empty {
-      opacity: 0.7;
-      font-style: italic;
-    }
-
-    .admin-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .admin-actions button {
-      background: #ffb347;
-      color: black;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .small {
-      font-size: 14px;
-      opacity: 0.8;
-      margin-top: 4px;
-    }
-
-    #loginError {
-      color: #ff7b7b;
-      margin-top: 10px;
-      text-align: center;
+    .card button:hover {
+      background: #ff0000;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
     }
   </style>
 </head>
+
 <body>
+
+  <!-- TOP BAR -->
   <div class="topbar">
-    <div class="brand">BSS 1815 ADMIN</div>
-    <button id="logoutBtn" class="hidden">Logout</button>
+    <div class="brand">BSS 1815 — ADMIN</div>
+    <button id="logoutBtn" class="hidden" onclick="logoutAdmin()">Logout</button>
   </div>
 
-  <div id="loginScreen" class="login-screen">
-    <div class="login-box">
-      <h2>Admin Login</h2>
-      <input type="email" id="email" placeholder="Admin email" />
-      <input type="password" id="password" placeholder="Password" />
-      <button id="loginBtn">Login</button>
-      <p id="loginError" class="small"></p>
-    </div>
+  <!-- LOGIN SECTION -->
+  <div id="loginSection" class="container">
+    <h2>Admin Login</h2>
+    <input id="adminEmail" type="email" placeholder="Imel admin">
+    <input id="adminPassword" type="password" placeholder="Modpas admin">
+    <button onclick="loginAdmin()">Login</button>
   </div>
 
-  <div id="dashboard" class="dashboard hidden">
-    <div class="welcome">
-      <h1>Dashboard Administration</h1>
-      <p id="adminEmail">Connected as:</p>
-    </div>
+  <!-- ADMIN SECTION -->
+  <div id="adminSection" class="container hidden">
+    <h2>Ajoute Mizisyen</h2>
 
-    <div class="stats-grid">
-      <div class="card">
-        <h3>Total Messages</h3>
-        <div class="stat-number" id="totalMessages">0</div>
-      </div>
-      <div class="card">
-        <h3>Total Documents</h3>
-        <div class="stat-number" id="totalDocs">0</div>
-      </div>
-      <div class="card">
-        <h3>Total Admins</h3>
-        <div class="stat-number" id="totalAdmins">0</div>
-      </div>
-      <div class="card">
-        <h3>Total Fans / Users</h3>
-        <div class="stat-number" id="totalUsers">0</div>
-      </div>
-    </div>
+    <input id="musicianName" type="text" placeholder="Non mizisyen">
+    <input id="musicianRole" type="text" placeholder="Wòl mizisyen">
+    <input id="musicianPhoto" type="file" accept="image/*">
 
-    <div class="section">
-      <h2 class="section-title">Quick Actions</h2>
-      <div class="card">
-        <div class="admin-actions">
-          <button onclick="location.href='index.html'">View Main Site</button>
-          <button onclick="alert('Upload module next step')">Upload Document</button>
-          <button onclick="alert('Message center next step')">Open Messages</button>
-          <button onclick="alert('Admin manager next step')">Manage Admins</button>
-        </div>
-      </div>
-    </div>
+    <button onclick="addMusician()">Ajoute</button>
 
-    <div class="section">
-      <h2 class="section-title">Recent Messages</h2>
-      <div id="messagesList" class="panel-list">
-        <div class="panel-item empty">No messages yet.</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Recent Documents</h2>
-      <div id="docsList" class="panel-list">
-        <div class="panel-item empty">No documents uploaded yet.</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Admin Accounts</h2>
-      <div id="adminsList" class="panel-list">
-        <div class="panel-item empty">No admin records found yet.</div>
-      </div>
-    </div>
+    <h2 style="margin-top:40px;">Lis Mizisyen yo</h2>
+    <div id="musicianList"></div>
   </div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-    import {
-      getFirestore,
-      collection,
-      getDocs,
-      query,
-      limit
-    } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+  <!-- SCRIPTS -->
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="admin.js"></script>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDenkzhQh5rHMoZYDXrM8zSSCCoX4gBcYY",
-      authDomain: "briyant-soley-signo-1815.firebaseapp.com",
-      projectId: "briyant-soley-signo-1815",
-      storageBucket: "briyant-soley-signo-1815.appspot.com",
-      messagingSenderId: "873317957685",
-      appId: "1:873317957685:web:4cc037fd0a61cd8899717c",
-      measurementId: "G-3QZ98KMJ0Z"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    const loginScreen = document.getElementById("loginScreen");
-    const dashboard = document.getElementById("dashboard");
-    const logoutBtn = document.getElementById("logoutBtn");
-    const loginBtn = document.getElementById("loginBtn");
-    const loginError = document.getElementById("loginError");
-    const adminEmail = document.getElementById("adminEmail");
-
-    loginBtn.addEventListener("click", async () => {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-
-      loginError.textContent = "";
-
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-      } catch (error) {
-        loginError.textContent = error.message;
-      }
-    });
-
-    logoutBtn.addEventListener("click", async () => {
-      await signOut(auth);
-    });
-
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        loginScreen.classList.add("hidden");
-        dashboard.classList.remove("hidden");
-        logoutBtn.classList.remove("hidden");
-        adminEmail.textContent = "Connected as: " + user.email;
-        await loadDashboardData();
-      } else {
-        loginScreen.classList.remove("hidden");
-        dashboard.classList.add("hidden");
-        logoutBtn.classList.add("hidden");
-      }
-    });
-
-    async function loadDashboardData() {
-      await loadCollectionCount("messages", "totalMessages", "messagesList", formatMessage);
-      await loadCollectionCount("documents", "totalDocs", "docsList", formatDocument);
-      await loadCollectionCount("admins", "totalAdmins", "adminsList", formatAdmin);
-      await loadUsersCount();
-    }
-
-    async function loadCollectionCount(collectionName, countId, listId, formatter) {
-      try {
-        const snapshot = await getDocs(query(collection(db, collectionName), limit(10)));
-        document.getElementById(countId).textContent = snapshot.size;
-
-        const list = document.getElementById(listId);
-        list.innerHTML = "";
-
-        if (snapshot.empty) {
-          list.innerHTML = `<div class="panel-item empty">No ${collectionName} found yet.</div>`;
-          return;
-        }
-
-        snapshot.forEach((docSnap) => {
-          const data = docSnap.data();
-          const item = document.createElement("div");
-          item.className = "panel-item";
-          item.innerHTML = formatter(data, docSnap.id);
-          list.appendChild(item);
-        });
-      } catch (error) {
-        document.getElementById(listId).innerHTML =
-          `<div class="panel-item empty">Unable to load ${collectionName}.</div>`;
-      }
-    }
-
-    async function loadUsersCount() {
-      try {
-        const snapshot = await getDocs(query(collection(db, "users"), limit(100)));
-        document.getElementById("totalUsers").textContent = snapshot.size;
-      } catch {
-        document.getElementById("totalUsers").textContent = "0";
-      }
-    }
-
-    function formatMessage(data, id) {
-      return `
-        <strong>${data.name || "Unknown Sender"}</strong>
-        <div class="small">ID: ${id}</div>
-        <div>${data.message || "No message content."}</div>
-      `;
-    }
-
-    function formatDocument(data, id) {
-      return `
-        <strong>${data.title || "Untitled Document"}</strong>
-        <div class="small">ID: ${id}</div>
-        <div>${data.type || "Unknown type"}</div>
-      `;
-    }
-
-    function formatAdmin(data, id) {
-      return `
-        <strong>${data.name || "Admin"}</strong>
-        <div class="small">ID: ${id}</div>
-        <div>${data.email || "No email"}</div>
-        <div>${data.role || "No role set"}</div>
-      `;
-    }
-  </script>
 </body>
 </html>
