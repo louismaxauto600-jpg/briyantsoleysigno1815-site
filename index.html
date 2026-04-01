@@ -1,399 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BSS 1815 Admin Dashboard</title>
+  <meta charset="UTF-8">
+  <title>BSS 1815 – Sit Ofisyèl</title>
+
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
+      background: #000;
+      color: #ffa64d;
       font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(180deg, #050505, #111, #1b1208);
-      color: white;
-      min-height: 100vh;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 24px;
-      background: rgba(0,0,0,0.85);
-      border-bottom: 1px solid rgba(255,170,60,0.2);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .brand {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffb347;
-      letter-spacing: 1px;
-    }
-
-    .topbar button {
-      background: #ffb347;
-      color: black;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .login-screen,
-    .dashboard {
-      max-width: 1200px;
-      margin: auto;
-      padding: 24px;
-    }
-
-    .login-box {
-      max-width: 420px;
-      margin: 80px auto;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,179,71,0.2);
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 0 24px rgba(255,179,71,0.08);
-    }
-
-    .login-box h2 {
-      margin-bottom: 18px;
-      color: #ffb347;
       text-align: center;
     }
 
-    .login-box input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #111;
-      color: white;
+    header {
+      padding: 30px 0;
     }
 
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 12px;
-      border: none;
-      border-radius: 10px;
-      background: #ffb347;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
+    header img {
+      width: 120px;
     }
 
-    .hidden {
-      display: none;
-    }
-
-    .welcome {
-      margin-bottom: 24px;
-    }
-
-    .welcome h1 {
-      color: #ffb347;
-      margin-bottom: 8px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,179,71,0.16);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 0 18px rgba(255,179,71,0.06);
-    }
-
-    .card h3 {
-      color: #ffb347;
-      margin-bottom: 10px;
-      font-size: 17px;
-    }
-
-    .stat-number {
+    h1 {
+      margin-top: 10px;
       font-size: 32px;
       font-weight: bold;
     }
 
-    .section {
-      margin-top: 26px;
+    h2 {
+      margin-top: -10px;
+      font-size: 18px;
+      color: #ffbb77;
     }
 
-    .section-title {
-      margin-bottom: 14px;
-      color: #ffb347;
-      font-size: 22px;
+    nav {
+      margin-top: 40px;
     }
 
-    .panel-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .panel-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,179,71,0.16);
-      padding: 16px;
-      border-radius: 14px;
-    }
-
-    .panel-item strong {
-      color: #ffb347;
-    }
-
-    .empty {
-      opacity: 0.7;
-      font-style: italic;
-    }
-
-    .admin-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .admin-actions button {
-      background: #ffb347;
-      color: black;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 8px;
-      cursor: pointer;
+    nav a {
+      display: block;
+      margin: 12px auto;
+      width: 70%;
+      max-width: 300px;
+      padding: 14px;
+      background: #ffa64d;
+      color: #000;
+      text-decoration: none;
       font-weight: bold;
+      border-radius: 6px;
+      font-size: 18px;
     }
 
-    .small {
+    nav a:hover {
+      background: #ffb870;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
       font-size: 14px;
-      opacity: 0.8;
-      margin-top: 4px;
+      color: #ffbb77;
     }
   </style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="brand">BSS 1815 ADMIN</div>
-    <button id="logoutBtn" class="hidden">Logout</button>
-  </div>
 
-  <div id="loginScreen" class="login-screen">
-    <div class="login-box">
-      <h2>Admin Login</h2>
-      <input type="email" id="email" placeholder="Admin email" />
-      <input type="password" id="password" placeholder="Password" />
-      <button id="loginBtn">Login</button>
-      <p id="loginError" class="small" style="color:#ff7b7b;"></p>
-    </div>
-  </div>
+  <header>
+    <img src="logo.png" alt="BSS 1815 Logo">
+    <h1>BRIYANT SOLÈY SIGNÒ 1815</h1>
+    <h2>Sit Ofisyèl Ekip la</h2>
+  </header>
 
-  <div id="dashboard" class="dashboard hidden">
-    <div class="welcome">
-      <h1>Dashboard Administration</h1>
-      <p id="adminEmail">Connected as:</p>
-    </div>
+  <nav>
+    <a href="dirijan.html">Dirijan</a>
+    <a href="mizisyen.html">Mizisyen</a>
+    <a href="bann.html">Bann</a>
+    <a href="videos.html">Videyo</a>
+    <a href="finans.html">Finans</a>
+    <a href="upload.html">Upload Dokiman</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
 
-    <div class="stats-grid">
-      <div class="card">
-        <h3>Total Messages</h3>
-        <div class="stat-number" id="totalMessages">0</div>
-      </div>
-      <div class="card">
-        <h3>Total Documents</h3>
-        <div class="stat-number" id="totalDocs">0</div>
-      </div>
-      <div class="card">
-        <h3>Total Admins</h3>
-        <div class="stat-number" id="totalAdmins">0</div>
-      </div>
-      <div class="card">
-        <h3>Total Fans / Users</h3>
-        <div class="stat-number" id="totalUsers">0</div>
-      </div>
-    </div>
+  <footer>
+    © BSS 1815 — Tout dwa rezève.
+  </footer>
 
-    <div class="section">
-      <h2 class="section-title">Quick Actions</h2>
-      <div class="card">
-        <div class="admin-actions">
-          <button onclick="location.href='index.html'">View Main Site</button>
-          <button onclick="alert('Upload module next step')">Upload Document</button>
-          <button onclick="alert('Message center next step')">Open Messages</button>
-          <button onclick="alert('Admin manager next step')">Manage Admins</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Recent Messages</h2>
-      <div id="messagesList" class="panel-list">
-        <div class="panel-item empty">No messages yet.</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Recent Documents</h2>
-      <div id="docsList" class="panel-list">
-        <div class="panel-item empty">No documents uploaded yet.</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Admin Accounts</h2>
-      <div id="adminsList" class="panel-list">
-        <div class="panel-item empty">No admin records found yet.</div>
-      </div>
-    </div>
-  </div>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-    import {
-      getFirestore,
-      collection,
-      getDocs
-    } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDenkzhQh5rHMoZYDXrM8zSSCCoX4gBcYY",
-      authDomain: "briyant-soley-signo-1815.firebaseapp.com",
-      projectId: "briyant-soley-signo-1815",
-      storageBucket: "briyant-soley-signo-1815.firebasestorage.app",
-      messagingSenderId: "873317957685",
-      appId: "1:873317957685:web:4cc037fd0a61cd8899717c",
-      measurementId: "G-3QZ98KMJ0Z"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    const loginScreen = document.getElementById("loginScreen");
-    const dashboard = document.getElementById("dashboard");
-    const logoutBtn = document.getElementById("logoutBtn");
-    const loginBtn = document.getElementById("loginBtn");
-    const loginError = document.getElementById("loginError");
-    const adminEmail = document.getElementById("adminEmail");
-
-    loginBtn.addEventListener("click", async () => {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-
-      loginError.textContent = "";
-
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-      } catch (error) {
-        loginError.textContent = error.message;
-      }
-    });
-
-    logoutBtn.addEventListener("click", async () => {
-      await signOut(auth);
-    });
-
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        loginScreen.classList.add("hidden");
-        dashboard.classList.remove("hidden");
-        logoutBtn.classList.remove("hidden");
-        adminEmail.textContent = "Connected as: " + user.email;
-        await loadDashboardData();
-      } else {
-        loginScreen.classList.remove("hidden");
-        dashboard.classList.add("hidden");
-        logoutBtn.classList.add("hidden");
-      }
-    });
-
-    async function loadDashboardData() {
-      await loadCollectionCount("messages", "totalMessages", "messagesList", formatMessage);
-      await loadCollectionCount("documents", "totalDocs", "docsList", formatDocument);
-      await loadCollectionCount("admins", "totalAdmins", "adminsList", formatAdmin);
-      await loadUsersCount();
-    }
-
-    async function loadCollectionCount(collectionName, countId, listId, formatter) {
-      try {
-        const snapshot = await getDocs(collection(db, collectionName));
-        document.getElementById(countId).textContent = snapshot.size;
-
-        const list = document.getElementById(listId);
-        list.innerHTML = "";
-
-        if (snapshot.empty) {
-          list.innerHTML = `<div class="panel-item empty">No ${collectionName} found yet.</div>`;
-          return;
-        }
-
-        snapshot.forEach((docSnap) => {
-          const data = docSnap.data();
-          const item = document.createElement("div");
-          item.className = "panel-item";
-          item.innerHTML = formatter(data, docSnap.id);
-          list.appendChild(item);
-        });
-      } catch (error) {
-        document.getElementById(listId).innerHTML =
-          `<div class="panel-item empty">Unable to load ${collectionName}.</div>`;
-      }
-    }
-
-    async function loadUsersCount() {
-      try {
-        const snapshot = await getDocs(collection(db, "users"));
-        document.getElementById("totalUsers").textContent = snapshot.size;
-      } catch {
-        document.getElementById("totalUsers").textContent = "0";
-      }
-    }
-
-    function formatMessage(data, id) {
-      return `
-        <strong>${data.name || "Unknown Sender"}</strong>
-        <div class="small">ID: ${id}</div>
-        <div>${data.message || "No message content."}</div>
-      `;
-    }
-
-    function formatDocument(data, id) {
-      return `
-        <strong>${data.title || "Untitled Document"}</strong>
-        <div class="small">ID: ${id}</div>
-        <div>${data.type || "Unknown type"}</div>
-      `;
-    }
-
-    function formatAdmin(data, id) {
-      return `
-        <strong>${data.name || "Admin"}</strong>
-        <div class="small">ID: ${id}</div>
-        <div>${data.email || "No email"}</div>
-        <div>${data.role || "No role set"}</div>
-      `;
-    }
-  </script>
 </body>
 </html>
-<p>VERCEL TEST LIVE</p>
