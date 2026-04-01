@@ -1,4 +1,8 @@
 {
+  "projects": {
+    "default": "briyantsoleysigno1815-site"
+  }
+}{
   "hosting": {
     "public": "public",
     "ignore": [
