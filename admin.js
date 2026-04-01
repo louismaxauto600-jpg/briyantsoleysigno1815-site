@@ -1,4 +1,14 @@
-// admin.js — BSS 1815 OFFICIAL ADMIN PANEL
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // ADMIN-ONLY ACCESS
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+  }// admin.js — BSS 1815 OFFICIAL ADMIN PANEL
 import { auth, db, storage } from "./firebase.js";
 import {
   signInWithEmailAndPassword,
