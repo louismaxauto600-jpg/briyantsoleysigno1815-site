@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS 1815 - Depatman</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="top-bar">
+        <img src="logo.png" class="logo" alt="BSS 1815 Logo">
+        <img src="koukou.png" class="koukou" alt="Koukou BSS">
+    </header>
+
+    <!-- TIT DEPATMAN -->
+    <h1 class="title">EKSPÈ MIZIK + RARA</h1>
+    <!-- Chanje tit la pou FINANS oswa KOMITE ENTÈN lè ou bezwen -->
+
+    <!-- FÒM OFISYÈL -->
+    <div class="form-container">
+
+        <label>NON</label>
+        <input type="text" placeholder="Antre non ou">
+
+        <label>IMÈL</label>
+        <input type="email" placeholder="Antre imèl ou">
+
+        <label>TÈLÈFÒN</label>
+        <input type="tel" placeholder="Antre nimewo telefòn ou">
+
+        <button class="submit-btn">VOYE FÒM NAN</button>
+    </div>
+
+    <!-- SILWÈT DEPATMAN -->
+    <div class="silwet">
+        <img src="silwet-mizik.png" alt="Silwèt Depatman">
+        <!-- Chanje pou silwet-finans.png oswa silwet-komite.png -->
+    </div>
+
+    <!-- 1815 ANBA -->
+    <div class="footer-1815">1815</div>
+
+</body>
+</html>
