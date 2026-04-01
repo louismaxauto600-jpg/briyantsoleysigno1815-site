@@ -15,7 +15,6 @@
       min-height: 100vh;
     }
 
-    /* TOPBAR */
     .topbar {
       background: #000;
       padding: 18px 20px;
@@ -38,7 +37,6 @@
       display: none;
     }
 
-    /* MAIN CONTAINER */
     .container {
       padding: 25px;
       max-width: 650px;
@@ -52,7 +50,6 @@
       text-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
     }
 
-    /* INPUTS */
     input {
       width: 100%;
       padding: 14px;
@@ -71,7 +68,6 @@
       box-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
     }
 
-    /* BUTTONS */
     button {
       width: 100%;
       padding: 14px;
@@ -91,7 +87,6 @@
       box-shadow: 0 0 12px rgba(255, 140, 0, 0.7);
     }
 
-    /* MUSICIAN CARDS */
     .card {
       background: #0d0d0d;
       padding: 15px;
@@ -130,17 +125,14 @@
     }
   </style>
 </head>
-<script type="module" src="firebase.js"></script>
-<script type="module" src="admin.js"></script>
+
 <body>
 
-  <!-- TOP BAR -->
   <div class="topbar">
     <div class="brand">BSS 1815 — ADMIN</div>
     <button id="logoutBtn" class="hidden" onclick="logoutAdmin()">Logout</button>
   </div>
 
-  <!-- LOGIN SECTION -->
   <div id="loginSection" class="container">
     <h2>Admin Login</h2>
     <input id="adminEmail" type="email" placeholder="Imel admin">
@@ -148,7 +140,6 @@
     <button onclick="loginAdmin()">Login</button>
   </div>
 
-  <!-- ADMIN SECTION -->
   <div id="adminSection" class="container hidden">
     <h2>Ajoute Mizisyen</h2>
 
@@ -162,7 +153,7 @@
     <div id="musicianList"></div>
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- SCRIPTS (SA YO SÈL KI DWE RETE) -->
   <script type="module" src="firebase.js"></script>
   <script type="module" src="admin.js"></script>
 
