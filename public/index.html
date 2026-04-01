@@ -1,28 +1,75 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>BSS 1815 – Sit Ofisyèl</title>
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>BSS 1815 – Sit Ofisyèl</h1>
-  </header>
+  <!-- CSS + ANIMASYON YO ANSANM -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffa64d, #000);
+      color: #ffa64d;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-  <main>
-    <section>
-      <h2>Byenveni</h2>
-      <p>Sa a se vèsyon ofisyèl sit BSS 1815 sou Firebase Hosting.</p>
-    </section>
-  </main>
+    .header-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+    }
 
-  <!-- Firebase config + services (CDN) -->
-  <script type="module" src="./firebase.js"></script>
+    /* LOGO GAUCHE — ROTATE IN */
+    .logo {
+      width: 140px;
+      opacity: 0;
+      transform: rotate(-180deg) scale(0.3);
+      animation: spinIn 1.6s ease-out forwards;
+    }
 
-  <!-- Script prensipal ou (si ou genyen youn) -->
-  <script type="module" src="./script.js"></script>
-</body>
-</html>
+    @keyframes spinIn {
+      0% {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.3);
+      }
+      70% {
+        opacity: 1;
+        transform: rotate(10deg) scale(1.1);
+      }
+      100% {
+        transform: rotate(0deg) scale(1);
+      }
+    }
+
+    /* KOUKOU DWAT — FLY IN */
+    .koukou {
+      width: 140px;
+      opacity: 0;
+      transform: translateX(200px) translateY(-40px);
+      animation: flyIn 1.8s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes flyIn {
+      0% {
+        opacity: 0;
+        transform: translateX(200px) translateY(-40px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateX(-20px) translateY(0px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+
+    nav a {
+      display: block;
+      margin: 12px auto;
+      width: 70%;
+      max-width: 300px
