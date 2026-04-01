@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS 1815 – Upload Dokiman</title>
+  <style>
+    body {
+      background: #000;
+      color: #ffa64d;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 450px;
+      margin: auto;
+      border: 2px solid #ffa64d;
+    }
+
+    select, input[type="file"], button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+
+    select {
+      background: #ffa64d;
+      color: #000;
+      font-weight: bold;
+    }
+
+    input[type="file"] {
+      background: #222;
+      color: #ffa64d;
+    }
+
+    button {
+      background: #ffa64d;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #progress {
+      width: 100%;
+      background: #333;
+      height: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    #progress-bar {
+      height: 10px;
+      width: 0%;
+      background: #ffa64d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>UPLOAD DOKIMAN – BSS 1815</h2>
+
+    <select id="category">
+      <option value="">Chwazi kategori</option>
+      <option value="mizisyen">Mizisyen</option>
+      <option value="kontra">Kontra</option>
+      <option value="finans">Finans</option>
+      <option value="bann">Bann</option>
+      <option value="videos">Videyo</option>
+      <option value="id">ID</option>
+      <option value="lot">Lòt dokiman</option>
+    </select>
+
+    <input type="file" id="fileInput">
+
+    <button onclick="uploadFile()">Upload</button>
+
+    <div id="progress">
+      <div id="progress-bar"></div>
+    </div>
+
+    <p id="status"></p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_BUCKET",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const storage = firebase.storage();
+
+    function uploadFile() {
+      const category = document.getElementById("category").value;
+      const file = document.getElementById("fileInput").files[0];
+
+      if (!category) {
+        alert("Chwazi yon kategori");
+        return;
+      }
+      if (!file) {
+        alert("Chwazi yon fichye");
+        return;
+      }
+
+      const path = `dokiman/${category}/${file.name}`;
+      const storageRef = storage.ref(path);
+      const uploadTask = storageRef.put(file);
+
+      uploadTask.on("state_changed",
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          document.getElementById("progress-bar").style.width = progress + "%";
+        },
+        (error) => {
+          document.getElementById("status").innerText = "Erè upload!";
+        },
+        () => {
+          uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+            document.getElementById("status").innerHTML =
+              "Upload fini!<br>Lyen: <a href='" + url + "' target='_blank'>" + url + "</a>";
+          });
+        }
+      );
+    }
+  </script>
+
+</body>
+</html>
