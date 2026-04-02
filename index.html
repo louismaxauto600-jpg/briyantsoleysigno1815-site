@@ -34,6 +34,17 @@
       color: #ffbb77;
     }
 
+    #admin-badge {
+      display: none;
+      margin: 15px auto 0;
+      width: fit-content;
+      padding: 10px 18px;
+      background: #ffa64d;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
     nav {
       margin-top: 40px;
     }
@@ -71,6 +82,7 @@
     <img src="logo.png" alt="BSS 1815 Logo">
     <h1>BRIYANT SOLÈY SIGNÒ 1815</h1>
     <h2>Sit Ofisyèl Ekip la</h2>
+    <div id="admin-badge">SUPER ADMIN</div>
   </header>
 
   <nav>
@@ -86,6 +98,55 @@
   <footer>
     © BSS 1815 — Tout dwa rezève.
   </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "PASTE_API_KEY_HERE",
+      authDomain: "PASTE_AUTH_DOMAIN_HERE",
+      projectId: "PASTE_PROJECT_ID_HERE",
+      storageBucket: "PASTE_STORAGE_BUCKET_HERE",
+      messagingSenderId: "PASTE_MESSAGING_SENDER_ID_HERE",
+      appId: "PASTE_APP_ID_HERE"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    console.log("Firebase loaded successfully");
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        console.log("Pa gen user ki konekte");
+        return;
+      }
+
+      console.log("User UID:", user.uid);
+
+      try {
+        const adminRef = doc(db, "admins", user.uid);
+        const adminSnap = await getDoc(adminRef);
+
+        if (adminSnap.exists()) {
+          const adminData = adminSnap.data();
+          console.log("Admin data:", adminData);
+
+          if (adminData.role === "super_admin") {
+            document.getElementById("admin-badge").style.display = "block";
+            console.log("SUPER ADMIN ACCESS GRANTED");
+          }
+        } else {
+          console.log("Dokiman admin pa jwenn pou UID sa a");
+        }
+      } catch (error) {
+        console.error("Firestore error:", error);
+      }
+    });
+  </script>
 
 </body>
 </html>
