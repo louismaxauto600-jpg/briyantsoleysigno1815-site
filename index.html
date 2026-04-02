@@ -150,3 +150,37 @@
 
 </body>
 </html>
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    console.log("Pa gen user konekte");
+    return;
+  }
+
+  console.log("User UID:", user.uid);
+
+  try {
+    // 🔥 SA N AP AJOUTE
+    const adminRef = doc(db, "MAXIMAX", "MAXIMAX_ADMIN");
+    const adminSnap = await getDoc(adminRef);
+
+    if (adminSnap.exists()) {
+      const adminData = adminSnap.data();
+      console.log("Admin data:", adminData);
+
+      // verify UID + ROLE
+      if (
+        adminData.uid === user.uid &&
+        adminData.role === "SUPER_ADMIN"
+      ) {
+        document.getElementById("admin-badge").style.display = "block";
+        console.log("SUPER ADMIN OK");
+      } else {
+        console.log("User pa admin");
+      }
+    } else {
+      console.log("Dokiman pa egziste");
+    }
+  } catch (error) {
+    console.error("Firestore error:", error);
+  }
+});
