@@ -3,151 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rejis Mizisyen – ADMIN</title>
+  <title>BSS 1815 — ADMIN DASHBOARD</title>
+
   <style>
-    body {<header>
- <body>
-<body>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #000000, #0a0a0a, #1b1208);
+      color: white;
+      font-family: "Segoe UI", Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-<header>
-  <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
-</header>
+    /* TOPBAR */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #000;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #ff8c00;
+      z-index: 10;
+    }
 
-<!-- Rès kontni paj la isit la -->
-<header>
-  <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
-</header>
+    .brand {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ff8c00;
+      text-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+    }
 
-<!-- Rès kontni paj la isit la --> <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
-</header>
-      background:#000;
-      color:#fff;
-      font-family:system-ui, sans-serif;
-      padding:20px;
+    /* SIDEBAR */
+    .sidebar {
+      width: 230px;
+      background: #000;
+      padding-top: 90px;
+      border-right: 3px solid #ff8c00;
+      overflow-y: auto;
     }
-    h1 {
-      text-align:center;
-      color:#f4a460;
-      margin-bottom:20px;
+
+    .sidebar-item {
+      padding: 10px;
+      text-align: center;
     }
-    .card {
-      background:#111;
-      border:1px solid #f4a46055;
-      padding:20px;
-      border-radius:10px;
-      max-width:800px;
-      margin:0 auto 30px auto;
+
+    .sidebar-item img {
+      width: 90%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
     }
-    label {
-      display:block;
-      margin-top:10px;
-      font-weight:600;
+
+    .sidebar-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 140, 0, 0.7);
     }
-    input, textarea {
-      width:100%;
-      padding:8px;
-      border-radius:8px;
-      border:1px solid #444;
-      background:#000;
-      color:#fff;
-      margin-top:4px;
+
+    /* CONTENT AREA */
+    #content-area {
+      flex: 1;
+      padding: 100px 30px 30px 30px;
+      overflow-y: auto;
     }
-    button {
-      margin-top:15px;
-      width:100%;
-      padding:12px;
-      background:#f4a460;
-      color:#000;
-      font-weight:700;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-    }
-    table {
-      width:100%;
-      border-collapse:collapse;
-      margin-top:20px;
-    }
-    th, td {
-      border:1px solid #444;
-      padding:8px;
-      text-align:left;
-    }
-    th {
-      background:#f4a460;
-      color:#000;
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
+
 <body>
 
-<h1>Rejis Mizisyen – ADMIN SÈLMAN</h1>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="brand">BSS 1815 — ADMIN</div>
+    <button id="logoutBtn" class="hidden" onclick="logoutAdmin()">Logout</button>
+  </div>
 
-<div class="card">
-  <h2>Antre Nouvo Mizisyen</h2>
+  <!-- SIDEBAR -->
+  <div class="sidebar hidden" id="sidebar">
 
-  <label>Non Mizisyen / Gwoup</label>
-  <input id="non">
+    <!-- SUPERADMIN BUTTON -->
+    <div class="sidebar-item superadmin-only hidden">
+      <img src="assets/img/super-admin-b.jpeg" onclick="loadModule('superadmin')">
+    </div>
 
-  <label>Telefòn</label>
-  <input id="tel">
+    <!-- ADMIN BUTTON -->
+    <div class="sidebar-item">
+      <img src="assets/img/admin-dash-b.jpeg" onclick="loadModule('dashboard')">
+    </div>
 
-  <label>WhatsApp</label>
-  <input id="wa">
+    <!-- UPLOAD BUTTON -->
+    <div class="sidebar-item">
+      <img src="assets/img/admin-dashboard-upload-final.jpeg" onclick="loadModule('upload')">
+    </div>
 
-  <label>Imèl</label>
-  <input id="email">
+  </div>
 
-  <label>Enstriman yo jwe</label>
-  <input id="instriman">
+  <!-- CONTENT AREA -->
+  <div id="content-area">
+    <h2>Byenvini nan BSS 1815 ADMIN PANEL</h2>
+    <p>Tanpri konekte pou kontinye.</p>
+  </div>
 
-  <label>Disponiblite</label>
-  <input id="disp">
+  <!-- LOGIN SECTION (FLOATING) -->
+  <div id="loginSection" style="
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    background: #0d0d0d;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #ff8c00;
+    box-shadow: 0 0 15px rgba(255,140,0,0.5);
+  ">
+    <h2 style="text-align:center;color:#ff8c00;">Admin Login</h2>
+    <input id="adminEmail" type="email" placeholder="Imel admin">
+    <input id="adminPassword" type="password" placeholder="Modpas admin">
+    <button onclick="loginAdmin()">Login</button>
+  </div>
 
-  <label>Nòt espesyal</label>
-  <textarea id="not"></textarea>
-
-  <button onclick="ajoute()">Ajoute Mizisyen</button>
-</div>
-
-<div class="card">
-  <h2>Lis Mizisyen yo</h2>
-
-  <table id="tab">
-    <tr>
-      <th>Non</th>
-      <th>Telefòn</th>
-      <th>WhatsApp</th>
-      <th>Imèl</th>
-      <th>Enstriman</th>
-      <th>Disponiblite</th>
-      <th>Nòt</th>
-    </tr>
-  </table>
-</div>
-
-<script>
-function ajoute() {
-  let tab = document.getElementById("tab");
-  let row = tab.insertRow(-1);
-
-  row.insertCell(0).innerText = document.getElementById("non").value;
-  row.insertCell(1).innerText = document.getElementById("tel").value;
-  row.insertCell(2).innerText = document.getElementById("wa").value;
-  row.insertCell(3).innerText = document.getElementById("email").value;
-  row.insertCell(4).innerText = document.getElementById("instriman").value;
-  row.insertCell(5).innerText = document.getElementById("disp").value;
-  row.insertCell(6).innerText = document.getElementById("not").value;
-
-  document.getElementById("non").value = "";
-  document.getElementById("tel").value = "";
-  document.getElementById("wa").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("instriman").value = "";
-  document.getElementById("disp").value = "";
-  document.getElementById("not").value = "";
-}
-</script>
+  <!-- SCRIPTS (TOUJOU ANBA) -->
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="admin.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+  <script src="js/admin-dashboard-upload-final.js"></script>
 
 </body>
 </html>
