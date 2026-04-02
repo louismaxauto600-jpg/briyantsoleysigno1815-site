@@ -1,186 +1,53 @@
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-  <meta charset="UTF-8">
-  <title>BSS 1815 – Sit Ofisyèl</title>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: #ffa64d;
-      font-family: Arial, sans-serif;
-      text-align: center;
+  const firebaseConfig = {
+    apiKey: "PASTE_API_KEY_HERE",
+    authDomain: "PASTE_AUTH_DOMAIN_HERE",
+    projectId: "PASTE_PROJECT_ID_HERE",
+    storageBucket: "PASTE_STORAGE_BUCKET_HERE",
+    messagingSenderId: "PASTE_MESSAGING_SENDER_ID_HERE",
+    appId: "PASTE_APP_ID_HERE"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      console.log("Pa gen user konekte");
+      return;
     }
 
-    header {
-      padding: 30px 0;
-    }
+    console.log("User UID:", user.uid);
 
-    header img {
-      width: 120px;
-    }
+    try {
+      // 🔥 SISTÈM SUPERADMIN OFISYÈL BSS 1815
+      const adminRef = doc(db, "MAXIMAX", "MAXIMAX_ADMIN");
+      const adminSnap = await getDoc(adminRef);
 
-    h1 {
-      margin-top: 10px;
-      font-size: 32px;
-      font-weight: bold;
-    }
+      if (adminSnap.exists()) {
+        const adminData = adminSnap.data();
+        console.log("Admin data:", adminData);
 
-    h2 {
-      margin-top: -10px;
-      font-size: 18px;
-      color: #ffbb77;
-    }
-
-    #admin-badge {
-      display: none;
-      margin: 15px auto 0;
-      width: fit-content;
-      padding: 10px 18px;
-      background: #ffa64d;
-      color: #000;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-
-    nav {
-      margin-top: 40px;
-    }
-
-    nav a {
-      display: block;
-      margin: 12px auto;
-      width: 70%;
-      max-width: 300px;
-      padding: 14px;
-      background: #ffa64d;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      font-size: 18px;
-    }
-
-    nav a:hover {
-      background: #ffb870;
-    }
-
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      font-size: 14px;
-      color: #ffbb77;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <img src="logo.png" alt="BSS 1815 Logo">
-    <h1>BRIYANT SOLÈY SIGNÒ 1815</h1>
-    <h2>Sit Ofisyèl Ekip la</h2>
-    <div id="admin-badge">SUPER ADMIN</div>
-  </header>
-
-  <nav>
-    <a href="dirijan.html">Dirijan</a>
-    <a href="mizisyen.html">Mizisyen</a>
-    <a href="bann.html">Bann</a>
-    <a href="videos.html">Videyo</a>
-    <a href="finans.html">Finans</a>
-    <a href="upload.html">Upload Dokiman</a>
-    <a href="kontak.html">Kontak</a>
-  </nav>
-
-  <footer>
-    © BSS 1815 — Tout dwa rezève.
-  </footer>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "PASTE_API_KEY_HERE",
-      authDomain: "PASTE_AUTH_DOMAIN_HERE",
-      projectId: "PASTE_PROJECT_ID_HERE",
-      storageBucket: "PASTE_STORAGE_BUCKET_HERE",
-      messagingSenderId: "PASTE_MESSAGING_SENDER_ID_HERE",
-      appId: "PASTE_APP_ID_HERE"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    console.log("Firebase loaded successfully");
-
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        console.log("Pa gen user ki konekte");
-        return;
-      }
-
-      console.log("User UID:", user.uid);
-
-      try {
-        const adminRef = doc(db, "admins", user.uid);
-        const adminSnap = await getDoc(adminRef);
-
-        if (adminSnap.exists()) {
-          const adminData = adminSnap.data();
-          console.log("Admin data:", adminData);
-
-          if (adminData.role === "super_admin") {
-            document.getElementById("admin-badge").style.display = "block";
-            console.log("SUPER ADMIN ACCESS GRANTED");
-          }
+        // 🔥 VERIFY UID + ROLE
+        if (
+          adminData.uid === user.uid &&
+          adminData.role === "SUPER_ADMIN"
+        ) {
+          document.getElementById("admin-badge").style.display = "block";
+          console.log("SUPER ADMIN OK");
         } else {
-          console.log("Dokiman admin pa jwenn pou UID sa a");
+          console.log("User pa SUPERADMIN");
         }
-      } catch (error) {
-        console.error("Firestore error:", error);
-      }
-    });
-  </script>
-
-</body>
-</html>
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    console.log("Pa gen user konekte");
-    return;
-  }
-
-  console.log("User UID:", user.uid);
-
-  try {
-    // 🔥 SA N AP AJOUTE
-    const adminRef = doc(db, "MAXIMAX", "MAXIMAX_ADMIN");
-    const adminSnap = await getDoc(adminRef);
-
-    if (adminSnap.exists()) {
-      const adminData = adminSnap.data();
-      console.log("Admin data:", adminData);
-
-      // verify UID + ROLE
-      if (
-        adminData.uid === user.uid &&
-        adminData.role === "SUPER_ADMIN"
-      ) {
-        document.getElementById("admin-badge").style.display = "block";
-        console.log("SUPER ADMIN OK");
       } else {
-        console.log("User pa admin");
+        console.log("Dokiman MAXIMAX_ADMIN pa egziste");
       }
-    } else {
-      console.log("Dokiman pa egziste");
+    } catch (error) {
+      console.error("Firestore error:", error);
     }
-  } catch (error) {
-    console.error("Firestore error:", error);
-  }
-});
+  });
+</script>
