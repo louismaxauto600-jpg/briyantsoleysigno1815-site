@@ -2,179 +2,183 @@
 <html lang="ht">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dirijan BSS 1815</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<header>
-  <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
-</<head
-  <header>
-  <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
 
-  <div id="language-toggle">
-    <button data-lang="ht">KRE</button>
-    <button data-lang="fr">FRA</button>
-    <button data-lang="en">ENG</button>
-  </div>
-</header>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffa64d, #000);
+      color: #ffa64d;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-<nav class="main-nav">
-  <a href="index.html">Akèy</a>
-  <a href="leadership.html">Dirijan</a>
-  <a href="contact.html">Kontak</a>
-  <a href="about.html">A Pwopo</a>
-</nav>
+    /* HEADER */
+    .header-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+    }
 
-  <div id="language-toggle">
-    <button data-lang="ht">KRE</button>
-    <button data-lang="fr">FRA</button>
-    <button data-lang="en">ENG</button>
-  </div>
-</header>
+    /* LOGO GAUCHE — ROTATE IN */
+    .logo {
+      width: 140px;
+      opacity: 0;
+      transform: rotate(-180deg) scale(0.3);
+      animation: spinIn 1.6s ease-out forwards;
+    }
 
-<nav class="main-nav">
-  <a href="index.html">Akèy</a>
-  <a href="leadership.html">Dirijan</a>
-  <a href="contact.html">Kontak</a>
-  <a href="about.html">A Pwopo</a>
-</nav>>
-<<header>
-  <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
+    @keyframes spinIn {
+      0% { opacity: 0; transform: rotate(-180deg) scale(0.3); }
+      70% { opacity: 1; transform: rotate(10deg) scale(1.1); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
 
-  <div id="language-toggle">
-    <button data-lang="ht">KRE</button>
-    <button data-lang="fr">FRA</button>
-    <button data-lang="en">ENG</button>
-  </div>
-</header>
+    /* KOUKOU DWAT — FLY IN */
+    .koukou {
+      width: 140px;
+      opacity: 0;
+      transform: translateX(200px) translateY(-40px);
+      animation: flyIn 1.8s ease-out forwards;
+      animation-delay: 0.3s;
+    }
 
-<nav class="main-nav">
-  <a href="index.html">Akèy</a>
-  <a href="leadership.html">Dirijan</a>
-  <a href="contact.html">Kontak</a>
-  <a href="about.html">A Pwopo</a>
-</nav>>
-<<body>
+    @keyframes flyIn {
+      0% { opacity: 0; transform: translateX(200px) translateY(-40px); }
+      60% { opacity: 1; transform: translateX(-20px) translateY(0px); }
+      100% { transform: translateX(0px); }
+    }
 
-<header>
-  <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
-</header>
+    /* SLIDESHOW */
+    .slideshow {
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 3px solid #ffa64d;
+    }
 
-<!-- Rès kontni paj la isit la -->>
+    .slides {
+      display: flex;
+      width: 400%;
+      animation: slideShow 12s infinite;
+    }
 
-<header>
-  <img src="nouvo-logo-bss-3.jpeg" alt="BSS 1815 Logo" class="brand-logo-img">
-</header>
+    .slides img {
+      width: 100%;
+      height: auto;
+    }
 
-<!-- Rès kontni paj la isit la -->
-<header class="main-header">
-  <div class="logo-area">
-    <img src="bss-logo-1815.jpeg" class="bss-logo" alt="BSS Logo">
-    <h1>BRIYANT SOLEY SIGNÒ 1815</h1>
-  </div>
+    @keyframes slideShow {
+      0% { transform: translateX(0%); }
+      20% { transform: translateX(0%); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      100% { transform: translateX(-300%); }
+    }
 
-  <nav class="main-nav">
-    <a href="index.html">Akèy</a>
-    <a href="istwa.html">Istwa</a>
-    <a href="dirijan.html">Dirijan</a>
-    <a href="ansyen-dirijan.html">Ansyen Dirijan</a>
-    <a href="fanatik-zele.html">Fanatik Zèlé</a>
-    <a href="pitit-kay.html">Pitit Kay</a>
-    <a href="ti-machann.html">Ti Machann</a>
-    <a href="store.html">Magazen</a>
-    <a href="video.html">Videyo</a>
-    <a href="kontak.html">Kontak</a>
-  </nav>
-</header>
+    /* GRID DIRIJAN YO */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      width: 90%;
+      margin: auto;
+    }
 
-<main class="page">
-  <div class="container">
+    .card {
+      background: rgba(0,0,0,0.4);
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #ffa64d;
+    }
 
-    <div class="section-head">
-      <h2>Dirijan Ofisyèl BSS 1815</h2>
-      <p>Lis dirijan aktyèl yo ak pozisyon yo nan estrikti BSS la.</p>
-    </div>
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #ffa64d;
+    }
 
-    <div class="card-grid">
+    .card h3 {
+      margin: 10px 0 5px;
+      color: #ffa64d;
+    }
 
-      <div class="card leader-card">
-        <img src="foto-dirijan-1.jpeg" alt="Dirijan 1">
-        <h3>Non Dirijan 1</h3>
-        <p>Fonksyon ofisyèl li nan BSS 1815.</p>
-      </div>
+    .card p {
+      margin: 0;
+      color: #ffbb77;
+    }
 
-      <div class="card leader-card">
-        <img src="foto-dirijan-2.jpeg" alt="Dirijan 2">
-        <h3>Non Dirijan 2</h3>
-        <p>Fonksyon ofisyèl li nan BSS 1815.</p>
-      </div>
-
-      <div class="card leader-card">
-        <img src="foto-dirijan-3.jpeg" alt="Dirijan 3">
-        <h3>Non Dirijan 3</h3>
-        <p>Fonksyon ofisyèl li nan BSS 1815.</p>
-      </div>
-
-    </div>
-
-  </div>
-</main>
-
-<footer>
-  <h3>BRIYANT SOLÈY SIGNO 1815 • Kontak Ofisyèl</h3>
-  <p><strong>ADRES:</strong> 6934 Coral Cove Drive, Orlando, FL 32818</p>
-  <p><strong>TELEFÒN:</strong> (317) 538‑1150 • (516) 216‑8494</p>
-  <p><strong>EMAIL:</strong> briyantsoleysigno1815@gmail.com</p>
-  <p><strong>WEBSITE:</strong> www.briyantsoleysigno.com</p>
-  <p><strong>WHATSAPP:</strong> (317) 538‑1150</p>
-  <div class="footer-line"></div>
-  <p class="footer-copy">© 2026 BRIYANT SOLÈY SIGNO 1815 — Tout dwa rezève.</p>
-</footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dirijan BSS 1815</title>
-  <link rel="stylesheet" href="style.css">
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 14px;
+      color: #ffbb77;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="main-header">
-  <div class="logo-area">
-    <img src="images/logo-bss1815.png" alt="BSS 1815 Logo">
-    <h1>BRIYANT SOLEY SIGNÒ 1815</h1>
+  <!-- HEADER -->
+  <div class="header-area">
+    <img src="bss-logo.png" class="logo" alt="Logo BSS 1815">
+    <img src="koukou-mekontan.jpeg" class="koukou" alt="Koukou BSS">
   </div>
 
-  <nav class="main-nav">
-    <a href="index.html">Akèy</a>
-    <a href="istwa.html">Istwa</a>
-    <a href="dirijan.html" class="active">Dirijan</a>
-    <a href="ansyen-dirijan.html">Ansyen Dirijan</a>
-    <a href="fanatik-zele.html">Fanatik Zèlé</a>
-    <a href="pitit-kay.html">Pitit Kay</a>
-    <a href="ti-machann.html">Ti Machann</a>
-    <a href="store.html">Magazen</a>
-    <a href="video.html">Videyo</a>
-    <a href="kontak.html">Kontak</a>
-  </nav>
-</header>
+  <h1>DIRIJAN BSS 1815</h1>
+  <h2>Ekip ki mennen BSS 1815 avanse</h2>
 
-<section class="page-hero">
-  <h2>Dirijan BSS</h2>
-  <p>Lidèchip aktyèl la ak estrikti ofisyèl.</p>
-</section>
+  <!-- SLIDESHOW -->
+  <div class="slideshow">
+    <div class="slides">
+      <img src="dirijan-1.jpeg" alt="">
+      <img src="dirijan-3.jpg" alt="">
+      <img src="dirijan-images.png" alt="">
+      <img src="dirijan-maximax.jpg" alt="">
+    </div>
+  </div>
 
-<section class="page-content container">
-  <p>Lis dirijan yo ap vini isit la...</p>
-</section>
+  <!-- GRID DIRIJAN YO -->
+  <div class="grid">
 
-<footer>…(same footer)…</footer>
+    <div class="card">
+      <img src="dirijan-1.jpeg">
+      <h3>NON DIRIJAN</h3>
+      <p>TIT DIRIJAN</p>
+    </div>
+
+    <div class="card">
+      <img src="dirijan-3.jpg">
+      <h3>NON DIRIJAN</h3>
+      <p>TIT DIRIJAN</p>
+    </div>
+
+    <div class="card">
+      <img src="dirijan-images.png">
+      <h3>NON DIRIJAN</h3>
+      <p>TIT DIRIJAN</p>
+    </div>
+
+    <div class="card">
+      <img src="dirijan-maximax.jpg">
+      <h3>NON DIRIJAN</h3>
+      <p>TIT DIRIJAN</p>
+    </div>
+
+  </div>
+
+  <footer>
+    © BSS 1815 — Tout dwa rezève.
+  </footer>
 
 </body>
 </html>
