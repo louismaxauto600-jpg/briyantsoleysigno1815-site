@@ -1,129 +1,126 @@
-import { auth, db, storage } from "./firebase.js";
+// admin.js — BSS1815 OFFICIAL ADMIN PANEL ENGINE
+// Using Firebase Modular SDK v10
 
+import { auth, db } from "./firebase.js";
 import {
-  signInWithEmailAndPassword,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 import {
   collection,
-  addDoc,
   getDocs,
-  deleteDoc,
-  doc
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  deleteObject
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-export async function loginAdmin() {
-  const email = document.getElementById("adminEmail").value.trim();
-  const password = document.getElementById("adminPassword").value.trim();
+// -------------------------------
+//  DOM ELEMENTS
+// -------------------------------
+const superAdminBadge = document.getElementById("superAdminBadge");
+const adminBadge = document.getElementById("adminBadge");
+const roleChip = document.getElementById("roleChip");
+const settingsRole = document.getElementById("settingsRole");
+const adminsList = document.getElementById("adminsList");
+const totalAdmins = document.getElementById("totalAdmins");
 
-  if (!email || !password) {
-    alert("Tanpri antre imel ak modpas admin.");
+
+// -------------------------------
+//  AUTH STATE LISTENER
+// -------------------------------
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    window.location.href = "login.html";
     return;
   }
 
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
+  const userRef = doc(db, "users", user.uid);
+  const snap = await getDoc(userRef);
 
-    document.getElementById("loginSection").classList.add("hidden");
-    document.getElementById("adminSection").classList.remove("hidden");
-    document.getElementById("logoutBtn").classList.remove("hidden");
-
-    loadMusicians();
-  } catch (error) {
-    alert("Login echwe: " + error.message);
+  if (!snap.exists()) {
+    alert("Aksè pa otorize.");
+    await signOut(auth);
+    return;
   }
-}
 
-export async function logoutAdmin() {
+  const data = snap.data();
+  const role = data.role || "unknown";
+  const name = data.name || user.email || "User";
+
+  // -------------------------------
+  //  ROLE DISPLAY + BADGES
+  // -------------------------------
+  if (role === "super_admin") {
+    roleChip.textContent = "SUPER ADMIN — " + name;
+    settingsRole.textContent = "SUPER ADMIN";
+    superAdminBadge.style.display = "block";
+    adminBadge.style.display = "none";
+  }
+  else if (role === "admin") {
+    roleChip.textContent = "ADMIN — " + name;
+    settingsRole.textContent = "ADMIN";
+    adminBadge.style.display = "block";
+    superAdminBadge.style.display = "none";
+  }
+  else {
+    roleChip.textContent = "UNKNOWN ROLE";
+    settingsRole.textContent = "UNKNOWN";
+  }
+
+  // Load admin list
+  loadAdmins();
+});
+
+
+// -------------------------------
+//  LOGOUT
+// -------------------------------
+document.getElementById("logoutBtn").addEventListener("click", async () => {
   await signOut(auth);
+  window.location.href = "login.html";
+});
 
-  document.getElementById("loginSection").classList.remove("hidden");
-  document.getElementById("adminSection").classList.add("hidden");
-  document.getElementById("logoutBtn").classList.add("hidden");
-}
 
-export async function addMusician() {
-  const name = document.getElementById("musicianName").value.trim();
-  const role = document.getElementById("musicianRole").value.trim();
-  const photoFile = document.getElementById("musicianPhoto").files[0];
+// -------------------------------
+//  LOAD ADMINS
+// -------------------------------
+async function loadAdmins() {
+  const colRef = collection(db, "users");
+  const snap = await getDocs(colRef);
 
-  if (!name || !role || !photoFile) {
-    alert("Ranpli tout chan yo.");
-    return;
-  }
+  adminsList.innerHTML = "";
+  let count = 0;
 
-  try {
-    const storageRef = ref(storage, "musicians/" + Date.now() + "_" + photoFile.name);
-    await uploadBytes(storageRef, photoFile);
-    const photoURL = await getDownloadURL(storageRef);
+  snap.forEach((docSnap) => {
+    const u = docSnap.data();
+    if (!u.role) return;
 
-    await addDoc(collection(db, "musicians"), {
-      name,
-      role,
-      photoURL,
-      storagePath: storageRef.fullPath
-    });
+    const isAdmin = (u.role === "admin" || u.role === "super_admin");
+    if (!isAdmin) return;
 
-    alert("Mizisyen an ajoute avèk siksè!");
+    count++;
 
-    document.getElementById("musicianName").value = "";
-    document.getElementById("musicianRole").value = "";
-    document.getElementById("musicianPhoto").value = "";
+    const div = document.createElement("div");
+    div.className = "card";
 
-    loadMusicians();
-  } catch (error) {
-    alert("Erè pandan anrejistreman: " + error.message);
-  }
-}
+    const roleLabel = (u.role === "super_admin") ? "SUPER ADMIN" : "ADMIN";
+    const pills = [];
 
-async function loadMusicians() {
-  const listDiv = document.getElementById("musicianList");
-  listDiv.innerHTML = "<p>Chaje mizisyen yo...</p>";
+    if (u.role === "super_admin") pills.push("Full Access");
+    else pills.push("Limited Access");
 
-  const querySnapshot = await getDocs(collection(db, "musicians"));
-
-  let html = "";
-  querySnapshot.forEach((docItem) => {
-    const data = docItem.data();
-
-    html += `
-      <div class="card">
-        <img src="${data.photoURL}">
-        <h3>${data.name}</h3>
-        <p>${data.role}</p>
-        <button onclick="deleteMusician('${docItem.id}', '${data.storagePath}')">Efase</button>
+    div.innerHTML = `
+      <h3>${u.name || "San non"}</h3>
+      <span>${roleLabel}</span>
+      <small>${u.email || ""}</small>
+      <div class="pill-row">
+        ${pills.map(p => `<div class="pill">${p}</div>`).join("")}
       </div>
     `;
+
+    adminsList.appendChild(div);
   });
 
-  listDiv.innerHTML = html;
+  totalAdmins.textContent = count + " admin anrejistre";
 }
-
-export async function deleteMusician(id, storagePath) {
-  if (!confirm("Ou vle efase mizisyen sa a?")) return;
-
-  try {
-    const photoRef = ref(storage, storagePath);
-    await deleteObject(photoRef);
-
-    await deleteDoc(doc(db, "musicians", id));
-
-    alert("Mizisyen efase avèk siksè.");
-    loadMusicians();
-  } catch (error) {
-    alert("Erè pandan efasman: " + error.message);
-  }
-}
-
-window.loginAdmin = loginAdmin;
-window.logoutAdmin = logoutAdmin;
-window.addMusician = addMusician;
-window.deleteMusician = deleteMusician;
