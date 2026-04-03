@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS1815 — LOGIN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #000000, #0a0a0a, #1b1208);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: #0d0d0d;
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid #ff9b3b55;
+      box-shadow: 0 0 18px rgba(255, 155, 59, 0.25);
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+      color: #ff9b3b;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #c7c7c7;
+      margin-bottom: 22px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 14px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #0a0a0a;
+      color: white;
+      font-size: 15px;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #ff9b3b;
+      box-shadow: 0 0 10px rgba(255, 155, 59, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border-radius: 8px;
+      border: none;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
+      color: #050505;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      box-shadow: 0 0 14px rgba(255, 155, 59, 0.6);
+    }
+
+    .error {
+      margin-top: 14px;
+      color: #ff4d4d;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <!-- FIREBASE SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script>
+    // METE CONFIG BSS1815 OU A ISIT LA
+    const firebaseConfig = {
+      apiKey: "XXXXXXXXXXXX",
+      authDomain: "XXXXXXXXXXXX",
+      projectId: "XXXXXXXXXXXX",
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+</head>
+
+<body>
+
+  <div class="login-box">
+    <div class="title">BSS1815</div>
+    <div class="subtitle">ADMIN LOGIN OFISYÈL</div>
+
+    <input id="email" type="email" placeholder="Imèl admin">
+    <input id="password" type="password" placeholder="Modpas admin">
+
+    <button onclick="login()">Antre</button>
+
+    <div class="error" id="errorBox">Modpas oswa imèl pa bon.</div>
+  </div>
+
+  <script>
+    async function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorBox = document.getElementById("errorBox");
+
+      errorBox.style.display = "none";
+
+      try {
+        const userCred = await firebase.auth().signInWithEmailAndPassword(email, password);
+        const user = userCred.user;
+
+        const doc = await db.collection("users").doc(user.uid).get();
+
+        if (!doc.exists) {
+          errorBox.textContent = "Aksè pa otorize.";
+          errorBox.style.display = "block";
+          firebase.auth().signOut();
+          return;
+        }
+
+        const role = doc.data().role;
+
+        if (role === "super_admin" || role === "admin") {
+          window.location.href = "admin.html";
+        } else {
+          errorBox.textContent = "Ou pa gen aksè nan panel la.";
+          errorBox.style.display = "block";
+          firebase.auth().signOut();
+        }
+
+      } catch (err) {
+        errorBox.textContent = "Login echwe. Verifye enfòmasyon yo.";
+        errorBox.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
