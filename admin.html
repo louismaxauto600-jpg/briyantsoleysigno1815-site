@@ -2,160 +2,494 @@
 <html lang="ht">
 <head>
   <meta charset="UTF-8">
+  <title>BSS1815 — ADMIN PANEL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BSS 1815 — ADMIN PANEL</title>
 
   <style>
-    body {
-      background: linear-gradient(180deg, #000000, #0a0a0a, #1b1208);
-      color: white;
-      font-family: "Segoe UI", Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: #f7f2ec;
+      display: flex;
       min-height: 100vh;
     }
 
-    .topbar {
-      background: #000;
-      padding: 18px 20px;
+    .sidebar {
+      width: 260px;
+      background: #050505;
+      border-right: 1px solid #2b2b2b;
+      padding: 20px 18px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 3px solid #ff8c00;
-      box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+      flex-direction: column;
+      gap: 18px;
     }
 
     .brand {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #ff8c00;
-      text-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .container {
-      padding: 25px;
-      max-width: 650px;
-      margin: auto;
-    }
-
-    h2 {
-      color: #ff8c00;
-      text-align: center;
-      margin-bottom: 20px;
-      text-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-top: 12px;
-      border-radius: 6px;
-      border: 1px solid #333;
-      background: #0d0d0d;
-      color: white;
-      font-size: 16px;
-      outline: none;
-      transition: 0.2s;
-    }
-
-    input:focus {
-      border-color: #ff8c00;
-      box-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      margin-top: 15px;
-      border-radius: 6px;
-      border: none;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #ff8c00;
-      color: black;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #ffa733;
-      box-shadow: 0 0 12px rgba(255, 140, 0, 0.7);
-    }
-
-    .card {
-      background: #0d0d0d;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 20px;
-      text-align: center;
-      border: 1px solid #ff8c00;
-      box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
-    }
-
-    .card img {
-      border-radius: 8px;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       margin-bottom: 10px;
     }
 
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #ff9b3b;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #b3b3b3;
+    }
+
+    .badge-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .badge-wrap img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #ff9b3b33;
+      display: none;
+    }
+
+    .nav-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #777;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav button {
+      width: 100%;
+      text-align: left;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: #f7f2ec;
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .nav button:hover {
+      background: #1b1b1b;
+    }
+
+    .nav button.active {
+      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
+      color: #050505;
+      font-weight: 600;
+    }
+
+    .logout-btn {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid #2b2b2b;
+    }
+
+    .logout-btn button {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #ff3b3b;
+      background: transparent;
+      color: #ff3b3b;
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .logout-btn button:hover {
+      background: #ff3b3b;
+      color: #050505;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at top left, #ff9b3b11, #050505 55%);
+    }
+
+    .topbar {
+      padding: 14px 22px;
+      border-bottom: 1px solid #2b2b2b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .top-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .top-role {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #ff9b3b;
+      border: 1px solid #ff9b3b55;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .content {
+      padding: 18px 22px 26px;
+      overflow-y: auto;
+    }
+
+    .section {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section p {
+      font-size: 13px;
+      color: #c7c7c7;
+      margin-bottom: 14px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: #101010;
+      border-radius: 12px;
+      border: 1px solid #2b2b2b;
+      padding: 12px 12px 10px;
+    }
+
     .card h3 {
-      margin: 5px 0;
-      color: #ff8c00;
+      font-size: 14px;
+      margin-bottom: 4px;
     }
 
-    .card p {
-      margin: 0;
-      color: #ccc;
+    .card span {
+      font-size: 11px;
+      color: #ff9b3b;
+      text-transform: uppercase;
     }
 
-    .card button {
-      margin-top: 12px;
-      background: #b30000;
-      color: white;
+    .card small {
+      font-size: 11px;
+      color: #a0a0a0;
+      display: block;
+      margin-top: 6px;
     }
 
-    .card button:hover {
-      background: #ff0000;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #2b2b2b;
+      color: #d0d0d0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 800px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid #2b2b2b;
+      }
+      .badge-wrap {
+        display: none;
+      }
+      .nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+      .nav button {
+        white-space: nowrap;
+      }
+      .logout-btn {
+        margin-top: 0;
+        border-top: none;
+      }
     }
   </style>
-</head>
 
+  <!-- FIREBASE SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script>
+    // RANPLASE SA A AK CONFIG BSS1815 OU A
+    const firebaseConfig = {
+      apiKey: "XXXXXXXXXXXX",
+      authDomain: "XXXXXXXXXXXX",
+      projectId: "XXXXXXXXXXXX",
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+</head>
 <body>
 
-  <div class="topbar">
-    <div class="brand">BSS 1815 — ADMIN</div>
-    <button id="logoutBtn" class="hidden" onclick="logoutAdmin()">Logout</button>
-  </div>
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <div class="brand-title">BSS1815</div>
+        <div class="brand-sub">ADMIN PANEL OFISYÈL</div>
+      </div>
 
-  <div id="loginSection" class="container">
-    <h2>Admin Login</h2>
-    <input id="adminEmail" type="email" placeholder="Imel admin">
-    <input id="adminPassword" type="password" placeholder="Modpas admin">
-    <button onclick="loginAdmin()">Login</button>
-  </div>
+      <div class="badge-wrap">
+        <img id="superAdminBadge" src="super-admin-b.jpeg" alt="SUPER ADMIN BADGE">
+        <img id="adminBadge" src="admin-dash-b.jpeg" alt="ADMIN BADGE">
+      </div>
 
-  <div id="adminSection" class="container hidden">
-    <h2>Ajoute Mizisyen</h2>
+      <div class="nav-title">NAVIGASYON</div>
+      <div class="nav">
+        <button class="nav-btn active" data-target="dashboard">Dashboard</button>
+        <button class="nav-btn" data-target="admins">Admins</button>
+        <button class="nav-btn" data-target="videos">Videos</button>
+        <button class="nav-btn" data-target="musicians">Musicians</button>
+        <button class="nav-btn" data-target="leaders">Leaders</button>
+        <button class="nav-btn" data-target="bands">Bands</button>
+        <button class="nav-btn" data-target="finances">Finances</button>
+        <button class="nav-btn" data-target="settings">Settings</button>
+      </div>
+    </div>
 
-    <input id="musicianName" type="text" placeholder="Non mizisyen">
-    <input id="musicianRole" type="text" placeholder="Wòl mizisyen">
-    <input id="musicianPhoto" type="file" accept="image/*">
+    <div class="logout-btn">
+      <button id="logoutBtn">Dekonekte</button>
+    </div>
+  </aside>
 
-    <button onclick="addMusician()">Ajoute</button>
+  <main class="main">
+    <header class="topbar">
+      <div class="top-title">BSS1815 — <span id="pageTitle">Dashboard</span></div>
+      <div class="top-role" id="roleChip">...</div>
+    </header>
 
-    <h2 style="margin-top:40px;">Lis Mizisyen yo</h2>
-    <div id="musicianList"></div>
-  </div>
+    <section class="content">
 
-  <!-- SCRIPTS (SA YO SÈL KI DWE RETE) -->
-  <script type="module" src="firebase.js"></script>
-  <script type="module" src="admin.js"></script>
+      <div class="section active" id="section-dashboard">
+        <h2>Dashboard</h2>
+        <p>Rezime rapid sou sa k ap pase nan BSS1815.</p>
 
+        <div class="card-grid">
+          <div class="card">
+            <h3>Total Admins</h3>
+            <span>STAFF</span>
+            <small id="totalAdmins">—</small>
+          </div>
+          <div class="card">
+            <h3>Videos</h3>
+            <span>MEDIA</span>
+            <small>Byento konekte ak koleksyon “videos”.</small>
+          </div>
+          <div class="card">
+            <h3>Musicians</h3>
+            <span>TEAM</span>
+            <small>Byento konekte ak seksyon mizisyen yo.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="section-admins">
+        <h2>Admins</h2>
+        <p>Lis tout ADMIN & SUPER ADMIN ki nan BSS1815.</p>
+
+        <div class="card-grid" id="adminsList"></div>
+      </div>
+
+      <div class="section" id="section-videos">
+        <h2>Videos</h2>
+        <p>Modil pou jere videyo yo ap vini isit la.</p>
+      </div>
+
+      <div class="section" id="section-musicians">
+        <h2>Musicians</h2>
+        <p>Modil pou jere mizisyen yo ap vini isit la.</p>
+      </div>
+
+      <div class="section" id="section-leaders">
+        <h2>Leaders</h2>
+        <p>Modil pou jere lidè yo ap vini isit la.</p>
+      </div>
+
+      <div class="section" id="section-bands">
+        <h2>Bands</h2>
+        <p>Modil pou jere band yo ap vini isit la.</p>
+      </div>
+
+      <div class="section" id="section-finances">
+        <h2>Finances</h2>
+        <p>Modil pou jere finans yo ap vini isit la.</p>
+      </div>
+
+      <div class="section" id="section-settings">
+        <h2>Settings</h2>
+        <p>Paramèt jeneral pou BSS1815 ADMIN PANEL.</p>
+
+        <div class="card">
+          <h3>Wòl ou</h3>
+          <span id="settingsRole">—</span>
+          <small>Wòl sa a soti dirèk nan Firestore (`users.role`).</small>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    const navButtons = document.querySelectorAll(".nav-btn");
+    const sections = document.querySelectorAll(".section");
+    const pageTitle = document.getElementById("pageTitle");
+
+    navButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        navButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const target = btn.getAttribute("data-target");
+        pageTitle.textContent = target.charAt(0).toUpperCase() + target.slice(1);
+
+        sections.forEach(sec => sec.classList.remove("active"));
+        document.getElementById("section-" + target).classList.add("active");
+      });
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      firebase.auth().signOut().then(() => {
+        window.location.href = "login.html";
+      });
+    });
+
+    const superAdminBadge = document.getElementById("superAdminBadge");
+    const adminBadge = document.getElementById("adminBadge");
+    const roleChip = document.getElementById("roleChip");
+    const settingsRole = document.getElementById("settingsRole");
+    const adminsList = document.getElementById("adminsList");
+    const totalAdmins = document.getElementById("totalAdmins");
+
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      const doc = await db.collection("users").doc(user.uid).get();
+      if (!doc.exists) {
+        alert("Aksè pa otorize");
+        firebase.auth().signOut();
+        return;
+      }
+
+      const data = doc.data();
+      const role = data.role || "unknown";
+      const name = data.name || user.email || "User";
+
+      if (role === "super_admin") {
+        roleChip.textContent = "SUPER ADMIN — " + name;
+        settingsRole.textContent = "SUPER ADMIN";
+        superAdminBadge.style.display = "block";
+        adminBadge.style.display = "none";
+      } else if (role === "admin") {
+        roleChip.textContent = "ADMIN — " + name;
+        settingsRole.textContent = "ADMIN";
+        adminBadge.style.display = "block";
+        superAdminBadge.style.display = "none";
+      } else {
+        roleChip.textContent = "UNKNOWN ROLE";
+        settingsRole.textContent = "UNKNOWN";
+      }
+
+      loadAdmins();
+    });
+
+    async function loadAdmins() {
+      const snap = await db.collection("users").get();
+      adminsList.innerHTML = "";
+      let count = 0;
+
+      snap.forEach(doc => {
+        const u = doc.data();
+        if (!u.role) return;
+
+        const isAdmin = (u.role === "admin" || u.role === "super_admin");
+        if (!isAdmin) return;
+
+        count++;
+
+        const div = document.createElement("div");
+        div.className = "card";
+
+        const roleLabel = (u.role === "super_admin") ? "SUPER ADMIN" : "ADMIN";
+        const pills = [];
+        if (u.role === "super_admin") pills.push("Full Access");
+        else pills.push("Limited Access");
+
+        div.innerHTML = `
+          <h3>${u.name || "San non"}</h3>
+          <span>${roleLabel}</span>
+          <small>${u.email || ""}</small>
+          <div class="pill-row">
+            ${pills.map(p => `<div class="pill">${p}</div>`).join("")}
+          </div>
+        `;
+
+        adminsList.appendChild(div);
+      });
+
+      totalAdmins.textContent = count + " admin anrejistre";
+    }
+  </script>
 </body>
 </html>
