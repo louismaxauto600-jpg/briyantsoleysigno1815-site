@@ -1,7 +1,8 @@
 // admin.js — BSS1815 OFFICIAL ADMIN PANEL ENGINE
 // Using Firebase Modular SDK v10
 
-import { auth, db } from "./firebase.js";
+import { auth, db, storage } from "./firebase.js";
+
 import {
   signOut,
   onAuthStateChanged
@@ -11,8 +12,16 @@ import {
   collection,
   getDocs,
   doc,
-  getDoc
+  getDoc,
+  addDoc,
+  deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 
 // -------------------------------
@@ -68,8 +77,10 @@ onAuthStateChanged(auth, async (user) => {
     settingsRole.textContent = "UNKNOWN";
   }
 
-  // Load admin list
+  // Load modules
   loadAdmins();
+  loadMusicians();
+  loadLeaders();
 });
 
 
@@ -124,3 +135,162 @@ async function loadAdmins() {
 
   totalAdmins.textContent = count + " admin anrejistre";
 }
+
+
+
+// ======================================================
+//  🔥🔥🔥 MUSICIANS MODULE — BSS1815 OFFICIAL
+// ======================================================
+
+const addMusicianBtn = document.getElementById("addMusicianBtn");
+const musiciansList = document.getElementById("musiciansList");
+
+addMusicianBtn.addEventListener("click", addMusician);
+
+
+// ADD MUSICIAN
+async function addMusician() {
+  const name = document.getElementById("m-name").value.trim();
+  const instrument = document.getElementById("m-instrument").value.trim();
+  const section = document.getElementById("m-section").value.trim();
+  const file = document.getElementById("m-photo").files[0];
+
+  if (!name || !instrument || !section) {
+    alert("Ranpli tout chan yo.");
+    return;
+  }
+
+  let photoURL = "";
+
+  if (file) {
+    const storageRef = ref(storage, "musicians/" + Date.now() + "-" + file.name);
+    await uploadBytes(storageRef, file);
+    photoURL = await getDownloadURL(storageRef);
+  }
+
+  await addDoc(collection(db, "musicians"), {
+    name,
+    instrument,
+    section,
+    photoURL
+  });
+
+  alert("Mizisyen an ajoute!");
+  loadMusicians();
+}
+
+
+// LOAD MUSICIANS
+async function loadMusicians() {
+  const snap = await getDocs(collection(db, "musicians"));
+  musiciansList.innerHTML = "";
+
+  snap.forEach((docSnap) => {
+    const m = docSnap.data();
+    const id = docSnap.id;
+
+    const div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+      <img src="${m.photoURL || 'default.png'}" style="width:100%;border-radius:8px;margin-bottom:8px;">
+      <h3>${m.name}</h3>
+      <span>${m.instrument}</span>
+      <small>${m.section}</small>
+
+      <button onclick="deleteMusician('${id}')"
+        style="margin-top:10px;background:#b30000;color:white;">
+        Efase
+      </button>
+    `;
+
+    musiciansList.appendChild(div);
+  });
+}
+
+
+// DELETE MUSICIAN
+window.deleteMusician = async function(id) {
+  if (!confirm("Ou vle efase mizisyen sa a?")) return;
+
+  await deleteDoc(doc(db, "musicians", id));
+  loadMusicians();
+};
+
+
+
+// ======================================================
+//  🔥🔥🔥 LEADERS MODULE — BSS1815 OFFICIAL
+// ======================================================
+
+const addLeaderBtn = document.getElementById("addLeaderBtn");
+const leadersList = document.getElementById("leadersList");
+
+addLeaderBtn.addEventListener("click", addLeader);
+
+
+// ADD LEADER
+async function addLeader() {
+  const name = document.getElementById("l-name").value.trim();
+  const role = document.getElementById("l-role").value.trim();
+  const file = document.getElementById("l-photo").files[0];
+
+  if (!name || !role) {
+    alert("Ranpli tout chan yo.");
+    return;
+  }
+
+  let photoURL = "";
+
+  if (file) {
+    const storageRef = ref(storage, "leaders/" + Date.now() + "-" + file.name);
+    await uploadBytes(storageRef, file);
+    photoURL = await getDownloadURL(storageRef);
+  }
+
+  await addDoc(collection(db, "leaders"), {
+    name,
+    role,
+    photoURL
+  });
+
+  alert("Lidè a ajoute!");
+  loadLeaders();
+}
+
+
+// LOAD LEADERS
+async function loadLeaders() {
+  const snap = await getDocs(collection(db, "leaders"));
+  leadersList.innerHTML = "";
+
+  snap.forEach((docSnap) => {
+    const l = docSnap.data();
+    const id = docSnap.id;
+
+    const div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+      <img src="${l.photoURL || 'default.png'}" style="width:100%;border-radius:8px;margin-bottom:8px;">
+      <h3>${l.name}</h3>
+      <span>${l.role}</span>
+
+      <button onclick="deleteLeader('${id}')"
+        style="margin-top:10px;background:#b30000;color:white;">
+        Efase
+      </button>
+    `;
+
+    leadersList.appendChild(div);
+  });
+}
+
+
+// DELETE LEADER
+window.deleteLeader = async function(id) {
+  if (!confirm("Ou vle efase lidè sa a?")) return;
+
+  await deleteDoc(doc(db, "leaders", id));
+  loadLeaders();
+};
