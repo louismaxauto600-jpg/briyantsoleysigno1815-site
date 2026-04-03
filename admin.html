@@ -51,13 +51,6 @@
       color: #b3b3b3;
     }
 
-    .badge-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
     .badge-wrap img {
       width: 100%;
       border-radius: 10px;
@@ -170,19 +163,6 @@
       display: block;
     }
 
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .section p {
-      font-size: 13px;
-      color: #c7c7c7;
-      margin-bottom: 14px;
-    }
-
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -234,51 +214,11 @@
       from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    @media (max-width: 800px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-        border-right: none;
-        border-bottom: 1px solid #2b2b2b;
-      }
-      .badge-wrap {
-        display: none;
-      }
-      .nav {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-      }
-      .nav button {
-        white-space: nowrap;
-      }
-      .logout-btn {
-        margin-top: 0;
-        border-top: none;
-      }
-    }
   </style>
 
-  <!-- FIREBASE SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script>
-    // RANPLASE SA A AK CONFIG BSS1815 OU A
-    const firebaseConfig = {
-      apiKey: "XXXXXXXXXXXX",
-      authDomain: "XXXXXXXXXXXX",
-      projectId: "XXXXXXXXXXXX",
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-  </script>
+  <script type="module" src="admin.js"></script>
 </head>
+
 <body>
 
   <aside class="sidebar">
@@ -289,8 +229,8 @@
       </div>
 
       <div class="badge-wrap">
-        <img id="superAdminBadge" src="super-admin-b.jpeg" alt="SUPER ADMIN BADGE">
-        <img id="adminBadge" src="admin-dash-b.jpeg" alt="ADMIN BADGE">
+        <img id="superAdminBadge" src="super-admin-b.jpeg">
+        <img id="adminBadge" src="admin-dash-b.jpeg">
       </div>
 
       <div class="nav-title">NAVIGASYON</div>
@@ -319,6 +259,7 @@
 
     <section class="content">
 
+      <!-- DASHBOARD -->
       <div class="section active" id="section-dashboard">
         <h2>Dashboard</h2>
         <p>Rezime rapid sou sa k ap pase nan BSS1815.</p>
@@ -329,51 +270,74 @@
             <span>STAFF</span>
             <small id="totalAdmins">—</small>
           </div>
-          <div class="card">
-            <h3>Videos</h3>
-            <span>MEDIA</span>
-            <small>Byento konekte ak koleksyon “videos”.</small>
-          </div>
-          <div class="card">
-            <h3>Musicians</h3>
-            <span>TEAM</span>
-            <small>Byento konekte ak seksyon mizisyen yo.</small>
-          </div>
         </div>
       </div>
 
+      <!-- ADMINS -->
       <div class="section" id="section-admins">
         <h2>Admins</h2>
         <p>Lis tout ADMIN & SUPER ADMIN ki nan BSS1815.</p>
-
         <div class="card-grid" id="adminsList"></div>
       </div>
 
+      <!-- VIDEOS -->
       <div class="section" id="section-videos">
         <h2>Videos</h2>
         <p>Modil pou jere videyo yo ap vini isit la.</p>
       </div>
 
+      <!-- MUSICIANS -->
       <div class="section" id="section-musicians">
         <h2>Musicians</h2>
-        <p>Modil pou jere mizisyen yo ap vini isit la.</p>
+        <p>Jere tout mizisyen BSS1815 yo.</p>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>Ajoute Mizisyen</h3>
+
+          <input id="m-name" type="text" placeholder="Non mizisyen">
+          <input id="m-instrument" type="text" placeholder="Enstriman">
+          <input id="m-section" type="text" placeholder="Seksyon (Trompèt, Bass, Tanbou...)">
+          <input id="m-photo" type="file" accept="image/*">
+
+          <button id="addMusicianBtn">Ajoute</button>
+        </div>
+
+        <h3 style="margin-top: 25px;">Lis Mizisyen yo</h3>
+        <div id="musiciansList" class="card-grid"></div>
       </div>
 
+      <!-- LEADERS -->
       <div class="section" id="section-leaders">
         <h2>Leaders</h2>
-        <p>Modil pou jere lidè yo ap vini isit la.</p>
+        <p>Jere tout lidè BSS1815 yo.</p>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>Ajoute Lidè</h3>
+
+          <input id="l-name" type="text" placeholder="Non lidè a">
+          <input id="l-role" type="text" placeholder="Wòl (Chef seksyon, Asistan, Dirijan...)">
+          <input id="l-photo" type="file" accept="image/*">
+
+          <button id="addLeaderBtn">Ajoute</button>
+        </div>
+
+        <h3 style="margin-top: 25px;">Lis Lidè yo</h3>
+        <div id="leadersList" class="card-grid"></div>
       </div>
 
+      <!-- BANDS -->
       <div class="section" id="section-bands">
         <h2>Bands</h2>
         <p>Modil pou jere band yo ap vini isit la.</p>
       </div>
 
+      <!-- FINANCES -->
       <div class="section" id="section-finances">
         <h2>Finances</h2>
         <p>Modil pou jere finans yo ap vini isit la.</p>
       </div>
 
+      <!-- SETTINGS -->
       <div class="section" id="section-settings">
         <h2>Settings</h2>
         <p>Paramèt jeneral pou BSS1815 ADMIN PANEL.</p>
@@ -381,7 +345,6 @@
         <div class="card">
           <h3>Wòl ou</h3>
           <span id="settingsRole">—</span>
-          <small>Wòl sa a soti dirèk nan Firestore (`users.role`).</small>
         </div>
       </div>
 
@@ -405,91 +368,7 @@
         document.getElementById("section-" + target).classList.add("active");
       });
     });
-
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      firebase.auth().signOut().then(() => {
-        window.location.href = "login.html";
-      });
-    });
-
-    const superAdminBadge = document.getElementById("superAdminBadge");
-    const adminBadge = document.getElementById("adminBadge");
-    const roleChip = document.getElementById("roleChip");
-    const settingsRole = document.getElementById("settingsRole");
-    const adminsList = document.getElementById("adminsList");
-    const totalAdmins = document.getElementById("totalAdmins");
-
-    firebase.auth().onAuthStateChanged(async (user) => {
-      if (!user) {
-        window.location.href = "login.html";
-        return;
-      }
-
-      const doc = await db.collection("users").doc(user.uid).get();
-      if (!doc.exists) {
-        alert("Aksè pa otorize");
-        firebase.auth().signOut();
-        return;
-      }
-
-      const data = doc.data();
-      const role = data.role || "unknown";
-      const name = data.name || user.email || "User";
-
-      if (role === "super_admin") {
-        roleChip.textContent = "SUPER ADMIN — " + name;
-        settingsRole.textContent = "SUPER ADMIN";
-        superAdminBadge.style.display = "block";
-        adminBadge.style.display = "none";
-      } else if (role === "admin") {
-        roleChip.textContent = "ADMIN — " + name;
-        settingsRole.textContent = "ADMIN";
-        adminBadge.style.display = "block";
-        superAdminBadge.style.display = "none";
-      } else {
-        roleChip.textContent = "UNKNOWN ROLE";
-        settingsRole.textContent = "UNKNOWN";
-      }
-
-      loadAdmins();
-    });
-
-    async function loadAdmins() {
-      const snap = await db.collection("users").get();
-      adminsList.innerHTML = "";
-      let count = 0;
-
-      snap.forEach(doc => {
-        const u = doc.data();
-        if (!u.role) return;
-
-        const isAdmin = (u.role === "admin" || u.role === "super_admin");
-        if (!isAdmin) return;
-
-        count++;
-
-        const div = document.createElement("div");
-        div.className = "card";
-
-        const roleLabel = (u.role === "super_admin") ? "SUPER ADMIN" : "ADMIN";
-        const pills = [];
-        if (u.role === "super_admin") pills.push("Full Access");
-        else pills.push("Limited Access");
-
-        div.innerHTML = `
-          <h3>${u.name || "San non"}</h3>
-          <span>${roleLabel}</span>
-          <small>${u.email || ""}</small>
-          <div class="pill-row">
-            ${pills.map(p => `<div class="pill">${p}</div>`).join("")}
-          </div>
-        `;
-
-        adminsList.appendChild(div);
-      });
-
-      totalAdmins.textContent = count + " admin anrejistre";
-    }
   </script>
+
 </body>
 </html>
