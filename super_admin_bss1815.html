@@ -95,6 +95,13 @@ header{
   font-size:24px;
 }
 
+/* GRID FOR TWILIO ALERT CATEGORIES */
+.twilio-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:20px;
+}
+
 </style>
 
 </head>
@@ -105,7 +112,7 @@ header{
 <!-- TAB BAR -->
 <div class="tab-container">
   <div class="tab active" onclick="openTab('admin')">🛡 SUPER ADMIN</div>
-  <div class="tab" onclick="openTab('twilio')">📡 TWILIO ALERTS</div>
+  <div class="tab" onclick="openTab('twilio')">📡 TWILIO GLOBAL ALERT SYSTEM</div>
   <div class="tab" onclick="openTab('finance')">💰 TRANSACTIONS</div>
   <div class="tab" onclick="openTab('admins')">👥 ADMIN MGMT</div>
   <div class="tab" onclick="openTab('security')">🔒 SECURITY LOGS</div>
@@ -113,15 +120,41 @@ header{
   <div class="tab" onclick="openTab('branding')">🎨 BRANDING</div>
 </div>
 
-<!-- SECTIONS -->
+<!-- SUPER ADMIN SECTION -->
 <div id="admin" class="section active">
-  <div class="box"><h2>🛡 Kontwòl Total</h2></div>
+  <div class="box"><h2>🛡 SUPER ADMIN CONTROL PANEL</h2></div>
 </div>
 
+<!-- TWILIO GLOBAL ALERT SYSTEM -->
 <div id="twilio" class="section">
-  <div class="box"><h2>📡 Twilio SMS / WhatsApp Alerts</h2></div>
+  <div class="box"><h2>📡 TWILIO GLOBAL ALERT SYSTEM</h2></div>
+
+  <div class="twilio-grid">
+
+    <div class="box">
+      <h2>💰 Alèt Finans</h2>
+    </div>
+
+    <div class="box">
+      <h2>👥 Alèt Admin</h2>
+    </div>
+
+    <div class="box">
+      <h2>🛡 Alèt Super Admin</h2>
+    </div>
+
+    <div class="box">
+      <h2>🔒 Alèt Sekirite</h2>
+    </div>
+
+    <div class="box">
+      <h2>⚙️ Alèt Operasyon / Custom</h2>
+    </div>
+
+  </div>
 </div>
 
+<!-- OTHER SECTIONS -->
 <div id="finance" class="section">
   <div class="box"><h2>💰 Financial Transactions Monitor</h2></div>
 </div>
