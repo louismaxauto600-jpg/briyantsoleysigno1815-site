@@ -2,361 +2,133 @@
 <html lang="ht">
 <head>
   <meta charset="UTF-8">
-  <title>BSS1815 — ADMIN PANEL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSS1815 — Sit Ofisyèl</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
     body {
-      background: #050505;
-      color: #f7f2ec;
-      display: flex;
-      min-height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #ffb347;
     }
 
-    .sidebar {
-      width: 260px;
-      background: #050505;
-      border-right: 1px solid #2b2b2b;
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    header {
+      text-align: center;
+      padding: 40px 0 20px;
+      background: linear-gradient(to bottom, #000, #1a1a1a);
+      border-bottom: 2px solid #ffb347;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 10px;
+    header img {
+      width: 150px;
+      height: auto;
     }
 
-    .brand-title {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #ff9b3b;
-      text-transform: uppercase;
-    }
-
-    .brand-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #b3b3b3;
-    }
-
-    .badge-wrap img {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #ff9b3b33;
-      display: none;
-    }
-
-    .nav-title {
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #777;
+    h1 {
       margin-top: 10px;
-      margin-bottom: 4px;
-    }
-
-    .nav {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .nav button {
-      width: 100%;
-      text-align: left;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: none;
-      background: transparent;
-      color: #f7f2ec;
-      font-size: 13px;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .nav button:hover {
-      background: #1b1b1b;
-    }
-
-    .nav button.active {
-      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
-      color: #050505;
-      font-weight: 600;
-    }
-
-    .logout-btn {
-      margin-top: auto;
-      padding-top: 10px;
-      border-top: 1px solid #2b2b2b;
-    }
-
-    .logout-btn button {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid #ff3b3b;
-      background: transparent;
-      color: #ff3b3b;
-      font-size: 13px;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .logout-btn button:hover {
-      background: #ff3b3b;
-      color: #050505;
-    }
-
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background: radial-gradient(circle at top left, #ff9b3b11, #050505 55%);
-    }
-
-    .topbar {
-      padding: 14px 22px;
-      border-bottom: 1px solid #2b2b2b;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .top-title {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 1px;
+      font-size: 28px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-    }
-
-    .top-role {
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #ff9b3b;
-      border: 1px solid #ff9b3b55;
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .content {
-      padding: 18px 22px 26px;
-      overflow-y: auto;
+      color: #ffb347;
     }
 
     .section {
-      display: none;
-      animation: fadeIn 0.2s ease-out;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.7;
     }
 
-    .section.active {
-      display: block;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
-    }
-
-    .card {
-      background: #101010;
-      border-radius: 12px;
-      border: 1px solid #2b2b2b;
-      padding: 12px 12px 10px;
-    }
-
-    .card h3 {
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .card span {
-      font-size: 11px;
-      color: #ff9b3b;
+    .section h2 {
+      color: #ffb347;
       text-transform: uppercase;
+      margin-bottom: 10px;
+      border-left: 4px solid #ffb347;
+      padding-left: 10px;
     }
 
-    .card small {
-      font-size: 11px;
-      color: #a0a0a0;
-      display: block;
-      margin-top: 6px;
+    nav {
+      text-align: center;
+      margin-top: 25px;
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
+    nav a {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 18px;
+      border: 1px solid #ffb347;
+      border-radius: 6px;
+      color: #ffb347;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
     }
 
-    .pill {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid #2b2b2b;
-      color: #d0d0d0;
+    nav a:hover {
+      background: #ffb347;
+      color: #000;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #333;
+      color: #777;
+      font-size: 13px;
     }
   </style>
-
-  <script type="module" src="admin.js"></script>
 </head>
 
 <body>
 
-  <aside class="sidebar">
-    <div>
-      <div class="brand">
-        <div class="brand-title">BSS1815</div>
-        <div class="brand-sub">ADMIN PANEL OFISYÈL</div>
-      </div>
+  <!-- HEADER -->
+  <header>
+    <img src="bss-bel-logo.jpeg" alt="BSS1815 Logo">
+    <h1>BRIYANT SOLÈY SIGNO 1815</h1>
+  </header>
 
-      <div class="badge-wrap">
-        <img id="superAdminBadge" src="super-admin-b.jpeg">
-        <img id="adminBadge" src="admin-dash-b.jpeg">
-      </div>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="videos.html">Videyo</a>
+    <a href="teams.html">Ekip</a>
+    <a href="store.html">Boutik</a>
+    <a href="ti-machann.html">Ti Machann</a>
+    <a href="admin.html">Admin Panel</a>
+  </nav>
 
-      <div class="nav-title">NAVIGASYON</div>
-      <div class="nav">
-        <button class="nav-btn active" data-target="dashboard">Dashboard</button>
-        <button class="nav-btn" data-target="admins">Admins</button>
-        <button class="nav-btn" data-target="videos">Videos</button>
-        <button class="nav-btn" data-target="musicians">Musicians</button>
-        <button class="nav-btn" data-target="leaders">Leaders</button>
-        <button class="nav-btn" data-target="bands">Bands</button>
-        <button class="nav-btn" data-target="finances">Finances</button>
-        <button class="nav-btn" data-target="settings">Settings</button>
-      </div>
-    </div>
+  <!-- WHO WE ARE -->
+  <div class="section">
+    <h2>Kiyès Nou Ye</h2>
+    <p>
+      BSS1815 se yon kominote kreyatif ki ini atis, mizisyen, lidè ak inovate.
+      Misyon nou se bati yon espas ki pote disiplin, respè, ak ekselans nan tout sa nou fè.
+    </p>
+  </div>
 
-    <div class="logout-btn">
-      <button id="logoutBtn">Dekonekte</button>
-    </div>
-  </aside>
+  <!-- HISTORY -->
+  <div class="section">
+    <h2>Istwa Nou</h2>
+    <p>
+      Depi fondasyon li, BSS1815 toujou chèche grandi, devlope, epi enspire jenerasyon kap vini yo.
+      Nou se yon ekip ki bati sou travay, pasyon, ak vizyon.
+    </p>
+  </div>
 
-  <main class="main">
-    <header class="topbar">
-      <div class="top-title">BSS1815 — <span id="pageTitle">Dashboard</span></div>
-      <div class="top-role" id="roleChip">...</div>
-    </header>
+  <!-- MISSION -->
+  <div class="section">
+    <h2>Misyon Nou</h2>
+    <p>
+      Misyon BSS1815 se kreye yon enstitisyon solid ki pote limyè, disiplin, ak kreyativite.
+      Nou kwè nan travay byen fèt, nan respè, ak nan inite.
+    </p>
+  </div>
 
-    <section class="content">
-
-      <!-- DASHBOARD -->
-      <div class="section active" id="section-dashboard">
-        <h2>Dashboard</h2>
-        <p>Rezime rapid sou sa k ap pase nan BSS1815.</p>
-
-        <div class="card-grid">
-          <div class="card">
-            <h3>Total Admins</h3>
-            <span>STAFF</span>
-            <small id="totalAdmins">—</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- ADMINS -->
-      <div class="section" id="section-admins">
-        <h2>Admins</h2>
-        <p>Lis tout ADMIN & SUPER ADMIN ki nan BSS1815.</p>
-        <div class="card-grid" id="adminsList"></div>
-      </div>
-
-      <!-- VIDEOS -->
-      <div class="section" id="section-videos">
-        <h2>Videos</h2>
-        <p>Modil pou jere videyo yo ap vini isit la.</p>
-      </div>
-
-      <!-- 🔥🔥🔥 MUSICIANS MODULE ENTÈGRE ISIT LA 🔥🔥🔥 -->
-      <div class="section" id="section-musicians">
-        <h2>Musicians</h2>
-        <p>Jere tout mizisyen BSS1815 yo.</p>
-
-        <div class="card" style="margin-bottom: 20px;">
-          <h3>Ajoute Mizisyen</h3>
-
-          <input id="m-name" type="text" placeholder="Non mizisyen">
-          <input id="m-instrument" type="text" placeholder="Enstriman">
-          <input id="m-section" type="text" placeholder="Seksyon (Trompèt, Bass, Tanbou...)">
-          <input id="m-photo" type="file" accept="image/*">
-
-          <button id="addMusicianBtn">Ajoute</button>
-        </div>
-
-        <h3 style="margin-top: 25px;">Lis Mizisyen yo</h3>
-        <div id="musiciansList" class="card-grid"></div>
-      </div>
-      <!-- 🔥🔥🔥 FIN MUSICIANS MODULE 🔥🔥🔥 -->
-
-      <!-- LEADERS -->
-      <div class="section" id="section-leaders">
-        <h2>Leaders</h2>
-        <p>Modil pou jere lidè yo ap vini isit la.</p>
-      </div>
-
-      <!-- BANDS -->
-      <div class="section" id="section-bands">
-        <h2>Bands</h2>
-        <p>Modil pou jere band yo ap vini isit la.</p>
-      </div>
-
-      <!-- FINANCES -->
-      <div class="section" id="section-finances">
-        <h2>Finances</h2>
-        <p>Modil pou jere finans yo ap vini isit la.</p>
-      </div>
-
-      <!-- SETTINGS -->
-      <div class="section" id="section-settings">
-        <h2>Settings</h2>
-        <p>Paramèt jeneral pou BSS1815 ADMIN PANEL.</p>
-
-        <div class="card">
-          <h3>Wòl ou</h3>
-          <span id="settingsRole">—</span>
-        </div>
-      </div>
-
-    </section>
-  </main>
-
-  <script>
-    const navButtons = document.querySelectorAll(".nav-btn");
-    const sections = document.querySelectorAll(".section");
-    const pageTitle = document.getElementById("pageTitle");
-
-    navButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        navButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        const target = btn.getAttribute("data-target");
-        pageTitle.textContent = target.charAt(0).toUpperCase() + target.slice(1);
-
-        sections.forEach(sec => sec.classList.remove("active"));
-        document.getElementById("section-" + target).classList.add("active");
-      });
-    });
-  </script>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 BSS1815 — Tout dwa rezève.
+  </footer>
 
 </body>
 </html>
