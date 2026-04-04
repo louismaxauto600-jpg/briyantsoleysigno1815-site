@@ -1,4 +1,31 @@
+/* HEADER BSS1815 */
 .bss-header {
+  width: 100%;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #000000, #ff9b3b, #000000);
+  border-bottom: 2px solid #ff9b3b;
+}
+
+/* LOGO GAUCHE + KOUKOU DWAT */
+.bss-left-logo,
+.bss-right-koukou {
+  width: 120px;
+  height: auto;
+}
+
+/* TIT NAN MITAN */
+.bss-title {
+  flex: 1;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 900;
+  color: #ff9b3b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}.bss-header {
   width: 100%;
   padding: 12px 18px;
   display: flex;
