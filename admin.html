@@ -20,6 +20,7 @@
       min-height: 100vh;
     }
 
+    /* SIDEBAR */
     .sidebar {
       width: 260px;
       background: #050505;
@@ -118,6 +119,7 @@
       color: #050505;
     }
 
+    /* MAIN AREA */
     .main {
       flex: 1;
       display: flex;
@@ -154,6 +156,7 @@
       overflow-y: auto;
     }
 
+    /* SECTIONS */
     .section {
       display: none;
       animation: fadeIn 0.2s ease-out;
@@ -163,6 +166,7 @@
       display: block;
     }
 
+    /* CARDS */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -221,6 +225,7 @@
 
 <body>
 
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div>
       <div class="brand">
@@ -234,6 +239,7 @@
       </div>
 
       <div class="nav-title">NAVIGASYON</div>
+
       <div class="nav">
         <button class="nav-btn active" data-target="dashboard">Dashboard</button>
         <button class="nav-btn" data-target="admins">Admins</button>
@@ -251,7 +257,9 @@
     </div>
   </aside>
 
+  <!-- MAIN -->
   <main class="main">
+
     <header class="topbar">
       <div class="top-title">BSS1815 — <span id="pageTitle">Dashboard</span></div>
       <div class="top-role" id="roleChip">...</div>
@@ -351,6 +359,7 @@
     </section>
   </main>
 
+  <!-- SCRIPT -->
   <script>
     const navButtons = document.querySelectorAll(".nav-btn");
     const sections = document.querySelectorAll(".section");
