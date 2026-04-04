@@ -30,6 +30,38 @@
   background:#ff7a00;
   color:#000;
   box-shadow:0 0 25px #ff7a00;
+}/* SUPER ADMIN — VISUAL BOOST */
+.super-btn{
+  background:#000;
+  border:3px solid #ff7a00;
+  color:#ff7a00;
+  padding:25px;
+  font-size:22px;
+  font-weight:900;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 0 20px #ff7a00, inset 0 0 10px #ff7a00;
+  transition:0.25s ease-in-out;
+  letter-spacing:1px;
+}
+
+/* HOVER — ELECTRIC EFFECT */
+.super-btn:hover{
+  background:#ff7a00;
+  color:#000;
+  box-shadow:0 0 35px #ff7a00, inset 0 0 15px #000;
+  transform:scale(1.05);
+}
+
+/* PULSE ANIMATION */
+@keyframes pulseGlow {
+  0% { box-shadow:0 0 15px #ff7a00; }
+  50% { box-shadow:0 0 30px #ff7a00; }
+  100% { box-shadow:0 0 15px #ff7a00; }
+}
+
+.super-btn{
+  animation:pulseGlow 2s infinite;
 }
 <style>
 
