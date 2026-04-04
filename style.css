@@ -1,6 +1,6 @@
 /* ============================================================
    BSS1815 — STYLE.CSS FINAL (ABRIKO & NWA)
-   Konsepsyon pwofesyonèl pou tout paj sit la
+   Vèsyon konplè, pwofesyonèl, PRO MAX
 ============================================================ */
 
 /* ------------------------------
@@ -75,12 +75,13 @@ nav a {
   color: var(--bss-apricot);
   text-decoration: none;
   font-size: 14px;
-  transition: 0.2s;
+  transition: 0.25s ease;
 }
 
 nav a:hover {
   background: var(--bss-apricot);
   color: #000;
+  transform: scale(1.08);
 }
 
 /* ------------------------------
@@ -107,7 +108,7 @@ nav a:hover {
 }
 
 /* ------------------------------
-   CARD SYSTEM (Pou videos, teams, store, elatriye)
+   CARD SYSTEM
 ------------------------------ */
 .card-grid {
   display: grid;
@@ -121,12 +122,12 @@ nav a:hover {
   border: 1px solid #2b2b2b;
   border-radius: 12px;
   padding: 15px;
-  transition: 0.2s;
+  transition: 0.25s ease;
 }
 
 .card:hover {
+  transform: translateY(-6px) scale(1.02);
   border-color: var(--bss-apricot);
-  transform: translateY(-3px);
 }
 
 .card img {
@@ -157,12 +158,13 @@ nav a:hover {
   background: transparent;
   text-decoration: none;
   font-size: 14px;
-  transition: 0.2s;
+  transition: 0.25s ease;
 }
 
 .btn:hover {
   background: var(--bss-apricot);
   color: #000;
+  transform: scale(1.08);
 }
 
 /* ------------------------------
@@ -194,6 +196,43 @@ footer {
   border-top: 1px solid #333;
   color: #777;
   font-size: 13px;
+}
+
+/* ------------------------------
+   ANIMASYON HD PRO MAX
+------------------------------ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInMove 0.8s ease-out forwards;
+}
+
+@keyframes fadeInMove {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glow-title {
+  text-shadow: 0 0 8px #ffb347, 0 0 14px #ff9b3b;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 6px #ffb347; }
+  50% { text-shadow: 0 0 18px #ff9b3b; }
+  100% { text-shadow: 0 0 6px #ffb347; }
+}
+
+.logo-breathe {
+  animation: breathe 4s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.95; }
 }
 
 /* ------------------------------
