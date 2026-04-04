@@ -1,365 +1,188 @@
-// admin.js — BSS1815 OFFICIAL ADMIN PANEL ENGINE (FINAL 100%)
-// Firebase Modular SDK v10
+/* ============================================================
+   BSS1815 — ADMIN.JS (LOCAL MODE, OFFICIAL VERSION)
+   Fully compatible with your admin.html
+============================================================ */
 
-import { auth, db, storage } from "./firebase.js";
+/* ------------------------------
+   INITIAL DATA STRUCTURE
+------------------------------ */
+if (!localStorage.getItem("bss-admins")) {
+  localStorage.setItem("bss-admins", JSON.stringify([
+    { name: "Super Admin", role: "SUPER ADMIN" }
+  ]));
+}
 
-import {
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+if (!localStorage.getItem("bss-musicians")) {
+  localStorage.setItem("bss-musicians", JSON.stringify([]));
+}
 
-import {
-  collection,
-  getDocs,
-  doc,
-  getDoc,
-  addDoc,
-  deleteDoc
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+if (!localStorage.getItem("bss-leaders")) {
+  localStorage.setItem("bss-leaders", JSON.stringify([]));
+}
 
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
-
-// -------------------------------
-//  DOM ELEMENTS
-// -------------------------------
-const superAdminBadge = document.getElementById("superAdminBadge");
-const adminBadge = document.getElementById("adminBadge");
+/* ------------------------------
+   ROLE & BADGE HANDLING
+------------------------------ */
 const roleChip = document.getElementById("roleChip");
 const settingsRole = document.getElementById("settingsRole");
-const adminsList = document.getElementById("adminsList");
+const superBadge = document.getElementById("superAdminBadge");
+const adminBadge = document.getElementById("adminBadge");
+
+/* Default role (you can change this manually) */
+let currentRole = "SUPER ADMIN"; 
+roleChip.textContent = currentRole;
+settingsRole.textContent = currentRole;
+
+if (currentRole === "SUPER ADMIN") {
+  superBadge.style.display = "block";
+  adminBadge.style.display = "none";
+} else {
+  superBadge.style.display = "none";
+  adminBadge.style.display = "block";
+}
+
+/* ------------------------------
+   DASHBOARD COUNTERS
+------------------------------ */
 const totalAdmins = document.getElementById("totalAdmins");
 
-// Musicians
-const addMusicianBtn = document.getElementById("addMusicianBtn");
-const musiciansList = document.getElementById("musiciansList");
+function loadDashboard() {
+  const admins = JSON.parse(localStorage.getItem("bss-admins"));
+  totalAdmins.textContent = admins.length;
+}
 
-// Leaders
-const addLeaderBtn = document.getElementById("addLeaderBtn");
-const leadersList = document.getElementById("leadersList");
+loadDashboard();
 
-// Bands
-const addBandBtn = document.getElementById("addBandBtn");
-const bandsList = document.getElementById("bandsList");
+/* ------------------------------
+   LOAD ADMINS LIST
+------------------------------ */
+const adminsList = document.getElementById("adminsList");
 
-
-// -------------------------------
-//  AUTH STATE LISTENER
-// -------------------------------
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
-
-  const userRef = doc(db, "users", user.uid);
-  const snap = await getDoc(userRef);
-
-  if (!snap.exists()) {
-    alert("Aksè pa otorize.");
-    await signOut(auth);
-    return;
-  }
-
-  const data = snap.data();
-  const role = data.role || "unknown";
-  const name = data.name || user.email || "User";
-
-  // ROLE DISPLAY + BADGES
-  if (role === "super_admin") {
-    roleChip.textContent = "SUPER ADMIN — " + name;
-    settingsRole.textContent = "SUPER ADMIN";
-    superAdminBadge.style.display = "block";
-    adminBadge.style.display = "none";
-  } else if (role === "admin") {
-    roleChip.textContent = "ADMIN — " + name;
-    settingsRole.textContent = "ADMIN";
-    adminBadge.style.display = "block";
-    superAdminBadge.style.display = "none";
-  } else {
-    roleChip.textContent = "UNKNOWN ROLE";
-    settingsRole.textContent = "UNKNOWN";
-  }
-
-  // Load all modules
-  loadAdmins();
-  loadMusicians();
-  loadLeaders();
-  loadBands();
-});
-
-
-// -------------------------------
-//  LOGOUT
-// -------------------------------
-document.getElementById("logoutBtn").addEventListener("click", async () => {
-  await signOut(auth);
-  window.location.href = "login.html";
-});
-
-
-// ======================================================
-//  ADMINS MODULE
-// ======================================================
-async function loadAdmins() {
-  const colRef = collection(db, "users");
-  const snap = await getDocs(colRef);
-
+function loadAdmins() {
+  const admins = JSON.parse(localStorage.getItem("bss-admins"));
   adminsList.innerHTML = "";
-  let count = 0;
 
-  snap.forEach((docSnap) => {
-    const u = docSnap.data();
-    if (!u.role) return;
-
-    const isAdmin = (u.role === "admin" || u.role === "super_admin");
-    if (!isAdmin) return;
-
-    count++;
-
-    const div = document.createElement("div");
-    div.className = "card";
-
-    const roleLabel = (u.role === "super_admin") ? "SUPER ADMIN" : "ADMIN";
-    const pills = [];
-
-    if (u.role === "super_admin") pills.push("Full Access");
-    else pills.push("Limited Access");
-
-    div.innerHTML = `
-      <h3>${u.name || "San non"}</h3>
-      <span>${roleLabel}</span>
-      <small>${u.email || ""}</small>
-      <div class="pill-row">
-        ${pills.map(p => `<div class="pill">${p}</div>`).join("")}
-      </div>
+  admins.forEach(admin => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${admin.name}</h3>
+      <span>${admin.role}</span>
     `;
-
-    adminsList.appendChild(div);
+    adminsList.appendChild(card);
   });
-
-  totalAdmins.textContent = count + " admin anrejistre";
 }
 
+loadAdmins();
 
+/* ------------------------------
+   MUSICIANS MODULE
+------------------------------ */
+const musiciansList = document.getElementById("musiciansList");
+const addMusicianBtn = document.getElementById("addMusicianBtn");
 
-// ======================================================
-//  MUSICIANS MODULE — BSS1815 OFFICIAL
-// ======================================================
-if (addMusicianBtn) {
-  addMusicianBtn.addEventListener("click", addMusician);
-}
-
-async function addMusician() {
+addMusicianBtn.addEventListener("click", () => {
   const name = document.getElementById("m-name").value.trim();
   const instrument = document.getElementById("m-instrument").value.trim();
   const section = document.getElementById("m-section").value.trim();
-  const file = document.getElementById("m-photo").files[0];
+  const photo = document.getElementById("m-photo").files[0];
 
   if (!name || !instrument || !section) {
     alert("Ranpli tout chan yo.");
     return;
   }
 
-  let photoURL = "";
+  const musicians = JSON.parse(localStorage.getItem("bss-musicians"));
 
-  if (file) {
-    const storageRef = ref(storage, "musicians/" + Date.now() + "-" + file.name);
-    await uploadBytes(storageRef, file);
-    photoURL = await getDownloadURL(storageRef);
-  }
-
-  await addDoc(collection(db, "musicians"), {
+  musicians.push({
     name,
     instrument,
     section,
-    photoURL
+    photoName: photo ? photo.name : null
   });
 
-  alert("Mizisyen an ajoute!");
+  localStorage.setItem("bss-musicians", JSON.stringify(musicians));
+
+  document.getElementById("m-name").value = "";
+  document.getElementById("m-instrument").value = "";
+  document.getElementById("m-section").value = "";
+  document.getElementById("m-photo").value = "";
+
   loadMusicians();
-}
+});
 
-async function loadMusicians() {
-  if (!musiciansList) return;
-
-  const snap = await getDocs(collection(db, "musicians"));
+function loadMusicians() {
+  const musicians = JSON.parse(localStorage.getItem("bss-musicians"));
   musiciansList.innerHTML = "";
 
-  snap.forEach((docSnap) => {
-    const m = docSnap.data();
-    const id = docSnap.id;
-
-    const div = document.createElement("div");
-    div.className = "card";
-
-    div.innerHTML = `
-      <img src="${m.photoURL || 'default.png'}" style="width:100%;border-radius:8px;margin-bottom:8px;">
+  musicians.forEach(m => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
       <h3>${m.name}</h3>
       <span>${m.instrument}</span>
       <small>${m.section}</small>
-
-      <button onclick="deleteMusician('${id}')"
-        style="margin-top:10px;background:#b30000;color:white;">
-        Efase
-      </button>
     `;
-
-    musiciansList.appendChild(div);
+    musiciansList.appendChild(card);
   });
 }
 
-window.deleteMusician = async function(id) {
-  if (!confirm("Ou vle efase mizisyen sa a?")) return;
+loadMusicians();
 
-  await deleteDoc(doc(db, "musicians", id));
-  loadMusicians();
-};
+/* ------------------------------
+   LEADERS MODULE
+------------------------------ */
+const leadersList = document.getElementById("leadersList");
+const addLeaderBtn = document.getElementById("addLeaderBtn");
 
-
-
-// ======================================================
-//  LEADERS MODULE — BSS1815 OFFICIAL
-// ======================================================
-if (addLeaderBtn) {
-  addLeaderBtn.addEventListener("click", addLeader);
-}
-
-async function addLeader() {
+addLeaderBtn.addEventListener("click", () => {
   const name = document.getElementById("l-name").value.trim();
   const role = document.getElementById("l-role").value.trim();
-  const file = document.getElementById("l-photo").files[0];
+  const photo = document.getElementById("l-photo").files[0];
 
   if (!name || !role) {
     alert("Ranpli tout chan yo.");
     return;
   }
 
-  let photoURL = "";
+  const leaders = JSON.parse(localStorage.getItem("bss-leaders"));
 
-  if (file) {
-    const storageRef = ref(storage, "leaders/" + Date.now() + "-" + file.name);
-    await uploadBytes(storageRef, file);
-    photoURL = await getDownloadURL(storageRef);
-  }
-
-  await addDoc(collection(db, "leaders"), {
+  leaders.push({
     name,
     role,
-    photoURL
+    photoName: photo ? photo.name : null
   });
 
-  alert("Lidè a ajoute!");
+  localStorage.setItem("bss-leaders", JSON.stringify(leaders));
+
+  document.getElementById("l-name").value = "";
+  document.getElementById("l-role").value = "";
+  document.getElementById("l-photo").value = "";
+
   loadLeaders();
-}
+});
 
-async function loadLeaders() {
-  if (!leadersList) return;
-
-  const snap = await getDocs(collection(db, "leaders"));
+function loadLeaders() {
+  const leaders = JSON.parse(localStorage.getItem("bss-leaders"));
   leadersList.innerHTML = "";
 
-  snap.forEach((docSnap) => {
-    const l = docSnap.data();
-    const id = docSnap.id;
-
-    const div = document.createElement("div");
-    div.className = "card";
-
-    div.innerHTML = `
-      <img src="${l.photoURL || 'default.png'}" style="width:100%;border-radius:8px;margin-bottom:8px;">
+  leaders.forEach(l => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
       <h3>${l.name}</h3>
       <span>${l.role}</span>
-
-      <button onclick="deleteLeader('${id}')"
-        style="margin-top:10px;background:#b30000;color:white;">
-        Efase
-      </button>
     `;
-
-    leadersList.appendChild(div);
+    leadersList.appendChild(card);
   });
 }
 
-window.deleteLeader = async function(id) {
-  if (!confirm("Ou vle efase lidè sa a?")) return;
+loadLeaders();
 
-  await deleteDoc(doc(db, "leaders", id));
-  loadLeaders();
-};
-
-
-
-// ======================================================
-//  BANDS MODULE — BSS1815 OFFICIAL
-// ======================================================
-if (addBandBtn) {
-  addBandBtn.addEventListener("click", addBand);
-}
-
-async function addBand() {
-  const name = document.getElementById("b-name").value.trim();
-  const description = document.getElementById("b-description").value.trim();
-  const file = document.getElementById("b-photo").files[0];
-
-  if (!name || !description) {
-    alert("Ranpli tout chan yo.");
-    return;
-  }
-
-  let photoURL = "";
-
-  if (file) {
-    const storageRef = ref(storage, "bands/" + Date.now() + "-" + file.name);
-    await uploadBytes(storageRef, file);
-    photoURL = await getDownloadURL(storageRef);
-  }
-
-  await addDoc(collection(db, "bands"), {
-    name,
-    description,
-    photoURL
-  });
-
-  alert("Band lan ajoute!");
-  loadBands();
-}
-
-async function loadBands() {
-  if (!bandsList) return;
-
-  const snap = await getDocs(collection(db, "bands"));
-  bandsList.innerHTML = "";
-
-  snap.forEach((docSnap) => {
-    const b = docSnap.data();
-    const id = docSnap.id;
-
-    const div = document.createElement("div");
-    div.className = "card";
-
-    div.innerHTML = `
-      <img src="${b.photoURL || 'default.png'}" style="width:100%;border-radius:8px;margin-bottom:8px;">
-      <h3>${b.name}</h3>
-      <span>${b.description}</span>
-
-      <button onclick="deleteBand('${id}')"
-        style="margin-top:10px;background:#b30000;color:white;">
-        Efase
-      </button>
-    `;
-
-    bandsList.appendChild(div);
-  });
-}
-
-window.deleteBand = async function(id) {
-  if (!confirm("Ou vle efase band sa a?")) return;
-
-  await deleteDoc(doc(db, "bands", id));
-  loadBands();
-};
+/* ------------------------------
+   LOGOUT
+------------------------------ */
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  alert("Ou dekonekte.");
+  window.location.href = "index.html";
+});
