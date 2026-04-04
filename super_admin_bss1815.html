@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BSS1815 SUPER ADMIN DASHBOARD</title>
+
+<style>
+
+/* GLOBAL RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+/* BACKGROUND ORANGE → BLACK FADE */
+body{
+  background: linear-gradient(180deg, #ff7a00 0%, #000000 100%);
+  height:100vh;
+  color:#ff7a00;
+  overflow:hidden;
+}
+
+/* HEADER */
+header{
+  width:100%;
+  padding:20px;
+  text-align:center;
+  font-size:32px;
+  font-weight:900;
+  color:#ff7a00;
+  text-shadow:0 0 10px #ff7a00;
+  background:rgba(0,0,0,0.4);
+  border-bottom:2px solid #ff7a00;
+}
+
+/* TAB BAR */
+.tab-container{
+  display:flex;
+  justify-content:space-around;
+  background:rgba(0,0,0,0.6);
+  padding:10px;
+  border-bottom:2px solid #ff7a00;
+}
+
+.tab{
+  padding:12px 20px;
+  color:#ff7a00;
+  border:1px solid #ff7a00;
+  background:rgba(0,0,0,0.5);
+  cursor:pointer;
+  font-weight:700;
+  border-radius:6px;
+  transition:0.2s;
+}
+
+.tab:hover{
+  background:#000;
+  box-shadow:0 0 10px #ff7a00;
+}
+
+.tab.active{
+  background:#000;
+  color:#ff7a00;
+  box-shadow:0 0 15px #ff7a00;
+}
+
+/* CONTENT SECTIONS */
+.section{
+  display:none;
+  padding:25px;
+  height:calc(100vh - 150px);
+  overflow-y:auto;
+}
+
+.section.active{
+  display:block;
+}
+
+/* SECTION BOXES */
+.box{
+  background:rgba(0,0,0,0.65);
+  border:2px solid #ff7a00;
+  padding:20px;
+  margin-bottom:20px;
+  border-radius:8px;
+  box-shadow:0 0 15px #ff7a00;
+}
+
+.box h2{
+  color:#ff7a00;
+  margin-bottom:10px;
+  font-size:24px;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>BSS1815 • SUPER ADMIN DASHBOARD</header>
+
+<!-- TAB BAR -->
+<div class="tab-container">
+  <div class="tab active" onclick="openTab('admin')">🛡 SUPER ADMIN</div>
+  <div class="tab" onclick="openTab('twilio')">📡 TWILIO ALERTS</div>
+  <div class="tab" onclick="openTab('finance')">💰 TRANSACTIONS</div>
+  <div class="tab" onclick="openTab('admins')">👥 ADMIN MGMT</div>
+  <div class="tab" onclick="openTab('security')">🔒 SECURITY LOGS</div>
+  <div class="tab" onclick="openTab('upload')">⬆️ UPLOAD CENTER</div>
+  <div class="tab" onclick="openTab('branding')">🎨 BRANDING</div>
+</div>
+
+<!-- SECTIONS -->
+<div id="admin" class="section active">
+  <div class="box"><h2>🛡 Kontwòl Total</h2></div>
+</div>
+
+<div id="twilio" class="section">
+  <div class="box"><h2>📡 Twilio SMS / WhatsApp Alerts</h2></div>
+</div>
+
+<div id="finance" class="section">
+  <div class="box"><h2>💰 Financial Transactions Monitor</h2></div>
+</div>
+
+<div id="admins" class="section">
+  <div class="box"><h2>👥 Admin Management</h2></div>
+</div>
+
+<div id="security" class="section">
+  <div class="box"><h2>🔒 Security Logs</h2></div>
+</div>
+
+<div id="upload" class="section">
+  <div class="box"><h2>⬆️ Upload Center</h2></div>
+</div>
+
+<div id="branding" class="section">
+  <div class="box"><h2>🎨 BSS1815 Branding Panel</h2></div>
+</div>
+
+<script>
+function openTab(tabName){
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+
+  event.target.classList.add('active');
+  document.getElementById(tabName).classList.add('active');
+}
+</script>
+
+</body>
+</html>
