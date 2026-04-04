@@ -1,11 +1,5 @@
-/* ============================================================
-   BSS1815 — ADMIN.JS (LOCAL MODE, OFFICIAL VERSION)
-   Fully compatible with your admin.html
-============================================================ */
+/* BSS1815 — ADMIN.JS (LOCAL MODE) */
 
-/* ------------------------------
-   INITIAL DATA STRUCTURE
------------------------------- */
 if (!localStorage.getItem("bss-admins")) {
   localStorage.setItem("bss-admins", JSON.stringify([
     { name: "Super Admin", role: "SUPER ADMIN" }
@@ -20,16 +14,12 @@ if (!localStorage.getItem("bss-leaders")) {
   localStorage.setItem("bss-leaders", JSON.stringify([]));
 }
 
-/* ------------------------------
-   ROLE & BADGE HANDLING
------------------------------- */
 const roleChip = document.getElementById("roleChip");
 const settingsRole = document.getElementById("settingsRole");
 const superBadge = document.getElementById("superAdminBadge");
 const adminBadge = document.getElementById("adminBadge");
 
-/* Default role (you can change this manually) */
-let currentRole = "SUPER ADMIN"; 
+let currentRole = "SUPER ADMIN";
 roleChip.textContent = currentRole;
 settingsRole.textContent = currentRole;
 
@@ -41,27 +31,19 @@ if (currentRole === "SUPER ADMIN") {
   adminBadge.style.display = "block";
 }
 
-/* ------------------------------
-   DASHBOARD COUNTERS
------------------------------- */
 const totalAdmins = document.getElementById("totalAdmins");
 
 function loadDashboard() {
   const admins = JSON.parse(localStorage.getItem("bss-admins"));
   totalAdmins.textContent = admins.length;
 }
-
 loadDashboard();
 
-/* ------------------------------
-   LOAD ADMINS LIST
------------------------------- */
 const adminsList = document.getElementById("adminsList");
 
 function loadAdmins() {
   const admins = JSON.parse(localStorage.getItem("bss-admins"));
   adminsList.innerHTML = "";
-
   admins.forEach(admin => {
     const card = document.createElement("div");
     card.className = "card";
@@ -72,12 +54,8 @@ function loadAdmins() {
     adminsList.appendChild(card);
   });
 }
-
 loadAdmins();
 
-/* ------------------------------
-   MUSICIANS MODULE
------------------------------- */
 const musiciansList = document.getElementById("musiciansList");
 const addMusicianBtn = document.getElementById("addMusicianBtn");
 
@@ -93,14 +71,12 @@ addMusicianBtn.addEventListener("click", () => {
   }
 
   const musicians = JSON.parse(localStorage.getItem("bss-musicians"));
-
   musicians.push({
     name,
     instrument,
     section,
     photoName: photo ? photo.name : null
   });
-
   localStorage.setItem("bss-musicians", JSON.stringify(musicians));
 
   document.getElementById("m-name").value = "";
@@ -114,7 +90,6 @@ addMusicianBtn.addEventListener("click", () => {
 function loadMusicians() {
   const musicians = JSON.parse(localStorage.getItem("bss-musicians"));
   musiciansList.innerHTML = "";
-
   musicians.forEach(m => {
     const card = document.createElement("div");
     card.className = "card";
@@ -126,12 +101,8 @@ function loadMusicians() {
     musiciansList.appendChild(card);
   });
 }
-
 loadMusicians();
 
-/* ------------------------------
-   LEADERS MODULE
------------------------------- */
 const leadersList = document.getElementById("leadersList");
 const addLeaderBtn = document.getElementById("addLeaderBtn");
 
@@ -146,13 +117,11 @@ addLeaderBtn.addEventListener("click", () => {
   }
 
   const leaders = JSON.parse(localStorage.getItem("bss-leaders"));
-
   leaders.push({
     name,
     role,
     photoName: photo ? photo.name : null
   });
-
   localStorage.setItem("bss-leaders", JSON.stringify(leaders));
 
   document.getElementById("l-name").value = "";
@@ -165,7 +134,6 @@ addLeaderBtn.addEventListener("click", () => {
 function loadLeaders() {
   const leaders = JSON.parse(localStorage.getItem("bss-leaders"));
   leadersList.innerHTML = "";
-
   leaders.forEach(l => {
     const card = document.createElement("div");
     card.className = "card";
@@ -176,12 +144,8 @@ function loadLeaders() {
     leadersList.appendChild(card);
   });
 }
-
 loadLeaders();
 
-/* ------------------------------
-   LOGOUT
------------------------------- */
 document.getElementById("logoutBtn").addEventListener("click", () => {
   alert("Ou dekonekte.");
   window.location.href = "index.html";
