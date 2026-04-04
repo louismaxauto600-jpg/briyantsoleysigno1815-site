@@ -11,42 +11,34 @@
       padding: 0;
       box-sizing: border-box;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    <header class="bss-header">
-  <img src="nouvo-logo-bss-3.jpeg" class="bss-logo" alt="BSS1815 Logo">
-  <img src="koukou4.jpeg" class="bss-koukou" alt="Koukou BSS1815">
-</header>}
-<html>
-<head>...</head>
-</head>
-<header class="bss-header">
-  <img src="nouvo-logo-bss-3.jpeg" class="bss-logo" alt="BSS1815 Logo">
-  <img src="koukou4.jpeg" class="bss-koukou" alt="Koukou BSS1815">
-</header>
-<header class="bss-header">
-  <img src="nouvo-logo-bss-3.jpeg" class="bss-logo">
-  <img src="koukou4.jpeg" class="bss-koukou">
-</header>
+    }
 
-<aside class="sidebar">
-<header class="bss-header">
-  <img src="nouvo-logo-bss-3.jpeg" class="bss-logo">
-  <img src="koukou4.jpeg" class="bss-koukou">
-</header>
-</head>
-<body>
-
-<header class="bss-header">
-  <img src="nouvo-logo-bss-3.jpeg" class="bss-logo">
-  <img src="koukou4.jpeg" class="bss-koukou">
-</header>
-
-<aside class="sidebar">
-<div class="wrapper">
     body {
       background: #050505;
       color: #f7f2ec;
       display: flex;
       min-height: 100vh;
+    }
+
+    /* HEADER BSS1815 */
+    .bss-header {
+      width: 100%;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to right, #000000, #1a1a1a);
+      border-bottom: 2px solid #ff9b3b;
+    }
+
+    .bss-logo {
+      width: 120px;
+      height: auto;
+    }
+
+    .bss-koukou {
+      width: 120px;
+      height: auto;
     }
 
     /* SIDEBAR */
@@ -228,21 +220,6 @@
       margin-top: 6px;
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid #2b2b2b;
-      color: #d0d0d0;
-    }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
@@ -253,6 +230,12 @@
 </head>
 
 <body>
+
+  <!-- HEADER OFISYÈL BSS1815 -->
+  <header class="bss-header">
+    <img src="nouvo-logo-bss-3.jpeg" class="bss-logo" alt="BSS1815 Logo">
+    <img src="koukou4.jpeg" class="bss-koukou" alt="Koukou BSS1815">
+  </header>
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
@@ -388,7 +371,7 @@
     </section>
   </main>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT NAV -->
   <script>
     const navButtons = document.querySelectorAll(".nav-btn");
     const sections = document.querySelectorAll(".section");
