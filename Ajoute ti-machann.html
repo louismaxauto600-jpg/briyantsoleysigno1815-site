@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajoute Ti Machann – BSS1815</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffa64d, #000);
+      font-family: Arial, sans-serif;
+      color: #ffa64d;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .form-container {
+      width: 90%;
+      max-width: 500px;
+      margin: 30px auto;
+      background: #000;
+      padding: 25px;
+      border-radius: 10px;
+      border: 2px solid #ffa64d;
+      text-align: left;
+    }
+
+    label {
+      font-size: 18px;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 2px solid #ffa64d;
+      background: #111;
+      color: #ffa64d;
+      font-size: 16px;
+    }
+
+    .id-section {
+      margin-top: 25px;
+      padding: 15px;
+      border: 2px dashed #ffa64d;
+      border-radius: 8px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 25px;
+      background: #ffa64d;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ffb76b;
+    }
+
+    #cameraPreview {
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 8px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Ajoute Ti Machann</h1>
+
+  <div class="form-container">
+
+    <!-- SEKSYON 1 — ENFÒMASYON MACHANN -->
+    <label>Non Ti Machann</label>
+    <input type="text" id="name">
+
+    <label>Telefòn</label>
+    <input type="text" id="phone">
+
+    <label>Tip Machann</label>
+    <select id="type">
+      <option>Manje</option>
+      <option>Bwason</option>
+      <option>Atik</option>
+      <option>Lòt</option>
+    </select>
+
+    <label>Montan pou Ane a</label>
+    <input type="number" id="amount">
+
+    <label>Jou Prezans</label>
+    <input type="text" id="days">
+
+    <label>Nòt (Opsyonèl)</label>
+    <textarea id="notes"></textarea>
+
+
+    <!-- SEKSYON 2 — ID MACHANN -->
+    <div class="id-section">
+      <h3>ID Machann</h3>
+
+      <label>Si li gen ID, antre li:</label>
+      <input type="text" id="manualID" placeholder="Antre ID si li genyen">
+
+      <button class="btn" onclick="openCamera()">Pran Foto Kòm ID</button>
+
+      <video id="cameraPreview" autoplay></video>
+    </div>
+
+
+    <!-- BOUTON FINAL -->
+    <button class="btn">Sove Ti Machann</button>
+
+  </div>
+
+  <script>
+    function openCamera() {
+      const preview = document.getElementById("cameraPreview");
+      preview.style.display = "block";
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          preview.srcObject = stream;
+        })
+        .catch(err => {
+          alert("Kamera pa disponib");
+        });
+    }
+  </script>
+
+</body>
+</html>
