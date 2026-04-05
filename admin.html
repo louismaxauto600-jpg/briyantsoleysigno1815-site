@@ -1,395 +1,220 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BSS1815 — ADMIN PANEL</title>
+  <title>BSS1815 • ADMIN PANEL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
 
-    body {
-      background: #050505;
-      color: #f7f2ec;
-      display: flex;
-      min-height: 100vh;
+    body{
+      background:#000;
+      color:#ff7a00;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:20px;
     }
 
-    /* HEADER BSS1815 */
-    .bss-header {
-      width: 100%;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(to right, #000000, #1a1a1a);
-      border-bottom: 2px solid #ff9b3b;
+    .header{
+      width:100%;
+      max-width:1100px;
+      padding:15px;
+      border:2px solid #ff7a00;
+      border-radius:12px;
+      background:rgba(0,0,0,0.85);
+      box-shadow:0 0 25px #ff7a00;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
     }
 
-    .bss-logo {
-      width: 120px;
-      height: auto;
+    .logo{
+      font-size:22px;
+      font-weight:900;
+      background:linear-gradient(135deg,#ff7a00,#000);
+      padding:12px 18px;
+      border-radius:10px;
+      box-shadow:0 0 20px #ff7a00;
     }
 
-    .bss-koukou {
-      width: 120px;
-      height: auto;
+    .role{
+      padding:6px 12px;
+      border-radius:999px;
+      border:2px solid #ff7a00;
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      box-shadow:0 0 15px #ff7a00;
     }
 
-    /* SIDEBAR */
-    .sidebar {
-      width: 260px;
-      background: #050505;
-      border-right: 1px solid #2b2b2b;
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 10px;
+    @media(max-width:900px){
+      .container{
+        grid-template-columns:1fr;
+      }
     }
 
-    .brand-title {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #ff9b3b;
-      text-transform: uppercase;
+    .section{
+      background:rgba(0,0,0,0.85);
+      border:2px solid #ff7a00;
+      border-radius:12px;
+      padding:16px;
+      box-shadow:0 0 25px #ff7a00;
     }
 
-    .brand-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #b3b3b3;
+    .section h2{
+      font-size:20px;
+      margin-bottom:12px;
+      text-shadow:0 0 10px #ff7a00;
     }
 
-    .badge-wrap img {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #ff9b3b33;
-      display: none;
+    .btn{
+      border:none;
+      cursor:pointer;
+      font-weight:800;
+      text-transform:uppercase;
+      border-radius:8px;
+      padding:10px 14px;
+      font-size:12px;
+      letter-spacing:0.5px;
+      transition:0.18s ease;
+      margin-bottom:10px;
     }
 
-    .nav-title {
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #777;
-      margin-top: 10px;
-      margin-bottom: 4px;
+    .btn-primary{
+      background:#000;
+      color:#ff7a00;
+      border:2px solid #ff7a00;
+      box-shadow:0 0 15px #ff7a00;
     }
 
-    .nav {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .btn-primary:hover{
+      background:#ff7a00;
+      color:#000;
+      box-shadow:0 0 25px #ff7a00;
+      transform:translateY(-1px);
     }
 
-    .nav button {
-      width: 100%;
-      text-align: left;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: none;
-      background: transparent;
-      color: #f7f2ec;
-      font-size: 13px;
-      cursor: pointer;
-      transition: 0.15s;
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      max-height:250px;
+      overflow-y:auto;
+      padding-right:6px;
     }
 
-    .nav button:hover {
-      background: #1b1b1b;
+    .item{
+      background:rgba(255,122,0,0.08);
+      border-left:3px solid #ff7a00;
+      padding:10px;
+      border-radius:6px;
+      box-shadow:0 0 10px #ff7a00;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
     }
 
-    .nav button.active {
-      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
-      color: #050505;
-      font-weight: 600;
+    .remove{
+      background:#ff0000;
+      color:#fff;
+      border:none;
+      padding:6px 10px;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:800;
+      box-shadow:0 0 10px #ff0000;
     }
 
-    .logout-btn {
-      margin-top: auto;
-      padding-top: 10px;
-      border-top: 1px solid #2b2b2b;
+    .remove:hover{
+      background:#ff7a00;
+      color:#000;
+      box-shadow:0 0 20px #ff7a00;
     }
 
-    .logout-btn button {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid #ff3b3b;
-      background: transparent;
-      color: #ff3b3b;
-      font-size: 13px;
-      cursor: pointer;
-      transition: 0.15s;
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.9);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:50;
     }
 
-    .logout-btn button:hover {
-      background: #ff3b3b;
-      color: #050505;
+    .modal{
+      width:90%;
+      max-width:350px;
+      background:#000;
+      border:2px solid #ff7a00;
+      border-radius:12px;
+      padding:16px;
+      box-shadow:0 0 25px #ff7a00;
     }
 
-    /* MAIN AREA */
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background: radial-gradient(circle at top left, #ff9b3b11, #050505 55%);
+    .modal h3{
+      margin-bottom:10px;
+      text-shadow:0 0 10px #ff7a00;
     }
 
-    .topbar {
-      padding: 14px 22px;
-      border-bottom: 1px solid #2b2b2b;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .input{
+      width:100%;
+      background:#000;
+      border:1px solid #ff7a00;
+      border-radius:8px;
+      padding:8px 10px;
+      color:#ff7a00;
+      margin-bottom:10px;
     }
 
-    .top-title {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .top-role {
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #ff9b3b;
-      border: 1px solid #ff9b3b55;
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .content {
-      padding: 18px 22px 26px;
-      overflow-y: auto;
-    }
-
-    /* SECTIONS */
-    .section {
-      display: none;
-      animation: fadeIn 0.2s ease-out;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    /* CARDS */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
-    }
-
-    .card {
-      background: #101010;
-      border-radius: 12px;
-      border: 1px solid #2b2b2b;
-      padding: 12px 12px 10px;
-    }
-
-    .card h3 {
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .card span {
-      font-size: 11px;
-      color: #ff9b3b;
-      text-transform: uppercase;
-    }
-
-    .card small {
-      font-size: 11px;
-      color: #a0a0a0;
-      display: block;
-      margin-top: 6px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+    .modal-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
     }
   </style>
-
-  <script type="module" src="admin.js"></script>
 </head>
 
 <body>
 
-  <!-- HEADER OFISYÈL BSS1815 -->
-  <header class="bss-header">
-    <img src="nouvo-logo-bss-3.jpeg" class="bss-logo" alt="BSS1815 Logo">
-    <img src="koukou4.jpeg" class="bss-koukou" alt="Koukou BSS1815">
-  </header>
+  <div class="header">
+    <div class="logo">ADMIN</div>
+    <div class="role">ADMIN PANEL • BSS1815</div>
+  </div>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div>
-      <div class="brand">
-        <div class="brand-title">BSS1815</div>
-        <div class="brand-sub">ADMIN PANEL OFISYÈL</div>
-      </div>
+  <div class="container">
 
-      <div class="badge-wrap">
-        <img id="superAdminBadge" src="super-admin-b.jpeg">
-        <img id="adminBadge" src="admin-dash-b.jpeg">
-      </div>
+    <!-- ADMIN MANAGEMENT -->
+    <div class="section">
+      <h2>👥 ADMIN MANAGEMENT</h2>
 
-      <div class="nav-title">NAVIGASYON</div>
+      <button class="btn btn-primary" onclick="openModal()">➕ Add Admin</button>
 
-      <div class="nav">
-        <button class="nav-btn active" data-target="dashboard">Dashboard</button>
-        <button class="nav-btn" data-target="admins">Admins</button>
-        <button class="nav-btn" data-target="videos">Videos</button>
-        <button class="nav-btn" data-target="musicians">Musicians</button>
-        <button class="nav-btn" data-target="leaders">Leaders</button>
-        <button class="nav-btn" data-target="bands">Bands</button>
-        <button class="nav-btn" data-target="finances">Finances</button>
-        <button class="nav-btn" data-target="settings">Settings</button>
+      <div class="list" id="adminList">
+        <!-- Dynamic admins -->
       </div>
     </div>
 
-    <div class="logout-btn">
-      <button id="logoutBtn">Dekonekte</button>
-    </div>
-  </aside>
+    <!-- SECURITY LOGS -->
+    <div class="section">
+      <h2>🛡 SECURITY LOGS</h2>
 
-  <!-- MAIN -->
-  <main class="main">
-
-    <header class="topbar">
-      <div class="top-title">BSS1815 — <span id="pageTitle">Dashboard</span></div>
-      <div class="top-role" id="roleChip">...</div>
-    </header>
-
-    <section class="content">
-
-      <!-- DASHBOARD -->
-      <div class="section active" id="section-dashboard">
-        <h2>Dashboard</h2>
-        <p>Rezime rapid sou sa k ap pase nan BSS1815.</p>
-
-        <div class="card-grid">
-          <div class="card">
-            <h3>Total Admins</h3>
-            <span>STAFF</span>
-            <small id="totalAdmins">—</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- ADMINS -->
-      <div class="section" id="section-admins">
-        <h2>Admins</h2>
-        <p>Lis tout ADMIN & SUPER ADMIN ki nan BSS1815.</p>
-        <div class="card-grid" id="adminsList"></div>
-      </div>
-
-      <!-- VIDEOS -->
-      <div class="section" id="section-videos">
-        <h2>Videos</h2>
-        <p>Modil pou jere videyo yo ap vini isit la.</p>
-      </div>
-
-      <!-- MUSICIANS -->
-      <div class="section" id="section-musicians">
-        <h2>Musicians</h2>
-        <p>Jere tout mizisyen BSS1815 yo.</p>
-
-        <div class="card" style="margin-bottom: 20px;">
-          <h3>Ajoute Mizisyen</h3>
-
-          <input id="m-name" type="text" placeholder="Non mizisyen">
-          <input id="m-instrument" type="text" placeholder="Enstriman">
-          <input id="m-section" type="text" placeholder="Seksyon (Trompèt, Bass, Tanbou...)">
-          <input id="m-photo" type="file" accept="image/*">
-
-          <button id="addMusicianBtn">Ajoute</button>
-        </div>
-
-        <h3 style="margin-top: 25px;">Lis Mizisyen yo</h3>
-        <div id="musiciansList" class="card-grid"></div>
-      </div>
-
-      <!-- LEADERS -->
-      <div class="section" id="section-leaders">
-        <h2>Leaders</h2>
-        <p>Jere tout lidè BSS1815 yo.</p>
-
-        <div class="card" style="margin-bottom: 20px;">
-          <h3>Ajoute Lidè</h3>
-
-          <input id="l-name" type="text" placeholder="Non lidè a">
-          <input id="l-role" type="text" placeholder="Wòl (Chef seksyon, Asistan, Dirijan...)">
-          <input id="l-photo" type="file" accept="image/*">
-
-          <button id="addLeaderBtn">Ajoute</button>
-        </div>
-
-        <h3 style="margin-top: 25px;">Lis Lidè yo</h3>
-        <div id="leadersList" class="card-grid"></div>
-      </div>
-
-      <!-- BANDS -->
-      <div class="section" id="section-bands">
-        <h2>Bands</h2>
-        <p>Modil pou jere band yo ap vini isit la.</p>
-      </div>
-
-      <!-- FINANCES -->
-      <div class="section" id="section-finances">
-        <h2>Finances</h2>
-        <p>Modil pou jere finans yo ap vini isit la.</p>
-      </div>
-
-      <!-- SETTINGS -->
-      <div class="section" id="section-settings">
-        <h2>Settings</h2>
-        <p>Paramèt jeneral pou BSS1815 ADMIN PANEL.</p>
-
-        <div class="card">
-          <h3>Wòl ou</h3>
-          <span id="settingsRole">—</span>
-        </div>
-      </div>
-
-    </section>
-  </main>
-
-  <!-- SCRIPT NAV -->
-  <script>
-    const navButtons = document.querySelectorAll(".nav-btn");
-    const sections = document.querySelectorAll(".section");
-    const pageTitle = document.getElementById("pageTitle");
-
-    navButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        navButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        const target = btn.getAttribute("data-target");
-        pageTitle.textContent = target.charAt(0).toUpperCase() + target.slice(1);
-
-        sections.forEach(sec => sec.classList.remove("active"));
-        document.getElementById("section-" + target).classList.add("active");
-      });
-    });
-  </script>
-
-</body>
-</html>
+      <div class="list" id="logsList">
+        <!-- Dynamic logs -->
