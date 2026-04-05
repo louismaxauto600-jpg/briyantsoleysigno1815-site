@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS1815 • BRANDING PANEL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#000;
+      color:#ff7a00;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:20px;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at top,#ff7a00 0,transparent 55%),
+        radial-gradient(circle at bottom,#ff7a00 0,transparent 55%);
+      opacity:0.12;
+      pointer-events:none;
+      z-index:-2;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(0,0,0,0.98));
+      z-index:-1;
+    }
+
+    .header{
+      width:100%;
+      max-width:1100px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:2px solid #ff7a00;
+      box-shadow:0 0 26px #ff7a00;
+      background:rgba(0,0,0,0.9);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .header-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo-box{
+      width:54px;
+      height:54px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#ff7a00,#000);
+      box-shadow:0 0 25px #ff7a00;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:20px;
+    }
+
+    .header-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .header-text span:first-child{
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .header-text span:last-child{
+      font-size:11px;
+      text-transform:uppercase;
+      opacity:0.85;
+    }
+
+    .mode-pill{
+      padding:5px 11px;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      font-size:10px;
+      text-transform:uppercase;
+      opacity:0.9;
+    }
+
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns:1.4fr 1.6fr;
+      gap:18px;
+    }
+
+    @media(max-width:900px){
+      .container{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .section{
+      background:rgba(0,0,0,0.9);
+      border-radius:14px;
+      border:2px solid #ff7a00;
+      box-shadow:0 0 26px #ff7a00;
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .section::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(255,122,0,0.18),transparent);
+      opacity:0.4;
+      pointer-events:none;
+    }
+
+    .section-inner{
+      position:relative;
+      z-index:1;
+    }
+
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .section-title h2{
+      font-size:18px;
+      text-shadow:0 0 10px #ff7a00;
+    }
+
+    .section-tag{
+      font-size:10px;
+      text-transform:uppercase;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      padding:3px 8px;
+      opacity:0.85;
+    }
+
+    .palette-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1.2fr;
+      gap:12px;
+    }
+
+    @media(max-width:700px){
+      .palette-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .card{
+      background:rgba(0,0,0,0.9);
+      border-radius:10px;
+      border:1px solid #ff7a00;
+      box-shadow:0 0 18px #ff7a00;
+      padding:12px;
+      font-size:11px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .card-title{
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .color-row{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+
+    .color-chip{
+      width:28px;
+      height:28px;
+      border-radius:7px;
+      border:1px solid #ff7a00;
+      box-shadow:0 0 12px #ff7a00;
+    }
+
+    .chip-orange{background:#ff7a00;}
+    .chip-black{background:#000;}
+    .chip-dark{background:#050505;}
+
+    .code-row{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+      font-size:10px;
+      opacity:0.9;
+    }
+
+    .badge-preview{
+      height:70px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#ff7a00,#000);
+      box-shadow:0 0 26px #ff7a00;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:15px;
+    }
+
+    .switch-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:4px;
+    }
+
+    .switch{
+      padding:4px 9px;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      font-size:10px;
+      text-transform:uppercase;
+      cursor:pointer;
+      opacity:0.7;
+      background:#000;
+    }
+
+    .switch.active{
+      opacity:1;
+      box-shadow:0 0 18px #ff7a00;
+      background:linear-gradient(135deg,#ff7a00,#000);
+      color:#000;
+      font-weight:800;
+    }
+
+    .preview-area{
+      margin-top:8px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      font-size:11px;
+    }
+
+    .preview-box{
+      height:120px;
+      border-radius:12px;
+      background:radial-gradient(circle at top,#ff7a00 0,transparent 55%);
+      background-color:#000;
+      box-shadow:0 0 26px #ff7a00;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:10px;
+    }
+
+    .preview-text-main{
+      font-size:14px;
+      font-weight:800;
+      margin-bottom:4px;
+    }
+
+    .preview-text-sub{
+      font-size:10px;
+      opacity:0.85;
+    }
+
+    .rule-list{
+      font-size:10px;
+      opacity:0.9;
+      list-style:disc;
+      padding-left:16px;
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      font-weight:800;
+      text-transform:uppercase;
+      border-radius:10px;
+      padding:9px 14px;
+      font-size:11px;
+      letter-spacing:0.5px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      transition:0.18s ease;
+    }
+
+    .btn-primary{
+      background:#000;
+      color:#ff7a00;
+      border:2px solid #ff7a00;
+      box-shadow:0 0 18px #ff7a00;
+      width:100%;
+      margin-top:6px;
+    }
+
+    .btn-primary:hover{
+      background:#ff7a00;
+      color:#000;
+      box-shadow:0 0 26px #ff7a00;
+      transform:translateY(-1px);
+    }
+
+    .log-list{
+      margin-top:10px;
+      max-height:260px;
+      overflow-y:auto;
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+      padding-right:6px;
+      font-size:10px;
+    }
+
+    .log-item{
+      background:rgba(255,122,0,0.08);
+      border-left:3px solid #ff7a00;
+      padding:7px 8px;
+      border-radius:8px;
+      box-shadow:0 0 12px #ff7a00;
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+    }
+
+    .log-main{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .log-meta{
+      font-size:9px;
+      opacity:0.85;
+    }
+
+    .log-tag{
+      font-size:9px;
+      padding:2px 7px;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      text-transform:uppercase;
+    }
+
+    .footer{
+      width:100%;
+      max-width:1100px;
+      margin-top:14px;
+      font-size:9px;
+      opacity:0.75;
+      text-align:center;
+    }
+
+    .footer span{
+      font-weight:800;
+    }
+
+    ::-webkit-scrollbar{
+      width:6px;
+    }
+    ::-webkit-scrollbar-track{
+      background:#000;
+    }
+    ::-webkit-scrollbar-thumb{
+      background:#ff7a00;
+      border-radius:999px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-box">BR</div>
+      <div class="header-text">
+        <span>BSS1815 • BRANDING PANEL</span>
+        <span>Orange + Black discipline • No deviation</span>
+      </div>
+    </div>
+    <div class="mode-pill" id="modePill">MODE: NORMAL</div>
+  </header>
+
+  <main class="container">
+
+    <!-- LEFT: OFFICIAL PALETTE + BADGE PREVIEW -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>🎨 OFFICIAL PALETTE</h2>
+          <div class="section-tag">Only orange + black fade</div>
+        </div>
+
+        <div class="palette-grid">
+          <div class="card">
+            <div class="card-title">Core Colors</div>
+            <div class="color-row">
+              <div class="color-chip chip-orange"></div>
+              <div class="color-chip chip-black"></div>
+              <div class="color-chip chip-dark"></div>
+            </div>
+            <div class="code-row">
+              <span>Orange: #FF7A00</span>
+              <span>Black: #000000</span>
+              <span>Deep Black: #050505</span>
+            </div>
+            <div style="font-size:10px;opacity:0.9;">
+              No white, no blue, no green, no grey.  
+              Any deviation is considered a branding violation.
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">SUPER_ADMIN Badge Preview</div>
+            <div class="badge-preview" id="badgePreview">
+              SUPER_ADMIN • BSS1815
+            </div>
+            <div style="font-size:10px;opacity:0.9;">
+              This is the reference badge for all role‑based visuals.  
+              All other badges must respect this hierarchy and palette.
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="lockBranding()">
+          🔒 LOCK BRANDING RULES
+        </button>
+      </div>
+    </section>
+
+    <!-- RIGHT: MODE SWITCH + LOGS -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>🔥 BRANDING MODES & LOGS</h2>
+          <div class="section-tag">Strict • Shockwave • Blackout</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Branding Modes</div>
+          <div class="switch-row">
+            <button class="switch active" data-mode="NORMAL" onclick="setMode(this)">Normal</button>
+            <button class="switch" data-mode="STRICT" onclick="setMode(this)">Strict</button>
+            <button class="switch" data-mode="SHOCKWAVE" onclick="setMode(this)">Shockwave</button>
+            <button class="switch" data-mode="BLACKOUT" onclick="setMode(this)">Blackout</button>
+          </div>
+
+          <div class="preview-area">
+            <div class="preview-box" id="modePreview">
+              <div>
+                <div class="preview-text-main" id="previewMain">Normal Mode</div>
+                <div class="preview-text-sub" id="previewSub">
+                  Standard orange + black fade. No violations, no alerts.
+                </div>
+              </div>
+            </div>
+
+            <ul class="rule-list">
+              <li>Mode changes must be triggered by SUPER_ADMIN only.</li>
+              <li>Any non‑orange/black color usage is logged as a violation.</li>
+              <li>Shockwave mode is for high‑energy visuals (events, launches).</li>
+              <li>Blackout mode is for critical or restricted states.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="log-list" id="logList">
+          <!-- Dynamic logs -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    All visual identity is enforced by <span>SUPER_ADMIN</span> and aligned with <span>BSS1815</span> discipline.
+  </div>
+
+  <script>
+    function logBranding(message, tag){
+      const list = document.getElementById("logList");
+      const item = document.createElement("div");
+      item.className = "log-item";
+
+      const main = document.createElement("div");
+      main.className = "log-main";
+
+      const msg = document.createElement("div");
+      msg.textContent = message;
+
+      const meta = document.createElement("div");
+      meta.className = "log-meta";
+      meta.textContent = new Date().toLocaleTimeString();
+
+      main.appendChild(msg);
+      main.appendChild(meta);
+
+      const right = document.createElement("div");
+      const tagEl = document.createElement("div");
+      tagEl.className = "log-tag";
+      tagEl.textContent = tag || "BRANDING";
+      right.appendChild(tagEl);
+
+      item.appendChild(main);
+      item.appendChild(right);
+      list.prepend(item);
+    }
+
+    function setMode(btn){
+      document.querySelectorAll(".switch").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const mode = btn.getAttribute("data-mode");
+      const modePill = document.getElementById("modePill");
+      const previewMain = document.getElementById("previewMain");
+      const previewSub = document.getElementById("previewSub");
+      const previewBox = document.getElementById("modePreview");
+
+      if(mode === "NORMAL"){
+        modePill.textContent = "MODE: NORMAL";
+        previewMain.textContent = "Normal Mode";
+        previewSub.textContent = "Standard orange + black fade. No violations, no alerts.";
+        previewBox.style.filter = "none";
+        logBranding("Branding mode set to NORMAL.", "MODE");
+      }else if(mode === "STRICT"){
+        modePill.textContent = "MODE: STRICT";
+        previewMain.textContent = "Strict Mode";
+        previewSub.textContent = "Any non‑orange/black usage is considered a violation.";
+        previewBox.style.filter = "contrast(1.1)";
+        logBranding("Branding mode set to STRICT. Violations will be flagged.", "MODE");
+      }else if(mode === "SHOCKWAVE"){
+        modePill.textContent = "MODE: SHOCKWAVE";
+        previewMain.textContent = "Shockwave Mode";
+        previewSub.textContent = "High‑energy visuals allowed, but still orange + black only.";
+        previewBox.style.filter = "brightness(1.1)";
+        logBranding("Branding mode set to SHOCKWAVE for high‑energy visuals.", "MODE");
+      }else if(mode === "BLACKOUT"){
+        modePill.textContent = "MODE: BLACKOUT";
+        previewMain.textContent = "Blackout Mode";
+        previewSub.textContent = "Critical or restricted state. Visuals are dimmed and locked.";
+        previewBox.style.filter = "brightness(0.6)";
+        logBranding("Branding mode set to BLACKOUT. Visuals locked.", "MODE");
+      }
+    }
+
+    function lockBranding(){
+      logBranding("Branding rules locked by SUPER_ADMIN. No color deviation allowed.", "LOCK");
+      alert("Branding rules are now locked. Only orange + black fade is allowed.");
+    }
+
+    // Initial log
+    logBranding("Branding panel session started.", "SESSION");
+  </script>
+</body>
+</html>
