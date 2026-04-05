@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <title>BSS1815 — SUPER ADMIN DASHBOARD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-main: #050505;
+      --bg-card: #101010;
+      --bg-card-soft: #151515;
+      --accent: #ff7a00;
+      --accent-soft: #ff9a3d;
+      --accent-dark: #b35400;
+      --text-main: #f5f5f5;
+      --text-soft: #b3b3b3;
+      --danger: #ff3b3b;
+      --success: #2ecc71;
+      --border-soft: #262626;
+      --shadow-soft: 0 0 25px rgba(0, 0, 0, 0.6);
+      --radius-card: 14px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #1a1a1a 0, #050505 45%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    @media (max-width: 900px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+    }
+
+    /* SIDEBAR */
+
+    .sidebar {
+      background: linear-gradient(180deg, #050505 0, #050505 40%, #000 100%);
+      border-right: 1px solid var(--border-soft);
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 30% 0, #ffd9a3 0, #ff7a00 40%, #3b1a00 100%);
+      box-shadow: 0 0 18px rgba(255, 122, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      color: #050505;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+    }
+
+    .super-admin-badge {
+      margin-top: 4px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #111 0, #181818 50%, #111 100%);
+      border: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sa-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffd9a3 0, #ff7a00 40%, #3b1a00 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: #050505;
+    }
+
+    .sa-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .sa-name {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .sa-role {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-soft);
+    }
+
+    .sa-chip {
+      margin-left: auto;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 122, 0, 0.6);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      background: rgba(255, 122, 0, 0.06);
+    }
+
+    .nav-section-title {
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .nav-link span.icon {
+      width: 18px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .nav-link.active {
+      background: linear-gradient(90deg, #181818 0, #111 100%);
+      border-color: rgba(255, 122, 0, 0.7);
+      color: var(--accent-soft);
+    }
+
+    .nav-link:hover {
+      background: #151515;
+      transform: translateY(-1px);
+    }
+
+    .nav-link.active:hover {
+      background: linear-gradient(90deg, #1d1d1d 0, #141414 100%);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    .logout-btn {
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: #101010;
+      color: var(--text-soft);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .logout-btn:hover {
+      background: #181818;
+      border-color: var(--danger);
+      color: #ffb3b3;
+      transform: translateY(-1px);
+    }
+
+    /* MAIN */
+
+    .main {
+      padding: 18px 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .main-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .mh-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mh-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .mh-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .mh-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 122, 0, 0.5);
+      background: rgba(255, 122, 0, 0.06);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+    }
+
+    .mh-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(255, 122, 0, 0.9);
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 1100px) {
+      .cards-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 12px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .card-value {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .card-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .card-pill {
+      margin-top: 2px;
+      align-self: flex-start;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 122, 0, 0.4);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 1000px) {
+      .layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 12px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .panel-sub {
+      font-size: 10px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .panel-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-xs {
+      padding: 4px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: #141414;
+      color: var(--text-soft);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-xs.primary {
+      border-color: rgba(255, 122, 0, 0.7);
+      background: #181818;
+      color: var(--accent-soft);
+    }
+
+    .btn-xs:hover {
+      background: #181818;
+      transform: translateY(-1px);
+    }
+
+    .btn-xs.primary:hover {
+      background: #1f1f1f;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-label {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .form-input,
+    .form-select {
+      background: #101010;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      padding: 7px 9px;
+      font-size: 12px;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      border-color: rgba(255, 122, 0, 0.7);
+      background: #141414;
+    }
+
+    .form-row-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .btn-sm {
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: #141414;
+      color: var(--text-soft);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-sm.primary {
+      border-color: rgba(255, 122, 0, 0.7);
+      background: #181818;
+      color: var(--accent-soft);
+    }
+
+    .btn-sm.danger {
+      border-color: rgba(255, 59, 59, 0.7);
+      background: #181111;
+      color: #ffb3b3;
+    }
+
+    .btn-sm:hover {
+      background: #181818;
+      transform: translateY(-1px);
+    }
+
+    .btn-sm.danger:hover {
+      background: #201111;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .table thead {
+      background: #141414;
+    }
+
+    .table th,
+    .table td {
+      padding: 6px 6px;
+      border-bottom: 1px solid var(--border-soft);
+      text-align: left;
+    }
+
+    .table th {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      color: var(--text-soft);
+      font-size: 10px;
+    }
+
+    .table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pill-role {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 122, 0, 0.6);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      background: rgba(255, 122, 0, 0.06);
+    }
+
+    .pill-admin {
+      border-color: rgba(120, 120, 120, 0.7);
+      color: #d0d0d0;
+      background: #181818;
+    }
+
+    .pill-status-ok {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(46, 204, 113, 0.7);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a9f5c6;
+      background: rgba(46, 204, 113, 0.08);
+    }
+
+    .pill-status-fail {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 59, 59, 0.7);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #ffb3b3;
+      background: rgba(255, 59, 59, 0.08);
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .logs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .log-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: #101010;
+      border: 1px solid var(--border-soft);
+      font-size: 11px;
+    }
+
+    .log-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .log-actor {
+      font-weight: 600;
+    }
+
+    .log-meta {
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    .log-tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+    }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .settings-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hint {
+      font-size: 10px;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    .footer-note {
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--text-soft);
+      text-align: right;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="brand-logo">B</div>
+          <div class="brand-text">
+            <div class="brand-title">BRIYANT SOLÈY SIGNO 1815</div>
+            <div class="brand-sub">BSS1815 — OFISYÈL</div>
+          </div>
+        </div>
+
+        <div class="super-admin-badge">
+          <div class="sa-avatar">M</div>
+          <div class="sa-info">
+            <div class="sa-name">MAX</div>
+            <div class="sa-role">SUPER ADMIN</div>
+          </div>
+          <div class="sa-chip">TOTAL CONTROL</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="nav-section-title">NAVIGASYON</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button class="nav-link active" data-section="overview">
+              <span class="icon">🏁</span>
+              <span>Rezime sistèm</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-section="admins">
+              <span class="icon">🛡️</span>
+              <span>Admin control</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-section="logs">
+              <span class="icon">📜</span>
+              <span>System logs</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-section="media">
+              <span class="icon">🎛️</span>
+              <span>Media center</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-section="settings">
+              <span class="icon">⚙️</span>
+              <span>Settings</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <span>BSS1815 — SUPER ADMIN</span>
+        <button class="logout-btn" type="button">LOGOUT</button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <header class="main-header">
+        <div class="mh-left">
+          <div class="mh-title">SUPER ADMIN DASHBOARD</div>
+          <div class="mh-sub">BRIYANT SOLÈY SIGNO 1815 — CLEAN PRO‑MAX</div>
+        </div>
+        <div class="mh-tag">
+          <span class="mh-tag-dot"></span>
+          <span>TOTAL POWER MODE — MAX &amp; CANGE</span>
+        </div>
+      </header>
+
+      <!-- TOP CARDS -->
+      <section class="cards-row">
+        <article class="card">
+          <div class="card-label">Total admin aktif</div>
+          <div class="card-value" id="card-admin-count">2</div>
+          <div class="card-sub">MAX + CANGE deja anrejistre kòm SUPER ADMIN.</div>
+          <div class="card-pill">ADMIN CONTROL</div>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Dènye aksè</div>
+          <div class="card-value" id="card-last-access">—</div>
+          <div class="card-sub">Dènye fwa SUPER ADMIN ouvri sistèm nan.</div>
+          <div class="card-pill">SECURITY LOG</div>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Dènye aksyon kritik</div>
+          <div class="card-value" id="card-last-action">—</div>
+          <div class="card-sub">Dènye mouvman enpòtan nan sistèm nan.</div>
+          <div class="card-pill">SYSTEM EVENTS</div>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Estati sistèm</div>
+          <div class="card-value">STAB</div>
+          <div class="card-sub">Pa gen erè kritik detekte nan sesyon sa a.</div>
+          <div class="card-pill">LIVE MONITOR</div>
+        </article>
+      </section>
+
+      <!-- SECTIONS -->
+      <section id="section-overview" class="section">
+        <div class="layout-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Rezime sistèm</div>
+                <div class="panel-sub">Vue jeneral SUPER ADMIN</div>
+              </div>
+            </div>
+            <p class="hint">
+              Zòn sa a se pou ou menm ak CANGE sèlman. Tout sa ou wè la a se
+              nwayo BSS1815 la: admin, logs, media, sekirite, paramèt.
+            </p>
+            <div class="logs-list" id="overview-log">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Aksè rapid</div>
+                <div class="panel-sub">Kout chemen SUPER ADMIN</div>
+              </div>
+            </div>
+            <div class="form-row-actions">
+              <button class="btn-sm primary" data-jump="admins">GERE ADMIN</button>
+              <button class="btn-sm" data-jump="logs">WÈ LOGS</button>
+              <button class="btn-sm" data-jump="media">MEDIA CENTER</button>
+              <button class="btn-sm" data-jump="settings">PARAMÈT SISTÈM</button>
+            </div>
+            <p class="hint">
+              Chak bouton mennen ou dirèk nan seksyon ki pi enpòtan yo pou
+              kontwòl total.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-admins" class="section" style="display:none;">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Admin control</div>
+              <div class="panel-sub">Ajoute, jere, sekirize admin yo</div>
+            </div>
+            <div class="panel-actions">
+              <button class="btn-xs primary" type="button" id="btn-add-admin">
+                + Add admin
+              </button>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label" for="admin-name">Non admin</label>
+              <input
+                id="admin-name"
+                class="form-input"
+                type="text"
+                placeholder="Egzanp: CANGE"
+              />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="admin-email">Imèl admin</label>
+              <input
+                id="admin-email"
+                class="form-input"
+                type="email"
+                placeholder="admin@bss1815.com"
+              />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="admin-role">Wòl</label>
+              <select id="admin-role" class="form-select">
+                <option value="ADMIN">ADMIN</option>
+                <option value="SUPER_ADMIN">SUPER ADMIN</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="admin-status">Estati</label>
+              <select id="admin-status" class="form-select">
+                <option value="ACTIVE">ACTIVE</option>
+                <option value="LOCKED">LOCKED</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-actions">
+            <button class="btn-sm primary" type="button" id="btn-save-admin">
+              SOVE ADMIN
+            </button>
+            <button class="btn-sm danger" type="button" id="btn-clear-admin">
+              NETWAYE CHAMP YO
+            </button>
+          </div>
+
+          <p class="hint">
+            Aksyon sa yo se vizyèl sèlman nan vèsyon sa a. Pou konekte ak
+            Firebase / backend, ou pral ploge fonksyon ofisyèl ou yo.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Lis admin</div>
+              <div class="panel-sub">MAX, CANGE + lòt admin</div>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="table" id="admin-table">
+              <thead>
+                <tr>
+                  <th>Non</th>
+                  <th>Imèl</th>
+                  <th>Wòl</th>
+                  <th>Estati</th>
+                  <th>Aksyon</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-logs" class="section" style="display:none;">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">System logs</div>
+              <div class="panel-sub">Tout mouvman enpòtan nan sistèm nan</div>
+            </div>
+            <div class="panel-actions">
+              <button class="btn-xs" type="button" id="btn-clear-logs">
+                NETWAYE LOGS
+              </button>
+            </div>
+          </div>
+          <div class="logs-list" id="logs-list">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </section>
+
+      <section id="section-media" class="section" style="display:none;">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Media center</div>
+              <div class="panel-sub">Upload / jere medya BSS1815</div>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label" for="media-file">Chwazi fichye</label>
+              <input id="media-file" class="form-input" type="file" />
+              <p class="hint">
+                Sa a se entèfas vizyèl. Pou upload reyèl, ou pral konekte ak
+                storage ou (Firebase Storage, elatriye).
+              </p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="media-type">Tip medya</label>
+              <select id="media-type" class="form-select">
+                <option value="IMAGE">IMAJ</option>
+                <option value="VIDEO">VIDEO</option>
+                <option value="AUDIO">AUDIO</option>
+                <option value="DOC">DOKIMAN</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row-actions">
+            <button class="btn-sm primary" type="button" id="btn-upload-media">
+              SIMILE UPLOAD
+            </button>
+          </div>
+          <p class="hint" id="media-status">Pa gen aksyon medya fèt pou kounya.</p>
+        </div>
+      </section>
+
+      <section id="section-settings" class="section" style="display:none;">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Settings PRO‑MAX</div>
+              <div class="panel-sub">Paramèt ofisyèl BSS1815</div>
+            </div>
+          </div>
+          <div class="settings-grid">
+            <div class="form-field">
+              <label class="form-label" for="site-title">Tit sit la</label>
+              <input
+                id="site-title"
+                class="form-input"
+                type="text"
+                value="BRIYANT SOLÈY SIGNO 1815 — OFISYÈL"
+              />
+              <p class="hint">Sa a se tit ki parèt nan navigatè a.</p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="primary-color">Koulè prensipal</label>
+              <input
+                id="primary-color"
+                class="form-input"
+                type="text"
+                value="#ff7a00"
+              />
+              <p class="hint">Koulè zoranj PRO‑MAX la. Ou ka kenbe l jan li ye.</p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="system-url">URL ofisyèl</label>
+              <input
+                id="system-url"
+                class="form-input"
+                type="text"
+                placeholder="https://bss1815.web.app"
+              />
+              <p class="hint">
+                Mete URL Firebase Hosting ou a isit la pou referans SUPER ADMIN.
+              </p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="security-mode">Mòd sekirite</label>
+              <select id="security-mode" class="form-select">
+                <option value="STRICT">STRICT</option>
+                <option value="NORMAL">NORMAL</option>
+              </select>
+              <p class="hint">
+                STRICT = plis kontwòl, plis verifikasyon. Ou ka kite l sou STRICT.
+              </p>
+            </div>
+          </div>
+          <div class="form-row-actions">
+            <button class="btn-sm primary" type="button" id="btn-save-settings">
+              SOVE PARAMÈT
+            </button>
+          </div>
+          <p class="hint" id="settings-status">
+            Paramèt yo poko modifye nan sesyon sa a.
+          </p>
+        </div>
+      </section>
+
+      <div class="footer-note">BSS1815 — SUPER ADMIN ONLY</div>
+    </main>
+  </div>
+
+  <script>
+    // --- DATA MOCK (vizyèl sèlman) ---
+    const admins = [
+      {
+        name: "MAX",
+        email: "max@bss1815.com",
+        role: "SUPER_ADMIN",
+        status: "ACTIVE",
+      },
+      {
+        name: "CANGE",
+        email: "cange@bss1815.com",
+        role: "SUPER_ADMIN",
+        status: "ACTIVE",
+      },
+    ];
+
+    const logs = [
+      {
+        actor: "MAX",
+        action: "SUPER ADMIN LOGIN",
+        type: "SECURITY",
+        time: "Kounya",
+        detail: "MAX ouvri SUPER ADMIN DASHBOARD BSS1815.",
+      },
+      {
+        actor: "CANGE",
+        action: "ADMIN LIST VIEW",
+        type: "SYSTEM",
+        time: "Resamman",
+        detail: "CANGE verifye lis admin yo.",
+      },
+      {
+        actor: "SYSTEM",
+        action: "SECURITY MODE: STRICT",
+        type: "SECURITY",
+        time: "Auto",
+        detail: "Mòd sekirite sistèm nan sou STRICT.",
+      },
+    ];
+
+    // --- HELPERS ---
+    function renderAdminTable() {
+      const tbody = document.querySelector("#admin-table tbody");
+      tbody.innerHTML = "";
+      admins.forEach((admin, index) => {
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        tdName.textContent = admin.name;
+
+        const tdEmail = document.createElement("td");
+        tdEmail.textContent = admin.email;
+
+        const tdRole = document.createElement("td");
+        const spanRole = document.createElement("span");
+        spanRole.className =
+          admin.role === "SUPER_ADMIN" ? "pill-role" : "pill-role pill-admin";
+        spanRole.textContent = admin.role;
+        tdRole.appendChild(spanRole);
+
+        const tdStatus = document.createElement("td");
+        const spanStatus = document.createElement("span");
+        if (admin.status === "ACTIVE") {
+          spanStatus.className = "pill-status-ok";
+          spanStatus.innerHTML =
+            '<span class="pill-dot"></span><span>ACTIVE</span>';
+        } else {
+          spanStatus.className = "pill-status-fail";
+          spanStatus.innerHTML =
+            '<span class="pill-dot"></span><span>LOCKED</span>';
+        }
+        tdStatus.appendChild(spanStatus);
+
+        const tdActions = document.createElement("td");
+        const btnLock = document.createElement("button");
+        btnLock.type = "button";
+        btnLock.className = "btn-xs";
+        btnLock.textContent =
+          admin.status === "ACTIVE" ? "LOCK" : "UNLOCK";
+        btnLock.addEventListener("click", () => {
+          admin.status = admin.status === "ACTIVE" ? "LOCKED" : "ACTIVE";
+          addLog(
+            "MAX",
+            admin.status === "ACTIVE"
+              ? "UNLOCK ADMIN"
+              : "LOCK ADMIN",
+            "SECURITY",
+            `Chanjman estati pou ${admin.name}.`
+          );
+          renderAdminTable();
+        });
+
+        const btnRemove = document.createElement("button");
+        btnRemove.type = "button";
+        btnRemove.className = "btn-xs danger";
+        btnRemove.textContent = "REMOVE";
+        btnRemove.addEventListener("click", () => {
+          if (confirm(`Retire ${admin.name} nan lis admin yo?`)) {
+            admins.splice(index, 1);
+            addLog(
+              "MAX",
+              "REMOVE ADMIN",
+              "SYSTEM",
+              `Admin retire: ${admin.name}.`
+            );
+            renderAdminTable();
+            updateAdminCount();
+          }
+        });
+
+        tdActions.appendChild(btnLock);
+        tdActions.appendChild(document.createTextNode(" "));
+        tdActions.appendChild(btnRemove);
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdEmail);
+        tr.appendChild(tdRole);
+        tr.appendChild(tdStatus);
+        tr.appendChild(tdActions);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function addLog(actor, action, type, detail) {
+      logs.unshift({
+        actor,
+        action,
+        type,
+        time: "Kounya",
+        detail,
+      });
+      renderLogs();
+      renderOverviewLog();
+      updateLastAction(action);
+    }
+
+    function renderLogs() {
+      const container = document.getElementById("logs-list");
+      container.innerHTML = "";
+      logs.forEach((log) => {
+        const item = document.createElement("div");
+        item.className = "log-item";
+
+        const main = document.createElement("div");
+        main.className = "log-main";
+
+        const left = document.createElement("div");
+        left.innerHTML =
+          '<span class="log-actor">' +
+          log.actor +
+          "</span> — " +
+          log.action;
+
+        const right = document.createElement("div");
+        right.className = "log-meta";
+        right.textContent = log.time;
+
+        main.appendChild(left);
+        main.appendChild(right);
+
+        const meta = document.createElement("div");
+        meta.className = "log-meta";
+        meta.textContent = log.detail;
+
+        const tag = document.createElement("div");
+        tag.className = "log-tag";
+        tag.textContent = log.type;
+
+        item.appendChild(main);
+        item.appendChild(meta);
+        item.appendChild(tag);
+
+        container.appendChild(item);
+      });
+    }
+
+    function renderOverviewLog() {
+      const container = document.getElementById("overview-log");
+      container.innerHTML = "";
+      logs.slice(0, 4).forEach((log) => {
+        const item = document.createElement("div");
+        item.className = "log-item";
+
+        const main = document.createElement("div");
+        main.className = "log-main";
+
+        const left = document.createElement("div");
+        left.innerHTML =
+          '<span class="log-actor">' +
+          log.actor +
+          "</span> — " +
+          log.action;
+
+        const right = document.createElement("div");
+        right.className = "log-meta";
+        right.textContent = log.time;
+
+        main.appendChild(left);
+        main.appendChild(right);
+
+        const meta = document.createElement("div");
+        meta.className = "log-meta";
+        meta.textContent = log.detail;
+
+        item.appendChild(main);
+        item.appendChild(meta);
+
+        container.appendChild(item);
+      });
+    }
+
+    function updateAdminCount() {
+      document.getElementById("card-admin-count").textContent = admins.length;
+    }
+
+    function updateLastAccess() {
+      const now = new Date();
+      const formatted =
+        now.toLocaleDateString() + " — " + now.toLocaleTimeString();
+      document.getElementById("card-last-access").textContent = formatted;
+    }
+
+    function updateLastAction(action) {
+      document.getElementById("card-last-action").textContent = action;
+    }
+
+    // --- NAVIGATION ---
+    function showSection(id) {
+      document
+        .querySelectorAll(".section")
+        .forEach((sec) => (sec.style.display = "none"));
+      document.getElementById("section-" + id).style.display = "block";
+
+      document
+        .querySelectorAll(".nav-link")
+        .forEach((btn) => btn.classList.remove("active"));
+      document
+        .querySelector('.nav-link[data-section="' + id + '"]')
+        .classList.add("active");
+    }
+
+    document.querySelectorAll(".nav-link").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const section = btn.getAttribute("data-section");
+        showSection(section);
+      });
+    });
+
+    document.querySelectorAll("[data-jump]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-jump");
+        showSection(target);
+      });
+    });
+
+    // --- ADMIN FORM ---
+    document
+      .getElementById("btn-save-admin")
+      .addEventListener("click", () => {
+        const name = document.getElementById("admin-name").value.trim();
+        const email = document.getElementById("admin-email").value.trim();
+        const role = document.getElementById("admin-role").value;
+        const status = document.getElementById("admin-status").value;
+
+        if (!name || !email) {
+          alert("Ranpli non ak imèl admin lan.");
+          return;
+        }
+
+        admins.push({ name, email, role, status });
+        renderAdminTable();
+        updateAdminCount();
+        addLog(
+          "MAX",
+          "ADD ADMIN",
+          "SYSTEM",
+          `Nouvo admin ajoute: ${name} (${role}).`
+        );
+
+        document.getElementById("admin-name").value = "";
+        document.getElementById("admin-email").value = "";
+      });
+
+    document
+      .getElementById("btn-clear-admin")
+      .addEventListener("click", () => {
+        document.getElementById("admin-name").value = "";
+        document.getElementById("admin-email").value = "";
+      });
+
+    document.getElementById("btn-add-admin").addEventListener("click", () => {
+      showSection("admins");
+      document.getElementById("admin-name").focus();
+    });
+
+    // --- LOGS ---
+    document
+      .getElementById("btn-clear-logs")
+      .addEventListener("click", () => {
+        if (!confirm("Netwaye tout logs vizyèl yo?")) return;
+        logs.length = 0;
+        renderLogs();
+        renderOverviewLog();
+        updateLastAction("LOGS CLEARED");
+      });
+
+    // --- MEDIA ---
+    document
+      .getElementById("btn-upload-media")
+      .addEventListener("click", () => {
+        const fileInput = document.getElementById("media-file");
+        const type = document.getElementById("media-type").value;
+        const status = document.getElementById("media-status");
+
+        if (!fileInput.files.length) {
+          alert("Chwazi yon fichye pou simile upload la.");
+          return;
+        }
+
+        const fileName = fileInput.files[0].name;
+        status.textContent =
+          "Similasyon: " + fileName + " (tip: " + type + ") ajoute nan lis medya yo.";
+        addLog(
+          "MAX",
+          "MEDIA UPLOAD (SIM)",
+          "SYSTEM",
+          `Simile upload pou fichye: ${fileName} (${type}).`
+        );
+      });
+
+    // --- SETTINGS ---
+    document
+      .getElementById("btn-save-settings")
+      .addEventListener("click", () => {
+        const title = document.getElementById("site-title").value.trim();
+        const color = document.getElementById("primary-color").value.trim();
+        const url = document.getElementById("system-url").value.trim();
+        const mode = document.getElementById("security-mode").value;
+        const status = document.getElementById("settings-status");
+
+        status.textContent =
+          "Paramèt sove vizyèlman nan sesyon sa a. Pou aplike reyèl, ploge yo nan backend ou.";
+        addLog(
+          "MAX",
+          "UPDATE SETTINGS",
+          "SYSTEM",
+          `Tit: "${title}", Koulè: ${color}, URL: ${url || "—"}, Sekirite: ${mode}.`
+        );
+      });
+
+    // --- LOGOUT (vizyèl) ---
+    document.querySelector(".logout-btn").addEventListener("click", () => {
+      if (confirm("Vle simile LOGOUT SUPER ADMIN lan?")) {
+        addLog("MAX", "SUPER ADMIN LOGOUT (SIM)", "SECURITY", "MAX fè logout vizyèl.");
+        alert("Similasyon: LOGOUT SUPER ADMIN.");
+      }
+    });
+
+    // --- INIT ---
+    updateAdminCount();
+    updateLastAccess();
+    updateLastAction("SUPER ADMIN LOGIN");
+    renderAdminTable();
+    renderLogs();
+    renderOverviewLog();
+  </script>
+</body>
+</html>
