@@ -1,0 +1,73 @@
+<!-- ============================
+     BSS1815 — DASHBOARD PRO‑MAX
+     ============================ -->
+
+<div class="dashboard">
+
+    <!-- SUPER ADMIN SECTION -->
+    <div class="super-admin-panel">
+        <h2>SUPER ADMIN</h2>
+
+        <button id="btnReset">SYSTEM RESET</button>
+        <button id="btnFinancial">FINANCIAL OVERRIDE</button>
+        <button id="btnRemoveAdmin">REMOVE ADMIN</button>
+        <button id="btnTwilio">TWILIO MASTER SWITCH</button>
+        <button id="btnOverride">OVERRIDE MODE</button>
+    </div>
+
+    <!-- ADMIN SECTION -->
+    <div class="admin-panel">
+        <h2>ADMIN</h2>
+
+        <button id="btnAdd">ADD</button>
+        <button id="btnEdit">EDIT</button>
+        <button id="btnUpload">UPLOAD</button>
+        <button id="btnManage">MANAGE</button>
+    </div>
+
+</div>
+
+<script src="admin-system.js"></script>
+<script>
+    // ============================
+    //  EVENT LISTENERS PRO‑MAX
+    // ============================
+
+    // SUPER ADMIN
+    document.getElementById("btnReset").addEventListener("click", () => {
+        AdminSystem.systemReset();
+    });
+
+    document.getElementById("btnFinancial").addEventListener("click", () => {
+        AdminSystem.financialTransaction(500); // egzanp
+    });
+
+    document.getElementById("btnRemoveAdmin").addEventListener("click", () => {
+        AdminSystem.removeAdmin("AdminName");
+    });
+
+    document.getElementById("btnTwilio").addEventListener("click", () => {
+        sendWhatsAppAlert("TWILIO MASTER SWITCH ACTIVATED");
+    });
+
+    document.getElementById("btnOverride").addEventListener("click", () => {
+        sendWhatsAppAlert("OVERRIDE MODE ACTIVATED");
+    });
+
+    // ADMIN
+    document.getElementById("btnAdd").addEventListener("click", () => {
+        AdminSystem.addAdmin("NewAdmin");
+    });
+
+    document.getElementById("btnEdit").addEventListener("click", () => {
+        sendWhatsAppAlert("ADMIN EDIT ACTION EXECUTED");
+    });
+
+    document.getElementById("btnUpload").addEventListener("click", () => {
+        sendWhatsAppAlert("ADMIN UPLOAD EXECUTED");
+    });
+
+    document.getElementById("btnManage").addEventListener("click", () => {
+        sendWhatsAppAlert("ADMIN MANAGE ACTION EXECUTED");
+    });
+</script>
