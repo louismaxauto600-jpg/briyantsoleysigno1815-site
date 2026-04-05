@@ -64,6 +64,29 @@
       to   { opacity: 0; transform: translateY(40px); }
     }
 
+    /* LANGUAGE TOGGLE */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px auto 10px auto;
+      padding: 10px 0;
+    }
+    .lang-toggle button {
+      background: #000;
+      color: #ff7a00;
+      border: 1px solid #ff7a00;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .lang-toggle button:hover {
+      background: #ff7a00;
+      color: #000;
+    }
+
     .hero {
       text-align: center;
       padding: 20px;
@@ -128,6 +151,13 @@
   <!-- KOUKOU ANIMASYON -->
   <div id="koukou">KOUKOU</div>
 
+  <!-- LANGUAGE TOGGLE APA -->
+  <div class="lang-toggle">
+    <button data-lang="kre">KRE</button>
+    <button data-lang="fra">FRA</button>
+    <button data-lang="eng">ENG</button>
+  </div>
+
   <!-- HERO TEKST OFISYÈL -->
   <div class="hero">
     <h1>BRIYANT SOLÈY SIGNO 1815</h1>
@@ -171,9 +201,15 @@
     </div>
   </div>
 
-  <!-- (SI W GEN JS ANIM SEPARÉ, OU KA AJOUTE YO ANBA SA A) -->
-  <!-- <script src="/js/anim-koukou.js"></script> -->
-  <!-- <script src="/js/anim-logo.js"></script> -->
+  <script>
+    document.querySelectorAll('.lang-toggle button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        localStorage.setItem("bss-lang", lang);
+        location.reload();
+      });
+    });
+  </script>
 
 </body>
 </html>
