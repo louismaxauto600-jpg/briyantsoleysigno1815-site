@@ -2,220 +2,81 @@
 <html lang="ht">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BSS1815 – Homepage</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: #000000;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    /* HEADER PRINCIPAL */
-    .bss-header {
-      width: 100%;
-      padding: 16px 24px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      background: linear-gradient(to right, #000000, #ff9b3b, #000000);
-      border-bottom: 2px solid #ff9b3b;
-    }<div class="bss-slogan">Nou soti lwen, nou kanpe wo.</div>
-
-    /* LOGO ANNDAN YON SÈK */
-    .bss-logo-wrap {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid #000000;
-      box-shadow: 0 0 18px rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000000;
-      animation: logoRotateIn 1.2s ease-out forwards;
-    }
-
-    .bss-left-logo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform-origin: center center;
-      animation: logoSpin 4s linear infinite;
-    }
-
-    /* TIT NAN MITAN */
-    .bss-title {
-      flex: 1;
-      text-align: center;
-      font-size: 30px;
-      font-weight: 900;
-      color: #000000;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 0 0 4px rgba(255,255,255,0.4);
-      padding: 0 10px;
-    }
-
-    /* KOUKOU ANIME: FLY-IN → PAUSE → FLY-OUT */
-    @keyframes koukouSequence {
-      0% {
-        transform: translateX(-160px);
-        opacity: 0;
-      }
-      20% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      60% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(180px);
-        opacity: 0;
-      }
-    }
-
-    .bss-right-koukou {
-      width: 220px;
-      height: auto;
-      margin-bottom: 6px;
-      animation: koukouSequence 4.5s ease-out forwards;
-    }
-
-    /* ANIMASYON LOGO */
-    @keyframes logoRotateIn {
-      0% { transform: scale(0.3); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes logoSpin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* SEKSYON KONTNI */
-    .section {
-      padding: 40px 20px;
-    }
-
-    .section h2 {
-      color: #ff9b3b;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .section p {
-      max-width: 650px;
-      margin: 0 auto;
-      line-height: 1.6;
-      color: #f0f0f0;
-    }
-
-    /* BOUTON */
-    .btn {
-      background: #ff9b3b;
-      color: #000000;
-      padding: 14px 26px;
-      border-radius: 6px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: 2px solid #000000;
-      box-shadow: 0 0 10px rgba(0,0,0,0.7);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 18px rgba(255,155,59,0.9);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .bss-header {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .bss-logo-wrap {
-        width: 220px;
-        height: 220px;
-      }
-
-      .bss-right-koukou {
-        width: 190px;
-        margin-bottom: 0;
-      }
-
-      .bss-title {
-        font-size: 24px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .bss-logo-wrap {
-        width: 190px;
-        height: 190px;
-      }
-
-      .bss-right-koukou {
-        width: 170px;
-      }
-
-      .bss-title {
-        font-size: 20px;
-      }
-
-      .section {
-        padding: 28px 14px;
-      }
-    }
-  </style>
+  <title>BSS 1815 – Akèy Ofisyèl</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER BSS1815 -->
+  <!-- HEADER PRO‑MAX -->
   <header class="bss-header">
     <div class="bss-logo-wrap">
       <img src="nouvo-logo-bss-3.jpeg" class="bss-left-logo" alt="BSS1815 Logo">
     </div>
 
-    <h1 class="bss-title">BRIYANT SOLÈY SIGNO 1815</h1>
+    <h1 class="bss-title">Briyant Solèy Signo 1815</h1>
 
-    <img src="koukou4.jpeg" class="bss-right-koukou" alt="Koukou BSS1815">
+    <img src="koukou-mekontan.jpeg" class="bss-right-koukou" alt="Koukou BSS1815">
   </header>
 
-  <!-- BOUTON PRINCIPAL YO -->
-  <div class="section">
-    <a href="admin.html" class="btn">Antre nan Admin</a>
-    <a href="kiyesnouye.html" class="btn">Kiyès nou ye</a>
-    <a href="mizik.html" class="btn">Mizik</a>
-  </div>
+  <!-- SLOGAN -->
+  <div class="bss-slogan">Nou soti lwen, nou kanpe wo.</div>
 
-  <!-- SEKSYON DESKRIPSYON -->
-  <div class="section">
-    <h2>Kiyès nou ye</h2>
-    <p>
-      BRIYANT SOLÈY SIGNO 1815 se yon enstitisyon disipline, fyète ak idantite.
-      Chak paj, chak logo, chak koulè se yon deklarasyon prezans nou.
+  <!-- TEMWAYAJ OFISYÈL -->
+  <section class="bss-testimony">
+    <p>BSS1815 se pa yon non… se yon eritaj.</p>
+    <p>Se vwa zansèt nou yo, se fòs rasin nou yo,</p>
+    <p>se disiplin nou pote nan san nou.</p>
+    <p>Nou soti lwen, nou kanpe wo,</p>
+    <p>paske chak jenerasyon pote flanm nan pi lwen.</p>
+    <p>Nou se limyè ki pa janm etenn.</p>
+    <p>Nou se BRIYANT SOLEY SIGNO 1815.</p>
+  </section>
+
+  <!-- SEKSYON ENTWODIKSYON -->
+  <section style="max-width:900px; margin:40px auto; padding:20px;">
+    <h2 style="color:#FF7A00; font-size:28px; font-weight:900;">Byenveni nan BSS1815</h2>
+    <p style="font-size:18px; line-height:1.7; color:#FF7A00;">
+      Nou bati yon espas ki pote disiplin, respè, ak idantite.  
+      Chak paj sou sit sa a se yon pati nan istwa nou.  
+      Chak seksyon se yon flanm ki kontinye limen.
     </p>
-  </div>
+  </section>
+
+  <!-- SEKSYON BOUTON PRINCIPAL -->
+  <section style="max-width:1100px; margin:auto; display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+
+    <div class="card">
+      <h3>Kiyès Nou Ye</h3>
+      <a href="kiyesnouye.html">Antre</a>
+    </div>
+
+    <div class="card">
+      <h3>Mizik</h3>
+      <a href="mizik.html">Antre</a>
+    </div>
+
+    <div class="card">
+      <h3>Rara</h3>
+      <a href="rara.html">Antre</a>
+    </div>
+
+    <div class="card">
+      <h3>Admin Panel</h3>
+      <a href="admin.html">Antre</a>
+    </div>
+
+    <div class="card">
+      <h3>Upload Foto</h3>
+      <a href="upload.html">Antre</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER PRO‑MAX -->
+  <footer style="margin-top:60px; padding:20px; color:#FF7A00; font-weight:900;">
+    BSS1815 © Tout dwa rezève — Nou se limyè ki pa janm etenn.
+  </footer>
 
 </body>
 </html>
