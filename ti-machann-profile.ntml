@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>Dosye Ti Machann – BSS1815</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffa64d, #000);
+      font-family: Arial, sans-serif;
+      color: #ffa64d;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .profile-container {
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
+      background: #000;
+      padding: 25px;
+      border-radius: 12px;
+      border: 2px solid #ffa64d;
+      text-align: left;
+    }
+
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 10px;
+      border: 3px solid #ffa64d;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    .info-box {
+      margin-bottom: 18px;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #ffb76b;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      background: #ffa64d;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ffb76b;
+    }
+
+    .qr-box {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .qr-box img {
+      width: 160px;
+      border-radius: 8px;
+      border: 2px solid #ffa64d;
+    }
+
+    .status-paid {
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    .status-unpaid {
+      color: #ff4444;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Dosye Ti Machann</h1>
+
+  <div class="profile-container">
+
+    <img id="photo" class="profile-photo" src="" alt="Foto Machann">
+
+    <div class="info-box">
+      <span class="label">ID:</span> <span id="vendorID"></span>
+    </div>
+
+    <div class="info-box">
+      <span class="label">Non:</span> <span id="vendorName"></span>
+    </div>
+
+    <div class="info-box">
+      <span class="label">Telefòn:</span> <span id="vendorPhone"></span>
+    </div>
+
+    <div class="info-box">
+      <span class="label">Montan Total:</span> $<span id="vendorAmount"></span>
+    </div>
+
+    <div class="info-box">
+      <span class="label">Montan Peye:</span> $<span id="vendorPaid"></span>
+    </div>
+
+    <div class="info-box">
+      <span class="label">Rès Pou Peye:</span> $<span id="vendorRemaining"></span>
+    </div>
+
+    <div class="info-box">
+      <span class="label">Estati:</span>
+      <span id="vendorStatus"></span>
+    </div>
+
+    <div class="qr-box">
+      <h3>QR Code</h3>
+      <img id="qrCode" src="">
+    </div>
+
+    <button class="btn" onclick="makePayment()">Antre Peman</button>
+    <button class="btn" onclick="sendBadge()">Re‑voye Badge</button>
+
+  </div>
+
+  <script>
+    // Egzanp done (ranplase ak backend ou)
+    const exampleVendor = {
+      id: "TM-2026-002",
+      name: "Marie Ti Bwason",
+      phone: "407-555-2222",
+      amount: 200,
+      paid: 150,
+      photo: "https://via.placeholder.com/140",
+      qr: "https://via.placeholder.com/160"
+    };
+
+    function loadProfile() {
+      document.getElementById("photo").src = exampleVendor.photo;
+      document.getElementById("vendorID").innerText = exampleVendor.id;
+      document.getElementById("vendorName").innerText = exampleVendor.name;
+      document.getElementById("vendorPhone").innerText = exampleVendor.phone;
+      document.getElementById("vendorAmount").innerText = exampleVendor.amount;
+      document.getElementById("vendorPaid").innerText = exampleVendor.paid;
+
+      const remaining = exampleVendor.amount - exampleVendor.paid;
+      document.getElementById("vendorRemaining").innerText = remaining;
+
+      const status = document.getElementById("vendorStatus");
+      if (remaining <= 0) {
+        status.innerText = "PEYE";
+        status.className = "status-paid";
+      } else {
+        status.innerText = "POKO PEYE";
+        status.className = "status-unpaid";
+      }
+
+      document.getElementById("qrCode").src = exampleVendor.qr;
+    }
+
+    function makePayment() {
+      window.location.href = `ti-machann-payment.html?id=${exampleVendor.id}`;
+    }
+
+    function sendBadge() {
+      alert("Badge la pral voye sou telefòn machann nan.");
+    }
+
+    loadProfile();
+  </script>
+
+</body>
+</html>
