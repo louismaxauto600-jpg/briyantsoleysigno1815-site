@@ -1,4 +1,4 @@
-/* ============================================================
+TiMachannAdmin.createVendor(data, videoElement)/* ============================================================
    BSS1815 — ADMIN SYSTEM ENGINE (FINAL CORE)
    Fichye: admin-system.js
    Sa a mare TOUT modil yo ansanm:
