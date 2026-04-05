@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS1815 • TRANSACTIONS PANEL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#000;
+      color:#ff7a00;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:20px;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at top,#ff7a00 0,transparent 55%),
+        radial-gradient(circle at bottom,#ff7a00 0,transparent 55%);
+      opacity:0.12;
+      pointer-events:none;
+      z-index:-2;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(0,0,0,0.98));
+      z-index:-1;
+    }
+
+    .header{
+      width:100%;
+      max-width:1100px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:2px solid #ff7a00;
+      box-shadow:0 0 26px #ff7a00;
+      background:rgba(0,0,0,0.9);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .header-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo-box{
+      width:54px;
+      height:54px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#ff7a00,#000);
+      box-shadow:0 0 25px #ff7a00;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:20px;
+    }
+
+    .header-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .header-text span:first-child{
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .header-text span:last-child{
+      font-size:11px;
+      text-transform:uppercase;
+      opacity:0.85;
+    }
+
+    .mode-pill{
+      padding:5px 11px;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      font-size:10px;
+      text-transform:uppercase;
+      opacity:0.9;
+    }
+
+    .status-dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#00ff66;
+      box-shadow:0 0 12px #00ff66;
+      display:inline-block;
+      margin-right:5px;
+      animation:statusPulse 1.4s infinite;
+    }
+
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns:1.4fr 1.6fr;
+      gap:18px;
+    }
+
+    @media(max-width:900px){
+      .container{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .section{
+      background:rgba(0,0,0,0.9);
+      border-radius:14px;
+      border:2px solid #ff7a00;
+      box-shadow:0 0 26px #ff7a00;
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .section::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(255,122,0,0.18),transparent);
+      opacity:0.4;
+      pointer-events:none;
+    }
+
+    .section-inner{
+      position:relative;
+      z-index:1;
+    }
+
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .section-title h2{
+      font-size:18px;
+      text-shadow:0 0 10px #ff7a00;
+    }
+
+    .section-tag{
+      font-size:10px;
+      text-transform:uppercase;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      padding:3px 8px;
+      opacity:0.85;
+    }
+
+    .form{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:10px;
+      font-size:11px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .input,.select{
+      width:100%;
+      background:#000;
+      border-radius:8px;
+      border:1px solid #ff7a00;
+      padding:8px 10px;
+      color:#ff7a00;
+      font-size:12px;
+      outline:none;
+    }
+
+    .input::placeholder{
+      color:rgba(255,122,0,0.6);
+    }
+
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      font-size:10px;
+      margin-top:4px;
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      font-weight:800;
+      text-transform:uppercase;
+      border-radius:10px;
+      padding:9px 14px;
+      font-size:11px;
+      letter-spacing:0.5px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      transition:0.18s ease;
+    }
+
+    .btn-primary{
+      background:#000;
+      color:#ff7a00;
+      border:2px solid #ff7a00;
+      box-shadow:0 0 18px #ff7a00;
+      width:100%;
+      margin-top:4px;
+    }
+
+    .btn-primary:hover{
+      background:#ff7a00;
+      color:#000;
+      box-shadow:0 0 26px #ff7a00;
+      transform:translateY(-1px);
+    }
+
+    .btn-ghost{
+      background:transparent;
+      color:#ff7a00;
+      border:1px dashed #ff7a00;
+      font-size:10px;
+      padding:6px 10px;
+    }
+
+    .btn-ghost:hover{
+      box-shadow:0 0 16px #ff7a00;
+    }
+
+    .summary-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+      margin-bottom:10px;
+      font-size:11px;
+    }
+
+    @media(max-width:700px){
+      .summary-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .summary-card{
+      background:rgba(0,0,0,0.9);
+      border-radius:10px;
+      border:1px solid #ff7a00;
+      box-shadow:0 0 18px #ff7a00;
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .summary-label{
+      font-size:10px;
+      opacity:0.85;
+    }
+
+    .summary-value{
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .summary-tag{
+      font-size:9px;
+      opacity:0.8;
+    }
+
+    .filter-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:8px;
+      font-size:10px;
+      align-items:center;
+    }
+
+    .filter-pill{
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      cursor:pointer;
+      opacity:0.7;
+    }
+
+    .filter-pill.active{
+      opacity:1;
+      box-shadow:0 0 16px #ff7a00;
+      background:linear-gradient(135deg,#ff7a00,#000);
+      color:#000;
+      font-weight:800;
+    }
+
+    .list{
+      margin-top:4px;
+      max-height:280px;
+      overflow-y:auto;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      padding-right:6px;
+      font-size:11px;
+    }
+
+    .item{
+      background:rgba(255,122,0,0.08);
+      border-left:3px solid #ff7a00;
+      padding:8px 9px;
+      border-radius:8px;
+      box-shadow:0 0 12px #ff7a00;
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+    }
+
+    .item-main{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .item-amount{
+      font-weight:800;
+      font-size:13px;
+    }
+
+    .item-meta{
+      font-size:9px;
+      opacity:0.85;
+    }
+
+    .item-right{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:4px;
+    }
+
+    .status-pill{
+      font-size:9px;
+      padding:2px 7px;
+      border-radius:999px;
+      border:1px solid #ff7a00;
+      text-transform:uppercase;
+    }
+
+    .status-pill.ok{
+      background:rgba(0,255,102,0.12);
+      border-color:#00ff66;
+      box-shadow:0 0 10px #00ff66;
+    }
+
+    .status-pill.pending{
+      background:rgba(255,122,0,0.12);
+    }
+
+    .status-pill.failed{
+      background:rgba(255,0,0,0.12);
+      border-color:#ff0000;
+      box-shadow:0 0 10px #ff0000;
+    }
+
+    .channel-pill{
+      font-size:9px;
+      padding:2px 7px;
+      border-radius:999px;
+      border:1px dashed #ff7a00;
+      text-transform:uppercase;
+    }
+
+    .footer{
+      width:100%;
+      max-width:1100px;
+      margin-top:14px;
+      font-size:9px;
+      opacity:0.75;
+      text-align:center;
+    }
+
+    .footer span{
+      font-weight:800;
+    }
+
+    @keyframes statusPulse{
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.25);}
+    }
+
+    ::-webkit-scrollbar{
+      width:6px;
+    }
+    ::-webkit-scrollbar-track{
+      background:#000;
+    }
+    ::-webkit-scrollbar-thumb{
+      background:#ff7a00;
+      border-radius:999px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-box">TR</div>
+      <div class="header-text">
+        <span>BSS1815 • TRANSACTIONS PANEL</span>
+        <span>Financial flow • Twilio / WhatsApp alerts</span>
+      </div>
+    </div>
+    <div class="mode-pill">
+      <span class="status-dot"></span>
+      LIVE TRANSACTION CHANNEL
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- LEFT: NEW TRANSACTION + SUMMARY -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>💳 NEW TRANSACTION</h2>
+          <div class="section-tag">SUPER_ADMIN • ADMIN</div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-label">Today Total</div>
+            <div class="summary-value" id="sumToday">$0</div>
+            <div class="summary-tag">All statuses</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Approved</div>
+            <div class="summary-value" id="sumApproved">$0</div>
+            <div class="summary-tag">Status: OK</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Pending</div>
+            <div class="summary-value" id="sumPending">$0</div>
+            <div class="summary-tag">Awaiting confirmation</div>
+          </div>
+        </div>
+
+        <div class="form">
+          <div class="field">
+            <label for="txAmount">Amount</label>
+            <input id="txAmount" class="input" placeholder="Ex: 150.00">
+          </div>
+
+          <div class="field">
+            <label for="txLabel">Label / Description</label>
+            <input id="txLabel" class="input" placeholder="Ex: Monthly subscription • Media department">
+          </div>
+
+          <div class="field">
+            <label for="txChannel">Channel</label>
+            <select id="txChannel" class="select">
+              <option value="WHATSAPP">WHATSAPP</option>
+              <option value="SMS">SMS</option>
+              <option value="BANK">BANK</option>
+              <option value="CASH">CASH</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="txStatus">Status</label>
+            <select id="txStatus" class="select">
+              <option value="OK">APPROVED</option>
+              <option value="PENDING">PENDING</option>
+              <option value="FAILED">FAILED</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <button class="btn btn-primary" onclick="addTransaction()">
+              ➕ REGISTER TRANSACTION
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: TRANSACTION LIST -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>📋 TRANSACTION LOG</h2>
+          <div class="section-tag">Trace • Control • Alerts</div>
+        </div>
+
+        <div class="filter-row">
+          <span>Filter:</span>
+          <button class="filter-pill active" data-type="ALL" onclick="setFilter(this)">All</button>
+          <button class="filter-pill" data-type="OK" onclick="setFilter(this)">Approved</button>
+          <button class="filter-pill" data-type="PENDING" onclick="setFilter(this)">Pending</button>
+          <button class="filter-pill" data-type="FAILED" onclick="setFilter(this)">Failed</button>
+          <button class="btn-ghost" onclick="clearTransactions()">Clear log</button>
+        </div>
+
+        <div class="list" id="txList">
+          <!-- Dynamic transactions -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    All transactions are under <span>SUPER_ADMIN</span> oversight and linked to <span>Twilio / WhatsApp</span> alert discipline.
+  </div>
+
+  <script>
+    let currentFilter = "ALL";
+    let totals = {
+      today:0,
+      approved:0,
+      pending:0
+    };
+
+    function parseAmount(val){
+      const n = parseFloat(val.replace(",","."));
+      return isNaN(n) ? 0 : n;
+    }
+
+    function formatAmount(n){
+      return "$" + n.toFixed(2);
+    }
+
+    function updateSummary(){
+      document.getElementById("sumToday").textContent = formatAmount(totals.today);
+      document.getElementById("sumApproved").textContent = formatAmount(totals.approved);
+      document.getElementById("sumPending").textContent = formatAmount(totals.pending);
+    }
+
+    function addTransaction(){
+      const amountStr = document.getElementById("txAmount").value.trim();
+      const label = document.getElementById("txLabel").value.trim() || "NO LABEL";
+      const channel = document.getElementById("txChannel").value;
+      const status = document.getElementById("txStatus").value;
+
+      const amount = parseAmount(amountStr);
+      if(!amount || amount <= 0) return;
+
+      const list = document.getElementById("txList");
+
+      const item = document.createElement("div");
+      item.className = "item";
+      item.setAttribute("data-status", status);
+
+      const main = document.createElement("div");
+      main.className = "item-main";
+
+      const amountEl = document.createElement("div");
+      amountEl.className = "item-amount";
+      amountEl.textContent = formatAmount(amount);
+
+      const meta = document.createElement("div");
+      meta.className = "item-meta";
+      meta.textContent = label + " • " + new Date().toLocaleTimeString();
+
+      main.appendChild(amountEl);
+      main.appendChild(meta);
+
+      const right = document.createElement("div");
+      right.className = "item-right";
+
+      const statusEl = document.createElement("div");
+      statusEl.className = "status-pill";
+      if(status === "OK") statusEl.classList.add("ok");
+      if(status === "PENDING") statusEl.classList.add("pending");
+      if(status === "FAILED") statusEl.classList.add("failed");
+      statusEl.textContent = status;
+
+      const channelEl = document.createElement("div");
+      channelEl.className = "channel-pill";
+      channelEl.textContent = channel;
+
+      right.appendChild(statusEl);
+      right.appendChild(channelEl);
+
+      item.appendChild(main);
+      item.appendChild(right);
+      list.prepend(item);
+
+      totals.today += amount;
+      if(status === "OK") totals.approved += amount;
+      if(status === "PENDING") totals.pending += amount;
+      updateSummary();
+
+      document.getElementById("txAmount").value = "";
+      document.getElementById("txLabel").value = "";
+
+      applyFilter();
+    }
+
+    function setFilter(btn){
+      document.querySelectorAll(".filter-pill").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      currentFilter = btn.getAttribute("data-type");
+      applyFilter();
+    }
+
+    function applyFilter(){
+      const items = document.querySelectorAll("#txList .item");
+      items.forEach(item=>{
+        const st = item.getAttribute("data-status");
+        if(currentFilter === "ALL" || st === currentFilter){
+          item.style.display = "flex";
+        }else{
+          item.style.display = "none";
+        }
+      });
+    }
+
+    function clearTransactions(){
+      document.getElementById("txList").innerHTML = "";
+      totals.today = 0;
+      totals.approved = 0;
+      totals.pending = 0;
+      updateSummary();
+    }
+
+    updateSummary();
+  </script>
+</body>
+</html>
