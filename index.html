@@ -2,214 +2,130 @@
 <html lang="ht">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BRIYANT SOLÈY SIGNO 1815</title>
+  <title>BSS 1815 – Sit Ofisyèl</title>
 
   <style>
     body {
       margin: 0;
-      background: #000;
-      color: #ff7a00;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffa64d, #000);
+      color: #ffa64d;
       font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
     }
 
-    /* TOP NAV */
-    .nav {
+    .header-area {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
-      background: #000;
-      border-bottom: 1px solid #ff7a00;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .nav a {
-      color: #ff7a00;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
     }
 
-    /* LOGO OFISYÈL */
+    /* LOGO A GÒCH — ROTATE IN */
     .logo {
-      width: 150px;
-      display: block;
-      margin: 30px auto 10px auto;
-      animation: spin 8s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-
-    /* KOUKOU ANIMASYON */
-    #koukou {
-      text-align: center;
-      font-size: 30px;
-      font-weight: bold;
+      width: 140px;
       opacity: 0;
-      animation: flyIn 1s ease-out forwards,
-                 flyOut 1s ease-in forwards;
-      animation-delay: 0s, 3s;
-      color: #ff7a00;
+      transform: rotate(-180deg) scale(0.3);
+      animation: spinIn 1.6s ease-out forwards;
     }
+
+    @keyframes spinIn {
+      0% {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.3);
+      }
+      70% {
+        opacity: 1;
+        transform: rotate(10deg) scale(1.1);
+      }
+      100% {
+        transform: rotate(0deg) scale(1);
+      }
+    }
+
+    /* KOUKOU A DWAT — FLY-IN → PAUSE 4s → FLY-OUT */
+    .koukou {
+      width: 140px;
+      opacity: 0;
+      animation: 
+        flyIn 1.8s ease-out forwards,
+        pauseStay 4s ease-out forwards 1.8s,
+        flyOut 1.6s ease-in forwards 5.8s;
+    }
+
     @keyframes flyIn {
-      from { transform: translateY(-40px); opacity: 0; }
-      to   { transform: translateY(0); opacity: 1; }
+      0% {
+        opacity: 0;
+        transform: translateX(200px) translateY(-40px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateX(-20px) translateY(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
     }
+
+    @keyframes pauseStay {
+      0% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+
     @keyframes flyOut {
-      from { opacity: 1; }
-      to   { opacity: 0; transform: translateY(40px); }
+      0% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-250px);
+      }
     }
 
-    /* LANGUAGE TOGGLE */
-    .lang-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin: 25px auto 10px auto;
-      padding: 10px 0;
-    }
-    .lang-toggle button {
+    nav a {
+      display: block;
+      margin: 12px auto;
+      width: 70%;
+      max-width: 300px;
+      padding: 14px;
       background: #000;
-      color: #ff7a00;
-      border: 1px solid #ff7a00;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
+      color: #ffa64d;
+      text-decoration: none;
+      font-size: 20px;
+      border-radius: 8px;
+      border: 2px solid #ffa64d;
+      transition: 0.3s;
     }
-    .lang-toggle button:hover {
-      background: #ff7a00;
+
+    nav a:hover {
+      background: #ffa64d;
       color: #000;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 20px;
-    }
-    .hero h1 {
-      margin: 10px 0 5px 0;
-      font-size: 24px;
-    }
-    .hero p {
-      max-width: 600px;
-      margin: 10px auto;
-      line-height: 1.5;
-      font-size: 14px;
-    }
-
-    .sections {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 30px 10px 50px 10px;
-    }
-    .card {
-      width: 220px;
-      border: 1px solid #ff7a00;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      background: rgba(255,122,0,0.05);
-    }
-    .card h3 {
-      margin: 0 0 10px 0;
-      font-size: 16px;
-    }
-    .card button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: 1px solid #ff7a00;
-      background: #000;
-      color: #ff7a00;
-      font-weight: bold;
-      cursor: pointer;
+      transform: scale(1.05);
     }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV OFISYÈL -->
-  <div class="nav">
-    <a href="#">HOME</a>
-    <a href="#kiyes">KIYÈS NOU YE</a>
-    <a href="#mizik">MIZIK</a>
-    <a href="#rara">RARA</a>
-    <a href="#admin">ADMIN</a>
-    <a href="#upload">UPLOAD FOTO</a>
+  <div class="header-area">
+    <img src="public/nouvo-logo-bss-3.jpeg" class="logo" alt="Logo BSS1815">
+    <img src="public/koukou-bss.jpeg" class="koukou" alt="Koukou BSS1815">
   </div>
 
-  <!-- LOGO OFISYÈL BSS1815 -->
-  <img src="/img/bss1815-logo-ofisyel.png" alt="BSS1815 Logo" class="logo">
-
-  <!-- KOUKOU ANIMASYON -->
-  <div id="koukou">KOUKOU</div>
-
-  <!-- LANGUAGE TOGGLE APA -->
-  <div class="lang-toggle">
-    <button data-lang="kre">KRE</button>
-    <button data-lang="fra">FRA</button>
-    <button data-lang="eng">ENG</button>
-  </div>
-
-  <!-- HERO TEKST OFISYÈL -->
-  <div class="hero">
-    <h1>BRIYANT SOLÈY SIGNO 1815</h1>
-    <p>
-      NOU SOTI LWEN, NOU KANPE WO. BSS1815 SE PA YON NON, SE YON ERITAJ.
-      Se vwa zansèt nou yo, se rasin nou yo, se disiplin nou pote nan san nou.
-      Chak paj sou sit sa a se yon flanm ki kontinye limen.
-    </p>
-  </div>
-
-  <!-- SEKSYON KAT YO -->
-  <div class="sections">
-    <div class="card" id="kiyes">
-      <h3>KIYÈS NOU YE</h3>
-      <p>Idantite, istwa, disiplin, eritaj BSS1815.</p>
-      <button>ANTRE</button>
-    </div>
-
-    <div class="card" id="mizik">
-      <h3>MIZIK</h3>
-      <p>Seleksyon mizik ofisyèl ekip la.</p>
-      <button>ANTRE</button>
-    </div>
-
-    <div class="card" id="rara">
-      <h3>RARA</h3>
-      <p>Rit, batay, ak enèji rara BSS1815.</p>
-      <button>ANTRE</button>
-    </div>
-
-    <div class="card" id="admin">
-      <h3>ADMIN PANEL</h3>
-      <p>Zòn operasyonèl pou ADMIN ak SUPER ADMIN.</p>
-      <button>ANTRE</button>
-    </div>
-
-    <div class="card" id="upload">
-      <h3>UPLOAD FOTO</h3>
-      <p>Espas pou mete foto ofisyèl ekip la.</p>
-      <button>ANTRE</button>
-    </div>
-  </div>
-
-  <script>
-    document.querySelectorAll('.lang-toggle button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.dataset.lang;
-        localStorage.setItem("bss-lang", lang);
-        location.reload();
-      });
-    });
-  </script>
+  <nav>
+    <a href="admin.html">Antre nan Admin</a>
+    <a href="music.html">Seksyon Mizik</a>
+    <a href="rara.html">RARA BSS1815</a>
+  </nav>
 
 </body>
 </html>
