@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>Lis Ti Machann – BSS1815</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffa64d, #000);
+      font-family: Arial, sans-serif;
+      color: #ffa64d;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 38px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .table-container {
+      width: 95%;
+      max-width: 1100px;
+      margin: 30px auto;
+      background: #000;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #ffa64d;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #ffa64d;
+      font-size: 18px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ffa64d;
+      text-align: left;
+    }
+
+    th {
+      background: #111;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    tr:hover {
+      background: #1a1a1a;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      background: #ffa64d;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ffb76b;
+    }
+
+    .status-paid {
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    .status-unpaid {
+      color: #ff4444;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Lis Ti Machann yo</h1>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Foto</th>
+          <th>Non</th>
+          <th>Telefòn</th>
+          <th>Montan</th>
+          <th>Estati</th>
+          <th>Aksyon</th>
+        </tr>
+      </thead>
+
+      <tbody id="vendorList">
+        <!-- DONE YO AP CHARGE AUTOMATIKMAN NAN JAVASCRIPT -->
+      </tbody>
+
+    </table>
+  </div>
+
+  <script>
+    // Egzanp done (ou ka ranplase ak Firebase oswa backend ou)
+    const vendors = [
+      {
+        id: "TM-2026-001",
+        name: "Jean Machann",
+        phone: "305-555-1111",
+        amount: 150,
+        paid: false,
+        photo: "https://via.placeholder.com/60"
+      },
+      {
+        id: "TM-2026-002",
+        name: "Marie Ti Bwason",
+        phone: "407-555-2222",
+        amount: 200,
+        paid: true,
+        photo: "https://via.placeholder.com/60"
+      }
+    ];
+
+    function loadVendors() {
+      const table = document.getElementById("vendorList");
+
+      vendors.forEach(v => {
+        const row = `
+          <tr>
+            <td>${v.id}</td>
+            <td><img src="${v.photo}" width="60" style="border-radius:6px;"></td>
+            <td>${v.name}</td>
+            <td>${v.phone}</td>
+            <td>$${v.amount}</td>
+            <td class="${v.paid ? 'status-paid' : 'status-unpaid'}">
+              ${v.paid ? 'PEYE' : 'POKO PEYE'}
+            </td>
+            <td>
+              <button class="btn" onclick="viewProfile('${v.id}')">Gade</button>
+              <button class="btn" onclick="makePayment('${v.id}')">Peman</button>
+            </td>
+          </tr>
+        `;
+        table.innerHTML += row;
+      });
+    }
+
+    function viewProfile(id) {
+      window.location.href = `ti-machann-profile.html?id=${id}`;
+    }
+
+    function makePayment(id) {
+      window.location.href = `ti-machann-payment.html?id=${id}`;
+    }
+
+    loadVendors();
+  </script>
+
+</body>
+</html>
