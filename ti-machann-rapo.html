@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>Rapò Ti Machann – BSS1815</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffa64d, #000);
+      font-family: Arial, sans-serif;
+      color: #ffa64d;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 38px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .filter-container {
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #000;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #ffa64d;
+      text-align: left;
+    }
+
+    label {
+      font-size: 18px;
+      display: block;
+      margin-top: 15px;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 2px solid #ffa64d;
+      background: #111;
+      color: #ffa64d;
+      font-size: 16px;
+    }
+
+    .report-container {
+      width: 95%;
+      max-width: 1100px;
+      margin: 30px auto;
+      background: #000;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #ffa64d;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #ffa64d;
+      font-size: 18px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ffa64d;
+      text-align: left;
+    }
+
+    th {
+      background: #111;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    tr:hover {
+      background: #1a1a1a;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 25px;
+      background: #ffa64d;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ffb76b;
+    }
+
+    .status-paid {
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    .status-unpaid {
+      color: #ff4444;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Rapò Ti Machann</h1>
+
+  <!-- FILTÈ RAPÒ -->
+  <div class="filter-container">
+
+    <label>Filtre pa Mwa</label>
+    <select id="monthFilter">
+      <option value="all">Tout mwa</option>
+      <option>Janvye</option>
+      <option>Fevriye</option>
+      <option>Mars</option>
+      <option>Avril</option>
+      <option>Me</option>
+      <option>Jen</option>
+      <option>Jiyè</option>
+      <option>Out</option>
+      <option>Septanm</option>
+      <option>Oktòb</option>
+      <option>Novanm</option>
+      <option>Desanm</option>
+    </select>
+
+    <label>Filtre pa Estati</label>
+    <select id="statusFilter">
+      <option value="all">Tout</option>
+      <option value="paid">Peye</option>
+      <option value="unpaid">Poko Peye</option>
+    </select>
+
+    <button class="btn" onclick="filterReport()">Afiche Rapò</button>
+
+  </div>
+
+  <!-- TABLO RAPÒ -->
+  <div class="report-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Non</th>
+          <th>Telefòn</th>
+          <th>Montan</th>
+          <th>Peye</th>
+          <th>Rès</th>
+          <th>Estati</th>
+        </tr>
+      </thead>
+
+      <tbody id="reportTable">
+        <!-- DONE YO AP CHARGE AUTOMATIKMAN -->
+      </tbody>
+
+    </table>
+  </div>
+
+  <script>
+    // Egzanp done (ranplase ak backend ou)
+    const vendors = [
+      { id: "TM-2026-001", name: "Jean Machann", phone: "305-555-1111", amount: 150, paid: 150 },
+      { id: "TM-2026-002", name: "Marie Ti Bwason", phone: "407-555-2222", amount: 200, paid: 150 },
+      { id: "TM-2026-003", name: "Ti Manje", phone: "786-555-3333", amount: 100, paid: 0 }
+    ];
+
+    function loadReport(data) {
+      const table = document.getElementById("reportTable");
+      table.innerHTML = "";
+
+      data.forEach(v => {
+        const remaining = v.amount - v.paid;
+        const row = `
+          <tr>
+            <td>${v.id}</td>
+            <td>${v.name}</td>
+            <td>${v.phone}</td>
+            <td>$${v.amount}</td>
+            <td>$${v.paid}</td>
+            <td>$${remaining}</td>
+            <td class="${remaining <= 0 ? 'status-paid' : 'status-unpaid'}">
+              ${remaining <= 0 ? 'PEYE' : 'POKO PEYE'}
+            </td>
+          </tr>
+        `;
+        table.innerHTML += row;
+      });
+    }
+
+    function filterReport() {
+      const status = document.getElementById("statusFilter").value;
+
+      let filtered = vendors;
+
+      if (status === "paid") {
+        filtered = vendors.filter(v => v.amount - v.paid <= 0);
+      }
+
+      if (status === "unpaid") {
+        filtered = vendors.filter(v => v.amount - v.paid > 0);
+      }
+
+      loadReport(filtered);
+    }
+
+    loadReport(vendors);
+  </script>
+
+</body>
+</html>
