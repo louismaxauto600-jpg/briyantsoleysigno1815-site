@@ -1,220 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BSS1815 • ADMIN PANEL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSS Admin Login</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom, #000000, #ff8c00);
+      color: white;
     }
-
-    body{
-      background:#000;
-      color:#ff7a00;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:20px;
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid rgba(255,140,0,0.35);
+      border-radius: 18px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      text-align: center;
     }
-
-    .header{
-      width:100%;
-      max-width:1100px;
-      padding:15px;
-      border:2px solid #ff7a00;
-      border-radius:12px;
-      background:rgba(0,0,0,0.85);
-      box-shadow:0 0 25px #ff7a00;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:20px;
-    }<div class="bss-slogan">Nou soti lwen, nou kanpe wo.</div>
-
-    .logo{
-      font-size:22px;
-      font-weight:900;
-      background:linear-gradient(135deg,#ff7a00,#000);
-      padding:12px 18px;
-      border-radius:10px;
-      box-shadow:0 0 20px #ff7a00;
+    .logo {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ff8c00;
+      margin-bottom: 14px;
+      background: #111;
     }
-
-    .role{
-      padding:6px 12px;
-      border-radius:999px;
-      border:2px solid #ff7a00;
-      font-size:12px;
-      font-weight:800;
-      text-transform:uppercase;
-      box-shadow:0 0 15px #ff7a00;
+    h1 {
+      margin: 0 0 8px;
+      color: #ffb347;
+      font-size: 1.9rem;
     }
-
-    .container{
-      width:100%;
-      max-width:1100px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
+    p {
+      margin: 0 0 20px;
+      color: #ddd;
+      font-size: 0.95rem;
     }
-
-    @media(max-width:900px){
-      .container{
-        grid-template-columns:1fr;
-      }
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      margin: 9px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
     }
-
-    .section{
-      background:rgba(0,0,0,0.85);
-      border:2px solid #ff7a00;
-      border-radius:12px;
-      padding:16px;
-      box-shadow:0 0 25px #ff7a00;
+    button {
+      width: 100%;
+      padding: 13px 14px;
+      margin-top: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #ff8c00;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
     }
-
-    .section h2{
-      font-size:20px;
-      margin-bottom:12px;
-      text-shadow:0 0 10px #ff7a00;
+    button:hover {
+      background: #ffb347;
     }
-
-    .btn{
-      border:none;
-      cursor:pointer;
-      font-weight:800;
-      text-transform:uppercase;
-      border-radius:8px;
-      padding:10px 14px;
-      font-size:12px;
-      letter-spacing:0.5px;
-      transition:0.18s ease;
-      margin-bottom:10px;
+    .secondary-btn {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.25);
     }
-
-    .btn-primary{
-      background:#000;
-      color:#ff7a00;
-      border:2px solid #ff7a00;
-      box-shadow:0 0 15px #ff7a00;
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.08);
+      color: white;
     }
-
-    .btn-primary:hover{
-      background:#ff7a00;
-      color:#000;
-      box-shadow:0 0 25px #ff7a00;
-      transform:translateY(-1px);
+    .message {
+      margin-top: 14px;
+      min-height: 22px;
+      font-size: 0.95rem;
+      color: #ffd28a;
     }
-
-    .list{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      max-height:250px;
-      overflow-y:auto;
-      padding-right:6px;
-    }
-
-    .item{
-      background:rgba(255,122,0,0.08);
-      border-left:3px solid #ff7a00;
-      padding:10px;
-      border-radius:6px;
-      box-shadow:0 0 10px #ff7a00;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:12px;
-    }
-
-    .remove{
-      background:#ff0000;
-      color:#fff;
-      border:none;
-      padding:6px 10px;
-      border-radius:6px;
-      cursor:pointer;
-      font-weight:800;
-      box-shadow:0 0 10px #ff0000;
-    }
-
-    .remove:hover{
-      background:#ff7a00;
-      color:#000;
-      box-shadow:0 0 20px #ff7a00;
-    }
-
-    .modal-backdrop{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.9);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:50;
-    }
-
-    .modal{
-      width:90%;
-      max-width:350px;
-      background:#000;
-      border:2px solid #ff7a00;
-      border-radius:12px;
-      padding:16px;
-      box-shadow:0 0 25px #ff7a00;
-    }
-
-    .modal h3{
-      margin-bottom:10px;
-      text-shadow:0 0 10px #ff7a00;
-    }
-
-    .input{
-      width:100%;
-      background:#000;
-      border:1px solid #ff7a00;
-      border-radius:8px;
-      padding:8px 10px;
-      color:#ff7a00;
-      margin-bottom:10px;
-    }
-
-    .modal-actions{
-      display:flex;
-      justify-content:flex-end;
-      gap:10px;
+    .small {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #bbb;
     }
   </style>
 </head>
-
 <body>
+  <div class="login-box">
+    <img src="bss-1815.png" alt="BSS Logo" class="logo" />
+    <h1>BSS Admin Login</h1>
+    <p>Secure access for authorized admins only.</p>
 
-  <div class="header">
-    <div class="logo">ADMIN</div>
-    <div class="role">ADMIN PANEL • BSS1815</div>
+    <input type="email" id="email" placeholder="Admin email" />
+    <input type="password" id="password" placeholder="Password" />
+
+    <button id="loginBtn">Login</button>
+    <button id="resetBtn" class="secondary-btn" type="button">Reset Password</button>
+
+    <div class="message" id="message"></div>
+    <div class="small">Powered by Firebase Authentication</div>
   </div>
 
-  <div class="container">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      sendPasswordResetEmail,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
-    <!-- ADMIN MANAGEMENT -->
-    <div class="section">
-      <h2>👥 ADMIN MANAGEMENT</h2>
+    const firebaseConfig = {
+      apiKey: "PASTE_YOUR_API_KEY",
+      authDomain: "PASTE_YOUR_AUTH_DOMAIN",
+      projectId: "PASTE_YOUR_PROJECT_ID",
+      storageBucket: "PASTE_YOUR_STORAGE_BUCKET",
+      messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
+      appId: "PASTE_YOUR_APP_ID"
+    };
 
-      <button class="btn btn-primary" onclick="openModal()">➕ Add Admin</button>
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-      <div class="list" id="adminList">
-        <!-- Dynamic admins -->
-      </div>
-    </div>
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const message = document.getElementById("message");
 
-    <!-- SECURITY LOGS -->
-    <div class="section">
-      <h2>🛡 SECURITY LOGS</h2>
+    function showMessage(text, isError = false) {
+      message.textContent = text;
+      message.style.color = isError ? "#ff9c9c" : "#ffd28a";
+    }
 
-      <div class="list" id="logsList">
-        <!-- Dynamic logs -->
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = "dashboard.html";
+      }
+    });
+
+    loginBtn.addEventListener("click", async () => {
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        showMessage("Please enter email and password.", true);
+        return;
+      }
+
+      try {
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Signing in...";
+        await signInWithEmailAndPassword(auth, email, password);
+        showMessage("Login successful. Redirecting...");
+        window.location.href = "dashboard.html";
+      } catch (error) {
+        console.error(error);
+        showMessage("Login failed. Check your email or password.", true);
+      } finally {
+        loginBtn.disabled = false;
+        loginBtn.textContent = "Login";
+      }
+    });
+
+    resetBtn.addEventListener("click", async () => {
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        showMessage("Enter your email first to reset password.", true);
+        return;
+      }
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+        showMessage("Password reset email sent.");
+      } catch (error) {
+        console.error(error);
+        showMessage("Could not send reset email.", true);
+      }
+    });
+  </script>
+</body>
+</html>
