@@ -1,119 +1,160 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <title>Login – BSS1815</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ff7a00 0%, #000000 55%, #000000 100%);
-      color: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .page-wrapper {
-      width: 100%;
-      max-width: 480px;
-      padding: 20px 16px;
-    }
-
-    .card {
-      background: rgba(0, 0, 0, 0.92);
-      border-radius: 18px;
-      border: 1px solid rgba(255, 122, 0, 0.5);
-      padding: 24px 18px 28px;
-      box-shadow: 0 0 28px rgba(0, 0, 0, 0.9);
-      text-align: center;
-    }
-
-    .main-title {
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #f5f5f5;
-      margin-bottom: 18px;
-    }
-
-    .btn-block {
-      width: 100%;
-      margin: 8px 0;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 2px solid #ff7a00;
-      background: transparent;
-      color: #ff7a00;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      transition: all 0.18s ease-out;
-    }
-
-    .btn:hover {
-      background: #ff7a00;
-      color: #000000;
-    }
-
-    .btn-label {
-      font-size: 0.8rem;
-    }
-
-    @media (min-width: 768px) {
-      .page-wrapper {
-        max-width: 520px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>BSS1815 SUPER ADMIN DASHBOARD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="card">
-      <div class="main-title">LOGIN</div>
 
-      <div class="btn-block">
-        <button class="btn" id="btn-non-prinsipal">
-          <span class="btn-label">LOGIN NON PRINSIPAL</span>
-        </button>
-      </div>
-
-      <div class="btn-block">
-        <button class="btn" id="btn-bank">
-          <span class="btn-label">LOGIN BANK</span>
-        </button>
-      </div>
-
-      <div class="btn-block">
-        <button class="btn" id="btn-admin">
-          <span class="btn-label">LOGIN ADMIN</span>
-        </button>
-      </div>
-    </div>
+  <!-- HEADER GLOBAL: LOGO + KOUKOU -->
+  <div class="global-header">
+    <img src="logo.png" class="header-logo" alt="BSS1815 Logo">
+    <img src="koukou-bss.jpeg" class="header-koukou" alt="KOUKOU BSS1815">
   </div>
 
-  <script>
-    // Lè ou pare, ou ka lye bouton yo ak lòt paj:
-    // document.getElementById('btn-admin').onclick = () => {
-    //   window.location.href = 'admin.html';
-    // };
-  </script>
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-title">BSS1815</div>
+      <nav class="menu">
+        <button class="menu-item active" data-screen="dashboard">DASHBOARD</button>
+        <button class="menu-item" data-screen="admins">ADMINS</button>
+        <button class="menu-item" data-screen="media">MEDIA</button>
+        <button class="menu-item" data-screen="logs">LOGS</button>
+        <button class="menu-item" data-screen="settings">SETTINGS</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <!-- DASHBOARD -->
+      <section class="screen active" id="screen-dashboard">
+        <h1 class="screen-title">SUPER ADMIN DASHBOARD</h1>
+        <div class="cards-row">
+          <div class="card">
+            <div class="card-label">TOTAL ADMINS</div>
+            <div class="card-value" id="stat-admin-count">0</div>
+          </div>
+          <div class="card">
+            <div class="card-label">MEDIA UPLOADS</div>
+            <div class="card-value" id="stat-media-count">0</div>
+          </div>
+          <div class="card">
+            <div class="card-label">LOG ENTRIES</div>
+            <div class="card-value" id="stat-log-count">0</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADMINS -->
+      <section class="screen" id="screen-admins">
+        <h1 class="screen-title">GESTYON ADMINS</h1>
+
+        <div class="panel">
+          <h2 class="panel-title">AJOUTE YON ADMIN</h2>
+          <form id="form-add-admin" class="form-grid">
+            <input type="text" id="admin-name" placeholder="Non konplè" required>
+            <input type="text" id="admin-username" placeholder="Non itilizatè" required>
+            <input type="password" id="admin-temp-pass" placeholder="TEMP PASSWORD" required>
+            <button type="submit" class="btn-primary">AJOUTE ADMIN</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">LIS ADMINS</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>NON</th>
+                <th>USERNAME</th>
+                <th>ROLE</th>
+                <th>AKSYON</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body">
+              <!-- Ranpli pa admin-system.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- MEDIA -->
+      <section class="screen" id="screen-media">
+        <h1 class="screen-title">MEDIA CENTER</h1>
+
+        <div class="panel">
+          <h2 class="panel-title">UPLOAD MEDIA</h2>
+          <form id="form-media-upload" class="form-grid">
+            <input type="file" id="media-file" required>
+            <input type="text" id="media-label" placeholder="Tit / Deskripsyon" required>
+            <button type="submit" class="btn-primary">UPLOAD</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">LIS MEDIA</h2>
+          <div id="media-list" class="media-grid">
+            <!-- Ranpli pa admin-system.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- LOGS -->
+      <section class="screen" id="screen-logs">
+        <h1 class="screen-title">SYSTEM LOGS</h1>
+        <div class="panel">
+          <h2 class="panel-title">DÈNYE AKSYON YO</h2>
+          <ul id="log-list" class="log-list">
+            <!-- Ranpli pa admin-system.js -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="screen" id="screen-settings">
+        <h1 class="screen-title">SETTINGS SISTÈM</h1>
+
+        <div class="panel">
+          <h2 class="panel-title">ENFÒMASYON SISTÈM</h2>
+          <div class="settings-grid">
+            <div>
+              <div class="field-label">NON SISTÈM</div>
+              <div class="field-value" id="sys-name"></div>
+            </div>
+            <div>
+              <div class="field-label">VÈSYON</div>
+              <div class="field-value" id="sys-version"></div>
+            </div>
+            <div>
+              <div class="field-label">ENVIRONMENT</div>
+              <div class="field-value" id="sys-env"></div>
+            </div>
+            <div>
+              <div class="field-label">SECURITY MODE</div>
+              <div class="field-value" id="sys-security"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">SUPER ADMINS</h2>
+          <div class="settings-grid">
+            <div>
+              <div class="field-label">ROOT</div>
+              <div class="field-value" id="sys-root"></div>
+            </div>
+            <div>
+              <div class="field-label">SECONDARY</div>
+              <div class="field-value" id="sys-secondary"></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="admin-system.js"></script>
 </body>
 </html>
