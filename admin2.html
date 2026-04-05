@@ -1,194 +1,44 @@
-Skip to content
-louismaxauto600-jpg
-briyantsoleysigno.com
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Files
-Go to file
-t
-images
-.admin.html
-README.md
-Rapport-Briyant-19-ocobre -2025.pdf
-admin-dasboard.js
-admin-dashboard-final.js
-admin-dashboard-upload.js
-admin-dashboard.js
-admin.html
-admin2.html
-bss-1815.png
-bss-fanclub-4.png
-bss-logo.png
-dashboard.html
-doodly.jpg
-engine-bss.jpg
-engine-bss.png
-fanclub-3.png
-fanclub-4.png
-fanclub1.png.png
-fanfan.png
-index.html
-jeff-colin.jpg
-jij-mayan.jpg
-jude.jpg
-kod-cange.png
-koukou.png
-landry.jpg
-logo-bss-2.jpeg
-logo-bss.jpeg
-mario-briyant.png
-max-louis.jpeg
-max.jpg
-max_louis.jpg
-maximax-2.jpg
-maximax-II.jpg
-maximax-multi-services.jpg
-maximax.jpeg
-miami-an-aksyon.jpeg
-miami-an-aksyon.png
-mmiami-an-aksyo-IIn.jpeg
-montinat.jpg
-musicians-admin.js
-musicians.json
-nadege-bouzin.jpg
-odiral-logo.png
-only_me.jpg
-papit.png
-pdg-ti-fre.png
-perodin.png
-portal.html
-ralph-polisye.jpg
-rapport-briyant 19 ocobre 2025.pdf
-reg_jeneral_disiplin_bss_final_active.pdf
-reg_jeneral_disiplin_bss_ofisyel II (1).pdf
-roro-lajan.png
-sfc-5-stars.jpeg
-sfc-5-stars.png.png
-sonsonn.png
-style.css
-team-angrenay.png
-team-backup-II.jeg.png
-team-backup.jpeg
-team-backup.png.png
-team-san-presyon-II.jpeg
-team-san-presyon.jpeg
-ti-lafrance.png
-ti-papouche.png
-ti-rat.jpg
-upload.html
-valery.png
-vice-prez-ygens.png
-briyantsoleysigno.com
-/admin2.html
-louismaxauto600-jpg
-louismaxauto600-jpg
-Add admin2.html for admin panel interface
-7f215f9
- · 
-last week
-
-Code
-
-Blame
-147 lines (123 loc) · 3.43 KB
 <!DOCTYPE html>
 <html lang="ht">
 <head>
   <meta charset="UTF-8">
-  <title>BSS 1815 – Admin Panel 2 (TEST)</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #FF8C42;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-
-    table th, table td {
-      border: 1px solid #444;
-      padding: 8px;
-      text-align: left;
-    }
-
-    table th {
-      background: #333;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0 10px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    button {
-      padding: 8px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background: #FF8C42;
-      color: #000;
-      font-weight: bold;
-    }
-
-    .filter-btn {
-      margin-right: 5px;
-      background: #444;
-      color: #fff;
-    }
-  </style>
+  <title>BSS 1815 – Admin Panel 2 (NETWAYE)</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <h1>BSS 1815 – Admin Panel 2 (TEST)</h1>
-
-  <div class="container">
-
-    <!-- SEARCH -->
-    <input type="text" id="search-input" placeholder="Chèche mizisyen…">
-
-    <!-- FILTERS -->
-    <div>
-      <button class="filter-btn" data-section="ALL">Tout</button>
-      <button class="filter-btn" data-section="CHANTE">Chante</button>
-      <button class="filter-btn" data-section="TAMBOUR">Tanbou</button>
-      <button class="filter-btn" data-section="GITAR">Gitar</button>
-      <button class="filter-btn" data-section="PIANO">Piano</button>
+  <!-- HEADER -->
+  <header class="bss-header">
+    <div class="bss-logo-wrap">
+      <img src="nouvo-logo-bss-3.jpeg" class="bss-left-logo" alt="BSS1815 Logo">
     </div>
 
-    <!-- TABLE -->
-    <table id="musicians-table">
+    <h1 class="bss-title">Admin Panel</h1>
+
+    <img src="koukou-mekontan.jpeg" class="bss-right-koukou" alt="Koukou BSS1815">
+  </header>
+
+  <!-- SLOGAN -->
+  <div class="bss-slogan">Nou soti lwen, nou kanpe wo.</div>
+
+  <!-- SEARCH -->
+  <div style="max-width:1100px; margin:auto; padding:20px;">
+    <input type="text" id="search-input" placeholder="Chèche mizisyen…" style="width:100%; padding:10px; border-radius:6px; border:none;">
+  </div>
+
+  <!-- FILTERS -->
+  <div style="text-align:center; margin-bottom:20px;">
+    <button class="filter-btn" data-section="ALL">Tout</button>
+    <button class="filter-btn" data-section="CHANTE">Chante</button>
+    <button class="filter-btn" data-section="TAMBOUR">Tanbou</button>
+    <button class="filter-btn" data-section="GITAR">Gitar</button>
+    <button class="filter-btn" data-section="PIANO">Piano</button>
+  </div>
+
+  <!-- TABLE -->
+  <div style="max-width:1100px; margin:auto;">
+    <table id="musicians-table" style="width:100%; border-collapse:collapse;">
       <thead>
         <tr>
           <th>Non</th>
@@ -204,20 +54,22 @@ Blame
       <tbody></tbody>
     </table>
 
-    <!-- TOTALS -->
     <p id="total-contracts"></p>
     <p id="total-paid"></p>
     <p id="total-balance"></p>
+  </div>
 
-    <hr>
+  <hr style="margin:40px auto; width:80%; border-color:#FF7A00;">
 
-    <!-- FORM -->
-    <h2>Ajoute / Modifye Mizisyen</h2>
+  <!-- FORM -->
+  <div style="max-width:1100px; margin:auto;">
+    <h2 style="color:#FF7A00;">Ajoute / Modifye Mizisyen</h2>
 
     <form id="musician-form">
       <input type="text" name="id" placeholder="ID (san espas)">
       <input type="text" name="name" placeholder="Non mizisyen an">
       <input type="text" name="instrument" placeholder="Enstriman">
+
       <select name="section">
         <option value="">Chwazi Seksyon</option>
         <option value="CHANTE">Chante</option>
@@ -232,19 +84,16 @@ Blame
       <input type="text" name="season" placeholder="Sezon (ex: 2026)">
       <input type="text" name="photoUrl" placeholder="URL foto (otomatik si ou upload)">
 
-      <label style="color:#FF8C42;">Upload Foto:</label>
+      <label style="color:#FF7A00;">Upload Foto:</label>
       <input type="file" id="photo-file" accept="image/*">
 
       <button type="submit">SOVE</button>
       <button type="button" id="reset-form">REYAJISTE</button>
     </form>
-
   </div>
 
-  <!-- SCRIPT FINAL -->
+  <!-- SCRIPT -->
   <script type="module" src="admin-dashboard-final.js"></script>
 
 </body>
 </html>
-briyantsoleysigno.com/admin2.html at main · louismaxauto600-jpg/briyantsoleysigno.com
-Copied! 
