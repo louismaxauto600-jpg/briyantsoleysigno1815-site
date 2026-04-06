@@ -1,0 +1,52 @@
+{
+  "banners": [
+    {
+      "id": 1,
+      "title": "Store Main Banner",
+      "file_name": "store-main-banner.jpg",
+      "category": "store",
+      "description": "Bannè prensipal pou BSS1815 Official Store.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Fanclub Banner",
+      "file_name": "fanclub-banner.jpg",
+      "category": "fanclub",
+      "description": "Bannè ofisyèl pou seksyon Fanclub la.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Event Promo Banner",
+      "file_name": "event-promo-banner.jpg",
+      "category": "event",
+      "description": "Bannè pou pwomosyon evènman BSS1815 yo.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Leadership Banner",
+      "file_name": "leadership-banner.jpg",
+      "category": "leadership",
+      "description": "Bannè ofisyèl pou dirijan BSS1815 yo.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 5,
+      "title": "Discipline Message Banner",
+      "file_name": "discipline-banner.jpg",
+      "category": "official",
+      "description": "Bannè ak mesaj disiplin BSS1815: 'SAN PRESYON, SAN DEZÒD'.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 6,
+      "title": "Social Media Banner",
+      "file_name": "social-media-banner.jpg",
+      "category": "social",
+      "description": "Bannè pou tout rezo sosyal yo: @BSS1815OFISYÈL.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    }
+  ]
+}
