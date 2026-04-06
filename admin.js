@@ -127,7 +127,24 @@ addLeaderBtn.addEventListener("click", () => {
   document.getElementById("l-name").value = "";
   document.getElementById("l-role").value = "";
   document.getElementById("l-photo").value = "";
+const flyerCenter = document.querySelector('.flyer-grid');
 
+const flyers = [
+    "assets/flyer/flyer-preview.jpg",
+    // ajoute plis flyer isit la
+];
+
+flyers.forEach(src => {
+    const card = document.createElement('div');
+    card.classList.add('flyer-card');
+
+    card.innerHTML = `
+        <img src="${src}" class="flyer-img">
+        <button class="btn-manage">Manage</button>
+    `;
+
+    flyerCenter.appendChild(card);
+});
   loadLeaders();
 });
 
