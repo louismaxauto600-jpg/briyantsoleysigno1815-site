@@ -1,0 +1,46 @@
+BSS1815-OFFICIAL-STORE/
+│
+├── README.md
+│
+├── /public
+│   ├── /images
+│   │   ├── /products
+│   │   ├── /banners
+│   │   ├── /events
+│   │   ├── /fan_uploads
+│   │   └── /leaders_uploads
+│   └── favicon.ico
+│
+├── /src
+│   ├── /components
+│   │   ├── HeroSection.jsx
+│   │   ├── Categories.jsx
+│   │   ├── ProductGrid.jsx
+│   │   ├── Collections.jsx
+│   │   ├── FanUploadCenter.jsx
+│   │   ├── LeadersControlPanel.jsx
+│   │   ├── Testimonials.jsx
+│   │   ├── About.jsx
+│   │   └── Footer.jsx
+│   │
+│   ├── /pages
+│   │   ├── index.jsx
+│   │   ├── store.jsx
+│   │   ├── fanclub.jsx
+│   │   ├── admin.jsx
+│   │   └── uploads.jsx
+│   │
+│   ├── /database
+│   │   ├── fan_uploads.json
+│   │   ├── leaders_uploads.json
+│   │   ├── products_media.json
+│   │   ├── banners_library.json
+│   │   └── events_media.json
+│   │
+│   ├── /styles
+│   │   ├── globals.css
+│   │   └── theme.css
+│   │
+│   └── app.js
+│
+└── package.json
