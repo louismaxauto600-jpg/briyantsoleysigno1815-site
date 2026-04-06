@@ -1,0 +1,49 @@
+{
+  "team_media": [
+    {
+      "id": 1,
+      "team_name": "TEAM SAN PRESYON",
+      "category": "team",
+      "file_name": "san-presyon-1.jpg",
+      "file_type": "image/jpeg",
+      "description": "Foto ofisyèl ekip TEAM SAN PRESYON.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "team_name": "TEAM ANGRENAY",
+      "category": "team",
+      "file_name": "angrenay-1.jpg",
+      "file_type": "image/jpeg",
+      "description": "Foto ekip TEAM ANGRENAY pandan yon aktivite.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 3,
+      "team_name": "TEAM BACKUP",
+      "category": "team",
+      "file_name": "backup-1.jpg",
+      "file_type": "image/jpeg",
+      "description": "Foto ofisyèl ekip TEAM BACKUP.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 4,
+      "team_name": "SFC 5 STARS ★★★★★",
+      "category": "team",
+      "file_name": "sfc-5stars-1.jpg",
+      "file_type": "image/jpeg",
+      "description": "Foto ekip SFC 5 STARS ak prezans PRO-MAX.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": 5,
+      "team_name": "MIAMI AN AKSYON",
+      "category": "team",
+      "file_name": "miami-an-aksyon-1.jpg",
+      "file_type": "image/jpeg",
+      "description": "Foto ekip MIAMI AN AKSYON pandan yon evènman.",
+      "upload_date": "2026-01-01T00:00:00Z"
+    }
+  ]
+}
