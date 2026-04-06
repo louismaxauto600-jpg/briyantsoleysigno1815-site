@@ -302,4 +302,23 @@ form input[type="file"] {
 
 .footer p {
     opacity: 0.7;
+}/* ------------------------------------------------------
+   FLYER LOGO + PRO-MAX BADGE (BSS1815 OFFICIAL)
+------------------------------------------------------ */
+
+.flyer-logo img {
+    width: 120px;
+    display: block;
+    margin: 0 auto 10px auto;
+    filter: drop-shadow(0 0 8px #ff7f00);
+}
+
+.flyer-promax {
+    text-align: center;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #ff7f00;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
