@@ -1,0 +1,10 @@
+LEADERS_UPLOADS {
+  id,
+  admin_name,
+  role,           // "SUPER_ADMIN" | "ADMIN"
+  category,       // "store" | "event" | "leadership" | "fanclub" | "banner" | "product"
+  file_url,
+  file_type,      // "photo" | "video"
+  description,
+  upload_date
+}
