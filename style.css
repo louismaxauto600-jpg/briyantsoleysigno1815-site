@@ -1,0 +1,197 @@
+/* ------------------------------------------------------
+   BSS1815 OFFICIAL STYLE.CSS
+   Koulè ofisyèl: Abriko (#ff7f00) & Nwa (#000000)
+   Layout PRO-MAX, pwòp, modèn, pwofesyonèl
+------------------------------------------------------ */
+
+
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: white;
+    line-height: 1.6;
+}
+
+
+/* ------------------------------------------------------
+   HERO SECTION
+------------------------------------------------------ */
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, #000000, #111111);
+}
+
+.hero-banner {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-bottom: 4px solid #ff7f00;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-top: 20px;
+    color: #ff7f00;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ff7f00;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* ------------------------------------------------------
+   SECTIONS
+------------------------------------------------------ */
+
+.section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 32px;
+    color: #ff7f00;
+    margin-bottom: 25px;
+}
+
+
+/* ------------------------------------------------------
+   CATEGORIES GRID
+------------------------------------------------------ */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+}
+
+.category {
+    background-color: #111111;
+    padding: 20px;
+    border: 2px solid #ff7f00;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.category:hover {
+    background-color: #ff7f00;
+    color: black;
+}
+
+
+/* ------------------------------------------------------
+   PRODUCT GRID
+------------------------------------------------------ */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: #111111;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ff7f00;
+    transition: 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid #ff7f00;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    color: #ff7f00;
+    margin-bottom: 5px;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    background-color: #ff7f00;
+    color: black;
+}
+
+
+/* ------------------------------------------------------
+   FAN UPLOAD CENTER
+------------------------------------------------------ */
+
+form {
+    max-width: 500px;
+    margin: auto;
+    background-color: #111111;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #ff7f00;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+form input[type="file"] {
+    background-color: #222222;
+    color: white;
+}
+
+
+/* ------------------------------------------------------
+   FOOTER
+------------------------------------------------------ */
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111111;
+    border-top: 3px solid #ff7f00;
+    margin-top: 40px;
+}
+
+.footer p {
+    opacity: 0.7;
+}
