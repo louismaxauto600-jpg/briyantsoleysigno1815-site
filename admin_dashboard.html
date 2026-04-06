@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — ADMIN DASHBOARD</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+
+    <style>
+        /* DASHBOARD STYLE PRO-MAX */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: #111;
+            border-right: 3px solid #ff7f00;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            color: #ff7f00;
+            margin-bottom: 20px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #ff7f00;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sidebar button:hover {
+            background-color: white;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .panel-box {
+            background-color: #111;
+            border: 2px solid #ff7f00;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .panel-box h3 {
+            color: #ff7f00;
+            margin-bottom: 15px;
+        }
+
+        .item {
+            background-color: #222;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #ff7f00;
+        }
+
+        .item p {
+            margin: 5px 0;
+        }
+
+        .approve-btn, .reject-btn {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .approve-btn {
+            background-color: #00ff88;
+            color: black;
+        }
+
+        .reject-btn {
+            background-color: #ff0033;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h2>ADMIN DASHBOARD</h2>
+
+            <button onclick="loadPanel('fan')">Fan Uploads</button>
+            <button onclick="loadPanel('leaders')">Leaders Uploads</button>
+            <button onclick="loadPanel('events')">Events Media</button>
+            <button onclick="loadPanel('teams')">Teams Media</button>
+            <button onclick="loadPanel('banners')">Banners Library</button>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="content-area">
+            <h1 style="color:#ff7f00;">Kontwòl Total BSS1815</h1>
+            <p>Chwazi yon seks
