@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — Jere Lèt yo</title>
+
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --jòn: #FFD400;
+            --nwa: #000000;
+            --nwa-soft: #1A1A1A;
+            --blan: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        .bss-header {
+            background: var(--nwa);
+            padding: 15px 30px;
+            border-bottom: 2px solid var(--abriko);
+        }
+
+        .bss-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bss-logo {
+            width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 10px var(--abriko));
+        }
+
+        /* CONTAINER */
+        .page-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--nwa-soft);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid var(--abriko);
+            box-shadow: 0 0 20px var(--abriko);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--abriko);
+            margin-bottom: 20px;
+        }
+
+        /* FORM */
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: #2a2a2a;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            color: var(--blan);
+            font-size: 16px;
+            outline: none;
+        }
+
+        .add-btn {
+            background: var(--abriko);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            color: var(--blan);
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background: var(--jòn);
+            color: var(--nwa);
+        }
+
+        /* LIST */
+        .letter-item {
+            background: #1c1c1c;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--abriko);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-btn {
+            background: red;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .delete-btn:hover {
+            background: #ff4444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="bss-header">
+        <div class="bss-header-inner">
+            <img src="/PATH/logo-bss2.jpeg" class="bss-logo">
+        </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-container">
+        <h1>Jere Lèt yo</h1>
+
+        <!-- ADD LETTER -->
+        <textarea id="letterText" placeholder="Ekri lèt la isit la..."></textarea>
+        <button class="add-btn" onclick="addLetter()">Ajoute Lèt</button>
+
+        <!-- LIST -->
+        <div id="letterList" style="margin-top:20px;"></div>
+    </div>
+
+    <script>
+        // Load existing letters
+        function loadLetters() {
+            const data = JSON.parse(localStorage.getItem("bss_letters") || "[]");
+            const list = document.getElementById("letterList");
+            list.innerHTML = "";
+
+            data.forEach((text, index) => {
+                const item = document.createElement("div");
+                item.className = "letter-item";
+                item.innerHTML = `
+                    <span>${text}</span>
+                    <button class="delete-btn" onclick="deleteLetter(${index})">Efase</button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Add letter
+        function addLetter() {
+            const text = document.getElementById("letterText").value.trim();
+            if (text === "") return alert("Ekri yon lèt!");
+
+            const data = JSON.parse(localStorage.getItem("bss_letters") || "[]");
+            data.push(text);
+            localStorage.setItem("bss_letters", JSON.stringify(data));
+
+            document.getElementById("letterText").value = "";
+            loadLetters();
+        }
+
+        // Delete letter
+        function deleteLetter(index) {
+            const data = JSON.parse(localStorage.getItem("bss_letters") || "[]");
+            data.splice(index, 1);
+            localStorage.setItem("bss_letters", JSON.stringify(data));
+            loadLetters();
+        }
+
+        loadLetters();
+    </script>
+
+</body>
+</html>
