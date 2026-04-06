@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — Lèt & Flyer Editable</title>
+
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --jòn: #FFD400;
+            --nwa: #000000;
+            --nwa-soft: #1A1A1A;
+            --blan: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        .bss-header {
+            background: var(--nwa);
+            padding: 15px 30px;
+            border-bottom: 2px solid var(--abriko);
+        }
+
+        .bss-logo {
+            width: 220px;
+            filter: drop-shadow(0 0 10px var(--abriko));
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background: var(--nwa-soft);
+            border-bottom: 2px solid var(--abriko);
+        }
+
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--blan);
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        .tab.active {
+            color: var(--jòn);
+            border-bottom: 3px solid var(--abriko);
+        }
+
+        /* PAGE CONTAINER */
+        .page-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: var(--nwa-soft);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid var(--abriko);
+            box-shadow: 0 0 20px var(--abriko);
+        }
+
+        h2 {
+            color: var(--abriko);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .field-label {
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            background: #2a2a2a;
+            color: var(--blan);
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        .btn {
+            background: var(--abriko);
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            color: var(--blan);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: var(--jòn);
+            color: var(--nwa);
+        }
+
+        .btn-small {
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        .danger {
+            background: #cc0000;
+        }
+
+        .danger:hover {
+            background: #ff4444;
+        }
+
+        .item-box {
+            background: #1c1c1c;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--abriko);
+        }
+
+        /* FLYER PREVIEW */
+        .preview {
+            background: #000;
+            border-radius: 10px;
+            border: 2px solid var(--abriko);
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .preview-header {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--jòn);
+        }
+
+        .preview-subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .preview-body {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .preview-info {
+            font-size: 13px;
+            color: #dddddd;
+        }
+
+        .preview-cta {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .preview-cta span {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--abriko);
+            color: var(--blan);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="bss-header">
+    <img src="/PATH/logo-bss2.jpeg" class="bss-logo">
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+    <div class="tab active" onclick="showTab('letters')">Lèt Administratif</div>
+    <div class="tab" onclick="showTab('flyer')">Flyer Editable</div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="page-container">
+
+    <!-- LETTERS TAB -->
+    <div id="lettersTab">
+        <h2>Lèt Administratif</h2>
+
+        <div class="field-label">Tit Lèt la</div>
+        <input type="text" id="letterTitle">
+
+        <div class="field-label">Kontni Lèt la</div>
+        <textarea id="letterBody"></textarea>
+
+        <button class="btn" onclick="saveLetter()">Sove Lèt</button>
+
+        <div id="lettersList" style="margin-top:20px;"></div>
+    </div>
+
+    <!-- FLYER TAB -->
+    <div id="flyerTab" style="display:none;">
+        <h2>Flyer Editable — Festin & Mouvman</h2>
+
+        <div class="field-label">Tit Evènman</div>
+        <input type="text" id="flyerTitle">
+
+        <div class="field-label">Sou-tit</div>
+        <input type="text" id="flyerSubtitle">
+
+        <div class="field-label">URL Foto</div>
+        <input type="text" id="flyerImage">
+
+        <div class="field-label">Tèks Prensipal</div>
+        <textarea id="flyerMainText"></textarea>
+
+        <div class="field-label">Dat</div>
+        <input type="text" id="flyerDate">
+
+        <div class="field-label">Kote</div>
+        <input type="text" id="flyerLocation">
+
+        <div class="field-label">CTA</div>
+        <input type="text" id="flyerCTA">
+
+        <button class="btn" onclick="updatePreview()">Mete ajou Preview</button>
+        <button class="btn" onclick="saveFlyer()">Sove Flyer</button>
+
+        <div id="flyerList" style="margin-top:20px;"></div>
+
+        <div class="preview" id="flyerPreview">
+            <div class="preview-header" id="pTitle">TIT EVÈNMAN</div>
+            <div class="preview-subtitle" id="pSubtitle">Sou-tit evènman</div>
+            <div class="preview-image" id="pImage"></div>
+            <div class="preview-body" id="pMainText">Tèks prensipal la ap parèt isit la.</div>
+            <div class="preview-info" id="pDate">Dat: —</div>
+            <div class="preview-info" id="pLocation">Kote: —</div>
+            <div class="preview-cta" id="pCTA"><span>CTA</span></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+/* TAB SYSTEM */
+function showTab(tab) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.page-container > div').forEach(div => div.style.display = 'none');
+
+    if (tab === 'letters') {
+        document.querySelector('.tab:nth-child(1)').classList.add('active');
+        document.getElementById('lettersTab').style.display = 'block';
+    } else {
+        document.querySelector('.tab:nth-child(2)').classList.add('active');
+        document.getElementById('flyerTab').style.display = 'block';
+    }
+}
+
+/* LETTERS SYSTEM */
+function loadLetters() {
+    const data = JSON.parse(localStorage.getItem("bss_admin_letters") || "[]");
+    const list = document.getElementById("lettersList");
+    list.innerHTML = "";
+
+    data.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "item-box";
+        div.innerHTML = `
+            <div style="color:var(--jòn); font-weight:bold;">${item.title}</div>
+            <div style="white-space:pre-wrap; margin-top:5px;">${item.body}</div>
+            <button class="btn-small danger" onclick="deleteLetter(${index})">Efase</button>
+        `;
+        list.appendChild(div);
+    });
+}
+
+function saveLetter() {
+    const title = document.getElementById("letterTitle").value.trim();
+    const body = document.getElementById("letterBody").value.trim();
+
+    if (!title || !body) return alert("Ranpli tit ak kontni.");
+
+    const data = JSON.parse(localStorage.getItem("bss_admin_letters") || "[]");
+    data.push({ title, body });
+    localStorage.setItem("bss_admin_letters", JSON.stringify(data));
+
+    document.getElementById("letterTitle").value = "";
+    document.getElementById("letterBody").value = "";
+
+    loadLetters();
+}
+
+function deleteLetter(i) {
+    const data = JSON.parse(localStorage.getItem("bss_admin_letters") || "[]");
+    data.splice(i, 1);
+    localStorage.setItem("bss_admin_letters", JSON.stringify(data));
+    loadLetters();
+}
+
+/* FLYER SYSTEM */
+function updatePreview() {
+    const title = document.getElementById("flyerTitle").value;
+    const subtitle = document.getElementById("flyerSubtitle").value;
+    const image = document.getElementById("flyerImage").value;
+    const mainText = document.getElementById("flyerMainText").value;
+    const date = document.getElementById("flyerDate").value;
+    const location = document.getElementById("flyerLocation").value;
+    const cta = document.getElementById("flyerCTA").value;
+
+    document.getElementById("pTitle").innerText = title || "TIT EVÈNMAN";
+    document.getElementById("pSubtitle").innerText = subtitle || "Sou-tit evènman";
+    document.getElementById("pMainText").innerText = mainText || "Tèks prensipal la ap parèt isit la.";
+    document.getElementById("pDate").innerText = date ? "Dat: " + date : "Dat: —";
+    document.getElementById("pLocation").innerText = location ? "Kote: " + location : "Kote: —";
+    document.getElementById("pCTA").innerHTML = `<span>${cta || "CTA"}</span>`;
+
+    const imgDiv = document.getElementById("pImage");
+    imgDiv.style.backgroundImage = image ? `url('${image}')` : "none";
+}
+
+function saveFlyer() {
+    const flyer = {
+        title: document.getElementById("flyerTitle").value,
+        subtitle: document.getElementById("flyerSubtitle").value,
+        image: document.getElementById("flyerImage").value,
+        mainText: document.getElementById("flyerMainText").value,
+        date: document.getElementById("flyerDate").value,
+        location: document.getElementById("flyerLocation").value,
+        cta: document.getElementById("flyerCTA").value
+    };
+
+    if (!flyer.title) return alert("Tit obligatwa.");
+
+    const data = JSON.parse(localStorage.getItem("bss_flyer_models") || "[]");
+    data.push(flyer);
+    localStorage.setItem("bss_flyer_models", JSON.stringify(data));
+
+    loadFlyers();
+}
+
+function loadFlyers() {
+    const data = JSON.parse(localStorage.getItem("bss_flyer_models") || "[]");
+    const list = document.getElementById("flyerList");
+    list.innerHTML = "";
+
+    data.forEach((f, index) => {
+        const div = document.createElement("div");
+        div.className = "item-box";
+        div.innerHTML = `
+            <div style="font-weight:bold; color:var(--jòn);">${f.title}</div>
+            <button class="btn-small danger" onclick="deleteFlyer(${index})">Efase</button>
+        `;
+        list.appendChild(div);
+    });
+}
+
+function deleteFlyer(i) {
+    const data = JSON.parse(localStorage.getItem("bss_flyer_models") || "[]");
+    data.splice(i, 1);
+    localStorage.setItem("bss_flyer_models", JSON.stringify(data));
+    loadFlyers();
+}
+
+/* INIT */
+loadLetters();
+loadFlyers();
+updatePreview();
+</script>
+
+</body>
+</html>
