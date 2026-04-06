@@ -1,0 +1,10 @@
+FAN_UPLOADS {
+  id,
+  fan_name,
+  fan_email,
+  file_url,
+  file_type,      // "photo" | "video"
+  description,
+  status,         // "pending" | "approved" | "rejected"
+  upload_date
+}
