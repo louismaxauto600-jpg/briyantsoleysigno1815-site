@@ -3,53 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 OFFICIAL STORE</title>
+    <title>BSS1815 — PRO‑MAX</title>
 
-    <!-- STYLE FILE -->
-    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        /* ============================
+           PALET KOULÈ OFISYÈL BSS1815
+           ============================ */
+        :root {
+            --abriko: #FF7A00;
+            --jòn: #FFD400;
+            --nwa: #000000;
+            --nwa-soft: #1A1A1A;
+            --blan: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        /* ============================
+           HEADER + LOGO PRO‑MAX
+           ============================ */
+        .bss-header {
+            background: var(--nwa);
+            padding: 15px 30px;
+            border-bottom: 2px solid var(--abriko);
+        }
+
+        .bss-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bss-logo {
+            width: 260px;
+            height: auto;
+            filter: drop-shadow(0 0 10px var(--abriko));
+        }
+
+        /* ============================
+           KOUKOU ANIMASYON PRO‑MAX
+           ============================ */
+        #koukou-container {
+            position: absolute;
+            top: 120px;
+            right: -300px;
+            z-index: 9999;
+        }
+
+        #koukou {
+            width: 180px;
+            animation: flyIn 1.5s ease-out forwards,
+                       stay 5s ease-in forwards 1.5s,
+                       flyOut 1.5s ease-in forwards 6.5s;
+        }
+
+        @keyframes flyIn {
+            from { transform: translateX(300px); opacity: 0; }
+            to   { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes stay {
+            from { opacity: 1; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes flyOut {
+            from { transform: translateX(0); opacity: 1; }
+            to   { transform: translateX(-400px); opacity: 0; }
+        }
+
+        /* ============================
+           SLIDESHOW PRO‑MAX
+           ============================ */
+        #slideshow {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            margin-top: 200px;
+        }
+
+        #slideshow img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            position: absolute;
+            animation: fadeSlide 12s infinite;
+        }
+
+        @keyframes fadeSlide {
+            0%   { opacity: 0; transform: scale(1); }
+            10%  { opacity: 1; transform: scale(1.05); }
+            40%  { opacity: 1; transform: scale(1.1); }
+            50%  { opacity: 0; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <img src="public/images/banners/main-banner.jpg" alt="BSS1815 Banner" class="hero-banner">
-        <h1>BSS1815 OFFICIAL STORE</h1>
-        <p>Wear The Discipline. Wear The Legacy.</p>
-        <div class="hero-buttons">
-            <a href="#products" class="btn">Shop Now</a>
-            <a href="#categories" class="btn">View Products</a>
+    <!-- HEADER + LOGO -->
+    <header class="bss-header">
+        <div class="bss-header-inner">
+            <img src="/PATH/logo-bss2.jpeg" class="bss-logo">
         </div>
     </header>
 
-    <!-- CATEGORIES SECTION -->
-    <section id="categories" class="section">
-        <h2>Kategori Pwodwi Yo</h2>
-        <div class="category-grid">
-            <div class="category">T‑Shirts</div>
-            <div class="category">Hoodies</div>
-            <div class="category">Caps</div>
-            <div class="category">Tcha</div>
-            <div class="category">Bracelets</div>
-            <div class="category">Gode</div>
-        </div>
-    </section>
+    <!-- KOUKOU ANIMASYON -->
+    <div id="koukou-container">
+        <img id="koukou" src="/PATH/koukou.jpeg">
+    </div>
 
-    <!-- PRODUCTS GRID -->
-    <section id="products" class="section">
-        <h2>Pwodwi Disponib</h2>
-        <div class="product-grid">
+    <!-- SLIDESHOW -->
+    <div id="slideshow" class="hidden">
+        <img src="/PATH/slide1.jpeg">
+        <img src="/PATH/slide2.jpeg">
+        <img src="/PATH/slide3.jpeg">
+    </div>
 
-            <div class="product-card">
-                <img src="public/images/products/tshirt.jpg" alt="T-Shirt">
-                <h3>T‑Shirt</h3>
-                <p>$25</p>
-            </div>
+    <script>
+        // Apre 8 segonn → slideshow parèt
+        setTimeout(() => {
+            document.getElementById("slideshow").classList.remove("hidden");
+            document.getElementById("slideshow").style.opacity = "1";
+        }, 8000);
+    </script>
 
-            <div class="product-card">
-                <img src="public/images/products/hoodie.jpg" alt="Hoodie">
-                <h3>Hoodie</h3>
-                <p>$30</p>
-            </div>
-
-            <div class="product-card">
+</body>
+</html>
