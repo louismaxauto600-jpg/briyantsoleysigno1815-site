@@ -1,0 +1,10 @@
+{
+  "products": [
+    { "name": "T-Shirt", "price": 25, "sizes": ["S","M","L","XL","XXXL"] },
+    { "name": "Hoodie", "price": 30, "sizes": ["S","M","L","XL","XXXL"] },
+    { "name": "Cap", "price": 15, "sizes": ["One Size"] },
+    { "name": "Tcha", "price": 10 },
+    { "name": "Braslè", "price": 10 },
+    { "name": "Gode", "price": 10, "colors": ["Nwa", "Abriko"] }
+  ]
+}
