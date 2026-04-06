@@ -3,61 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 Leaders Control Panel</title>
+    <title>BSS1815 — ADMIN PRO‑MAX</title>
 
-    <!-- STYLE FILE -->
-    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        /* ============================
+           PALET KOULÈ OFISYÈL BSS1815
+           ============================ */
+        :root {
+            --abriko: #FF7A00;
+            --jòn: #FFD400;
+            --nwa: #000000;
+            --nwa-soft: #1A1A1A;
+            --blan: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        /* ============================
+           HEADER + LOGO PRO‑MAX
+           ============================ */
+        .bss-header {
+            background: var(--nwa);
+            padding: 15px 30px;
+            border-bottom: 2px solid var(--abriko);
+        }
+
+        .bss-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bss-logo {
+            width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 10px var(--abriko));
+        }
+
+        /* ============================
+           ADMIN PANEL STYLE
+           ============================ */
+        .admin-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: var(--nwa-soft);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid var(--abriko);
+            box-shadow: 0 0 20px var(--abriko);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--abriko);
+            margin-bottom: 20px;
+        }
+
+        .admin-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            background: var(--abriko);
+            color: var(--blan);
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .admin-btn:hover {
+            background: var(--jòn);
+            color: var(--nwa);
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="hero">
-        <h1>LEADERS CONTROL PANEL</h1>
-        <p>Seksyon prive pou SUPER ADMIN & ADMIN</p>
+    <!-- HEADER + LOGO -->
+    <header class="bss-header">
+        <div class="bss-header-inner">
+            <img src="/PATH/logo-bss2.jpeg" class="bss-logo">
+        </div>
     </header>
 
-    <!-- ADMIN UPLOAD SECTION -->
-    <section class="section">
-        <h2>Upload Medya Ofisyèl</h2>
+    <!-- ADMIN PANEL -->
+    <div class="admin-container">
+        <h1>ADMIN PANEL — BSS1815</h1>
 
-        <form id="adminUploadForm">
-
-            <!-- CATEGORY SELECT -->
-            <label for="mediaCategory">Chwazi Kategori:</label>
-            <select id="mediaCategory" required>
-                <option value="">— Chwazi —</option>
-                <option value="store">Store (Pwodwi)</option>
-                <option value="event">Evènman</option>
-                <option value="leadership">Leadership</option>
-                <option value="fanclub">Fanclub</option>
-                <option value="banner">Bannè</option>
-                <option value="product">Foto Pwodwi</option>
-            </select>
-
-            <p id="categoryInfo" style="margin-top:10px; opacity:0.8;"></p>
-
-            <!-- DESCRIPTION -->
-            <textarea id="mediaDescription" placeholder="Deskripsyon medya a (opsyonèl)"></textarea>
-
-            <!-- FILE INPUT -->
-            <input type="file" id="adminFile" accept="image/*,video/*" required>
-
-            <!-- PREVIEW -->
-            <div id="previewBox" style="margin-top:15px;"></div>
-
-            <!-- SUBMIT BUTTON -->
-            <button type="submit" class="btn">Upload</button>
-        </form>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2026 BSS1815 — Leaders Panel</p>
-    </footer>
-
-    <!-- SCRIPT FILE -->
-    <script src="scripts/admin.js"></script>
+        <button class="admin-btn">📌 Jere Mizisyen yo</button>
+        <button class="admin-btn">📌 Jere Lèt yo</button>
+        <button class="admin-btn">📌 Upload Foto</button>
+        <button class="admin-btn">📌 Jere Kont yo</button>
+        <button class="admin-btn">📌 Logout</button>
+    </div>
 
 </body>
 </html>
