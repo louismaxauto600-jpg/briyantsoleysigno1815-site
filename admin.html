@@ -83,6 +83,57 @@
             background: var(--jòn);
             color: var(--nwa);
         }
+
+        /* ============================
+           FLYER CENTER STYLE
+           ============================ */
+        #flyer-center {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--nwa-soft);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid var(--abriko);
+            box-shadow: 0 0 20px var(--abriko);
+        }
+
+        .panel-title {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--abriko);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .flyer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .flyer-card {
+            background: #111;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 120, 0, 0.4);
+            text-align: center;
+        }
+
+        .flyer-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .btn-manage {
+            background: var(--abriko);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #000;
+        }
     </style>
 </head>
 
@@ -105,6 +156,18 @@
         <button class="admin-btn">📌 Jere Kont yo</button>
         <button class="admin-btn">📌 Logout</button>
     </div>
+
+    <!-- FLYER CENTER (METE LA) -->
+    <section id="flyer-center" class="panel-section">
+        <h2 class="panel-title">FLYER CENTER</h2>
+
+        <div class="flyer-grid">
+            <div class="flyer-card">
+                <img src="assets/flyer/flyer-preview.jpg" class="flyer-img">
+                <button class="btn-manage">Manage</button>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
