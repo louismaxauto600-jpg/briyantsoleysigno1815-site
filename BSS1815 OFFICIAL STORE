@@ -1,0 +1,95 @@
+# 🟧 BSS1815 OFFICIAL STORE  
+**Bryant Soley Signo 1815 — Official Merchandise & Media Platform**
+
+BSS1815 OFFICIAL STORE se platfòm ofisyèl pou tout pwodwi, medya, ak kontni ki soti nan kominote BSS1815 la.  
+Li fèt pou bay fanatik yo, manm ekip la, ak dirijan yo yon eksperyans pwofesyonèl, modèn, ak totalman òganize.
+
+---
+
+## 🟧 MISYON
+Misyon nou se kreye yon espas ki:
+- Mete disiplin ak eritaj BSS1815 an valè  
+- Fasilite aksè a pwodwi ofisyèl yo  
+- Pèmèt fanatik yo pataje moman yo  
+- Bay dirijan yo yon zouti pwofesyonèl pou jere medya yo  
+- Kenbe yon imaj mak solid, pwòp, ak modèn
+
+---
+
+## 🟧 KÒMAN SIT LA ÒGANIZE
+
+### 1. HERO SECTION  
+- Bannè prensipal  
+- Logo BSS1815  
+- Bouton: **Shop Now**, **View Products**
+
+### 2. CATEGORIES  
+- T‑Shirts  
+- Hoodies  
+- Caps  
+- Tcha  
+- Bracelets  
+- Gode  
+
+### 3. PRODUCTS GRID  
+Chak pwodwi gen:
+- Foto  
+- Pri  
+- Gwosè / Opsyon  
+- Bouton Add to Cart / Buy Now  
+
+### 4. COLLECTIONS  
+- Fire Edition  
+- Classic Collection  
+- Fan Essentials  
+
+### 5. FAN UPLOAD CENTER  
+Seksiyon piblik kote fanatik yo ka:
+- Upload foto  
+- Upload videyo  
+- Ekri yon ti deskripsyon  
+- Pataje moman yo ak BSS1815  
+
+### 6. LEADERS CONTROL PANEL  
+Seksiyon prive pou:
+- SUPER ADMIN  
+- ADMIN  
+
+Fonksyonalite:
+- Upload foto/videyo ofisyèl  
+- Upload bannè  
+- Upload foto pwodwi  
+- Chwazi kategori medya yo  
+- Sove nan Media Library  
+
+### 7. ABOUT BSS1815  
+- Istwa  
+- Misyon  
+- Koulè ofisyèl: Abriko & Nwa  
+- Logo & valè  
+
+### 8. TESTIMONIALS / FANCLUB  
+- Foto  
+- Non  
+- Tit  
+- Temwayaj kout  
+
+### 9. FOOTER  
+- Logo  
+- Privacy Policy  
+- Terms  
+- Contact  
+- Social Media  
+- © BSS1815
+
+---
+
+## 🟧 MEDIA LIBRARY / DATABASE
+
+Platfòm nan itilize yon estrikti medya pwofesyonèl pou jere tout fichye yo.
+
+### 📁 FAN_UPLOADS
+```json
+{
+  "fan_uploads": []
+}
