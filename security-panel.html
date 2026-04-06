@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — SECURITY PANEL</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+
+    <style>
+        /* SECURITY PANEL PRO-MAX */
+        .security-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #111;
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #ff7f00;
+        }
+
+        h1 {
+            color: #ff7f00;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .log-box {
+            background-color: #222;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ff7f00;
+            margin-bottom: 15px;
+        }
+
+        .log-box p {
+            margin: 5px 0;
+        }
+
+        .back-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff7f00;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="security-container">
+        <h1>SECURITY LOGS — BSS1815</h1>
+
+        <div id="logsArea">
+            <p style="color:#ff7f00;">Chajman logs yo...</p>
+        </div>
+
+        <a href="admin-dashboard.html" class="back-btn">Retounen nan Dashboard</a>
+    </div>
+
+    <script>
+        // LOAD SECURITY JSON
+        async function loadSecurity() {
+            const response = await fetch("database/super-admin-security.json");
+            const data = await response.json();
+            displayLogs(data.security_logs);
+        }
+
+        // DISPLAY LOGS
+        function displayLogs(logs) {
+            const area = document.getElementById("logsArea");
+            area.innerHTML = "";
+
+            logs.forEach(log => {
+                area.innerHTML += `
+                    <div class="log-box">
+                        <p><strong>Aksyon:</strong> ${log.action}</p>
+                        <p><strong>Itilizatè:</strong> ${log.user}</p>
+                        <p><strong>Lè:</strong> ${log.timestamp}</p>
+                        <p><strong>ID Log:</strong> ${log.log_id}</p>
+                    </div>
+                `;
+            });
+        }
+
+        loadSecurity();
+    </script>
+
+</body>
+</html>
