@@ -1,346 +1,175 @@
-.lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-}
+<!-- HEADER OFISYÈL BSS1815 -->
+<header style="
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:20px;
+  background:linear-gradient(to right, #FF7A00, #000);
+  border-bottom:2px solid #FF7A00;
+">
+  <img src="/PATH/logo-bss2.jpeg" style="
+    width:110px;
+    filter:drop-shadow(0 0 10px #FF7A00);
+  ">
+  <h1 style="
+    color:#FF7A00;
+    font-size:2.4rem;
+    text-transform:uppercase;
+    font-weight:900;
+  ">
+    MIAMI AN AKSYON
+  </h1>
+</header>
 
-.lang-btn {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  padding: 9px 12px;
-  border-radius: 999px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: all .18s ease;
-  font-size: 0.84rem;
-}
-
-.lang-btn:hover,
-.lang-btn.active {
-  background: linear-gradient(135deg, var(--orange-2), var(--orange));
-  color: #111;
-}<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miami an Aksyon | BSS 1815</title>
-  <style>
-    :root {
-      --orange: #f4a460;
-      --orange-2: #ffba73;
-      --black: #060606;
-      --panel: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.12);
-      --text: #fff8f1;
-      --muted: #dcc6b2;
-      --shadow: 0 20px 44px rgba(0,0,0,0.34);
-      --radius: 24px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-</footer>
-
-<script>
-const translations = {
-  en: { title: "Briyant Soley Signo 1815" },
-  ht: { title: "Briyant Solèy Signo 1815" },
-  es: { title: "Briyant Soley Signo 1815" }
-};
-
-function setLang(lang) {
-  localStorage.setItem("bss-lang", lang);
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-
-  document.querySelectorAll(".lang-btn").forEach(btn =>
-    btn.classList.remove("active")
-  );
-
-  document
-    .querySelector(`.lang-btn[onclick="setLang('${lang}')"]`)
-    .classList.add("active");
-}
-
-window.onload = () => {
-  const saved = localStorage.getItem("bss-lang") || "en";
-  setLang(saved);
-};
-</script>
-
-</body>
-</html>    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(244,164,96,0.18), transparent 30%),
-        linear-gradient(135deg, #000 0%, #101010 35%, #181818 60%, #4c2a11 100%);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(var(--max), calc(100% - 28px)); margin: 0 auto; }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(6,6,6,0.74);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 12px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-    }
-
-    .brand-logo {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--orange-2), #7d4517);
-      color: #fff;
-      box-shadow: 0 0 0 4px rgba(244,164,96,0.12);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      align-items: center;
-    }
-
-    .nav-btn {
-      padding: 11px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--orange-2), var(--orange));
-      color: #111;
-      font-weight: 800;
-    }
-
-    .hero {
-      padding: 72px 0 42px;
-    }
-
-    .hero-card, .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card { padding: 34px; }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(244,164,96,0.08);
-      border: 1px solid rgba(244,164,96,0.34);
-      color: #ffd7b1;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      line-height: 1.02;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      color: #ffd1a4;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 800px;
-    }
-
-    .actions {
-      margin-top: 24px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 20px;
-      border-radius: 14px;
-      font-weight: 800;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--orange-2), var(--orange));
-      color: #111;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(244,164,96,0.45);
-      color: #ffd8b7;
-      background: rgba(255,255,255,0.04);
-    }
-
-    section { padding: 72px 0; }
-
-    .section-head {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 32px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: #ffd4ab;
-      margin-bottom: 12px;
-    }
-
-    .section-head p, .card p { color: var(--muted); }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 20px;
-    }
-
-    .card { padding: 24px; }
-    .card h3 { color: #ffd7af; margin-bottom: 8px; }
-
-    footer {
-      padding: 34px 0 48px;
-      text-align: center;
-      color: #d8c7b6;
-    }
-
-    @media (max-width: 900px) {
-      .grid-3 { grid-template-columns: 1fr; }
-      .nav { flex-direction: column; }
-    }
-  </style>
-</head>
-<body>
-  <div class="topbar">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <span class="brand-logo">BSS</span>
-        <span>BRIYANT SOLEY SIGNO 1815</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#mission">Mission</a>
-        <a href="#contact">Contact</a>
-        <a class="nav-btn" href="index.html">Back to Main Site</a>
-      </div>
-    </div><div class="lang-toggle" aria-label="Language toggle">
-  <button class="lang-btn active" data-lang="en">EN</button>
-  <button class="lang-btn" data-lang="ht">KREYÒL</button>
-  <button class="lang-btn" data-lang="es">ES</button>
-</div>
+<!-- KIYÈS NOU YE -->
+<section style="padding:60px 0;">
+  <div class="container">
+    <h2 style="color:#FF7A00; margin-bottom:16px;">Kiyès Nou Ye</h2>
+    <p style="color:#ddd; line-height:1.7;">
+      Miami an Aksyon se branch ofisyèl BSS1815 nan Miami. Nou se prezans, enèji,
+      disiplin ak mouvman. Nou pote BSS la nan lari, nan evènman, nan kominote a,
+      ak nan tout aktivite ki mande fòs ak reprezantasyon.
+    </p>
   </div>
+</section>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-card">
-        <div class="eyebrow">Official Division • Miami an Aksyon</div>
-        <h1>Miami an Aksyon</h1>
-        <p class="lead">
-          Miami an Aksyon is the regional action branch of the BSS movement — built to represent presence, energy, coordination, local visibility, and organized action in the Miami community.
+<!-- ISTWA -->
+<section style="padding:60px 0; background:#111;">
+  <div class="container">
+    <h2 style="color:#FF7A00; margin-bottom:16px;">Istwa Nou</h2>
+    <p style="color:#ccc; line-height:1.7;">
+      Miami an Aksyon te kreye pou bay BSS1815 yon pye solid nan Miami. Nou te kòmanse
+      ak yon ti gwoup moun ki te vle pote idantite BSS la nan yon lòt nivo. Jodi a,
+      nou se yon ekip ki gen estrikti, disiplin, ak yon misyon klè: fè BSS1815 bri
+      nan tout Miami.
+    </p>
+  </div>
+</section>
+
+<!-- GALERI FOTO -->
+<section style="padding:60px 0;">
+  <div class="container">
+    <h2 style="color:#FF7A00; margin-bottom:16px;">Galeri Foto</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px;">
+      <img src="/PATH/miami/photo1.jpg" style="width:100%; border-radius:12px;">
+      <img src="/PATH/miami/photo2.jpg" style="width:100%; border-radius:12px;">
+      <img src="/PATH/miami/photo3.jpg" style="width:100%; border-radius:12px;">
+    </div>
+  </div>
+</section>
+
+<!-- VIDEYO -->
+<section style="padding:60px 0; background:#111;">
+  <div class="container">
+    <h2 style="color:#FF7A00; margin-bottom:16px;">Videyo</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px;">
+      <video controls style="width:100%; border-radius:12px;">
+        <source src="/PATH/miami/video1.mp4" type="video/mp4">
+      </video>
+      <video controls style="width:100%; border-radius:12px;">
+        <source src="/PATH/miami/video2.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- MANM / MIZISYEN -->
+<section style="padding:60px 0;">
+  <div class="container">
+    <h2 style="color:#FF7A00; margin-bottom:16px;">Manm / Mizisyen</h2>
+    <ul style="color:#ddd; line-height:1.8;">
+      <li>[Non manm 1]</li>
+      <li>[Non manm 2]</li>
+      <li>[Non manm 3]</li>
+      <li>[Non manm 4]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FEED OFISYÈL MIAMI AN AKSYON -->
+<section id="activities-miami" style="padding:60px 0;">
+  <div class="container">
+
+    <div class="section-head" style="text-align:center; margin-bottom:32px;">
+      <h2 style="color:#FF7A00; font-size:2.6rem; text-transform:uppercase;">
+        Aktivite & Post Ofisyèl — Miami an Aksyon
+      </h2>
+      <p style="color:#ccc;">Backbone BSS1815 la. Tout mouvman, foto, videyo, ak anons ap parèt isit la.</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:26px;">
+
+      <!-- POST BLOCK -->
+      <div style="
+        background:#111;
+        border:2px solid #FF7A00;
+        border-radius:18px;
+        padding:22px;
+        box-shadow:0 0 18px rgba(255,120,0,0.4);
+      ">
+        <h3 style="color:#FF7A00; margin-bottom:8px;">📣 Anons Ofisyèl</h3>
+        <p style="color:#ddd; margin-bottom:12px;">
+          Miami an Aksyon ap fè yon gwo reyinyon estratejik Dimanch pou planifye pwochen deplasman BSS1815.
         </p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#about">Explore Division</a>
-          <a class="btn btn-secondary" href="index.html">Return Home</a>
-        </div>
+        <span style="color:#888; font-size:0.9rem;">Posté le: 05 Avril 2026</span>
       </div>
-    </div>
-  </section>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-head">
-        <h2>About This Division</h2>
-        <p>Miami an Aksyon serves as a visible local arm of the BSS ecosystem, helping amplify identity, events, and movement on the ground.</p>
+      <!-- PHOTO POST -->
+      <div style="
+        background:#111;
+        border:2px solid #FF7A00;
+        border-radius:18px;
+        padding:22px;
+        box-shadow:0 0 18px rgba(255,120,0,0.4);
+      ">
+        <h3 style="color:#FF7A00; margin-bottom:8px;">📸 Foto Aktivite</h3>
+        <img src="/PATH/miami/photo1.jpg" style="
+          width:100%;
+          border-radius:12px;
+          margin:14px 0;
+          border:1px solid #FF7A00;
+        ">
+        <p style="color:#ddd;">Miami an Aksyon ap prepare ekipman yo — disiplin, presizyon, prezans.</p>
+        <span style="color:#888; font-size:0.9rem;">Posté le: 03 Avril 2026</span>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Local Presence</h3>
-          <p>Strengthens BSS visibility in Miami through people, branding, and organized representation.</p>
-        </div>
-        <div class="card">
-          <h3>Event Action</h3>
-          <p>Supports mobilization, coordination, outreach, and event readiness for community engagement.</p>
-        </div>
-        <div class="card">
-          <h3>Movement Energy</h3>
-          <p>Represents activity, momentum, and action-driven identity within the broader BSS platform.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="mission">
-    <div class="container">
-      <div class="section-head">
-        <h2>Mission</h2>
-        <p>This division can later include leaders, media, photos, event schedules, local announcements, and fan activity specific to Miami.</p>
+      <!-- VIDEO POST -->
+      <div style="
+        background:#111;
+        border:2px solid #FF7A00;
+        border-radius:18px;
+        padding:22px;
+        box-shadow:0 0 18px rgba(255,120,0,0.4);
+      ">
+        <h3 style="color:#FF7A00; margin-bottom:8px;">🎥 Videyo Aktivite</h3>
+        <video controls style="
+          width:100%;
+          border-radius:12px;
+          margin:14px 0;
+          border:1px solid #FF7A00;
+        ">
+          <source src="/PATH/miami/video1.mp4" type="video/mp4">
+        </video>
+        <p style="color:#ddd;">Mouvman Miami an Aksyon nan dènye parad la — fòs ak kowòdinasyon.</p>
+        <span style="color:#888; font-size:0.9rem;">Posté le: 30 Mas 2026</span>
       </div>
-      <div class="grid-3">
-        <div class="card"><h3>Represent</h3><p>Show strong local identity with discipline, pride, and consistent branding.</p></div>
-        <div class="card"><h3>Organize</h3><p>Create a clear place for future actions, updates, and event information.</p></div>
-        <div class="card"><h3>Connect</h3><p>Bridge local supporters with the full BSS structure online and offline.</p></div>
-      </div>
-    </div>
-  </section>
 
-  <section id="contact">
-    <div class="container">
-      <div class="hero-card">
-        <div class="section-head" style="margin-bottom:18px;">
-          <h2>Next Upgrade</h2>
-          <p>This page is ready for future member profiles, photos, event highlights, and a dedicated Miami media gallery.</p>
-        </div>
-        <div class="actions">
-          <a class="btn btn-primary" href="mailto:briyantsigno@gmail.com">Official Contact</a>
-          <a class="btn btn-secondary" href="index.html">Back to Homepage</a>
-        </div>
+      <!-- MESSAGE BLOCK -->
+      <div style="
+        background:#111;
+        border:2px solid #FF7A00;
+        border-radius:18px;
+        padding:22px;
+        box-shadow:0 0 18px rgba(255,120,0,0.4);
+      ">
+        <h3 style="color:#FF7A00; margin-bottom:8px;">💬 Mesaj Ekip</h3>
+        <p style="color:#ddd;">
+          “Miami an Aksyon se pa yon ekip. Se baz la. Se fondasyon an. Se fòs ki kenbe BSS1815 kanpe.”
+        </p>
+        <span style="color:#888; font-size:0.9rem;">Posté le: 27 Mas 2026</span>
       </div>
-    </div>
-  </section>
 
-  <footer>
-    <div class="container">© 2026 Briyant Soley Signo 1815 — Miami an Aksyon Division</div>
-  </footer>
-</body>
-</html>
-<div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('ht')">KREYÒL</button>
-  <button class="lang-btn" onclick="setLang('es')">ES</button>
-</div>
+    </div>
+
+  </div>
+</section>
