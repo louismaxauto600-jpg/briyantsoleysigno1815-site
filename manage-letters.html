@@ -1,93 +1,231 @@
-<!-- LETTER CENTER FINAL -->
-<section id="letter-center" style="
-    background:#1A1A1A;
-    padding:25px;
-    border-radius:10px;
-    border:2px solid #FF7A00;
-    box-shadow:0 0 20px #FF7A00;
-    margin-top:40px;
-">
-    <h2 style="
-        font-size:28px;
-        font-weight:bold;
-        color:#FF7A00;
-        margin-bottom:20px;
-        text-align:center;
-    ">
-        LETTER CENTER — BSS1815
-    </h2>
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — LETTER CENTER PRO‑MAX</title>
 
-    <div style="
-        display:grid;
-        grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
-        gap:25px;
-    ">
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --nwa: #000000;
+            --nwa-soft: #1A1A1A;
+            --blan: #FFFFFF;
+        }
 
-        <!-- LETTER CARD 1 -->
-        <div style="
-            background:#111;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 15px rgba(255,120,0,0.4);
-        ">
-            <h3 style="color:#FF7A00; margin-bottom:10px;">Lèt #1 — Konfimasyon</h3>
-            <p style="font-size:14px; opacity:0.8;">Lèt sa a sèvi pou konfimasyon ofisyèl BSS1815.</p>
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
 
-            <button style="
-                width:100%;
-                padding:10px;
-                margin-top:10px;
-                background:#FF7A00;
-                border:none;
-                border-radius:6px;
-                font-weight:bold;
-                cursor:pointer;
-            ">Telechaje</button>
+        .wrap {
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 1100px;
+            background: linear-gradient(to bottom right, #FF7A00, #000000);
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 30px rgba(255,120,0,0.7);
+        }
+
+        .logo-zone {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .logo-zone img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+        }
+
+        .title-main {
+            color: #FF7A00;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 15px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .inner {
+            background: #111;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 18px rgba(255,120,0,0.5);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #000;
+            border-radius: 10px;
+            padding: 18px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 15px rgba(255,120,0,0.4);
+        }
+
+        .card h3 {
+            color: #FF7A00;
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .card p {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 9px;
+            background: #FF7A00;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            color: #000;
+        }
+
+        .btn-secondary {
+            flex: 1;
+            padding: 9px;
+            background: #111;
+            border: 2px solid #FF7A00;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            color: #FF7A00;
+        }
+
+        .detail-block {
+            margin-top: 26px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .detail-block h2 {
+            color: #FF7A00;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .detail-block p {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrap">
+    <div class="shell">
+
+        <div class="logo-zone">
+            <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
         </div>
 
-        <!-- LETTER CARD 2 -->
-        <div style="
-            background:#111;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 15px rgba(255,120,0,0.4);
-        ">
-            <h3 style="color:#FF7A00; margin-bottom:10px;">Lèt #2 — Envitation</h3>
-            <p style="font-size:14px; opacity:0.8;">Lèt envitasyon ofisyèl pou evènman BSS1815.</p>
-
-            <button style="
-                width:100%;
-                padding:10px;
-                margin-top:10px;
-                background:#FF7A00;
-                border:none;
-                border-radius:6px;
-                font-weight:bold;
-                cursor:pointer;
-            ">Telechaje</button>
+        <div class="title-main">LETTER CENTER — BSS1815 PRO‑MAX</div>
+        <div class="subtitle">
+            Tout lèt ofisyèl BSS1815 yo prezante ak style PRO‑MAX: logo agoch, background abriko + nwa fade.
         </div>
 
-        <!-- LETTER CARD 3 -->
-        <div style="
-            background:#111;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 15px rgba(255,120,0,0.4);
-        ">
-            <h3 style="color:#FF7A00; margin-bottom:10px;">Lèt #3 — Rekonesans</h3>
-            <p style="font-size:14px; opacity:0.8;">Lèt rekonesans pou manm ak patnè ofisyèl yo.</p>
+        <div class="inner">
 
-            <button style="
-                width:100%;
-                padding:10px;
-                margin-top:10px;
-                background:#FF7A00;
-                border:none;
-                border-radius:6px;
-                font-weight:bold;
-                cursor:pointer;
-            ">Telechaje</button>
+            <div class="grid-3">
+
+                <div class="card">
+                    <h3>Lèt #1 — Konfimasyon</h3>
+                    <p>Lèt konfimasyon ofisyèl pou manm ak patnè yo.</p>
+                    <div class="meta">
+                        Mizajou: 2026-01-01<br>
+                        Vèsyon: PRO‑MAX 1.0
+                    </div>
+                    <div class="btn-row">
+                        <button class="btn-primary">View</button>
+                        <button class="btn-secondary">Download</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Lèt #2 — Envitation</h3>
+                    <p>Lèt envitasyon pou evènman ak parad BSS1815.</p>
+                    <div class="meta">
+                        Mizajou: 2026-01-01<br>
+                        Vèsyon: PRO‑MAX 1.0
+                    </div>
+                    <div class="btn-row">
+                        <button class="btn-primary">View</button>
+                        <button class="btn-secondary">Download</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Lèt #3 — Rekonesans</h3>
+                    <p>Lèt rekonesans pou manm, fanatik, ak kolaboratè yo.</p>
+                    <div class="meta">
+                        Mizajou: 2026-01-01<br>
+                        Vèsyon: PRO‑MAX 1.0
+                    </div>
+                    <div class="btn-row">
+                        <button class="btn-primary">View</button>
+                        <button class="btn-secondary">Download</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="detail-block">
+                <h2>Remak Ofisyèl BSS1815</h2>
+                <p>
+                    Tout lèt ki sòti nan BSS1815 dwe respekte menm estrikti vizyèl PRO‑MAX la:
+                    logo ofisyèl la toujou agoch, background la toujou nan degrade abriko (#FF7A00)
+                    pou rive nan nwa (#000000), ak prezans pwofesyonèl ki make idantite ekip la.
+                    Nenpòt nouvo modèl lèt dwe bati sou menm baz sa a pou kenbe inifòmite ak
+                    disiplin vizyèl BSS1815.
+                </p>
+            </div>
+
         </div>
 
     </div>
-</section>
+</div>
+
+</body>
+</html>
