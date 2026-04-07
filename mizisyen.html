@@ -1,117 +1,236 @@
-<!-- MUSICIAN CENTER FINAL -->
-<section id="musician-center" style="
-    background:#1A1A1A;
-    padding:25px;
-    border-radius:10px;
-    border:2px solid #FF7A00;
-    box-shadow:0 0 20px #FF7A00;
-    margin-top:40px;
-">
-    <h2 style="
-        font-size:28px;
-        font-weight:bold;
-        color:#FF7A00;
-        margin-bottom:20px;
-        text-align:center;
-    ">
-        MUSICIAN CENTER — BSS1815
-    </h2>
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — MUSICIAN CENTER PRO‑MAX</title>
 
-    <div style="
-        display:grid;
-        grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
-        gap:25px;
-    ">
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --nwa: #000000;
+            --blan: #FFFFFF;
+        }
 
-        <!-- MUSICIAN CARD 1 -->
-        <div style="
-            background:#111;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 15px rgba(255,120,0,0.4);
-            text-align:center;
-        ">
-            <img src="/PATH/musicians/m1.jpg" style="
-                width:100%;
-                height:260px;
-                object-fit:cover;
-                border-radius:8px;
-                margin-bottom:12px;
-            ">
-            <h3 style="color:#FF7A00; margin-bottom:8px;">Non Mizisyen #1</h3>
-            <p style="font-size:14px; opacity:0.8;">Enstriman: Trompèt</p>
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
 
-            <button style="
-                width:100%;
-                padding:10px;
-                margin-top:10px;
-                background:#FF7A00;
-                border:none;
-                border-radius:6px;
-                font-weight:bold;
-                cursor:pointer;
-            ">Modifye</button>
+        .wrap {
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(to bottom right, #FF7A00, #000000);
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 30px rgba(255,120,0,0.7);
+        }
+
+        .logo-zone {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .logo-zone img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+        }
+
+        .title-main {
+            color: #FF7A00;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 15px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .inner {
+            background: #111;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 18px rgba(255,120,0,0.5);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 15px rgba(255,120,0,0.4);
+        }
+
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .info h3 {
+            color: #FF7A00;
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .info p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 10px;
+            background: #FF7A00;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            color: #000;
+            margin-top: 10px;
+        }
+
+        .add-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #000;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+        }
+
+        .add-box h2 {
+            color: #FF7A00;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+
+        .field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #FF7A00;
+            background: #000;
+            color: #FFF;
+            font-size: 14px;
+        }
+
+        .btn-add {
+            width: 100%;
+            padding: 12px;
+            background: #FF7A00;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            color: #000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrap">
+    <div class="shell">
+
+        <div class="logo-zone">
+            <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
         </div>
 
-        <!-- MUSICIAN CARD 2 -->
-        <div style="
-            background:#111;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 15px rgba(255,120,0,0.4);
-            text-align:center;
-        ">
-            <img src="/PATH/musicians/m2.jpg" style="
-                width:100%;
-                height:260px;
-                object-fit:cover;
-                border-radius:8px;
-                margin-bottom:12px;
-            ">
-            <h3 style="color:#FF7A00; margin-bottom:8px;">Non Mizisyen #2</h3>
-            <p style="font-size:14px; opacity:0.8;">Enstriman: Kès</p>
-
-            <button style="
-                width:100%;
-                padding:10px;
-                margin-top:10px;
-                background:#FF7A00;
-                border:none;
-                border-radius:6px;
-                font-weight:bold;
-                cursor:pointer;
-            ">Modifye</button>
+        <div class="title-main">MUSICIAN CENTER — BSS1815 PRO‑MAX</div>
+        <div class="subtitle">
+            Lis ofisyèl mizisyen BSS1815 yo ak style PRO‑MAX: logo agoch, background abriko + nwa fade.
         </div>
 
-        <!-- MUSICIAN CARD 3 -->
-        <div style="
-            background:#111;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 15px rgba(255,120,0,0.4);
-            text-align:center;
-        ">
-            <img src="/PATH/musicians/m3.jpg" style="
-                width:100%;
-                height:260px;
-                object-fit:cover;
-                border-radius:8px;
-                margin-bottom:12px;
-            ">
-            <h3 style="color:#FF7A00; margin-bottom:8px;">Non Mizisyen #3</h3>
-            <p style="font-size:14px; opacity:0.8;">Enstriman: Banbou</p>
+        <div class="inner">
 
-            <button style="
-                width:100%;
-                padding:10px;
-                margin-top:10px;
-                background:#FF7A00;
-                border:none;
-                border-radius:6px;
-                font-weight:bold;
-                cursor:pointer;
-            ">Modifye</button>
+            <div class="grid-4">
+
+                <div class="card">
+                    <img src="/PATH/musicians/m1.jpg">
+                    <div class="info">
+                        <h3>Mizisyen #1</h3>
+                        <p>Enstriman: Trompèt</p>
+                        <button class="btn-full">Modifye</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="/PATH/musicians/m2.jpg">
+                    <div class="info">
+                        <h3>Mizisyen #2</h3>
+                        <p>Enstriman: Kès</p>
+                        <button class="btn-full">Modifye</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="/PATH/musicians/m3.jpg">
+                    <div class="info">
+                        <h3>Mizisyen #3</h3>
+                        <p>Enstriman: Banbou</p>
+                        <button class="btn-full">Modifye</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="/PATH/musicians/m4.jpg">
+                    <div class="info">
+                        <h3>Mizisyen #4</h3>
+                        <p>Enstriman: Bass</p>
+                        <button class="btn-full">Modifye</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="add-box">
+                <h2>Ajoute Nouvo Mizisyen</h2>
+
+                <input type="text" class="field" placeholder="Non mizisyen">
+                <input type="text" class="field" placeholder="Enstriman">
+                <input type="text" class="field" placeholder="Seksyon (Trompèt, Bass, Tanbou...)">
+                <input type="file" class="field">
+
+                <button class="btn-add">Ajoute Mizisyen</button>
+            </div>
+
         </div>
 
     </div>
-</section>
+</div>
+
+</body>
+</html>
