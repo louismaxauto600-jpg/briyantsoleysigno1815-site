@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — SETTINGS PRO‑MAX</title>
+
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --nwa: #000000;
+            --blan: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(to right, #FF7A00, #000000);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #FF7A00;
+            box-shadow: 0 0 20px rgba(255,120,0,0.6);
+        }
+
+        header img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+            margin-right: 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            color: #FF7A00;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* MAIN */
+        .section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .title-main {
+            font-size: 32px;
+            color: #FF7A00;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .settings-box {
+            background: #111;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 18px rgba(255,120,0,0.5);
+        }
+
+        .group-title {
+            color: #FF7A00;
+            font-size: 22px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px 0;
+            border-radius: 6px;
+            border: 1px solid #FF7A00;
+            background: #000;
+            color: #FFF;
+            font-size: 15px;
+        }
+
+        .btn-save {
+            width: 100%;
+            padding: 14px;
+            background: #FF7A00;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            color: #000;
+            margin-top: 20px;
+        }
+
+        .btn-save:hover {
+            background: #000;
+            color: #FF7A00;
+            border: 2px solid #FF7A00;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 25px;
+            text-align: center;
+            border-top: 2px solid #FF7A00;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
+        <h1>SETTINGS — SUPER ADMIN</h1>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <section class="section">
+
+        <div class="title-main">PARAMÈT OFISYÈL BSS1815</div>
+
+        <div class="settings-box">
+
+            <!-- GENERAL SETTINGS -->
+            <div class="group-title">Enfòmasyon Jeneral</div>
+            <input type="text" class="field" placeholder="Non pwojè a (eg: BSS1815)">
+            <input type="text" class="field" placeholder="Vèsyon sistèm nan (eg: PRO‑MAX 1.0)">
+            <input type="text" class="field" placeholder="URL ofisyèl sit la">
+
+            <!-- BRANDING -->
+            <div class="group-title">Branding & Logo</div>
+            <input type="file" class="field">
+            <input type="text" class="field" placeholder="Koulè prensipal (#FF7A00)">
+            <input type="text" class="field" placeholder="Koulè segondè (#000000)">
+
+            <!-- SECURITY -->
+            <div class="group-title">Sekirite</div>
+            <input type="password" class="field" placeholder="Modpas Super Admin">
+            <input type="password" class="field" placeholder="Konfime Modpas">
+
+            <!-- ADMINS -->
+            <div class="group-title">Lis Admin yo</div>
+            <input type="text" class="field" placeholder="Non Admin #1">
+            <input type="text" class="field" placeholder="Non Admin #2">
+            <input type="text" class="field" placeholder="Ajoute nouvo admin">
+
+            <!-- SAVE BUTTON -->
+            <button class="btn-save">SOVE PARAMÈT YO</button>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>BSS1815 © 2026 — SUPER ADMIN SETTINGS — PRO‑MAX Edition.</p>
+    </footer>
+
+</body>
+</html>
