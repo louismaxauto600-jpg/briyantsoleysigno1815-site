@@ -1,226 +1,93 @@
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — Lèt Administratif</title>
+<!-- LETTER CENTER FINAL -->
+<section id="letter-center" style="
+    background:#1A1A1A;
+    padding:25px;
+    border-radius:10px;
+    border:2px solid #FF7A00;
+    box-shadow:0 0 20px #FF7A00;
+    margin-top:40px;
+">
+    <h2 style="
+        font-size:28px;
+        font-weight:bold;
+        color:#FF7A00;
+        margin-bottom:20px;
+        text-align:center;
+    ">
+        LETTER CENTER — BSS1815
+    </h2>
 
-    <style>
-        :root {
-            --abriko: #FF7A00;
-            --jòn: #FFD400;
-            --nwa: #000000;
-            --nwa-soft: #1A1A1A;
-            --blan: #FFFFFF;
-        }
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+        gap:25px;
+    ">
 
-        body {
-            margin: 0;
-            background: var(--nwa);
-            color: var(--blan);
-            font-family: Arial, sans-serif;
-        }
+        <!-- LETTER CARD 1 -->
+        <div style="
+            background:#111;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 15px rgba(255,120,0,0.4);
+        ">
+            <h3 style="color:#FF7A00; margin-bottom:10px;">Lèt #1 — Konfimasyon</h3>
+            <p style="font-size:14px; opacity:0.8;">Lèt sa a sèvi pou konfimasyon ofisyèl BSS1815.</p>
 
-        .bss-header {
-            background: var(--nwa);
-            padding: 15px 30px;
-            border-bottom: 2px solid var(--abriko);
-        }
-
-        .bss-header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .bss-logo {
-            width: 220px;
-            filter: drop-shadow(0 0 10px var(--abriko));
-        }
-
-        .page-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: var(--nwa-soft);
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid var(--abriko);
-            box-shadow: 0 0 20px var(--abriko);
-        }
-
-        h1 {
-            text-align: center;
-            color: var(--abriko);
-            margin-bottom: 20px;
-        }
-
-        .field-label {
-            font-weight: bold;
-            margin: 10px 0 5px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 6px;
-            border: none;
-            outline: none;
-            background: #2a2a2a;
-            color: var(--blan);
-            font-size: 15px;
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .btn-row {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            background: var(--abriko);
-            padding: 10px 18px;
-            border: none;
-            border-radius: 6px;
-            color: var(--blan);
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--jòn);
-            color: var(--nwa);
-        }
-
-        .letters-list {
-            margin-top: 25px;
-        }
-
-        .letter-item {
-            background: #1c1c1c;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--abriko);
-        }
-
-        .letter-title {
-            font-weight: bold;
-            color: var(--jòn);
-            margin-bottom: 5px;
-        }
-
-        .letter-actions {
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-small {
-            padding: 6px 10px;
-            font-size: 13px;
-        }
-
-        .danger {
-            background: #cc0000;
-        }
-
-        .danger:hover {
-            background: #ff4444;
-        }
-    </style>
-</head>
-<body>
-
-<header class="bss-header">
-    <div class="bss-header-inner">
-        <img src="/PATH/logo-bss2.jpeg" class="bss-logo">
-    </div>
-</header>
-
-<div class="page-container">
-    <h1>Lèt Administratif BSS1815</h1>
-
-    <div>
-        <div class="field-label">Tit lèt la (eg: Lèt de Blame)</div>
-        <input type="text" id="letterTitle" placeholder="Antre tit lèt la">
-
-        <div class="field-label" style="margin-top:15px;">Kontni lèt la</div>
-        <textarea id="letterBody" placeholder="Ekri modèl lèt la isit la..."></textarea>
-
-        <div class="btn-row">
-            <button class="btn" onclick="saveLetter()">Sove Lèt</button>
-            <button class="btn" onclick="clearForm()">Netwaye</button>
+            <button style="
+                width:100%;
+                padding:10px;
+                margin-top:10px;
+                background:#FF7A00;
+                border:none;
+                border-radius:6px;
+                font-weight:bold;
+                cursor:pointer;
+            ">Telechaje</button>
         </div>
+
+        <!-- LETTER CARD 2 -->
+        <div style="
+            background:#111;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 15px rgba(255,120,0,0.4);
+        ">
+            <h3 style="color:#FF7A00; margin-bottom:10px;">Lèt #2 — Envitation</h3>
+            <p style="font-size:14px; opacity:0.8;">Lèt envitasyon ofisyèl pou evènman BSS1815.</p>
+
+            <button style="
+                width:100%;
+                padding:10px;
+                margin-top:10px;
+                background:#FF7A00;
+                border:none;
+                border-radius:6px;
+                font-weight:bold;
+                cursor:pointer;
+            ">Telechaje</button>
+        </div>
+
+        <!-- LETTER CARD 3 -->
+        <div style="
+            background:#111;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 15px rgba(255,120,0,0.4);
+        ">
+            <h3 style="color:#FF7A00; margin-bottom:10px;">Lèt #3 — Rekonesans</h3>
+            <p style="font-size:14px; opacity:0.8;">Lèt rekonesans pou manm ak patnè ofisyèl yo.</p>
+
+            <button style="
+                width:100%;
+                padding:10px;
+                margin-top:10px;
+                background:#FF7A00;
+                border:none;
+                border-radius:6px;
+                font-weight:bold;
+                cursor:pointer;
+            ">Telechaje</button>
+        </div>
+
     </div>
-
-    <div class="letters-list" id="lettersList"></div>
-</div>
-
-<script>
-    function loadLetters() {
-        const data = JSON.parse(localStorage.getItem("bss_admin_letters") || "[]");
-        const list = document.getElementById("lettersList");
-        list.innerHTML = "";
-
-        data.forEach((item, index) => {
-            const div = document.createElement("div");
-            div.className = "letter-item";
-            div.innerHTML = `
-                <div class="letter-title">${item.title}</div>
-                <div style="white-space:pre-wrap; font-size:14px;">${item.body}</div>
-                <div class="letter-actions">
-                    <button class="btn btn-small" onclick="loadToForm(${index})">Chaje pou modifye</button>
-                    <button class="btn btn-small danger" onclick="deleteLetter(${index})">Efase</button>
-                </div>
-            `;
-            list.appendChild(div);
-        });
-    }
-
-    function saveLetter() {
-        const title = document.getElementById("letterTitle").value.trim();
-        const body = document.getElementById("letterBody").value.trim();
-
-        if (!title || !body) {
-            alert("Tit ak kontni obligatwa.");
-            return;
-        }
-
-        const data = JSON.parse(localStorage.getItem("bss_admin_letters") || "[]");
-        data.push({ title, body });
-        localStorage.setItem("bss_admin_letters", JSON.stringify(data));
-
-        clearForm();
-        loadLetters();
-    }
-
-    function clearForm() {
-        document.getElementById("letterTitle").value = "";
-        document.getElementById("letterBody").value = "";
-    }
-
-    function deleteLetter(index) {
-        const data = JSON.parse(localStorage.getItem("bss_admin_letters") || "[]");
-        data.splice(index, 1);
-        localStorage.setItem("bss_admin_letters", JSON.stringify(data));
-        loadLetters();
-    }
-
-    function loadToForm(index) {
-        const data = JSON.parse(localStorage.getItem("bss_admin_letters") || "[]");
-        const item = data[index];
-        document.getElementById("letterTitle").value = item.title;
-        document.getElementById("letterBody").value = item.body;
-    }
-
-    loadLetters();
-</script>
-
-</body>
-</html>
+</section>
