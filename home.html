@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — HOME PRO‑MAX</title>
+
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --nwa: #000000;
+            --blan: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(to right, #FF7A00, #000000);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #FF7A00;
+            box-shadow: 0 0 20px rgba(255,120,0,0.6);
+        }
+
+        header img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+            margin-right: 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            color: #FF7A00;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* MAIN SECTION */
+        .main {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .main h2 {
+            font-size: 36px;
+            color: #FF7A00;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .main p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 40px;
+        }
+
+        /* GRID BUTTONS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .btn-box {
+            background: #111;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255,120,0,0.5);
+            transition: 0.3s;
+        }
+
+        .btn-box:hover {
+            background: #FF7A00;
+            color: #000;
+            transform: scale(1.03);
+        }
+
+        .btn-box h3 {
+            color: #FF7A00;
+            font-size: 20px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-box:hover h3 {
+            color: #000;
+        }
+
+        .btn-box p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 25px;
+            text-align: center;
+            border-top: 2px solid #FF7A00;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
+        <h1>BSS1815 — HOME PRO‑MAX</h1>
+    </header>
+
+    <!-- MAIN -->
+    <section class="main">
+        <h2>Byenveni nan BSS1815</h2>
+        <p>
+            Sant prensipal PRO‑MAX la. Chwazi youn nan seksyon yo pou antre nan sistèm ofisyèl BSS1815 la.
+        </p>
+
+        <div class="grid-3">
+
+            <a href="musician.html" class="btn-box">
+                <h3>Mizisyen</h3>
+                <p>Lis ofisyèl mizisyen yo pa enstriman.</p>
+            </a>
+
+            <a href="gallery.html" class="btn-box">
+                <h3>Galeri</h3>
+                <p>Foto ofisyèl BSS1815 yo.</p>
+            </a>
+
+            <a href="bss1815-tv.html" class="btn-box">
+                <h3>BSS1815-TV</h3>
+                <p>Videyo parad, evènman, ak repètisyon.</p>
+            </a>
+
+            <a href="letter.html" class="btn-box">
+                <h3>Lèt Ofisyèl</h3>
+                <p>Tout lèt PRO‑MAX yo.</p>
+            </a>
+
+            <a href="contract.html" class="btn-box">
+                <h3>Kontra</h3>
+                <p>Kontra ofisyèl BSS1815 yo.</p>
+            </a>
+
+            <a href="upload.html" class="btn-box">
+                <h3>Upload Center</h3>
+                <p>Telechaje foto, videyo, dokiman.</p>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>BSS1815 © 2026 — Tout dwa rezève. PRO‑MAX Edition.</p>
+    </footer>
+
+</body>
+</html>
