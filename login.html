@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — LOGIN ADMIN</title>
+    <title>BSS1815 — LOGIN PRO‑MAX</title>
 
     <style>
         :root {
             --abriko: #FF7A00;
             --nwa: #000000;
-            --nwa-soft: #1A1A1A;
             --blan: #FFFFFF;
         }
 
         body {
             margin: 0;
-            background: var(--nwa);
+            background: linear-gradient(to bottom right, #FF7A00, #000000);
             color: var(--blan);
             font-family: Arial, sans-serif;
             display: flex;
@@ -25,90 +24,103 @@
         }
 
         .login-box {
-            background: var(--nwa-soft);
-            padding: 40px;
-            width: 350px;
-            border-radius: 10px;
+            width: 100%;
+            max-width: 420px;
+            background: #111;
+            padding: 30px;
+            border-radius: 14px;
             border: 2px solid var(--abriko);
-            box-shadow: 0 0 20px var(--abriko);
-            text-align: center;
+            box-shadow: 0 0 25px rgba(255,120,0,0.6);
         }
 
-        .login-logo {
-            width: 180px;
+        .logo-zone {
+            text-align: left;
             margin-bottom: 20px;
+        }
+
+        .logo-zone img {
+            width: 120px;
             filter: drop-shadow(0 0 10px var(--abriko));
         }
 
         h2 {
+            text-align: center;
             color: var(--abriko);
+            font-size: 26px;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
-        input {
+        .field {
             width: 100%;
             padding: 12px;
-            margin: 12px 0;
+            margin: 10px 0;
             border-radius: 6px;
             border: 1px solid var(--abriko);
-            background: #111;
-            color: var(--blan);
-            font-size: 16px;
+            background: #000;
+            color: #FFF;
+            font-size: 15px;
         }
 
-        button {
+        .btn-login {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: var(--abriko);
             border: none;
             border-radius: 6px;
-            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
+            font-size: 16px;
+            color: #000;
             margin-top: 10px;
-        }
-
-        button:hover {
-            background: #ff9a3d;
         }
 
         .error {
             color: red;
+            text-align: center;
             margin-top: 10px;
             font-size: 14px;
-            display: none;
+            min-height: 20px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-box">
-        <img src="/PATH/logo-bss2.jpeg" class="login-logo">
+<div class="login-box">
 
-        <h2>ADMIN LOGIN</h2>
-
-        <input type="password" id="admin-pass" placeholder="Antre modpas admin">
-        <button onclick="loginAdmin()">Login</button>
-
-        <div class="error" id="error-msg">Modpas la pa bon</div>
+    <div class="logo-zone">
+        <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
     </div>
 
-    <script>
-        function loginAdmin() {
-            const pass = document.getElementById("admin-pass").value;
+    <h2>LOGIN ADMIN — BSS1815</h2>
 
-            // MODPAS OFISYÈL ADMIN NAN
-            const correctPass = "BSS1815-PROMAX";
+    <input type="text" id="username" class="field" placeholder="Non itilizatè">
+    <input type="password" id="password" class="field" placeholder="Modpas">
 
-            if (pass === correctPass) {
-                localStorage.setItem("bss_admin_logged", "true");
-                window.location.href = "admin.html";
-            } else {
-                document.getElementById("error-msg").style.display = "block";
-            }
+    <button class="btn-login" onclick="login()">Konekte</button>
+
+    <div id="errorMsg" class="error"></div>
+
+</div>
+
+<script>
+    function login() {
+        const user = document.getElementById("username").value.trim();
+        const pass = document.getElementById("password").value.trim();
+        const error = document.getElementById("errorMsg");
+
+        const ADMIN_USER = "superadmin";
+        const ADMIN_PASS = "1815";
+
+        if (user === ADMIN_USER && pass === ADMIN_PASS) {
+            localStorage.setItem("bss_admin_logged", "yes");
+            window.location.href = "admin.html";
+        } else {
+            error.textContent = "Enfòmasyon yo pa kòrèk.";
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>
