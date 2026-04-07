@@ -1,158 +1,168 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8">
-  <title>BSS 1815 – Upload Dokiman</title>
-  <style>
-    body {
-      background: #000;
-      color: #ffa64d;
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — UPLOAD CENTER PRO‑MAX</title>
 
-    .container {
-      background: #111;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 450px;
-      margin: auto;
-      border: 2px solid #ffa64d;
-    }
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --nwa: #000000;
+            --blan: #FFFFFF;
+        }
 
-    select, input[type="file"], button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border-radius: 6px;
-      border: none;
-      font-size: 16px;
-    }
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
 
-    select {
-      background: #ffa64d;
-      color: #000;
-      font-weight: bold;
-    }
+        .wrap {
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-    input[type="file"] {
-      background: #222;
-      color: #ffa64d;
-    }
+        .shell {
+            width: 100%;
+            max-width: 900px;
+            background: linear-gradient(to bottom right, #FF7A00, #000000);
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 30px rgba(255,120,0,0.7);
+        }
 
-    button {
-      background: #ffa64d;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-    }
+        .logo-zone {
+            text-align: left;
+            margin-bottom: 20px;
+        }
 
-    #progress {
-      width: 100%;
-      background: #333;
-      height: 10px;
-      border-radius: 5px;
-      margin-top: 20px;
-      overflow: hidden;
-    }
+        .logo-zone img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+        }
 
-    #progress-bar {
-      height: 10px;
-      width: 0%;
-      background: #ffa64d;
-    }
-  </style>
+        .title-main {
+            color: #FF7A00;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 15px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .inner {
+            background: #111;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 18px rgba(255,120,0,0.5);
+        }
+
+        .field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #FF7A00;
+            background: #000;
+            color: #FFF;
+            font-size: 15px;
+        }
+
+        .btn-upload {
+            width: 100%;
+            padding: 12px;
+            background: #FF7A00;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            color: #000;
+            margin-top: 10px;
+        }
+
+        .file-list {
+            margin-top: 25px;
+            padding: 15px;
+            background: #000;
+            border-radius: 10px;
+            border: 1px solid #FF7A00;
+        }
+
+        .file-item {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        .file-item:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h2>UPLOAD DOKIMAN – BSS 1815</h2>
+<div class="wrap">
+    <div class="shell">
 
-    <select id="category">
-      <option value="">Chwazi kategori</option>
-      <option value="mizisyen">Mizisyen</option>
-      <option value="kontra">Kontra</option>
-      <option value="finans">Finans</option>
-      <option value="bann">Bann</option>
-      <option value="videos">Videyo</option>
-      <option value="id">ID</option>
-      <option value="lot">Lòt dokiman</option>
-    </select>
+        <div class="logo-zone">
+            <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
+        </div>
 
-    <input type="file" id="fileInput">
+        <div class="title-main">UPLOAD CENTER — BSS1815 PRO‑MAX</div>
+        <div class="subtitle">
+            Telechaje foto, flyer, lèt, kontra, mizisyen, ak tout dokiman PRO‑MAX BSS1815 yo.
+        </div>
 
-    <button onclick="uploadFile()">Upload</button>
+        <div class="inner">
 
-    <div id="progress">
-      <div id="progress-bar"></div>
+            <input type="file" id="fileInput" class="field" multiple>
+
+            <button class="btn-upload" onclick="uploadFiles()">Upload</button>
+
+            <div id="fileList" class="file-list" style="display:none;"></div>
+
+        </div>
+
     </div>
+</div>
 
-    <p id="status"></p>
-  </div>
+<script>
+    function uploadFiles() {
+        const input = document.getElementById("fileInput");
+        const list = document.getElementById("fileList");
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"></script>
-
-  <script>
-    /* ----------------------------------------------------
-       FIREBASE CONFIG OU — METE PA MWEN, FINAL
-       ---------------------------------------------------- */
-    const firebaseConfig = {
-      apiKey: "AIzaSyDenkzhQh5rHMoZYDXrM8zSSCCoX4gBcYY",
-      authDomain: "briyant-soley-signo-1815.firebaseapp.com",
-      projectId: "briyant-soley-signo-1815",
-      storageBucket: "briyant-soley-signo-1815.firebasestorage.app",
-      messagingSenderId: "873317957685",
-      appId: "1:873317957685:web:4cc037fd0a61cd8899717c",
-      measurementId: "G-3QZ98KMJ0Z"
-    };
-
-    /* ----------------------------------------------------
-       INITIALIZE FIREBASE
-       ---------------------------------------------------- */
-    const app = firebase.initializeApp(firebaseConfig);
-    const storage = firebase.storage();
-
-    /* ----------------------------------------------------
-       UPLOAD FUNCTION
-       ---------------------------------------------------- */
-    function uploadFile() {
-      const category = document.getElementById("category").value;
-      const file = document.getElementById("fileInput").files[0];
-
-      if (!category) {
-        alert("Chwazi yon kategori");
-        return;
-      }
-      if (!file) {
-        alert("Chwazi yon fichye");
-        return;
-      }
-
-      const path = `dokiman/${category}/${file.name}`;
-      const storageRef = storage.ref(path);
-      const uploadTask = storageRef.put(file);
-
-      uploadTask.on("state_changed",
-        (snapshot) => {
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          document.getElementById("progress-bar").style.width = progress + "%";
-        },
-        (error) => {
-          document.getElementById("status").innerText = "Erè upload!";
-        },
-        () => {
-          uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-            document.getElementById("status").innerHTML =
-              "Upload fini!<br>Lyen: <a href='" + url + "' target='_blank'>" + url + "</a>";
-          });
+        if (input.files.length === 0) {
+            alert("Chwazi omwen yon fichye.");
+            return;
         }
-      );
+
+        list.innerHTML = "";
+        list.style.display = "block";
+
+        for (let i = 0; i < input.files.length; i++) {
+            const f = input.files[i];
+            const item = document.createElement("div");
+            item.className = "file-item";
+            item.textContent = "✔ " + f.name + " — Uploaded (simulated)";
+            list.appendChild(item);
+        }
     }
-  </script>
+</script>
 
 </body>
 </html>
