@@ -86,12 +86,139 @@
             margin-bottom: 20px;
         }
 
-        .page-section {
-            background: var(--nwa-soft);
-            padding: 20px;
+        .section {
+            margin-top: 40px;
+        }
+
+        .section-shell {
+            background: linear-gradient(to bottom right, #FF7A00, #000000);
+            padding: 30px;
+            border-radius: 14px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 25px rgba(255,120,0,0.6);
+        }
+
+        .section-logo {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .section-logo img {
+            width: 110px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+        }
+
+        .section-title {
+            color: #FF7A00;
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .section-inner {
+            background: #111;
+            padding: 22px;
             border-radius: 10px;
-            border: 2px solid var(--abriko);
-            box-shadow: 0 0 20px var(--abriko);
+            border: 2px solid #FF7A00;
+            color: #FFFFFF;
+            box-shadow: 0 0 15px rgba(255,120,0,0.4);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #111;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255,120,0,0.4);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #FF7A00;
+            margin-bottom: 10px;
+            box-shadow: 0 0 15px rgba(255,120,0,0.5);
+        }
+
+        .card h3 {
+            color: #FF7A00;
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .card p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 9px;
+            background: #FF7A00;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            color: #000;
+        }
+
+        .btn-secondary {
+            flex: 1;
+            padding: 9px;
+            background: #111;
+            border: 2px solid #FF7A00;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            color: #FF7A00;
+        }
+
+        .info-text {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .field {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #FF7A00;
+            background: #000;
+            color: #FFF;
+            font-size: 14px;
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 11px;
+            background: #FF7A00;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+            color: #000;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -108,8 +235,9 @@
             <button class="menu-btn active">🏠 Dashboard</button>
             <button class="menu-btn">🖼️ Flyer Center</button>
             <button class="menu-btn">📄 Letter Center</button>
+            <button class="menu-btn">📜 Contract Center</button>
             <button class="menu-btn">🎵 Musician Center</button>
-            <button class="menu-btn">📤 Upload Photo</button>
+            <button class="menu-btn">📤 Upload Center</button>
             <button class="menu-btn">👤 Kont Admin</button>
             <button class="menu-btn logout" onclick="logoutAdmin()">🚪 Logout</button>
         </nav>
@@ -117,11 +245,225 @@
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-        <h1 class="page-title">ADMIN PANEL — BSS1815</h1>
+        <h1 class="page-title">ADMIN PANEL — BSS1815 PRO‑MAX</h1>
 
-        <div class="page-section">
-            <p>Byenveni nan Dashboard PRO‑MAX la. Ou konekte kòm ADMIN.</p>
-        </div>
+        <!-- DASHBOARD -->
+        <section class="section">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="/PATH/logo-bss2.jpeg">
+                </div>
+                <div class="section-title">Dashboard</div>
+                <div class="section-inner">
+                    <p class="info-text">
+                        Ou konekte kòm ADMIN BSS1815. Panel sa a se sant ofisyèl pou jere
+                        tout flyer, lèt, kontra, mizisyen, ak dokiman PRO‑MAX yo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLYER CENTER -->
+        <section class="section" id="flyer-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="/PATH/logo-bss2.jpeg">
+                </div>
+                <div class="section-title">Flyer Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <img src="/PATH/flyers/f1.jpg">
+                            <h3>Flyer #1 — Evènman</h3>
+                            <p>Flyer ofisyèl pou evènman BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="/PATH/flyers/f2.jpg">
+                            <h3>Flyer #2 — Anons</h3>
+                            <p>Flyer pou anons ofisyèl BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="/PATH/flyers/f3.jpg">
+                            <h3>Flyer #3 — Espesyal</h3>
+                            <p>Flyer espesyal pou kampay BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LETTER CENTER -->
+        <section class="section" id="letter-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="/PATH/logo-bss2.jpeg">
+                </div>
+                <div class="section-title">Letter Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <h3>Lèt #1 — Konfimasyon</h3>
+                            <p>Lèt konfimasyon ofisyèl BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Lèt #2 — Envitation</h3>
+                            <p>Lèt envitasyon pou evènman BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Lèt #3 — Rekonesans</h3>
+                            <p>Lèt rekonesans pou manm ak patnè yo.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTRACT CENTER -->
+        <section class="section" id="contract-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="/PATH/logo-bss2.jpeg">
+                </div>
+                <div class="section-title">Contract Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <h3>Kontra #1 — Kolaborasyon</h3>
+                            <p>Kontra kolaborasyon ofisyèl BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Kontra #2 — Prestasyon</h3>
+                            <p>Kontra prestasyon sèvis BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Kontra #3 — Patnè</h3>
+                            <p>Kontra patenarya ak patnè ofisyèl yo.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MUSICIAN CENTER -->
+        <section class="section" id="musician-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="/PATH/logo-bss2.jpeg">
+                </div>
+            <div class="section-title">Musician Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <img src="/PATH/musicians/m1.jpg">
+                            <h3>Non Mizisyen #1</h3>
+                            <p>Enstriman: Trompèt</p>
+                            <button class="btn-full">Modifye</button>
+                        </div>
+
+                        <div class="card">
+                            <img src="/PATH/musicians/m2.jpg">
+                            <h3>Non Mizisyen #2</h3>
+                            <p>Enstriman: Kès</p>
+                            <button class="btn-full">Modifye</button>
+                        </div>
+
+                        <div class="card">
+                            <img src="/PATH/musicians/m3.jpg">
+                            <h3>Non Mizisyen #3</h3>
+                            <p>Enstriman: Banbou</p>
+                            <button class="btn-full">Modifye</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UPLOAD CENTER -->
+        <section class="section" id="upload-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="/PATH/logo-bss2.jpeg">
+                </div>
+                <div class="section-title">Upload Center</div>
+                <div class="section-inner">
+                    <p class="info-text">
+                        Zòn sa a sèvi pou telechaje nouvo foto, flyer, lèt, ak dokiman PRO‑MAX BSS1815.
+                    </p>
+                    <input type="file" class="field">
+                    <button class="btn-full">Upload</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- KONT ADMIN -->
+        <section class="section" id="admin-account">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="/PATH/logo-bss2.jpeg">
+                </div>
+                <div class="section-title">Kont Admin</div>
+                <div class="section-inner">
+                    <p class="info-text">
+                        Jere enfòmasyon kont admin BSS1815.
+                    </p>
+                    <input type="text" class="field" placeholder="Non Admin">
+                    <input type="email" class="field" placeholder="Imèl Admin">
+                    <input type="password" class="field" placeholder="Nouvo Modpas">
+                    <button class="btn-full">Mizajou Kont</button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- SEKIRITE -->
