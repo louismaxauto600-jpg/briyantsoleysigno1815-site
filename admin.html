@@ -6,12 +6,8 @@
     <title>BSS1815 — ADMIN PRO‑MAX</title>
 
     <style>
-        /* ============================
-           PALET KOULÈ OFISYÈL BSS1815
-           ============================ */
         :root {
             --abriko: #FF7A00;
-            --jòn: #FFD400;
             --nwa: #000000;
             --nwa-soft: #1A1A1A;
             --blan: #FFFFFF;
@@ -24,150 +20,121 @@
             font-family: Arial, sans-serif;
         }
 
-        /* ============================
-           HEADER + LOGO PRO‑MAX
-           ============================ */
-        .bss-header {
+        /* SIDEBAR */
+        .sidebar {
+            width: 260px;
+            height: 100vh;
             background: var(--nwa);
-            padding: 15px 30px;
-            border-bottom: 2px solid var(--abriko);
+            border-right: 2px solid var(--abriko);
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 0 0 20px var(--abriko);
         }
 
-        .bss-header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .sidebar-logo {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .bss-logo {
-            width: 220px;
-            height: auto;
+        .sidebar .logo {
+            width: 180px;
             filter: drop-shadow(0 0 10px var(--abriko));
         }
 
-        /* ============================
-           ADMIN PANEL STYLE
-           ============================ */
-        .admin-container {
-            max-width: 900px;
-            margin: 50px auto;
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 20px;
+        }
+
+        .menu-btn {
             background: var(--nwa-soft);
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid var(--abriko);
-            box-shadow: 0 0 20px var(--abriko);
-        }
-
-        h1 {
-            text-align: center;
-            color: var(--abriko);
-            margin-bottom: 20px;
-        }
-
-        .admin-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 15px 0;
-            background: var(--abriko);
             color: var(--blan);
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
+            border: 1px solid var(--abriko);
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
             cursor: pointer;
+            text-align: left;
             transition: 0.3s;
         }
 
-        .admin-btn:hover {
-            background: var(--jòn);
+        .menu-btn:hover,
+        .menu-btn.active {
+            background: var(--abriko);
             color: var(--nwa);
         }
 
-        /* ============================
-           FLYER CENTER STYLE
-           ============================ */
-        #flyer-center {
-            max-width: 900px;
-            margin: 40px auto;
+        .logout {
+            margin-top: 40px;
+            background: #700000;
+            border-color: red;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-left: 260px;
+            padding: 40px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            color: var(--abriko);
+            margin-bottom: 20px;
+        }
+
+        .page-section {
             background: var(--nwa-soft);
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             border: 2px solid var(--abriko);
             box-shadow: 0 0 20px var(--abriko);
-        }
-
-        .panel-title {
-            font-size: 26px;
-            font-weight: bold;
-            color: var(--abriko);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .flyer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .flyer-card {
-            background: #111;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 120, 0, 0.4);
-            text-align: center;
-        }
-
-        .flyer-img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        .btn-manage {
-            background: var(--abriko);
-            border: none;
-            padding: 10px 18px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            color: #000;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER + LOGO -->
-    <header class="bss-header">
-        <div class="bss-header-inner">
-            <img src="/PATH/logo-bss2.jpeg" class="bss-logo">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/PATH/logo-bss2.jpeg" class="logo">
         </div>
-    </header>
 
-    <!-- ADMIN PANEL -->
-    <div class="admin-container">
-        <h1>ADMIN PANEL — BSS1815</h1>
+        <nav class="sidebar-menu">
+            <button class="menu-btn active">🏠 Dashboard</button>
+            <button class="menu-btn">🖼️ Flyer Center</button>
+            <button class="menu-btn">📄 Letter Center</button>
+            <button class="menu-btn">🎵 Musician Center</button>
+            <button class="menu-btn">📤 Upload Photo</button>
+            <button class="menu-btn">👤 Kont Admin</button>
+            <button class="menu-btn logout" onclick="logoutAdmin()">🚪 Logout</button>
+        </nav>
+    </aside>
 
-        <button class="admin-btn">📌 Jere Mizisyen yo</button>
-        <button class="admin-btn">📌 Jere Lèt yo</button>
-        <button class="admin-btn">📌 Upload Foto</button>
-        <button class="admin-btn">📌 Jere Kont yo</button>
-        <button class="admin-btn">📌 Logout</button>
-    </div>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <h1 class="page-title">ADMIN PANEL — BSS1815</h1>
 
-    <!-- FLYER CENTER (METE LA) -->
-    <section id="flyer-center" class="panel-section">
-        <h2 class="panel-title">FLYER CENTER</h2>
-
-        <div class="flyer-grid">
-            <div class="flyer-card">
-                <img src="assets/flyer/flyer-preview.jpg" class="flyer-img">
-                <button class="btn-manage">Manage</button>
-            </div>
+        <div class="page-section">
+            <p>Byenveni nan Dashboard PRO‑MAX la. Ou konekte kòm ADMIN.</p>
         </div>
-    </section>
+    </main>
+
+    <!-- SEKIRITE -->
+    <script>
+        if (!localStorage.getItem("bss_admin_logged")) {
+            window.location.href = "login.html";
+        }
+
+        function logoutAdmin() {
+            localStorage.removeItem("bss_admin_logged");
+            window.location.href = "login.html";
+        }
+    </script>
 
 </body>
 </html>
