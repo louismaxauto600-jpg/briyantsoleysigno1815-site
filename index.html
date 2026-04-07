@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — PRO‑MAX</title>
+    <title>BSS1815 — ACCUEIL PRO‑MAX</title>
 
     <style>
-        /* ============================
-           PALET KOULÈ OFISYÈL BSS1815
-           ============================ */
         :root {
             --abriko: #FF7A00;
-            --jòn: #FFD400;
             --nwa: #000000;
-            --nwa-soft: #1A1A1A;
             --blan: #FFFFFF;
         }
 
@@ -22,135 +17,169 @@
             background: var(--nwa);
             color: var(--blan);
             font-family: Arial, sans-serif;
-        }<body>
-
-    <!-- AUTRE SEKSYON -->
-    
-    <!-- PREVIEW FLYER LA METE LA -->
-    <div class="flyer-preview">
-        <img src="assets/flyer/flyer-preview.jpg" class="preview-img">
-    </div>
-
-    <!-- AUTRE SEKSYON -->
-
-</body>
-
-        /* ============================
-           HEADER + LOGO PRO‑MAX
-           ============================ */
-        .bss-header {
-            background: var(--nwa);
-            padding: 15px 30px;
-            border-bottom: 2px solid var(--abriko);
         }
 
-        .bss-header-inner {
+        /* HEADER */
+        header {
+            background: linear-gradient(to right, #FF7A00, #000000);
+            padding: 20px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            border-bottom: 2px solid #FF7A00;
+            box-shadow: 0 0 20px rgba(255,120,0,0.6);
         }
 
-        .bss-logo {
-            width: 260px;
-            height: auto;
-            filter: drop-shadow(0 0 10px var(--abriko));
+        header img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+            margin-right: 20px;
         }
 
-        /* ============================
-           KOUKOU ANIMASYON PRO‑MAX
-           ============================ */
-        #koukou-container {
-            position: absolute;
-            top: 120px;
-            right: -300px;
-            z-index: 9999;
+        header h1 {
+            font-size: 32px;
+            color: #FF7A00;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
-        #koukou {
-            width: 180px;
-            animation: flyIn 1.5s ease-out forwards,
-                       stay 5s ease-in forwards 1.5s,
-                       flyOut 1.5s ease-in forwards 6.5s;
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom right, #FF7A00, #000000);
+            border-bottom: 2px solid #FF7A00;
+            box-shadow: 0 0 25px rgba(255,120,0,0.7);
         }
 
-        @keyframes flyIn {
-            from { transform: translateX(300px); opacity: 0; }
-            to   { transform: translateX(0); opacity: 1; }
+        .hero h2 {
+            font-size: 40px;
+            color: #FF7A00;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
-        @keyframes stay {
-            from { opacity: 1; }
-            to   { opacity: 1; }
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: auto;
         }
 
-        @keyframes flyOut {
-            from { transform: translateX(0); opacity: 1; }
-            to   { transform: translateX(-400px); opacity: 0; }
+        /* SECTION WRAPPER */
+        .section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
         }
 
-        /* ============================
-           SLIDESHOW PRO‑MAX
-           ============================ */
-        #slideshow {
-            width: 100%;
-            height: 450px;
+        .section-title {
+            font-size: 28px;
+            color: #FF7A00;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* GRID */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #111;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 15px rgba(255,120,0,0.5);
             overflow: hidden;
-            position: relative;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            margin-top: 200px;
         }
 
-        #slideshow img {
+        .card img {
             width: 100%;
-            height: 450px;
+            height: 220px;
             object-fit: cover;
-            position: absolute;
-            animation: fadeSlide 12s infinite;
+            border-bottom: 2px solid #FF7A00;
         }
 
-        @keyframes fadeSlide {
-            0%   { opacity: 0; transform: scale(1); }
-            10%  { opacity: 1; transform: scale(1.05); }
-            40%  { opacity: 1; transform: scale(1.1); }
-            50%  { opacity: 0; transform: scale(1.1); }
-            100% { opacity: 0; transform: scale(1); }
+        .card h3 {
+            color: #FF7A00;
+            font-size: 18px;
+            margin: 12px;
         }
 
-        .hidden {
-            display: none;
+        .card p {
+            font-size: 14px;
+            opacity: 0.85;
+            margin: 0 12px 15px 12px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 25px;
+            text-align: center;
+            border-top: 2px solid #FF7A00;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER + LOGO -->
-    <header class="bss-header">
-        <div class="bss-header-inner">
-            <img src="/PATH/logo-bss2.jpeg" class="bss-logo">
-        </div>
+    <!-- HEADER -->
+    <header>
+        <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
+        <h1>BSS1815 — Sit Ofisyèl PRO‑MAX</h1>
     </header>
 
-    <!-- KOUKOU ANIMASYON -->
-    <div id="koukou-container">
-        <img id="koukou" src="/PATH/koukou.jpeg">
-    </div>
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Byenveni nan BSS1815</h2>
+        <p>
+            Gwoup ofisyèl BSS1815 la prezante ou ak sit PRO‑MAX sa a,
+            ki fèt ak ADN vizyèl nou: logo agoch, background abriko + nwa fade,
+            ak prezans pwofesyonèl ki reprezante disiplin ak idantite ekip la.
+        </p>
+    </section>
 
-    <!-- SLIDESHOW -->
-    <div id="slideshow" class="hidden">
-        <img src="/PATH/slide1.jpeg">
-        <img src="/PATH/slide2.jpeg">
-        <img src="/PATH/slide3.jpeg">
-    </div>
+    <!-- GALERI PREVIEW -->
+    <section class="section">
+        <div class="section-title">Galeri Ofisyèl</div>
 
-    <script>
-        // Apre 8 segonn → slideshow parèt
-        setTimeout(() => {
-            document.getElementById("slideshow").classList.remove("hidden");
-            document.getElementById("slideshow").style.opacity = "1";
-        }, 8000);
-    </script>
+        <div class="grid-3">
+
+            <div class="card">
+                <img src="/PATH/gallery/g1.jpg">
+                <h3>Foto #1</h3>
+                <p>Momant espesyal BSS1815.</p>
+            </div>
+
+            <div class="card">
+                <img src="/PATH/gallery/g2.jpg">
+                <h3>Foto #2</h3>
+                <p>Evènman ak parad ofisyèl.</p>
+            </div>
+
+            <div class="card">
+                <img src="/PATH/gallery/g3.jpg">
+                <h3>Foto #3</h3>
+                <p>Selebrasyon ak fanatik yo.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>BSS1815 © 2026 — Tout dwa rezève. PRO‑MAX Edition.</p>
+    </footer>
 
 </body>
 </html>
