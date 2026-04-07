@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — TESTIMONIALS PRO‑MAX</title>
+
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --nwa: #000000;
+            --blan: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(to right, #FF7A00, #000000);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #FF7A00;
+            box-shadow: 0 0 20px rgba(255,120,0,0.6);
+        }
+
+        header img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #FF7A00);
+            margin-right: 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            color: #FF7A00;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* MAIN */
+        .section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .title-main {
+            font-size: 34px;
+            color: #FF7A00;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 20px rgba(255,120,0,0.4);
+        }
+
+        .testimonial-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-bottom: 2px solid #FF7A00;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content h3 {
+            color: #FF7A00;
+            font-size: 20px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* SUPER ADMIN SPECIAL BLOCK */
+        .super-admin-block {
+            margin-top: 50px;
+            padding: 30px;
+            background: #111;
+            border-radius: 12px;
+            border: 3px solid #FF7A00;
+            box-shadow: 0 0 25px rgba(255,120,0,0.6);
+        }
+
+        .super-admin-block h2 {
+            color: #FF7A00;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .super-admin-block p {
+            font-size: 17px;
+            line-height: 1.7;
+            opacity: 0.95;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 25px;
+            text-align: center;
+            border-top: 2px solid #FF7A00;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
+        <h1>TESTIMONIALS — PRO‑MAX</h1>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <section class="section">
+
+        <div class="title-main">Temwayaj Ofisyèl BSS1815</div>
+
+        <div class="grid-3">
+
+            <div class="testimonial-card">
+                <img src="/PATH/testimonials/t1.jpg">
+                <div class="content">
+                    <h3>Lidè #1</h3>
+                    <p>
+                        “BSS1815 se pa yon gwoup. Se yon fanmi. Chak jou nou leve pou nou fè pi byen pase yè.”
+                    </p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="/PATH/testimonials/t2.jpg">
+                <div class="content">
+                    <h3>Manm #1</h3>
+                    <p>
+                        “Disiplin, respè, ak travay di. Se sa ki fè nou diferan.”
+                    </p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="/PATH/testimonials/t3.jpg">
+                <div class="content">
+                    <h3>Fanclub 5 Stars</h3>
+                    <p>
+                        “Nou pa sipòte BSS1815… nou viv BSS1815.”
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUPER ADMIN BLOCK -->
+        <div class="super-admin-block">
+            <h2>Temwayaj Super Admin</h2>
+            <p>
+                “BSS1815 se yon eritaj. Se yon misyon. Se yon disiplin.  
+                Chak paj, chak foto, chak moun ki pote non sa a dwe pote l ak fyète.  
+                Nou pa fè bri. Nou pa fè dezòd. Nou fè travay PRO‑MAX.”
+            </p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>BSS1815 © 2026 — TESTIMONIALS — PRO‑MAX Edition.</p>
+    </footer>
+
+</body>
+</html>
