@@ -36,11 +36,6 @@
             box-shadow: 0 0 30px rgba(255,120,0,0.7);
         }
 
-        .logo-zone {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
         .logo-zone img {
             width: 120px;
             filter: drop-shadow(0 0 10px #FF7A00);
@@ -60,6 +55,42 @@
             font-size: 15px;
             opacity: 0.9;
             margin-bottom: 25px;
+        }
+
+        /* MENI ENSTRIMAN */
+        .instrument-menu {
+            background: #000;
+            border: 2px solid #FF7A00;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(255,120,0,0.5);
+        }
+
+        .instrument-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .instrument-menu li a {
+            display: block;
+            padding: 10px 14px;
+            background: #111;
+            border: 1px solid #FF7A00;
+            border-radius: 6px;
+            color: #FF7A00;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .instrument-menu li a:hover {
+            background: #FF7A00;
+            color: #000;
         }
 
         .inner {
@@ -118,45 +149,6 @@
             color: #000;
             margin-top: 10px;
         }
-
-        .add-box {
-            margin-top: 30px;
-            padding: 20px;
-            background: #000;
-            border-radius: 12px;
-            border: 2px solid #FF7A00;
-        }
-
-        .add-box h2 {
-            color: #FF7A00;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            font-size: 20px;
-        }
-
-        .field {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 6px;
-            border: 1px solid #FF7A00;
-            background: #000;
-            color: #FFF;
-            font-size: 14px;
-        }
-
-        .btn-add {
-            width: 100%;
-            padding: 12px;
-            background: #FF7A00;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
-            color: #000;
-            margin-top: 10px;
-        }
     </style>
 </head>
 
@@ -166,13 +158,27 @@
     <div class="shell">
 
         <div class="logo-zone">
-            <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
+            <img src="/PATH/logo-bss2.jpeg">
         </div>
 
         <div class="title-main">MUSICIAN CENTER — BSS1815 PRO‑MAX</div>
-        <div class="subtitle">
-            Lis ofisyèl mizisyen BSS1815 yo ak style PRO‑MAX: logo agoch, background abriko + nwa fade.
-        </div>
+        <div class="subtitle">Lis ofisyèl mizisyen BSS1815 yo pa enstriman.</div>
+
+        <!-- MENI ENSTRIMAN YO -->
+        <nav class="instrument-menu">
+            <ul>
+                <li><a href="#">Bass Senti</a></li>
+                <li><a href="#">Tambou / Kès</a></li>
+                <li><a href="#">Barèytòn</a></li>
+                <li><a href="#">Trompèt</a></li>
+                <li><a href="#">Trombòn</a></li>
+                <li><a href="#">Banbou / Vaksen</a></li>
+                <li><a href="#">Senbal</a></li>
+                <li><a href="#">Pèkisyon</a></li>
+                <li><a href="#">Chante / Choral</a></li>
+                <li><a href="#">Rara</a></li>
+            </ul>
+        </nav>
 
         <div class="inner">
 
@@ -214,17 +220,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div class="add-box">
-                <h2>Ajoute Nouvo Mizisyen</h2>
-
-                <input type="text" class="field" placeholder="Non mizisyen">
-                <input type="text" class="field" placeholder="Enstriman">
-                <input type="text" class="field" placeholder="Seksyon (Trompèt, Bass, Tanbou...)">
-                <input type="file" class="field">
-
-                <button class="btn-add">Ajoute Mizisyen</button>
             </div>
 
         </div>
