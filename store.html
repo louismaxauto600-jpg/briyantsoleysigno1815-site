@@ -1,213 +1,130 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — OFFICIAL STORE PRO‑MAX</title>
+  <meta charset="UTF-8">
+  <title>PRO‑MAX STORE — BSS1815</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 
-    <style>
-        :root {
-            --abriko: #FF7A00;
-            --nwa: #000000;
-            --blan: #FFFFFF;
-        }
+  <style>
+    body {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+    }
 
-        body {
-            margin: 0;
-            background: var(--nwa);
-            color: var(--blan);
-            font-family: Arial, sans-serif;
-        }
+    .store-title {
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      color: #ff9b3b;
+      text-shadow: 0 0 15px #ff7a00;
+    }
 
-        /* HEADER */
-        header {
-            background: linear-gradient(to right, #FF7A00, #000000);
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #FF7A00;
-            box-shadow: 0 0 20px rgba(255,120,0,0.6);
-        }
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
 
-        header img {
-            width: 120px;
-            filter: drop-shadow(0 0 10px #FF7A00);
-            margin-right: 20px;
-        }
+    .product-card {
+      background: linear-gradient(180deg, #1a1a1a 0%, #000 60%, #ff7a00 100%);
+      border: 2px solid #ff9b3b;
+      border-radius: 14px;
+      padding: 15px;
+      box-shadow: 0 0 25px rgba(255, 122, 0, 0.35);
+      transition: 0.2s;
+    }
 
-        header h1 {
-            font-size: 32px;
-            color: #FF7A00;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 35px rgba(255, 122, 0, 0.55);
+    }
 
-        /* MAIN */
-        .section {
-            padding: 50px 20px;
-            max-width: 1300px;
-            margin: auto;
-        }
+    .product-img {
+      width: 100%;
+      height: 180px;
+      background: #111;
+      border-radius: 10px;
+      border: 2px solid #ff9b3b;
+      margin-bottom: 12px;
+    }
 
-        .title-main {
-            font-size: 34px;
-            color: #FF7A00;
-            text-align: center;
-            margin-bottom: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+    .product-name {
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #ff9b3b;
+    }
 
-        .subtitle {
-            text-align: center;
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 35px;
-        }
+    .product-price {
+      font-weight: 700;
+      color: #ffb56b;
+      margin-bottom: 12px;
+    }
 
-        /* GRID PRODUCTS */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
+    .btn-buy {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
+      color: #000;
+      font-weight: 900;
+      border-radius: 10px;
+      border: 2px solid #ff9b3b;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-        .product-card {
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #FF7A00;
-            box-shadow: 0 0 20px rgba(255,120,0,0.4);
-            text-align: center;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-bottom: 2px solid #FF7A00;
-        }
-
-        .product-card h3 {
-            color: #FF7A00;
-            font-size: 20px;
-            margin: 12px 0 6px 0;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #FF7A00;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            width: 90%;
-            padding: 12px;
-            background: #FF7A00;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 15px;
-            color: #000;
-            margin-bottom: 12px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #000;
-            color: #FF7A00;
-            border: 2px solid #FF7A00;
-        }
-
-        footer {
-            background: #000;
-            padding: 25px;
-            text-align: center;
-            border-top: 2px solid #FF7A00;
-            margin-top: 40px;
-        }
-
-        footer p {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-    </style>
+    .btn-buy:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 122, 0, 0.75);
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
-        <h1>BSS1815 OFFICIAL STORE</h1>
-    </header>
+  <h1 class="store-title">PRO‑MAX STORE — BSS1815</h1>
 
-    <!-- MAIN CONTENT -->
-    <section class="section">
+  <div class="store-grid">
 
-        <div class="title-main">PRO‑MAX STORE</div>
-        <div class="subtitle">Pwodwi ofisyèl BSS1815 yo — kalite, style, idantite.</div>
+    <!-- PRODUIT 1 -->
+    <div class="product-card">
+      <div class="product-img"></div>
+      <div class="product-name">T‑SHIRT OFISYÈL</div>
+      <div class="product-price">$25</div>
+      <button class="btn-buy">Achte</button>
+    </div>
 
-        <div class="grid-3">
+    <!-- PRODUIT 2 -->
+    <div class="product-card">
+      <div class="product-img"></div>
+      <div class="product-name">CHAPO PRO‑MAX</div>
+      <div class="product-price">$20</div>
+      <button class="btn-buy">Achte</button>
+    </div>
 
-            <div class="product-card">
-                <img src="/PATH/store/tshirt.jpg">
-                <h3>T‑SHIRT OFISYÈL</h3>
-                <div class="price">$25.00</div>
-                <button class="btn">Add to Cart</button>
-                <button class="btn">View Details</button>
-            </div>
+    <!-- PRODUIT 3 -->
+    <div class="product-card">
+      <div class="product-img"></div>
+      <div class="product-name">HOODIE BSS1815</div>
+      <div class="product-price">$45</div>
+      <button class="btn-buy">Achte</button>
+    </div>
 
-            <div class="product-card">
-                <img src="/PATH/store/hoodie.jpg">
-                <h3>HOODIE PRO‑MAX</h3>
-                <div class="price">$45.00</div>
-                <button class="btn">Add to Cart</button>
-                <button class="btn">View Details</button>
-            </div>
+    <!-- PRODUIT 4 -->
+    <div class="product-card">
+      <div class="product-img"></div>
+      <div class="product-name">POSTER PRO‑MAX</div>
+      <div class="product-price">$10</div>
+      <button class="btn-buy">Achte</button>
+    </div>
 
-            <div class="product-card">
-                <img src="/PATH/store/hat.jpg">
-                <h3>CHAPO OFISYÈL</h3>
-                <div class="price">$20.00</div>
-                <button class="btn">Add to Cart</button>
-                <button class="btn">View Details</button>
-            </div>
-
-            <div class="product-card">
-                <img src="/PATH/store/bandana.jpg">
-                <h3>BANDANA BSS1815</h3>
-                <div class="price">$15.00</div>
-                <button class="btn">Add to Cart</button>
-                <button class="btn">View Details</button>
-            </div>
-
-            <div class="product-card">
-                <img src="/PATH/store/limited.jpg">
-                <h3>LIMITED EDITION</h3>
-                <div class="price">$60.00</div>
-                <button class="btn">Add to Cart</button>
-                <button class="btn">View Details</button>
-            </div>
-
-            <div class="product-card">
-                <img src="/PATH/store/fanclub.jpg">
-                <h3>5 STARS FANCLUB KIT</h3>
-                <div class="price">$75.00</div>
-                <button class="btn">Add to Cart</button>
-                <button class="btn">View Details</button>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>BSS1815 © 2026 — OFFICIAL STORE — PRO‑MAX Edition.</p>
-    </footer>
+  </div>
 
 </body>
 </html>
