@@ -1,6 +1,6 @@
 /* KOULÈ EKRITI OFISYÈL BSS1815 */
 body, h1, h2, h3, h4, h5, h6, p, a, span, li, label, input, button {
-  color: #ff9b3b !important; /* ORANGE ABRIKO OFISYÈL */
+  color: #ff9b3b !important;
   font-family: system-ui, sans-serif !important;
   letter-spacing: 1px;
 }
@@ -27,20 +27,27 @@ a:hover {
 }
 
 /* BOUTON YO */
-button, .btn {
+button, .btn, .admin-btn {
   background: linear-gradient(90deg, #ff9b3b, #ff6a00);
   color: #050505 !important;
-  font-weight: 700;
-  border-radius: 8px;
+  font-weight: 900;
+  border-radius: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 12px 22px;
-  border: none;
+  padding: 14px 22px;
+  border: 2px solid #ff9b3b;
   cursor: pointer;
+  box-shadow: 0 0 18px rgba(255, 122, 0, 0.45);
+  transition: 0.2s ease-in-out;
 }
 
-button:hover, .btn:hover {
+button:hover, .btn:hover, .admin-btn:hover {
+  transform: scale(1.03);
   opacity: 0.85;
+  box-shadow: 0 0 25px rgba(255, 122, 0, 0.75);
+}
+
+/* VIDEO CARD PRO‑MAX */
 .video-card {
   background: linear-gradient(180deg, #000000 0%, #1a1a1a 40%, #ff7a00 100%);
   border: 2px solid #ff9b3b;
