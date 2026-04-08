@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <title>Messaging Center – BSS1815 PRO‑MAX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="ui-ux-pro-max-final.css" />
+</head>
+<body>
+
+  <div id="globalLoader" class="loader loader-hidden"></div>
+
+  <div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="logo-bss1815.png" alt="BSS1815" />
+        <span>BSS1815 ADMIN</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard-pro-max.html" class="sidebar-link">📊 Dashboard</a>
+        <a href="audit-log-pro-max.html" class="sidebar-link">📜 Audit Logs</a>
+        <a href="reports-pro-max.html" class="sidebar-link">📑 Rapò</a>
+        <a href="role-manager-pro-max.html" class="sidebar-link">🛡️ Wòl</a>
+        <a href="backup-restore-pro-max.html" class="sidebar-link">💾 Backup / Restore</a>
+        <a href="media-manager-pro-max.html" class="sidebar-link">🖼️ Media</a>
+        <a href="settings-pro-max.html" class="sidebar-link">⚙️ Paramèt</a>
+        <a href="logs-cleaner-pro-max.html" class="sidebar-link">🧹 Logs Cleaner</a>
+        <a href="messaging-center-pro-max.html" class="sidebar-link active">💬 Messaging</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="app-main">
+
+      <header class="app-header">
+        <div class="app-title">Messaging Center</div>
+
+        <div class="app-header-right">
+          <span id="userName"></span>
+          <span id="roleChip" class="chip-role">ROLE</span>
+          <button id="logoutBtn" class="btn-logout">Dekonekte</button>
+        </div>
+      </header>
+
+      <section class="app-content">
+
+        <!-- CHAT WINDOW -->
+        <div class="card" style="margin-bottom:20px;">
+          <div class="card-title">Chat Admin yo</div>
+
+          <div id="chatBox" style="
+            height: 350px;
+            overflow-y: auto;
+            background:#0f0f0f;
+            border:1px solid #222;
+            border-radius:10px;
+            padding:12px;
+            margin-bottom:12px;
+          "></div>
+
+          <input id="chatInput" class="input" placeholder="Ekri mesaj la…" />
+          <button id="sendMsgBtn" class="btn-primary" style="margin-top:10px;">
+            Voye
+          </button>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="ui-ux-pro-max-final.js"></script>
+  <script type="module" src="system-kernel-pro-max.js"></script>
+  <script type="module" src="messaging-center-pro-max.js"></script>
+
+</body>
+</html>
