@@ -1,0 +1,44 @@
+BSS1815_OFFICIEL/
+│
+├── 00_LOGO_OFFICIEL/
+│     └── logo-bss-2.jpeg
+│
+├── 01_FLYERS_PRO_MAX/
+│     ├── flyer_01.html
+│     ├── flyer_02.html
+│     ├── flyer_03.html
+│     ├── flyer_04.html
+│     ├── flyer_05.html
+│     ├── flyer_06.html
+│     ├── flyer_07.html
+│     ├── flyer_08.html
+│     ├── flyer_09.html
+│     ├── flyer_10.html
+│     ├── flyer_11.html
+│     ├── flyer_12.html
+│     ├── flyer_13.html
+│     └── flyer_14.html
+│
+├── 02_DOCUMENTS_OFFICIELS/
+│     ├── modele_lettre_officielle.html
+│     ├── modele_formulaire_officiel.html
+│     ├── modele_rapport_officiel.html
+│     └── modele_fiche_officielle.html
+│
+├── 03_BADGES/
+│     ├── badge_super_admin.png
+│     ├── badge_admin.png
+│     └── badge_membre.png
+│
+├── 04_BANNERS/
+│     └── banner_officiel.html
+│
+├── 05_BACKGROUNDS/
+│     ├── bg_orange_black_fade.png
+│     └── bg_pro_max.png
+│
+├── 06_GALERIE_LEADERS/
+│     └── (foto chak lidè + slide HTML)
+│
+└── 07_ARCHIVES/
+      └── (tout vèsyon ansyen yo si ou vle)
