@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>UPLOAD VIDEYO — ADMIN BSS1815</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: linear-gradient(180deg, #ff9b3b 0%, #ff7a00 40%, #000000 100%);
+      font-family: system-ui, sans-serif;
+      color: #ff9b3b;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .upload-box {
+      background: rgba(0,0,0,0.55);
+      padding: 25px;
+      border-radius: 12px;
+      border: 2px solid #ff9b3b;
+      max-width: 450px;
+      margin: auto;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 12px 20px;
+      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
+      color: #050505;
+      font-weight: 800;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 15px;
+      background: rgba(0,0,0,0.45);
+      border-radius: 10px;
+      border: 1px solid #ff9b3b;
+      display: none;
+    }
+
+    .code-box {
+      background: #111;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #ff9b3b;
+      word-break: break-all;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 18px;
+      background: #ff9b3b;
+      color: #000;
+      font-weight: 800;
+      border-radius: 8px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>UPLOAD VIDEYO — ADMIN BSS1815</h1>
+
+  <div class="upload-box">
+    <p>Antre ID videyo YouTube la (pati apre <b>v=</b>)</p>
+
+    <input type="text" id="videoID" placeholder="Egzanp: ABCD1234">
+
+    <button onclick="generateEmbed()">Ajoute Videyo</button>
+  </div>
+
+  <div class="result" id="resultBox">
+    <p><b>Kòd videyo a pare:</b></p>
+    <div class="code-box" id="embedCode"></div>
+  </div>
+
+  <a href="admin.html" class="back">Retounen nan Admin Panel</a>
+
+  <script>
+    function generateEmbed() {
+      const id = document.getElementById("videoID").value.trim();
+      if (id === "") return;
+
+      const code = `
+<div class="video-card">
+  <iframe src="https://www.youtube.com/embed/${id}"
+          frameborder="0"
+          allowfullscreen></iframe>
+  <p>Videyo Ofisyèl BSS1815</p>
+</div>`;
+
+      document.getElementById("embedCode").innerText = code;
+      document.getElementById("resultBox").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
