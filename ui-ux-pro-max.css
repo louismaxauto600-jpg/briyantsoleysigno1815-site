@@ -1,0 +1,114 @@
+/* =====================================
+   UI-UX PRO‑MAX (BASE VERSION)
+   - Senp
+   - Rapid
+   - San bèlte initil
+   ===================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0c0c0c;
+  color: #f2f2f2;
+  font-family: system-ui, sans-serif;
+}
+
+/* LAYOUT */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* TITLES */
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* CARDS */
+.card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #151515;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #ffcc00;
+  color: #000;
+  border-color: #ffcc00;
+  font-weight: 600;
+}
+
+.btn-danger {
+  background: #ff4d4d;
+  color: #000;
+  border-color: #ff4d4d;
+}
+
+/* INPUTS */
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0a0a0a;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* GRID */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* LOADER */
+.loader {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #333;
+  border-top-color: #ffcc00;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
