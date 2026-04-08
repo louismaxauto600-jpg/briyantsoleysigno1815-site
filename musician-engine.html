@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS1815 — MUSICIAN ENGINE PRO‑MAX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}
+
+    body{
+      background:#050505;
+      color:#f7f2ec;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header{
+      padding:20px;
+      border-bottom:1px solid #2b2b2b;
+      background:#0a0a0a;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    header h1{
+      font-size:22px;
+      color:#ff9b3b;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+
+    header span{
+      font-size:12px;
+      color:#ff9b3b;
+      border:1px solid #ff9b3b55;
+      padding:4px 10px;
+      border-radius:999px;
+      text-transform:uppercase;
+    }
+
+    main{
+      padding:25px;
+      flex:1;
+    }
+
+    h2{
+      font-size:18px;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .add-box{
+      background:#101010;
+      border:1px solid #2b2b2b;
+      border-radius:12px;
+      padding:20px;
+      margin-bottom:25px;
+    }
+
+    .add-box input,
+    .add-box select{
+      width:100%;
+      margin-top:10px;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #333;
+      background:#000;
+      color:#fff;
+    }
+
+    .add-box button{
+      margin-top:15px;
+      width:100%;
+      padding:12px;
+      background:linear-gradient(90deg,#ff9b3b,#ff6a00);
+      border:none;
+      border-radius:8px;
+      font-weight:700;
+      cursor:pointer;
+      color:#050505;
+    }
+
+    .filters{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:10px;
+      margin-bottom:18px;
+    }
+
+    .filters input,
+    .filters select{
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid #333;
+      background:#000;
+      color:#fff;
+      font-size:13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+
+    .card{
+      background:#101010;
+      border:1px solid #2b2b2b;
+      border-radius:12px;
+      padding:18px;
+      position:relative;
+    }
+
+    .card h3{
+      font-size:15px;
+      margin-bottom:4px;
+    }
+
+    .card span{
+      font-size:12px;
+      color:#ff9b3b;
+      text-transform:uppercase;
+    }
+
+    .card small{
+      font-size:11px;
+      color:#aaa;
+      display:block;
+      margin-top:4px;
+    }
+
+    .card img{
+      width:100%;
+      margin-top:8px;
+      border-radius:8px;
+    }
+
+    .delete-btn{
+      position:absolute;
+      top:10px;
+      right:10px;
+      background:#ff3b3b;
+      border:none;
+      color:#fff;
+      padding:6px 10px;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:11px;
+    }
+
+    footer{
+      padding:15px;
+      text-align:center;
+      font-size:12px;
+      color:#777;
+      border-top:1px solid #2b2b2b;
+      background:#0a0a0a;
+    }
+  </style>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="musician-engine-pro-max.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>MUSICIAN ENGINE PRO‑MAX</h1>
+    <span id="roleChip">...</span>
+  </header>
+
+  <main>
+
+    <h2>Ajoute Mizisyen PRO‑MAX</h2>
+
+    <div class="add-box">
+      <input id="m-name" type="text" placeholder="Non mizisyen an">
+      <input id="m-instrument" type="text" placeholder="Enstriman (Trompèt, Bass, Tanbou...)">
+      <input id="m-section" type="text" placeholder="Seksyon (Brass, Tanbou, Kore, elatriye)">
+      <input id="m-photo" type="file" accept="image/*">
+      <button id="addMusicianBtn">Ajoute Mizisyen</button>
+    </div>
+
+    <h2>Filtre & Rechèch</h2>
+
+    <div class="filters">
+      <input id="searchName" type="text" placeholder="Chèche pa non">
+      <input id="searchInstrument" type="text" placeholder="Chèche pa enstriman">
+      <input id="searchSection" type="text" placeholder="Chèche pa seksyon">
+    </div>
+
+    <h2>Lis Mizisyen PRO‑MAX</h2>
+
+    <div id="musiciansList" class="grid"></div>
+
+  </main>
+
+  <footer>
+    © 2026 BSS1815 — Musician Engine PRO‑MAX.
+  </footer>
+
+</body>
+</html>
