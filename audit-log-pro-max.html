@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <title>Audit Logs – BSS1815 PRO‑MAX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="ui-ux-pro-max-final.css" />
+</head>
+<body>
+
+  <div id="globalLoader" class="loader loader-hidden"></div>
+
+  <div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="logo-bss1815.png" alt="BSS1815" />
+        <span>BSS1815 ADMIN</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard-pro-max.html" class="sidebar-link" data-route="dashboard-pro-max.html">
+          <span class="icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="audit-log-pro-max.html" class="sidebar-link active" data-route="audit-log-pro-max.html">
+          <span class="icon">📜</span>
+          <span>Audit Logs</span>
+        </a>
+
+        <a href="reports-pro-max.html" class="sidebar-link" data-route="reports-pro-max.html">
+          <span class="icon">📑</span>
+          <span>Rapò</span>
+        </a>
+
+        <a href="role-manager-pro-max.html" class="sidebar-link" data-route="role-manager-pro-max.html">
+          <span class="icon">🛡️</span>
+          <span>Wòl</span>
+        </a>
+
+        <a href="backup-restore-pro-max.html" class="sidebar-link" data-route="backup-restore-pro-max.html">
+          <span class="icon">💾</span>
+          <span>Backup / Restore</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="app-main">
+
+      <header class="app-header">
+        <div class="app-title">Audit Logs</div>
+
+        <div class="app-header-right">
+          <span id="userName"></span>
+          <span id="roleChip" class="chip-role">ROLE</span>
+          <button id="logoutBtn" class="btn-logout">Dekonekte</button>
+        </div>
+      </header>
+
+      <section class="app-content">
+
+        <div class="card">
+          <div class="card-title">Tout aksyon admin yo</div>
+
+          <div id="auditList" class="list">
+            <!-- Logs yo ap vini nan JS -->
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="ui-ux-pro-max-final.js"></script>
+  <script type="module" src="system-kernel-pro-max.js"></script>
+  <script type="module" src="audit-log-pro-max.js"></script>
+
+</body>
+</html>
