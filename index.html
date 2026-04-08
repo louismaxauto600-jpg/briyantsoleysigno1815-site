@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, sans-serif; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
 
     /* BACKGROUND ORANGE → BLACK FADE */
     body {
@@ -53,10 +58,21 @@
 
     main {
       flex: 1;
-      padding: 30px 20px;
+      padding: 30px 20px 40px;
       max-width: 900px;
       margin: auto;
       text-align: center;
+    }
+
+    /* SLOGAN OFISYÈL */
+    .slogan {
+      font-size: 26px;
+      font-weight: 900;
+      margin-top: 25px;
+      text-transform: uppercase;
+      color: #ff9b3b;
+      text-shadow: 0 0 10px #000;
+      line-height: 1.4;
     }
 
     /* BOUTON OFISYÈL BSS1815 */
@@ -76,6 +92,112 @@
 
     .btn:hover {
       opacity: 0.85;
+    }
+
+    /* SEKSYON EVÈNMAN / AKTIVITE — PRO-MAX */
+    .events {
+      margin-top: 50px;
+      padding: 20px 10px 0;
+      text-align: center;
+    }
+
+    .events-title {
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #ff9b3b;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .event-card {
+      background: rgba(0,0,0,0.55);
+      border: 2px solid #ff9b3b;
+      padding: 20px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .event-card:hover {
+      transform: scale(1.05);
+      background: #ff9b3b;
+      color: #050505;
+    }
+
+    .event-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .event-card p {
+      font-size: 15px;
+      opacity: 0.9;
+      margin-bottom: 12px;
+    }
+
+    .event-card .date {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* ------------------------------------------------------
+       SEKSYON GALERI VIDEO — PRO-MAX
+    ------------------------------------------------------ */
+    .videos {
+      margin-top: 60px;
+      padding: 20px 10px;
+      text-align: center;
+    }
+
+    .videos-title {
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #ff9b3b;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .video-card {
+      background: rgba(0,0,0,0.55);
+      border: 2px solid #ff9b3b;
+      padding: 15px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+      background: #ff9b3b;
+      color: #050505;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .video-card p {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     footer {
@@ -99,114 +221,76 @@
 
   <main>
     <h2>Byenvini nan sit ofisyèl BSS1815</h2>
-    <p style="margin-top:10px;">
-      Mizik • Tradisyon • Idantite • Rasanbleman
+
+    <p class="slogan">
+      NOU PA JANM SISPANN — NOU SE FÒS KI CHANJE RARA
     </p>
 
     <a href="login.html" class="btn">Antre nan Admin Panel</a>
-  </main>
 
-  <footer>
-    © 2026 BSS1815 — Tout dwa rezève.
-  </footer>
+    <!-- SEKSYON EVÈNMAN -->
+    <section class="events">
+      <h2 class="events-title">Evènman / Aktivite</h2>
 
-</body>
-</html>!DOCTYPE html>
-<html lang="ht">
-<head>
-  <meta charset="UTF-8">
-  <title>BSS1815 — OFISYÈL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <div class="event-grid">
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, sans-serif; }
+        <div class="event-card">
+          <h3>Rasanbleman BSS1815</h3>
+          <p>Yon gwo rankont kominotè pou selebre mizik, tradisyon ak idantite.</p>
+          <span class="date">15 Avril 2026</span>
+        </div>
 
-    body {
-      background: #050505;
-      color: #f7f2ec;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        <div class="event-card">
+          <h3>Defile Tradisyonèl</h3>
+          <p>Yon parad espesyal kote BSS1815 montre disiplin ak fòs rara.</p>
+          <span class="date">1 Me 2026</span>
+        </div>
 
-    header {
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #2b2b2b;
-      background: #0a0a0a;
-    }
+        <div class="event-card">
+          <h3>Repetisyon Ofisyèl</h3>
+          <p>Travay san kanpe pou amelyore son, ritm, ak prezans gwoup la.</p>
+          <span class="date">Chak Samdi</span>
+        </div>
 
-    header img {
-      width: 140px;
-      margin-bottom: 10px;
-    }
+      </div>
+    </section>
 
-    header h1 {
-      font-size: 26px;
-      color: #ff9b3b;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+    <!-- SEKSYON GALERI VIDEO -->
+    <section class="videos">
+      <h2 class="videos-title">Galeri Videyo</h2>
 
-    header p {
-      font-size: 12px;
-      color: #b3b3b3;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
+      <div class="video-grid">
 
-    main {
-      flex: 1;
-      padding: 30px 20px;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
+        <!-- VIDEYO DEFAULT 1 -->
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/XXXXXXXX"
+                  title="Videyo BSS1815"
+                  frameborder="0"
+                  allowfullscreen></iframe>
+          <p>Montaj Ofisyèl BSS1815</p>
+        </div>
 
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 22px;
-      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
-      color: #050505;
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.2s;
-    }
+        <!-- VIDEYO DEFAULT 2 -->
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/YYYYYYYY"
+                  title="Videyo BSS1815"
+                  frameborder="0"
+                  allowfullscreen></iframe>
+          <p>Rasanbleman & Parad</p>
+        </div>
 
-    .btn:hover {
-      opacity: 0.85;
-    }
+        <!-- VIDEYO DEFAULT 3 -->
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/ZZZZZZZZ"
+                  title="Videyo BSS1815"
+                  frameborder="0"
+                  allowfullscreen></iframe>
+          <p>Repetisyon & Travay San Kanpe</p>
+        </div>
 
-    footer {
-      padding: 15px;
-      text-align: center;
-      font-size: 12px;
-      color: #777;
-      border-top: 1px solid #2b2b2b;
-      background: #0a0a0a;
-    }
-  </style>
-</head>
+      </div>
+    </section>
 
-<body>
-
-  <header>
-    <img src="bss-1815.png" alt="BSS1815 LOGO">
-    <h1>BSS1815</h1>
-    <p>GWOUP RARA OFISYÈL</p>
-  </header>
-
-  <main>
-    <h2>Byenvini nan sit ofisyèl BSS1815</h2>
-    <p style="margin-top:10px;color:#ccc;">
-      Mizik • Tradisyon • Idantite • Rasanbleman
-    </p>
-
-    <a href="login.html" class="btn">Antre nan Admin Panel</a>
   </main>
 
   <footer>
