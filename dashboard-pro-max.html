@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS1815 — DASHBOARD PRO‑MAX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}
+
+    body{
+      background:#050505;
+      color:#f7f2ec;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header{
+      padding:20px;
+      border-bottom:1px solid #2b2b2b;
+      background:#0a0a0a;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    header h1{
+      font-size:22px;
+      color:#ff9b3b;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+
+    header span{
+      font-size:12px;
+      color:#ff9b3b;
+      border:1px solid #ff9b3b55;
+      padding:4px 10px;
+      border-radius:999px;
+      text-transform:uppercase;
+    }
+
+    main{
+      padding:25px;
+      flex:1;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .card{
+      background:#101010;
+      border:1px solid #2b2b2b;
+      border-radius:12px;
+      padding:18px;
+    }
+
+    .card h3{
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .card span{
+      font-size:28px;
+      font-weight:700;
+      color:#ff9b3b;
+    }
+
+    .chart{
+      margin-top:25px;
+      background:#101010;
+      border:1px solid #2b2b2b;
+      border-radius:12px;
+      padding:20px;
+    }
+
+    footer{
+      padding:15px;
+      text-align:center;
+      font-size:12px;
+      color:#777;
+      border-top:1px solid #2b2b2b;
+      background:#0a0a0a;
+    }
+  </style>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="dashboard-pro-max.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>DASHBOARD PRO‑MAX</h1>
+    <span id="roleChip">...</span>
+  </header>
+
+  <main>
+
+    <h2>Rezime PRO‑MAX</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Total Admins</h3>
+        <span id="totalAdmins">—</span>
+      </div>
+
+      <div class="card">
+        <h3>Total Mizisyen</h3>
+        <span id="totalMusicians">—</span>
+      </div>
+
+      <div class="card">
+        <h3>Total Lidè</h3>
+        <span id="totalLeaders">—</span>
+      </div>
+
+      <div class="card">
+        <h3>Total Videyo</h3>
+        <span id="totalVideos">—</span>
+      </div>
+    </div>
+
+    <div class="chart">
+      <h3>Aktivite BSS1815 (PRO‑MAX)</h3>
+      <canvas id="activityChart" height="120"></canvas>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 BSS1815 — Dashboard PRO‑MAX.
+  </footer>
+
+</body>
+</html>
