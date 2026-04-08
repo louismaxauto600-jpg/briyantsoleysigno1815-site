@@ -1,0 +1,107 @@
+// =====================================
+//  NOTIFICATIONS PRO‑MAX (FINAL)
+// =====================================
+
+import {
+  getAuth,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  orderBy,
+  onSnapshot,
+  addDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const auth = getAuth();
+const db = getFirestore();
+
+let CURRENT_UID = null;
+let CURRENT_ROLE = null;
+let unsubscribeNotifications = null;
+
+// =====================================
+//  CHECK USER + ROLE
+// =====================================
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  CURRENT_UID = user.uid;
+
+  const token = await user.getIdTokenResult();
+  CURRENT_ROLE = token.claims.role || "admin";
+
+  const roleChip = document.getElementById("roleChip");
+  if (roleChip) roleChip.textContent = CURRENT_ROLE.toUpperCase();
+
+  initNotificationsProMax();
+});
+
+// =====================================
+//  INIT NOTIFICATIONS ENGINE
+// =====================================
+function initNotificationsProMax() {
+  const bellBtn = document.getElementById("notifBell");
+  const clearBtn = document.getElementById("notifClearAll");
+
+  if (bellBtn) {
+    bellBtn.onclick = toggleNotifPanel;
+  }
+
+  if (clearBtn) {
+    clearBtn.onclick = clearAllNotifications;
+  }
+
+  subscribeToNotifications();
+}
+
+// =====================================
+//  SUBSCRIBE TO NOTIFICATIONS (REAL‑TIME)
+// =====================================
+function subscribeToNotifications() {
+  if (!CURRENT_UID) return;
+
+  if (unsubscribeNotifications) {
+    unsubscribeNotifications();
+  }
+
+  const notifRef = collection(db, "notifications");
+
+  const q = query(
+    notifRef,
+    where("targets", "array-contains", CURRENT_UID),
+    orderBy("createdAt", "desc")
+  );
+
+  unsubscribeNotifications = onSnapshot(q, (snap) => {
+    const listEl = document.getElementById("notifList");
+    const badgeEl = document.getElementById("notifBadge");
+
+    if (!listEl) return;
+
+    listEl.innerHTML = "";
+
+    let unreadCount = 0;
+
+    snap.forEach((docu) => {
+      const n = docu.data();
+
+      const isUnread = !n.readBy || !n.readBy.includes(CURRENT_UID);
+      if (isUnread) unreadCount++;
+
+      const cls = isUnread ? "notif-card unread" : "notif-card";
+
+      listEl.innerHTML += `
+        <div class="${cls}" onclick="markNotificationRead('${docu.id}')">
+          <h4>${n.title || "Notifikasyon"}</h4>
+          <p>${n.message || ""}</p>
+          <small>${new Date(n.createdAt).toLocaleString()}</small>
