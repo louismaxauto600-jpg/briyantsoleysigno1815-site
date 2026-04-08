@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS1815 — LAYOUT PRO‑MAX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}
+
+    body{
+      background:#050505;
+      color:#f7f2ec;
+      min-height:100vh;
+      display:flex;
+    }
+
+    /* SIDEBAR PRO‑MAX */
+    .sidebar{
+      width:260px;
+      background:#050505;
+      border-right:1px solid #2b2b2b;
+      padding:22px 18px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .brand-title{
+      font-size:22px;
+      font-weight:800;
+      color:#ff9b3b;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+
+    .brand-sub{
+      font-size:11px;
+      color:#b3b3b3;
+      text-transform:uppercase;
+    }
+
+    .koukou-logo img{
+      width:120px;
+      border-radius:10px;
+      border:1px solid #ff9b3b55;
+      margin-top:10px;
+    }
+
+    .nav-title{
+      font-size:11px;
+      color:#777;
+      text-transform:uppercase;
+      margin-top:10px;
+    }
+
+    .nav{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .nav button{
+      width:100%;
+      padding:10px;
+      text-align:left;
+      border:none;
+      border-radius:8px;
+      background:transparent;
+      color:#f7f2ec;
+      font-size:13px;
+      cursor:pointer;
+      transition:0.15s;
+    }
+
+    .nav button:hover{
+      background:#1b1b1b;
+    }
+
+    .nav button.active{
+      background:linear-gradient(90deg,#ff9b3b,#ff6a00);
+      color:#050505;
+      font-weight:700;
+    }
+
+    .logout{
+      margin-top:auto;
+      padding-top:10px;
+      border-top:1px solid #2b2b2b;
+    }
+
+    .logout button{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #ff3b3b;
+      background:transparent;
+      color:#ff3b3b;
+      cursor:pointer;
+      transition:0.15s;
+    }
+
+    .logout button:hover{
+      background:#ff3b3b;
+      color:#050505;
+    }
+
+    /* MAIN PANEL PRO‑MAX */
+    .main{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      background:radial-gradient(circle at top left,#ff9b3b11,#050505 55%);
+    }
+
+    .topbar{
+      padding:16px 22px;
+      border-bottom:1px solid #2b2b2b;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .top-title{
+      font-size:18px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .role-chip{
+      font-size:12px;
+      color:#ff9b3b;
+      border:1px solid #ff9b3b55;
+      padding:4px 10px;
+      border-radius:999px;
+      text-transform:uppercase;
+    }
+
+    .content{
+      flex:1;
+      padding:22px;
+      overflow-y:auto;
+    }
+
+    .section{
+      display:none;
+      animation:fadeIn 0.2s ease-out;
+    }
+
+    .section.active{
+      display:block;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(4px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+  </style>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="layout-pro-max.js"></script>
+</head>
+
+<body>
+
+  <!-- SIDEBAR PRO‑MAX -->
+  <aside class="sidebar">
+
+    <div>
+      <div class="brand-title">BSS1815</div>
+      <div class="brand-sub">LAYOUT PRO‑MAX</div>
+    </div>
+
+    <div class="koukou-logo">
+      <img src="koukou-logo.png" alt="KOUKOU LOGO">
+    </div>
+
+    <div class="nav-title">Navigasyon</div>
+
+    <div class="nav">
+      <button class="nav-btn active" data-target="dashboard">Dashboard</button>
+      <button class="nav-btn" data-target="admins">Admins</button>
+      <button class="nav-btn" data-target="musicians">Musicians</button>
+      <button class="nav-btn" data-target="leaders">Leaders</button>
+      <button class="nav-btn" data-target="videos">Videos</button>
+      <button class="nav-btn" data-target="branding">Branding</button>
+      <button class="nav-btn" data-target="settings">Settings</button>
+    </div>
+
+    <div class="logout">
+      <button id="logoutBtn">Dekonekte</button>
+    </div>
+
+  </aside>
+
+  <!-- MAIN PANEL PRO‑MAX -->
+  <main class="main">
+
+    <div class="topbar">
+      <div class="top-title" id="pageTitle">Dashboard</div>
+      <div class="role-chip" id="roleChip">...</div>
+    </div>
+
+    <div class="content">
+
+      <div class="section active" id="section-dashboard">
+        <h2>Dashboard PRO‑MAX</h2>
+        <p>Byenvini nan Layout PRO‑MAX la.</p>
+      </div>
+
+      <div class="section" id="section-admins">
+        <h2>Admins</h2>
+      </div>
+
+      <div class="section" id="section-musicians">
+        <h2>Musicians</h2>
+      </div>
+
+      <div class="section" id="section-leaders">
+        <h2>Leaders</h2>
+      </div>
+
+      <div class="section" id="section-videos">
+        <h2>Videos</h2>
+      </div>
+
+      <div class="section" id="section-branding">
+        <h2>Branding</h2>
+      </div>
+
+      <div class="section" id="section-settings">
+        <h2>Settings</h2>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    const navBtns = document.querySelectorAll(".nav-btn");
+    const sections = document.querySelectorAll(".section");
+    const pageTitle = document.getElementById("pageTitle");
+
+    navBtns.forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        navBtns.forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const target = btn.dataset.target;
+        pageTitle.textContent = target.charAt(0).toUpperCase()+target.slice(1);
+
+        sections.forEach(sec=>sec.classList.remove("active"));
+        document.getElementById("section-"+target).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
