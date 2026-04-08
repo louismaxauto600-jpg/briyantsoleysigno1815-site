@@ -1,0 +1,148 @@
+// =====================================
+//  EMAIL ENGINE PRO‑MAX (FINAL)
+// =====================================
+
+import {
+  getAuth,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+import {
+  getFunctions,
+  httpsCallable
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-functions.js";
+
+const auth = getAuth();
+const functions = getFunctions();
+
+let CURRENT_ROLE = null;
+let CURRENT_EMAIL = null;
+
+// =====================================
+//  CHECK USER + ROLE
+// =====================================
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  const token = await user.getIdTokenResult();
+  CURRENT_ROLE = token.claims.role || "admin";
+  CURRENT_EMAIL = user.email || "";
+
+  document.getElementById("roleChip").textContent = CURRENT_ROLE.toUpperCase();
+
+  initEmailEngine();
+});
+
+// =====================================
+//  INIT EMAIL ENGINE PRO‑MAX
+// =====================================
+function initEmailEngine() {
+  const fromInput = document.getElementById("e-from");
+  const sendBtn = document.getElementById("sendEmailBtn");
+  const testBtn = document.getElementById("testEmailBtn");
+  const templateSelect = document.getElementById("e-template");
+
+  if (fromInput && CURRENT_EMAIL) {
+    fromInput.value = CURRENT_EMAIL;
+  }
+
+  if (sendBtn) {
+    sendBtn.onclick = sendEmailProMax;
+  }
+
+  if (testBtn) {
+    testBtn.onclick = sendTestEmailProMax;
+  }
+
+  if (templateSelect) {
+    templateSelect.onchange = applyTemplate;
+  }
+}
+
+// =====================================
+//  APPLY TEMPLATE PRO‑MAX
+// =====================================
+function applyTemplate() {
+  const templateSelect = document.getElementById("e-template");
+  const subjectInput = document.getElementById("e-subject");
+  const bodyInput = document.getElementById("e-body");
+
+  const value = templateSelect.value;
+
+  if (value === "welcome") {
+    subjectInput.value = "Byenveni nan BSS 1815";
+    bodyInput.value =
+      "Bonjou,\n\nByenveni nan mouvman BSS 1815. Nou kontan gen ou avè nou.\n\nRespè.\nBSS 1815";
+  } else if (value === "reminder") {
+    subjectInput.value = "Rappel pou repetisyon / evènman";
+    bodyInput.value =
+      "Bonjou,\n\nSa se yon ti rappel pou repetisyon / evènman BSS 1815.\nTanpri rive alè.\n\nRespè.\nBSS 1815";
+  } else if (value === "custom") {
+    subjectInput.value = "";
+    bodyInput.value = "";
+  }
+}
+
+// =====================================
+//  SEND EMAIL PRO‑MAX
+// =====================================
+async function sendEmailProMax() {
+  const toInput = document.getElementById("e-to");
+  const fromInput = document.getElementById("e-from");
+  const subjectInput = document.getElementById("e-subject");
+  const bodyInput = document.getElementById("e-body");
+
+  const to = (toInput.value || "").trim();
+  const from = (fromInput.value || "").trim();
+  const subject = (subjectInput.value || "").trim();
+  const body = (bodyInput.value || "").trim();
+
+  if (!to || !subject || !body) {
+    alert("Tanpri ranpli omwen: destinatè, sijè, ak mesaj.");
+    return;
+  }
+
+  try {
+    const sendEmailFn = httpsCallable(functions, "sendEmailProMax");
+    await sendEmailFn({
+      to,
+      from,
+      subject,
+      body
+    });
+
+    alert("Imèl PRO‑MAX voye ak siksè.");
+  } catch (err) {
+    alert("Erè pandan voye imèl la: " + err.message);
+  }
+}
+
+// =====================================
+//  SEND TEST EMAIL PRO‑MAX
+// =====================================
+async function sendTestEmailProMax() {
+  const fromInput = document.getElementById("e-from");
+  const from = (fromInput.value || "").trim() || CURRENT_EMAIL;
+
+  if (!from) {
+    alert("Pa gen adrès imèl pou voye tès la.");
+    return;
+  }
+
+  try {
+    const sendEmailFn = httpsCallable(functions, "sendEmailProMax");
+    await sendEmailFn({
+      to: from,
+      from,
+      subject: "Tès Email PRO‑MAX",
+      body: "Sa se yon tès imèl ki soti nan BSS 1815 EMAIL ENGINE PRO‑MAX."
+    });
+
+    alert("Imèl tès PRO‑MAX voye ak siksè.");
+  } catch (err) {
+    alert("Erè pandan voye imèl tès la: " + err.message);
+  }
+}
