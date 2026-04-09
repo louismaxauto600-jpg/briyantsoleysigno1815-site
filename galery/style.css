@@ -1,0 +1,57 @@
+/* ===== BSS1815 GALLERY STYLE ===== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    font-family: Arial, sans-serif;
+    color: #ff7f00;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background: #111111;
+    border-bottom: 2px solid #ff7f00;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #ff7f00;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+.card {
+    background: #111111;
+    border: 2px solid #ff7f00;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-color: #ffa64d;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff7f00;
+}
