@@ -5,212 +5,21 @@
   <title>BSS1815 — OFISYÈL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(180deg, #ff9b3b 0%, #ff7a00 40%, #000000 100%);
-      color: #ff9b3b;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h1, h2, h3, p, a, span {
-      color: #ff9b3b;
-      letter-spacing: 1px;
-    }
-
-    h1, h2 {
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    p {
-      font-weight: 500;
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #2b2b2b;
-      background: rgba(0,0,0,0.4);
-    }
-
-    header img {
-      width: 140px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 12px;
-      text-transform: uppercase;
-      margin-top: 4px;
-      color: #ff9b3b;
-    }
-
-    main {
-      flex: 1;
-      padding: 30px 20px 40px;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .slogan {
-      font-size: 26px;
-      font-weight: 900;
-      margin-top: 25px;
-      text-transform: uppercase;
-      color: #ff9b3b;
-      text-shadow: 0 0 10px #000;
-      line-height: 1.4;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 22px;
-      background: linear-gradient(90deg, #ff9b3b, #ff6a00);
-      color: #050505 !important;
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      opacity: 0.85;
-    }
-
-    .events {
-      margin-top: 50px;
-      padding: 20px 10px 0;
-      text-align: center;
-    }
-
-    .events-title {
-      font-size: 32px;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: #ff9b3b;
-      margin-bottom: 25px;
-      text-shadow: 0 0 10px #000;
-    }
-
-    .event-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .event-card {
-      background: rgba(0,0,0,0.55);
-      border: 2px solid #ff9b3b;
-      padding: 20px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    .event-card:hover {
-      transform: scale(1.05);
-      background: #ff9b3b;
-      color: #050505;
-    }
-
-    .event-card h3 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .event-card p {
-      font-size: 15px;
-      opacity: 0.9;
-      margin-bottom: 12px;
-    }
-
-    .event-card .date {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
-
-    /* GALERI VIDEO */
-    .videos {
-      margin-top: 60px;
-      padding: 20px 10px;
-      text-align: center;
-    }
-
-    .videos-title {
-      font-size: 32px;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: #ff9b3b;
-      margin-bottom: 25px;
-      text-shadow: 0 0 10px #000;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .video-card {
-      background: rgba(0,0,0,0.55);
-      border: 2px solid #ff9b3b;
-      padding: 15px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    .video-card:hover {
-      transform: scale(1.05);
-      background: #ff9b3b;
-      color: #050505;
-    }
-
-    .video-card iframe {
-      width: 100%;
-      height: 180px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .video-card p {
-      font-size: 15px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    footer {
-      padding: 15px;
-      text-align: center;
-      font-size: 12px;
-      color: #ff9b3b;
-      border-top: 1px solid #2b2b2b;
-      background: rgba(0,0,0,0.4);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
-    <img src="bss-1815.png" alt="BSS1815 LOGO">
-    <h1>BSS1815</h1>
-    <p>GWOUP RARA OFISYÈL</p>
-  </header>
+  <!-- HEADER PRO‑MAX -->
+  <div class="header-1815">
+      <img src="bss-1815.png" class="logo-1815" alt="BSS1815">
+
+      <!-- KOUKOU FLY-IN / FLY-OUT -->
+      <img src="koukou-fly.jpg" class="koukou-1815" id="koukou" alt="KOUKOU">
+
+      <!-- SLIDESHOW KI PRAL PARÈT APRÈ KOUKOU ALE -->
+      <div id="slideshow" class="slideshow-container" style="display:none;"></div>
+  </div>
 
   <main>
     <h2>Byenvini nan sit ofisyèl BSS1815</h2>
@@ -254,7 +63,6 @@
 
       <div class="video-grid">
 
-        <!-- VIDEYO OFISYÈL #1 -->
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/ID_1"
                   frameborder="0"
@@ -262,7 +70,6 @@
           <p>Bryant Soley SIGNO (Ofisyèl)</p>
         </div>
 
-        <!-- VIDEYO OFISYÈL #2 -->
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/ID_2"
                   frameborder="0"
@@ -270,7 +77,6 @@
           <p>BOTE LANATI — BSS Rara Léogâne 2024</p>
         </div>
 
-        <!-- VIDEYO OFISYÈL #3 -->
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/ID_3"
                   frameborder="0"
@@ -286,6 +92,18 @@
   <footer>
     © 2026 BSS1815 — Tout dwa rezève.
   </footer>
+
+  <!-- SCRIPT SLIDESHOW -->
+  <script src="leaders.js"></script>
+
+  <!-- SCRIPT KOUKOU → SLIDESHOW -->
+  <script>
+    setTimeout(() => {
+      document.getElementById("koukou").style.display = "none";
+      document.getElementById("slideshow").style.display = "block";
+      renderSlideshow();
+    }, 10000);
+  </script>
 
 </body>
 </html>
