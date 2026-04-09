@@ -70,5 +70,6 @@ function startSlideshow() {
 
   slides[slideIndex - 1].style.display = "block";
 
-  setTimeout(startSlideshow, 3000);
-}
+  // ⬇⬇⬇ AJISTE POU 10 SEGOND ⬇⬇⬇
+  setTimeout(startSlideshow, 10000);
+    }
