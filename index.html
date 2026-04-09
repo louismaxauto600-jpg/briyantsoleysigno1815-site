@@ -12,13 +12,13 @@
 
   <!-- HEADER PRO‑MAX -->
   <div class="header-1815">
-      <img src="bss-1815.png" class="logo-1815" alt="BSS1815">
+    <img src="bss-1815.png" class="logo-1815" alt="BSS1815">
 
-      <!-- KOUKOU FLY-IN / FLY-OUT -->
-      <img src="koukou-fly.jpg" class="koukou-1815" id="koukou" alt="KOUKOU">
+    <!-- KOUKOU FLY-IN / FLY-OUT -->
+    <img src="koukou-fly.jpg" class="koukou-1815" id="koukou" alt="KOUKOU">
 
-      <!-- SLIDESHOW KI PRAL PARÈT APRÈ KOUKOU ALE -->
-      <div id="slideshow" class="slideshow-container" style="display:none;"></div>
+    <!-- SLIDESHOW KI PRAL PARÈT APRÈ KOUKOU ALE -->
+    <div id="slideshow" class="slideshow-container" style="display:none;"></div>
   </div>
 
   <main>
@@ -99,9 +99,14 @@
   <!-- SCRIPT KOUKOU → SLIDESHOW -->
   <script>
     setTimeout(() => {
-      document.getElementById("koukou").style.display = "none";
-      document.getElementById("slideshow").style.display = "block";
-      renderSlideshow();
+      const koukou = document.getElementById("koukou");
+      const slideshow = document.getElementById("slideshow");
+
+      if (koukou) koukou.style.display = "none";
+      if (slideshow) {
+        slideshow.style.display = "block";
+        renderSlideshow();
+      }
     }, 10000);
   </script>
 
