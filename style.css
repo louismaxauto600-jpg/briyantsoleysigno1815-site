@@ -1,277 +1,142 @@
-/* KOULÈ EKRITI OFISYÈL BSS1815 */
-body, h1, h2, h3, h4, h5, h6, p, a, span, li, label, input, button {
-  color: #ff9b3b !important;
-  font-family: system-ui, sans-serif !important;
-  letter-spacing: 1px;
-}
+/* ===== BSS1815 HOMEPAGE PRO‑MAX ===== */
 
-/* TIT YO PI PWOFESYONÈL */
-h1, h2, h3 {
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-/* TÈKS NÒMAL */
-p, li, span {
-  font-weight: 500;
-}
-
-/* LYEN YO */
-a {
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-a:hover {
-  opacity: 0.8;
-}
-
-/* BOUTON YO */
-button, .btn, .admin-btn {
-  background: linear-gradient(90deg, #ff9b3b, #ff6a00);
-  color: #050505 !important;
-  font-weight: 900;
-  border-radius: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 14px 22px;
-  border: 2px solid #ff9b3b;
-  cursor: pointer;
-  box-shadow: 0 0 18px rgba(255, 122, 0, 0.45);
-  transition: 0.2s ease-in-out;
-}
-
-button:hover, .btn:hover, .admin-btn:hover {
-  transform: scale(1.03);
-  opacity: 0.85;
-  box-shadow: 0 0 25px rgba(255, 122, 0, 0.75);
-}
-
-/* VIDEO CARD PRO‑MAX */
-.video-card {
-  background: linear-gradient(180deg, #000000 0%, #1a1a1a 40%, #ff7a00 100%);
-  border: 2px solid #ff9b3b;
-  border-radius: 14px;
-  padding: 15px;
-  margin-top: 20px;
-  box-shadow: 0 0 25px rgba(255, 122, 0, 0.45);
-  text-align: center;
-}
-
-.video-card iframe {
-  width: 100%;
-  height: 230px;
-  border-radius: 10px;
-  border: 2px solid #ff9b3b;
-  box-shadow: 0 0 15px rgba(255, 122, 0, 0.35);
-}
-
-.video-card p {
-  margin-top: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #ff9b3b;
-  text-shadow: 0 0 10px #000;
-  letter-spacing: 1px;
-}
-
-/* BACKGROUND & LAYOUT GENERAL (SOTI NAN index.html OU A) */
+/* BACKGROUND + GLOBAL STYLE */
 body {
-  background: linear-gradient(180deg, #ff9b3b 0%, #ff7a00 40%, #000000 100%);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    font-family: Arial, sans-serif;
+    color: #ff7f00;
 }
 
-main {
-  flex: 1;
-  padding: 30px 20px 40px;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-footer {
-  padding: 15px;
-  text-align: center;
-  font-size: 12px;
-  border-top: 1px solid #2b2b2b;
-  background: rgba(0,0,0,0.4);
-}
-
-/* SLOGAN */
-.slogan {
-  font-size: 26px;
-  font-weight: 900;
-  margin-top: 25px;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px #000;
-  line-height: 1.4;
-}
-
-/* EVENTS */
-.events {
-  margin-top: 50px;
-  padding: 20px 10px 0;
-  text-align: center;
-}
-
-.events-title {
-  font-size: 32px;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-  text-shadow: 0 0 10px #000;
-}
-
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.event-card {
-  background: rgba(0,0,0,0.55);
-  border: 2px solid #ff9b3b;
-  padding: 20px;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.event-card:hover {
-  transform: scale(1.05);
-  background: #ff9b3b;
-  color: #050505;
-}
-
-.event-card h3 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.event-card p {
-  font-size: 15px;
-  opacity: 0.9;
-  margin-bottom: 12px;
-}
-
-.event-card .date {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
-
-/* VIDEOS */
-.videos {
-  margin-top: 60px;
-  padding: 20px 10px;
-  text-align: center;
-}
-
-.videos-title {
-  font-size: 32px;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-  text-shadow: 0 0 10px #000;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-/* HEADER PRO‑MAX */
+/* HEADER */
 .header-1815 {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: rgba(0,0,0,0.4);
-  border-bottom: 1px solid #2b2b2b;
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(to bottom, #000000, #111111);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* LOGO AGOCH */
+/* LOGO */
 .logo-1815 {
-  width: 140px;
-  height: auto;
+    width: 180px;
+    height: auto;
+    z-index: 5;
 }
 
-/* KOUKOU FLY-IN / POZE / FLY-OUT */
+/* KOUKOU FLY-IN */
 .koukou-1815 {
-  width: 150px;
-  opacity: 0;
-  position: relative;
-  animation: koukouFly 10s ease-in-out forwards;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 220px;
+    animation: flyIn 2s ease-out forwards;
 }
 
-/* ANIMASYON KOUKOU
-   0–15%: antre dwat
-   15–65%: poze (5s)
-   65–100%: soti agoch
-*/
-@keyframes koukouFly {
-  0% {
-    opacity: 0;
-    transform: translateX(200px);
-  }
-  15% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  65% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
+@keyframes flyIn {
+    from { transform: translateX(-300px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
-/* SLIDESHOW CONTAINER (PRAN PLAS KOUKOU A APRÈ) */
+/* SLIDESHOW CONTAINER */
 .slideshow-container {
-  width: 180px;
-  height: 180px;
-  position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
 }
 
-/* CHAK SLIDE */
+/* EACH SLIDE */
 .slide {
-  display: none;
-  width: 100%;
-  height: 100%;
+    display: none;
+    text-align: center;
+    position: relative;
 }
 
 .slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 2px solid #ff9b3b;
-  box-shadow: 0 0 18px rgba(255, 122, 0, 0.55);
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #ff7f00;
 }
 
-/* NON LEADER YO ANBA FOTO A */
+/* CAPTION */
 .caption {
-  margin-top: 6px;
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    padding: 15px 0;
+    color: #ff7f00;
+    font-weight: bold;
 }
 
-/* TI EFÈ FADE */
+.leader-name {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.leader-testimony {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* FADE EFFECT */
 .fade {
-  animation-name: fadeSlide;
-  animation-duration: 1s;
+    animation: fadeEffect 1.5s ease-in-out;
 }
 
-@keyframes fadeSlide {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-  }
+@keyframes fadeEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ff7f00;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: #ffa64d;
+}
+
+/* EVENTS SECTION */
+.events-title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 40px;
+    color: #ff7f00;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.event-card {
+    background: #111111;
+    border: 2px solid #ff7f00;
+    padding: 15px;
+    border-radius: 10px;
+    color: #ff7f00;
+}
+
+.event-card .date {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffa64d;
+}
