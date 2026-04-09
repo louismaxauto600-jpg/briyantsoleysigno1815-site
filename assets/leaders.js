@@ -74,4 +74,4 @@ function startSlideshow() {
   slides[slideIndex - 1].style.display = "block";
 
   setTimeout(startSlideshow, 3000);
-}
+  }
