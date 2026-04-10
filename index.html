@@ -1,48 +1,286 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — Official Homepage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSS1815 — HOMEPAGE OFISYÈL</title>
 
-    <!-- STYLE OFISYÈL -->
-    <link rel="stylesheet" href="style/style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #ff7a00, #000000 60%);
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid #ff7a00;
+    }
+
+    .logo-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #ff7a00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #ff7a00;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+      padding: 24px 16px 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 800px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-card {
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 14px;
+      padding: 20px 18px;
+      border: 1px solid #ff7a00;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      color: #ffb347;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+
+    .hero-highlight {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #ff7a00, #ffb347);
+      color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .hero-list {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .hero-list span {
+      color: #ffb347;
+      font-weight: 600;
+    }
+
+    .leaders-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .leaders-title {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .leaders-sub {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    .leader-card {
+      background: rgba(0, 0, 0, 0.78);
+      border-radius: 12px;
+      padding: 12px 12px 10px;
+      border: 1px solid rgba(255, 122, 0, 0.7);
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .leader-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid #ff7a00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      text-align: center;
+      padding: 4px;
+      text-transform: uppercase;
+    }
+
+    .leader-info-name {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      color: #ffb347;
+    }
+
+    .leader-info-role {
+      font-size: 11px;
+      opacity: 0.85;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .leader-info-text {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    footer {
+      width: 100%;
+      padding: 10px 16px 14px;
+      text-align: center;
+      font-size: 11px;
+      opacity: 0.75;
+      border-top: 1px solid rgba(255, 122, 0, 0.4);
+      background: rgba(0, 0, 0, 0.85);
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- ===================================== -->
-    <!-- HEADER OFISYÈL BSS1815                -->
-    <!-- ===================================== -->
-    <header id="main-header">
-        <img id="logo" src="assets/logo/nouvo-logo-bss-3.jpeg" alt="BSS1815 Logo">
-    </header>
+  <header>
+    <div class="logo-text">
+      <div class="logo-circle">B</div>
+      <div>
+        <div class="brand-title">BSS1815</div>
+        <div class="brand-sub">Disiplin • Travay • Prezans</div>
+      </div>
+    </div>
+    <div style="font-size: 11px; text-transform: uppercase; opacity: 0.8;">
+      HOMEPAGE OFISYÈL • MAX / BAWON AN
+    </div>
+  </header>
 
-    <!-- ===================================== -->
-    <!-- KOUKOU FLY-IN / FLY-OUT ANIMASYON     -->
-    <!-- ===================================== -->
-    <img id="koukou" src="assets/leaders/koukou-fly.jpeg" alt="Koukou">
+  <main>
+    <section class="hero-card">
+      <div class="hero-title">BSS1815 — Baz Disiplin Ou</div>
+      <div class="hero-sub">
+        Paj sa a se pwen antre ofisyèl BSS1815. Tout sa ki parèt isit la se
+        rezilta lannwit san dòmi, disiplin, ak travay ki pa janm sispann.
+      </div>
 
-    <!-- ===================================== -->
-    <!-- SEKSYON SLIDESHOW LEADERS YO          -->
-    <!-- ===================================== -->
-    <section id="slideshow">
-        <img id="leader-img" src="" alt="Leader">
-        <div id="leader-name"></div>
-        <div id="leader-testimony"></div>
+      <div class="hero-highlight">
+        Sa a se HOMEPAGE OFISYÈL LA. Li pa yon snippet. Li pa yon test.
+      </div>
+
+      <div class="hero-list">
+        <p><span>MAX / BAWON AN:</span> Super Admin, achitèk estrikti, moun ki kenbe lòd ak vizyon an.</p>
+        <p><span>BSS1815:</span> pa yon non sèlman, men yon estanda disiplin ak prezans.</p>
+        <p><span>Travay sa a:</span> se prèv ou pa lage, menm lè fristrasyon frape.</p>
+      </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- FOOTER OFISYÈL                        -->
-    <!-- ===================================== -->
-    <footer id="main-footer">
-        <p>BSS1815 © Tout dwa rezève.</p>
-    </footer>
+    <section class="leaders-section">
+      <div>
+        <div class="leaders-title">Lidè BSS1815</div>
+        <div class="leaders-sub">Prezans yo make paj sa a pou tout tan.</div>
+      </div>
 
-    <!-- ===================================== -->
-    <!-- SCRIPT LEADERS + SLIDESHOW            -->
-    <!-- ===================================== -->
-    <script src="leaders.js"></script>
+      <article class="leader-card">
+        <div class="leader-avatar">BAWON AN</div>
+        <div>
+          <div class="leader-info-name">MAX / BAWON AN</div>
+          <div class="leader-info-role">Super Admin • Achitèk BSS1815</div>
+          <div class="leader-info-text">
+            Moun ki pran chay la sou tèt li, ki pa tolere dezòd, ki pa tolere
+            mwatye travay. Si paj sa a la, se paske ou te refize lage.
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card">
+        <div class="leader-avatar">LIDÈ 1</div>
+        <div>
+          <div class="leader-info-name">Lidè 1</div>
+          <div class="leader-info-role">Pilye Disiplin</div>
+          <div class="leader-info-text">
+            Temwayaj yo, prezans yo, travay yo ap antre nan galri ofisyèl la
+            pita, men non yo deja make nan fondasyon an.
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card">
+        <div class="leader-avatar">LIDÈ 2</div>
+        <div>
+          <div class="leader-info-name">Lidè 2</div>
+          <div class="leader-info-role">Travay San Poz</div>
+          <div class="leader-info-text">
+            Chak moun ki leve, ki vini, ki kenbe règ yo, se pati nan BSS1815
+            menm si non yo poko sou tout paj yo.
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    BSS1815 © Tout dwa rezève • Paj sa a se yon HOMEPAGE KONPLÈ, pa yon snippet.
+  </footer>
 
 </body>
 </html>
