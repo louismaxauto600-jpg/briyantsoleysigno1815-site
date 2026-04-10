@@ -1,114 +1,48 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8">
-  <title>BSS1815 — OFISYÈL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — Official Homepage</title>
 
-  <link rel="stylesheet" href="style.css">
+    <!-- STYLE OFISYÈL -->
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
 
-  <!-- HEADER PRO‑MAX -->
-  <div class="header-1815">
-    <img src="bss-1815.png" class="logo-1815" alt="BSS1815">
+    <!-- ===================================== -->
+    <!-- HEADER OFISYÈL BSS1815                -->
+    <!-- ===================================== -->
+    <header id="main-header">
+        <img id="logo" src="assets/logo/nouvo-logo-bss-3.jpeg" alt="BSS1815 Logo">
+    </header>
 
-    <!-- KOUKOU FLY-IN / FLY-OUT -->
-    <img src="koukou-fly.jpg" class="koukou-1815" id="koukou" alt="KOUKOU">
+    <!-- ===================================== -->
+    <!-- KOUKOU FLY-IN / FLY-OUT ANIMASYON     -->
+    <!-- ===================================== -->
+    <img id="koukou" src="assets/leaders/koukou-fly.jpeg" alt="Koukou">
 
-    <!-- SLIDESHOW KI PRAL PARÈT APRÈ KOUKOU ALE -->
-    <div id="slideshow" class="slideshow-container" style="display:none;"></div>
-  </div>
-
-  <main>
-    <h2>Byenvini nan sit ofisyèl BSS1815</h2>
-
-    <p class="slogan">
-      NOU PA JANM SISPANN — NOU SE FÒS KI CHANJE RARA
-    </p>
-
-    <a href="login.html" class="btn">Antre nan Admin Panel</a>
-
-    <!-- SEKSYON EVÈNMAN -->
-    <section class="events">
-      <h2 class="events-title">Evènman / Aktivite</h2>
-
-      <div class="event-grid">
-
-        <div class="event-card">
-          <h3>Rasanbleman BSS1815</h3>
-          <p>Yon gwo rankont kominotè pou selebre mizik, tradisyon ak idantite.</p>
-          <span class="date">15 Avril 2026</span>
-        </div>
-
-        <div class="event-card">
-          <h3>Defile Tradisyonèl</h3>
-          <p>Yon parad espesyal kote BSS1815 montre disiplin ak fòs rara.</p>
-          <span class="date">1 Me 2026</span>
-        </div>
-
-        <div class="event-card">
-          <h3>Repetisyon Ofisyèl</h3>
-          <p>Travay san kanpe pou amelyore son, ritm, ak prezans gwoup la.</p>
-          <span class="date">Chak Samdi</span>
-        </div>
-
-      </div>
+    <!-- ===================================== -->
+    <!-- SEKSYON SLIDESHOW LEADERS YO          -->
+    <!-- ===================================== -->
+    <section id="slideshow">
+        <img id="leader-img" src="" alt="Leader">
+        <div id="leader-name"></div>
+        <div id="leader-testimony"></div>
     </section>
 
-    <!-- SEKSYON GALERI VIDEO OFISYÈL -->
-    <section class="videos">
-      <h2 class="videos-title">Galeri Videyo</h2>
+    <!-- ===================================== -->
+    <!-- FOOTER OFISYÈL                        -->
+    <!-- ===================================== -->
+    <footer id="main-footer">
+        <p>BSS1815 © Tout dwa rezève.</p>
+    </footer>
 
-      <div class="video-grid">
-
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/ID_1"
-                  frameborder="0"
-                  allowfullscreen></iframe>
-          <p>Bryant Soley SIGNO (Ofisyèl)</p>
-        </div>
-
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/ID_2"
-                  frameborder="0"
-                  allowfullscreen></iframe>
-          <p>BOTE LANATI — BSS Rara Léogâne 2024</p>
-        </div>
-
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/ID_3"
-                  frameborder="0"
-                  allowfullscreen></iframe>
-          <p>Lòt Videyo Ofisyèl BSS1815</p>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2026 BSS1815 — Tout dwa rezève.
-  </footer>
-
-  <!-- SCRIPT SLIDESHOW -->
-  <script src="leaders.js"></script>
-
-  <!-- SCRIPT KOUKOU → SLIDESHOW -->
-  <script>
-    setTimeout(() => {
-      const koukou = document.getElementById("koukou");
-      const slideshow = document.getElementById("slideshow");
-
-      if (koukou) koukou.style.display = "none";
-      if (slideshow) {
-        slideshow.style.display = "block";
-        renderSlideshow();
-      }
-    }, 10000);
-  </script>
+    <!-- ===================================== -->
+    <!-- SCRIPT LEADERS + SLIDESHOW            -->
+    <!-- ===================================== -->
+    <script src="leaders.js"></script>
 
 </body>
 </html>
