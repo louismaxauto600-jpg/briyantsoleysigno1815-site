@@ -1,75 +1,51 @@
 const leaders = [
-  { name: "Ygens", file: "ygens.jpeg", testimony: "Mwen leve chak jou pou pote limyè ak enèji nan ekip la." },
-  { name: "Ti Rat 2", file: "ti-rat-2.jpeg", testimony: "Travay ansanm se fòs nou; mwen toujou pote pa mwen." },
-  { name: "Montina", file: "montina.jpeg", testimony: "Mwen kwè nan disiplin, respè, ak pwogrè chak jou." },
-  { name: "Prez Papit", file: "prez-papit.jpg", testimony: "Lidèchip se sèvi ak kè; se sa mwen chwazi chak jou." },
-  { name: "Fanfan", file: "fanfan.jpeg", testimony: "Mwen pote kouraj ak bon vibrasyon pou tout ekip la." },
-  { name: "Fifi", file: "fifi.jpeg", testimony: "Lè nou ini, pa gen limit nan sa nou ka reyalize." },
-  { name: "Elson", file: "elson.jpeg", testimony: "Mwen mache ak vizyon, pasyans, ak bon volonte." },
-  { name: "Ti Papouch", file: "ti-papouche.jpeg", testimony: "Mwen kwè nan travay ki fèt ak lanmou ak konsistans." },
-  { name: "Ti Marasa", file: "ti-marasa.jpeg", testimony: "Mwen pote balans, enèji, ak bon lespri kote m pase." },
-  { name: "Ti La France", file: "ti-la-france.jpeg", testimony: "Mwen toujou chèche amelyore tèt mwen pou amelyore ekip la." },
-  { name: "Roro Lajan", file: "roro-lajan.jpeg", testimony: "Mwen kwè nan efò ki pa janm sispann ak respè youn pou lòt." },
-  { name: "Jeff Colin", file: "jeff.colin.jpeg", testimony: "Mwen pote estabilite, vizyon, ak bon direksyon." },
-  { name: "Jij Mayan", file: "jij-mayan.jpeg", testimony: "Jistis, respè, ak disiplin se poto mitan mwen." },
-  { name: "Majis Junior", file: "majis-junior.jpeg", testimony: "Mwen pote kreyativite ak enspirasyon nan chak mouvman." },
-  { name: "Magistra Mauclair", file: "magistra-mauclair.jpeg", testimony: "Mwen kwè nan fòmasyon, devlopman, ak bon egzanp." },
-  { name: "Mambo Fifi", file: "mambo-fifi.jpeg", testimony: "Mwen pote chalè, lespwa, ak bon enèji kote m rive." },
-  { name: "Maximax60", file: "maximax60.jpeg", testimony: "Mwen mache ak detèminasyon; mwen pa janm lage." },
-  { name: "Landry", file: "landry.jpeg", testimony: "Mwen kwè nan travay ki fèt ak respè ak konsyans." },
-  { name: "Prez Aly", file: "prez-aly.jpeg", testimony: "Mwen sèvi ak kè, ak vizyon pou avanse ansanm." },
-  { name: "Don Dodo", file: "don-dodo.png", testimony: "Lapè, respè, ak bon lespri se sa mwen pote chak jou." },
-  { name: "Macu & MV", file: "macu-&-mv.png", testimony: "Nou kwè nan inyon, travay ansanm, ak pwogrè san rete." },
-  { name: "Anperè", file: "anperè.jpg", testimony: "Mwen mache ak diyite, fòs, ak bon direksyon." },
-  { name: "Sindy", file: "sindy.png", testimony: "Mwen pote limyè, kouraj, ak enspirasyon pou lòt yo." },
-  { name: "Bouboul", file: "bouboul.png", testimony: "Mwen kwè nan travay ki fèt ak kè kontan ak disiplin." },
-  { name: "Madina", file: "madina.png", testimony: "Mwen pote kalm, fòs enteryè, ak bon vibrasyon." },
-  { name: "Doodly", file: "doodly.jpeg", testimony: "Mwen kwè nan kreyativite ak enèji pozitif." },
-  { name: "Cange 2", file: "cange2.jpg", testimony: "Mwen pote estabilite ak bon egzanp pou tout ekip la." },
-  { name: "Cange 3", file: "cange3.jpg", testimony: "Mwen mache ak respè, travay di, ak bon volonte." },
-  { name: "Bawon An", file: "bawon-an.jpg", testimony: "Mwen pote prezans, konsyans, ak enspirasyon." },
-  { name: "Roro 2", file: "roro2.jpg", testimony: "Mwen kwè nan pwogrè chak jou, menm nan ti pa yo." },
-  { name: "Roro 23", file: "roro23.jpg", testimony: "Mwen pote enèji ki leve moral ekip la." },
-  { name: "Cols 2", file: "cols2.jpg", testimony: "Mwen kwè nan disiplin ak travay ki fèt ak presizyon." },
-  { name: "Doudou", file: "doudou.jpg", testimony: "Mwen pote chalè, respè, ak bon lespri nan ekip la." },
-  { name: "Tania", file: "tania.jpg", testimony: "Mwen kwè nan fòs fanmi, inyon, ak travay ansanm." },
-  { name: "Coucou 23", file: "coucou23.jpg", testimony: "Mwen pote souri, enèji, ak enspirasyon kote m pase." }
+  { name: "cange", file: "cange.jpeg", testimony: "Yon poto mitan nan BSS1815, toujou prezan, toujou solid." },
+  { name: "bawon-an", file: "bawon-an.jpeg", testimony: "Yon lidè ki pote respè, disiplin ak direksyon." },
+  { name: "mambo_fifi", file: "mambo_fifi.jpeg", testimony: "Yon fanm fò ki pote limyè ak estabilite nan ekip la." },
+  { name: "jeff-colin", file: "jeff-colin.jpeg", testimony: "Yon motè travay ki pa janm sispann pouse ekip la pi wo." },
+  { name: "jude-j", file: "jude-j.jpeg", testimony: "Yon lidè ki toujou kenbe pawòl li ak prensip li." },
+  { name: "koukou-fly", file: "koukou-fly.jpeg", testimony: "Enèji, mouvman, ak prezans ki fè ekip la vivan." },
+  { name: "montinat", file: "montinat.jpeg", testimony: "Yon moun ki toujou pote solisyon ak vizyon klè." },
+  { name: "pdg_ti_rat", file: "pdg_ti_rat.jpeg", testimony: "Yon PDG natirèl, ak yon kapasite pou dirije san fòse." },
+  { name: "prez_aly", file: "prez_aly.jpeg", testimony: "Yon prezidan ki pote respè, kalm ak direksyon." },
+  { name: "prez_papit", file: "prez_papit.jpeg", testimony: "Yon lidè ki toujou kenbe ekip la ini ak fò." },
+  { name: "pèrodin", file: "pèrodin.jpeg", testimony: "Yon poto moral ak yon egzanp disiplin." },
+  { name: "roro-pot-pawol", file: "roro-pot-pawol.jpeg", testimony: "Yon vwa fò nan ekip la, toujou klè ak dwat." },
+  { name: "tania-felix", file: "tania-felix.jpeg", testimony: "Yon fanm ki pote balans, respè ak fòs." },
+  { name: "paulema", file: "paulema.jpeg", testimony: "Yon moun ki toujou prezan pou ekip la, san rete." },
+  { name: "may", file: "may.jpeg", testimony: "Yon lidè ki pote estabilite ak direksyon." },
+  { name: "valery", file: "valery.jpeg", testimony: "Yon moun ki toujou bay bon konsèy ak bon jijman." },
+  { name: "doodly23", file: "doodly23.jpeg", testimony: "Yon moun ki pote kreyativite ak enèji pozitif." },
+  { name: "sindy", file: "sindy.jpeg", testimony: "Yon fanm ki toujou kenbe ekip la nan bon vibrasyon." },
+  { name: "jij-mayan", file: "jij-mayan.jpeg", testimony: "Yon jij natirèl, toujou jis, toujou egzat." },
+  { name: "majis-junior", file: "majis-junior.jpeg", testimony: "Yon majisyen nan travay li, toujou pote rezilta." },
+  { name: "magistra-mauclair", file: "magistra-mauclair.jpeg", testimony: "Yon moun ki pote respè ak prezans pwofesyonèl." },
+  { name: "maximax60", file: "maximax60.jpeg", testimony: "Yon poto fò nan ekip la, toujou pare pou ede." },
+  { name: "cols", file: "cols.jpeg", testimony: "Yon moun ki toujou kenbe ekip la motive." },
+  { name: "doudou", file: "doudou.jpeg", testimony: "Yon moun ki pote chalè ak enèji pozitif." },
+  { name: "koukou-fly", file: "koukou-fly.jpeg", testimony: "Yon mouvman vivan ki fè BSS1815 espesyal." },
+  { name: "ti-chery", file: "ti-chery.jpeg", testimony: "Yon moun ki pote souri ak bon vibrasyon." },
+  { name: "may2", file: "may2.jpg", testimony: "Yon lòt fasèt fò nan ekip la, toujou prezan." },
+  { name: "michel-briyant", file: "michel-briyant.png", testimony: "Yon moun ki pote fòs ak vizyon." },
+  { name: "fanfan", file: "fanfan.jpeg", testimony: "Yon lidè ki toujou kenbe ekip la sou bon wout." },
+  { name: "ti-marasa", file: "ti-marasa.jpeg", testimony: "Yon moun ki pote balans ak bon jan travay." },
+  { name: "roro-lajan", file: "roro-lajan.jpeg", testimony: "Yon moun ki pote estabilite ak fòs ekonomik." },
+  { name: "ygens", file: "ygens.jpeg", testimony: "Yon jèn fò ki pote avni ak enèji nan ekip la." }
 ];
 
-function renderSlideshow() {
-  const container = document.getElementById("slideshow");
+let index = 0;
 
-  leaders.forEach((leader) => {
-    const slide = document.createElement("div");
-    slide.className = "slide fade";
-    slide.innerHTML = `
-      <img src="assets/leaders/${leader.file}" alt="${leader.name}">
-      <div class="caption">
-        <div class="leader-name">${leader.name}</div>
-        <div class="leader-testimony">${leader.testimony}</div>
-      </div>
-    `;
-    container.appendChild(slide);
-  });
+function showLeader() {
+  const img = document.getElementById("leader-img");
+  const name = document.getElementById("leader-name");
+  const testimony = document.getElementById("leader-testimony");
 
-  startSlideshow();
+  img.src = "assets/leaders/" + leaders[index].file;
+  name.textContent = leaders[index].name.toUpperCase();
+  testimony.textContent = leaders[index].testimony;
+
+  index = (index + 1) % leaders.length;
 }
 
-let slideIndex = 0;
-
-function startSlideshow() {
-  const slides = document.getElementsByClassName("slide");
-  if (!slides.length) return;
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  slideIndex++;
-  if (slideIndex > slides.length) slideIndex = 1;
-
-  slides[slideIndex - 1].style.display = "block";
-
-  // ⬇⬇⬇ AJISTE POU 10 SEGOND ⬇⬇⬇
-  setTimeout(startSlideshow, 10000);
-    }
+setInterval(showLeader, 3000);
+showLeader();
