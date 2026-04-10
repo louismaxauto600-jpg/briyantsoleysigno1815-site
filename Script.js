@@ -1,4 +1,17 @@
-// ------------------------------------------------------
+// 👉 KÒD SA A PRAL NAN script.js (PREMYE LIY)
+window.addEventListener("DOMContentLoaded", () => {
+  const koukou = document.getElementById("koukou");
+
+  // antre
+  setTimeout(() => {
+    koukou.style.transform = "translateX(0)";
+  }, 500);
+
+  // rete 10 segonn
+  setTimeout(() => {
+    koukou.style.transform = "translateX(-150%)";
+  }, 10500);
+});// ------------------------------------------------------
 // BSS1815 OFFICIAL SCRIPT.JS
 // Fichye sa a jere tout entèlijans sit la:
 // - Fan Upload Center
