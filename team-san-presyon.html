@@ -1,111 +1,181 @@
-<!-- HEADER OFISYÈL BSS1815 -->
-<header style="
-  display:flex;
-  align-items:center;
-  gap:20px;
-  padding:20px;
-  background:linear-gradient(to right, #FF7A00, #000);
-  border-bottom:2px solid #FF7A00;
-">
-  <img src="/PATH/logo-bss2.jpeg" style="
-    width:110px;
-    filter:drop-shadow(0 0 10px #FF7A00);
-  ">
-  <h1 style="
-    color:#FF7A00;
-    font-size:2.4rem;
-    text-transform:uppercase;
-    font-weight:900;
-  ">
-    TEAM SAN PRESYON
-  </h1>
-</header>
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>TEAM SAN PRESYON — GALRI OFISYÈL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --sp-orange: #ff8a00;
+      --sp-black: #050505;
+    }
 
-<!-- KIYÈS NOU YE -->
-<section style="padding:60px 0;">
-  <div class="container">
-    <h2 style="color:#FF7A00; margin-bottom:16px;">Kiyès Nou Ye</h2>
-    <p style="color:#ddd; line-height:1.7;">
-      Team San Presyon se ekip ki pote vibe, disiplin, ak enèji BSS1815 la. Nou se moun ki
-      kenbe mouvman an vivan, ki pote ritm, ki pote fòs, ki pote prezans. Nou pa fè bri,
-      nou fè travay. Nou pa fè presyon, nou fè rezilta.
-    </p>
-  </div>
-</section>
+    * {
+      box-sizing: border-box;
+    }
 
-<!-- ISTWA -->
-<section style="padding:60px 0; background:#111;">
-  <div class="container">
-    <h2 style="color:#FF7A00; margin-bottom:16px;">Istwa Nou</h2>
-    <p style="color:#ccc; line-height:1.7;">
-      Team San Presyon te kreye pou pote yon nouvo stil nan BSS1815: yon ekip ki travay
-      ak disiplin, ki pa lage, ki toujou prezan. Depi premye jou yo, ekip la te vin tounen
-      yon poto mitan nan tout deplasman, parad, ak aktivite ofisyèl yo. Nou se ekip ki
-      toujou pare, toujou aktif, toujou san presyon.
-    </p>
-  </div>
-</section>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--sp-black);
+      color: #ffffff;
+    }
 
-<!-- GALERI FOTO -->
-<section style="padding:60px 0;">
-  <div class="container">
-    <h2 style="color:#FF7A00; margin-bottom:16px;">Galeri Foto</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px;">
-      <img src="/PATH/san-presyon/photo1.jpg" style="width:100%; border-radius:12px;">
-      <img src="/PATH/san-presyon/photo2.jpg" style="width:100%; border-radius:12px;">
-      <img src="/PATH/san-presyon/photo3.jpg" style="width:100%; border-radius:12px;">
+    #team-san-presyon {
+      min-height: 100vh;
+      background: var(--sp-black);
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #team-san-presyon h1 {
+      color: var(--sp-orange);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 2px solid var(--sp-orange);
+      padding-bottom: 12px;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .sp-block-title {
+      color: var(--sp-orange);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 25px 0 12px;
+      letter-spacing: 0.06em;
+      font-size: 0.95rem;
+    }
+
+    .sp-grid-photos,
+    .sp-grid-videos {
+      display: grid;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .sp-grid-photos {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .sp-grid-videos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      .sp-grid-photos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .sp-grid-videos {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    .sp-photo {
+      border: 1px solid var(--sp-orange);
+      background: #000000;
+      overflow: hidden;
+    }
+
+    .sp-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .sp-photo:hover img {
+      transform: scale(1.03);
+      box-shadow: 0 0 18px rgba(255, 138, 0, 0.7);
+    }
+
+    .sp-video-card {
+      border: 1px solid var(--sp-orange);
+      background: #000000;
+      text-decoration: none;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sp-video-thumb {
+      position: relative;
+      padding-top: 56.25%;
+      background: radial-gradient(circle at center, #222222 0, #000000 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sp-play {
+      position: absolute;
+      font-size: 2.5rem;
+      color: var(--sp-orange);
+      text-shadow: 0 0 12px rgba(255, 138, 0, 0.9);
+    }
+
+    .sp-video-label {
+      padding: 10px;
+      border-top: 1px solid var(--sp-orange);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.85rem;
+    }
+
+    .sp-video-card:hover .sp-video-thumb {
+      box-shadow: 0 0 18px rgba(255, 138, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <section id="team-san-presyon">
+    <h1>Galri Ofisyèl San Presyon</h1>
+
+    <div class="sp-block-title">Galri Foto</div>
+    <div class="sp-grid-photos">
+      <!-- Ranplase chemen yo ak foto reyèl ou yo -->
+      <div class="sp-photo">
+        <img src="/assets/san-presyon/photo-1.jpg" alt="San Presyon Photo 1">
+      </div>
+      <div class="sp-photo">
+        <img src="/assets/san-presyon/photo-2.jpg" alt="San Presyon Photo 2">
+      </div>
+      <div class="sp-photo">
+        <img src="/assets/san-presyon/photo-3.jpg" alt="San Presyon Photo 3">
+      </div>
+      <div class="sp-photo">
+        <img src="/assets/san-presyon/photo-4.jpg" alt="San Presyon Photo 4">
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- VIDEYO -->
-<section style="padding:60px 0; background:#111;">
-  <div class="container">
-    <h2 style="color:#FF7A00; margin-bottom:16px;">Videyo</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px;">
-      <video controls style="width:100%; border-radius:12px;">
-        <source src="/PATH/san-presyon/video1.mp4" type="video/mp4">
-      </video>
-      <video controls style="width:100%; border-radius:12px;">
-        <source src="/PATH/san-presyon/video2.mp4" type="video/mp4">
-      </video>
+    <div class="sp-block-title">Galri Videyo</div>
+    <div class="sp-grid-videos">
+      <!-- Ranplase href ak lyen videyo reyèl yo -->
+      <a class="sp-video-card" href="https://youtube.com/..." target="_blank" rel="noopener">
+        <div class="sp-video-thumb">
+          <span class="sp-play">▶</span>
+        </div>
+        <div class="sp-video-label">Koregrafi San Presyon</div>
+      </a>
+
+      <a class="sp-video-card" href="https://youtube.com/..." target="_blank" rel="noopener">
+        <div class="sp-video-thumb">
+          <span class="sp-play">▶</span>
+        </div>
+        <div class="sp-video-label">Evènman Ofisyèl</div>
+      </a>
+
+      <a class="sp-video-card" href="https://youtube.com/..." target="_blank" rel="noopener">
+        <div class="sp-video-thumb">
+          <span class="sp-play">▶</span>
+        </div>
+        <div class="sp-video-label">Mouvman Espesyal</div>
+      </a>
     </div>
-  </div>
-</section>
-
-<!-- MANM / MIZISYEN -->
-<section style="padding:60px 0;">
-  <div class="container">
-    <h2 style="color:#FF7A00; margin-bottom:16px;">Manm / Mizisyen</h2>
-    <ul style="color:#ddd; line-height:1.8;">
-      <li>[Non manm 1]</li>
-      <li>[Non manm 2]</li>
-      <li>[Non manm 3]</li>
-      <li>[Non manm 4]</li>
-    </ul>
-  </div>
-</section>
-
-<!-- FEED OFISYÈL TEAM SAN PRESYON -->
-<section id="activities" style="padding:60px 0;">
-  <div class="container">
-
-    <div class="section-head" style="text-align:center; margin-bottom:32px;">
-      <h2 style="color:#FF7A00; font-size:2.6rem; text-transform:uppercase;">
-        Aktivite & Post Ofisyèl — Team San Presyon
-      </h2>
-      <p style="color:#ccc;">Tout mesaj, foto, videyo, ak anons ekip la ap parèt isit la.</p>
-    </div>
-
-    <div style="display:flex; flex-direction:column; gap:26px;">
-
-      <!-- POST BLOCK -->
-      <div style="
-        background:#111;
-        border:2px solid #FF7A00;
-        border-radius:18px;
-        padding:22px;
-        box-shadow:0 0 18px rgba(255,120,0,0.4);
-      ">
-        <h3 style="color:#FF7A00; margin-bottom:8px;">📣 Anons Ofisyèl</h3>
-        <p style="color:#ddd; margin-bottom:12px;">
+  </section>
+</body>
+</html>
