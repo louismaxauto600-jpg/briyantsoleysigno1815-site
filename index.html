@@ -18,22 +18,35 @@
       --max-width: 1180px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--white);
       background:
-        radial-gradient(circle at top, rgba(255, 122, 0, 0.28), transparent 28%),
+        radial-gradient(circle at top, rgba(255, 122, 0, 0.25), transparent 30%),
         linear-gradient(180deg, #120700 0%, #050505 38%, #000000 100%);
       line-height: 1.55;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .container {
       width: 100%;
@@ -47,7 +60,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(8px);
-      background: rgba(0, 0, 0, 0.84);
+      background: rgba(0, 0, 0, 0.86);
       border-bottom: 1px solid var(--border);
     }
 
@@ -68,20 +81,29 @@
       min-width: 0;
     }
 
-    .brand-mark {
-      width: 48px;
-      height: 48px;
+    .brand-mark,
+    .brand-logo {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       border: 2px solid var(--orange);
-      background: linear-gradient(180deg, #1a1a1a, #000);
-      color: var(--orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 800;
       flex-shrink: 0;
       box-shadow: 0 0 18px rgba(255, 122, 0, 0.2);
+    }
+
+    .brand-mark {
+      background: linear-gradient(180deg, #1a1a1a, #000);
+      color: var(--orange);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      font-weight: 900;
+    }
+
+    .brand-logo {
+      object-fit: cover;
+      background: #111;
     }
 
     .brand-title {
@@ -122,11 +144,13 @@
       color: var(--orange-soft);
     }
 
-    .hero { padding: 42px 0 24px; }
+    .hero {
+      padding: 42px 0 24px;
+    }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 22px;
     }
 
@@ -137,7 +161,9 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-main { padding: 28px; }
+    .hero-main {
+      padding: 28px;
+    }
 
     .eyebrow {
       display: inline-block;
@@ -162,7 +188,9 @@
       color: var(--white);
     }
 
-    .hero-title span { color: var(--orange); }
+    .hero-title span {
+      color: var(--orange);
+    }
 
     .hero-text {
       font-size: 1rem;
@@ -196,7 +224,9 @@
       font-size: 0.94rem;
     }
 
-    .meta-item strong { color: var(--orange-soft); }
+    .meta-item strong {
+      color: var(--orange-soft);
+    }
 
     .hero-side {
       padding: 22px;
@@ -222,11 +252,13 @@
     .showcase-frame {
       position: relative;
       width: 100%;
-      min-height: 420px;
+      min-height: 430px;
       margin-top: 12px;
       border-radius: 16px;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(255,122,0,0.08), rgba(0,0,0,0.55));
+      background:
+        radial-gradient(circle at top, rgba(255,122,0,0.12), transparent 28%),
+        linear-gradient(180deg, rgba(255,122,0,0.08), rgba(0,0,0,0.7));
       border: 1px solid rgba(255,122,0,0.18);
     }
 
@@ -249,22 +281,33 @@
       pointer-events: auto;
     }
 
-    .koukou-stage { transform: translateX(90px); }
-    .koukou-stage.active { transform: translateX(0); }
+    .koukou-stage {
+      transform: translateX(90px);
+    }
+
+    .koukou-stage.active {
+      transform: translateX(0);
+    }
+
     .koukou-stage.fly-out-left {
       opacity: 0;
       transform: translateX(-130px);
     }
 
-    .slideshow-stage { transform: translateX(40px); }
-    .slideshow-stage.active { transform: translateX(0); }
+    .slideshow-stage {
+      transform: translateX(40px);
+    }
+
+    .slideshow-stage.active {
+      transform: translateX(0);
+    }
 
     .koukou-image,
     .leader-slide-img {
       width: 100%;
       height: 100%;
-      min-height: 340px;
-      max-height: 420px;
+      min-height: 350px;
+      max-height: 430px;
       object-fit: cover;
       border-radius: 14px;
       border: 1px solid rgba(255,122,0,0.25);
@@ -299,9 +342,13 @@
       opacity: 0.94;
     }
 
-    .section { padding: 14px 0 34px; }
+    .section {
+      padding: 14px 0 34px;
+    }
 
-    .section-head { margin-bottom: 16px; }
+    .section-head {
+      margin-bottom: 16px;
+    }
 
     .section-title {
       font-size: 1.35rem;
@@ -373,7 +420,9 @@
       opacity: 0.92;
     }
 
-    .cta-wrap { padding: 8px 0 42px; }
+    .cta-wrap {
+      padding: 8px 0 42px;
+    }
 
     .cta-box {
       padding: 24px;
@@ -447,7 +496,9 @@
     }
 
     @media (max-width: 640px) {
-      .header-wrap { align-items: flex-start; }
+      .header-wrap {
+        align-items: flex-start;
+      }
 
       .hero-main,
       .hero-side,
@@ -455,16 +506,22 @@
         padding: 20px;
       }
 
-      .hero-title { font-size: 1.85rem; }
+      .hero-title {
+        font-size: 1.85rem;
+      }
 
-      .nav { width: 100%; }
+      .nav {
+        width: 100%;
+      }
 
       .nav a {
         padding: 9px 12px;
         font-size: 0.75rem;
       }
 
-      .showcase-frame { min-height: 340px; }
+      .showcase-frame {
+        min-height: 340px;
+      }
 
       .koukou-image,
       .leader-slide-img {
@@ -486,7 +543,14 @@
   <header class="site-header">
     <div class="container header-wrap">
       <div class="brand">
-        <div class="brand-mark">B</div>
+        <img
+          src="assets/logo.png"
+          alt="BSS1815 Logo"
+          class="brand-logo"
+          onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';"
+        />
+        <div id="brandFallback" class="brand-mark">B</div>
+
         <div class="brand-text">
           <div class="brand-title">BSS1815</div>
           <div class="brand-sub">Disiplin • Travay • Prezans</div>
@@ -538,7 +602,11 @@
 
           <div class="showcase-frame">
             <div id="koukou-stage" class="koukou-stage active">
-              <img src="assets/leaders/koukou-fly.jpeg" alt="Koukou Fly" class="koukou-image" />
+              <img
+                src="assets/leaders/koukou-fly.jpeg"
+                alt="Koukou Fly"
+                class="koukou-image"
+              />
               <div class="koukou-caption">
                 <h3>KOUKOU FLY</h3>
                 <p>Yon mouvman vivan ki fè BSS1815 espesyal.</p>
@@ -546,7 +614,12 @@
             </div>
 
             <div id="slideshow-stage" class="slideshow-stage">
-              <img id="leader-img" src="assets/leaders/cange.jpeg" alt="Leader Slideshow" class="leader-slide-img" />
+              <img
+                id="leader-img"
+                src="assets/leaders/cange.jpeg"
+                alt="Leader Slideshow"
+                class="leader-slide-img"
+              />
               <div class="slide-caption">
                 <h3 id="leader-name">CANGE</h3>
                 <p id="leader-testimony">Yon poto mitan nan BSS1815, toujou prezan, toujou solid.</p>
@@ -666,6 +739,11 @@
 
       if (!img || !name || !testimony || leaders.length === 0) return;
 
+      img.onerror = function() {
+        index = (index + 1) % leaders.length;
+        showLeader();
+      };
+
       img.src = "assets/leaders/" + leaders[index].file;
       img.alt = formatLeaderName(leaders[index].name);
       name.textContent = formatLeaderName(leaders[index].name);
@@ -697,6 +775,14 @@
     }
 
     window.addEventListener("load", function() {
+      const koukouImg = document.querySelector(".koukou-image");
+
+      if (koukouImg) {
+        koukouImg.onerror = function() {
+          startSlideshow();
+        };
+      }
+
       setTimeout(startSlideshow, 10000);
     });
   </script>
