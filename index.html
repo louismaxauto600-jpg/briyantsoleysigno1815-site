@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSS1815 Homepage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #120700 0%, #050505 45%, #000000 100%);
+      color: white;
+    }
+
+    .header {
+      background: rgba(0,0,0,0.9);
+      border-bottom: 2px solid #ff7a00;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ff7a00;
+    }
+
+    .fallback-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ff7a00;
+      color: #ffb347;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #ffb347;
+    }
+
+    .brand p {
+      margin: 2px 0 0;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .main-logo {
+      text-align: center;
+      margin: 22px 0 10px;
+    }
+
+    .main-logo img {
+      width: 220px;
+      max-width: 80%;
+      height: auto;
+    }
+
+    .wrap {
+      width: 92%;
+      max-width: 1180px;
+      margin: 0 auto 30px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .panel {
+      background: rgba(0,0,0,0.72);
+      border: 1px solid rgba(255,122,0,0.45);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255,122,0,0.12);
+      border: 1px solid rgba(255,122,0,0.35);
+      color: #ffb347;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: 44px;
+      line-height: 1.05;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+    }
+
+    .title span {
+      color: #ff7a00;
+    }
+
+    .text {
+      font-size: 16px;
+      opacity: 0.92;
+    }
+
+    .highlight {
+      margin-top: 16px;
+      background: linear-gradient(90deg, #ff7a00, #ffb347);
+      color: black;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta div {
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid #ff7a00;
+      padding: 12px;
+      border-radius: 10px;
+    }
+
+    .showcase-title {
+      margin: 0 0 10px;
+      color: #ffb347;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .showcase-text {
+      margin: 0 0 14px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .frame {
+      position: relative;
+      min-height: 430px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: radial-gradient(circle at top, rgba(255,122,0,0.12), transparent 28%), rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,122,0,0.2);
+    }
+
+    .koukou-stage,
+    .slideshow-stage {
+      position: absolute;
+      inset: 0;
+      padding: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease, transform 1s ease;
+    }
+
+    .koukou-stage.active,
+    .slideshow-stage.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .koukou-stage {
+      transform: translateX(240px);
+    }
+
+    .koukou-stage.active {
+      transform: translateX(0);
+    }
+
+    .koukou-stage.fly-out-left {
+      opacity: 0;
+      transform: translateX(-240px);
+    }
+
+    .slideshow-stage {
+      transform: translateX(40px);
+    }
+
+    .slideshow-stage.active {
+      transform: translateX(0);
+    }
+
+    .frame img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      max-height: 430px;
+      object-fit: cover;
+      border-radius: 14px;
+      background: #111;
+    }
+
+    .look-around {
+      animation: lookAround 1.4s ease-in-out infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes lookAround {
+      0%   { transform: translateX(0) rotate(0deg) scale(1); }
+      20%  { transform: translateX(-8px) rotate(-6deg) scale(1.02); }
+      40%  { transform: translateX(8px) rotate(6deg) scale(1.02); }
+      60%  { transform: translateX(-5px) rotate(-4deg) scale(1.01); }
+      80%  { transform: translateX(5px) rotate(4deg) scale(1.01); }
+      100% { transform: translateX(0) rotate(0deg) scale(1); }
+    }
+
+    .caption {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 24px;
+      background: rgba(0,0,0,0.68);
+      border: 1px solid rgba(255,122,0,0.25);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .caption h3 {
+      margin: 0 0 4px;
+      color: #ffb347;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    .caption p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .leaders {
+      width: 92%;
+      max-width: 1180px;
+      margin: 0 auto 30px;
+    }
+
+    .leaders h2 {
+      margin: 0 0 6px;
+      color: #ffb347;
+      text-transform: uppercase;
+    }
+
+    .leaders p {
+      margin: 0 0 16px;
+      opacity: 0.82;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.72);
+      border: 1px solid rgba(255,122,0,0.45);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid #ff7a00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffb347;
+      margin-bottom: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      color: #ffb347;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    .card h4 {
+      margin: 0 0 10px;
+      font-size: 12px;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 18px;
+      border-top: 1px solid rgba(255,122,0,0.22);
+      background: rgba(0,0,0,0.9);
+      opacity: 0.8;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .wrap,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .title {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img
+      src="assets/logo.png"
+      alt="BSS1815 Logo"
+      onerror="this.style.display='none'; document.getElementById('fallbackLogo').style.display='flex';"
+    />
+    <div id="fallbackLogo" class="fallback-logo">B</div>
+
+    <div class="brand">
+      <h1>BSS1815</h1>
+      <p>Disiplin • Travay • Prezans</p>
+    </div>
+  </div>
+
+  <div class="main-logo">
+    <img
+      src="assets/bss-logo-ofisyèl.jpeg"
+      alt="BSS1815 LOGO OFISYÈL"
+      onerror="this.style.display='none';"
+    />
+  </div>
+
+  <div class="wrap">
+    <div class="panel">
+      <div class="eyebrow">Homepage Ofisyèl</div>
+      <h1 class="title">BSS1815 <span>Se Baz Disiplin</span></h1>
+      <p class="text">
+        Paj sa a se antre prensipal ofisyèl BSS1815. Li kanpe sou vizyon, lòd,
+        prezans, ak travay serye. Sa a se homepage ofisyèl la.
+      </p>
+
+      <div class="highlight">Yon motè nèf, yon sèl kout kle san bri</div>
+
+      <div class="meta">
+        <div><strong>MAX / BAWON AN:</strong> Super Admin, achitèk estrikti a.</div>
+        <div><strong>BSS1815:</strong> yon estanda prezans, òganizasyon, ak respè.</div>
+        <div><strong>Travay la:</strong> prèv detèminasyon ak pèseverans.</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="showcase-title">Prezans Ofisyèl</h2>
+      <p class="showcase-text">
+        Koukou Fly ap parèt an premye pandan 10 segond. Apre sa slideshow lidè yo ap pran plas la sou bò dwat.
+      </p>
+
+      <div class="frame">
+        <div id="koukouStage" class="koukou-stage active">
+          <img
+            id="koukouImg"
+            class="look-around"
+            src="assets/leaders/koukou-fly.jpeg"
+            alt="Koukou Fly"
+          />
+          <div class="caption">
+            <h3>Koukou Fly</h3>
+            <p>Li antre, li poze, li gade tout kote, epi li soti pou slideshow a pran plas la.</p>
+          </div>
+        </div>
+
+        <div id="slideshowStage" class="slideshow-stage">
+          <img id="leaderImg" src="assets/leaders/cange.jpeg" alt="Leader Slideshow" />
+          <div class="caption">
+            <h3 id="leaderName">Cange</h3>
+            <p id="leaderTestimony">Yon poto mitan nan BSS1815, toujou prezan, toujou solid.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="leaders">
+    <h2>Lidè BSS1815</h2>
+    <p>Non sa yo make fondasyon an ak vizyon ki kenbe estrikti a dwat.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="badge">BAWON AN</div>
+        <h3>MAX / BAWON AN</h3>
+        <h4>Super Admin • Achitèk BSS1815</h4>
+        <p>Moun ki pote chay la, kenbe lòd la, epi refize mwatye travay.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge">LIDÈ 1</div>
+        <h3>Lidè 1</h3>
+        <h4>Pilye Disiplin</h4>
+        <p>Yon poto mitan nan estrikti a ak prezans serye.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge">LIDÈ 2</div>
+        <h3>Lidè 2</h3>
+        <h4>Travay San Poz</h4>
+        <p>Chak moun ki soutni mouvman an gen plas yo nan fondasyon sa a.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    BSS1815 © Tout dwa rezève • Paj sa a se homepage ofisyèl la.
+  </div>
+
+  <script>
+    const leaders = [
+      { name: "cange", file: "cange.jpeg", testimony: "Yon poto mitan nan BSS1815, toujou prezan, toujou solid." },
+      { name: "bawon-an", file: "bawon-an.jpeg", testimony: "Yon lidè ki pote respè, disiplin ak direksyon." },
+      { name: "mambo_fifi", file: "mambo_fifi.jpeg", testimony: "Yon fanm fò ki pote limyè ak estabilite nan ekip la." },
+      { name: "jeff-colin", file: "jeff-colin.jpeg", testimony: "Yon motè travay ki pa janm sispann pouse ekip la pi wo." },
+      { name: "jude-j", file: "jude-j.jpeg", testimony: "Yon lidè ki toujou kenbe pawòl li ak prensip li." },
+      { name: "montinat", file: "montinat.jpeg", testimony: "Yon moun ki toujou pote solisyon ak vizyon klè." },
+      { name: "pdg_ti_rat", file: "pdg_ti_rat.jpeg", testimony: "Yon PDG natirèl, ak yon kapasite pou dirije san fòse." },
+      { name: "prez_aly", file: "prez_aly.jpeg", testimony: "Yon prezidan ki pote respè, kalm ak direksyon." },
+      { name: "prez_papit", file: "prez_papit.jpeg", testimony: "Yon lidè ki toujou kenbe ekip la ini ak fò." },
+      { name: "pèrodin", file: "pèrodin.jpeg", testimony: "Yon poto moral ak yon egzanp disiplin." },
+      { name: "roro-pot-pawol", file: "roro-pot-pawol.jpeg", testimony: "Yon vwa fò nan ekip la, toujou klè ak dwat." },
+      { name: "tania-felix", file: "tania-felix.jpeg", testimony: "Yon fanm ki pote balans, respè ak fòs." },
+      { name: "paulema", file: "paulema.jpeg", testimony: "Yon moun ki toujou prezan pou ekip la, san rete." },
+      { name: "may", file: "may.jpeg", testimony: "Yon lidè ki pote estabilite ak direksyon." },
+      { name: "valery", file: "valery.jpeg", testimony: "Yon moun ki toujou bay bon konsèy ak bon jijman." },
+      { name: "doodly23", file: "doodly23.jpeg", testimony: "Yon moun ki pote kreyativite ak enèji pozitif." },
+      { name: "sindy", file: "sindy.jpeg", testimony: "Yon fanm ki toujou kenbe ekip la nan bon vibrasyon." },
+      { name: "jij-mayan", file: "jij-mayan.jpeg", testimony: "Yon jij natirèl, toujou jis, toujou egzat." },
+      { name: "majis-junior", file: "majis-junior.jpeg", testimony: "Yon majisyen nan travay li, toujou pote rezilta." },
+      { name: "magistra-mauclair", file: "magistra-mauclair.jpeg", testimony: "Yon moun ki pote respè ak prezans pwofesyonèl." },
+      { name: "maximax60", file: "maximax60.jpeg", testimony: "Yon poto fò nan ekip la, toujou pare pou ede." },
+      { name: "cols", file: "cols.jpeg", testimony: "Yon moun ki toujou kenbe ekip la motive." },
+      { name: "doudou", file: "doudou.jpeg", testimony: "Yon moun ki pote chalè ak enèji pozitif." },
+      { name: "ti-chery", file: "ti-chery.jpeg", testimony: "Yon moun ki pote souri ak bon vibrasyon." },
+      { name: "may2", file: "may2.jpg", testimony: "Yon lòt fasèt fò nan ekip la, toujou prezan." },
+      { name: "michel-briyant", file: "michel-briyant.png", testimony: "Yon moun ki pote fòs ak vizyon." },
+      { name: "fanfan", file: "fanfan.jpeg", testimony: "Yon lidè ki toujou kenbe ekip la sou bon wout." },
+      { name: "ti-marasa", file: "ti-marasa.jpeg", testimony: "Yon moun ki pote balans ak bon jan travay." },
+      { name: "roro-lajan", file: "roro-lajan.jpeg", testimony: "Yon moun ki pote estabilite ak fòs ekonomik." },
+      { name: "ygens", file: "ygens.jpeg", testimony: "Yon jèn fò ki pote avni ak enèji nan ekip la." }
+    ];
+
+    let index = 0;
+    let slideshowStarted = false;
+    let slideshowInterval = null;
+
+    function formatLeaderName(rawName) {
+      return rawName.replace(/[-_]/g, " ").replace(/\b\w/g, function(char) {
+        return char.toUpperCase();
+      });
+    }
+
+    function showLeader() {
+      const img = document.getElementById("leaderImg");
+      const name = document.getElementById("leaderName");
+      const testimony = document.getElementById("leaderTestimony");
+
+      if (!img || !name || !testimony || leaders.length === 0) return;
+
+      img.onerror = function() {
+        index = (index + 1) % leaders.length;
+        showLeader();
+      };
+
+      img.src = "assets/leaders/" + leaders[index].file;
+      img.alt = formatLeaderName(leaders[index].name);
+      name.textContent = formatLeaderName(leaders[index].name);
+      testimony.textContent = leaders[index].testimony;
+
+      index = (index + 1) % leaders.length;
+    }
+
+    function startSlideshow() {
+      if (slideshowStarted) return;
+      slideshowStarted = true;
+
+      const koukouStage = document.getElementById("koukouStage");
+      const slideshowStage = document.getElementById("slideshowStage");
+      const koukouImg = document.getElementById("koukouImg");
+
+      if (!koukouStage || !slideshowStage) return;
+
+      if (koukouImg) {
+        koukouImg.style.animationPlayState = "paused";
+      }
+
+      koukouStage.classList.add("fly-out-left");
+
+      setTimeout(function() {
+        koukouStage.classList.remove("active");
+        slideshowStage.classList.add("active");
+        showLeader();
+
+        if (!slideshowInterval) {
+          slideshowInterval = setInterval(showLeader, 3000);
+        }
+      }, 1200);
+    }
+
+    window.addEventListener("load", function() {
+      const koukouImg = document.getElementById("koukouImg");
+
+      if (koukouImg) {
+        koukouImg.onerror = function() {
+          startSlideshow();
+        };
+      }
+
+      setTimeout(startSlideshow, 10000);
+    });
+  </script>
+</body>
+</html>
