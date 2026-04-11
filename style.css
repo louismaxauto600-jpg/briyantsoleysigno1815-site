@@ -63,3 +63,18 @@ section, div, .container, .content, .wrapper, .box, .card {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.homepage-koukou-wrapper {
+  width: 100%;
+  max-width: 100%;
+  border: 4px solid #FF8A00;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(255, 138, 0, 0.45);
+  margin-bottom: 30px;
+}
+
+.homepage-koukou-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
