@@ -144,8 +144,21 @@
       color: var(--orange-soft);
     }
 
+    .site-logo {
+      text-align: center;
+      margin: 20px 0 10px;
+    }
+
+    .site-logo img {
+      width: 220px;
+      max-width: 80%;
+      height: auto;
+      filter: drop-shadow(0 0 12px rgba(0,0,0,0.8));
+      margin: 0 auto;
+    }
+
     .hero {
-      padding: 42px 0 24px;
+      padding: 20px 0 24px;
     }
 
     .hero-grid {
@@ -282,7 +295,7 @@
     }
 
     .koukou-stage {
-      transform: translateX(90px);
+      transform: translateX(220px);
     }
 
     .koukou-stage.active {
@@ -291,7 +304,7 @@
 
     .koukou-stage.fly-out-left {
       opacity: 0;
-      transform: translateX(-130px);
+      transform: translateX(-220px);
     }
 
     .slideshow-stage {
@@ -312,6 +325,21 @@
       border-radius: 14px;
       border: 1px solid rgba(255,122,0,0.25);
       background: #111;
+    }
+
+    .koukou-look-around {
+      animation: koukouLookAround 2.2s ease-in-out infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes koukouLookAround {
+      0%   { transform: rotate(0deg) scale(1); }
+      15%  { transform: rotate(-4deg) scale(1.01); }
+      30%  { transform: rotate(4deg) scale(1.02); }
+      45%  { transform: rotate(-3deg) scale(1.01); }
+      60%  { transform: rotate(3deg) scale(1.02); }
+      75%  { transform: rotate(-2deg) scale(1.01); }
+      100% { transform: rotate(0deg) scale(1); }
     }
 
     .koukou-caption,
@@ -566,6 +594,10 @@
     </div>
   </header>
 
+  <div class="site-logo">
+    <img src="assets/bss-logo-ofisyèl.jpeg" alt="BSS1815 LOGO OFISYÈL">
+  </div>
+
   <main id="home">
     <section class="hero">
       <div class="container hero-grid">
@@ -605,11 +637,11 @@
               <img
                 src="assets/leaders/koukou-fly.jpeg"
                 alt="Koukou Fly"
-                class="koukou-image"
+                class="koukou-image koukou-look-around"
               />
               <div class="koukou-caption">
                 <h3>KOUKOU FLY</h3>
-                <p>Yon mouvman vivan ki fè BSS1815 espesyal.</p>
+                <p>Li antre, li poze, li gade tout kote, epi li soti pou slideshow a pran plas la.</p>
               </div>
             </div>
 
@@ -758,8 +790,13 @@
 
       const koukouStage = document.getElementById("koukou-stage");
       const slideshowStage = document.getElementById("slideshow-stage");
+      const koukouImage = document.querySelector(".koukou-look-around");
 
       if (!koukouStage || !slideshowStage) return;
+
+      if (koukouImage) {
+        koukouImage.style.animationPlayState = "paused";
+      }
 
       koukouStage.classList.add("fly-out-left");
 
@@ -787,11 +824,4 @@
     });
   </script>
 </body>
-</html<!-- LOGO OFISYÈL HOMEPAGE -->
-<div class="site-logo" style="text-align:center; margin:20px 0;">
-  <img src="bss-logo-ofisyèl.jpeg"
-       alt="BSS1815 LOGO OFISYÈL"
-       style="width:220px; height:auto; filter:drop-shadow(0 0 12px rgba(0,0,0,0.8));">
-</div>>
-
-</div>
+</html>
