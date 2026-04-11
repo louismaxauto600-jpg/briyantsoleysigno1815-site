@@ -1,80 +1,252 @@
-/* ================================
-   BSS1815 OFFICIAL PRO-MAX CSS
-   ORANGE 🍊 + BLACK ⚫️ FADE
-   ================================ */
+:root {
+  --orange: #ff7a00;
+  --orange-soft: #ffb347;
+  --black: #050505;
+  --white: #f5f5f5;
+  --border: rgba(255, 122, 0, 0.45);
+  --glass: rgba(0, 0, 0, 0.72);
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  --radius: 18px;
+  --max-width: 1180px;
+}
 
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #000000, #FF7A00);
-  color: #FF7A00;
-  font-family: Arial, sans-serif;
 }
 
-/* TOUT TÈKS = ORANGE */
-h1, h2, h3, h4, h5, p, span, a, label {
-  color: #FF7A00 !important;
+html {
+  scroll-behavior: smooth;
 }
 
-/* RETIRE TOUT BACKGROUND KI PA BSS1815 */
-section, div, .container, .content, .wrapper, .box, .card {
-  background: transparent !important;
-  border: none !important;
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(circle at top, rgba(255, 122, 0, 0.25), transparent 30%),
+    linear-gradient(180deg, #120700 0%, #050505 38%, #000000 100%);
+  line-height: 1.55;
 }
 
-/* SLIDESHOW TRANSPARAN */
-.slideshow, .slideshow-container {
-  background: transparent !important;
-  border: none !important;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* LOGO OFISYÈL BSS1815 */
-.logo-bss {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: 2px solid #FF7A00;
-  box-shadow: 0 0 18px rgba(255, 122, 0, 0.25);
-}
-
-/* ================================
-   KOUKOU FLY-IN → PAUSE → FLY-OUT
-   ================================ */
-
-@keyframes koukouFly {
-  0%   { right: -260px; opacity: 0; }
-  10%  { right: 20px; opacity: 1; }
-  80%  { right: 20px; opacity: 1; } /* POZE 10s */
-  100% { right: 100%; opacity: 0; }
-}
-
-#koukou {
-  position: fixed;
-  top: 120px;
-  right: -260px;
-  width: 180px;
-  height: auto;
-  z-index: 9999;
-  animation: koukouFly 15s ease-in-out forwards;
-}
-
-/* RETIRE BACKGROUND KI TA KACHE FADE LA */
-* {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.homepage-koukou-wrapper {
-  width: 100%;
+img {
   max-width: 100%;
-  border: 4px solid #FF8A00;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 35px rgba(255, 138, 0, 0.45);
-  margin-bottom: 30px;
+  display: block;
 }
 
-.homepage-koukou-wrapper video {
+.container {
   width: 100%;
-  height: auto;
-  display: block;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.86);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-wrap {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
+  object-fit: cover;
+}
+
+.brand-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--orange-soft);
+}
+
+.brand-sub {
+  font-size: 0.74rem;
+  opacity: 0.82;
+}
+
+/* LOGO CENTER */
+.site-logo {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.site-logo img {
+  width: 220px;
+  max-width: 80%;
+  filter: drop-shadow(0 0 12px rgba(0,0,0,0.8));
+}
+
+/* HERO */
+.hero {
+  padding: 30px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.hero-title span {
+  color: var(--orange);
+}
+
+.highlight-box {
+  margin-top: 12px;
+  padding: 10px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+  color: #000;
+  font-weight: bold;
+}
+
+/* SHOWCASE */
+.showcase-frame {
+  position: relative;
+  height: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.koukou-stage,
+.slideshow-stage {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+.koukou-stage.active,
+.slideshow-stage.active {
+  opacity: 1;
+}
+
+/* FLY-IN / OUT */
+.koukou-stage {
+  transform: translateX(260px);
+}
+
+.koukou-stage.active {
+  transform: translateX(0);
+}
+
+.koukou-stage.fly-out-left {
+  transform: translateX(-260px);
+  opacity: 0;
+}
+
+/* IMAGE */
+.koukou-image,
+.leader-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* KOUKOU ANIMATION */
+.koukou-look-around {
+  animation: look 1.2s infinite ease-in-out;
+}
+
+@keyframes look {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+  75% { transform: rotate(-4deg); }
+  100% { transform: rotate(0); }
+}
+
+/* CAPTION */
+.koukou-caption,
+.slide-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* LEADERS */
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.leader-card {
+  background: rgba(0,0,0,0.7);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+  color: #000;
+}
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 15px;
+  opacity: 0.7;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leaders-grid {
+    grid-template-columns: 1fr;
+  }
 }
