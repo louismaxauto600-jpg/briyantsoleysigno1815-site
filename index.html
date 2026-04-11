@@ -30,36 +30,7 @@
         radial-gradient(circle at top, rgba(255, 122, 0, 0.28), transparent 28%),
         linear-gradient(180deg, #120700 0%, #050505 38%, #000000 100%);
       line-height: 1.55;
-    }<video id="koukouVideo" src="flying-koukou.mp4" muted autoplay playsinline></video>
-
-<style>
-#koukouVideo {
-  position: fixed;
-  top: 40%;
-  right: -500px;
-  width: 180px;
-  z-index: 9999;
-  opacity: 0;
-}
-
-@keyframes flyIn {
-  from { right: -500px; opacity: 0; }
-  to { right: 40px; opacity: 1; }
-}
-
-@keyframes flyOut {
-  from { right: 40px; opacity: 1; }
-  to { right: 100%; opacity: 0; }
-}
-
-.koukou-in {
-  animation: flyIn 1s forwards;
-}
-
-.koukou-out {
-  animation: flyOut 1s forwards;
-}
-</style>
+    }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -511,12 +482,7 @@
     }
   </style>
 </head>
-<body<!-- LOGO OFISYÈL HOMEPAGE -->
-<div class="site-logo" style="text-align:center; margin:20px 0;">
-  <img src="bss-logo-ofisyèl.jpeg"
-       alt="BSS1815 LOGO OFISYÈL"
-       style="width:220px; height:auto; filter:drop-shadow(0 0 12px rgba(0,0,0,0.8));">
-</div>>
+<body>
   <header class="site-header">
     <div class="container header-wrap">
       <div class="brand">
@@ -735,65 +701,4 @@
     });
   </script>
 </body>
-</html><!-- KOUKOU IMAGE -->
-<img id="koukou" src="koukou-fly.jpeg" alt="Koukou">
-
-<style>
-#koukou {
-  position: fixed;
-  top: 40%;
-  right: -400px; /* kòmanse deyò */
-  width: 120px; /* ajiste jan ou vle */
-  z-index: 9999;
-  opacity: 0;
-}
-
-/* FLY-IN */
-@keyframes flyIn {
-  from {
-    right: -400px;
-    opacity: 0;
-  }
-  to {
-    right: 30px;
-    opacity: 1;
-  }
-}
-
-/* FLY-OUT GOCH */
-@keyframes flyOut {
-  from {
-    right: 30px;
-    opacity: 1;
-  }
-  to {
-    right: 100%;
-    opacity: 0;
-  }
-}
-
-.koukou-in {
-  animation: flyIn 1s forwards;
-}
-
-.koukou-out {
-  animation: flyOut 1s forwards;
-}
-</style>
-
-<script>
-window.onload = function() {
-  const k = document.getElementById("koukou");
-
-  // FLY-IN
-  setTimeout(() => {
-    k.classList.add("koukou-in");
-  }, 500);
-
-  // RETE 10 SEGONN → FLY-OUT GOCH
-  setTimeout(() => {
-    k.classList.remove("koukou-in");
-    k.classList.add("koukou-out");
-  }, 10500);
-};
-</script>
+</html>
