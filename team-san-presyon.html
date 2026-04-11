@@ -1,181 +1,107 @@
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-  <meta charset="UTF-8">
-  <title>TEAM SAN PRESYON — GALRI OFISYÈL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      --sp-orange: #ff8a00;
-      --sp-black: #050505;
-    }
+<!-- TEAM SAN PRESYON — OFFICIAL SLIDESHOW -->
+<div class="sanpresyon-slideshow-container">
 
-    * {
-      box-sizing: border-box;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon1.jpeg" />
+  </div>
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--sp-black);
-      color: #ffffff;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon2.jpeg" />
+  </div>
 
-    #team-san-presyon {
-      min-height: 100vh;
-      background: var(--sp-black);
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon3.jpeg" />
+  </div>
 
-    #team-san-presyon h1 {
-      color: var(--sp-orange);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border-bottom: 2px solid var(--sp-orange);
-      padding-bottom: 12px;
-      margin-bottom: 30px;
-      font-size: 1.8rem;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon5.jpeg" />
+  </div>
 
-    .sp-block-title {
-      color: var(--sp-orange);
-      font-weight: 700;
-      text-transform: uppercase;
-      margin: 25px 0 12px;
-      letter-spacing: 0.06em;
-      font-size: 0.95rem;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon6.jpeg" />
+  </div>
 
-    .sp-grid-photos,
-    .sp-grid-videos {
-      display: grid;
-      gap: 10px;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon7.jpeg" />
+  </div>
 
-    @media (min-width: 768px) {
-      .sp-grid-photos {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-      .sp-grid-videos {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon8.jpeg" />
+  </div>
 
-    @media (max-width: 767px) {
-      .sp-grid-photos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .sp-grid-videos {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-      }
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon9.jpeg" />
+  </div>
 
-    .sp-photo {
-      border: 1px solid var(--sp-orange);
-      background: #000000;
-      overflow: hidden;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon10.jpeg" />
+  </div>
 
-    .sp-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon11.jpeg" />
+  </div>
 
-    .sp-photo:hover img {
-      transform: scale(1.03);
-      box-shadow: 0 0 18px rgba(255, 138, 0, 0.7);
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon12.jpeg" />
+  </div>
 
-    .sp-video-card {
-      border: 1px solid var(--sp-orange);
-      background: #000000;
-      text-decoration: none;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon13.jpeg" />
+  </div>
 
-    .sp-video-thumb {
-      position: relative;
-      padding-top: 56.25%;
-      background: radial-gradient(circle at center, #222222 0, #000000 60%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  <div class="sanpresyon-slide fade">
+    <img src="sanpresyon14.jpeg" />
+  </div>
 
-    .sp-play {
-      position: absolute;
-      font-size: 2.5rem;
-      color: var(--sp-orange);
-      text-shadow: 0 0 12px rgba(255, 138, 0, 0.9);
-    }
+</div>
 
-    .sp-video-label {
-      padding: 10px;
-      border-top: 1px solid var(--sp-orange);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-size: 0.85rem;
-    }
+<style>
+.sanpresyon-slideshow-container {
+  width: 100%;
+  max-width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+  border: 4px solid #FF8A00;
+}
 
-    .sp-video-card:hover .sp-video-thumb {
-      box-shadow: 0 0 18px rgba(255, 138, 0, 0.7);
-    }
-  </style>
-</head>
-<body>
-  <section id="team-san-presyon">
-    <h1>Galri Ofisyèl San Presyon</h1>
+.sanpresyon-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
 
-    <div class="sp-block-title">Galri Foto</div>
-    <div class="sp-grid-photos">
-      <!-- Ranplase chemen yo ak foto reyèl ou yo -->
-      <div class="sp-photo">
-        <img src="/assets/san-presyon/photo-1.jpg" alt="San Presyon Photo 1">
-      </div>
-      <div class="sp-photo">
-        <img src="/assets/san-presyon/photo-2.jpg" alt="San Presyon Photo 2">
-      </div>
-      <div class="sp-photo">
-        <img src="/assets/san-presyon/photo-3.jpg" alt="San Presyon Photo 3">
-      </div>
-      <div class="sp-photo">
-        <img src="/assets/san-presyon/photo-4.jpg" alt="San Presyon Photo 4">
-      </div>
-    </div>
+.sanpresyon-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    <div class="sp-block-title">Galri Videyo</div>
-    <div class="sp-grid-videos">
-      <!-- Ranplase href ak lyen videyo reyèl yo -->
-      <a class="sp-video-card" href="https://youtube.com/..." target="_blank" rel="noopener">
-        <div class="sp-video-thumb">
-          <span class="sp-play">▶</span>
-        </div>
-        <div class="sp-video-label">Koregrafi San Presyon</div>
-      </a>
+.fade {
+  animation-name: fadeEffect;
+  animation-duration: 1.2s;
+}
 
-      <a class="sp-video-card" href="https://youtube.com/..." target="_blank" rel="noopener">
-        <div class="sp-video-thumb">
-          <span class="sp-play">▶</span>
-        </div>
-        <div class="sp-video-label">Evènman Ofisyèl</div>
-      </a>
+@keyframes fadeEffect {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+</style>
 
-      <a class="sp-video-card" href="https://youtube.com/..." target="_blank" rel="noopener">
-        <div class="sp-video-thumb">
-          <span class="sp-play">▶</span>
-        </div>
-        <div class="sp-video-label">Mouvman Espesyal</div>
-      </a>
-    </div>
-  </section>
-</body>
-</html>
+<script>
+let sanIndex = 0;
+sanpresyonShowSlides();
+
+function sanpresyonShowSlides() {
+  let i;
+  let slides = document.getElementsByClassName("sanpresyon-slide");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  sanIndex++;
+  if (sanIndex > slides.length) { sanIndex = 1; }
+  slides[sanIndex - 1].style.display = "block";
+  setTimeout(sanpresyonShowSlides, 3000);
+}
+</script>
