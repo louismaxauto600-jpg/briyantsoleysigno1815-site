@@ -30,7 +30,36 @@
         radial-gradient(circle at top, rgba(255, 122, 0, 0.28), transparent 28%),
         linear-gradient(180deg, #120700 0%, #050505 38%, #000000 100%);
       line-height: 1.55;
-    }
+    }<video id="koukouVideo" src="flying-koukou.mp4" muted autoplay playsinline></video>
+
+<style>
+#koukouVideo {
+  position: fixed;
+  top: 40%;
+  right: -500px;
+  width: 180px;
+  z-index: 9999;
+  opacity: 0;
+}
+
+@keyframes flyIn {
+  from { right: -500px; opacity: 0; }
+  to { right: 40px; opacity: 1; }
+}
+
+@keyframes flyOut {
+  from { right: 40px; opacity: 1; }
+  to { right: 100%; opacity: 0; }
+}
+
+.koukou-in {
+  animation: flyIn 1s forwards;
+}
+
+.koukou-out {
+  animation: flyOut 1s forwards;
+}
+</style>
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
