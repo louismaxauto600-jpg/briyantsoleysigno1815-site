@@ -272,6 +272,31 @@ img {
   100% {
     transform: translateX(-500px) rotate(-20deg);
     opacity: 0;
+  }#koukou {
+  position: absolute;
+  top: 40px;
+  right: -300px;
+  width: 200px;
+  animation: koukouFly 6s ease-in-out forwards;
+}
+
+@keyframes koukouFly {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
   }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+}
 }
 }
