@@ -59,4 +59,18 @@ section, div, .container, .content, .wrapper, .box, .card {
 * {
   background-repeat: no-repeat;
   background-size: cover;
+}@keyframes koukouFly {
+  0% { right: -300px; opacity: 0; }
+  10% { right: 20px; opacity: 1; }
+  80% { right: 20px; opacity: 1; }
+  100% { right: 100%; opacity: 0; }
+}
+
+#koukou {
+  position: absolute;
+  top: 120px;
+  right: -300px;
+  width: 180px;
+  height: auto;
+  animation: koukouFly 15s ease-in-out forwards;
 }
