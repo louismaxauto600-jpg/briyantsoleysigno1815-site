@@ -1,34 +1,377 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRIYANTSOLEYSIGNO 1815</title>
 
-    <!-- 
-        FICHYE SA A SE ASSETS/INDEX.HTML
-        LI EXISTE POU ESTRIKTI REPO A, 
-        MEN LI PA GEN OKENN KONTNI KI KA KONFLI AVÈK HOMEPAGE LA.
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        PA GEN CSS
-        PA GEN JS
-        PA GEN HTML REPETE
-        PA GEN SEKSYON
-        PA GEN TEMPLATE
-        PA GEN DOUBLON
-        PA GEN ANYEN KI KA PARÈT SOU SIT LA
+    body {
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #ff7b00 0, #000 55%, #000 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-        LI SE YON FICHYE NEUTRAL, PWÒP, SAN RISK.
-    -->
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      height: 70px;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #ff7b00;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-logo {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 2px solid #ff7b00;
+      object-fit: cover;
+    }
+
+    .navbar-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #ffb366;
+      text-transform: uppercase;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+    }
+
+    .menu a {
+      color: #ff7b00;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .menu a:hover {
+      color: #ffffff;
+    }
+
+    /* MAIN WRAPPER */
+    .main-wrapper {
+      width: 100%;
+      min-height: 100vh;
+      padding-top: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* HERO */
+    .hero {
+      width: 100%;
+      max-width: 1200px;
+      padding: 32px 20px 10px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid #ff7b00;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ffb366;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #ffddb3;
+      max-width: 680px;
+      margin: 0 auto 16px;
+    }
+
+    .hero-line {
+      width: 110px;
+      height: 3px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, #ff7b00, #ffb366);
+      border-radius: 999px;
+    }
+
+    /* KOUKOU BLOCK */
+    #koukou-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 36px;
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    #koukou {
+      position: absolute;
+      top: 10px;
+      right: -520px;
+      width: 400px;
+      max-width: 90vw;
+      border-radius: 18px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+      border: 2px solid #ff7b00;
+      background: #000;
+      transition: all 1.2s ease-in-out;
+      z-index: 10;
+    }
+
+    #koukou img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px 16px 0 0;
+    }
+
+    #koukou-caption {
+      padding: 10px 14px 12px;
+      font-size: 13px;
+      color: #ffddb3;
+      text-align: center;
+    }
+
+    /* SLIDESHOW TEMWAYAJ */
+    .slideshow-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 18px auto 40px;
+      display: none;
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+      border: 2px solid #ff7b00;
+      background: #000;
+    }
+
+    .slide {
+      width: 100%;
+      height: 420px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px #000;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2));
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+
+    .caption small {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: #ffddb3;
+      margin-top: 3px;
+    }
+
+    /* FOOTER */
+    footer {
+      width: 100%;
+      padding: 12px 0 16px;
+      text-align: center;
+      font-size: 11px;
+      color: #888;
+      border-top: 1px solid #222;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0 14px;
+      }
+
+      .menu {
+        gap: 10px;
+      }
+
+      .menu a {
+        font-size: 11px;
+      }
+
+      .hero-title {
+        font-size: 24px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      .slide {
+        height: 320px;
+      }
+
+      .caption {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="./logo/bss1815-logo.png" alt="BRIYANTSOLEYSIGNO 1815" class="navbar-logo" />
+      <div class="navbar-title">BRIYANTSOLEYSIGNO 1815</div>
+    </div>
+    <div class="menu">
+      <a href="#">HOME</a>
+      <a href="#">KIYÈS NOU YE</a>
+      <a href="#">MIZIK</a>
+      <a href="#">RARA</a>
+      <a href="#">ADMIN</a>
+      <a href="#">UPLOAD FOTO</a>
+    </div>
+  </div>
 
-    <!-- 
-        PA GEN KONTNI NAN BODY LA.
-        SA GARANTI FICHYE SA A PAP JANM PARÈT
-        NI PAP JANM OVERRIDE INDEX.HTML PRINSIPAL LA.
-    -->
+  <div class="main-wrapper">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-badge">INSTITISYON BRIYANTSOLEYSIGNO 1815</div>
+      <h1 class="hero-title">DISIPLIN • IDANTITE • TEMWAYAJ</h1>
+      <p class="hero-subtitle">
+        Sa a se vitrin ofisyèl BRIYANTSOLEYSIGNO 1815. Yon sèl antre, yon sèl vizaj, yon sèl istwa ki ap ekri
+        chak jou atravè temwayaj moun ki viv li.
+      </p>
+      <div class="hero-line"></div>
+    </section>
 
+    <!-- KOUKOU FLY-IN / FLY-OUT -->
+    <section id="koukou-wrapper">
+      <div id="koukou">
+        <img src="./leaders/koukou-fly.jpeg" alt="KOUKOU" />
+        <div id="koukou-caption">
+          KOUKOU ap fè antre PRO-MAX li: li parèt, li rete 10 segonn, epi li kite plas li pou temwayaj yo.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDESHOW TEMWAYAJ -->
+    <section class="slideshow-container" id="slideshow">
+      <div class="slide">
+        <img src="./temwayaj/1.jpeg" alt="Temwayaj 1" />
+        <div class="caption">
+          “BRIYANTSOLEYSIGNO 1815 se pa sèlman yon non, se yon disiplin ki fòme karaktè.”
+          <small>Temwayaj 1</small>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="./temwayaj/2.jpeg" alt="Temwayaj 2" />
+        <div class="caption">
+          “Chak aktivite se yon okazyon pou montre respè, òganizasyon, ak idantite nou.”
+          <small>Temwayaj 2</small>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="./temwayaj/3.jpeg" alt="Temwayaj 3" />
+        <div class="caption">
+          “Temwayaj mwen se prèv ke BRIYANTSOLEYSIGNO 1815 kite mak li sou lavi mwen.”
+          <small>Temwayaj 3</small>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © BRIYANTSOLEYSIGNO 1815 — Yon sèl vizaj, yon sèl temwayaj ofisyèl.
+    </footer>
+  </div>
+
+  <script>
+    const koukou = document.getElementById("koukou");
+    const slideshow = document.getElementById("slideshow");
+
+    window.onload = () => {
+      // FLY-IN
+      setTimeout(() => {
+        koukou.style.right = "40px";
+      }, 500);
+
+      // FLY-OUT
+      setTimeout(() => {
+        koukou.style.right = "-520px";
+      }, 10500);
+
+      // START SLIDESHOW
+      setTimeout(() => {
+        slideshow.style.display = "block";
+        startSlideshow();
+      }, 12500);
+    };
+
+    let slideIndex = 0;
+
+    function startSlideshow() {
+      const slides = document.getElementsByClassName("slide");
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+
+      setTimeout(startSlideshow, 10000);
+    }
+  </script>
 </body>
 </html>
