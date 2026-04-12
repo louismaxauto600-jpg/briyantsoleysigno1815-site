@@ -11,7 +11,53 @@
       padding: 0;
       box-sizing: border-box;
     }
+<!-- SCRIPT KOUKOU + SLIDESHOW -->
+  <script>
+    const koukou = document.getElementById("koukou");
+    const slideshow = document.getElementById("slideshow");
+    const slides = document.querySelectorAll(".slide");
 
+    let slideIndex = 0;
+
+    window.addEventListener("load", () => {
+      if (!koukou || !slideshow || slides.length === 0) return;
+
+      setTimeout(() => {
+        koukou.style.right = "40px";
+        koukou.style.opacity = "1";
+      }, 500);
+
+      setTimeout(() => {
+        koukou.style.right = "-520px";
+        koukou.style.opacity = "0";
+      }, 10500);
+
+      setTimeout(() => {
+        slideshow.style.display = "block";
+        startSlideshow();
+      }, 12500);
+    });
+
+    function startSlideshow() {
+      showSlide(slideIndex);
+
+      setInterval(() => {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+      }, 3000);
+    }
+
+    function showSlide(index) {
+      slides.forEach((slide) => {
+        slide.style.display = "none";
+      });
+
+      slides[index].style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
     body {
       font-family: Arial, sans-serif;
       background: radial-gradient(circle at top, #ff7b00 0, #000 55%, #000 100%);
