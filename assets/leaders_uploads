@@ -1,0 +1,76 @@
+const koukou = document.getElementById("koukou");
+const slideshow = document.getElementById("slideshow");
+const slideImg = document.getElementById("slide-img");
+
+// LIS FINAL IMAG YO NAN FOLDER: assets/leaders_uploads/
+const images = [
+  "bawon-an.jpeg",
+  "bawon-an2.jpeg",
+  "cange2.jpg",
+  "cols.jpeg",
+  "dirijan-maximax.jpeg",
+  "doodly23.jpeg",
+  "elson2.jpeg",
+  "fanfan.jpeg",
+  "jeff_colin.jpeg",
+  "jij-mayan.jpeg",
+  "jude-j.jpeg",
+  "landry.jpeg",
+  "macu.jpeg",
+  "majis-junior.jpeg",
+  "magistra-mauclair.jpeg",
+  "mambo_fifi.jpeg",
+  "mario.jpeg",
+  "may2.jpeg",
+  "media-man.jpeg",
+  "montinat.jpeg",
+  "nadège-b.jpeg",
+  "pdg_ti_rat.jpeg",
+  "paulema.jpeg",
+  "prez-tsp.jpeg",
+  "prez_aly.jpeg",
+  "prez_papit.jpeg",
+  "pèrodin.jpeg",
+  "ralph-p.jpeg",
+  "roro-lajan.jpeg",
+  "roro-pot-pawol.jpeg",
+  "sindy.jpeg",
+  "sonsonn2.jpeg",
+  "tania.jpg",
+  "ti-chery.jpeg",
+  "ti_la_france.jpeg",
+  "ti-marasa.jpeg",
+  "ti-papouche.jpeg",
+  "ygens.jpeg",
+  "valery2.jpeg",
+  "bouboul.jpeg",
+  "michel-briyant.jpeg"
+];
+
+let slideIndex = 0;
+
+// KOUKOU FLY‑IN
+setTimeout(() => {
+  koukou.style.transform = "translateX(0%)";
+}, 300);
+
+// KOUKOU FLY‑OUT
+setTimeout(() => {
+  koukou.style.transform = "translateX(-100%)";
+}, 3800);
+
+// APRE SA → SLIDESHOW PARÈT
+setTimeout(() => {
+  slideshow.classList.remove("hidden");
+  startSlideshow();
+}, 5200);
+
+// SLIDESHOW PRO‑MAX
+function startSlideshow() {
+  setInterval(() => {
+    slideIndex++;
+    if (slideIndex >= images.length) slideIndex = 0;
+
+    slideImg.src = `assets/leaders_uploads/${images[slideIndex]}`;
+  }, 3000);
+}
