@@ -1,0 +1,143 @@
+// server.js — ULTIMATE AI BOT PRO‑MAX
+
+const express = require('express');
+const app = express();
+app.use(express.urlencoded({ extended: false }));
+
+const { MessagingResponse } = require('twilio').twiml;
+
+// In-memory "database"
+const users = {};      // { from: { name, lastIntent, lastMsg, visits } }
+const knowledge = {
+    bss1815: "BSS1815 se sistèm ofisyèl PRO‑MAX ak disiplin Orange 🟧 & Black ⚫.",
+    maximax: "MAXIMAX MULTI SERVICES se platfòm dijital ki bati solisyon lejè, efikas, ak enpak wo.",
+    team: "TEAM SAN PRESYON se ekip ofisyèl ki mache ak vizyon disiplin, respè, ak ekzekisyon pwòp."
+};
+
+// Detect intent
+function detectIntent(msg) {
+    msg = msg.toLowerCase();
+
+    if (/(hi|hello|alo|hey|bonjou|bonswa)/.test(msg)) return "greeting";
+    if (msg.includes("info") || msg.includes("enfòmasyon") || msg.includes("kisa") || msg.includes("ki sa")) return "info";
+    if (msg.includes("help") || msg.includes("ede") || msg.includes("kijan")) return "help";
+    if (msg.includes("contact") || msg.includes("kontak") || msg.includes("rele") || msg.includes("email")) return "contact";
+    if (msg.includes("mèsi") || msg.includes("thank")) return "thanks";
+    if (msg.includes("pwoblèm") || msg.includes("problem") || msg.includes("error") || msg.includes("bug")) return "complaint";
+    if (msg.includes("ou la") || msg.includes("are you there")) return "presence";
+    if (msg.includes("bss1815")) return "kb_bss1815";
+    if (msg.includes("maximax")) return "kb_maximax";
+    if (msg.includes("team san presyon") || msg.includes("san presyon")) return "kb_team";
+
+    return "unknown";
+}
+
+// Build reply with personality + memory + knowledge
+function buildReply(from, msg) {
+    const intent = detectIntent(msg);
+
+    if (!users[from]) {
+        users[from] = { name: null, lastIntent: null, lastMsg: null, visits: 0 };
+    }
+
+    const user = users[from];
+    user.visits += 1;
+    user.lastIntent = intent;
+    user.lastMsg = msg;
+
+    // Try to guess name from message (very simple)
+    if (!user.name && msg.toLowerCase().startsWith("mwen se ")) {
+        user.name = msg.substring(8).trim();
+    }
+
+    const prefix = user.name
+        ? `🟧 ${user.name}, `
+        : "🟧 ";
+
+    switch (intent) {
+        case "greeting":
+            return `${prefix}mwen la PRO‑MAX. Di m egzakteman sa w bezwen.`;
+
+        case "info":
+            return (
+                "ℹ️ *INFO PRO‑MAX*\n" +
+                knowledge.bss1815 + "\n" +
+                "Si w bezwen plis detay sou MAXIMAX oswa TEAM SAN PRESYON, jis ekri non yo."
+            );
+
+        case "help":
+            return (
+                `${prefix}mwen nan mode SOLISYON.\n` +
+                "Ekri pwoblèm ou an kout, klè, san wotasyon. M ap reponn PRO‑MAX."
+            );
+
+        case "contact":
+            return (
+                "📞 *CONTACT OFISYÈL PRO‑MAX*\n" +
+                "WhatsApp: +1 XXX XXX XXXX\n" +
+                "Email: support@bss1815.com\n" +
+                "Nòt: Kominikasyon fèt ak disiplin ak respè tan."
+            );
+
+        case "thanks":
+            return `${prefix}se plezi mwen. Chak fwa ou ekri, m ap reponn ak menm nivo PRO‑MAX.`;
+
+        case "complaint":
+            return (
+                `${prefix}mwen pran sa serye.\n` +
+                "Ekri:\n" +
+                "- Ki sa ou t ap eseye fè\n" +
+                "- Ki sa ou wè\n" +
+                "- Ki erè ki parèt\n" +
+                "M ap ba w repons dwat, san eskiz."
+            );
+
+        case "presence":
+            return `${prefix}wi, mwen la. Sistèm ULTIMATE AI BOT BSS1815 ap koute w.`;
+
+        case "kb_bss1815":
+            return "📚 *BSS1815*\n" + knowledge.bss1815;
+
+        case "kb_maximax":
+            return "📚 *MAXIMAX MULTI SERVICES*\n" + knowledge.maximax;
+
+        case "kb_team":
+            return "📚 *TEAM SAN PRESYON*\n" + knowledge.team;
+
+        case "unknown":
+        default:
+            if (user.lastIntent === "help") {
+                return (
+                    `${prefix}mwen wè ou deja mande EDE.\n` +
+                    "Kounye a, di m:\n" +
+                    "- Ki domèn? (WhatsApp, sit, Twilio, elatriye)\n" +
+                    "- Ki objektif final ou?\n" +
+                    "M ap ba w etap PRO‑MAX, san detou."
+                );
+            }
+
+            return (
+                `${prefix}mwen konprann ou ap ekri natirèl.\n` +
+                "Pou m reponn PRO‑MAX, di m:\n" +
+                "- INFO, si w vle konnen kiyès nou ye\n" +
+                "- HELP, si w gen yon pwoblèm\n" +
+                "- CONTACT, si w bezwen kontak ofisyèl\n" +
+                "Ou ka tou ekri: BSS1815, MAXIMAX, oswa TEAM SAN PRESYON."
+            );
+    }
+}
+
+app.post('/webhook', (req, res) => {
+    const from = req.body.From;
+    const body = req.body.Body || "";
+
+    const twiml = new MessagingResponse();
+    const reply = buildReply(from, body);
+
+    twiml.message(reply);
+
+    res.type('text/xml');
+    res.send(twiml.toString());
+});
+
+app.listen(3000, () => console.log("🔥 ULTIMATE AI BOT PRO‑MAX ACTIVE"));
