@@ -1,0 +1,68 @@
+const express = require('express');
+const app = express();
+app.use(express.urlencoded({ extended: false }));
+
+const { MessagingResponse } = require('twilio').twiml;
+
+// Temporary in-memory context (per session)
+let context = {};
+
+// INTENT DETECTION PRO‑MAX
+function detectIntent(msg) {
+    msg = msg.toLowerCase();
+
+    if (msg.includes("hi") || msg.includes("hello") || msg.includes("alo") || msg.includes("hey")) return "greeting";
+    if (msg.includes("info") || msg.includes("enfòmasyon") || msg.includes("ki sa") || msg.includes("kisa")) return "info";
+    if (msg.includes("help") || msg.includes("ede") || msg.includes("kijan")) return "help";
+    if (msg.includes("contact") || msg.includes("kontak") || msg.includes("rele") || msg.includes("email")) return "contact";
+    if (msg.includes("mèsi") || msg.includes("thank")) return "thanks";
+    if (msg.includes("pwoblèm") || msg.includes("problem") || msg.includes("error")) return "complaint";
+    if (msg.includes("ou la") || msg.includes("are you there")) return "presence";
+
+    return "unknown";
+}
+
+// AI REPLY ENGINE PRO‑MAX
+function aiReply(intent, msg, user) {
+    switch (intent) {
+        case "greeting":
+            return "👋 Bonjou! Mwen la. Ki sa w bezwen PRO‑MAX jodi a?";
+        case "info":
+            return "ℹ️ *BSS1815 PRO‑MAX INFO*\nNou se sistèm ofisyèl ak disiplin Orange 🟧 & Black ⚫. Ki enfòmasyon ou bezwen?";
+        case "help":
+            return "🛠 *HELP PRO‑MAX*\nDi m egzakteman sa w bezwen, m ap ba w solisyon rapid.";
+        case "contact":
+            return "📞 *CONTACT PRO‑MAX*\nWhatsApp: +1 XXX XXX XXXX\nEmail: support@bss1815.com";
+        case "thanks":
+            return "🙏 Se plezi mwen. Si w bezwen plis bagay, jis ekri.";
+        case "complaint":
+            return "⚠️ Mwen konprann gen yon pwoblèm. Di m egzakteman sa w wè, m ap rezoud li PRO‑MAX.";
+        case "presence":
+            return "🟧 Wi, mwen la. PRO‑MAX mode ON.";
+        case "unknown":
+            return "🤖 Mwen konprann mesaj ou a, men li pa klè. Di m sa w bezwen PRO‑MAX.";
+    }
+}
+
+app.post('/webhook', (req, res) => {
+    const userMsg = req.body.Body || "";
+    const user = req.body.From;
+
+    const twiml = new MessagingResponse();
+
+    // Save last message in context
+    context[user] = userMsg;
+
+    // Detect intent
+    const intent = detectIntent(userMsg);
+
+    // Generate reply
+    const reply = aiReply(intent, userMsg, user);
+
+    twiml.message(reply);
+
+    res.type('text/xml');
+    res.send(twiml.toString());
+});
+
+app.listen(3000, () => console.log("🔥 AI SMART REPLY NEXT LEVEL PRO‑MAX ACTIVE"));
