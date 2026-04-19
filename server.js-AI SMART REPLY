@@ -1,0 +1,56 @@
+const express = require('express');
+const app = express();
+app.use(express.urlencoded({ extended: false }));
+
+const { MessagingResponse } = require('twilio').twiml;
+
+// AI SMART REPLY ENGINE (PRO‑MAX)
+function smartReply(text) {
+    const msg = text.toLowerCase();
+
+    // GREETINGS
+    if (msg.includes("hi") || msg.includes("hello") || msg.includes("alo") || msg.includes("hey")) {
+        return "👋 Bonjou! Kijan mwen ka ede w jodi a?";
+    }
+
+    // ASKING FOR INFO
+    if (msg.includes("info") || msg.includes("enfòmasyon") || msg.includes("ki sa ou ye")) {
+        return "ℹ️ Mwen se BSS1815 PRO‑MAX AI Bot — optimize pou vitès, presizyon, ak disiplin Orange 🟧 & Black ⚫.";
+    }
+
+    // HELP REQUEST
+    if (msg.includes("help") || msg.includes("ede") || msg.includes("kijan")) {
+        return "🛠 Mwen la pou ede w. Di m egzakteman sa w bezwen.";
+    }
+
+    // CONTACT
+    if (msg.includes("contact") || msg.includes("kontak") || msg.includes("rele") || msg.includes("email")) {
+        return "📞 Kontak PRO‑MAX:\nWhatsApp: +1 XXX XXX XXXX\nEmail: support@bss1815.com";
+    }
+
+    // THANK YOU
+    if (msg.includes("mèsi") || msg.includes("thank")) {
+        return "🙏 Se plezi mwen. Si w bezwen plis bagay, jis ekri.";
+    }
+
+    // UNKNOWN → AI FALLBACK
+    return (
+        "🤖 Mwen konprann mesaj ou a, men li pa klè ase.\n" +
+        "Di m sa w bezwen, e m ap reponn PRO‑MAX."
+    );
+}
+
+app.post('/webhook', (req, res) => {
+    const userMsg = req.body.Body || "";
+    const twiml = new MessagingResponse();
+
+    // AI SMART REPLY
+    const reply = smartReply(userMsg);
+
+    twiml.message(reply);
+
+    res.type('text/xml');
+    res.send(twiml.toString());
+});
+
+app.listen(3000, () => console.log("🔥 AI SMART REPLY PRO‑MAX ACTIVE"));
