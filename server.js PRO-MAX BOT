@@ -1,0 +1,60 @@
+const express = require('express');
+const app = express();
+app.use(express.urlencoded({ extended: false }));
+
+const { MessagingResponse } = require('twilio').twiml;
+
+// PRO-MAX MENU
+function menu() {
+    return (
+        "🔥 *BSS1815 PRO‑MAX BOT* 🔥\n\n" +
+        "Chwazi yon opsyon:\n" +
+        "1️⃣ INFO\n" +
+        "2️⃣ HELP\n" +
+        "3️⃣ CONTACT\n" +
+        "4️⃣ KI YES OU YE?\n\n" +
+        "Tape nimewo a."
+    );
+}
+
+app.post('/webhook', (req, res) => {
+    const msg = req.body.Body.trim().toLowerCase();
+    const twiml = new MessagingResponse();
+
+    // COMMANDS PRO-MAX
+    if (msg === "hi" || msg === "alo" || msg === "hello") {
+        twiml.message("👋 Bonjou! Byenveni nan *BSS1815 PRO‑MAX BOT*.\n\n" + menu());
+    }
+
+    else if (msg === "1") {
+        twiml.message("ℹ️ *INFO PRO‑MAX*\nNou se BSS1815 — sistèm ofisyèl PRO‑MAX ak disiplin Orange 🟧 & Black ⚫.");
+    }
+
+    else if (msg === "2") {
+        twiml.message("🛠 *HELP PRO‑MAX*\nMwen la pou ede w. Tape *MENU* pou wè opsyon yo.");
+    }
+
+    else if (msg === "3") {
+        twiml.message("📞 *CONTACT PRO‑MAX*\nWhatsApp ofisyèl: +1 XXX XXX XXXX\nEmail: support@bss1815.com");
+    }
+
+    else if (msg === "4") {
+        twiml.message("🟧⚫ *KI YES OU YE?*\nMwen se BOT PRO‑MAX BSS1815 — optimize pou vitès, presizyon, ak disiplin.");
+    }
+
+    else if (msg === "menu") {
+        twiml.message(menu());
+    }
+
+    // DEFAULT REPLY PRO-MAX
+    else {
+        twiml.message(
+            "🤖 *Mwen pa rekonèt sa.*\nTape *MENU* pou wè opsyon yo."
+        );
+    }
+
+    res.type('text/xml');
+    res.send(twiml.toString());
+});
+
+app.listen(3000, () => console.log("🔥 PRO‑MAX BOT ACTIVE ON PORT 3000"));
