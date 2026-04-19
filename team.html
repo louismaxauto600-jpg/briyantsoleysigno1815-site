@@ -1,178 +1,92 @@
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — TEAM CENTER PRO‑MAX</title>
+<!-- ================= TEAM MIAMI AN AKSYON ================= -->
 
-    <style>
-        :root {
-            --abriko: #FF7A00;
-            --nwa: #000000;
-            --blan: #FFFFFF;
-        }
-
-        body {
-            margin: 0;
-            background: var(--nwa);
-            color: var(--blan);
-            font-family: Arial, sans-serif;
-        }
-
-        .wrap {
-            min-height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .shell {
-            width: 100%;
-            max-width: 1200px;
-            background: linear-gradient(to bottom right, #FF7A00, #000000);
-            padding: 30px;
-            border-radius: 16px;
-            border: 2px solid #FF7A00;
-            box-shadow: 0 0 30px rgba(255,120,0,0.7);
-        }
-
-        .logo-zone img {
-            width: 120px;
-            filter: drop-shadow(0 0 10px #FF7A00);
-        }
-
-        .title-main {
-            color: #FF7A00;
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 15px;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        .inner {
-            background: #111;
-            padding: 25px;
-            border-radius: 12px;
-            border: 2px solid #FF7A00;
-            box-shadow: 0 0 18px rgba(255,120,0,0.5);
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .team-card {
-            background: #000;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid #FF7A00;
-            box-shadow: 0 0 15px rgba(255,120,0,0.4);
-            text-align: center;
-        }
-
-        .team-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 2px solid #FF7A00;
-        }
-
-        .team-card h3 {
-            color: #FF7A00;
-            font-size: 20px;
-            margin: 12px 0 6px 0;
-        }
-
-        .team-card p {
-            font-size: 14px;
-            opacity: 0.85;
-            margin-bottom: 12px;
-        }
-
-        .btn-enter {
-            width: 90%;
-            padding: 10px;
-            background: #FF7A00;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 15px;
-            color: #000;
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="wrap">
-    <div class="shell">
-
-        <div class="logo-zone">
-            <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
-        </div>
-
-        <div class="title-main">TEAM CENTER — BSS1815 PRO‑MAX</div>
-        <div class="subtitle">
-            5 ekip ofisyèl BSS1815 yo prezante ak style PRO‑MAX: foto, idantite, ak bouton aksè rapid.
-        </div>
-
-        <div class="inner">
-
-            <div class="grid-3">
-
-                <div class="team-card">
-                    <img src="/PATH/teams/miami.jpg">
-                    <h3>MIAMI AN AKSYON</h3>
-                    <p>Ekip prensipal ak baz fòmasyon.</p>
-                    <button class="btn-enter">Antre</button>
-                </div>
-
-                <div class="team-card">
-                    <img src="/PATH/teams/san-presyon.jpg">
-                    <h3>TEAM SAN PRESYON</h3>
-                    <p>Enèji, disiplin, ak vibe pozitif.</p>
-                    <button class="btn-enter">Antre</button>
-                </div>
-
-                <div class="team-card">
-                    <img src="/PATH/teams/backup.jpg">
-                    <h3>TEAM BACKUP</h3>
-                    <p>Sekirite, ranfòsman, ak estabilite.</p>
-                    <button class="btn-enter">Antre</button>
-                </div>
-
-                <div class="team-card">
-                    <img src="/PATH/teams/5stars.jpg">
-                    <h3>SFC 5 STARS ★★★★★</h3>
-                    <p>Fanclub ofisyèl ak sipò total.</p>
-                    <button class="btn-enter">Antre</button>
-                </div>
-
-                <div class="team-card">
-                    <img src="/PATH/teams/angrenay.jpg">
-                    <h3>TEAM ANGRENAY</h3>
-                    <p>Travayè san pran souf, toujou pare.</p>
-                    <button class="btn-enter">Antre</button>
-                </div>
-
-            </div>
-
-        </div>
-
+<section class="team-section">
+    <div class="team-badge-box">
+        <img src="/galeri/pic/miami-an-aksyon.jpeg" class="team-badge">
     </div>
-</div>
 
-</body>
-</html>
+    <h2 class="team-title">MIAMI AN AKSYON — UPLOAD PICS + VIDEO</h2>
+
+    <div class="upload-box">
+        <label class="upload-label">Chwazi foto oswa videyo pou upload</label>
+        <input type="file" accept="image/*,video/*" multiple>
+    </div>
+
+    <p class="upload-note">Fan yo ka upload PICS + VIDEO dirèk isit la.</p>
+</section>
+
+
+
+<!-- ================= TEAM SAN PRESYON ================= -->
+
+<section class="team-section">
+    <div class="team-badge-box">
+        <img src="/galeri/pic/team-san-presyon.png" class="team-badge">
+    </div>
+
+    <h2 class="team-title">TEAM SAN PRESYON — UPLOAD PICS + VIDEO</h2>
+
+    <div class="upload-box">
+        <label class="upload-label">Chwazi foto oswa videyo pou upload</label>
+        <input type="file" accept="image/*,video/*" multiple>
+    </div>
+
+    <p class="upload-note">Fan yo ka upload PICS + VIDEO dirèk isit la.</p>
+</section>
+
+
+
+<!-- ================= TEAM BACKUP ================= -->
+
+<section class="team-section">
+    <div class="team-badge-box">
+        <img src="/galeri/pic/team-backup.png" class="team-badge">
+    </div>
+
+    <h2 class="team-title">TEAM BACKUP — UPLOAD PICS + VIDEO</h2>
+
+    <div class="upload-box">
+        <label class="upload-label">Chwazi foto oswa videyo pou upload</label>
+        <input type="file" accept="image/*,video/*" multiple>
+    </div>
+
+    <p class="upload-note">Fan yo ka upload PICS + VIDEO dirèk isit la.</p>
+</section>
+
+
+
+<!-- ================= TEAM ANGRENAY ================= -->
+
+<section class="team-section">
+    <div class="team-badge-box">
+        <img src="/galeri/pic/team-angrenay.png" class="team-badge">
+    </div>
+
+    <h2 class="team-title">TEAM ANGRENAY — UPLOAD PICS + VIDEO</h2>
+
+    <div class="upload-box">
+        <label class="upload-label">Chwazi foto oswa videyo pou upload</label>
+        <input type="file" accept="image/*,video/*" multiple>
+    </div>
+
+    <p class="upload-note">Fan yo ka upload PICS + VIDEO dirèk isit la.</p>
+</section>
+
+
+
+<!-- ================= SUPER FANCLUB 5 STARS ================= -->
+
+<section class="team-section">
+    <div class="team-badge-box">
+        <img src="/galeri/pic/super-fanclub-5stars.png" class="team-badge">
+    </div>
+
+    <h2 class="team-title">SUPER FANCLUB 5 STARS — UPLOAD PICS + VIDEO</h2>
+
+    <div class="upload-box">
+        <label class="upload-label">Chwazi foto oswa videyo pou upload</label>
+        <input type="file" accept="image/*,video/*" multiple>
+    </div>
+
+    <p class="upload-note">Fan yo ka upload PICS + VIDEO dirèk isit la.</p>
+</section>
