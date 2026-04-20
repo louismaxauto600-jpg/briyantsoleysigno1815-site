@@ -1,0 +1,43 @@
+<form class="form-mizisyen" onsubmit="return validateMizisyen()">
+
+  <!-- FOTO MIZISYEN (OBLIGATWA) -->
+  <label>Foto mizisyen an *</label>
+  <input type="file" id="foto" accept="image/*" required>
+
+  <!-- NON MIZISYEN -->
+  <label>Non mizisyen an *</label>
+  <input type="text" id="non" required>
+
+  <!-- NIMEWO TELEFÒN (OBLIGATWA) -->
+  <label>Nimewo telefòn *</label>
+  <input type="tel" id="tel" required>
+
+  <!-- ENSTRIMAN -->
+  <label>Enstriman *</label>
+  <select id="enstriman" required>
+    <option value="">Chwazi enstriman</option>
+    <option value="trompette">Trompette</option>
+    <option value="bariton">Bariton</option>
+    <option value="trombone">Trombone</option>
+    <option value="bass">Bass</option>
+    <option value="tanbou">Tanbou</option>
+    <option value="bambou">Bambou</option>
+    <option value="percussion">Percussion</option>
+  </select>
+
+  <button type="submit">Soumèt</button>
+</form>
+
+<script>
+function validateMizisyen() {
+  const foto = document.getElementById("foto").value;
+  const tel = document.getElementById("tel").value;
+
+  if (!foto || !tel) {
+    alert("Sistèm nan REJTE mizisyen an: FOTO + NIMEWO TELEFÒN obligatwa.");
+    return false;
+  }
+
+  return true;
+}
+</script>
