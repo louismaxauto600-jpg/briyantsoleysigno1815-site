@@ -81,7 +81,6 @@
       display: block;
     }
 
-    /* HERO */
     .hero {
       position: relative;
       height: 100vh;
@@ -216,7 +215,6 @@
       transition: width 10s linear;
     }
 
-    /* HOME SECTION BELOW HERO */
     .section {
       padding: 60px 20px;
       background: linear-gradient(to bottom, #000, #0d0d0d);
@@ -270,7 +268,6 @@
       font-size: 15px;
     }
 
-    /* GALLERY */
     .gallery-hero {
       text-align: center;
       padding: 38px 16px 14px;
@@ -452,13 +449,17 @@
   </main>
 
   <script>
-    const images = [
+    const slideshowImages = [
+      "only-u.jpeg",
       "ange.jpeg",
       "adan-signo.jpeg",
       "andy.jpeg",
       "badin.jpeg",
+      "blackson.jpeg"
+    ];
+
+    const galleryImages = [
       "baron-plenn-lan.jpeg",
-      "blackson.jpeg",
       "bouboul.jpeg",
       "bawon-an!.jpeg",
       "brunel.jpeg",
@@ -493,7 +494,6 @@
       "nadege-b.jpeg",
       "nnaylove.jpeg",
       "ones-1.jpeg",
-      "only-u.jpeg",
       "paulema.jpeg",
       "pdg-ti-rat.jpeg",
       "prez-aly.jpeg",
@@ -533,14 +533,16 @@
       return name.replace(/\b\w/g, l => l.toUpperCase());
     }
 
-    images.forEach((file) => {
+    slideshowImages.forEach((file) => {
       const name = prettyName(file);
-
       const slide = document.createElement("div");
       slide.className = "slide";
       slide.innerHTML = `<img src="${file}" alt="${name}">`;
       slidesContainer.appendChild(slide);
+    });
 
+    galleryImages.forEach((file) => {
+      const name = prettyName(file);
       const card = document.createElement("div");
       card.className = "gallery-card";
       card.innerHTML = `
