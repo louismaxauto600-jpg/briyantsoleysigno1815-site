@@ -438,7 +438,7 @@
 
   <header class="topbar">
     <div class="topbar-left">
-      <img src="images/bss-logo-ofisyel.jpeg" alt="BSS Logo" class="topbar-logo">
+      <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo" class="topbar-logo">
       <div class="topbar-title">BRIYANT SOLÈY SIGNO 1815</div>
     </div>
 
@@ -451,11 +451,11 @@
   <section id="intro">
     <div class="intro-overlay"></div>
     <div class="intro-left">
-      <img src="images/bss-logo-ofisyel.jpeg" class="logo" alt="BSS Logo">
+      <img src="bss-logo-ofisyel.jpeg" class="logo" alt="BSS Logo">
     </div>
     <div class="intro-right" id="owlWrap">
       <div class="owl-trail"></div>
-      <img src="images/owl.png" class="owl" alt="BSS Owl">
+      <img src="owl.png" class="owl" alt="BSS Owl">
     </div>
   </section>
 
@@ -575,7 +575,7 @@
       const slide = document.createElement("div");
       slide.className = "slide";
       slide.innerHTML = `
-        <img src="images/${file}" alt="${name}">
+        <img src="${file}" alt="${name}">
         <div class="slide-caption">
           <h2>${name}</h2>
           <p>"${testimony}"</p>
@@ -586,7 +586,7 @@
       const card = document.createElement("div");
       card.className = "gallery-card";
       card.innerHTML = `
-        <img src="images/${file}" alt="${name}">
+        <img src="${file}" alt="${name}">
         <div class="gallery-caption">${name}</div>
       `;
       galleryGrid.appendChild(card);
@@ -609,61 +609,4 @@
       progressBar.style.transition = "none";
       progressBar.style.width = "0%";
       setTimeout(() => {
-        progressBar.style.transition = `width ${slideDuration}ms linear`;
-        progressBar.style.width = "100%";
-      }, 60);
-    }
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-      currentSlide = index;
-      updateCounter();
-      resetProgressBar();
-    }
-
-    function nextSlide() {
-      let next = currentSlide + 1;
-      if (next >= slides.length) next = 0;
-      showSlide(next);
-    }
-
-    function startHeroSlideshow() {
-      showSlide(0);
-      setInterval(nextSlide, slideDuration);
-    }
-
-    setTimeout(() => {
-      owlWrap.classList.add("fly-out");
-    }, 10000);
-
-    setTimeout(() => {
-      intro.style.display = "none";
-      startHeroSlideshow();
-    }, 12300);
-
-    const homeBtn = document.getElementById("homeBtn");
-    const galleryBtn = document.getElementById("galleryBtn");
-    const homePage = document.getElementById("homePage");
-    const galleryPage = document.getElementById("galleryPage");
-
-    homeBtn.addEventListener("click", () => {
-      homePage.classList.add("active");
-      galleryPage.classList.remove("active");
-      homeBtn.classList.add("active");
-      galleryBtn.classList.remove("active");
-      window.scrollTo({top:0, behavior:"smooth"});
-    });
-
-    galleryBtn.addEventListener("click", () => {
-      galleryPage.classList.add("active");
-      homePage.classList.remove("active");
-      galleryBtn.classList.add("active");
-      homeBtn.classList.remove("active");
-      intro.style.display = "none";
-      window.scrollTo({top:0, behavior:"smooth"});
-    });
-  </script>
-</body>
-</html>
+        progressBar.style
