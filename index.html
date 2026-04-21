@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSS 1815</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Arial,sans-serif;
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    .topbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:100000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 16px;
+      background:rgba(0,0,0,.75);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,122,0,.3);
+    }
+
+    .topbar-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .topbar-logo{
+      width:52px;
+      height:52px;
+      object-fit:contain;
+      filter:drop-shadow(0 0 10px rgba(255,122,0,.45));
+    }
+
+    .topbar-title{
+      color:#ff9a1f;
+      font-size:14px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+    }
+
+    .topbar-nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .nav-btn{
+      padding:9px 14px;
+      border-radius:999px;
+      font-weight:700;
+      color:#fff;
+      border:1px solid rgba(255,122,0,.35);
+      background:rgba(255,255,255,.04);
+      cursor:pointer;
+    }
+
+    .nav-btn.active,
+    .nav-btn:hover{
+      background:linear-gradient(90deg,#ff7a00,#ffb347);
+      color:#000;
+      box-shadow:0 0 16px rgba(255,122,0,.28);
+    }
+
+    #intro{
+      position:fixed;
+      inset:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 8%;
+      background:
+        radial-gradient(circle at center, rgba(255,122,0,.18), rgba(0,0,0,.96) 58%),
+        linear-gradient(90deg,#000 0%,#0d0d0d 50%,#000 100%);
+      overflow:hidden;
+      z-index:99999;
+    }
+
+    .intro-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(255,122,0,.06), transparent 25%, transparent 75%, rgba(255,122,0,.06)),
+        radial-gradient(circle at 75% 45%, rgba(255,160,60,.12), transparent 25%);
+      pointer-events:none;
+    }
+
+    .intro-left{
+      position:relative;
+      z-index:2;
+      animation:logoGlowPulse 2.8s ease-in-out infinite;
+    }
+
+    .logo{
+      width:min(220px,28vw);
+      filter:drop-shadow(0 0 10px rgba(255,122,0,.8)) drop-shadow(0 0 24px rgba(255,122,0,.45));
+    }
+
+    .intro-right{
+      position:relative;
+      z-index:2;
+      transform:translateX(120vw) scale(.55);
+      opacity:0;
+      animation:owlFlyIn 2.2s ease-out forwards;
+    }
+
+    .owl{
+      width:min(330px,36vw);
+      filter:drop-shadow(0 0 14px rgba(255,122,0,.95)) drop-shadow(0 0 34px rgba(255,122,0,.5));
+      animation:wingFlap .55s ease-in-out infinite, hoverFloat 2.2s ease-in-out infinite;
+      transform-origin:center center;
+    }
+
+    .owl-trail{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:240px;
+      height:90px;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(90deg, rgba(255,122,0,0), rgba(255,122,0,.5), rgba(255,190,90,0));
+      filter:blur(18px);
+      opacity:.85;
+      animation:trailPulse 1.2s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    .intro-right.fly-out{
+      animation:owlFlyOut 2.3s ease-in forwards;
+    }
+
+    .intro-right.fly-out .owl{
+      animation:wingFlap .32s ease-in-out infinite, hoverFloat .7s ease-in-out infinite;
+    }
+
+    .intro-right.fly-out .owl-trail{
+      animation:trailStretch 1.1s ease-in-out infinite;
+    }
+
+    @keyframes owlFlyIn{
+      0%{transform:translateX(120vw) scale(.45) rotate(8deg);opacity:0}
+      60%{transform:translateX(-12px) scale(1.02) rotate(-2deg);opacity:1}
+      100%{transform:translateX(0) scale(1) rotate(0);opacity:1}
+    }
+
+    @keyframes owlFlyOut{
+      0%{transform:translateX(0) scale(1) rotate(0);opacity:1}
+      35%{transform:translateX(-25vw) translateY(-10px) scale(.95) rotate(-4deg);opacity:1}
+      70%{transform:translateX(-80vw) translateY(-30px) scale(.72) rotate(-10deg);opacity:1}
+      100%{transform:translateX(-150vw) translateY(-50px) scale(.38) rotate(-16deg);opacity:0}
+    }
+
+    @keyframes wingFlap{
+      0%{transform:scaleY(1) scaleX(1) rotate(0)}
+      25%{transform:scaleY(.94) scaleX(1.03) rotate(1deg)}
+      50%{transform:scaleY(.88) scaleX(1.06) rotate(0)}
+      75%{transform:scaleY(.95) scaleX(1.03) rotate(-1deg)}
+      100%{transform:scaleY(1) scaleX(1) rotate(0)}
+    }
+
+    @keyframes hoverFloat{
+      0%{translate:0 0}
+      50%{translate:0 -10px}
+      100%{translate:0 0}
+    }
+
+    @keyframes trailPulse{
+      0%{opacity:.5;transform:translate(-50%,-50%) scaleX(1)}
+      50%{opacity:.95;transform:translate(-50%,-50%) scaleX(1.15)}
+      100%{opacity:.5;transform:translate(-50%,-50%) scaleX(1)}
+    }
+
+    @keyframes trailStretch{
+      0%{opacity:.65;transform:translate(-50%,-50%) scaleX(1)}
+      50%{opacity:1;transform:translate(-50%,-50%) scaleX(1.8)}
+      100%{opacity:.65;transform:translate(-50%,-50%) scaleX(1)}
+    }
+
+    @keyframes logoGlowPulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.02)}
+      100%{transform:scale(1)}
+    }
+
+    .page{
+      display:none;
+      min-height:100vh;
+      padding-top:74px;
+    }
+
+    .page.active{
+      display:block;
+    }
+
+    .hero-slideshow{
+      position:relative;
+      width:100%;
+      height:calc(100vh - 74px);
+      overflow:hidden;
+      background:#000;
+    }
+
+    .slide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:opacity 1.4s ease-in-out;
+      z-index:1;
+    }
+
+    .slide.active{
+      opacity:1;
+      z-index:2;
+    }
+
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1);
+      transition:transform 10s ease;
+      filter:brightness(.72) contrast(1.04) saturate(1.05);
+    }
+
+    .slide.active img{
+      transform:scale(1.08);
+    }
+
+    .slide::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.15) 45%, rgba(0,0,0,.52)),
+        radial-gradient(circle at top right, rgba(255,122,0,.15), transparent 30%);
+    }
+
+    .slide-caption{
+      position:absolute;
+      left:6%;
+      bottom:10%;
+      z-index:4;
+      width:min(680px,88%);
+      padding:24px;
+      border-left:5px solid #ff7a00;
+      background:rgba(0,0,0,.45);
+      backdrop-filter:blur(4px);
+      border-radius:0 14px 14px 0;
+      box-shadow:0 0 24px rgba(255,122,0,.15);
+      opacity:0;
+      transform:translateY(35px);
+    }
+
+    .slide.active .slide-caption{
+      animation:captionRise 1.2s ease forwards;
+    }
+
+    .slide-caption h2{
+      font-size:clamp(22px,4vw,46px);
+      color:#ff9a1f;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      text-shadow:0 0 12px rgba(255,122,0,.45);
+    }
+
+    .slide-caption p{
+      font-size:clamp(14px,2vw,20px);
+      line-height:1.6;
+      color:#fff;
+    }
+
+    @keyframes captionRise{
+      from{opacity:0;transform:translateY(35px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .slide-counter{
+      position:absolute;
+      top:20px;
+      right:20px;
+      z-index:5;
+      background:rgba(0,0,0,.55);
+      color:#ffb45b;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,122,0,.4);
+      font-weight:bold;
+      box-shadow:0 0 15px rgba(255,122,0,.18);
+    }
+
+    .progress-wrap{
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:5px;
+      background:rgba(255,255,255,.08);
+      z-index:6;
+    }
+
+    .progress-bar{
+      width:0%;
+      height:100%;
+      background:linear-gradient(90deg,#ff7a00,#ffb347);
+      box-shadow:0 0 12px rgba(255,122,0,.65);
+      transition:width 10s linear;
+    }
+
+    .gallery-hero{
+      text-align:center;
+      padding:26px 16px 10px;
+    }
+
+    .gallery-hero h1{
+      color:#ff9a1f;
+      font-size:clamp(28px,4vw,46px);
+      margin-bottom:10px;
+      text-shadow:0 0 12px rgba(255,122,0,.35);
+    }
+
+    .gallery-hero p{
+      max-width:800px;
+      margin:0 auto;
+      font-size:16px;
+      color:#eee;
+      line-height:1.6;
+    }
+
+    .gallery-grid{
+      padding:24px 18px 40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:14px;
+    }
+
+    .gallery-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid rgba(255,122,0,.18);
+      background:#0a0a0a;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+
+    .gallery-card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      display:block;
+      transition:transform .5s ease;
+    }
+
+    .gallery-card:hover img{
+      transform:scale(1.06);
+    }
+
+    .gallery-caption{
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      padding:12px;
+      background:linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.18));
+      color:#fff;
+      font-weight:700;
+    }
+
+    @media (max-width:768px){
+      .topbar{
+        padding:10px 12px;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+
+      .topbar-title{
+        font-size:11px;
+      }
+
+      .topbar-logo{
+        width:42px;
+        height:42px;
+      }
+
+      .topbar-nav{
+        width:100%;
+        justify-content:center;
+      }
+
+      .nav-btn{
+        font-size:13px;
+        padding:8px 12px;
+      }
+
+      #intro{
+        padding:0 5%;
+      }
+
+      .logo{
+        width:min(150px,34vw);
+      }
+
+      .owl{
+        width:min(220px,44vw);
+      }
+
+      .owl-trail{
+        width:150px;
+        height:60px;
+      }
+
+      .slide-caption{
+        left:5%;
+        right:5%;
+        bottom:9%;
+        width:auto;
+        padding:18px;
+      }
+
+      .slide-counter{
+        top:14px;
+        right:14px;
+        font-size:13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <img src="images/bss-logo-ofisyel.jpeg" alt="BSS Logo" class="topbar-logo">
+      <div class="topbar-title">BRIYANT SOLÈY SIGNO 1815</div>
+    </div>
+
+    <div class="topbar-nav">
+      <button class="nav-btn active" id="homeBtn" type="button">HOME</button>
+      <button class="nav-btn" id="galleryBtn" type="button">GALERI</button>
+    </div>
+  </header>
+
+  <section id="intro">
+    <div class="intro-overlay"></div>
+    <div class="intro-left">
+      <img src="images/bss-logo-ofisyel.jpeg" class="logo" alt="BSS Logo">
+    </div>
+    <div class="intro-right" id="owlWrap">
+      <div class="owl-trail"></div>
+      <img src="images/owl.png" class="owl" alt="BSS Owl">
+    </div>
+  </section>
+
+  <main id="homePage" class="page active">
+    <section class="hero-slideshow" id="heroSlideshow">
+      <div id="slidesContainer"></div>
+      <div class="slide-counter" id="slideCounter"></div>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </section>
+  </main>
+
+  <main id="galleryPage" class="page">
+    <section class="gallery-hero">
+      <h1>GALERI BSS 1815</h1>
+      <p>Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.</p>
+    </section>
+    <section class="gallery-grid" id="galleryGrid"></section>
+  </main>
+
+  <script>
+    const images = [
+      "ange.jpeg",
+      "adan-signo.jpeg",
+      "andy.jpeg",
+      "badin.jpeg",
+      "baron-plenn-lan.jpeg",
+      "blackson.jpeg",
+      "bouboul.jpeg",
+      "bawon-an!.jpeg",
+      "brunel.jpeg",
+      "caldos.jpeg",
+      "cange2.jpeg",
+      "cols.jpeg",
+      "don-dodo.jpeg",
+      "doodly23.jpeg",
+      "doudou.jpeg",
+      "elson2.jpeg",
+      "emaze.jpeg",
+      "guypson.jpeg",
+      "fanfann.jpeg",
+      "jef_colin.jpeg",
+      "jude-j.jpeg",
+      "karl-henry.jpeg",
+      "kendy.jpeg",
+      "kriye-pou-fanm.jpeg",
+      "labelle-yole.jpeg",
+      "landry.jpeg",
+      "la-belle-yole2.jpeg",
+      "macu.jpeg",
+      "majis-junior.jpeg",
+      "majis-mauc.jpeg",
+      "mambo_fifi.jpeg",
+      "mario.jpeg",
+      "max-louis.jpeg",
+      "may.jpeg",
+      "maximax-multi-serv.jpeg",
+      "montinat.jpeg",
+      "michel-briyant.jpeg",
+      "nadege-b.jpeg",
+      "nnaylove.jpeg",
+      "ones-1.jpeg",
+      "only-u.jpeg",
+      "paulema.jpeg",
+      "pdg-ti-rat.jpeg",
+      "prez-aly.jpeg",
+      "prez-papit.jpeg",
+      "rooso.jpeg",
+      "roro-lajan.jpeg",
+      "roro23.jpeg",
+      "synthia-jn-baptiste.jpeg",
+      "tania.jpeg",
+      "the-only-1.jpeg",
+      "ti-chery.jpeg",
+      "ti-reynold.jpeg",
+      "ti_la_france.jpeg",
+      "ti_marasa.jpeg",
+      "ti_papouche.jpeg",
+      "toto-senkant.jpeg",
+      "valery2.jpeg",
+      "ygens.jpeg",
+      "flore.jpeg",
+      "jij_mayan.jpeg",
+      "macu-mv.jpeg",
+      "ti-leta.jpeg",
+      "adia.jpeg",
+      "nnadia.png",
+      "roro-lajan2.jpeg",
+      "odeline.jpeg",
+      "dede.png"
+    ];
+
+    const testimonialMap = {
+      "ange.jpeg": "BSS se fyète mwen. Chak moman se enèji, respè, ak inite.",
+      "adan-signo.jpeg": "Nou pa jis yon gwoup. Nou se yon vizyon, yon fòs, yon eritaj.",
+      "andy.jpeg": "Disiplin, klas, ak lanmou pou bann lan se sa ki fè BSS espesyal.",
+      "badin.jpeg": "BSS toujou pote chalè, limyè, ak yon prezans ki pa konn pase inapèsi.",
+      "roro-lajan.jpeg": "Se yon òganizasyon ki mache ak respè, vizyon, ak gwo diyite.",
+      "ygens.jpeg": "Lè BSS parèt, ou santi fòs la. Se pa sèlman rara, se yon mouvman."
+    };
+
+    const defaultTestimony = "BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.";
+
+    const slidesContainer = document.getElementById("slidesContainer");
+    const galleryGrid = document.getElementById("galleryGrid");
+
+    function prettyName(file){
+      let name = file.replace(".jpeg","").replace(".png","").replace(/[-_]/g," ");
+      return name.replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+    images.forEach((file) => {
+      const name = prettyName(file);
+      const testimony = testimonialMap[file] || defaultTestimony;
+
+      const slide = document.createElement("div");
+      slide.className = "slide";
+      slide.innerHTML = `
+        <img src="images/${file}" alt="${name}">
+        <div class="slide-caption">
+          <h2>${name}</h2>
+          <p>"${testimony}"</p>
+        </div>
+      `;
+      slidesContainer.appendChild(slide);
+
+      const card = document.createElement("div");
+      card.className = "gallery-card";
+      card.innerHTML = `
+        <img src="images/${file}" alt="${name}">
+        <div class="gallery-caption">${name}</div>
+      `;
+      galleryGrid.appendChild(card);
+    });
+
+    const owlWrap = document.getElementById("owlWrap");
+    const intro = document.getElementById("intro");
+    const slides = document.querySelectorAll(".hero-slideshow .slide");
+    const slideCounter = document.getElementById("slideCounter");
+    const progressBar = document.getElementById("progressBar");
+
+    let currentSlide = 0;
+    const slideDuration = 10000;
+
+    function updateCounter() {
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+
+    function resetProgressBar() {
+      progressBar.style.transition = "none";
+      progressBar.style.width = "0%";
+      setTimeout(() => {
+        progressBar.style.transition = `width ${slideDuration}ms linear`;
+        progressBar.style.width = "100%";
+      }, 60);
+    }
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      currentSlide = index;
+      updateCounter();
+      resetProgressBar();
+    }
+
+    function nextSlide() {
+      let next = currentSlide + 1;
+      if (next >= slides.length) next = 0;
+      showSlide(next);
+    }
+
+    function startHeroSlideshow() {
+      showSlide(0);
+      setInterval(nextSlide, slideDuration);
+    }
+
+    setTimeout(() => {
+      owlWrap.classList.add("fly-out");
+    }, 10000);
+
+    setTimeout(() => {
+      intro.style.display = "none";
+      startHeroSlideshow();
+    }, 12300);
+
+    const homeBtn = document.getElementById("homeBtn");
+    const galleryBtn = document.getElementById("galleryBtn");
+    const homePage = document.getElementById("homePage");
+    const galleryPage = document.getElementById("galleryPage");
+
+    homeBtn.addEventListener("click", () => {
+      homePage.classList.add("active");
+      galleryPage.classList.remove("active");
+      homeBtn.classList.add("active");
+      galleryBtn.classList.remove("active");
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+
+    galleryBtn.addEventListener("click", () => {
+      galleryPage.classList.add("active");
+      homePage.classList.remove("active");
+      galleryBtn.classList.add("active");
+      homeBtn.classList.remove("active");
+      intro.style.display = "none";
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+  </script>
+</body>
+</html>
