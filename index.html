@@ -439,15 +439,15 @@
 <body>
 
   <div id="introOverlay">
-    <img src="bss-logo-ofisyel.jpeg" class="intro-logo" alt="Logo">
+    <img src="images/bss-logo-ofisyel.jpeg" class="intro-logo" alt="Logo">
     <div class="intro-owl-wrap" id="owlWrap">
-      <img src="owl-fly.jpeg" class="intro-owl" alt="Owl">
+      <img src="images/owl-fly.jpeg" class="intro-owl" alt="Owl">
     </div>
   </div>
 
   <header class="topbar">
     <div class="brand">
-      <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
+      <img src="images/bss-logo-ofisyel.jpeg" alt="BSS Logo">
       <span id="brandText">BRIYANT SOLÈY SIGNO 1815</span>
     </div>
 
@@ -471,7 +471,7 @@
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo" class="hero-logo">
+        <img src="images/bss-logo-ofisyel.jpeg" alt="BSS Logo" class="hero-logo">
         <h1 id="heroTitle">BRIYANT SOLÈY SIGNO 1815</h1>
         <p id="heroText">
           BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
@@ -692,17 +692,14 @@
     const galleryGrid = document.getElementById("galleryGrid");
     const slideCounter = document.getElementById("slideCounter");
     const progressBar = document.getElementById("progressBar");
-
     const homeBtn = document.getElementById("homeBtn");
     const galleryBtn = document.getElementById("galleryBtn");
     const heroGalleryBtn = document.getElementById("heroGalleryBtn");
     const heroHomeBtn = document.getElementById("heroHomeBtn");
     const homePage = document.getElementById("homePage");
     const galleryPage = document.getElementById("galleryPage");
-
     const introOverlay = document.getElementById("introOverlay");
     const owlWrap = document.getElementById("owlWrap");
-
     const kreBtn = document.getElementById("kreBtn");
     const franBtn = document.getElementById("franBtn");
     const engBtn = document.getElementById("engBtn");
@@ -713,7 +710,7 @@
         .replace(".jpg","")
         .replace(".png","")
         .replace(/[-_]/g," ");
-      return name.replace(/\b\w/g, l => l.toUpperCase());
+      return name.replace(/\\b\\w/g, l => l.toUpperCase());
     }
 
     allImages.forEach((file) => {
@@ -721,13 +718,13 @@
 
       const slide = document.createElement("div");
       slide.className = "slide";
-      slide.innerHTML = `<img src="Media-library/${file}" alt="${name}">`;
+      slide.innerHTML = `<img src="images/${file}" alt="${name}">`;
       slidesContainer.appendChild(slide);
 
       const card = document.createElement("div");
       card.className = "gallery-card";
       card.innerHTML = `
-        <img src="Media-library/${file}" alt="${name}">
+        <img src="images/${file}" alt="${name}">
         <div class="gallery-caption">${name}</div>
       `;
       galleryGrid.appendChild(card);
@@ -854,3 +851,9 @@
 
 </body>
 </html>
+"""
+
+path = Path("/mnt/data/index-fixed-final-user.html")
+path.write_text(html, encoding="utf-8")
+print(path)
+【อ่านข้อความเต็มanalysis to=python_user_visible.exec code_output નહીં?
