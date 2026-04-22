@@ -1,619 +1,191 @@
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BSS 1815</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-    }
-
-    .topbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 18px;
-      background: rgba(0,0,0,0.85);
-      border-bottom: 1px solid rgba(255,122,0,0.35);
-      backdrop-filter: blur(8px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(255,122,0,0.35);
-    }
-
-    .brand span {
-      color: #ff9a1f;
-      font-weight: 800;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 10px;
-    }
-
-    .nav button {
-      padding: 9px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,122,0,0.35);
-      background: rgba(255,255,255,0.04);
-      color: white;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .nav button.active,
-    .nav button:hover {
-      background: linear-gradient(90deg, #ff7a00, #ffb347);
-      color: #000;
-    }
-
-    .page {
-      display: none;
-      min-height: 100vh;
-      padding-top: 78px;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.42);
-      transform: scale(1);
-      transition: transform 10s linear;
-    }
-
-    .slide.active img {
-      transform: scale(1.08);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0.35)),
-        radial-gradient(circle at center, rgba(255,122,0,0.20), transparent 45%);
-      z-index: 2;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 0 7%;
-      max-width: 900px;
-    }
-
-    .hero-logo {
-      width: 120px;
-      margin-bottom: 18px;
-      border-radius: 50%;
-      box-shadow: 0 0 24px rgba(255,122,0,0.35);
-    }
-
-    .hero-content h1 {
-      font-size: clamp(34px, 6vw, 76px);
-      color: #ff9a1f;
-      line-height: 1.05;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      text-shadow: 0 0 16px rgba(255,122,0,0.25);
-    }
-
-    .hero-content p {
-      font-size: clamp(16px, 2vw, 24px);
-      line-height: 1.6;
-      color: #f5f5f5;
-      max-width: 760px;
-      margin-bottom: 24px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .hero-buttons button {
-      padding: 14px 22px;
-      border: none;
-      border-radius: 999px;
-      font-weight: 800;
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    .btn-orange {
-      background: linear-gradient(90deg, #ff7a00, #ffb347);
-      color: #000;
-      box-shadow: 0 0 18px rgba(255,122,0,0.35);
-    }
-
-    .btn-dark {
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-      border: 1px solid rgba(255,122,0,0.35);
-    }
-
-    .counter {
-      position: absolute;
-      right: 18px;
-      bottom: 18px;
-      z-index: 4;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(255,122,0,0.35);
-      color: #ffb347;
-      font-weight: bold;
-    }
-
-    .progress-wrap {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 4px;
-      background: rgba(255,255,255,0.08);
-      z-index: 4;
-    }
-
-    .progress-bar {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, #ff7a00, #ffb347);
-      transition: width 10s linear;
-    }
-
-    .section {
-      padding: 60px 20px;
-      background: linear-gradient(to bottom, #000, #0d0d0d);
-    }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      color: #ff9a1f;
-      font-size: clamp(28px, 4vw, 46px);
-      text-align: center;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-    }
-
-    .section p.lead {
-      max-width: 850px;
-      margin: 0 auto 34px;
-      text-align: center;
-      font-size: 17px;
-      color: #e8e8e8;
-      line-height: 1.7;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, #111, #070707);
-      border: 1px solid rgba(255,122,0,0.18);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
-
-    .card h3 {
-      color: #ffb347;
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: #ddd;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    .gallery-hero {
-      text-align: center;
-      padding: 38px 16px 14px;
-    }
-
-    .gallery-hero h1 {
-      color: #ff9a1f;
-      font-size: clamp(30px, 5vw, 58px);
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    .gallery-hero p {
-      max-width: 850px;
-      margin: 0 auto;
-      line-height: 1.7;
-      color: #eee;
-    }
-
-    .gallery-grid {
-      padding: 26px 18px 46px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 14px;
-    }
-
-    .gallery-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 18px;
-      border: 1px solid rgba(255,122,0,0.18);
-      background: #0a0a0a;
-      min-height: 280px;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      min-height: 280px;
-      object-fit: cover;
-      display: block;
-      transition: transform .5s ease;
-    }
-
-    .gallery-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(to top, rgba(0,0,0,0.90), rgba(0,0,0,0.18));
-      color: #fff;
-      font-weight: 700;
-    }
-
-    @media (max-width: 768px) {
-      .topbar {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 10px 12px;
-      }
-
-      .brand span {
-        font-size: 11px;
-      }
-
-      .brand img {
-        width: 42px;
-        height: 42px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .hero {
-        min-height: 620px;
-      }
-
-      .hero-content {
-        padding: 0 5%;
-      }
-
-      .hero-logo {
-        width: 92px;
-      }
-
-      .hero-buttons button {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header class="topbar">
-    <div class="brand">
-      <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
-      <span>BRIYANT SOLÈY SIGNO 1815</span>
-    </div>
-
-    <div class="nav">
-      <button class="active" id="homeBtn" type="button">HOME</button>
-      <button id="galleryBtn" type="button">GALERI</button>
-    </div>
-  </header>
-
-  <main id="homePage" class="page active">
-    <section class="hero">
-      <div id="slidesContainer"></div>
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo" class="hero-logo">
-        <h1>BRIYANT SOLÈY SIGNO 1815</h1>
-        <p>
-          BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
-          Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm,
-          fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.
-        </p>
-
-        <div class="hero-buttons">
-          <button class="btn-orange" id="heroGalleryBtn" type="button">ANTRE NAN GALERI A</button>
-          <button class="btn-dark" id="heroHomeBtn" type="button">HOMEPAGE OFISYÈL</button>
-        </div>
-      </div>
-
-      <div class="counter" id="slideCounter"></div>
-      <div class="progress-wrap">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <h2>BYENVINI SOU PLATFÒM OFISYÈL LA</h2>
-        <p class="lead">
-          Paj sa a fèt pou mete an valè eritaj, prezans, ak imaj Briyant Solèy Signo 1815.
-          Tout foto, tout figi, ak tout moman yo pote istwa bann lan ak fyète.
-        </p>
-
-        <div class="cards">
-          <div class="card">
-            <h3>Vizyon</h3>
-            <p>BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.</p>
-          </div>
-
-          <div class="card">
-            <h3>Fanbase</h3>
-            <p>Se fanatik yo ki bay chalè, mouvman, ak lavi. Chak foto isit la se yon moso temwayaj.</p>
-          </div>
-
-          <div class="card">
-            <h3>Onè</h3>
-            <p>Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.</p>
-          </div>
-
-          <div class="card">
-            <h3>Enèji</h3>
-            <p>Orange ak nwa yo pa sèlman koulè. Yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <main id="galleryPage" class="page">
-    <section class="gallery-hero">
-      <h1>GALERI BSS 1815</h1>
-      <p>Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.</p>
-    </section>
-
-    <section class="gallery-grid" id="galleryGrid"></section>
-  </main>
-
-  <script>
-    const slideshowImages = [
-      "only-u.jpeg",
-      "ange.jpeg",
-      "adan-signo.jpeg",
-      "andy.jpeg",
-      "badin.jpeg",
-      "blackson.jpeg"
-    ];
-
-    const galleryImages = [
-      "baron-plenn-lan.jpeg",
-      "bouboul.jpeg",
-      "bawon-an!.jpeg",
-      "brunel.jpeg",
-      "caldos.jpeg",
-      "cange2.jpeg",
-      "cols.jpeg",
-      "don-dodo.jpeg",
-      "doodly23.jpeg",
-      "doudou.jpeg",
-      "elson2.jpeg",
-      "emaze.jpeg",
-      "guypson.jpeg",
-      "fanfann.jpeg",
-      "jef_colin.jpeg",
-      "jude-j.jpeg",
-      "karl-henry.jpeg",
-      "kendy.jpeg",
-      "kriye-pou-fanm.jpeg",
-      "labelle-yole.jpeg",
-      "landry.jpeg",
-      "la-belle-yole2.jpeg",
-      "macu.jpeg",
-      "majis-junior.jpeg",
-      "majis-mauc.jpeg",
-      "mambo_fifi.jpeg",
-      "mario.jpeg",
-      "max-louis.jpeg",
-      "may.jpeg",
-      "maximax-multi-serv.jpeg",
-      "montinat.jpeg",
-      "michel-briyant.jpeg",
-      "nadege-b.jpeg",
-      "nnaylove.jpeg",
-      "ones-1.jpeg",
-      "paulema.jpeg",
-      "pdg-ti-rat.jpeg",
-      "prez-aly.jpeg",
-      "prez-papit.jpeg",
-      "rooso.jpeg",
-      "roro-lajan.jpeg",
-      "roro23.jpeg",
-      "synthia-jn-baptiste.jpeg",
-      "tania.jpeg",
-      "the-only-1.jpeg",
-      "ti-chery.jpeg",
-      "ti-reynold.jpeg",
-      "ti_la_france.jpeg",
-      "ti_marasa.jpeg",
-      "ti_papouche.jpeg",
-      "toto-senkant.jpeg",
-      "valery2.jpeg",
-      "ygens.jpeg",
-      "flore.jpeg",
-      "jij_mayan.jpeg",
-      "macu-mv.jpeg",
-      "ti-leta.jpeg",
-      "adia.jpeg",
-      "nnadia.png",
-      "roro-lajan2.jpeg",
-      "odeline.jpeg",
-      "dede.png"
-    ];
-
-    const slidesContainer = document.getElementById("slidesContainer");
-    const galleryGrid = document.getElementById("galleryGrid");
-    const slideCounter = document.getElementById("slideCounter");
-    const progressBar = document.getElementById("progressBar");
-
-    function prettyName(file) {
-      let name = file.replace(".jpeg","").replace(".png","").replace(/[-_]/g," ");
-      return name.replace(/\b\w/g, l => l.toUpperCase());
-    }
-
-    slideshowImages.forEach((file) => {
-      const name = prettyName(file);
-      const slide = document.createElement("div");
-      slide.className = "slide";
-      slide.innerHTML = `<img src="${file}" alt="${name}">`;
-      slidesContainer.appendChild(slide);
+<script>
+  const allImages = [
+    "only-u.jpeg",
+    "ange.jpeg",
+    "adan-signo.jpeg",
+    "andy.jpeg",
+    "badin.jpeg",
+    "blackson.jpeg",
+
+    "nadia-lafortune.jpg",
+    "macu1.jpg",
+    "pdg-ti-fre.jpg",
+    "mambo-fifi.jpg",
+    "roro-lajan.jpg",
+    "jeff-colin.jpg",
+    "fannfan.jpg",
+    "anpere-ti-rat.jpg",
+    "mario.jpg",
+    "perodin.jpg",
+    "cange1.jpg",
+    "maximax1.jpg",
+    "nadege.jpg",
+    "sinndy.jpg",
+    "may.jpg",
+    "asmide.jpg",
+    "andre-asouman.jpg",
+    "one-love.jpg",
+    "slogan.jpg",
+    "sonsonn1.jpg",
+    "ygens.jpg",
+    "prodin.jpeg",
+    "cange.jpg",
+    "ralph.jpg",
+    "slogan1.jpg",
+    "odelinne.jpg",
+    "jij-mayan.jpg",
+    "warrens.jpg",
+    "ti-marasa-yo.jpg",
+    "majis-mauc.jpg",
+
+    "baron-plenn-lan.jpeg",
+    "bouboul.jpeg",
+    "bawon-an!.jpeg",
+    "brunel.jpeg",
+    "caldos.jpeg",
+    "cange2.jpeg",
+    "cols.jpeg",
+    "don-dodo.jpeg",
+    "doodly23.jpeg",
+    "doudou.jpeg",
+    "elson2.jpeg",
+    "emaze.jpeg",
+    "guypson.jpeg",
+    "karl-henry.jpeg",
+    "kendy.jpeg",
+    "kriye-pou-fanm.jpeg",
+    "labelle-yole.jpeg",
+    "landry.jpeg",
+    "la-belle-yole2.jpeg",
+    "macu.jpeg",
+    "majis-junior.jpeg",
+    "mambo_fifi.jpeg",
+    "max-louis.jpeg",
+    "maximax-multi-serv.jpeg",
+    "montinat.jpeg",
+    "michel-briyant.jpeg",
+    "nadege-b.jpeg",
+    "nnaylove.jpeg",
+    "ones-1.jpeg",
+    "paulema.jpeg",
+    "pdg-ti-rat.jpeg",
+    "prez-aly.jpeg",
+    "prez-papit.jpeg",
+    "rooso.jpeg",
+    "roro-lajan.jpeg",
+    "roro23.jpeg",
+    "synthia-jn-baptiste.jpeg",
+    "tania.jpeg",
+    "the-only-1.jpeg",
+    "ti-chery.jpeg",
+    "ti-reynold.jpeg",
+    "ti_la_france.jpeg",
+    "ti_marasa.jpeg",
+    "ti_papouche.jpeg",
+    "toto-senkant.jpeg",
+    "valery2.jpeg",
+    "flore.jpeg",
+    "jij_mayan.jpeg",
+    "macu-mv.jpeg",
+    "ti-leta.jpeg",
+    "adia.jpeg",
+    "nnadia.png",
+    "roro-lajan2.jpeg",
+    "odeline.jpeg",
+    "dede.png"
+  ];
+
+  const slidesContainer = document.getElementById("slidesContainer");
+  const galleryGrid = document.getElementById("galleryGrid");
+  const slideCounter = document.getElementById("slideCounter");
+  const progressBar = document.getElementById("progressBar");
+
+  function prettyName(file) {
+    let name = file
+      .replace(".jpeg","")
+      .replace(".jpg","")
+      .replace(".png","")
+      .replace(/[-_]/g," ");
+    return name.replace(/\b\w/g, l => l.toUpperCase());
+  }
+
+  allImages.forEach((file) => {
+    const name = prettyName(file);
+
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    slide.innerHTML = `<img src="${file}" alt="${name}">`;
+    slidesContainer.appendChild(slide);
+
+    const card = document.createElement("div");
+    card.className = "gallery-card";
+    card.innerHTML = `
+      <img src="${file}" alt="${name}">
+      <div class="gallery-caption">${name}</div>
+    `;
+    galleryGrid.appendChild(card);
+  });
+
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+  const slideDuration = 10000;
+
+  function updateCounter() {
+    slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
+
+  function resetProgressBar() {
+    progressBar.style.transition = "none";
+    progressBar.style.width = "0%";
+    setTimeout(() => {
+      progressBar.style.transition = `width ${slideDuration}ms linear`;
+      progressBar.style.width = "100%";
+    }, 60);
+  }
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
     });
+    currentSlide = index;
+    updateCounter();
+    resetProgressBar();
+  }
 
-    galleryImages.forEach((file) => {
-      const name = prettyName(file);
-      const card = document.createElement("div");
-      card.className = "gallery-card";
-      card.innerHTML = `
-        <img src="${file}" alt="${name}">
-        <div class="gallery-caption">${name}</div>
-      `;
-      galleryGrid.appendChild(card);
-    });
+  function nextSlide() {
+    let next = currentSlide + 1;
+    if (next >= slides.length) next = 0;
+    showSlide(next);
+  }
 
-    const slides = document.querySelectorAll(".slide");
-    let currentSlide = 0;
-    const slideDuration = 10000;
+  showSlide(0);
+  setInterval(nextSlide, slideDuration);
 
-    function updateCounter() {
-      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
-    }
+  const homeBtn = document.getElementById("homeBtn");
+  const galleryBtn = document.getElementById("galleryBtn");
+  const heroGalleryBtn = document.getElementById("heroGalleryBtn");
+  const heroHomeBtn = document.getElementById("heroHomeBtn");
+  const homePage = document.getElementById("homePage");
+  const galleryPage = document.getElementById("galleryPage");
 
-    function resetProgressBar() {
-      progressBar.style.transition = "none";
-      progressBar.style.width = "0%";
-      setTimeout(() => {
-        progressBar.style.transition = `width ${slideDuration}ms linear`;
-        progressBar.style.width = "100%";
-      }, 60);
-    }
+  function showHome() {
+    homePage.classList.add("active");
+    galleryPage.classList.remove("active");
+    homeBtn.classList.add("active");
+    galleryBtn.classList.remove("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-      currentSlide = index;
-      updateCounter();
-      resetProgressBar();
-    }
+  function showGallery() {
+    galleryPage.classList.add("active");
+    homePage.classList.remove("active");
+    galleryBtn.classList.add("active");
+    homeBtn.classList.remove("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-    function nextSlide() {
-      let next = currentSlide + 1;
-      if (next >= slides.length) next = 0;
-      showSlide(next);
-    }
-
-    showSlide(0);
-    setInterval(nextSlide, slideDuration);
-
-    const homeBtn = document.getElementById("homeBtn");
-    const galleryBtn = document.getElementById("galleryBtn");
-    const heroGalleryBtn = document.getElementById("heroGalleryBtn");
-    const heroHomeBtn = document.getElementById("heroHomeBtn");
-    const homePage = document.getElementById("homePage");
-    const galleryPage = document.getElementById("galleryPage");
-
-    function showHome() {
-      homePage.classList.add("active");
-      galleryPage.classList.remove("active");
-      homeBtn.classList.add("active");
-      galleryBtn.classList.remove("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function showGallery() {
-      galleryPage.classList.add("active");
-      homePage.classList.remove("active");
-      galleryBtn.classList.add("active");
-      homeBtn.classList.remove("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    homeBtn.addEventListener("click", showHome);
-    galleryBtn.addEventListener("click", showGallery);
-    heroGalleryBtn.addEventListener("click", showGallery);
-    heroHomeBtn.addEventListener("click", showHome);
-  </script>
-</body>
-</html>
+  homeBtn.addEventListener("click", showHome);
+  galleryBtn.addEventListener("click", showGallery);
+  heroGalleryBtn.addEventListener("click", showGallery);
+  heroHomeBtn.addEventListener("click", showHome);
+                    </script>
