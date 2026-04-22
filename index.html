@@ -23,11 +23,6 @@
       overflow-x:hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
     button{
       font-family:inherit;
       cursor:pointer;
@@ -95,7 +90,8 @@
     }
 
     .lang-switch button,
-    .nav button{
+    .nav button,
+    .hero-buttons button{
       padding:10px 14px;
       border-radius:999px;
       border:1px solid var(--orange);
@@ -107,7 +103,8 @@
     .lang-switch button.active,
     .lang-switch button:hover,
     .nav button.active,
-    .nav button:hover{
+    .nav button:hover,
+    .hero-buttons button.primary{
       background:var(--orange);
       color:var(--black);
     }
@@ -178,24 +175,24 @@
       right:0;
       bottom:0;
       z-index:3;
-      padding:24px 28px;
-      max-width:620px;
-      background:linear-gradient(to top, rgba(0,0,0,.90), rgba(0,0,0,.18));
+      padding:20px 22px;
+      max-width:520px;
+      background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.18));
       border-top-right-radius:18px;
     }
 
     .hero-content img{
-      width:76px;
-      height:76px;
+      width:70px;
+      height:70px;
       object-fit:cover;
       border-radius:50%;
       border:2px solid var(--orange);
-      margin-bottom:12px;
+      margin-bottom:10px;
       background:var(--black);
     }
 
     .hero-content h2{
-      font-size:clamp(22px,4vw,42px);
+      font-size:clamp(22px,4vw,40px);
       line-height:1.04;
       text-transform:uppercase;
       color:var(--orange);
@@ -203,31 +200,17 @@
     }
 
     .hero-content p{
-      font-size:clamp(12px,1.6vw,17px);
+      font-size:clamp(12px,1.5vw,16px);
       line-height:1.5;
       color:var(--orange);
-      max-width:580px;
-      margin-bottom:16px;
+      max-width:480px;
+      margin-bottom:14px;
     }
 
     .hero-buttons{
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .hero-buttons button{
-      padding:13px 18px;
-      border-radius:999px;
-      font-weight:700;
-      border:1px solid var(--orange);
-      background:var(--black);
-      color:var(--orange);
-    }
-
-    .hero-buttons .primary{
-      background:var(--orange);
-      color:var(--black);
+      gap:10px;
     }
 
     .hero-right{
@@ -452,17 +435,17 @@
       }
 
       .hero-content{
-        padding:20px 16px;
+        padding:18px 14px;
         max-width:100%;
       }
 
       .hero-content img{
-        width:68px;
-        height:68px;
+        width:64px;
+        height:64px;
       }
 
       .hero-content h2{
-        font-size:28px;
+        font-size:26px;
       }
 
       .hero-buttons button{
@@ -580,6 +563,50 @@
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <h3 id="aboutTitle">SOU NOU</h3>
+      <p class="lead" id="aboutText">
+        Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, respè ak disiplin.
+        Nou egziste pou onore moun yo, sipòte fanbase la, epi mete fòs kominote a an avan.
+      </p>
+    </section>
+
+    <section class="section">
+      <h3 id="servicesTitle">SÈVIS</h3>
+      <div class="cards">
+        <div class="card">
+          <h4 id="service1Title">Pwomosyon</h4>
+          <p id="service1Text">Nou mete imaj, aktivite, ak pwojè yo an valè ak prezans pwofesyonèl.</p>
+        </div>
+        <div class="card">
+          <h4 id="service2Title">Evenman</h4>
+          <p id="service2Text">Nou sipòte aktivite, rara, rasanbleman, ak lòt evènman espesyal.</p>
+        </div>
+        <div class="card">
+          <h4 id="service3Title">Kominikasyon</h4>
+          <p id="service3Text">Nou ede pataje enfòmasyon, mesaj, ak kontak ak bon prezantasyon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 id="contactTitle">KONTAK</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>EMAIL</h4>
+          <p id="contactEmail">briyantsigno@gmail.com</p>
+        </div>
+        <div class="card">
+          <h4>TELEFÒN</h4>
+          <p id="contactPhone">+1 (317) 538-1150</p>
+        </div>
+        <div class="card">
+          <h4>WHATSAPP</h4>
+          <p id="contactWhatsApp">Disponib pou mesaj ak enfòmasyon</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <main id="galleryPage" class="page">
@@ -613,6 +640,16 @@
         card3Text: "Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.",
         card4Title: "Enèji",
         card4Text: "Orange ak nwa yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.",
+        aboutTitle: "SOU NOU",
+        aboutText: "Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, respè ak disiplin. Nou egziste pou onore moun yo, sipòte fanbase la, epi mete fòs kominote a an avan.",
+        servicesTitle: "SÈVIS",
+        service1Title: "Pwomosyon",
+        service1Text: "Nou mete imaj, aktivite, ak pwojè yo an valè ak prezans pwofesyonèl.",
+        service2Title: "Evenman",
+        service2Text: "Nou sipòte aktivite, rara, rasanbleman, ak lòt evènman espesyal.",
+        service3Title: "Kominikasyon",
+        service3Text: "Nou ede pataje enfòmasyon, mesaj, ak kontak ak bon prezantasyon.",
+        contactTitle: "KONTAK",
         galleryTitle: "GALERI BSS 1815",
         galleryLead: "Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou."
       },
@@ -637,6 +674,16 @@
         card3Text: "Nous mettons les personnes en lumière, car chaque visage a de la valeur, chaque présence a du poids, chaque nom porte une mémoire.",
         card4Title: "Énergie",
         card4Text: "L’orange et le noir sont la force, le feu, la discipline et la clarté qui définissent BSS 1815.",
+        aboutTitle: "À PROPOS",
+        aboutText: "Briyant Solèy Signo 1815 est une organisation qui apporte lumière, énergie, respect et discipline. Nous existons pour honorer les personnes, soutenir la fanbase et mettre en valeur la force de la communauté.",
+        servicesTitle: "SERVICES",
+        service1Title: "Promotion",
+        service1Text: "Nous mettons en valeur les images, les activités et les projets avec une présence professionnelle.",
+        service2Title: "Événements",
+        service2Text: "Nous soutenons les activités, rara, rassemblements et autres événements spéciaux.",
+        service3Title: "Communication",
+        service3Text: "Nous aidons à partager informations, messages et contacts avec une bonne présentation.",
+        contactTitle: "CONTACT",
         galleryTitle: "GALERIE BSS 1815",
         galleryLead: "Voici quelques belles images de fans, de membres et de moments spéciaux qui font toujours briller Briyant Solèy Signo 1815."
       },
@@ -661,103 +708,39 @@
         card3Text: "We bring people into the light because every face has value, every presence has weight, and every name carries memory.",
         card4Title: "Energy",
         card4Text: "Orange and black are the force, fire, discipline, and clarity that define BSS 1815.",
+        aboutTitle: "ABOUT US",
+        aboutText: "Briyant Solèy Signo 1815 is an organization that brings light, energy, respect, and discipline. We exist to honor people, support the fanbase, and highlight the strength of the community.",
+        servicesTitle: "SERVICES",
+        service1Title: "Promotion",
+        service1Text: "We highlight images, activities, and projects with a professional presence.",
+        service2Title: "Events",
+        service2Text: "We support activities, rara, gatherings, and other special events.",
+        service3Title: "Communication",
+        service3Text: "We help share information, messages, and contacts with strong presentation.",
+        contactTitle: "CONTACT",
         galleryTitle: "BSS 1815 GALLERY",
         galleryLead: "Here are some beautiful images of fans, members, and special moments that keep Briyant Solèy Signo 1815 shining."
       }
     };
 
     const allImages = [
-      "only-u.jpeg",
-      "ange.jpeg",
-      "adan-signo.jpeg",
-      "andy.jpeg",
-      "badin.jpeg",
-      "blackson.jpeg",
-      "nadia-lafortune.jpg",
-      "macu1.jpg",
-      "pdg-ti-fre.jpg",
-      "mambo-fifi.jpg",
-      "roro-lajan.jpg",
-      "jeff-colin.jpg",
-      "fanfan.jpg",
-      "may.jpg",
-      "sonson1.jpg",
-      "warrens.jpg",
-      "majis-mauc.jpg",
-      "emaze.jpg",
-      "la-belle-yole.jpg",
-      "maximax-multi-serv.jpeg",
-      "queen-naylove.jpeg",
-      "macu-mv.jpg",
-      "ti-leta.jpg",
-      "anpere-ti-rat.jpg",
-      "mario.jpg",
-      "perodin.jpg",
-      "cange1.jpg",
-      "maximax1.jpg",
-      "nadege.jpg",
-      "sinndy.jpg",
-      "asmide.jpg",
-      "andre-asouman.jpg",
-      "one-love.jpg",
-      "slogan.jpg",
-      "ygens.jpg",
-      "prodin.jpeg",
-      "cange.jpg",
-      "ralph.jpg",
-      "slogan1.jpg",
-      "odelinne.jpg",
-      "jij-mayan.jpg",
-      "ti-marasa-yo.jpg",
-      "baron-plenn-lan.jpeg",
-      "bouboul.jpeg",
-      "bawon-an!.jpeg",
-      "brunel.jpeg",
-      "caldos.jpeg",
-      "cange2.jpeg",
-      "cols.jpeg",
-      "don-dodo.jpeg",
-      "doodly23.jpeg",
-      "doudou.jpeg",
-      "elson2.jpeg",
-      "guypson.jpeg",
-      "karl-henry.jpeg",
-      "kendy.jpeg",
-      "kriye-pou-fanm.jpeg",
-      "landry.jpeg",
-      "macu.jpeg",
-      "majis-junior.jpeg",
-      "mambo_fifi.jpeg",
-      "max-louis.jpeg",
-      "montinat.jpeg",
-      "michel-briyant.jpeg",
-      "nadege-b.jpeg",
-      "nnaylove.jpeg",
-      "ones-1.jpeg",
-      "paulema.jpeg",
-      "pdg-ti-rat.jpeg",
-      "prez-aly.jpeg",
-      "prez-papit.jpeg",
-      "rooso.jpeg",
-      "roro-lajan.jpeg",
-      "roro23.jpeg",
-      "synthia-jn-baptiste.jpeg",
-      "tania.jpeg",
-      "the-only-1.jpeg",
-      "ti-chery.jpeg",
-      "ti-reynold.jpeg",
-      "ti_la_france.jpeg",
-      "ti_marasa.jpeg",
-      "ti_papouche.jpeg",
-      "toto-senkant.jpeg",
-      "valery2.jpeg",
-      "flore.jpeg",
-      "jij_mayan.jpeg",
-      "adia.jpeg",
-      "nnadia.png",
-      "roro-lajan2.jpeg",
-      "odeline.jpeg",
-      "dede.png"
+      "only-u.jpeg","ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","blackson.jpeg",
+      "nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg","roro-lajan.jpg",
+      "jeff-colin.jpg","fanfan.jpg","may.jpg","sonson1.jpg","warrens.jpg","majis-mauc.jpg",
+      "emaze.jpg","la-belle-yole.jpg","maximax-multi-serv.jpeg","queen-naylove.jpeg",
+      "macu-mv.jpg","ti-leta.jpg","anpere-ti-rat.jpg","mario.jpg","perodin.jpg","cange1.jpg",
+      "maximax1.jpg","nadege.jpg","sinndy.jpg","asmide.jpg","andre-asouman.jpg","one-love.jpg",
+      "slogan.jpg","ygens.jpg","prodin.jpeg","cange.jpg","ralph.jpg","slogan1.jpg","odelinne.jpg",
+      "jij-mayan.jpg","ti-marasa-yo.jpg","baron-plenn-lan.jpeg","bouboul.jpeg","bawon-an!.jpeg",
+      "brunel.jpeg","caldos.jpeg","cange2.jpeg","cols.jpeg","don-dodo.jpeg","doodly23.jpeg",
+      "doudou.jpeg","elson2.jpeg","guypson.jpeg","karl-henry.jpeg","kendy.jpeg",
+      "kriye-pou-fanm.jpeg","landry.jpeg","macu.jpeg","majis-junior.jpeg","mambo_fifi.jpeg",
+      "max-louis.jpeg","montinat.jpeg","michel-briyant.jpeg","nadege-b.jpeg","nnaylove.jpeg",
+      "ones-1.jpeg","paulema.jpeg","pdg-ti-rat.jpeg","prez-aly.jpeg","prez-papit.jpeg",
+      "rooso.jpeg","roro-lajan.jpeg","roro23.jpeg","synthia-jn-baptiste.jpeg","tania.jpeg",
+      "the-only-1.jpeg","ti-chery.jpeg","ti-reynold.jpeg","ti_la_france.jpeg","ti_marasa.jpeg",
+      "ti_papouche.jpeg","toto-senkant.jpeg","valery2.jpeg","flore.jpeg","jij_mayan.jpeg",
+      "adia.jpeg","nnadia.png","roro-lajan2.jpeg","odeline.jpeg","dede.png"
     ];
 
     const slidesContainer = document.getElementById("slidesContainer");
@@ -860,7 +843,6 @@
 
     function setLanguage(lang) {
       const t = translations[lang];
-
       document.getElementById("brandSub").textContent = t.brandSub;
       homeBtn.textContent = t.home;
       galleryBtn.textContent = t.gallery;
@@ -881,6 +863,16 @@
       document.getElementById("card3Text").textContent = t.card3Text;
       document.getElementById("card4Title").textContent = t.card4Title;
       document.getElementById("card4Text").textContent = t.card4Text;
+      document.getElementById("aboutTitle").textContent = t.aboutTitle;
+      document.getElementById("aboutText").textContent = t.aboutText;
+      document.getElementById("servicesTitle").textContent = t.servicesTitle;
+      document.getElementById("service1Title").textContent = t.service1Title;
+      document.getElementById("service1Text").textContent = t.service1Text;
+      document.getElementById("service2Title").textContent = t.service2Title;
+      document.getElementById("service2Text").textContent = t.service2Text;
+      document.getElementById("service3Title").textContent = t.service3Title;
+      document.getElementById("service3Text").textContent = t.service3Text;
+      document.getElementById("contactTitle").textContent = t.contactTitle;
       document.getElementById("galleryTitle").textContent = t.galleryTitle;
       document.getElementById("galleryLead").textContent = t.galleryLead;
 
@@ -906,4 +898,4 @@
     setLanguage("kre");
   </script>
 </body>
-</html>
+  </html>
