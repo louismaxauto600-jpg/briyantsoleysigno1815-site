@@ -100,6 +100,16 @@
   const slideCounter = document.getElementById("slideCounter");
   const progressBar = document.getElementById("progressBar");
 
+  const homeBtn = document.getElementById("homeBtn");
+  const galleryBtn = document.getElementById("galleryBtn");
+  const heroGalleryBtn = document.getElementById("heroGalleryBtn");
+  const heroHomeBtn = document.getElementById("heroHomeBtn");
+  const homePage = document.getElementById("homePage");
+  const galleryPage = document.getElementById("galleryPage");
+
+  const introOverlay = document.getElementById("introOverlay");
+  const owlWrap = document.getElementById("owlWrap");
+
   function prettyName(file) {
     let name = file
       .replace(".jpeg","")
@@ -129,12 +139,16 @@
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
   const slideDuration = 10000;
+  let slideInterval = null;
 
   function updateCounter() {
-    slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    if (slideCounter) {
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
   }
 
   function resetProgressBar() {
+    if (!progressBar) return;
     progressBar.style.transition = "none";
     progressBar.style.width = "0%";
     setTimeout(() => {
@@ -158,15 +172,12 @@
     showSlide(next);
   }
 
-  showSlide(0);
-  setInterval(nextSlide, slideDuration);
-
-  const homeBtn = document.getElementById("homeBtn");
-  const galleryBtn = document.getElementById("galleryBtn");
-  const heroGalleryBtn = document.getElementById("heroGalleryBtn");
-  const heroHomeBtn = document.getElementById("heroHomeBtn");
-  const homePage = document.getElementById("homePage");
-  const galleryPage = document.getElementById("galleryPage");
+  function startSlideshow() {
+    if (!slides.length) return;
+    showSlide(0);
+    if (slideInterval) clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideDuration);
+  }
 
   function showHome() {
     homePage.classList.add("active");
@@ -181,6 +192,7 @@
     homePage.classList.remove("active");
     galleryBtn.classList.add("active");
     homeBtn.classList.remove("active");
+    if (introOverlay) introOverlay.style.display = "none";
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -188,4 +200,18 @@
   galleryBtn.addEventListener("click", showGallery);
   heroGalleryBtn.addEventListener("click", showGallery);
   heroHomeBtn.addEventListener("click", showHome);
-                    </script>
+
+  /* OWL INTRO */
+  if (introOverlay && owlWrap) {
+    setTimeout(() => {
+      owlWrap.classList.add("fly-out");
+    }, 6000);
+
+    setTimeout(() => {
+      introOverlay.classList.add("fadeOut");
+      startSlideshow();
+    }, 8000);
+  } else {
+    startSlideshow();
+  }
+      </script>
