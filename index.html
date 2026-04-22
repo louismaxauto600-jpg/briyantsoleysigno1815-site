@@ -1,828 +1,137 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BSS 1815</title>
-  <style>
-    :root{
-      --orange:#ff7a00;
-      --black:#000000;
-    }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--black);
-      color:var(--orange);
-      overflow-x:hidden;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    button{
-      font-family:inherit;
-    }
-
-    .container{
-      width:min(96%, 1500px);
-      margin:0 auto;
-    }
-
-    /* NAVBAR */
-    .navbar{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:var(--black);
-      border-bottom:1px solid var(--orange);
-    }
-
-    .navbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      padding:14px 0;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:220px;
-    }
-
-    .brand img{
-      width:68px;
-      height:68px;
-      object-fit:cover;
-      border-radius:14px;
-      border:2px solid var(--orange);
-      background:var(--black);
-    }
-
-    .brand-text h1{
-      font-size:20px;
-      line-height:1;
-      color:var(--orange);
-      text-transform:uppercase;
-    }
-
-    .brand-text p{
-      font-size:11px;
-      color:var(--orange);
-      margin-top:4px;
-      letter-spacing:.6px;
-      text-transform:uppercase;
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-      justify-content:center;
-      flex:1;
-    }
-
-    .nav-links a{
-      color:var(--orange);
-      font-weight:700;
-      font-size:15px;
-      text-transform:uppercase;
-      padding:6px 0;
-      border-bottom:2px solid transparent;
-    }
-
-    .nav-links a.active,
-    .nav-links a:hover{
-      border-bottom-color:var(--orange);
-    }
-
-    .socials{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-
-    .social{
-      width:46px;
-      height:46px;
-      border:2px solid var(--orange);
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      color:var(--orange);
-      font-size:20px;
-      font-weight:700;
-    }
-
-    /* HERO */
-    .hero-wrap{
-      padding:20px 0 14px;
-      background:var(--black);
-    }
-
-    .hero-card{
-      position:relative;
-      border:2px solid var(--orange);
-      border-radius:28px;
-      overflow:hidden;
-      background:var(--black);
-      box-shadow:0 0 22px rgba(255,122,0,.12);
-    }
-
-    .hero-main{
-      display:grid;
-      grid-template-columns:1.45fr .9fr;
-      min-height:620px;
-    }
-
-    .hero-image{
-      position:relative;
-      background:#090909;
-      overflow:hidden;
-    }
-
-    .hero-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center top;
-      display:block;
-      filter:brightness(.92);
-    }
-
-    .hero-testimonial{
-      position:relative;
-      background:var(--black);
-      padding:56px 48px 34px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:22px;
-    }
-
-    .timer{
-      position:absolute;
-      top:24px;
-      right:24px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color:var(--orange);
-      font-weight:700;
-      font-size:18px;
-    }
-
-    .quote-mark{
-      font-size:110px;
-      line-height:.8;
-      color:var(--orange);
-      font-weight:900;
-      margin-top:12px;
-    }
-
-    .testimonial-text{
-      font-size:28px;
-      line-height:1.48;
-      color:#fff5ea;
-      font-style:italic;
-      max-width:520px;
-    }
-
-    .line{
-      width:68px;
-      height:4px;
-      background:var(--orange);
-      border-radius:999px;
-    }
-
-    .person-name{
-      font-size:34px;
-      font-weight:900;
-      text-transform:uppercase;
-      color:var(--orange);
-    }
-
-    .person-role{
-      font-size:18px;
-      color:#fff5ea;
-    }
-
-    .arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:64px;
-      height:64px;
-      border-radius:50%;
-      border:2px solid var(--orange);
-      display:grid;
-      place-items:center;
-      background:rgba(0,0,0,.55);
-      color:var(--orange);
-      font-size:42px;
-      cursor:pointer;
-      user-select:none;
-      z-index:5;
-    }
-
-    .arrow.left{
-      left:22px;
-    }
-
-    .arrow.right{
-      right:22px;
-    }
-
-    .hero-dots{
-      position:absolute;
-      left:50%;
-      bottom:28px;
-      transform:translateX(-50%);
-      display:flex;
-      gap:12px;
-      z-index:6;
-    }
-
-    .dot{
-      width:13px;
-      height:13px;
-      border-radius:50%;
-      border:2px solid #fff;
-      background:transparent;
-      cursor:pointer;
-      opacity:.95;
-    }
-
-    .dot.active{
-      background:var(--orange);
-      border-color:var(--orange);
-    }
-
-    /* THUMB STRIP */
-    .thumbs-wrap{
-      position:relative;
-      padding:18px 54px 28px;
-      border-top:1px solid rgba(255,122,0,.28);
-      background:var(--black);
-    }
-
-    .thumb-row{
-      display:grid;
-      grid-template-columns:repeat(10, minmax(110px, 1fr));
-      gap:14px;
-      overflow:hidden;
-    }
-
-    .thumb-card{
-      border:2px solid var(--orange);
-      border-radius:14px;
-      overflow:hidden;
-      background:var(--black);
-      cursor:pointer;
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-
-    .thumb-card.active,
-    .thumb-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 0 18px rgba(255,122,0,.18);
-    }
-
-    .thumb-card img{
-      width:100%;
-      height:120px;
-      object-fit:cover;
-      object-position:center top;
-      display:block;
-      background:#090909;
-    }
-
-    .thumb-name{
-      padding:10px 8px;
-      text-align:center;
-      color:#ffffff;
-      font-weight:800;
-      font-size:15px;
-      text-transform:uppercase;
-      background:rgba(0,0,0,.9);
-      border-top:1px solid rgba(255,122,0,.35);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .thumb-arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      border:2px solid var(--orange);
-      display:grid;
-      place-items:center;
-      background:var(--black);
-      color:var(--orange);
-      font-size:34px;
-      cursor:pointer;
-    }
-
-    .thumb-arrow.left{
-      left:0;
-    }
-
-    .thumb-arrow.right{
-      right:0;
-    }
-
-    /* FOOTER FEATURES */
-    .features{
-      border-top:1px solid rgba(255,122,0,.28);
-      padding:24px 0 34px;
-      background:var(--black);
-    }
-
-    .features-row{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-      align-items:center;
-    }
-
-    .feature{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:14px;
-      color:#fff5ea;
-      font-size:18px;
-      text-transform:uppercase;
-      text-align:center;
-    }
-
-    .feature-icon{
-      font-size:42px;
-      color:var(--orange);
-      line-height:1;
-    }
-
-    /* GALLERY SECTION */
-    .gallery-section{
-      padding:24px 0 50px;
-      background:var(--black);
-    }
-
-    .gallery-title{
-      color:var(--orange);
-      font-size:38px;
-      text-transform:uppercase;
-      text-align:center;
-      margin-bottom:18px;
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:16px;
-    }
-
-    .gallery-item{
-      border:2px solid var(--orange);
-      border-radius:18px;
-      overflow:hidden;
-      background:var(--black);
-    }
-
-    .gallery-item img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      object-position:center top;
-      display:block;
-      background:#090909;
-    }
-
-    .gallery-item p{
-      padding:12px;
-      text-align:center;
-      color:#fff;
-      font-weight:800;
-      text-transform:uppercase;
-      font-size:14px;
-    }
-
-    @media (max-width: 1180px){
-      .hero-main{
-        grid-template-columns:1fr;
-      }
-
-      .hero-testimonial{
-        padding:36px 26px 30px;
-      }
-
-      .testimonial-text{
-        font-size:23px;
-      }
-
-      .thumb-row{
-        grid-template-columns:repeat(5, minmax(110px, 1fr));
-      }
-    }
-
-    @media (max-width: 760px){
-      .brand img{
-        width:56px;
-        height:56px;
-      }
-
-      .brand-text h1{
-        font-size:16px;
-      }
-
-      .nav-links{
-        gap:12px;
-      }
-
-      .nav-links a{
-        font-size:13px;
-      }
-
-      .social{
-        width:40px;
-        height:40px;
-        font-size:17px;
-      }
-
-      .hero-main{
-        min-height:auto;
-      }
-
-      .hero-image{
-        min-height:360px;
-      }
-
-      .hero-testimonial{
-        padding:28px 20px 24px;
-      }
-
-      .quote-mark{
-        font-size:76px;
-      }
-
-      .testimonial-text{
-        font-size:18px;
-        line-height:1.55;
-      }
-
-      .person-name{
-        font-size:26px;
-      }
-
-      .person-role{
-        font-size:16px;
-      }
-
-      .arrow{
-        width:48px;
-        height:48px;
-        font-size:30px;
-      }
-
-      .arrow.left{
-        left:12px;
-      }
-
-      .arrow.right{
-        right:12px;
-      }
-
-      .thumbs-wrap{
-        padding:16px 40px 22px;
-      }
-
-      .thumb-row{
-        grid-template-columns:repeat(2, minmax(120px, 1fr));
-      }
-
-      .features-row{
-        grid-template-columns:1fr;
-      }
-
-      .feature{
-        justify-content:flex-start;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSS 1815</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#000;
+  color:#ff7a00;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  border-bottom:2px solid #ff7a00;
+}
+
+nav img{
+  width:60px;
+}
+
+nav h1{
+  font-size:18px;
+}
+
+nav button{
+  background:#ff7a00;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* SLIDESHOW */
+.slideshow{
+  position:relative;
+  height:80vh;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:1s;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+  padding:20px;
+}
+
+.gallery img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border:2px solid #ff7a00;
+}
+</style>
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="container navbar-inner">
-      <div class="brand">
-        <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
-        <div class="brand-text">
-          <h1>BSS</h1>
-          <p>BOSS SOLUTION SERVICES</p>
-        </div>
-      </div>
 
-      <div class="nav-links">
-        <a href="#" class="active">AKÈY</a>
-        <a href="#">SÈVIS NOU YO</a>
-        <a href="#">ATIS YO</a>
-        <a href="#">GALRI</a>
-        <a href="#">SOU NOU</a>
-        <a href="#">KONTAK</a>
-      </div>
+<nav>
+  <img src="bss-logo-ofisyel.jpeg">
+  <h1>BSS 1815</h1>
+</nav>
 
-      <div class="socials">
-        <a class="social" href="#" aria-label="Facebook">f</a>
-        <a class="social" href="#" aria-label="Instagram">◎</a>
-        <a class="social" href="#" aria-label="YouTube">▶</a>
-        <a class="social" href="#" aria-label="TikTok">♪</a>
-      </div>
-    </div>
-  </nav>
+<div class="slideshow" id="slideshow"></div>
 
-  <section class="hero-wrap">
-    <div class="container hero-card">
-      <div class="arrow left" id="prevHero">‹</div>
-      <div class="arrow right" id="nextHero">›</div>
+<div class="gallery" id="gallery"></div>
 
-      <div class="hero-main">
-        <div class="hero-image">
-          <img id="heroImage" src="" alt="Hero image">
-        </div>
+<script>
 
-        <div class="hero-testimonial">
-          <div class="timer">◷ <span id="timerText">10s</span></div>
-          <div class="quote-mark">“</div>
-          <div class="testimonial-text" id="testimonialText"></div>
-          <div class="line"></div>
-          <div class="person-name" id="personName"></div>
-          <div class="person-role" id="personRole"></div>
-        </div>
-      </div>
+const images = [
+"only-u.jpeg","ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","blackson.jpeg",
+"nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg",
+"roro-lajan.jpg","jeff-colin.jpg","fanfan.jpg","anpere-ti-rat.jpg",
+"mario.jpg","perodin.jpg","cange1.jpg","maximax1.jpg","nadege.jpg",
+"sinndy.jpg","may.jpg","asmide.jpg","andre-asouman.jpg","one-love.jpg",
+"slogan.jpg","sonson1.jpg","ygens.jpg","prodin.jpeg","cange.jpg",
+"ralph.jpg","slogan1.jpg","odelinne.jpg","jij-mayan.jpg","warrens.jpg",
+"ti-marasa-yo.jpg","majis-mauc.jpg","emaze.jpg","la-belle-yole.jpg",
+"maximax-multi-serv.jpeg","queen-naylove.jpeg","macu-mv.jpg","ti-leta.jpg"
+];
 
-      <div class="hero-dots" id="heroDots"></div>
+const slideshow = document.getElementById("slideshow");
+const gallery = document.getElementById("gallery");
 
-      <div class="thumbs-wrap">
-        <div class="thumb-arrow left" id="prevThumbs">‹</div>
-        <div class="thumb-arrow right" id="nextThumbs">›</div>
-        <div class="thumb-row" id="thumbRow"></div>
-      </div>
-    </div>
-  </section>
+images.forEach((img,i)=>{
+  // slideshow
+  let s = document.createElement("div");
+  s.className="slide";
+  if(i===0) s.classList.add("active");
+  s.innerHTML=`<img src="${img}">`;
+  slideshow.appendChild(s);
 
-  <section class="features">
-    <div class="container features-row">
-      <div class="feature">
-        <div class="feature-icon">♛</div>
-        <div>ATIS YO SE FAMI NOU</div>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">★</div>
-        <div>100% PROFESYONÈL</div>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🛡</div>
-        <div>KONFIDANSYALITE GARANTI</div>
-      </div>
-    </div>
-  </section>
+  // gallery
+  let g = document.createElement("img");
+  g.src=img;
+  gallery.appendChild(g);
+});
 
-  <section class="gallery-section">
-    <div class="container">
-      <h2 class="gallery-title">Galri</h2>
-      <div class="gallery-grid" id="galleryGrid"></div>
-    </div>
-  </section>
+let slides=document.querySelectorAll(".slide");
+let index=0;
 
-  <script>
-    const slides = [
-      {
-        image: "ange.jpeg",
-        name: "ANGE",
-        role: "Atis / Kliyan BSS",
-        text: "BSS se pi bon eksperyans m te janm genyen nan lavi m. Se yo menm ki okipe tout bizin mizik mwen yo ak yon pwofesyonalis ekstrèm. Mwen rekòmande yo 100% !"
-      },
-      {
-        image: "adan-signo.jpeg",
-        name: "ADAN SIGNO",
-        role: "Atis / Kliyan BSS",
-        text: "Mwen jwenn disiplin, respè ak bon jan sèvis. BSS toujou fè bagay yo ak klas ak presizyon."
-      },
-      {
-        image: "andy.jpeg",
-        name: "ANDY",
-        role: "Atis / Kliyan BSS",
-        text: "Chak fwa mwen bezwen vizibilite ak òganizasyon, BSS toujou la pou delivre yon travay pwòp ak serye."
-      },
-      {
-        image: "badin.jpeg",
-        name: "BADIN",
-        role: "Atis / Kliyan BSS",
-        text: "BSS ban mwen konfyans paske yo travay ak bon jan enèji, konsyans ak yon gwo sans pwofesyonalis."
-      },
-      {
-        image: "baron-plenn-lan.jpeg",
-        name: "BARON PLENN LAN",
-        role: "Atis / Kliyan BSS",
-        text: "Se youn nan ekip ki pi serye mwen konnen. Yo bay rezilta ki klè, rapid epi byen prezante."
-      },
-      {
-        image: "blackson.jpeg",
-        name: "BLACKSON",
-        role: "Atis / Kliyan BSS",
-        text: "Mwen renmen fason BSS mete atis yo an avan. Yo fè travay la avèk respè ak anpil valè."
-      },
-      {
-        image: "bouboul.jpeg",
-        name: "BOUBOUL",
-        role: "Atis / Kliyan BSS",
-        text: "Sèvis yo toujou byen fèt, byen planifye, epi yo konnen kijan pou bay moun bon eksperyans."
-      },
-      {
-        image: "bawon-an!.jpeg",
-        name: "BAWON AN!",
-        role: "Atis / Kliyan BSS",
-        text: "BSS pa jwe ak kalite. Se travay solid, imaj solid, ak sèvis ki bay rezilta."
-      },
-      {
-        image: "brunel.jpeg",
-        name: "BRUNEL",
-        role: "Atis / Kliyan BSS",
-        text: "Lè BSS pran yon dosye, ou santi diferans lan tousuit. Yo travay ak klas."
-      },
-      {
-        image: "caldos.jpeg",
-        name: "CALDOS",
-        role: "Atis / Kliyan BSS",
-        text: "Mwen remèsye BSS pou nivo sèvis yo. Yo fè moun santi yo enpòtan e yo bay bon rezilta."
-      }
-    ];
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},4000);
 
-    const galleryImages = [
-      "ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","baron-plenn-lan.jpeg",
-      "blackson.jpeg","bouboul.jpeg","bawon-an!.jpeg","brunel.jpeg","caldos.jpeg",
-      "fanfan.jpg","may.jpg","sonson1.jpg","warrens.jpg","majis-mauc.jpg",
-      "emaze.jpg","la-belle-yole.jpg","maximax-multi-serv.jpeg","queen-naylove.jpeg",
-      "macu-mv.jpg","ti-leta.jpg","mario.jpg","jeff-colin.jpg","ygens.jpg"
-    ];
+</script>
 
-    const heroImage = document.getElementById("heroImage");
-    const testimonialText = document.getElementById("testimonialText");
-    const personName = document.getElementById("personName");
-    const personRole = document.getElementById("personRole");
-    const heroDots = document.getElementById("heroDots");
-    const thumbRow = document.getElementById("thumbRow");
-    const galleryGrid = document.getElementById("galleryGrid");
-
-    let current = 0;
-    let thumbStart = 0;
-    const visibleThumbs = 10;
-    let slideInterval;
-
-    function renderHero(index){
-      const item = slides[index];
-      heroImage.src = item.image;
-      heroImage.alt = item.name;
-      testimonialText.textContent = item.text;
-      personName.textContent = item.name;
-      personRole.textContent = item.role;
-
-      [...heroDots.children].forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
-
-      [...thumbRow.children].forEach((card, i) => {
-        const actualIndex = thumbStart + i;
-        card.classList.toggle("active", actualIndex === index);
-      });
-    }
-
-    function nextSlide(){
-      current = (current + 1) % slides.length;
-      if(current >= thumbStart + visibleThumbs){
-        thumbStart = current;
-        renderThumbs();
-      }
-      renderHero(current);
-    }
-
-    function prevSlide(){
-      current = (current - 1 + slides.length) % slides.length;
-      if(current < thumbStart){
-        thumbStart = Math.max(0, current - visibleThumbs + 1);
-        renderThumbs();
-      }
-      renderHero(current);
-    }
-
-    function startAuto(){
-      clearInterval(slideInterval);
-      slideInterval = setInterval(nextSlide, 10000);
-    }
-
-    function renderDots(){
-      heroDots.innerHTML = "";
-      slides.forEach((_, i) => {
-        const dot = document.createElement("button");
-        dot.className = "dot";
-        dot.type = "button";
-        dot.addEventListener("click", () => {
-          current = i;
-          if(current < thumbStart || current >= thumbStart + visibleThumbs){
-            thumbStart = Math.min(current, Math.max(0, slides.length - visibleThumbs));
-            renderThumbs();
-          }
-          renderHero(current);
-          startAuto();
-        });
-        heroDots.appendChild(dot);
-      });
-    }
-
-    function renderThumbs(){
-      thumbRow.innerHTML = "";
-      const visible = slides.slice(thumbStart, thumbStart + visibleThumbs);
-
-      visible.forEach((item, idx) => {
-        const actualIndex = thumbStart + idx;
-        const card = document.createElement("div");
-        card.className = "thumb-card";
-        card.innerHTML = `
-          <img src="${item.image}" alt="${item.name}">
-          <div class="thumb-name">${item.name}</div>
-        `;
-        card.addEventListener("click", () => {
-          current = actualIndex;
-          renderHero(current);
-          startAuto();
-        });
-        thumbRow.appendChild(card);
-      });
-    }
-
-    function renderGallery(){
-      galleryGrid.innerHTML = "";
-      galleryImages.forEach((img) => {
-        const cleanName = img
-          .replace(".jpeg","")
-          .replace(".jpg","")
-          .replace(".png","")
-          .replace(/[-_]/g," ")
-          .replace(/\b\w/g, c => c.toUpperCase());
-
-        const item = document.createElement("div");
-        item.className = "gallery-item";
-        item.innerHTML = `
-          <img src="${img}" alt="${cleanName}">
-          <p>${cleanName}</p>
-        `;
-        galleryGrid.appendChild(item);
-      });
-    }
-
-    document.getElementById("nextHero").addEventListener("click", () => {
-      nextSlide();
-      startAuto();
-    });
-
-    document.getElementById("prevHero").addEventListener("click", () => {
-      prevSlide();
-      startAuto();
-    });
-
-    document.getElementById("nextThumbs").addEventListener("click", () => {
-      thumbStart = Math.min(thumbStart + 1, Math.max(0, slides.length - visibleThumbs));
-      renderThumbs();
-      renderHero(current);
-    });
-
-    document.getElementById("prevThumbs").addEventListener("click", () => {
-      thumbStart = Math.max(thumbStart - 1, 0);
-      renderThumbs();
-      renderHero(current);
-    });
-
-    renderDots();
-    renderThumbs();
-    renderHero(current);
-    renderGallery();
-    startAuto();
-  </script>
 </body>
 </html>
