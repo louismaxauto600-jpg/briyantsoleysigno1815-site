@@ -1,137 +1,764 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSS 1815</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSS 1815</title>
+  <style>
+    :root{
+      --orange:#ff7a00;
+      --black:#000000;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#000;
-  color:#ff7a00;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-/* NAVBAR */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  border-bottom:2px solid #ff7a00;
-}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--black);
+      color:var(--orange);
+      overflow-x:hidden;
+    }
 
-nav img{
-  width:60px;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-nav h1{
-  font-size:18px;
-}
+    button{
+      font-family:inherit;
+      cursor:pointer;
+    }
 
-nav button{
-  background:#ff7a00;
-  border:none;
-  padding:8px 12px;
-  cursor:pointer;
-  font-weight:bold;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      width:100%;
+      background:var(--black);
+      border-bottom:1px solid var(--orange);
+    }
 
-/* SLIDESHOW */
-.slideshow{
-  position:relative;
-  height:80vh;
-  overflow:hidden;
-}
+    .topbar-inner{
+      max-width:1400px;
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
 
-.slide{
-  position:absolute;
-  width:100%;
-  height:100%;
-  opacity:0;
-  transition:1s;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
-.slide.active{
-  opacity:1;
-}
+    .brand img{
+      width:54px;
+      height:54px;
+      object-fit:cover;
+      border-radius:50%;
+      border:2px solid var(--orange);
+      background:var(--black);
+    }
 
-.slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
 
-/* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-  padding:20px;
-}
+    .brand-text h1{
+      font-size:18px;
+      color:var(--orange);
+      text-transform:uppercase;
+      line-height:1;
+    }
 
-.gallery img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  border:2px solid #ff7a00;
-}
-</style>
+    .brand-text p{
+      font-size:11px;
+      color:var(--orange);
+      text-transform:uppercase;
+      letter-spacing:.6px;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav button{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--orange);
+      background:var(--black);
+      color:var(--orange);
+      font-weight:700;
+    }
+
+    .nav button.active,
+    .nav button:hover{
+      background:var(--orange);
+      color:var(--black);
+    }
+
+    .page{
+      display:none;
+      min-height:100vh;
+    }
+
+    .page.active{
+      display:block;
+    }
+
+    .hero{
+      position:relative;
+      min-height:76vh;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      border-bottom:1px solid rgba(255,122,0,.25);
+    }
+
+    .hero-left{
+      position:relative;
+      overflow:hidden;
+      background:var(--black);
+      min-height:520px;
+    }
+
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:opacity 1s ease-in-out;
+    }
+
+    .hero-slide.active{
+      opacity:1;
+    }
+
+    .hero-slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      display:block;
+      filter:brightness(.7);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.22)),
+        radial-gradient(circle at center, rgba(255,122,0,.12), transparent 45%);
+      z-index:2;
+    }
+
+    .hero-content{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:3;
+      padding:36px;
+      max-width:760px;
+    }
+
+    .hero-content img{
+      width:86px;
+      height:86px;
+      object-fit:cover;
+      border-radius:50%;
+      border:2px solid var(--orange);
+      margin-bottom:16px;
+      background:var(--black);
+    }
+
+    .hero-content h2{
+      font-size:clamp(30px,5vw,62px);
+      line-height:1.02;
+      text-transform:uppercase;
+      color:var(--orange);
+      margin-bottom:14px;
+    }
+
+    .hero-content p{
+      font-size:clamp(14px,1.8vw,20px);
+      line-height:1.6;
+      color:var(--orange);
+      max-width:620px;
+      margin-bottom:20px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .hero-buttons button{
+      padding:13px 18px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid var(--orange);
+      background:var(--black);
+      color:var(--orange);
+    }
+
+    .hero-buttons .primary{
+      background:var(--orange);
+      color:var(--black);
+    }
+
+    .hero-right{
+      background:var(--black);
+      border-left:1px solid rgba(255,122,0,.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:36px 28px;
+    }
+
+    .testimonial{
+      width:100%;
+      max-width:520px;
+      border:1px solid var(--orange);
+      border-radius:24px;
+      padding:30px 26px;
+      background:var(--black);
+    }
+
+    .quote{
+      font-size:88px;
+      line-height:.8;
+      color:var(--orange);
+      margin-bottom:10px;
+    }
+
+    .testimonial-text{
+      font-size:24px;
+      line-height:1.55;
+      color:var(--orange);
+      margin-bottom:20px;
+    }
+
+    .testimonial-line{
+      width:70px;
+      height:4px;
+      background:var(--orange);
+      margin-bottom:18px;
+      border-radius:999px;
+    }
+
+    .testimonial-name{
+      font-size:28px;
+      font-weight:900;
+      text-transform:uppercase;
+      color:var(--orange);
+      margin-bottom:6px;
+    }
+
+    .testimonial-role{
+      font-size:16px;
+      color:var(--orange);
+    }
+
+    .counter{
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      z-index:4;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--orange);
+      background:var(--black);
+      color:var(--orange);
+      font-weight:700;
+    }
+
+    .progress-wrap{
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:4px;
+      background:var(--black);
+      z-index:4;
+    }
+
+    .progress-bar{
+      width:0%;
+      height:100%;
+      background:var(--orange);
+      transition:width 8s linear;
+    }
+
+    .section{
+      max-width:1400px;
+      margin:0 auto;
+      padding:42px 18px;
+    }
+
+    .section h3{
+      text-align:center;
+      color:var(--orange);
+      text-transform:uppercase;
+      font-size:clamp(24px,4vw,40px);
+      margin-bottom:14px;
+    }
+
+    .section .lead{
+      max-width:900px;
+      margin:0 auto 28px;
+      text-align:center;
+      line-height:1.7;
+      color:var(--orange);
+      font-size:16px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+
+    .card{
+      border:1px solid var(--orange);
+      border-radius:18px;
+      padding:22px;
+      background:var(--black);
+    }
+
+    .card h4{
+      font-size:20px;
+      color:var(--orange);
+      margin-bottom:10px;
+      text-transform:uppercase;
+    }
+
+    .card p{
+      color:var(--orange);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .gallery-header{
+      max-width:1400px;
+      margin:0 auto;
+      padding:30px 18px 10px;
+      text-align:center;
+    }
+
+    .gallery-header h3{
+      color:var(--orange);
+      text-transform:uppercase;
+      font-size:clamp(26px,4vw,42px);
+      margin-bottom:10px;
+    }
+
+    .gallery-header p{
+      max-width:900px;
+      margin:0 auto;
+      color:var(--orange);
+      line-height:1.7;
+    }
+
+    .gallery-grid{
+      max-width:1400px;
+      margin:0 auto;
+      padding:20px 18px 50px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:14px;
+    }
+
+    .gallery-item{
+      border:1px solid var(--orange);
+      border-radius:18px;
+      overflow:hidden;
+      background:var(--black);
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      object-position:center top;
+      display:block;
+      background:var(--black);
+    }
+
+    .gallery-item p{
+      padding:12px;
+      text-align:center;
+      text-transform:uppercase;
+      color:var(--orange);
+      font-weight:700;
+      font-size:14px;
+      border-top:1px solid rgba(255,122,0,.25);
+    }
+
+    @media (max-width: 980px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .hero-right{
+        border-left:none;
+        border-top:1px solid rgba(255,122,0,.25);
+      }
+
+      .hero-left{
+        min-height:420px;
+      }
+
+      .testimonial-text{
+        font-size:20px;
+      }
+    }
+
+    @media (max-width: 700px){
+      .topbar-inner{
+        justify-content:center;
+      }
+
+      .nav{
+        justify-content:center;
+      }
+
+      .hero-left{
+        min-height:340px;
+      }
+
+      .hero-content{
+        padding:24px 18px;
+      }
+
+      .hero-content img{
+        width:72px;
+        height:72px;
+      }
+
+      .hero-content h2{
+        font-size:30px;
+      }
+
+      .hero-buttons button{
+        width:100%;
+      }
+
+      .quote{
+        font-size:64px;
+      }
+
+      .testimonial-text{
+        font-size:17px;
+      }
+
+      .testimonial-name{
+        font-size:22px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-  <img src="bss-logo-ofisyel.jpeg">
-  <h1>BSS 1815</h1>
-</nav>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
+        <div class="brand-text">
+          <h1>BSS 1815</h1>
+          <p>Homepage Backup Clean</p>
+        </div>
+      </div>
 
-<div class="slideshow" id="slideshow"></div>
+      <div class="nav">
+        <button class="active" id="homeBtn" type="button">HOME</button>
+        <button id="galleryBtn" type="button">GALERI</button>
+      </div>
+    </div>
+  </header>
 
-<div class="gallery" id="gallery"></div>
+  <main id="homePage" class="page active">
+    <section class="hero">
+      <div class="hero-left">
+        <div id="slidesContainer"></div>
+        <div class="hero-overlay"></div>
 
-<script>
+        <div class="hero-content">
+          <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
+          <h2>BRIYANT SOLÈY SIGNO 1815</h2>
+          <p>
+            BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
+            Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm,
+            fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.
+          </p>
+          <div class="hero-buttons">
+            <button class="primary" id="heroGalleryBtn" type="button">ANTRE NAN GALERI A</button>
+            <button id="heroHomeBtn" type="button">HOMEPAGE OFISYÈL</button>
+          </div>
+        </div>
 
-const images = [
-"only-u.jpeg","ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","blackson.jpeg",
-"nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg",
-"roro-lajan.jpg","jeff-colin.jpg","fanfan.jpg","anpere-ti-rat.jpg",
-"mario.jpg","perodin.jpg","cange1.jpg","maximax1.jpg","nadege.jpg",
-"sinndy.jpg","may.jpg","asmide.jpg","andre-asouman.jpg","one-love.jpg",
-"slogan.jpg","sonson1.jpg","ygens.jpg","prodin.jpeg","cange.jpg",
-"ralph.jpg","slogan1.jpg","odelinne.jpg","jij-mayan.jpg","warrens.jpg",
-"ti-marasa-yo.jpg","majis-mauc.jpg","emaze.jpg","la-belle-yole.jpg",
-"maximax-multi-serv.jpeg","queen-naylove.jpeg","macu-mv.jpg","ti-leta.jpg"
-];
+        <div class="counter" id="slideCounter"></div>
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
 
-const slideshow = document.getElementById("slideshow");
-const gallery = document.getElementById("gallery");
+      <div class="hero-right">
+        <div class="testimonial">
+          <div class="quote">“</div>
+          <div class="testimonial-text">
+            BSS 1815 se plis pase yon non. Se yon direksyon, yon respè,
+            ak yon prezans ki make lespri moun.
+          </div>
+          <div class="testimonial-line"></div>
+          <div class="testimonial-name">BSS WAY</div>
+          <div class="testimonial-role">Orange ak nwa sèlman</div>
+        </div>
+      </div>
+    </section>
 
-images.forEach((img,i)=>{
-  // slideshow
-  let s = document.createElement("div");
-  s.className="slide";
-  if(i===0) s.classList.add("active");
-  s.innerHTML=`<img src="${img}">`;
-  slideshow.appendChild(s);
+    <section class="section">
+      <h3>BYENVINI SOU PLATFÒM OFISYÈL LA</h3>
+      <p class="lead">
+        Paj sa a fèt pou mete an valè eritaj, prezans, ak imaj Briyant Solèy Signo 1815.
+        Tout foto, tout figi, ak tout moman yo pote istwa bann lan ak fyète.
+      </p>
 
-  // gallery
-  let g = document.createElement("img");
-  g.src=img;
-  gallery.appendChild(g);
-});
+      <div class="cards">
+        <div class="card">
+          <h4>Vizyon</h4>
+          <p>BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.</p>
+        </div>
+        <div class="card">
+          <h4>Fanbase</h4>
+          <p>Se fanatik yo ki bay chalè, mouvman, ak lavi. Chak foto isit la se yon moso temwayaj.</p>
+        </div>
+        <div class="card">
+          <h4>Onè</h4>
+          <p>Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.</p>
+        </div>
+        <div class="card">
+          <h4>Enèji</h4>
+          <p>Orange ak nwa yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-let slides=document.querySelectorAll(".slide");
-let index=0;
+  <main id="galleryPage" class="page">
+    <div class="gallery-header">
+      <h3>GALERI BSS 1815</h3>
+      <p>Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </main>
 
-setInterval(()=>{
-  slides[index].classList.remove("active");
-  index=(index+1)%slides.length;
-  slides[index].classList.add("active");
-},4000);
+  <script>
+    const allImages = [
+      "only-u.jpeg",
+      "ange.jpeg",
+      "adan-signo.jpeg",
+      "andy.jpeg",
+      "badin.jpeg",
+      "blackson.jpeg",
+      "nadia-lafortune.jpg",
+      "macu1.jpg",
+      "pdg-ti-fre.jpg",
+      "mambo-fifi.jpg",
+      "roro-lajan.jpg",
+      "jeff-colin.jpg",
+      "fanfan.jpg",
+      "may.jpg",
+      "sonson1.jpg",
+      "warrens.jpg",
+      "majis-mauc.jpg",
+      "emaze.jpg",
+      "la-belle-yole.jpg",
+      "maximax-multi-serv.jpeg",
+      "queen-naylove.jpeg",
+      "macu-mv.jpg",
+      "ti-leta.jpg",
+      "anpere-ti-rat.jpg",
+      "mario.jpg",
+      "perodin.jpg",
+      "cange1.jpg",
+      "maximax1.jpg",
+      "nadege.jpg",
+      "sinndy.jpg",
+      "asmide.jpg",
+      "andre-asouman.jpg",
+      "one-love.jpg",
+      "slogan.jpg",
+      "ygens.jpg",
+      "prodin.jpeg",
+      "cange.jpg",
+      "ralph.jpg",
+      "slogan1.jpg",
+      "odelinne.jpg",
+      "jij-mayan.jpg",
+      "ti-marasa-yo.jpg",
+      "baron-plenn-lan.jpeg",
+      "bouboul.jpeg",
+      "bawon-an!.jpeg",
+      "brunel.jpeg",
+      "caldos.jpeg",
+      "cange2.jpeg",
+      "cols.jpeg",
+      "don-dodo.jpeg",
+      "doodly23.jpeg",
+      "doudou.jpeg",
+      "elson2.jpeg",
+      "guypson.jpeg",
+      "karl-henry.jpeg",
+      "kendy.jpeg",
+      "kriye-pou-fanm.jpeg",
+      "landry.jpeg",
+      "macu.jpeg",
+      "majis-junior.jpeg",
+      "mambo_fifi.jpeg",
+      "max-louis.jpeg",
+      "montinat.jpeg",
+      "michel-briyant.jpeg",
+      "nadege-b.jpeg",
+      "nnaylove.jpeg",
+      "ones-1.jpeg",
+      "paulema.jpeg",
+      "pdg-ti-rat.jpeg",
+      "prez-aly.jpeg",
+      "prez-papit.jpeg",
+      "rooso.jpeg",
+      "roro-lajan.jpeg",
+      "roro23.jpeg",
+      "synthia-jn-baptiste.jpeg",
+      "tania.jpeg",
+      "the-only-1.jpeg",
+      "ti-chery.jpeg",
+      "ti-reynold.jpeg",
+      "ti_la_france.jpeg",
+      "ti_marasa.jpeg",
+      "ti_papouche.jpeg",
+      "toto-senkant.jpeg",
+      "valery2.jpeg",
+      "flore.jpeg",
+      "jij_mayan.jpeg",
+      "adia.jpeg",
+      "nnadia.png",
+      "roro-lajan2.jpeg",
+      "odeline.jpeg",
+      "dede.png"
+    ];
 
-</script>
+    const slidesContainer = document.getElementById("slidesContainer");
+    const galleryGrid = document.getElementById("galleryGrid");
+    const slideCounter = document.getElementById("slideCounter");
+    const progressBar = document.getElementById("progressBar");
 
+    const homeBtn = document.getElementById("homeBtn");
+    const galleryBtn = document.getElementById("galleryBtn");
+    const heroGalleryBtn = document.getElementById("heroGalleryBtn");
+    const heroHomeBtn = document.getElementById("heroHomeBtn");
+    const homePage = document.getElementById("homePage");
+    const galleryPage = document.getElementById("galleryPage");
+
+    function prettyName(file) {
+      let name = file
+        .replace(".jpeg","")
+        .replace(".jpg","")
+        .replace(".png","")
+        .replace(/[-_]/g," ");
+      return name.replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+    allImages.forEach((file) => {
+      const name = prettyName(file);
+
+      const slide = document.createElement("div");
+      slide.className = "hero-slide";
+      slide.innerHTML = `<img src="${file}" alt="${name}">`;
+      slidesContainer.appendChild(slide);
+
+      const item = document.createElement("div");
+      item.className = "gallery-item";
+      item.innerHTML = `
+        <img src="${file}" alt="${name}">
+        <p>${name}</p>
+      `;
+      galleryGrid.appendChild(item);
+    });
+
+    const slides = document.querySelectorAll(".hero-slide");
+    let currentSlide = 0;
+    const slideDuration = 8000;
+    let slideInterval = null;
+
+    function updateCounter() {
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+
+    function resetProgressBar() {
+      progressBar.style.transition = "none";
+      progressBar.style.width = "0%";
+      setTimeout(() => {
+        progressBar.style.transition = `width ${slideDuration}ms linear`;
+        progressBar.style.width = "100%";
+      }, 60);
+    }
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      currentSlide = index;
+      updateCounter();
+      resetProgressBar();
+    }
+
+    function nextSlide() {
+      let next = currentSlide + 1;
+      if (next >= slides.length) next = 0;
+      showSlide(next);
+    }
+
+    function startSlideshow() {
+      if (!slides.length) return;
+      showSlide(0);
+      if (slideInterval) clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, slideDuration);
+    }
+
+    function showHome() {
+      homePage.classList.add("active");
+      galleryPage.classList.remove("active");
+      homeBtn.classList.add("active");
+      galleryBtn.classList.remove("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showGallery() {
+      galleryPage.classList.add("active");
+      homePage.classList.remove("active");
+      galleryBtn.classList.add("active");
+      homeBtn.classList.remove("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    homeBtn.addEventListener("click", showHome);
+    galleryBtn.addEventListener("click", showGallery);
+    heroGalleryBtn.addEventListener("click", showGallery);
+    heroHomeBtn.addEventListener("click", showHome);
+
+    startSlideshow();
+  </script>
 </body>
 </html>
