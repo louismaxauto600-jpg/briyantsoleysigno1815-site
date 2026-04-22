@@ -30,6 +30,8 @@
       padding:10px 16px;
       background:#000000;
       border-bottom:1px solid #ff7a00;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
     .brand{
@@ -54,14 +56,23 @@
       color:#ff7a00;
     }
 
-    .nav{
+    .topbar-right{
       display:flex;
+      align-items:center;
       gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
 
-    .nav button{
+    .nav,
+    .lang-switch{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .nav button,
+    .lang-switch button{
       padding:8px 12px;
       border-radius:20px;
       border:1px solid #ff7a00;
@@ -72,7 +83,9 @@
     }
 
     .nav button.active,
-    .nav button:hover{
+    .nav button:hover,
+    .lang-switch button.active,
+    .lang-switch button:hover{
       background:#ff7a00;
       color:#000000;
     }
@@ -137,7 +150,7 @@
 
     #homePage,
     #galleryPage{
-      padding-top:64px;
+      padding-top:74px;
       min-height:100vh;
     }
 
@@ -382,15 +395,13 @@
     @media (max-width:768px){
       .topbar{
         padding:10px 12px;
-        gap:10px;
-        flex-wrap:wrap;
       }
 
       .brand span{
         font-size:11px;
       }
 
-      .nav{
+      .topbar-right{
         width:100%;
         justify-content:center;
       }
@@ -437,12 +448,20 @@
   <header class="topbar">
     <div class="brand">
       <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
-      <span>BRIYANT SOLÈY SIGNO 1815</span>
+      <span id="brandText">BRIYANT SOLÈY SIGNO 1815</span>
     </div>
 
-    <div class="nav">
-      <button class="active" id="homeBtn" type="button">HOME</button>
-      <button id="galleryBtn" type="button">GALERI</button>
+    <div class="topbar-right">
+      <div class="nav">
+        <button class="active" id="homeBtn" type="button">HOME</button>
+        <button id="galleryBtn" type="button">GALERI</button>
+      </div>
+
+      <div class="lang-switch">
+        <button class="active" id="kreBtn" type="button">KRE</button>
+        <button id="franBtn" type="button">FRAN</button>
+        <button id="engBtn" type="button">ENG</button>
+      </div>
     </div>
   </header>
 
@@ -453,8 +472,8 @@
 
       <div class="hero-content">
         <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo" class="hero-logo">
-        <h1>BRIYANT SOLÈY SIGNO 1815</h1>
-        <p>
+        <h1 id="heroTitle">BRIYANT SOLÈY SIGNO 1815</h1>
+        <p id="heroText">
           BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
           Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm,
           fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.
@@ -474,28 +493,28 @@
 
     <section class="section">
       <div class="section-inner">
-        <h2>BYENVINI SOU PLATFÒM OFISYÈL LA</h2>
-        <p class="lead">
+        <h2 id="welcomeTitle">BYENVINI SOU PLATFÒM OFISYÈL LA</h2>
+        <p class="lead" id="welcomeLead">
           Paj sa a fèt pou mete an valè eritaj, prezans, ak imaj Briyant Solèy Signo 1815.
           Tout foto, tout figi, ak tout moman yo pote istwa bann lan ak fyète.
         </p>
 
         <div class="cards">
           <div class="card">
-            <h3>Vizyon</h3>
-            <p>BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.</p>
+            <h3 id="card1Title">Vizyon</h3>
+            <p id="card1Text">BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.</p>
           </div>
           <div class="card">
-            <h3>Fanbase</h3>
-            <p>Se fanatik yo ki bay chalè, mouvman, ak lavi. Chak foto isit la se yon moso temwayaj.</p>
+            <h3 id="card2Title">Fanbase</h3>
+            <p id="card2Text">Se fanatik yo ki bay chalè, mouvman, ak lavi. Chak foto isit la se yon moso temwayaj.</p>
           </div>
           <div class="card">
-            <h3>Onè</h3>
-            <p>Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.</p>
+            <h3 id="card3Title">Onè</h3>
+            <p id="card3Text">Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.</p>
           </div>
           <div class="card">
-            <h3>Enèji</h3>
-            <p>Orange ak nwa yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.</p>
+            <h3 id="card4Title">Enèji</h3>
+            <p id="card4Text">Orange ak nwa yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.</p>
           </div>
         </div>
       </div>
@@ -504,14 +523,77 @@
 
   <main id="galleryPage" style="display:none;">
     <section class="gallery-hero">
-      <h1>GALERI BSS 1815</h1>
-      <p>Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.</p>
+      <h1 id="galleryTitle">GALERI BSS 1815</h1>
+      <p id="galleryText">Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.</p>
     </section>
 
     <section class="gallery-grid" id="galleryGrid"></section>
   </main>
 
   <script>
+    const translations = {
+      kre: {
+        home: "HOME",
+        gallery: "GALERI",
+        heroTitle: "BRIYANT SOLÈY SIGNO 1815",
+        heroText: "BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn. Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm, fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.",
+        heroGalleryBtn: "ANTRE NAN GALERI A",
+        heroHomeBtn: "HOMEPAGE OFISYÈL",
+        welcomeTitle: "BYENVINI SOU PLATFÒM OFISYÈL LA",
+        welcomeLead: "Paj sa a fèt pou mete an valè eritaj, prezans, ak imaj Briyant Solèy Signo 1815. Tout foto, tout figi, ak tout moman yo pote istwa bann lan ak fyète.",
+        card1Title: "Vizyon",
+        card1Text: "BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.",
+        card2Title: "Fanbase",
+        card2Text: "Se fanatik yo ki bay chalè, mouvman, ak lavi. Chak foto isit la se yon moso temwayaj.",
+        card3Title: "Onè",
+        card3Text: "Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.",
+        card4Title: "Enèji",
+        card4Text: "Orange ak nwa yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.",
+        galleryTitle: "GALERI BSS 1815",
+        galleryText: "Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou."
+      },
+      fran: {
+        home: "ACCUEIL",
+        gallery: "GALERIE",
+        heroTitle: "BRIYANT SOLÈY SIGNO 1815",
+        heroText: "BSS 1815 est une force, une vision, une lumière qui ne s'éteindra jamais. C'est un espace de fierté, d'énergie, de discipline et de mémoire vivante pour tous les membres, les fans et tous ceux qui portent les couleurs orange abricot et noir avec dignité.",
+        heroGalleryBtn: "ENTRER DANS LA GALERIE",
+        heroHomeBtn: "PAGE D'ACCUEIL OFFICIELLE",
+        welcomeTitle: "BIENVENUE SUR LA PLATEFORME OFFICIELLE",
+        welcomeLead: "Cette page est conçue pour mettre en valeur l’héritage, la présence et l’image de Briyant Solèy Signo 1815. Toutes les photos, tous les visages et tous les moments portent l’histoire du groupe avec fierté.",
+        card1Title: "Vision",
+        card1Text: "BSS 1815 est plus qu’un nom. C’est une direction, un respect et une présence qui marquent les esprits.",
+        card2Title: "Fanbase",
+        card2Text: "Ce sont les fans qui apportent la chaleur, le mouvement et la vie. Chaque photo ici est un témoignage.",
+        card3Title: "Honneur",
+        card3Text: "Nous mettons les personnes en lumière, car chaque visage a de la valeur, chaque présence a du poids, chaque nom porte une mémoire.",
+        card4Title: "Énergie",
+        card4Text: "L’orange et le noir sont la force, le feu, la discipline et la clarté qui définissent BSS 1815.",
+        galleryTitle: "GALERIE BSS 1815",
+        galleryText: "Voici quelques belles images de fans, de membres et de moments spéciaux qui font toujours briller Briyant Solèy Signo 1815."
+      },
+      eng: {
+        home: "HOME",
+        gallery: "GALLERY",
+        heroTitle: "BRIYANT SOLÈY SIGNO 1815",
+        heroText: "BSS 1815 is a force, a vision, a light that will never go out. It is a space of pride, energy, discipline, and living memory for all members, fans, and everyone who wears apricot orange and black with dignity.",
+        heroGalleryBtn: "ENTER THE GALLERY",
+        heroHomeBtn: "OFFICIAL HOMEPAGE",
+        welcomeTitle: "WELCOME TO THE OFFICIAL PLATFORM",
+        welcomeLead: "This page is designed to showcase the legacy, presence, and image of Briyant Solèy Signo 1815. Every photo, every face, and every moment carries the story of the group with pride.",
+        card1Title: "Vision",
+        card1Text: "BSS 1815 is more than a name. It is direction, respect, and a presence that leaves a mark.",
+        card2Title: "Fanbase",
+        card2Text: "The fans bring the warmth, movement, and life. Every photo here is a testimony.",
+        card3Title: "Honor",
+        card3Text: "We bring people into the light because every face has value, every presence has weight, and every name carries memory.",
+        card4Title: "Energy",
+        card4Text: "Orange and black are the force, fire, discipline, and clarity that define BSS 1815.",
+        galleryTitle: "BSS 1815 GALLERY",
+        galleryText: "Here are some beautiful images of fans, members, and special moments that keep Briyant Solèy Signo 1815 shining."
+      }
+    };
+
     const allImages = [
       "only-u.jpeg",
       "ange.jpeg",
@@ -519,7 +601,6 @@
       "andy.jpeg",
       "badin.jpeg",
       "blackson.jpeg",
-
       "nadia-lafortune.jpg",
       "macu1.jpg",
       "pdg-ti-fre.jpg",
@@ -537,7 +618,6 @@
       "queen-naylove.jpeg",
       "macu-mv.jpg",
       "ti-leta.jpg",
-
       "anpere-ti-rat.jpg",
       "mario.jpg",
       "perodin.jpg",
@@ -557,7 +637,6 @@
       "odelinne.jpg",
       "jij-mayan.jpg",
       "ti-marasa-yo.jpg",
-
       "baron-plenn-lan.jpeg",
       "bouboul.jpeg",
       "bawon-an!.jpeg",
@@ -623,6 +702,10 @@
 
     const introOverlay = document.getElementById("introOverlay");
     const owlWrap = document.getElementById("owlWrap");
+
+    const kreBtn = document.getElementById("kreBtn");
+    const franBtn = document.getElementById("franBtn");
+    const engBtn = document.getElementById("engBtn");
 
     function prettyName(file) {
       let name = file
@@ -707,10 +790,51 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
+    function setLanguage(lang) {
+      const t = translations[lang];
+
+      homeBtn.textContent = t.home;
+      galleryBtn.textContent = t.gallery;
+
+      document.getElementById("heroTitle").textContent = t.heroTitle;
+      document.getElementById("heroText").textContent = t.heroText;
+      heroGalleryBtn.textContent = t.heroGalleryBtn;
+      heroHomeBtn.textContent = t.heroHomeBtn;
+
+      document.getElementById("welcomeTitle").textContent = t.welcomeTitle;
+      document.getElementById("welcomeLead").textContent = t.welcomeLead;
+
+      document.getElementById("card1Title").textContent = t.card1Title;
+      document.getElementById("card1Text").textContent = t.card1Text;
+      document.getElementById("card2Title").textContent = t.card2Title;
+      document.getElementById("card2Text").textContent = t.card2Text;
+      document.getElementById("card3Title").textContent = t.card3Title;
+      document.getElementById("card3Text").textContent = t.card3Text;
+      document.getElementById("card4Title").textContent = t.card4Title;
+      document.getElementById("card4Text").textContent = t.card4Text;
+
+      document.getElementById("galleryTitle").textContent = t.galleryTitle;
+      document.getElementById("galleryText").textContent = t.galleryText;
+
+      kreBtn.classList.remove("active");
+      franBtn.classList.remove("active");
+      engBtn.classList.remove("active");
+
+      if (lang === "kre") kreBtn.classList.add("active");
+      if (lang === "fran") franBtn.classList.add("active");
+      if (lang === "eng") engBtn.classList.add("active");
+
+      document.documentElement.lang = lang === "kre" ? "ht" : (lang === "fran" ? "fr" : "en");
+    }
+
     homeBtn.addEventListener("click", showHome);
     galleryBtn.addEventListener("click", showGallery);
     heroGalleryBtn.addEventListener("click", showGallery);
     heroHomeBtn.addEventListener("click", showHome);
+
+    kreBtn.addEventListener("click", () => setLanguage("kre"));
+    franBtn.addEventListener("click", () => setLanguage("fran"));
+    engBtn.addEventListener("click", () => setLanguage("eng"));
 
     if (introOverlay && owlWrap) {
       setTimeout(() => {
@@ -724,7 +848,9 @@
     } else {
       startSlideshow();
     }
+
+    setLanguage("kre");
   </script>
 
 </body>
-</html>
+  </html>
