@@ -609,13 +609,13 @@
       "jeff-colin.jpg",
       "fanfan.jpg",
       "may.jpg",
-      "sonson1.jpg",
+      "sonsonn1.jpg",
       "warrens.jpg",
       "majis-mauc.jpg",
       "emaze.jpg",
       "la-belle-yole.jpg",
-      "maximax-multi-serv.jpeg",
-      "queen-naylove.jpeg",
+      "maximax-multi-serv.jpg",
+      "queen-naylove.jpg",
       "macu-mv.jpg",
       "ti-leta.jpg",
       "anpere-ti-rat.jpg",
@@ -721,13 +721,13 @@
 
       const slide = document.createElement("div");
       slide.className = "slide";
-      slide.innerHTML = `<img src="${file}" alt="${name}">`;
+      slide.innerHTML = `<img src="Media-library/${file}" alt="${name}">`;
       slidesContainer.appendChild(slide);
 
       const card = document.createElement("div");
       card.className = "gallery-card";
       card.innerHTML = `
-        <img src="${file}" alt="${name}">
+        <img src="Media-library/${file}" alt="${name}">
         <div class="gallery-caption">${name}</div>
       `;
       galleryGrid.appendChild(card);
@@ -853,4 +853,4 @@
   </script>
 
 </body>
-  </html>
+</html>
