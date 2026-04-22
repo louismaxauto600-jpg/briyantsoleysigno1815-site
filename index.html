@@ -13,7 +13,7 @@
 
     body{
       font-family:Arial,sans-serif;
-      background:#000;
+      background:#000000;
       color:#ff7a00;
       overflow-x:hidden;
     }
@@ -28,28 +28,27 @@
       justify-content:space-between;
       align-items:center;
       padding:10px 16px;
-      background:#000;
-      border-bottom:2px solid #ff7a00;
+      background:#000000;
+      border-bottom:1px solid #ff7a00;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:10px;
     }
 
     .brand img{
-      width:62px;
-      height:62px;
+      width:42px;
+      height:42px;
       object-fit:cover;
       border-radius:50%;
-      border:2px solid #ff7a00;
-      box-shadow:0 0 18px rgba(255,122,0,.35);
+      border:1px solid #ff7a00;
     }
 
     .brand span{
-      font-size:14px;
-      font-weight:800;
+      font-size:12px;
+      font-weight:700;
       letter-spacing:.5px;
       text-transform:uppercase;
       color:#ff7a00;
@@ -57,17 +56,16 @@
 
     .nav{
       display:flex;
-      gap:8px;
-      align-items:center;
+      gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
 
     .nav button{
       padding:8px 12px;
-      border-radius:999px;
-      border:2px solid #ff7a00;
-      background:#000;
+      border-radius:20px;
+      border:1px solid #ff7a00;
+      background:#000000;
       color:#ff7a00;
       font-weight:700;
       cursor:pointer;
@@ -76,33 +74,26 @@
     .nav button.active,
     .nav button:hover{
       background:#ff7a00;
-      color:#000;
-    }
-
-    .lang{
-      display:flex;
-      gap:6px;
-      margin-left:4px;
+      color:#000000;
     }
 
     #introOverlay{
       position:fixed;
       inset:0;
-      background:#000;
+      z-index:9999;
       display:flex;
       justify-content:space-between;
       align-items:center;
       padding:0 8%;
-      z-index:9999;
+      background:#000000;
     }
 
     .intro-logo{
-      width:110px;
-      height:110px;
+      width:95px;
+      height:95px;
       object-fit:cover;
       border-radius:50%;
       border:2px solid #ff7a00;
-      box-shadow:0 0 22px rgba(255,122,0,.35);
     }
 
     .intro-owl-wrap{
@@ -111,7 +102,7 @@
     }
 
     .intro-owl{
-      width:190px;
+      width:170px;
       object-fit:contain;
       animation:wing .6s infinite ease-in-out;
     }
@@ -146,16 +137,17 @@
 
     #homePage,
     #galleryPage{
-      padding-top:86px;
+      padding-top:64px;
       min-height:100vh;
     }
 
     .hero{
       position:relative;
-      height:82vh;
-      min-height:540px;
+      height:68vh;
+      min-height:420px;
+      max-height:560px;
       overflow:hidden;
-      background:#000;
+      background:#000000;
     }
 
     .slide{
@@ -170,31 +162,20 @@
     }
 
     .slide img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center center;
-  filter:brightness(.90) contrast(1.03);
-  transform:scale(1);
-  transition:transform 8s linear;
-  background:#000;
-}
-
-.slide.active img{
-  transform:scale(1);
-}
-    }
-
-    .slide.active img{
-      transform:scale(1.02);
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center top;
+      background:#000000;
+      filter:brightness(.82);
     }
 
     .hero-overlay{
       position:absolute;
       inset:0;
       background:
-        linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.15) 40%, rgba(0,0,0,.55)),
-        radial-gradient(circle at center, rgba(255,122,0,.10), transparent 45%);
+        linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.28)),
+        radial-gradient(circle at center, rgba(255,122,0,.10), rgba(0,0,0,0) 45%);
       z-index:2;
     }
 
@@ -206,51 +187,39 @@
       flex-direction:column;
       justify-content:flex-end;
       align-items:flex-start;
-      padding:0 5% 30px;
+      padding:0 6% 28px;
       max-width:760px;
-      pointer-events:none;
     }
 
     .hero-logo{
-      width:130px;
-      height:130px;
+      width:80px;
+      height:80px;
       object-fit:cover;
       border-radius:50%;
       border:2px solid #ff7a00;
-      margin-bottom:16px;
-      box-shadow:0 0 22px rgba(255,122,0,.35);
-      pointer-events:auto;
+      margin-bottom:14px;
     }
 
     .hero-content h1{
-      font-size:clamp(30px,5vw,56px);
+      font-size:clamp(24px,4vw,46px);
       line-height:1.05;
       margin-bottom:12px;
       text-transform:uppercase;
       color:#ff7a00;
-      pointer-events:auto;
-      background:rgba(0,0,0,.55);
-      padding:10px 14px;
-      border:1px solid #ff7a00;
     }
 
     .hero-content p{
-      font-size:clamp(14px,2vw,20px);
-      line-height:1.6;
+      font-size:clamp(13px,1.8vw,18px);
+      line-height:1.5;
       margin-bottom:18px;
       color:#ff7a00;
-      max-width:680px;
-      pointer-events:auto;
-      background:rgba(0,0,0,.55);
-      padding:10px 14px;
-      border:1px solid #ff7a00;
+      max-width:620px;
     }
 
     .hero-buttons{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      pointer-events:auto;
     }
 
     .hero-buttons button{
@@ -258,26 +227,26 @@
       border-radius:999px;
       font-weight:700;
       cursor:pointer;
-      border:2px solid #ff7a00;
-      background:#000;
+      border:1px solid #ff7a00;
+      background:#000000;
       color:#ff7a00;
     }
 
     .hero-buttons button.primary{
       background:#ff7a00;
-      color:#000;
+      color:#000000;
     }
 
     .counter{
       position:absolute;
       right:14px;
-      top:14px;
+      bottom:14px;
       z-index:4;
       padding:7px 12px;
       border-radius:999px;
-      background:#000;
+      background:#000000;
       color:#ff7a00;
-      border:2px solid #ff7a00;
+      border:1px solid #ff7a00;
       font-weight:700;
     }
 
@@ -287,7 +256,7 @@
       bottom:0;
       width:100%;
       height:4px;
-      background:#000;
+      background:#000000;
       z-index:4;
     }
 
@@ -295,27 +264,12 @@
       width:0%;
       height:100%;
       background:#ff7a00;
-      transition:width 8s linear;
-    }
-
-    .slide-testimony{
-      position:absolute;
-      left:18px;
-      right:18px;
-      bottom:18px;
-      z-index:4;
-      background:rgba(0,0,0,.82);
-      border:2px solid #ff7a00;
-      color:#ff7a00;
-      padding:12px 14px;
-      font-size:14px;
-      font-weight:700;
-      line-height:1.5;
+      transition:width 10s linear;
     }
 
     .section{
-      padding:44px 18px;
-      background:#000;
+      padding:40px 18px;
+      background:#000000;
     }
 
     .section-inner{
@@ -326,7 +280,7 @@
     .section h2{
       text-align:center;
       margin-bottom:12px;
-      font-size:clamp(24px,4vw,40px);
+      font-size:clamp(22px,4vw,36px);
       text-transform:uppercase;
       color:#ff7a00;
     }
@@ -346,8 +300,8 @@
     }
 
     .card{
-      background:#000;
-      border:2px solid #ff7a00;
+      background:#000000;
+      border:1px solid #ff7a00;
       border-radius:16px;
       padding:20px;
     }
@@ -394,8 +348,8 @@
       position:relative;
       overflow:hidden;
       border-radius:16px;
-      border:2px solid #ff7a00;
-      background:#000;
+      border:1px solid #ff7a00;
+      background:#000000;
       min-height:260px;
     }
 
@@ -410,7 +364,7 @@
     }
 
     .gallery-card:hover img{
-      transform:scale(1.03);
+      transform:scale(1.04);
     }
 
     .gallery-caption{
@@ -419,10 +373,10 @@
       bottom:0;
       width:100%;
       padding:10px;
-      background:rgba(0,0,0,.88);
+      background:#000000;
       color:#ff7a00;
       font-weight:700;
-      border-top:2px solid #ff7a00;
+      border-top:1px solid #ff7a00;
     }
 
     @media (max-width:768px){
@@ -432,13 +386,8 @@
         flex-wrap:wrap;
       }
 
-      .brand img{
-        width:52px;
-        height:52px;
-      }
-
       .brand span{
-        font-size:12px;
+        font-size:11px;
       }
 
       .nav{
@@ -447,33 +396,31 @@
       }
 
       .hero{
-        height:72vh;
-        min-height:460px;
+        height:58vh;
+        min-height:360px;
+        max-height:440px;
+      }
+
+      .hero-content{
+        padding:0 5% 22px;
       }
 
       .hero-logo{
-        width:95px;
-        height:95px;
+        width:68px;
+        height:68px;
       }
 
       .intro-logo{
-        width:82px;
-        height:82px;
+        width:72px;
+        height:72px;
       }
 
       .intro-owl{
-        width:145px;
+        width:130px;
       }
 
       .hero-buttons button{
         width:100%;
-      }
-
-      .slide-testimony{
-        font-size:12px;
-        left:10px;
-        right:10px;
-        bottom:10px;
       }
     }
   </style>
@@ -496,11 +443,6 @@
     <div class="nav">
       <button class="active" id="homeBtn" type="button">HOME</button>
       <button id="galleryBtn" type="button">GALERI</button>
-      <div class="lang">
-        <button type="button">KRE</button>
-        <button type="button">ENG</button>
-        <button type="button">ESP</button>
-      </div>
     </div>
   </header>
 
@@ -666,17 +608,6 @@
       "dede.png"
     ];
 
-    const testimonyMap = {
-      "only-u.jpeg": "BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.",
-      "ange.jpeg": "Nou pote fyète, disiplin, ak prezans ki pa janm pèdi valè.",
-      "adan-signo.jpeg": "Briyant Solèy Signo 1815 toujou klere ak diyite.",
-      "andy.jpeg": "Lè BSS parèt, se limyè, lòd, ak respè ki pale.",
-      "badin.jpeg": "Chak figi nan BSS pote yon moso istwa ak onè.",
-      "blackson.jpeg": "Orange ak nwa yo se siy fòs ak angajman."
-    };
-
-    const defaultTestimony = "BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.";
-
     const slidesContainer = document.getElementById("slidesContainer");
     const galleryGrid = document.getElementById("galleryGrid");
     const slideCounter = document.getElementById("slideCounter");
@@ -703,14 +634,10 @@
 
     allImages.forEach((file) => {
       const name = prettyName(file);
-      const testimony = testimonyMap[file] || defaultTestimony;
 
       const slide = document.createElement("div");
       slide.className = "slide";
-      slide.innerHTML = `
-        <img src="${file}" alt="${name}">
-        <div class="slide-testimony">${testimony}</div>
-      `;
+      slide.innerHTML = `<img src="${file}" alt="${name}">`;
       slidesContainer.appendChild(slide);
 
       const card = document.createElement("div");
@@ -724,17 +651,14 @@
 
     const slides = document.querySelectorAll(".slide");
     let currentSlide = 0;
-    const slideDuration = 8000;
+    const slideDuration = 10000;
     let slideInterval = null;
 
     function updateCounter() {
-      if (slideCounter) {
-        slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
-      }
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
     }
 
     function resetProgressBar() {
-      if (!progressBar) return;
       progressBar.style.transition = "none";
       progressBar.style.width = "0%";
       setTimeout(() => {
