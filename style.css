@@ -1,458 +1,220 @@
-/* =========================================================
-   STYLE.CSS FINAL — BRIYANT SOLEY SIGNO 1815
-   Koulè ofisyèl: 🟧 (#ff7a00 / #ff7f2a) + ⚫ (#000)
-   ========================================================= */
-
-/* RESET */
-* {
+/* BACKGROUND GLOBAL BSS1815 */
+body {
   margin: 0;
-  padding: 0;
+  background: radial-gradient(circle at center,
+              #ff7a00 0%,
+              #d85f00 35%,
+              #000000 100%);
+  color: #f5f5f5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* SEKSYON HERO / HOMEPAGE HEAD */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 6vw;
   box-sizing: border-box;
 }
 
-/* ROOT COLORS */
-:root {
-  --bss-orange: #ff7a00;
-  --bss-orange-soft: #ffb347;
-  --bss-bg: #050505;
-  --bss-panel-bg: rgba(0, 0, 0, 0.72);
-  --bss-border-soft: rgba(255, 122, 0, 0.45);
-}
-
-/* BODY */
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #120700 0%, #050505 45%, #000000 100%);
-  color: var(--bss-orange-soft);
-}
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.header {
-  background: rgba(0, 0, 0, 0.9);
-  border-bottom: 2px solid var(--bss-orange);
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header img {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--bss-orange);
-}
-
-.fallback-logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--bss-orange);
-  color: var(--bss-orange-soft);
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.brand h1 {
-  margin: 0;
-  font-size: 22px;
-  color: var(--bss-orange-soft);
-}
-
-.brand p {
-  margin: 2px 0 0;
-  font-size: 12px;
-  opacity: 0.8;
-}
-
-/* =========================================================
-   MAIN LOGO + LAYOUT
-   ========================================================= */
-
-.main-logo {
-  text-align: center;
-  margin: 22px 0 10px;
-}
-
-.main-logo img {
-  width: 220px;
-  max-width: 80%;
-  height: auto;
-}
-
-.wrap {
-  width: 92%;
-  max-width: 1180px;
-  margin: 0 auto 30px;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 20px;
-}
-
-.panel {
-  background: var(--bss-panel-bg);
-  border: 1px solid var(--bss-border-soft);
-  border-radius: 18px;
-  padding: 24px;
-}
-
-/* =========================================================
-   TEXT BLOCKS
-   ========================================================= */
-
-.eyebrow {
-  display: inline-block;
-  background: rgba(255, 122, 0, 0.12);
-  border: 1px solid rgba(255, 122, 0, 0.35);
-  color: var(--bss-orange-soft);
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 14px;
-  text-transform: uppercase;
-}
-
-.title {
-  font-size: 44px;
-  line-height: 1.05;
-  margin: 0 0 12px;
-  text-transform: uppercase;
-}
-
-.title span {
-  color: var(--bss-orange);
-}
-
-.text {
-  font-size: 16px;
-  opacity: 0.92;
-  line-height: 1.7;
-}
-
-.highlight {
-  margin-top: 16px;
-  background: linear-gradient(90deg, #ff7a00, #ffb347);
-  color: #000000;
-  padding: 12px 14px;
-  border-radius: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.meta {
-  margin-top: 16px;
-  display: grid;
-  gap: 12px;
-}
-
-.meta div {
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid var(--bss-orange);
-  padding: 12px;
-  border-radius: 10px;
-}
-
-/* =========================================================
-   FRAME + STAGES
-   ========================================================= */
-
-.frame {
+/* LAYERS: SLIDESHOW DÈYÈ, TEKST DEVAN MEN PA KOUVRI FIGI YO */
+.hero-slideshow-wrapper {
   position: relative;
-  min-height: 430px;
-  border-radius: 16px;
+  width: 100%;
+  max-width: 1200px;
   overflow: hidden;
-  background: radial-gradient(circle at top, rgba(255, 122, 0, 0.12), transparent);
-  border: 1px solid rgba(255, 122, 0, 0.2);
+  border-radius: 18px;
 }
 
-.koukou-stage,
-.slideshow-stage {
+/* SLIDESHOW IMAGES: KLÈ, PA DETWI RATIO YO */
+.hero-slideshow-wrapper img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(1.08) contrast(1.03);
+}
+
+/* MASK POU FIGI YO PA KOUVRI PA TEKST */
+.hero-content {
   position: absolute;
   inset: 0;
-  padding: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.8s ease, transform 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 3rem;
+  box-sizing: border-box;
+  pointer-events: none; /* pa bloke klik sou slideshow si gen bouton ladan l */
 }
 
-.koukou-stage.active,
-.slideshow-stage.active {
-  opacity: 1;
+/* BLOK TEKST LA PA MONTE TWÒ WO SOU FIGI YO */
+.hero-text-box {
+  max-width: 60%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82),
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0)
+  );
+  padding: 1.8rem 2rem 0.5rem;
+  border-radius: 16px 16px 0 0;
   pointer-events: auto;
 }
 
-/* KOUKOU ANIM */
-.koukou-stage {
-  transform: translateX(240px);
-}
-
-.koukou-stage.active {
-  transform: translateX(0);
-}
-
-.koukou-stage.fly-out-left {
-  opacity: 0;
-  transform: translateX(-240px);
-}
-
-/* SLIDESHOW STAGE */
-.slideshow-stage {
-  transform: translateX(40px);
-}
-
-.slideshow-stage.active {
-  transform: translateX(0);
-}
-
-/* FRAME IMAGE DEFAULT */
-.frame img {
-  width: 100%;
-  height: 100%;
-  min-height: 360px;
-  max-height: 430px;
-  object-fit: cover;
-  border-radius: 14px;
-  background: #111111;
-}
-
-/* =========================================================
-   SLIDESHOW
-   ========================================================= */
-
-.slideshow {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 360px;
-}
-
-.slide {
-  position: absolute;
-  inset: 14px;
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 0.9s ease, transform 1.2s ease;
-  z-index: 1;
-}
-
-.slide.active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 2;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  min-height: 360px;
-  max-height: 430px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 122, 0, 0.18);
-  background: #111;
-  display: block;
-}
-
-/* LOOK AROUND */
-.look-around {
-  animation: lookAround 1.4s ease-in-out infinite;
-  transform-origin: center center;
-}
-
-@keyframes lookAround {
-  0%   { transform: translateX(0) rotate(0deg) scale(1); }
-  20%  { transform: translateX(-8px) rotate(-6deg) scale(1.02); }
-  40%  { transform: translateX(8px) rotate(6deg) scale(1.02); }
-  60%  { transform: translateX(-5px) rotate(-4deg) scale(1.01); }
-  80%  { transform: translateX(5px) rotate(4deg) scale(1.01); }
-  100% { transform: translateX(0) rotate(0deg) scale(1); }
-}
-
-/* CAPTION */
-.caption {
-  position: absolute;
-  left: 26px;
-  right: 26px;
-  bottom: 24px;
-  background: rgba(0, 0, 0, 0.68);
-  border: 1px solid rgba(255, 122, 0, 0.25);
-  border-radius: 12px;
-  padding: 14px;
-  z-index: 5;
-}
-
-.caption h3 {
-  margin: 0 0 4px;
-  color: var(--bss-orange-soft);
+/* TIT PRINCIPAL: REDWI POU PA BARE FIGI YO */
+.hero-title {
+  font-size: 1.9rem;          /* te ka 2.6rem, kounya pi modere */
+  line-height: 1.15;
+  font-weight: 700;
+  color: #ffb35a;
+  margin: 0 0 0.6rem;
   text-transform: uppercase;
-  font-size: 16px;
+  letter-spacing: 0.08em;
 }
 
-.caption p {
-  margin: 0;
-  font-size: 14px;
+/* SOUS-TIT / DESKRIPSYON: DISIPLINE, PA GWO */
+.hero-subtitle {
+  font-size: 0.98rem;
   line-height: 1.5;
+  color: #f3f3f3;
+  margin: 0 0 0.8rem;
 }
 
-/* =========================================================
-   LEADERS
-   ========================================================= */
-
-.leaders {
-  width: 92%;
-  max-width: 1180px;
-  margin: 0 auto 30px;
-}
-
-.leaders h2 {
-  margin: 0 0 6px;
-  color: var(--bss-orange-soft);
+/* BOUTON PRINCIPAL: ORANGE + NWA, PRO-MAX */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid #ff9a2a;
+  background: linear-gradient(135deg, #ff7a00, #ffb347);
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.75);
 }
 
-/* =========================================================
-   MAGAZEN (EXPO + GRID)
-   ========================================================= */
-
-.expo-magazen {
-  background-color: #000;
-  padding: 50px 20px;
-  text-align: center;
+/* NAVBAR + LOGO: LOGO PA TWÒ PITI ANKÒ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 5vw;
+  box-sizing: border-box;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.92),
+    rgba(0, 0, 0, 0.65),
+    transparent
+  );
 }
 
-.expo-title {
-  color: #ff7f2a;
-  font-size: 40px;
-  font-weight: 800;
-  margin-bottom: 10px;
+/* LOGO BSS1815: DIMANSYON PRO-MAX */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 
-.expo-slogan {
-  color: #ff7f2a;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-.magazen-content {
-  background-color: #000;
-  padding: 40px 20px;
-}
-
-.magazen-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
-}
-
-.magazen-grid img,
-.magazen-video {
-  width: 100%;
-  border-radius: 6px;
-  border: 2px solid #ff7f2a;
-  object-fit: cover;
-}
-
-/* =========================================================
-   TEAM SECTIONS (BADGE + UPLOAD)
-   ========================================================= */
-
-.team-section {
-  background: #000;
-  border: 2px solid #ff7f2a;
-  padding: 40px 20px;
-  border-radius: 12px;
-  margin: 40px 0;
-  text-align: center;
-}
-
-.team-badge-box {
-  margin-bottom: 20px;
-}
-
-.team-badge {
-  width: 160px;
+.navbar-logo img {
+  width: 140px;          /* LOGO PI GWO, VIZIB */
   height: auto;
-  border-radius: 10px;
-  border: 2px solid #ff7f2a;
-}
-
-.team-title {
-  color: #ff7f2a;
-  font-size: 26px;
-  font-weight: 800;
-  margin-bottom: 25px;
-}
-
-.upload-box {
-  background: rgba(255, 122, 0, 0.08);
-  border: 2px dashed #ff7f2a;
-  padding: 30px 20px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.upload-label {
-  color: #ff7f2a;
-  font-size: 16px;
-  font-weight: bold;
   display: block;
-  margin-bottom: 10px;
 }
 
-.upload-box input {
-  color: #ff7f2a;
-  font-size: 14px;
+/* SI GEN LOGO PARTENÈ / LÒT LOGO ANBA YO */
+.logo-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 1.4rem 5vw 0.4rem;
 }
 
-.upload-note {
-  color: #ffb347;
-  font-size: 14px;
-  opacity: 0.8;
+.logo-strip img {
+  width: 120px;          /* LOGO PARTENÈ YO TOU VIZIB */
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.9));
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+/* TEKST NAV: PA GWO, PA BARE ANYEN */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
 
+.nav-links a {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+/* RESPONSIVE AJISTEMAN */
 @media (max-width: 900px) {
-  .wrap {
-    grid-template-columns: 1fr;
+  .hero-slideshow-wrapper img {
+    height: 420px;
   }
 
-  .title {
-    font-size: 32px;
+  .hero-text-box {
+    max-width: 80%;
+    padding: 1.4rem 1.6rem 0.4rem;
   }
 
-  .frame {
-    min-height: 360px;
+  .hero-title {
+    font-size: 1.5rem;
   }
 
-  .slide {
-    inset: 10px;
+  .hero-subtitle {
+    font-size: 0.9rem;
   }
 
-  .caption {
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    padding: 12px;
+  .navbar-logo img {
+    width: 110px;
   }
 
-  .expo-title {
-    font-size: 30px;
+  .logo-strip img {
+    width: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-slideshow-wrapper img {
+    height: 360px;
   }
 
-  .expo-slogan {
-    font-size: 18px;
+  .hero-text-box {
+    max-width: 100%;
+    padding: 1.2rem 1.3rem 0.4rem;
+  }
+
+  .hero-title {
+    font-size: 1.3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.86rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
   }
 }
