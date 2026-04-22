@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BSS 1815</title>
+  <title>Briyant Solèy Signo 1815</title>
   <style>
     :root{
       --orange:#ff7a00;
       --black:#000000;
+      --soft:#1a1a1a;
     }
 
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
     body{
@@ -23,259 +25,195 @@
       overflow-x:hidden;
     }
 
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
     button{
       font-family:inherit;
       cursor:pointer;
+      border:none;
     }
 
+    .container{
+      width:min(94%, 1400px);
+      margin:0 auto;
+    }
+
+    /* TOP BAR */
     .topbar{
       position:sticky;
       top:0;
-      z-index:999;
-      width:100%;
-      background:var(--black);
+      z-index:1000;
+      background:rgba(0,0,0,.96);
       border-bottom:1px solid var(--orange);
+      backdrop-filter:blur(8px);
     }
 
     .topbar-inner{
-      max-width:1400px;
-      margin:0 auto;
-      padding:12px 18px;
       display:grid;
       grid-template-columns:auto 1fr auto;
       align-items:center;
       gap:16px;
+      padding:12px 0;
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
+      min-width:max-content;
     }
 
     .brand img{
-      width:54px;
-      height:54px;
+      width:56px;
+      height:56px;
       object-fit:cover;
       border-radius:50%;
       border:2px solid var(--orange);
       background:var(--black);
     }
 
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      gap:3px;
-    }
-
     .brand-text h1{
       font-size:18px;
-      color:var(--orange);
       text-transform:uppercase;
       line-height:1;
+      color:var(--orange);
     }
 
     .brand-text p{
       font-size:11px;
-      color:var(--orange);
+      margin-top:4px;
       text-transform:uppercase;
-      letter-spacing:.6px;
+      letter-spacing:.8px;
+      color:var(--orange);
     }
 
     .lang-switch{
       display:flex;
-      gap:8px;
       justify-content:center;
-      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
     }
 
     .lang-switch button,
-    .nav button,
-    .hero-buttons button{
-      padding:10px 14px;
-      border-radius:999px;
+    .nav a,
+    .hero-buttons a{
       border:1px solid var(--orange);
       background:var(--black);
       color:var(--orange);
+      padding:10px 14px;
+      border-radius:999px;
       font-weight:700;
+      transition:.25s ease;
     }
 
     .lang-switch button.active,
     .lang-switch button:hover,
-    .nav button.active,
-    .nav button:hover,
-    .hero-buttons button.primary{
+    .nav a.active,
+    .nav a:hover,
+    .hero-buttons a.primary{
       background:var(--orange);
       color:var(--black);
     }
 
     .nav{
       display:flex;
-      gap:10px;
       justify-content:flex-end;
+      gap:10px;
       flex-wrap:wrap;
     }
 
-    .page{
-      display:none;
-      min-height:100vh;
-    }
-
-    .page.active{
-      display:block;
-    }
-
+    /* HERO */
     .hero{
-      position:relative;
-      min-height:76vh;
+      padding:22px 0 26px;
+    }
+
+    .hero-grid{
       display:grid;
       grid-template-columns:1.2fr .8fr;
-      border-bottom:1px solid rgba(255,122,0,.25);
+      gap:18px;
     }
 
-    .hero-left{
+    .hero-slider{
       position:relative;
+      min-height:620px;
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:26px;
       overflow:hidden;
       background:var(--black);
-      min-height:520px;
     }
 
-    .hero-slide{
+    .slide{
       position:absolute;
       inset:0;
       opacity:0;
       transition:opacity 1s ease-in-out;
     }
 
-    .hero-slide.active{
+    .slide.active{
       opacity:1;
     }
 
-    .hero-slide img{
+    .slide img{
       width:100%;
       height:100%;
       object-fit:cover;
       object-position:center top;
-      display:block;
       filter:brightness(.68);
+      background:var(--black);
     }
 
-    .hero-overlay{
+    .slide-overlay{
       position:absolute;
       inset:0;
       background:
-        linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.22)),
-        radial-gradient(circle at center, rgba(255,122,0,.12), transparent 45%);
+        linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.18)),
+        radial-gradient(circle at center, rgba(255,122,0,.12), transparent 46%);
       z-index:2;
     }
 
-    .hero-content{
+    .slide-text{
       position:absolute;
       left:0;
       right:0;
       bottom:0;
       z-index:3;
-      padding:20px 22px;
-      max-width:520px;
-      background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.18));
-      border-top-right-radius:18px;
+      padding:22px 22px 20px;
+      background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.12));
     }
 
-    .hero-content img{
-      width:70px;
-      height:70px;
-      object-fit:cover;
-      border-radius:50%;
-      border:2px solid var(--orange);
-      margin-bottom:10px;
-      background:var(--black);
-    }
-
-    .hero-content h2{
-      font-size:clamp(22px,4vw,40px);
-      line-height:1.04;
+    .slide-text h2{
+      font-size:clamp(24px,4vw,44px);
       text-transform:uppercase;
-      color:var(--orange);
+      line-height:1.02;
       margin-bottom:10px;
-    }
-
-    .hero-content p{
-      font-size:clamp(12px,1.5vw,16px);
-      line-height:1.5;
       color:var(--orange);
-      max-width:480px;
-      margin-bottom:14px;
     }
 
-    .hero-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .hero-right{
-      background:var(--black);
-      border-left:1px solid rgba(255,122,0,.25);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:36px 28px;
-    }
-
-    .testimonial{
-      width:100%;
-      max-width:520px;
-      border:1px solid var(--orange);
-      border-radius:24px;
-      padding:30px 26px;
-      background:var(--black);
-    }
-
-    .quote{
-      font-size:88px;
-      line-height:.8;
-      color:var(--orange);
-      margin-bottom:10px;
-    }
-
-    .testimonial-text{
-      font-size:24px;
+    .slide-text p{
+      font-size:clamp(13px,1.7vw,17px);
       line-height:1.55;
-      color:var(--orange);
-      margin-bottom:20px;
-    }
-
-    .testimonial-line{
-      width:70px;
-      height:4px;
-      background:var(--orange);
-      margin-bottom:18px;
-      border-radius:999px;
-    }
-
-    .testimonial-name{
-      font-size:28px;
-      font-weight:900;
-      text-transform:uppercase;
-      color:var(--orange);
-      margin-bottom:6px;
-    }
-
-    .testimonial-role{
-      font-size:16px;
+      max-width:680px;
       color:var(--orange);
     }
 
-    .counter{
+    .slide-counter{
       position:absolute;
-      right:18px;
-      bottom:18px;
+      top:16px;
+      right:16px;
       z-index:4;
-      padding:8px 12px;
-      border-radius:999px;
       border:1px solid var(--orange);
-      background:var(--black);
+      background:rgba(0,0,0,.85);
       color:var(--orange);
+      border-radius:999px;
+      padding:8px 12px;
       font-weight:700;
     }
 
@@ -285,8 +223,8 @@
       bottom:0;
       width:100%;
       height:4px;
-      background:var(--black);
       z-index:4;
+      background:rgba(255,122,0,.15);
     }
 
     .progress-bar{
@@ -296,87 +234,142 @@
       transition:width 8s linear;
     }
 
-    .section{
-      max-width:1400px;
-      margin:0 auto;
-      padding:42px 18px;
+    .hero-card{
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:26px;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(255,122,0,.08), rgba(0,0,0,.96));
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+      min-height:620px;
     }
 
-    .section h3{
-      text-align:center;
-      color:var(--orange);
+    .hero-card img{
+      width:92px;
+      height:92px;
+      object-fit:cover;
+      border-radius:50%;
+      border:2px solid var(--orange);
+      background:var(--black);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      border:1px solid var(--orange);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:12px;
+      font-weight:700;
       text-transform:uppercase;
-      font-size:clamp(24px,4vw,40px);
-      margin-bottom:14px;
+      color:var(--orange);
+      width:max-content;
     }
 
-    .section .lead{
-      max-width:900px;
-      margin:0 auto 28px;
-      text-align:center;
+    .hero-card h3{
+      font-size:clamp(24px,4vw,42px);
+      text-transform:uppercase;
+      line-height:1.05;
+      color:var(--orange);
+    }
+
+    .hero-card p{
+      font-size:16px;
       line-height:1.7;
       color:var(--orange);
-      font-size:16px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+
+    .quote-box{
+      margin-top:8px;
+      padding:18px;
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:18px;
+      background:rgba(0,0,0,.72);
+    }
+
+    .quote-box .quote{
+      font-size:18px;
+      line-height:1.65;
+      margin-bottom:10px;
+    }
+
+    .quote-box .name{
+      font-size:18px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    .quote-box .role{
+      font-size:14px;
+      margin-top:4px;
+    }
+
+    /* SECTIONS */
+    .section{
+      padding:30px 0 20px;
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .section-header h2{
+      font-size:clamp(26px,4vw,40px);
+      text-transform:uppercase;
+      margin-bottom:10px;
+      color:var(--orange);
+    }
+
+    .section-header p{
+      max-width:900px;
+      margin:0 auto;
+      line-height:1.75;
+      color:var(--orange);
     }
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       gap:16px;
     }
 
     .card{
-      border:1px solid var(--orange);
-      border-radius:18px;
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
       padding:22px;
-      background:var(--black);
     }
 
-    .card h4{
-      font-size:20px;
-      color:var(--orange);
+    .card h3{
       margin-bottom:10px;
+      font-size:20px;
       text-transform:uppercase;
+      color:var(--orange);
     }
 
     .card p{
+      line-height:1.65;
       color:var(--orange);
-      line-height:1.6;
-      font-size:15px;
     }
 
-    .gallery-header{
-      max-width:1400px;
-      margin:0 auto;
-      padding:30px 18px 10px;
-      text-align:center;
-    }
-
-    .gallery-header h3{
-      color:var(--orange);
-      text-transform:uppercase;
-      font-size:clamp(26px,4vw,42px);
-      margin-bottom:10px;
-    }
-
-    .gallery-header p{
-      max-width:900px;
-      margin:0 auto;
-      color:var(--orange);
-      line-height:1.7;
-    }
-
+    /* GALLERY */
     .gallery-grid{
-      max-width:1400px;
-      margin:0 auto;
-      padding:20px 18px 50px;
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
       gap:14px;
     }
 
     .gallery-item{
-      border:1px solid var(--orange);
+      border:1px solid rgba(255,122,0,.35);
       border-radius:18px;
       overflow:hidden;
       background:var(--black);
@@ -384,10 +377,9 @@
 
     .gallery-item img{
       width:100%;
-      height:250px;
+      height:260px;
       object-fit:cover;
       object-position:center top;
-      display:block;
       background:var(--black);
     }
 
@@ -395,13 +387,64 @@
       padding:12px;
       text-align:center;
       text-transform:uppercase;
-      color:var(--orange);
-      font-weight:700;
       font-size:14px;
-      border-top:1px solid rgba(255,122,0,.25);
+      font-weight:700;
+      border-top:1px solid rgba(255,122,0,.22);
+      color:var(--orange);
     }
 
-    @media (max-width: 980px){
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:16px;
+    }
+
+    .contact-box{
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:20px;
+      padding:22px;
+      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
+    }
+
+    .contact-box h3{
+      margin-bottom:10px;
+      font-size:18px;
+      text-transform:uppercase;
+      color:var(--orange);
+    }
+
+    .contact-box p{
+      line-height:1.7;
+      word-break:break-word;
+      color:var(--orange);
+    }
+
+    .contact-box a.link{
+      display:inline-block;
+      margin-top:12px;
+      border:1px solid var(--orange);
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:700;
+      color:var(--orange);
+    }
+
+    .contact-box a.link:hover{
+      background:var(--orange);
+      color:var(--black);
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:36px;
+      border-top:1px solid rgba(255,122,0,.25);
+      padding:22px 0 30px;
+      text-align:center;
+      color:var(--orange);
+    }
+
+    @media (max-width: 1024px){
       .topbar-inner{
         grid-template-columns:1fr;
         justify-items:center;
@@ -411,63 +454,40 @@
         justify-content:center;
       }
 
-      .hero{
+      .hero-grid{
         grid-template-columns:1fr;
       }
 
-      .hero-right{
-        border-left:none;
-        border-top:1px solid rgba(255,122,0,.25);
+      .hero-slider,
+      .hero-card{
+        min-height:unset;
       }
 
-      .hero-left{
-        min-height:420px;
-      }
-
-      .testimonial-text{
-        font-size:20px;
+      .hero-slider{
+        min-height:460px;
       }
     }
 
-    @media (max-width: 700px){
-      .hero-left{
-        min-height:340px;
+    @media (max-width: 680px){
+      .hero-slider{
+        min-height:360px;
       }
 
-      .hero-content{
-        padding:18px 14px;
-        max-width:100%;
+      .slide-text{
+        padding:18px 16px 16px;
       }
 
-      .hero-content img{
-        width:64px;
-        height:64px;
+      .hero-card{
+        padding:22px 16px;
       }
 
-      .hero-content h2{
-        font-size:26px;
-      }
-
-      .hero-buttons button{
+      .hero-buttons a{
         width:100%;
+        text-align:center;
       }
 
-      .quote{
-        font-size:64px;
-      }
-
-      .testimonial-text{
-        font-size:17px;
-      }
-
-      .testimonial-name{
-        font-size:22px;
-      }
-
-      .lang-switch,
-      .nav{
-        justify-content:center;
-        flex-wrap:wrap;
+      .gallery-item img{
+        height:220px;
       }
     }
   </style>
@@ -475,12 +495,12 @@
 <body>
 
   <header class="topbar">
-    <div class="topbar-inner">
+    <div class="container topbar-inner">
       <div class="brand">
         <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
         <div class="brand-text">
           <h1>BSS 1815</h1>
-          <p id="brandSub">Homepage Backup Clean</p>
+          <p id="brandSub">Platfòm ofisyèl la</p>
         </div>
       </div>
 
@@ -490,236 +510,309 @@
         <button id="engBtn" type="button">ENG</button>
       </div>
 
-      <div class="nav">
-        <button class="active" id="homeBtn" type="button">HOME</button>
-        <button id="galleryBtn" type="button">GALERI</button>
-      </div>
+      <nav class="nav">
+        <a href="#home" id="homeBtn" class="active">AKÈY</a>
+        <a href="#about" id="aboutBtn">SOU NOU</a>
+        <a href="#services" id="servicesBtn">SÈVIS</a>
+        <a href="#gallery" id="galleryBtn">GALERI</a>
+        <a href="#contact" id="contactBtn">KONTAK</a>
+      </nav>
     </div>
   </header>
 
-  <main id="homePage" class="page active">
+  <main id="home">
     <section class="hero">
-      <div class="hero-left">
-        <div id="slidesContainer"></div>
-        <div class="hero-overlay"></div>
+      <div class="container hero-grid">
+        <div class="hero-slider">
+          <div id="slidesContainer"></div>
+          <div class="slide-overlay"></div>
 
-        <div class="hero-content">
+          <div class="slide-text">
+            <h2 id="heroTitle">BRIYANT SOLÈY SIGNO 1815</h2>
+            <p id="heroText">
+              BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
+              Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm,
+              fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.
+            </p>
+          </div>
+
+          <div class="slide-counter" id="slideCounter">1 / 1</div>
+          <div class="progress-wrap">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
           <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
-          <h2 id="heroTitle">BRIYANT SOLÈY SIGNO 1815</h2>
-          <p id="heroText">
-            BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
-            Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm,
-            fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.
+          <span class="eyebrow" id="eyebrowText">BSS OFFISYÈL</span>
+          <h3 id="sideTitle">Yon vrè platfòm pou BSS 1815</h3>
+          <p id="sideText">
+            Nou mete imaj, fanbase, sèvis, ak kontak yo ansanm sou yon sèl sit ki pwòp,
+            fò, epi fasil pou moun navige ladan li.
           </p>
+
           <div class="hero-buttons">
-            <button class="primary" id="heroGalleryBtn" type="button">ANTRE NAN GALERI A</button>
-            <button id="heroHomeBtn" type="button">HOMEPAGE OFISYÈL</button>
+            <a href="#gallery" class="primary" id="heroGalleryBtn">Antre nan galeri a</a>
+            <a href="#contact" id="heroContactBtn">Kontakte nou</a>
+          </div>
+
+          <div class="quote-box">
+            <div class="quote" id="quoteText">
+              BSS 1815 se plis pase yon non. Se yon direksyon, yon respè,
+              ak yon prezans ki make lespri moun.
+            </div>
+            <div class="name" id="quoteName">BSS WAY</div>
+            <div class="role" id="quoteRole">Orange ak nwa sèlman</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="aboutTitle">SOU NOU</h2>
+          <p id="aboutLead">
+            Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, disiplin ak fyète.
+            Nou reprezante yon vizyon solid ki mete moun yo an valè epi ki kenbe memwa bann lan vivan.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3 id="aboutCard1Title">Vizyon</h3>
+            <p id="aboutCard1Text">Nou bati yon espas ki montre eritaj, prezans, ak fòs BSS 1815 nan yon fason klè, modèn, ak pwofesyonèl.</p>
+          </div>
+          <div class="card">
+            <h3 id="aboutCard2Title">Misyon</h3>
+            <p id="aboutCard2Text">Misyon nou se pote tout kontni, fanatik, ak sèvis yo ansanm sou yon platfòm ofisyèl ki fasil pou itilize.</p>
+          </div>
+          <div class="card">
+            <h3 id="aboutCard3Title">Valè</h3>
+            <p id="aboutCard3Text">Respè, disiplin, inite, vizyon, ak limyè se baz ki soutni non Briyant Solèy Signo 1815 la.</p>
           </div>
         </div>
-
-        <div class="counter" id="slideCounter"></div>
-        <div class="progress-wrap">
-          <div class="progress-bar" id="progressBar"></div>
-        </div>
       </div>
+    </section>
 
-      <div class="hero-right">
-        <div class="testimonial">
-          <div class="quote">“</div>
-          <div class="testimonial-text" id="testimonialText">
-            BSS 1815 se plis pase yon non. Se yon direksyon, yon respè,
-            ak yon prezans ki make lespri moun.
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="servicesTitle">SÈVIS</h2>
+          <p id="servicesLead">
+            Men kèk nan sèvis ak fonksyon nou vle mete an avan sou platfòm la pou rann li itil, aktif, epi pwofesyonèl.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3 id="service1Title">Pwomosyon</h3>
+            <p id="service1Text">Pwomosyon pou imaj, atis, ak aktivite ki gen rapò ak BSS 1815.</p>
           </div>
-          <div class="testimonial-line"></div>
-          <div class="testimonial-name" id="testimonialName">BSS WAY</div>
-          <div class="testimonial-role" id="testimonialRole">Orange ak nwa sèlman</div>
+          <div class="card">
+            <h3 id="service2Title">Galeri</h3>
+            <p id="service2Text">Prezante fanatik, manm, ak moman espesyal yo ak bon jan vizibilite.</p>
+          </div>
+          <div class="card">
+            <h3 id="service3Title">Kontak</h3>
+            <p id="service3Text">Pèmèt moun ak patnè jwenn enfòmasyon ofisyèl fasilman.</p>
+          </div>
+          <div class="card">
+            <h3 id="service4Title">Platfòm ofisyèl</h3>
+            <p id="service4Text">Rasanble tout eleman enpòtan yo sou yon sèl sit ki stab epi pwòp.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h3 id="welcomeTitle">BYENVINI SOU PLATFÒM OFISYÈL LA</h3>
-      <p class="lead" id="welcomeLead">
-        Paj sa a fèt pou mete an valè eritaj, prezans, ak imaj Briyant Solèy Signo 1815.
-        Tout foto, tout figi, ak tout moman yo pote istwa bann lan ak fyète.
-      </p>
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="galleryTitle">GALERI</h2>
+          <p id="galleryLead">
+            Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.
+          </p>
+        </div>
 
-      <div class="cards">
-        <div class="card">
-          <h4 id="card1Title">Vizyon</h4>
-          <p id="card1Text">BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.</p>
-        </div>
-        <div class="card">
-          <h4 id="card2Title">Fanbase</h4>
-          <p id="card2Text">Se fanatik yo ki bay chalè, mouvman, ak lavi. Chak foto isit la se yon moso temwayaj.</p>
-        </div>
-        <div class="card">
-          <h4 id="card3Title">Onè</h4>
-          <p id="card3Text">Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.</p>
-        </div>
-        <div class="card">
-          <h4 id="card4Title">Enèji</h4>
-          <p id="card4Text">Orange ak nwa yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.</p>
-        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
       </div>
     </section>
 
-    <section class="section">
-      <h3 id="aboutTitle">SOU NOU</h3>
-      <p class="lead" id="aboutText">
-        Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, respè ak disiplin.
-        Nou egziste pou onore moun yo, sipòte fanbase la, epi mete fòs kominote a an avan.
-      </p>
-    </section>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="contactTitle">KONTAK</h2>
+          <p id="contactLead">
+            Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.
+          </p>
+        </div>
 
-    <section class="section">
-      <h3 id="servicesTitle">SÈVIS</h3>
-      <div class="cards">
-        <div class="card">
-          <h4 id="service1Title">Pwomosyon</h4>
-          <p id="service1Text">Nou mete imaj, aktivite, ak pwojè yo an valè ak prezans pwofesyonèl.</p>
-        </div>
-        <div class="card">
-          <h4 id="service2Title">Evenman</h4>
-          <p id="service2Text">Nou sipòte aktivite, rara, rasanbleman, ak lòt evènman espesyal.</p>
-        </div>
-        <div class="card">
-          <h4 id="service3Title">Kominikasyon</h4>
-          <p id="service3Text">Nou ede pataje enfòmasyon, mesaj, ak kontak ak bon prezantasyon.</p>
-        </div>
-      </div>
-    </section>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3 id="contactBox1Title">Email</h3>
+            <p id="contactEmail">briyantsigno@gmail.com</p>
+          </div>
 
-    <section class="section">
-      <h3 id="contactTitle">KONTAK</h3>
-      <div class="cards">
-        <div class="card">
-          <h4>EMAIL</h4>
-          <p id="contactEmail">briyantsigno@gmail.com</p>
-        </div>
-        <div class="card">
-          <h4>TELEFÒN</h4>
-          <p id="contactPhone">+1 (317) 538-1150</p>
-        </div>
-        <div class="card">
-          <h4>WHATSAPP</h4>
-          <p id="contactWhatsApp">Disponib pou mesaj ak enfòmasyon</p>
+          <div class="contact-box">
+            <h3 id="contactBox2Title">Telefòn</h3>
+            <p id="contactPhone">+1 (317) 538-1150</p>
+          </div>
+
+          <div class="contact-box">
+            <h3 id="contactBox3Title">WhatsApp</h3>
+            <p id="contactWhatsText">Klike anba a pou voye mesaj dirèk.</p>
+            <a class="link" href="https://wa.me/13175381150" target="_blank" rel="noopener" id="whatsBtn">VOYE MESAJ</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <main id="galleryPage" class="page">
-    <div class="gallery-header">
-      <h3 id="galleryTitle">GALERI BSS 1815</h3>
-      <p id="galleryLead">Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.</p>
+  <footer>
+    <div class="container" id="footerText">
+      © BSS 1815 — Platfòm ofisyèl
     </div>
-    <div class="gallery-grid" id="galleryGrid"></div>
-  </main>
+  </footer>
 
   <script>
     const translations = {
       kre: {
-        brandSub: "Homepage Backup Clean",
-        home: "HOME",
+        brandSub: "Platfòm ofisyèl la",
+        home: "AKÈY",
+        about: "SOU NOU",
+        services: "SÈVIS",
         gallery: "GALERI",
+        contact: "KONTAK",
         heroTitle: "BRIYANT SOLÈY SIGNO 1815",
         heroText: "BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn. Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm, fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.",
-        heroGalleryBtn: "ANTRE NAN GALERI A",
-        heroHomeBtn: "HOMEPAGE OFISYÈL",
-        testimonialText: "BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.",
-        testimonialName: "BSS WAY",
-        testimonialRole: "Orange ak nwa sèlman",
-        welcomeTitle: "BYENVINI SOU PLATFÒM OFISYÈL LA",
-        welcomeLead: "Paj sa a fèt pou mete an valè eritaj, prezans, ak imaj Briyant Solèy Signo 1815. Tout foto, tout figi, ak tout moman yo pote istwa bann lan ak fyète.",
-        card1Title: "Vizyon",
-        card1Text: "BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.",
-        card2Title: "Fanbase",
-        card2Text: "Se fanatik yo ki bay chalè, mouvman, ak lavi. Chak foto isit la se yon moso temwayaj.",
-        card3Title: "Onè",
-        card3Text: "Nou mete moun yo an limyè, paske chak figi gen valè, chak prezans gen pwa, chak non pote memwa.",
-        card4Title: "Enèji",
-        card4Text: "Orange ak nwa yo se fòs, dife, disiplin, ak klète ki defini BSS 1815.",
+        eyebrowText: "BSS OFFISYÈL",
+        sideTitle: "Yon vrè platfòm pou BSS 1815",
+        sideText: "Nou mete imaj, fanbase, sèvis, ak kontak yo ansanm sou yon sèl sit ki pwòp, fò, epi fasil pou moun navige ladan li.",
+        heroGalleryBtn: "Antre nan galeri a",
+        heroContactBtn: "Kontakte nou",
+        quoteText: "BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.",
+        quoteName: "BSS WAY",
+        quoteRole: "Orange ak nwa sèlman",
         aboutTitle: "SOU NOU",
-        aboutText: "Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, respè ak disiplin. Nou egziste pou onore moun yo, sipòte fanbase la, epi mete fòs kominote a an avan.",
+        aboutLead: "Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, disiplin ak fyète. Nou reprezante yon vizyon solid ki mete moun yo an valè epi ki kenbe memwa bann lan vivan.",
+        aboutCard1Title: "Vizyon",
+        aboutCard1Text: "Nou bati yon espas ki montre eritaj, prezans, ak fòs BSS 1815 nan yon fason klè, modèn, ak pwofesyonèl.",
+        aboutCard2Title: "Misyon",
+        aboutCard2Text: "Misyon nou se pote tout kontni, fanatik, ak sèvis yo ansanm sou yon platfòm ofisyèl ki fasil pou itilize.",
+        aboutCard3Title: "Valè",
+        aboutCard3Text: "Respè, disiplin, inite, vizyon, ak limyè se baz ki soutni non Briyant Solèy Signo 1815 la.",
         servicesTitle: "SÈVIS",
+        servicesLead: "Men kèk nan sèvis ak fonksyon nou vle mete an avan sou platfòm la pou rann li itil, aktif, epi pwofesyonèl.",
         service1Title: "Pwomosyon",
-        service1Text: "Nou mete imaj, aktivite, ak pwojè yo an valè ak prezans pwofesyonèl.",
-        service2Title: "Evenman",
-        service2Text: "Nou sipòte aktivite, rara, rasanbleman, ak lòt evènman espesyal.",
-        service3Title: "Kominikasyon",
-        service3Text: "Nou ede pataje enfòmasyon, mesaj, ak kontak ak bon prezantasyon.",
+        service1Text: "Pwomosyon pou imaj, atis, ak aktivite ki gen rapò ak BSS 1815.",
+        service2Title: "Galeri",
+        service2Text: "Prezante fanatik, manm, ak moman espesyal yo ak bon jan vizibilite.",
+        service3Title: "Kontak",
+        service3Text: "Pèmèt moun ak patnè jwenn enfòmasyon ofisyèl fasilman.",
+        service4Title: "Platfòm ofisyèl",
+        service4Text: "Rasanble tout eleman enpòtan yo sou yon sèl sit ki stab epi pwòp.",
+        galleryTitle: "GALERI",
+        galleryLead: "Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.",
         contactTitle: "KONTAK",
-        galleryTitle: "GALERI BSS 1815",
-        galleryLead: "Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou."
+        contactLead: "Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.",
+        contactBox1Title: "Email",
+        contactBox2Title: "Telefòn",
+        contactBox3Title: "WhatsApp",
+        contactWhatsText: "Klike anba a pou voye mesaj dirèk.",
+        whatsBtn: "VOYE MESAJ",
+        footerText: "© BSS 1815 — Platfòm ofisyèl"
       },
       fran: {
-        brandSub: "Page d’accueil propre",
+        brandSub: "Plateforme officielle",
         home: "ACCUEIL",
+        about: "À PROPOS",
+        services: "SERVICES",
         gallery: "GALERIE",
+        contact: "CONTACT",
         heroTitle: "BRIYANT SOLÈY SIGNO 1815",
         heroText: "BSS 1815 est une force, une vision, une lumière qui ne s’éteindra jamais. C’est un espace de fierté, d’énergie, de discipline et de mémoire vivante pour tous les membres, les fans et tous ceux qui portent les couleurs orange abricot et noir avec dignité.",
-        heroGalleryBtn: "ENTRER DANS LA GALERIE",
-        heroHomeBtn: "PAGE D’ACCUEIL OFFICIELLE",
-        testimonialText: "BSS 1815 est plus qu’un nom. C’est une direction, un respect et une présence qui marquent les esprits.",
-        testimonialName: "BSS WAY",
-        testimonialRole: "Orange et noir uniquement",
-        welcomeTitle: "BIENVENUE SUR LA PLATEFORME OFFICIELLE",
-        welcomeLead: "Cette page est conçue pour mettre en valeur l’héritage, la présence et l’image de Briyant Solèy Signo 1815. Toutes les photos, tous les visages et tous les moments portent l’histoire du groupe avec fierté.",
-        card1Title: "Vision",
-        card1Text: "BSS 1815 est plus qu’un nom. C’est une direction, un respect et une présence qui marquent les esprits.",
-        card2Title: "Fanbase",
-        card2Text: "Ce sont les fans qui apportent la chaleur, le mouvement et la vie. Chaque photo ici est un témoignage.",
-        card3Title: "Honneur",
-        card3Text: "Nous mettons les personnes en lumière, car chaque visage a de la valeur, chaque présence a du poids, chaque nom porte une mémoire.",
-        card4Title: "Énergie",
-        card4Text: "L’orange et le noir sont la force, le feu, la discipline et la clarté qui définissent BSS 1815.",
+        eyebrowText: "BSS OFFICIEL",
+        sideTitle: "Une vraie plateforme pour BSS 1815",
+        sideText: "Nous réunissons l’image, la fanbase, les services et les contacts sur un seul site propre, fort et facile à parcourir.",
+        heroGalleryBtn: "Entrer dans la galerie",
+        heroContactBtn: "Nous contacter",
+        quoteText: "BSS 1815 est plus qu’un nom. C’est une direction, un respect et une présence qui marquent les esprits.",
+        quoteName: "BSS WAY",
+        quoteRole: "Orange et noir uniquement",
         aboutTitle: "À PROPOS",
-        aboutText: "Briyant Solèy Signo 1815 est une organisation qui apporte lumière, énergie, respect et discipline. Nous existons pour honorer les personnes, soutenir la fanbase et mettre en valeur la force de la communauté.",
+        aboutLead: "Briyant Solèy Signo 1815 est une organisation qui apporte lumière, énergie, discipline et fierté. Nous représentons une vision forte qui met les personnes en valeur et garde la mémoire du groupe vivante.",
+        aboutCard1Title: "Vision",
+        aboutCard1Text: "Nous construisons un espace qui montre l’héritage, la présence et la force de BSS 1815 de manière claire, moderne et professionnelle.",
+        aboutCard2Title: "Mission",
+        aboutCard2Text: "Notre mission est de réunir tous les contenus, les fans et les services sur une plateforme officielle facile à utiliser.",
+        aboutCard3Title: "Valeurs",
+        aboutCard3Text: "Respect, discipline, unité, vision et lumière sont les bases qui soutiennent le nom de Briyant Solèy Signo 1815.",
         servicesTitle: "SERVICES",
+        servicesLead: "Voici quelques services et fonctions que nous mettons en avant sur la plateforme afin de la rendre utile, active et professionnelle.",
         service1Title: "Promotion",
-        service1Text: "Nous mettons en valeur les images, les activités et les projets avec une présence professionnelle.",
-        service2Title: "Événements",
-        service2Text: "Nous soutenons les activités, rara, rassemblements et autres événements spéciaux.",
-        service3Title: "Communication",
-        service3Text: "Nous aidons à partager informations, messages et contacts avec une bonne présentation.",
+        service1Text: "Promotion pour l’image, les artistes et les activités liées à BSS 1815.",
+        service2Title: "Galerie",
+        service2Text: "Présenter les fans, les membres et les moments spéciaux avec une belle visibilité.",
+        service3Title: "Contact",
+        service3Text: "Permettre au public et aux partenaires d’obtenir facilement des informations officielles.",
+        service4Title: "Plateforme officielle",
+        service4Text: "Réunir tous les éléments importants sur un seul site stable et propre.",
+        galleryTitle: "GALERIE",
+        galleryLead: "Voici quelques belles images de fans, de membres et de moments spéciaux qui font toujours briller Briyant Solèy Signo 1815.",
         contactTitle: "CONTACT",
-        galleryTitle: "GALERIE BSS 1815",
-        galleryLead: "Voici quelques belles images de fans, de membres et de moments spéciaux qui font toujours briller Briyant Solèy Signo 1815."
+        contactLead: "Contactez-nous pour des informations, des collaborations ou des questions sur la plateforme et les activités.",
+        contactBox1Title: "Email",
+        contactBox2Title: "Téléphone",
+        contactBox3Title: "WhatsApp",
+        contactWhatsText: "Cliquez ci-dessous pour envoyer un message direct.",
+        whatsBtn: "ENVOYER UN MESSAGE",
+        footerText: "© BSS 1815 — Plateforme officielle"
       },
       eng: {
-        brandSub: "Homepage Backup Clean",
+        brandSub: "Official platform",
         home: "HOME",
+        about: "ABOUT",
+        services: "SERVICES",
         gallery: "GALLERY",
+        contact: "CONTACT",
         heroTitle: "BRIYANT SOLÈY SIGNO 1815",
         heroText: "BSS 1815 is a force, a vision, a light that will never go out. It is a space of pride, energy, discipline, and living memory for all members, fans, and everyone who wears apricot orange and black with dignity.",
-        heroGalleryBtn: "ENTER THE GALLERY",
-        heroHomeBtn: "OFFICIAL HOMEPAGE",
-        testimonialText: "BSS 1815 is more than a name. It is direction, respect, and a presence that leaves a mark.",
-        testimonialName: "BSS WAY",
-        testimonialRole: "Orange and black only",
-        welcomeTitle: "WELCOME TO THE OFFICIAL PLATFORM",
-        welcomeLead: "This page is designed to showcase the legacy, presence, and image of Briyant Solèy Signo 1815. Every photo, every face, and every moment carries the story of the group with pride.",
-        card1Title: "Vision",
-        card1Text: "BSS 1815 is more than a name. It is direction, respect, and a presence that leaves a mark.",
-        card2Title: "Fanbase",
-        card2Text: "The fans bring warmth, movement, and life. Every photo here is a testimony.",
-        card3Title: "Honor",
-        card3Text: "We bring people into the light because every face has value, every presence has weight, and every name carries memory.",
-        card4Title: "Energy",
-        card4Text: "Orange and black are the force, fire, discipline, and clarity that define BSS 1815.",
-        aboutTitle: "ABOUT US",
-        aboutText: "Briyant Solèy Signo 1815 is an organization that brings light, energy, respect, and discipline. We exist to honor people, support the fanbase, and highlight the strength of the community.",
+        eyebrowText: "BSS OFFICIAL",
+        sideTitle: "A real platform for BSS 1815",
+        sideText: "We bring image, fanbase, services, and contact together on one clean, strong, and easy-to-navigate website.",
+        heroGalleryBtn: "Enter the gallery",
+        heroContactBtn: "Contact us",
+        quoteText: "BSS 1815 is more than a name. It is direction, respect, and a presence that leaves a mark.",
+        quoteName: "BSS WAY",
+        quoteRole: "Orange and black only",
+        aboutTitle: "ABOUT",
+        aboutLead: "Briyant Solèy Signo 1815 is an organization that brings light, energy, discipline, and pride. We represent a strong vision that highlights people and keeps the memory of the band alive.",
+        aboutCard1Title: "Vision",
+        aboutCard1Text: "We are building a space that presents the legacy, presence, and strength of BSS 1815 in a clear, modern, and professional way.",
+        aboutCard2Title: "Mission",
+        aboutCard2Text: "Our mission is to bring all content, fans, and services together on one official platform that is easy to use.",
+        aboutCard3Title: "Values",
+        aboutCard3Text: "Respect, discipline, unity, vision, and light are the foundations that support the name Briyant Solèy Signo 1815.",
         servicesTitle: "SERVICES",
+        servicesLead: "Here are some of the services and features we want to highlight on the platform to make it useful, active, and professional.",
         service1Title: "Promotion",
-        service1Text: "We highlight images, activities, and projects with a professional presence.",
-        service2Title: "Events",
-        service2Text: "We support activities, rara, gatherings, and other special events.",
-        service3Title: "Communication",
-        service3Text: "We help share information, messages, and contacts with strong presentation.",
+        service1Text: "Promotion for image, artists, and activities related to BSS 1815.",
+        service2Title: "Gallery",
+        service2Text: "Showcasing fans, members, and special moments with strong visibility.",
+        service3Title: "Contact",
+        service3Text: "Allowing the public and partners to get official information easily.",
+        service4Title: "Official platform",
+        service4Text: "Bringing all important elements together on one stable and clean website.",
+        galleryTitle: "GALLERY",
+        galleryLead: "Here are some beautiful images of fans, members, and special moments that keep Briyant Solèy Signo 1815 shining.",
         contactTitle: "CONTACT",
-        galleryTitle: "BSS 1815 GALLERY",
-        galleryLead: "Here are some beautiful images of fans, members, and special moments that keep Briyant Solèy Signo 1815 shining."
+        contactLead: "Contact us for information, collaborations, or questions about the platform and activities.",
+        contactBox1Title: "Email",
+        contactBox2Title: "Phone",
+        contactBox3Title: "WhatsApp",
+        contactWhatsText: "Click below to send a direct message.",
+        whatsBtn: "SEND MESSAGE",
+        footerText: "© BSS 1815 — Official platform"
       }
     };
 
@@ -727,20 +820,20 @@
       "only-u.jpeg","ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","blackson.jpeg",
       "nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg","roro-lajan.jpg",
       "jeff-colin.jpg","fanfan.jpg","may.jpg","sonson1.jpg","warrens.jpg","majis-mauc.jpg",
-      "emaze.jpg","la-belle-yole.jpg","maximax-multi-serv.jpeg","queen-naylove.jpeg",
-      "macu-mv.jpg","ti-leta.jpg","anpere-ti-rat.jpg","mario.jpg","perodin.jpg","cange1.jpg",
-      "maximax1.jpg","nadege.jpg","sinndy.jpg","asmide.jpg","andre-asouman.jpg","one-love.jpg",
-      "slogan.jpg","ygens.jpg","prodin.jpeg","cange.jpg","ralph.jpg","slogan1.jpg","odelinne.jpg",
-      "jij-mayan.jpg","ti-marasa-yo.jpg","baron-plenn-lan.jpeg","bouboul.jpeg","bawon-an!.jpeg",
-      "brunel.jpeg","caldos.jpeg","cange2.jpeg","cols.jpeg","don-dodo.jpeg","doodly23.jpeg",
-      "doudou.jpeg","elson2.jpeg","guypson.jpeg","karl-henry.jpeg","kendy.jpeg",
-      "kriye-pou-fanm.jpeg","landry.jpeg","macu.jpeg","majis-junior.jpeg","mambo_fifi.jpeg",
-      "max-louis.jpeg","montinat.jpeg","michel-briyant.jpeg","nadege-b.jpeg","nnaylove.jpeg",
-      "ones-1.jpeg","paulema.jpeg","pdg-ti-rat.jpeg","prez-aly.jpeg","prez-papit.jpeg",
-      "rooso.jpeg","roro-lajan.jpeg","roro23.jpeg","synthia-jn-baptiste.jpeg","tania.jpeg",
-      "the-only-1.jpeg","ti-chery.jpeg","ti-reynold.jpeg","ti_la_france.jpeg","ti_marasa.jpeg",
-      "ti_papouche.jpeg","toto-senkant.jpeg","valery2.jpeg","flore.jpeg","jij_mayan.jpeg",
-      "adia.jpeg","nnadia.png","roro-lajan2.jpeg","odeline.jpeg","dede.png"
+      "emaze.jpg","la-belle-yole.jpg","maximax-multi-serv.jpeg","queen-naylove.jpeg","macu-mv.jpg",
+      "ti-leta.jpg","anpere-ti-rat.jpg","mario.jpg","perodin.jpg","cange1.jpg","maximax1.jpg",
+      "nadege.jpg","sinndy.jpg","asmide.jpg","andre-asouman.jpg","one-love.jpg","slogan.jpg",
+      "ygens.jpg","prodin.jpeg","cange.jpg","ralph.jpg","slogan1.jpg","odelinne.jpg","jij-mayan.jpg",
+      "ti-marasa-yo.jpg","baron-plenn-lan.jpeg","bouboul.jpeg","bawon-an!.jpeg","brunel.jpeg",
+      "caldos.jpeg","cange2.jpeg","cols.jpeg","don-dodo.jpeg","doodly23.jpeg","doudou.jpeg",
+      "elson2.jpeg","guypson.jpeg","karl-henry.jpeg","kendy.jpeg","kriye-pou-fanm.jpeg","landry.jpeg",
+      "macu.jpeg","majis-junior.jpeg","mambo_fifi.jpeg","max-louis.jpeg","montinat.jpeg",
+      "michel-briyant.jpeg","nadege-b.jpeg","nnaylove.jpeg","ones-1.jpeg","paulema.jpeg",
+      "pdg-ti-rat.jpeg","prez-aly.jpeg","prez-papit.jpeg","rooso.jpeg","roro-lajan.jpeg",
+      "roro23.jpeg","synthia-jn-baptiste.jpeg","tania.jpeg","the-only-1.jpeg","ti-chery.jpeg",
+      "ti-reynold.jpeg","ti_la_france.jpeg","ti_marasa.jpeg","ti_papouche.jpeg","toto-senkant.jpeg",
+      "valery2.jpeg","flore.jpeg","jij_mayan.jpeg","adia.jpeg","nnadia.png","roro-lajan2.jpeg",
+      "odeline.jpeg","dede.png"
     ];
 
     const slidesContainer = document.getElementById("slidesContainer");
@@ -748,18 +841,11 @@
     const slideCounter = document.getElementById("slideCounter");
     const progressBar = document.getElementById("progressBar");
 
-    const homeBtn = document.getElementById("homeBtn");
-    const galleryBtn = document.getElementById("galleryBtn");
-    const heroGalleryBtn = document.getElementById("heroGalleryBtn");
-    const heroHomeBtn = document.getElementById("heroHomeBtn");
-    const homePage = document.getElementById("homePage");
-    const galleryPage = document.getElementById("galleryPage");
-
     const kreBtn = document.getElementById("kreBtn");
     const franBtn = document.getElementById("franBtn");
     const engBtn = document.getElementById("engBtn");
 
-    function prettyName(file) {
+    function prettyName(file){
       let name = file
         .replace(".jpeg","")
         .replace(".jpg","")
@@ -772,7 +858,7 @@
       const name = prettyName(file);
 
       const slide = document.createElement("div");
-      slide.className = "hero-slide";
+      slide.className = "slide";
       slide.innerHTML = `<img src="${file}" alt="${name}">`;
       slidesContainer.appendChild(slide);
 
@@ -785,7 +871,7 @@
       galleryGrid.appendChild(item);
     });
 
-    const slides = document.querySelectorAll(".hero-slide");
+    const slides = document.querySelectorAll(".slide");
     let currentSlide = 0;
     const slideDuration = 8000;
     let slideInterval = null;
@@ -825,70 +911,62 @@
       slideInterval = setInterval(nextSlide, slideDuration);
     }
 
-    function showHome() {
-      homePage.classList.add("active");
-      galleryPage.classList.remove("active");
-      homeBtn.classList.add("active");
-      galleryBtn.classList.remove("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function showGallery() {
-      galleryPage.classList.add("active");
-      homePage.classList.remove("active");
-      galleryBtn.classList.add("active");
-      homeBtn.classList.remove("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
     function setLanguage(lang) {
       const t = translations[lang];
+
       document.getElementById("brandSub").textContent = t.brandSub;
-      homeBtn.textContent = t.home;
-      galleryBtn.textContent = t.gallery;
+      document.getElementById("homeBtn").textContent = t.home;
+      document.getElementById("aboutBtn").textContent = t.about;
+      document.getElementById("servicesBtn").textContent = t.services;
+      document.getElementById("galleryBtn").textContent = t.gallery;
+      document.getElementById("contactBtn").textContent = t.contact;
       document.getElementById("heroTitle").textContent = t.heroTitle;
       document.getElementById("heroText").textContent = t.heroText;
-      heroGalleryBtn.textContent = t.heroGalleryBtn;
-      heroHomeBtn.textContent = t.heroHomeBtn;
-      document.getElementById("testimonialText").textContent = t.testimonialText;
-      document.getElementById("testimonialName").textContent = t.testimonialName;
-      document.getElementById("testimonialRole").textContent = t.testimonialRole;
-      document.getElementById("welcomeTitle").textContent = t.welcomeTitle;
-      document.getElementById("welcomeLead").textContent = t.welcomeLead;
-      document.getElementById("card1Title").textContent = t.card1Title;
-      document.getElementById("card1Text").textContent = t.card1Text;
-      document.getElementById("card2Title").textContent = t.card2Title;
-      document.getElementById("card2Text").textContent = t.card2Text;
-      document.getElementById("card3Title").textContent = t.card3Title;
-      document.getElementById("card3Text").textContent = t.card3Text;
-      document.getElementById("card4Title").textContent = t.card4Title;
-      document.getElementById("card4Text").textContent = t.card4Text;
+      document.getElementById("eyebrowText").textContent = t.eyebrowText;
+      document.getElementById("sideTitle").textContent = t.sideTitle;
+      document.getElementById("sideText").textContent = t.sideText;
+      document.getElementById("heroGalleryBtn").textContent = t.heroGalleryBtn;
+      document.getElementById("heroContactBtn").textContent = t.heroContactBtn;
+      document.getElementById("quoteText").textContent = t.quoteText;
+      document.getElementById("quoteName").textContent = t.quoteName;
+      document.getElementById("quoteRole").textContent = t.quoteRole;
       document.getElementById("aboutTitle").textContent = t.aboutTitle;
-      document.getElementById("aboutText").textContent = t.aboutText;
+      document.getElementById("aboutLead").textContent = t.aboutLead;
+      document.getElementById("aboutCard1Title").textContent = t.aboutCard1Title;
+      document.getElementById("aboutCard1Text").textContent = t.aboutCard1Text;
+      document.getElementById("aboutCard2Title").textContent = t.aboutCard2Title;
+      document.getElementById("aboutCard2Text").textContent = t.aboutCard2Text;
+      document.getElementById("aboutCard3Title").textContent = t.aboutCard3Title;
+      document.getElementById("aboutCard3Text").textContent = t.aboutCard3Text;
       document.getElementById("servicesTitle").textContent = t.servicesTitle;
+      document.getElementById("servicesLead").textContent = t.servicesLead;
       document.getElementById("service1Title").textContent = t.service1Title;
       document.getElementById("service1Text").textContent = t.service1Text;
       document.getElementById("service2Title").textContent = t.service2Title;
       document.getElementById("service2Text").textContent = t.service2Text;
       document.getElementById("service3Title").textContent = t.service3Title;
       document.getElementById("service3Text").textContent = t.service3Text;
-      document.getElementById("contactTitle").textContent = t.contactTitle;
+      document.getElementById("service4Title").textContent = t.service4Title;
+      document.getElementById("service4Text").textContent = t.service4Text;
       document.getElementById("galleryTitle").textContent = t.galleryTitle;
       document.getElementById("galleryLead").textContent = t.galleryLead;
+      document.getElementById("contactTitle").textContent = t.contactTitle;
+      document.getElementById("contactLead").textContent = t.contactLead;
+      document.getElementById("contactBox1Title").textContent = t.contactBox1Title;
+      document.getElementById("contactBox2Title").textContent = t.contactBox2Title;
+      document.getElementById("contactBox3Title").textContent = t.contactBox3Title;
+      document.getElementById("contactWhatsText").textContent = t.contactWhatsText;
+      document.getElementById("whatsBtn").textContent = t.whatsBtn;
+      document.getElementById("footerText").textContent = t.footerText;
 
       kreBtn.classList.remove("active");
       franBtn.classList.remove("active");
       engBtn.classList.remove("active");
 
-      if (lang === "kre") kreBtn.classList.add("active");
-      if (lang === "fran") franBtn.classList.add("active");
-      if (lang === "eng") engBtn.classList.add("active");
+      if(lang === "kre") kreBtn.classList.add("active");
+      if(lang === "fran") franBtn.classList.add("active");
+      if(lang === "eng") engBtn.classList.add("active");
     }
-
-    homeBtn.addEventListener("click", showHome);
-    galleryBtn.addEventListener("click", showGallery);
-    heroGalleryBtn.addEventListener("click", showGallery);
-    heroHomeBtn.addEventListener("click", showHome);
 
     kreBtn.addEventListener("click", () => setLanguage("kre"));
     franBtn.addEventListener("click", () => setLanguage("fran"));
@@ -898,4 +976,4 @@
     setLanguage("kre");
   </script>
 </body>
-          </html>
+</html>
