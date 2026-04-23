@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — ADMIN PRO‑MAX</title>
+    <title>BSS1815 — ADMIN PRO-MAX</title>
 
     <style>
         :root {
@@ -13,11 +13,20 @@
             --blan: #FFFFFF;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             background: var(--nwa);
             color: var(--blan);
             font-family: Arial, sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         /* SIDEBAR */
@@ -31,15 +40,18 @@
             left: 0;
             padding-top: 20px;
             box-shadow: 0 0 20px var(--abriko);
+            overflow-y: auto;
         }
 
         .sidebar-logo {
             text-align: center;
             margin-bottom: 30px;
+            padding: 0 16px;
         }
 
         .sidebar .logo {
             width: 180px;
+            margin: 0 auto;
             filter: drop-shadow(0 0 10px var(--abriko));
         }
 
@@ -47,7 +59,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            padding: 0 20px;
+            padding: 0 20px 30px;
         }
 
         .menu-btn {
@@ -88,6 +100,7 @@
 
         .section {
             margin-top: 40px;
+            scroll-margin-top: 20px;
         }
 
         .section-shell {
@@ -220,6 +233,25 @@
             color: #000;
             margin-top: 8px;
         }
+
+        @media (max-width: 900px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--abriko);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .page-title {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 
@@ -228,36 +260,36 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <img src="/PATH/logo-bss2.jpeg" class="logo">
+            <img src="assets/logo-bss2.jpeg" class="logo" alt="BSS Logo">
         </div>
 
         <nav class="sidebar-menu">
-            <button class="menu-btn active">🏠 Dashboard</button>
-            <button class="menu-btn">🖼️ Flyer Center</button>
-            <button class="menu-btn">📄 Letter Center</button>
-            <button class="menu-btn">📜 Contract Center</button>
-            <button class="menu-btn">🎵 Musician Center</button>
-            <button class="menu-btn">📤 Upload Center</button>
-            <button class="menu-btn">👤 Kont Admin</button>
+            <button class="menu-btn active" onclick="goToSection('dashboard')">🏠 Dashboard</button>
+            <button class="menu-btn" onclick="goToSection('flyer-center')">🖼️ Flyer Center</button>
+            <button class="menu-btn" onclick="goToSection('letter-center')">📄 Letter Center</button>
+            <button class="menu-btn" onclick="goToSection('contract-center')">📜 Contract Center</button>
+            <button class="menu-btn" onclick="goToSection('musician-center')">🎵 Musician Center</button>
+            <button class="menu-btn" onclick="goToSection('upload-center')">📤 Upload Center</button>
+            <button class="menu-btn" onclick="goToSection('admin-account')">👤 Kont Admin</button>
             <button class="menu-btn logout" onclick="logoutAdmin()">🚪 Logout</button>
         </nav>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-        <h1 class="page-title">ADMIN PANEL — BSS1815 PRO‑MAX</h1>
+        <h1 class="page-title">ADMIN PANEL — BSS1815 PRO-MAX</h1>
 
         <!-- DASHBOARD -->
-        <section class="section">
+        <section class="section" id="dashboard">
             <div class="section-shell">
                 <div class="section-logo">
-                    <img src="/PATH/logo-bss2.jpeg">
+                    <img src="assets/logo-bss2.jpeg" alt="BSS Logo">
                 </div>
                 <div class="section-title">Dashboard</div>
                 <div class="section-inner">
                     <p class="info-text">
                         Ou konekte kòm ADMIN BSS1815. Panel sa a se sant ofisyèl pou jere
-                        tout flyer, lèt, kontra, mizisyen, ak dokiman PRO‑MAX yo.
+                        tout flyer, lèt, kontra, mizisyen, ak dokiman PRO-MAX yo.
                     </p>
                 </div>
             </div>
@@ -267,14 +299,14 @@
         <section class="section" id="flyer-center">
             <div class="section-shell">
                 <div class="section-logo">
-                    <img src="/PATH/logo-bss2.jpeg">
+                    <img src="assets/logo-bss2.jpeg" alt="BSS Logo">
                 </div>
                 <div class="section-title">Flyer Center</div>
                 <div class="section-inner">
                     <div class="grid-3">
 
                         <div class="card">
-                            <img src="/PATH/flyers/f1.jpg">
+                            <img src="assets/flyers/f1.jpg" alt="Flyer 1">
                             <h3>Flyer #1 — Evènman</h3>
                             <p>Flyer ofisyèl pou evènman BSS1815.</p>
                             <div class="btn-row">
@@ -284,7 +316,7 @@
                         </div>
 
                         <div class="card">
-                            <img src="/PATH/flyers/f2.jpg">
+                            <img src="assets/flyers/f2.jpg" alt="Flyer 2">
                             <h3>Flyer #2 — Anons</h3>
                             <p>Flyer pou anons ofisyèl BSS1815.</p>
                             <div class="btn-row">
@@ -294,7 +326,7 @@
                         </div>
 
                         <div class="card">
-                            <img src="/PATH/flyers/f3.jpg">
+                            <img src="assets/flyers/f3.jpg" alt="Flyer 3">
                             <h3>Flyer #3 — Espesyal</h3>
                             <p>Flyer espesyal pou kampay BSS1815.</p>
                             <div class="btn-row">
@@ -312,7 +344,7 @@
         <section class="section" id="letter-center">
             <div class="section-shell">
                 <div class="section-logo">
-                    <img src="/PATH/logo-bss2.jpeg">
+                    <img src="assets/logo-bss2.jpeg" alt="BSS Logo">
                 </div>
                 <div class="section-title">Letter Center</div>
                 <div class="section-inner">
@@ -328,7 +360,7 @@
                         </div>
 
                         <div class="card">
-                            <h3>Lèt #2 — Envitation</h3>
+                            <h3>Lèt #2 — Envitasyon</h3>
                             <p>Lèt envitasyon pou evènman BSS1815.</p>
                             <div class="btn-row">
                                 <button class="btn-primary">View</button>
@@ -354,7 +386,7 @@
         <section class="section" id="contract-center">
             <div class="section-shell">
                 <div class="section-logo">
-                    <img src="/PATH/logo-bss2.jpeg">
+                    <img src="assets/logo-bss2.jpeg" alt="BSS Logo">
                 </div>
                 <div class="section-title">Contract Center</div>
                 <div class="section-inner">
@@ -396,28 +428,28 @@
         <section class="section" id="musician-center">
             <div class="section-shell">
                 <div class="section-logo">
-                    <img src="/PATH/logo-bss2.jpeg">
+                    <img src="assets/logo-bss2.jpeg" alt="BSS Logo">
                 </div>
-            <div class="section-title">Musician Center</div>
+                <div class="section-title">Musician Center</div>
                 <div class="section-inner">
                     <div class="grid-3">
 
                         <div class="card">
-                            <img src="/PATH/musicians/m1.jpg">
+                            <img src="assets/musicians/m1.jpg" alt="Mizisyen 1">
                             <h3>Non Mizisyen #1</h3>
                             <p>Enstriman: Trompèt</p>
                             <button class="btn-full">Modifye</button>
                         </div>
 
                         <div class="card">
-                            <img src="/PATH/musicians/m2.jpg">
+                            <img src="assets/musicians/m2.jpg" alt="Mizisyen 2">
                             <h3>Non Mizisyen #2</h3>
                             <p>Enstriman: Kès</p>
                             <button class="btn-full">Modifye</button>
                         </div>
 
                         <div class="card">
-                            <img src="/PATH/musicians/m3.jpg">
+                            <img src="assets/musicians/m3.jpg" alt="Mizisyen 3">
                             <h3>Non Mizisyen #3</h3>
                             <p>Enstriman: Banbou</p>
                             <button class="btn-full">Modifye</button>
@@ -432,12 +464,12 @@
         <section class="section" id="upload-center">
             <div class="section-shell">
                 <div class="section-logo">
-                    <img src="/PATH/logo-bss2.jpeg">
+                    <img src="assets/logo-bss2.jpeg" alt="BSS Logo">
                 </div>
                 <div class="section-title">Upload Center</div>
                 <div class="section-inner">
                     <p class="info-text">
-                        Zòn sa a sèvi pou telechaje nouvo foto, flyer, lèt, ak dokiman PRO‑MAX BSS1815.
+                        Zòn sa a sèvi pou telechaje nouvo foto, flyer, lèt, ak dokiman PRO-MAX BSS1815.
                     </p>
                     <input type="file" class="field">
                     <button class="btn-full">Upload</button>
@@ -449,7 +481,7 @@
         <section class="section" id="admin-account">
             <div class="section-shell">
                 <div class="section-logo">
-                    <img src="/PATH/logo-bss2.jpeg">
+                    <img src="assets/logo-bss2.jpeg" alt="BSS Logo">
                 </div>
                 <div class="section-title">Kont Admin</div>
                 <div class="section-inner">
@@ -466,7 +498,6 @@
 
     </main>
 
-    <!-- SEKIRITE -->
     <script>
         if (!localStorage.getItem("bss_admin_logged")) {
             window.location.href = "login.html";
@@ -475,6 +506,10 @@
         function logoutAdmin() {
             localStorage.removeItem("bss_admin_logged");
             window.location.href = "login.html";
+        }
+
+        function goToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
         }
     </script>
 
