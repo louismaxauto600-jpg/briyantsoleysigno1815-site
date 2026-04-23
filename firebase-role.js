@@ -5,15 +5,14 @@ import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 const db = getFirestore();
 
 /**
- * Inisyalize lis SUPER_ADMIN ak ADMIN yo
- * Rele sa yon sèl fwa lè w fin pare (oswa manyèl nan console)
+ * Mete SUPER_ADMIN ak ADMIN yo nan Firestore
+ * Rele sa yon sèl fwa pou inisyalizasyon
  */
 export async function initRoles() {
-    // RANPLASE UID YO AK VRE UID NOU YO
     await setDoc(doc(db, "roles", "super_admins"), {
         users: [
-            "UID_MAX",      // MAX
-            "UID_CANGE"     // CANGE
+            "UID_MAX",
+            "UID_CANGE"
         ]
     });
 
@@ -26,7 +25,7 @@ export async function initRoles() {
 }
 
 /**
- * Pran wòl yon itilizatè selon UID li
+ * Retounen wòl yon itilizatè selon UID li
  */
 export async function getUserRole(uid) {
     const superSnap = await getDoc(doc(db, "roles", "super_admins"));
