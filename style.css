@@ -29,13 +29,27 @@ body {
   border-radius: 18px;
 }
 
-/* SLIDESHOW IMAGES — AJISTE */
+/* SLIDESHOW IMAGES */
 .hero-slideshow-wrapper img {
   width: 100%;
   height: 520px;
   object-fit: cover;
   display: block;
   filter: brightness(1.08) contrast(1.03);
+}
+
+/* SLIDE TEXT — RANPLASE AK VÈSYON OU A */
+.slide-text{
+  position:absolute;
+  left:18px;
+  right:auto;
+  bottom:18px;
+  z-index:3;
+  width:min(52%, 560px);
+  padding:16px 18px 14px;
+  background:linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.24));
+  border:1px solid rgba(255,122,0,.22);
+  border-radius:18px;
 }
 
 /* MASK TEKST */
