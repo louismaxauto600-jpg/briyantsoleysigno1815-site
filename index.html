@@ -741,7 +741,133 @@
           <h1>BSS 1815</h1>
           <p id="brandSub">Platfòm ofisyèl la</p>
         </div>
-      </div>
+      </d<!-- SLIDESHOW — METE L ANBA HEADER LA -->
+<div id="slideshow">
+
+  <div class="slide"><img src="bawon-an.jpeg"></div>
+  <div class="slide"><img src="cange.jpeg"></div>
+  <div class="slide"><img src="miami-an-aksyon.jpeg"></div>
+  <div class="slide"><img src="adan-signo.jpeg"></div>
+  <div class="slide"><img src="andre-asouman.jpg"></div>
+  <div class="slide"><img src="andy.jpeg"></div>
+  <div class="slide"><img src="anpere-ti-rat.jpg"></div>
+  <div class="slide"><img src="asmide.jpg"></div>
+  <div class="slide"><img src="badin.jpeg"></div>
+  <div class="slide"><img src="baron.jpeg"></div>
+  <div class="slide"><img src="bouboul.jpeg"></div>
+  <div class="slide"><img src="brunel.jpeg"></div>
+  <div class="slide"><img src="blackson.jpeg"></div>
+  <div class="slide"><img src="caldos.jpeg"></div>
+  <div class="slide"><img src="cange2.jpeg"></div>
+  <div class="slide"><img src="dede.png"></div>
+  <div class="slide"><img src="don-dodo.jpeg"></div>
+  <div class="slide"><img src="doodly.jpeg"></div>
+  <div class="slide"><img src="doudou.jpeg"></div>
+  <div class="slide"><img src="elson2.jpeg"></div>
+  <div class="slide"><img src="emaze.jpg"></div>
+  <div class="slide"><img src="fanfan.jpg"></div>
+  <div class="slide"><img src="flore.jpeg"></div>
+  <div class="slide"><img src="guypson.jpeg"></div>
+  <div class="slide"><img src="jeff-colin.jpg"></div>
+  <div class="slide"><img src="jij-mayan.jpeg"></div>
+  <div class="slide"><img src="jude-j.jpeg"></div>
+  <div class="slide"><img src="karl-henry.jpeg"></div>
+  <div class="slide"><img src="kendy.jpg"></div>
+  <div class="slide"><img src="kriye-pou-fanm.jpeg"></div>
+  <div class="slide"><img src="la-belle-yole.jpeg"></div>
+  <div class="slide"><img src="landry.jpeg"></div>
+  <div class="slide"><img src="macu-v.jpeg"></div>
+  <div class="slide"><img src="majis-mauc.jpg"></div>
+  <div class="slide"><img src="majisra-junior.jpeg"></div>
+  <div class="slide"><img src="macu1.jpg"></div>
+  <div class="slide"><img src="mambo-fifi.jpeg"></div>
+  <div class="slide"><img src="mario.jpeg"></div>
+  <div class="slide"><img src="max-louis.jpeg"></div>
+  <div class="slide"><img src="may.jpeg"></div>
+  <div class="slide"><img src="may2.jpg"></div>
+  <div class="slide"><img src="media-man.jpeg"></div>
+  <div class="slide"><img src="maximax-multi-serv.jpeg"></div>
+  <div class="slide"><img src="michel-briyant.jpeg"></div>
+  <div class="slide"><img src="montinat.jpeg"></div>
+  <div class="slide"><img src="naylove.jpeg"></div>
+  <div class="slide"><img src="nadge-jpeg"></div>
+  <div class="slide"><img src="odeline.jpeg"></div>
+  <div class="slide"><img src="one-love.jpg"></div>
+  <div class="slide"><img src="ones-1.jpeg"></div>
+  <div class="slide"><img src="paulema.jpeg"></div>
+  <div class="slide"><img src="only-u.jpeg"></div>
+  <div class="slide"><img src="pdg-ti-fre.jpg"></div>
+  <div class="slide"><img src="pdgtirat.jpeg"></div>
+  <div class="slide"><img src="perodin.jpg"></div>
+  <div class="slide"><img src="prez-aly.jpeg"></div>
+  <div class="slide"><img src="prez-papit.jpg"></div>
+  <div class="slide"><img src="prez-ti-rat.jpeg"></div>
+  <div class="slide"><img src="prez.jpeg"></div>
+  <div class="slide"><img src="ralph-p.jpeg"></div>
+  <div class="slide"><img src="rooso.jpeg"></div>
+  <div class="slide"><img src="roro-lajan.jpeg"></div>
+  <div class="slide"><img src="roro-pot-pawol.png"></div>
+  <div class="slide"><img src="shirley.jpeg"></div>
+  <div class="slide"><img src="sindy.png"></div>
+  <div class="slide"><img src="slogan1.jpg"></div>
+  <div class="slide"><img src="sonsonn1.jpg"></div>
+  <div class="slide"><img src="sonsonn.jpeg"></div>
+  <div class="slide"><img src="tania-felix.png"></div>
+  <div class="slide"><img src="the-only-1.jpeg"></div>
+  <div class="slide"><img src="ti-marasa.jpeg"></div>
+  <div class="slide"><img src="ti-chery.jpeg"></div>
+  <div class="slide"><img src="ti-la-france.jpeg"></div>
+  <div class="slide"><img src="ti-leta.jpg"></div>
+  <div class="slide"><img src="ti-reynold.jpg"></div>
+  <div class="slide"><img src="ti-papouche.jpeg"></div>
+  <div class="slide"><img src="toto-senkant.jpg"></div>
+  <div class="slide"><img src="valery.png"></div>
+  <div class="slide"><img src="vice-prezidan-ygens"></div>
+  <div class="slide"><img src="valery2.jpeg"></div>
+  <div class="slide"><img src="warrens.jpg"></div>
+  <div class="slide"><img src="warrens.jpeg"></div>
+  <div class="slide"><img src="zeze.jpeg"></div>
+  <div class="slide"><img src="miami-an-aksyon.png"></div>
+
+</div>
+
+<style>
+#slideshow{
+  width:100%;
+  height:420px;
+  position:relative;
+  overflow:hidden;
+}
+#slideshow .slide{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:0;
+  transition:opacity .8s ease-in-out;
+}
+#slideshow .slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+#slideshow .slide.active{
+  opacity:1;
+}
+</style>
+
+<script>
+const slides = document.querySelectorAll('#slideshow .slide');
+let i = 0;
+slides[0].classList.add('active');
+
+setInterval(() => {
+  slides[i].classList.remove('active');
+  i = (i + 1) % slides.length;
+  slides[i].classList.add('active');
+}, 4000);
+</script>iv>
 
       <div class="lang-switch">
         <button class="active" id="kreBtn" type="button">KRE</button>
