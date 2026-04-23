@@ -1,57 +1,648 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-<meta charset="UTF-8">
-<title>ADMIN PANEL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS1815 — ADMIN PRO-MAX</title>
 
-<style>
-body {
-    margin:0;
-    background:black;
-    color:white;
-    font-family:Arial;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
+    <style>
+        :root {
+            --abriko: #FF7A00;
+            --nwa: #000000;
+            --nwa-soft: #111111;
+            --blan: #FFFFFF;
+            --orange-glow: rgba(255, 122, 0, 0.45);
+        }
 
-.box {
-    border:2px solid #FF7A00;
-    padding:30px;
-    text-align:center;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-button {
-    display:block;
-    margin:10px auto;
-    padding:10px;
-    width:200px;
-    background:#FF7A00;
-    border:none;
-}
-</style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--nwa);
+            color: var(--blan);
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(to bottom, #000000 0%, #0a0a0a 100%);
+            border-right: 2px solid var(--abriko);
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 0 0 22px var(--orange-glow);
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar-logo {
+            text-align: center;
+            margin-bottom: 34px;
+            padding: 10px 15px 0;
+        }
+
+        .sidebar .logo {
+            width: 230px;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 15px #FF7A00);
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 20px 30px;
+        }
+
+        .menu-btn {
+            background: #111111;
+            color: var(--blan);
+            border: 1px solid var(--abriko);
+            padding: 13px 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.25s ease;
+            font-weight: bold;
+        }
+
+        .menu-btn:hover,
+        .menu-btn.active {
+            background: var(--abriko);
+            color: var(--nwa);
+            box-shadow: 0 0 12px rgba(255,122,0,0.35);
+        }
+
+        .logout {
+            margin-top: 24px;
+            background: #420000;
+            border: 1px solid #ff3b3b;
+            color: #ffffff;
+        }
+
+        .logout:hover {
+            background: #ff3b3b;
+            color: #000000;
+        }
+
+        /* MAIN */
+        .main-content {
+            margin-left: 280px;
+            padding: 34px 30px 50px;
+        }
+
+        .top-banner {
+            background: linear-gradient(135deg, #000000, #1a1a1a, #FF7A00);
+            border: 2px solid var(--abriko);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 0 22px rgba(255,122,0,0.35);
+            margin-bottom: 28px;
+        }
+
+        .page-title {
+            font-size: 34px;
+            color: var(--abriko);
+            margin: 0 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-subtitle {
+            margin: 0;
+            color: #f2f2f2;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 24px 0 10px;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid var(--abriko);
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 0 14px rgba(255,122,0,0.20);
+        }
+
+        .stat-box h3 {
+            margin: 0 0 8px;
+            color: var(--abriko);
+            font-size: 16px;
+        }
+
+        .stat-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #f0f0f0;
+        }
+
+        .section {
+            margin-top: 34px;
+            scroll-margin-top: 20px;
+        }
+
+        .section-shell {
+            background: linear-gradient(to bottom right, #FF7A00 0%, #000000 75%);
+            padding: 28px;
+            border-radius: 16px;
+            border: 2px solid #FF7A00;
+            box-shadow: 0 0 24px rgba(255,120,0,0.45);
+        }
+
+        .section-logo {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .section-logo img {
+            width: 170px;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 15px #FF7A00);
+        }
+
+        .section-title {
+            color: #FF7A00;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-inner {
+            background: #111111;
+            padding: 22px;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            color: #FFFFFF;
+            box-shadow: 0 0 15px rgba(255,120,0,0.28);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #111111;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255,120,0,0.25);
+            text-align: center;
+            border: 1px solid rgba(255,122,0,0.25);
+        }
+
+        .card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+            border: 2px solid #FF7A00;
+            margin-bottom: 12px;
+            box-shadow: 0 0 18px rgba(255,120,0,0.50);
+        }
+
+        .card h3 {
+            color: #FF7A00;
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .card p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-full {
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            flex: 1;
+            min-width: 120px;
+            background: #FF7A00;
+            border: none;
+            color: #000000;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 14px rgba(255,122,0,0.35);
+        }
+
+        .btn-secondary {
+            flex: 1;
+            min-width: 120px;
+            background: #111111;
+            border: 2px solid #FF7A00;
+            color: #FF7A00;
+        }
+
+        .btn-secondary:hover {
+            background: #FF7A00;
+            color: #000000;
+        }
+
+        .info-text {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #FF7A00;
+            background: #000000;
+            color: #FFFFFF;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .field:focus {
+            box-shadow: 0 0 10px rgba(255,122,0,0.25);
+        }
+
+        .btn-full {
+            width: 100%;
+            background: #FF7A00;
+            border: none;
+            color: #000000;
+            margin-top: 10px;
+        }
+
+        .btn-full:hover {
+            box-shadow: 0 0 14px rgba(255,122,0,0.35);
+        }
+
+        .upload-note {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #dddddd;
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 34px;
+            color: #cccccc;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* MOBILE */
+        @media (max-width: 920px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--abriko);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px 16px 40px;
+            }
+
+            .page-title {
+                font-size: 26px;
+            }
+
+            .top-banner,
+            .section-shell {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 23px;
+            }
+
+            .sidebar .logo {
+                width: 190px;
+            }
+
+            .section-logo img {
+                width: 145px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h2>ADMIN PANEL</h2>
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/bss-logo-ofisyel.jpeg" class="logo" alt="BSS Logo">
+        </div>
 
-    <button onclick="goSuper()">GO SUPER ADMIN</button>
-    <button onclick="logout()">LOGOUT</button>
-</div>
+        <nav class="sidebar-menu">
+            <button class="menu-btn active" onclick="goToSection('dashboard')">🏠 Dashboard</button>
+            <button class="menu-btn" onclick="goToSection('flyer-center')">🖼️ Flyer Center</button>
+            <button class="menu-btn" onclick="goToSection('letter-center')">📄 Letter Center</button>
+            <button class="menu-btn" onclick="goToSection('contract-center')">📜 Contract Center</button>
+            <button class="menu-btn" onclick="goToSection('musician-center')">🎵 Musician Center</button>
+            <button class="menu-btn" onclick="goToSection('upload-center')">📤 Upload Center</button>
+            <button class="menu-btn" onclick="goToSection('admin-account')">👤 Kont Admin</button>
+            <button class="menu-btn logout" onclick="logoutAdmin()">🚪 Logout</button>
+        </nav>
+    </aside>
 
-<script>
-function goSuper(){
-    window.location.href="super_admin.html";
-}
+    <main class="main-content">
 
-function logout(){
-    localStorage.removeItem("bss_admin_logged");
-    window.location.href="login.html";
-}
-</script>
+        <section class="top-banner" id="dashboard">
+            <h1 class="page-title">ADMIN PANEL — BSS1815 PRO-MAX</h1>
+            <p class="page-subtitle">
+                Ou konekte nan sant jesyon ofisyèl BSS1815 la. Isit la ou ka jere flyers,
+                lèt, kontra, mizisyen, uploads, ak enfòmasyon kont admin yo nan yon sèl espas.
+            </p>
+
+            <div class="quick-stats">
+                <div class="stat-box">
+                    <h3>Flyers</h3>
+                    <p>3 modèl aktif pare pou wè oswa download.</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Musicians</h3>
+                    <p>3 pwofil demo deja plase nan panel la.</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Uploads</h3>
+                    <p>Zòn upload la pare pou ajoute nouvo assets.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="flyer-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="assets/bss-logo-ofisyel.jpeg" alt="BSS Logo">
+                </div>
+                <div class="section-title">Flyer Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <img src="assets/flyers/f1.jpg" alt="Flyer 1">
+                            <h3>Flyer #1 — Evènman</h3>
+                            <p>Flyer ofisyèl pou evènman BSS1815 ak prezantasyon prensipal yo.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/flyers/f2.jpg" alt="Flyer 2">
+                            <h3>Flyer #2 — Anons</h3>
+                            <p>Flyer pou anons espesyal, aktivite, ak nouvèl ofisyèl bann lan.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/flyers/f3.jpg" alt="Flyer 3">
+                            <h3>Flyer #3 — Espesyal</h3>
+                            <p>Flyer espesyal pou gwo moman, kanpay, ak vizyèl promo BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="letter-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="assets/bss-logo-ofisyel.jpeg" alt="BSS Logo">
+                </div>
+                <div class="section-title">Letter Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <h3>Lèt #1 — Konfimasyon</h3>
+                            <p>Lèt konfimasyon ofisyèl pou patisipasyon, resepsyon, oswa verifikasyon BSS1815.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Lèt #2 — Envitasyon</h3>
+                            <p>Lèt envitasyon pou aktivite, reyinyon, ak envitasyon espesyal bann lan.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Lèt #3 — Rekonesans</h3>
+                            <p>Lèt rekonesans pou manm, patnè, sipòtè, ak pèsonalite ki merite onè.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contract-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="assets/bss-logo-ofisyel.jpeg" alt="BSS Logo">
+                </div>
+                <div class="section-title">Contract Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <h3>Kontra #1 — Kolaborasyon</h3>
+                            <p>Dokiman pou kolaborasyon ant BSS1815 ak lòt ekip, moun, oswa òganizasyon.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Kontra #2 — Prestasyon</h3>
+                            <p>Kontra sèvis ak pèfòmans pou aktivite, rasanbleman, ak lòt prezantasyon ofisyèl.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Kontra #3 — Patnè</h3>
+                            <p>Dokiman patenarya ofisyèl pou sipò, sponsorship, oswa antrepriz kolaboratif.</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">View</button>
+                                <button class="btn-secondary">Download</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="musician-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="assets/bss-logo-ofisyel.jpeg" alt="BSS Logo">
+                </div>
+                <div class="section-title">Musician Center</div>
+                <div class="section-inner">
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <img src="assets/musicians/m1.jpg" alt="Mizisyen 1">
+                            <h3>Non Mizisyen #1</h3>
+                            <p>Enstriman: Trompèt</p>
+                            <button class="btn-full">Modifye</button>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/musicians/m2.jpg" alt="Mizisyen 2">
+                            <h3>Non Mizisyen #2</h3>
+                            <p>Enstriman: Kès</p>
+                            <button class="btn-full">Modifye</button>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/musicians/m3.jpg" alt="Mizisyen 3">
+                            <h3>Non Mizisyen #3</h3>
+                            <p>Enstriman: Banbou</p>
+                            <button class="btn-full">Modifye</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="upload-center">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="assets/bss-logo-ofisyel.jpeg" alt="BSS Logo">
+                </div>
+                <div class="section-title">Upload Center</div>
+                <div class="section-inner">
+                    <p class="info-text">
+                        Zòn sa a sèvi pou telechaje nouvo foto, flyers, lèt, ak lòt dokiman BSS1815.
+                        Ou ka sèvi avè l pou mete nouvo assets nan sistèm nan.
+                    </p>
+                    <input type="file" class="field">
+                    <button class="btn-full">Upload</button>
+                    <div class="upload-note">Asire non files yo byen òganize anvan upload.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="admin-account">
+            <div class="section-shell">
+                <div class="section-logo">
+                    <img src="assets/bss-logo-ofisyel.jpeg" alt="BSS Logo">
+                </div>
+                <div class="section-title">Kont Admin</div>
+                <div class="section-inner">
+                    <p class="info-text">
+                        Jere enfòmasyon kont admin BSS1815 la isit la. Ou ka mete non, imèl, ak modpas nouvo.
+                    </p>
+                    <input type="text" class="field" placeholder="Non Admin">
+                    <input type="email" class="field" placeholder="Imèl Admin">
+                    <input type="password" class="field" placeholder="Nouvo Modpas">
+                    <button class="btn-full">Mizajou Kont</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-note">
+            © BSS1815 ADMIN SYSTEM — Orange ak nwa sèlman.
+        </div>
+
+    </main>
+
+    <script>
+        if (!localStorage.getItem("bss_admin_logged")) {
+            window.location.href = "login.html";
+        }
+
+        function logoutAdmin() {
+            localStorage.removeItem("bss_admin_logged");
+            window.location.href = "login.html";
+        }
+
+        function goToSection(sectionId) {
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    </script>
 
 </body>
 </html>
