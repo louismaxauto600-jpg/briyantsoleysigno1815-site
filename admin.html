@@ -2,83 +2,54 @@
 <html lang="ht">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSS ADMIN PANEL</title>
+<title>ADMIN PANEL</title>
 
 <style>
 body {
-    margin: 0;
-    background: black;
-    color: white;
-    font-family: Arial, sans-serif;
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
-/* CENTER BOX */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* CARD */
 .box {
-    border: 2px solid #FF7A00;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255,122,0,0.5);
+    border:2px solid #FF7A00;
+    padding:30px;
+    text-align:center;
 }
 
-h1 {
-    color: #FF7A00;
-}
-
-/* BUTTON */
 button {
-    display: block;
-    width: 200px;
-    margin: 10px auto;
-    padding: 12px;
-    background: #FF7A00;
-    color: black;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.logout {
-    background: red;
-    color: white;
+    display:block;
+    margin:10px auto;
+    padding:10px;
+    width:200px;
+    background:#FF7A00;
+    border:none;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <div class="box">
-        <h1>ADMIN PANEL</h1>
-        <p>Ou konekte kòm ADMIN</p>
+<div class="box">
+    <h2>ADMIN PANEL</h2>
 
-        <button>Dashboard</button>
-        <button>Upload</button>
-        <button>Manage Content</button>
-
-        <button class="logout" onclick="logout()">LOGOUT</button>
-    </div>
+    <button onclick="goSuper()">GO SUPER ADMIN</button>
+    <button onclick="logout()">LOGOUT</button>
 </div>
 
 <script>
-/* 🔐 SECURITY CHECK */
-if (!localStorage.getItem("bss_admin_logged")) {
-    window.location.href = "login.html";
+function goSuper(){
+    window.location.href="super_admin.html";
 }
 
-/* 🚪 LOGOUT */
-function logout() {
+function logout(){
     localStorage.removeItem("bss_admin_logged");
-    window.location.href = "login.html";
+    window.location.href="login.html";
 }
 </script>
 
