@@ -9,7 +9,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* SEKSYON HERO / HOMEPAGE HEAD */
+/* HERO SECTION */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -20,7 +20,7 @@ body {
   box-sizing: border-box;
 }
 
-/* LAYERS: SLIDESHOW DÈYÈ, TEKST DEVAN MEN PA KOUVRI FIGI YO */
+/* SLIDESHOW WRAPPER */
 .hero-slideshow-wrapper {
   position: relative;
   width: 100%;
@@ -29,7 +29,7 @@ body {
   border-radius: 18px;
 }
 
-/* SLIDESHOW IMAGES: KLÈ, PA DETWI RATIO YO */
+/* SLIDESHOW IMAGES — AJISTE */
 .hero-slideshow-wrapper img {
   width: 100%;
   height: 520px;
@@ -38,7 +38,7 @@ body {
   filter: brightness(1.08) contrast(1.03);
 }
 
-/* MASK POU FIGI YO PA KOUVRI PA TEKST */
+/* MASK TEKST */
 .hero-content {
   position: absolute;
   inset: 0;
@@ -47,10 +47,10 @@ body {
   justify-content: flex-end;
   padding: 2.5rem 3rem;
   box-sizing: border-box;
-  pointer-events: none; /* pa bloke klik sou slideshow si gen bouton ladan l */
+  pointer-events: none;
 }
 
-/* BLOK TEKST LA PA MONTE TWÒ WO SOU FIGI YO */
+/* TEKST BOX */
 .hero-text-box {
   max-width: 60%;
   background: linear-gradient(
@@ -64,9 +64,9 @@ body {
   pointer-events: auto;
 }
 
-/* TIT PRINCIPAL: REDWI POU PA BARE FIGI YO */
+/* TIT */
 .hero-title {
-  font-size: 1.9rem;          /* te ka 2.6rem, kounya pi modere */
+  font-size: 1.9rem;
   line-height: 1.15;
   font-weight: 700;
   color: #ffb35a;
@@ -75,7 +75,7 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* SOUS-TIT / DESKRIPSYON: DISIPLINE, PA GWO */
+/* SOUS-TIT */
 .hero-subtitle {
   font-size: 0.98rem;
   line-height: 1.5;
@@ -83,7 +83,7 @@ body {
   margin: 0 0 0.8rem;
 }
 
-/* BOUTON PRINCIPAL: ORANGE + NWA, PRO-MAX */
+/* CTA BUTTON */
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -102,7 +102,7 @@ body {
   box-shadow: 0 0 22px rgba(0, 0, 0, 0.75);
 }
 
-/* NAVBAR + LOGO: LOGO PA TWÒ PITI ANKÒ */
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -122,7 +122,7 @@ body {
   );
 }
 
-/* LOGO BSS1815: DIMANSYON PRO-MAX */
+/* LOGO */
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -130,12 +130,12 @@ body {
 }
 
 .navbar-logo img {
-  width: 140px;          /* LOGO PI GWO, VIZIB */
+  width: 140px;
   height: auto;
   display: block;
 }
 
-/* SI GEN LOGO PARTENÈ / LÒT LOGO ANBA YO */
+/* LOGO STRIP */
 .logo-strip {
   display: flex;
   align-items: center;
@@ -144,12 +144,12 @@ body {
 }
 
 .logo-strip img {
-  width: 120px;          /* LOGO PARTENÈ YO TOU VIZIB */
+  width: 120px;
   height: auto;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.9));
 }
 
-/* TEKST NAV: PA GWO, PA BARE ANYEN */
+/* NAV LINKS */
 .nav-links {
   display: flex;
   align-items: center;
@@ -164,7 +164,7 @@ body {
   text-decoration: none;
 }
 
-/* RESPONSIVE AJISTEMAN */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-slideshow-wrapper img {
     height: 420px;
