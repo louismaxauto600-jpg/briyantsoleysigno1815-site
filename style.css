@@ -38,6 +38,19 @@ body {
   filter: brightness(1.08) contrast(1.03);
 }
 
+/* AJOUTE BLOK OU MANDE A */
+.slide img {
+  object-position: center 12%;
+}
+
+.slide-text {
+  left: 12px;
+  right: 12px;
+  width: auto;
+  bottom: 12px;
+  padding: 14px 14px 12px;
+}
+
 /* SLIDE TEXT — BOX */
 .slide-text {
   position: absolute;
@@ -211,4 +224,41 @@ body {
   }
 
   .hero-subtitle {
-    font
+    font-size: 0.9rem;
+  }
+
+  .navbar-logo img {
+    width: 110px;
+  }
+
+  .logo-strip img {
+    width: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-slideshow-wrapper img {
+    height: 360px;
+  }
+
+  .hero-text-box {
+    max-width: 100%;
+    padding: 1.2rem 1.3rem 0.4rem;
+  }
+
+  .hero-title {
+    font-size: 1.3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.86rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+  }
+}
