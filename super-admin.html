@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSS SUPER ADMIN</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* CENTER */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* BOX */
+.box {
+    border: 2px solid #FF7A00;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(255,122,0,0.7);
+}
+
+h1 {
+    color: #FF7A00;
+}
+
+/* BUTTON */
+button {
+    display: block;
+    width: 220px;
+    margin: 10px auto;
+    padding: 12px;
+    background: #FF7A00;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logout {
+    background: red;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="box">
+        <h1>SUPER ADMIN PANEL</h1>
+        <p>Ou konekte kòm SUPER ADMIN</p>
+
+        <button>Manage Admins</button>
+        <button>Full Access Dashboard</button>
+        <button>System Control</button>
+
+        <button class="logout" onclick="logout()">LOGOUT</button>
+    </div>
+</div>
+
+<script>
+/* 🔐 SECURITY CHECK */
+if (!localStorage.getItem("bss_admin_logged")) {
+    window.location.href = "login.html";
+}
+
+/* 🚪 LOGOUT */
+function logout() {
+    localStorage.removeItem("bss_admin_logged");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
