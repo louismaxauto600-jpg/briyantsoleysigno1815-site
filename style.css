@@ -211,41 +211,4 @@ body {
   }
 
   .hero-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .navbar-logo img {
-    width: 110px;
-  }
-
-  .logo-strip img {
-    width: 100px;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-slideshow-wrapper img {
-    height: 360px;
-  }
-
-  .hero-text-box {
-    max-width: 100%;
-    padding: 1.2rem 1.3rem 0.4rem;
-  }
-
-  .hero-title {
-    font-size: 1.3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.86rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .nav-links a {
-    font-size: 0.78rem;
-  }
-  }
+    font
