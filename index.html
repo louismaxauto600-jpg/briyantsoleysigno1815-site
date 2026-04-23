@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Briyant Solèy Signo 1815</title>
+  <title>BSS1815 Official Store</title>
   <style>
     :root{
       --orange:#ff7a00;
       --black:#000000;
-      --soft:#1a1a1a;
+      --soft:#111111;
+      --soft2:#1b1b1b;
     }
 
     *{
@@ -25,7 +26,7 @@
       overflow-x:hidden;
     }
 
-    img{
+    img,video{
       max-width:100%;
       display:block;
     }
@@ -46,7 +47,6 @@
       margin:0 auto;
     }
 
-    /* TOP BAR */
     .topbar{
       position:sticky;
       top:0;
@@ -104,7 +104,9 @@
 
     .lang-switch button,
     .nav a,
-    .hero-buttons a{
+    .hero-buttons a,
+    .q-btn,
+    .shop-btn{
       border:1px solid var(--orange);
       background:var(--black);
       color:var(--orange);
@@ -112,13 +114,17 @@
       border-radius:999px;
       font-weight:700;
       transition:.25s ease;
+      display:inline-block;
     }
 
     .lang-switch button.active,
     .lang-switch button:hover,
     .nav a.active,
     .nav a:hover,
-    .hero-buttons a.primary{
+    .hero-buttons a.primary,
+    .q-btn:hover,
+    .shop-btn.primary,
+    .shop-btn:hover{
       background:var(--orange);
       color:var(--black);
     }
@@ -130,7 +136,6 @@
       flex-wrap:wrap;
     }
 
-    /* HERO */
     .hero{
       padding:22px 0 26px;
     }
@@ -312,14 +317,13 @@
       margin-top:4px;
     }
 
-    /* SECTIONS */
     .section{
-      padding:30px 0 20px;
+      padding:34px 0 24px;
     }
 
     .section-header{
       text-align:center;
-      margin-bottom:22px;
+      margin-bottom:24px;
     }
 
     .section-header h2{
@@ -330,7 +334,7 @@
     }
 
     .section-header p{
-      max-width:900px;
+      max-width:950px;
       margin:0 auto;
       line-height:1.75;
       color:var(--orange);
@@ -361,7 +365,6 @@
       color:var(--orange);
     }
 
-    /* GALLERY */
     .gallery-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
@@ -393,44 +396,188 @@
       color:var(--orange);
     }
 
-    /* CONTACT */
-    <section class="section" id="contact">
-  <div class="container">
-    <div class="section-header">
-      <h2 id="contactTitle">KONTAK</h2>
-      <p id="contactLead">
-        Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.
-      </p>
-    </div>
+    /* STORE */
+    .store-hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-bottom:18px;
+    }
 
-    <div class="contact-grid">
-      <div class="contact-box">
-        <h3 id="contactBox1Title">Email</h3>
-        <p id="contactEmail">briyantsoleysigno1815@gmail.com</p>
-      </div>
+    .store-banner,
+    .store-media{
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:22px;
+      overflow:hidden;
+      background:var(--black);
+      position:relative;
+      min-height:420px;
+    }
 
-      <div class="contact-box">
-        <h3 id="contactBox2Title">Telefòn</h3>
-        <p id="contactPhone">+509 4343-7488</p>
-      </div>
+    .store-banner img,
+    .store-media .store-slide img,
+    .store-media .store-slide video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      background:var(--black);
+    }
 
-      <div class="contact-box">
-        <h3 id="contactBox3Title">WhatsApp</h3>
-        <p id="contactWhatsText">Klike anba a pou voye mesaj dirèk.</p>
-        <a class="link" href="https://wa.me/15162168494" target="_blank" rel="noopener" id="whatsBtn">VOYE MESAJ</a>
-      </div>
-    </div>
+    .store-banner-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.16));
+      display:flex;
+      align-items:flex-end;
+      padding:24px;
+    }
 
-    <div class="quick-buttons">
-      <a href="https://wa.me/15162168494" target="_blank" class="q-btn">WHATSAPP</a>
-      <a href="mailto:briyantsoleysigno1815@gmail.com" class="q-btn">EMAIL</a>
-      <a href="tel:+50943437488" class="q-btn">TELEFÒN</a>
-      <a href="https://www.briyantsoleysigno1815.com" target="_blank" class="q-btn">WEBSITE</a>
-    </div>
-  </div>
-</section>
+    .store-banner-text h3{
+      font-size:clamp(26px,4vw,42px);
+      text-transform:uppercase;
+      margin-bottom:10px;
+      color:var(--orange);
+    }
 
-</div>
+    .store-banner-text p{
+      line-height:1.7;
+      color:var(--orange);
+      max-width:620px;
+    }
+
+    .store-media{
+      overflow:hidden;
+    }
+
+    .store-slide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:opacity .9s ease-in-out;
+    }
+
+    .store-slide.active{
+      opacity:1;
+    }
+
+    .store-counter{
+      position:absolute;
+      right:14px;
+      top:14px;
+      z-index:5;
+      border:1px solid var(--orange);
+      background:rgba(0,0,0,.82);
+      color:var(--orange);
+      border-radius:999px;
+      padding:7px 11px;
+      font-weight:700;
+    }
+
+    .category-grid,
+    .collections-grid,
+    .products-grid,
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+
+    .category-card,
+    .collection-card,
+    .product-card,
+    .testimonial-card{
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
+      overflow:hidden;
+    }
+
+    .category-card .inner,
+    .collection-card .inner,
+    .testimonial-card .inner{
+      padding:22px;
+    }
+
+    .category-card h3,
+    .collection-card h3,
+    .testimonial-card h3{
+      margin-bottom:10px;
+      text-transform:uppercase;
+      color:var(--orange);
+    }
+
+    .category-card p,
+    .collection-card p,
+    .testimonial-card p{
+      line-height:1.65;
+      color:var(--orange);
+    }
+
+    .product-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      object-position:center;
+      background:var(--black);
+      border-bottom:1px solid rgba(255,122,0,.22);
+    }
+
+    .product-info{
+      padding:18px;
+    }
+
+    .product-info h3{
+      font-size:19px;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      color:var(--orange);
+    }
+
+    .price{
+      font-size:20px;
+      font-weight:900;
+      margin-bottom:8px;
+      color:var(--orange);
+    }
+
+    .sizes{
+      font-size:14px;
+      line-height:1.55;
+      margin-bottom:14px;
+      color:var(--orange);
+    }
+
+    .product-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .upload-panel,
+    .admin-panel,
+    .media-db{
+      border:1px solid rgba(255,122,0,.35);
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
+      padding:22px;
+    }
+
+    .upload-panel pre,
+    .admin-panel pre,
+    .media-db pre{
+      white-space:pre-wrap;
+      word-break:break-word;
+      color:var(--orange);
+      line-height:1.6;
+      font-size:14px;
+      font-family:Consolas, monospace;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:16px;
+    }
 
     .contact-box{
       border:1px solid rgba(255,122,0,.35);
@@ -467,7 +614,14 @@
       color:var(--black);
     }
 
-    /* FOOTER */
+    .quick-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+      margin-top:18px;
+    }
+
     footer{
       margin-top:36px;
       border-top:1px solid rgba(255,122,0,.25);
@@ -486,7 +640,8 @@
         justify-content:center;
       }
 
-      .hero-grid{
+      .hero-grid,
+      .store-hero{
         grid-template-columns:1fr;
       }
 
@@ -509,17 +664,28 @@
         padding:18px 16px 16px;
       }
 
-      .hero-card{
+      .hero-card,
+      .upload-panel,
+      .admin-panel,
+      .media-db{
         padding:22px 16px;
       }
 
-      .hero-buttons a{
+      .hero-buttons a,
+      .q-btn,
+      .shop-btn{
         width:100%;
         text-align:center;
       }
 
-      .gallery-item img{
+      .gallery-item img,
+      .product-card img{
         height:220px;
+      }
+
+      .store-banner,
+      .store-media{
+        min-height:320px;
       }
     }
   </style>
@@ -547,6 +713,7 @@
         <a href="#about" id="aboutBtn">SOU NOU</a>
         <a href="#services" id="servicesBtn">SÈVIS</a>
         <a href="#gallery" id="galleryBtn">GALERI</a>
+        <a href="#store" id="storeBtn">STORE</a>
         <a href="#contact" id="contactBtn">KONTAK</a>
       </nav>
     </div>
@@ -670,6 +837,203 @@
       </div>
     </section>
 
+    <section class="section" id="store">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="storeTitle">BSS1815 OFFICIAL STORE</h2>
+          <p id="storeLead">
+            Bryant Soley Signo 1815 — Official Merchandise & Media Platform.
+            Platfòm ofisyèl pou pwodwi, medya, ak kontni ki soti nan kominote BSS1815 la.
+          </p>
+        </div>
+
+        <div class="store-hero">
+          <div class="store-banner">
+            <img src="magazen.jpg" alt="BSS Store Banner">
+            <div class="store-banner-overlay">
+              <div class="store-banner-text">
+                <h3 id="storeBannerTitle">Shop Now • View Products</h3>
+                <p id="storeBannerText">
+                  BSS1815 Official Store fèt pou bay fanatik yo, manm ekip la, ak dirijan yo
+                  yon eksperyans pwofesyonèl, modèn, ak totalman òganize.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="store-media">
+            <div id="storeSlidesContainer"></div>
+            <div class="store-counter" id="storeCounter">1 / 1</div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <h2 id="missionTitle">Misyon</h2>
+          <p id="missionText">
+            Misyon nou se kreye yon espas ki mete disiplin ak eritaj BSS1815 an valè,
+            fasilite aksè a pwodwi ofisyèl yo, pèmèt fanatik yo pataje moman yo,
+            epi bay dirijan yo yon zouti pwofesyonèl pou jere medya yo.
+          </p>
+        </div>
+
+        <div class="category-grid">
+          <div class="category-card"><div class="inner"><h3>T-Shirts</h3><p>Pwodwi debaz fanatik yo ak style ofisyèl BSS1815.</p></div></div>
+          <div class="category-card"><div class="inner"><h3>Hoodies</h3><p>Abiman cho ak idantite mak la anwo nivo.</p></div></div>
+          <div class="category-card"><div class="inner"><h3>Caps</h3><p>Kèpi ofisyèl pou fanatik ak manm ekip la.</p></div></div>
+          <div class="category-card"><div class="inner"><h3>Tcha</h3><p>Akseswa espesyal nan koleksyon BSS1815 yo.</p></div></div>
+          <div class="category-card"><div class="inner"><h3>Bracelets</h3><p>Braslè fan essentials pou reprezante mak la chak jou.</p></div></div>
+          <div class="category-card"><div class="inner"><h3>Gode</h3><p>Gode / mugs pou koleksyon fanatik yo ak medya ofisyèl la.</p></div></div>
+        </div>
+
+        <div class="section-header" style="margin-top:30px;">
+          <h2 id="productsTitle">Products Grid</h2>
+          <p id="productsLead">
+            Chak pwodwi vini ak foto, pri, opsyon, ak bouton kòmande dirèk sou WhatsApp.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <img src="store.jpg" alt="T-Shirt">
+            <div class="product-info">
+              <h3>T-Shirt BSS1815</h3>
+              <div class="price">$25</div>
+              <div class="sizes">Gwosè: S • M • L • XL • XXL • XXXL</div>
+              <div class="product-actions">
+                <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20T-Shirt%20BSS1815%20la" target="_blank">Buy Now</a>
+                <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20T-Shirt%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="store2.jpeg" alt="Hoodie">
+            <div class="product-info">
+              <h3>Hoodie BSS1815</h3>
+              <div class="price">$30</div>
+              <div class="sizes">Gwosè: S • M • L • XL • XXL • XXXL</div>
+              <div class="product-actions">
+                <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Hoodie%20BSS1815%20la" target="_blank">Buy Now</a>
+                <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Hoodie%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="magazen.jpg" alt="Caps">
+            <div class="product-info">
+              <h3>Cap / Kèpi</h3>
+              <div class="price">$15</div>
+              <div class="sizes">Opsyon: One Size Fits All</div>
+              <div class="product-actions">
+                <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20K%C3%A8pi%20BSS1815%20la" target="_blank">Buy Now</a>
+                <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20K%C3%A8pi%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="store.jpg" alt="Bracelet">
+            <div class="product-info">
+              <h3>Bracelet</h3>
+              <div class="price">$10</div>
+              <div class="sizes">Opsyon: Fan Essentials</div>
+              <div class="product-actions">
+                <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Bracelet%20BSS1815%20la" target="_blank">Buy Now</a>
+                <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Bracelet%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="store2.jpeg" alt="Gode">
+            <div class="product-info">
+              <h3>Gode / Mug</h3>
+              <div class="price">$10</div>
+              <div class="sizes">Opsyon: Classic Collection</div>
+              <div class="product-actions">
+                <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Gode%20BSS1815%20la" target="_blank">Buy Now</a>
+                <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Gode%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top:30px;">
+          <h2 id="collectionsTitle">Collections</h2>
+          <p id="collectionsLead">Fire Edition • Classic Collection • Fan Essentials</p>
+        </div>
+
+        <div class="collections-grid">
+          <div class="collection-card"><div class="inner"><h3>Fire Edition</h3><p>Koleksyon dife a pou fanatik ki renmen style fò, koulè vivan, ak imaj mak la.</p></div></div>
+          <div class="collection-card"><div class="inner"><h3>Classic Collection</h3><p>Yon liy pwòp, elegant, ak ofisyèl pou reprezante eritaj BSS1815 la.</p></div></div>
+          <div class="collection-card"><div class="inner"><h3>Fan Essentials</h3><p>Pwodwi debaz fanatik yo bezwen pou montre sipò yo chak jou.</p></div></div>
+        </div>
+
+        <div class="section-header" style="margin-top:30px;">
+          <h2 id="fanUploadTitle">Fan Upload Center</h2>
+          <p id="fanUploadLead">
+            Seksiyon piblik kote fanatik yo ka upload foto, videyo, ekri deskripsyon,
+            epi pataje moman yo ak BSS1815.
+          </p>
+        </div>
+
+        <div class="upload-panel">
+<pre>{
+  "fan_uploads": [
+    "upload foto",
+    "upload videyo",
+    "ekri yon deskripsyon",
+    "pataje moman ak BSS1815"
+  ]
+}</pre>
+        </div>
+
+        <div class="section-header" style="margin-top:30px;">
+          <h2 id="leadersPanelTitle">Leaders Control Panel</h2>
+          <p id="leadersPanelLead">
+            Seksiyon prive pou SUPER ADMIN ak ADMIN pou upload bannè, medya ofisyèl,
+            foto pwodwi, epi sove tout bagay nan Media Library.
+          </p>
+        </div>
+
+        <div class="admin-panel">
+<pre>LEADERS CONTROL PANEL
+- SUPER ADMIN
+- ADMIN
+- Upload foto/videyo ofisyèl
+- Upload bannè
+- Upload foto pwodwi
+- Chwazi kategori medya yo
+- Sove nan Media Library</pre>
+        </div>
+
+        <div class="section-header" style="margin-top:30px;">
+          <h2 id="storeAboutTitle">About BSS1815 Store</h2>
+          <p id="storeAboutLead">
+            Koulè ofisyèl yo se Abriko & Nwa. Platfòm nan pote istwa, misyon, logo,
+            ak valè mak BSS1815 la ansanm nan yon eksperyans modèn.
+          </p>
+        </div>
+
+        <div class="testimonial-grid">
+          <div class="testimonial-card"><div class="inner"><h3>Fanclub</h3><p>Temwayaj kout, foto, non, ak tit pou mete valè fanatik yo an avan.</p></div></div>
+          <div class="testimonial-card"><div class="inner"><h3>Media Platform</h3><p>Yon espas ki pwofesyonèl pou kolekte pwodwi, medya, ak memwa kominote a.</p></div></div>
+          <div class="testimonial-card"><div class="inner"><h3>Official Image</h3><p>BSS1815 OFFICIAL STORE mete disiplin, imaj mak, ak òganizasyon nan menm liy lan.</p></div></div>
+        </div>
+
+        <div class="section-header" style="margin-top:30px;">
+          <h2 id="mediaDbTitle">Media Library / Database</h2>
+        </div>
+
+        <div class="media-db">
+<pre>{
+  "fan_uploads": []
+}</pre>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="contact">
       <div class="container">
         <div class="section-header">
@@ -682,19 +1046,26 @@
         <div class="contact-grid">
           <div class="contact-box">
             <h3 id="contactBox1Title">Email</h3>
-            <p id="contactEmail">briyantsigno@gmail.com</p>
+            <p id="contactEmail">briyantsoleysigno1815@gmail.com</p>
           </div>
 
           <div class="contact-box">
             <h3 id="contactBox2Title">Telefòn</h3>
-            <p id="contactPhone">+1 (317) 538-1150</p>
+            <p id="contactPhone">+509 4343-7488</p>
           </div>
 
           <div class="contact-box">
             <h3 id="contactBox3Title">WhatsApp</h3>
             <p id="contactWhatsText">Klike anba a pou voye mesaj dirèk.</p>
-            <a class="link" href="https://wa.me/13175381150" target="_blank" rel="noopener" id="whatsBtn">VOYE MESAJ</a>
+            <a class="link" href="https://wa.me/15162168494" target="_blank" rel="noopener" id="whatsBtn">VOYE MESAJ</a>
           </div>
+        </div>
+
+        <div class="quick-buttons">
+          <a href="https://wa.me/15162168494" target="_blank" class="q-btn">WHATSAPP</a>
+          <a href="mailto:briyantsoleysigno1815@gmail.com" class="q-btn">EMAIL</a>
+          <a href="tel:+50943437488" class="q-btn">TELEFÒN</a>
+          <a href="https://www.briyantsoleysigno1815.com" target="_blank" class="q-btn">WEBSITE</a>
         </div>
       </div>
     </section>
@@ -714,6 +1085,7 @@
         about: "SOU NOU",
         services: "SÈVIS",
         gallery: "GALERI",
+        store: "STORE",
         contact: "KONTAK",
         heroTitle: "BRIYANT SOLÈY SIGNO 1815",
         heroText: "BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn. Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm, fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.",
@@ -745,6 +1117,21 @@
         service4Text: "Rasanble tout eleman enpòtan yo sou yon sèl sit ki stab epi pwòp.",
         galleryTitle: "GALERI",
         galleryLead: "Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.",
+        storeTitle: "BSS1815 OFFICIAL STORE",
+        storeLead: "Bryant Soley Signo 1815 — Official Merchandise & Media Platform. Platfòm ofisyèl pou pwodwi, medya, ak kontni ki soti nan kominote BSS1815 la.",
+        missionTitle: "Misyon",
+        missionText: "Misyon nou se kreye yon espas ki mete disiplin ak eritaj BSS1815 an valè, fasilite aksè a pwodwi ofisyèl yo, pèmèt fanatik yo pataje moman yo, epi bay dirijan yo yon zouti pwofesyonèl pou jere medya yo.",
+        productsTitle: "Products Grid",
+        productsLead: "Chak pwodwi vini ak foto, pri, opsyon, ak bouton kòmande dirèk sou WhatsApp.",
+        collectionsTitle: "Collections",
+        collectionsLead: "Fire Edition • Classic Collection • Fan Essentials",
+        fanUploadTitle: "Fan Upload Center",
+        fanUploadLead: "Seksiyon piblik kote fanatik yo ka upload foto, videyo, ekri deskripsyon, epi pataje moman yo ak BSS1815.",
+        leadersPanelTitle: "Leaders Control Panel",
+        leadersPanelLead: "Seksiyon prive pou SUPER ADMIN ak ADMIN pou upload bannè, medya ofisyèl, foto pwodwi, epi sove tout bagay nan Media Library.",
+        storeAboutTitle: "About BSS1815 Store",
+        storeAboutLead: "Koulè ofisyèl yo se Abriko & Nwa. Platfòm nan pote istwa, misyon, logo, ak valè mak BSS1815 la ansanm nan yon eksperyans modèn.",
+        mediaDbTitle: "Media Library / Database",
         contactTitle: "KONTAK",
         contactLead: "Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.",
         contactBox1Title: "Email",
@@ -760,6 +1147,7 @@
         about: "À PROPOS",
         services: "SERVICES",
         gallery: "GALERIE",
+        store: "BOUTIQUE",
         contact: "CONTACT",
         heroTitle: "BRIYANT SOLÈY SIGNO 1815",
         heroText: "BSS 1815 est une force, une vision, une lumière qui ne s’éteindra jamais. C’est un espace de fierté, d’énergie, de discipline et de mémoire vivante pour tous les membres, les fans et tous ceux qui portent les couleurs orange abricot et noir avec dignité.",
@@ -791,6 +1179,21 @@
         service4Text: "Réunir tous les éléments importants sur un seul site stable et propre.",
         galleryTitle: "GALERIE",
         galleryLead: "Voici quelques belles images de fans, de membres et de moments spéciaux qui font toujours briller Briyant Solèy Signo 1815.",
+        storeTitle: "BSS1815 OFFICIAL STORE",
+        storeLead: "Bryant Soley Signo 1815 — Plateforme officielle de produits dérivés et de médias.",
+        missionTitle: "Mission",
+        missionText: "Notre mission est de créer un espace qui valorise la discipline et l’héritage de BSS1815, facilite l’accès aux produits officiels, permet aux fans de partager leurs moments et donne aux dirigeants un outil professionnel pour gérer les médias.",
+        productsTitle: "Produits",
+        productsLead: "Chaque produit comprend une photo, un prix, des options et des boutons de commande directe sur WhatsApp.",
+        collectionsTitle: "Collections",
+        collectionsLead: "Fire Edition • Classic Collection • Fan Essentials",
+        fanUploadTitle: "Centre d’upload des fans",
+        fanUploadLead: "Section publique où les fans peuvent envoyer des photos, des vidéos, écrire une description et partager leurs moments avec BSS1815.",
+        leadersPanelTitle: "Panneau de contrôle des dirigeants",
+        leadersPanelLead: "Section privée pour SUPER ADMIN et ADMIN afin d’envoyer des bannières, des médias officiels, des photos de produits et de sauvegarder le tout dans la médiathèque.",
+        storeAboutTitle: "À propos de la boutique BSS1815",
+        storeAboutLead: "Les couleurs officielles sont Abricot & Noir. La plateforme rassemble histoire, mission, logo et valeurs de la marque BSS1815 dans une expérience moderne.",
+        mediaDbTitle: "Médiathèque / Base de données",
         contactTitle: "CONTACT",
         contactLead: "Contactez-nous pour des informations, des collaborations ou des questions sur la plateforme et les activités.",
         contactBox1Title: "Email",
@@ -806,6 +1209,7 @@
         about: "ABOUT",
         services: "SERVICES",
         gallery: "GALLERY",
+        store: "STORE",
         contact: "CONTACT",
         heroTitle: "BRIYANT SOLÈY SIGNO 1815",
         heroText: "BSS 1815 is a force, a vision, a light that will never go out. It is a space of pride, energy, discipline, and living memory for all members, fans, and everyone who wears apricot orange and black with dignity.",
@@ -837,6 +1241,21 @@
         service4Text: "Bringing all important elements together on one stable and clean website.",
         galleryTitle: "GALLERY",
         galleryLead: "Here are some beautiful images of fans, members, and special moments that keep Briyant Solèy Signo 1815 shining.",
+        storeTitle: "BSS1815 OFFICIAL STORE",
+        storeLead: "Bryant Soley Signo 1815 — Official Merchandise & Media Platform.",
+        missionTitle: "Mission",
+        missionText: "Our mission is to create a space that highlights the discipline and heritage of BSS1815, gives easy access to official products, lets fans share their moments, and gives leaders a professional tool to manage media.",
+        productsTitle: "Products Grid",
+        productsLead: "Each product includes a photo, price, options, and direct WhatsApp ordering buttons.",
+        collectionsTitle: "Collections",
+        collectionsLead: "Fire Edition • Classic Collection • Fan Essentials",
+        fanUploadTitle: "Fan Upload Center",
+        fanUploadLead: "Public section where fans can upload photos, videos, write a short description, and share their moments with BSS1815.",
+        leadersPanelTitle: "Leaders Control Panel",
+        leadersPanelLead: "Private section for SUPER ADMIN and ADMIN to upload banners, official media, product photos, and save everything to the Media Library.",
+        storeAboutTitle: "About BSS1815 Store",
+        storeAboutLead: "The official colors are Apricot & Black. The platform brings together the history, mission, logo, and brand values of BSS1815 in one modern experience.",
+        mediaDbTitle: "Media Library / Database",
         contactTitle: "CONTACT",
         contactLead: "Contact us for information, collaborations, or questions about the platform and activities.",
         contactBox1Title: "Email",
@@ -868,10 +1287,21 @@
       "odeline.jpeg","dede.png"
     ];
 
+    const storeMedia = [
+      { type:"image", src:"magazen.jpg" },
+      { type:"image", src:"store2.jpeg" },
+      { type:"video", src:"bss-video.mp4" },
+      { type:"video", src:"store-video.mp4" },
+      { type:"image", src:"store.jpg" },
+      { type:"video", src:"bss-boutique.mp4" }
+    ];
+
     const slidesContainer = document.getElementById("slidesContainer");
     const galleryGrid = document.getElementById("galleryGrid");
     const slideCounter = document.getElementById("slideCounter");
     const progressBar = document.getElementById("progressBar");
+    const storeSlidesContainer = document.getElementById("storeSlidesContainer");
+    const storeCounter = document.getElementById("storeCounter");
 
     const kreBtn = document.getElementById("kreBtn");
     const franBtn = document.getElementById("franBtn");
@@ -882,6 +1312,7 @@
         .replace(".jpeg","")
         .replace(".jpg","")
         .replace(".png","")
+        .replace(".mp4","")
         .replace(/[-_]/g," ");
       return name.replace(/\b\w/g, l => l.toUpperCase());
     }
@@ -903,10 +1334,29 @@
       galleryGrid.appendChild(item);
     });
 
+    storeMedia.forEach((media, index) => {
+      const wrap = document.createElement("div");
+      wrap.className = "store-slide";
+      if(index === 0) wrap.classList.add("active");
+
+      if(media.type === "video"){
+        wrap.innerHTML = `<video src="${media.src}" autoplay muted loop playsinline></video>`;
+      } else {
+        wrap.innerHTML = `<img src="${media.src}" alt="${prettyName(media.src)}">`;
+      }
+
+      storeSlidesContainer.appendChild(wrap);
+    });
+
     const slides = document.querySelectorAll(".slide");
+    const storeSlides = document.querySelectorAll(".store-slide");
+
     let currentSlide = 0;
+    let currentStoreSlide = 0;
     const slideDuration = 8000;
+    const storeDuration = 6000;
     let slideInterval = null;
+    let storeInterval = null;
 
     function updateCounter() {
       slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
@@ -922,9 +1372,7 @@
     }
 
     function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
       currentSlide = index;
       updateCounter();
       resetProgressBar();
@@ -943,6 +1391,25 @@
       slideInterval = setInterval(nextSlide, slideDuration);
     }
 
+    function showStoreSlide(index){
+      storeSlides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      currentStoreSlide = index;
+      storeCounter.textContent = `${currentStoreSlide + 1} / ${storeSlides.length}`;
+    }
+
+    function nextStoreSlide(){
+      let next = currentStoreSlide + 1;
+      if(next >= storeSlides.length) next = 0;
+      showStoreSlide(next);
+    }
+
+    function startStoreSlideshow(){
+      if(!storeSlides.length) return;
+      showStoreSlide(0);
+      if(storeInterval) clearInterval(storeInterval);
+      storeInterval = setInterval(nextStoreSlide, storeDuration);
+    }
+
     function setLanguage(lang) {
       const t = translations[lang];
 
@@ -951,6 +1418,7 @@
       document.getElementById("aboutBtn").textContent = t.about;
       document.getElementById("servicesBtn").textContent = t.services;
       document.getElementById("galleryBtn").textContent = t.gallery;
+      document.getElementById("storeBtn").textContent = t.store;
       document.getElementById("contactBtn").textContent = t.contact;
       document.getElementById("heroTitle").textContent = t.heroTitle;
       document.getElementById("heroText").textContent = t.heroText;
@@ -982,6 +1450,21 @@
       document.getElementById("service4Text").textContent = t.service4Text;
       document.getElementById("galleryTitle").textContent = t.galleryTitle;
       document.getElementById("galleryLead").textContent = t.galleryLead;
+      document.getElementById("storeTitle").textContent = t.storeTitle;
+      document.getElementById("storeLead").textContent = t.storeLead;
+      document.getElementById("missionTitle").textContent = t.missionTitle;
+      document.getElementById("missionText").textContent = t.missionText;
+      document.getElementById("productsTitle").textContent = t.productsTitle;
+      document.getElementById("productsLead").textContent = t.productsLead;
+      document.getElementById("collectionsTitle").textContent = t.collectionsTitle;
+      document.getElementById("collectionsLead").textContent = t.collectionsLead;
+      document.getElementById("fanUploadTitle").textContent = t.fanUploadTitle;
+      document.getElementById("fanUploadLead").textContent = t.fanUploadLead;
+      document.getElementById("leadersPanelTitle").textContent = t.leadersPanelTitle;
+      document.getElementById("leadersPanelLead").textContent = t.leadersPanelLead;
+      document.getElementById("storeAboutTitle").textContent = t.storeAboutTitle;
+      document.getElementById("storeAboutLead").textContent = t.storeAboutLead;
+      document.getElementById("mediaDbTitle").textContent = t.mediaDbTitle;
       document.getElementById("contactTitle").textContent = t.contactTitle;
       document.getElementById("contactLead").textContent = t.contactLead;
       document.getElementById("contactBox1Title").textContent = t.contactBox1Title;
@@ -1005,7 +1488,8 @@
     engBtn.addEventListener("click", () => setLanguage("eng"));
 
     startSlideshow();
+    startStoreSlideshow();
     setLanguage("kre");
   </script>
 </body>
-</html>
+                  </html>
