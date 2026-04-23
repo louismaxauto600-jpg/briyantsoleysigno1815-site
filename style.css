@@ -38,18 +38,35 @@ body {
   filter: brightness(1.08) contrast(1.03);
 }
 
-/* SLIDE TEXT — RANPLASE AK VÈSYON OU A */
-.slide-text{
-  position:absolute;
-  left:18px;
-  right:auto;
-  bottom:18px;
-  z-index:3;
-  width:min(52%, 560px);
-  padding:16px 18px 14px;
-  background:linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.24));
-  border:1px solid rgba(255,122,0,.22);
-  border-radius:18px;
+/* SLIDE TEXT — BOX */
+.slide-text {
+  position: absolute;
+  left: 18px;
+  right: auto;
+  bottom: 18px;
+  z-index: 3;
+  width: min(52%, 560px);
+  padding: 16px 18px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.24));
+  border: 1px solid rgba(255,122,0,.22);
+  border-radius: 18px;
+}
+
+/* SLIDE TEXT — TIT */
+.slide-text h2 {
+  font-size: clamp(20px, 3vw, 34px);
+  text-transform: uppercase;
+  line-height: 1.02;
+  margin-bottom: 8px;
+  color: var(--orange);
+}
+
+/* SLIDE TEXT — PARAGRAF */
+.slide-text p {
+  font-size: clamp(12px, 1.25vw, 15px);
+  line-height: 1.45;
+  max-width: 100%;
+  color: var(--orange);
 }
 
 /* MASK TEKST */
@@ -231,4 +248,4 @@ body {
   .nav-links a {
     font-size: 0.78rem;
   }
-}
+  }
