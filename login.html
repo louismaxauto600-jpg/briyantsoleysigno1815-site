@@ -1,126 +1,215 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSS1815 — LOGIN PRO‑MAX</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSS LOGIN</title>
 
-    <style>
-        :root {
-            --abriko: #FF7A00;
-            --nwa: #000000;
-            --blan: #FFFFFF;
-        }
+  <style>
+    :root {
+      --orange: #ff7a00;
+      --black: #000000;
+      --black-soft: rgba(0, 0, 0, 0.78);
+      --white: #ffffff;
+    }
 
-        body {
-            margin: 0;
-            background: linear-gradient(to bottom right, #FF7A00, #000000);
-            color: var(--blan);
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .login-box {
-            width: 100%;
-            max-width: 420px;
-            background: #111;
-            padding: 30px;
-            border-radius: 14px;
-            border: 2px solid var(--abriko);
-            box-shadow: 0 0 25px rgba(255,120,0,0.6);
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+        url('assets/bss_admin_login.png') no-repeat center center / cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .logo-zone {
-            text-align: left;
-            margin-bottom: 20px;
-        }
+    .login-wrapper {
+      width: 100%;
+      max-width: 420px;
+    }
 
-        .logo-zone img {
-            width: 120px;
-            filter: drop-shadow(0 0 10px var(--abriko));
-        }
+    .login-box {
+      background: var(--black-soft);
+      border: 2px solid var(--orange);
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 0 25px rgba(255, 122, 0, 0.45);
+      backdrop-filter: blur(6px);
+    }
 
-        h2 {
-            text-align: center;
-            color: var(--abriko);
-            font-size: 26px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+    .logo-title {
+      text-align: center;
+      margin-bottom: 22px;
+    }
 
-        .field {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 6px;
-            border: 1px solid var(--abriko);
-            background: #000;
-            color: #FFF;
-            font-size: 15px;
-        }
+    .logo-title h1 {
+      margin: 0 0 8px;
+      color: var(--orange);
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
 
-        .btn-login {
-            width: 100%;
-            padding: 12px;
-            background: var(--abriko);
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
-            color: #000;
-            margin-top: 10px;
-        }
+    .logo-title p {
+      margin: 0;
+      color: var(--white);
+      font-size: 14px;
+      opacity: 0.9;
+    }
 
-        .error {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-            font-size: 14px;
-            min-height: 20px;
-        }
-    </style>
+    .input-group {
+      margin-bottom: 14px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--orange);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--orange);
+      background: #0d0d0d;
+      color: var(--white);
+      font-size: 15px;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      box-shadow: 0 0 10px rgba(255, 122, 0, 0.35);
+    }
+
+    .role-title {
+      margin: 18px 0 10px;
+      text-align: center;
+      color: var(--white);
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.25s ease;
+      margin-top: 10px;
+    }
+
+    .btn-admin {
+      background: var(--orange);
+      color: var(--black);
+      border: none;
+    }
+
+    .btn-admin:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 14px rgba(255, 122, 0, 0.45);
+    }
+
+    .btn-super {
+      background: transparent;
+      color: var(--orange);
+      border: 2px solid var(--orange);
+    }
+
+    .btn-super:hover {
+      background: var(--orange);
+      color: var(--black);
+      transform: translateY(-1px);
+    }
+
+    .help-text {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #ddd;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 22px 18px;
+      }
+
+      .logo-title h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="login-box">
+  <div class="login-wrapper">
+    <div class="login-box">
+      <div class="logo-title">
+        <h1>BSS LOGIN</h1>
+        <p>ADMIN & SUPER ADMIN ACCESS</p>
+      </div>
 
-    <div class="logo-zone">
-        <img src="/PATH/logo-bss2.jpeg" alt="BSS1815 Logo">
+      <div class="input-group">
+        <label for="user">NON ITILIZATÈ</label>
+        <input id="user" type="text" placeholder="Antre non itilizatè a" />
+      </div>
+
+      <div class="input-group">
+        <label for="pass">MODPAS</label>
+        <input id="pass" type="password" placeholder="Antre modpas la" />
+      </div>
+
+      <div class="role-title">CHWAZI AKSÈ W ANBA A</div>
+
+      <button class="btn btn-admin" onclick="loginAdmin()">ADMIN LOGIN</button>
+      <button class="btn btn-super" onclick="loginSuper()">SUPER ADMIN LOGIN</button>
+
+      <div class="help-text">
+        BSS1815 secure panel<br>
+        Orange ak nwa sèlman
+      </div>
     </div>
+  </div>
 
-    <h2>LOGIN ADMIN — BSS1815</h2>
+  <script>
+    function loginAdmin() {
+      const user = document.getElementById("user").value.trim();
+      const pass = document.getElementById("pass").value.trim();
 
-    <input type="text" id="username" class="field" placeholder="Non itilizatè">
-    <input type="password" id="password" class="field" placeholder="Modpas">
-
-    <button class="btn-login" onclick="login()">Konekte</button>
-
-    <div id="errorMsg" class="error"></div>
-
-</div>
-
-<script>
-    function login() {
-        const user = document.getElementById("username").value.trim();
-        const pass = document.getElementById("password").value.trim();
-        const error = document.getElementById("errorMsg");
-
-        const ADMIN_USER = "superadmin";
-        const ADMIN_PASS = "1815";
-
-        if (user === ADMIN_USER && pass === ADMIN_PASS) {
-            localStorage.setItem("bss_admin_logged", "yes");
-            window.location.href = "admin.html";
-        } else {
-            error.textContent = "Enfòmasyon yo pa kòrèk.";
-        }
+      if (user === "admin" && pass === "1234") {
+        localStorage.setItem("bss_admin_logged", "true");
+        localStorage.setItem("bss_admin_role", "admin");
+        window.location.href = "admin.html";
+      } else {
+        alert("ADMIN INFO PA BON.");
+      }
     }
-</script>
+
+    function loginSuper() {
+      const user = document.getElementById("user").value.trim();
+      const pass = document.getElementById("pass").value.trim();
+
+      if (user === "super" && pass === "1815") {
+        localStorage.setItem("bss_admin_logged", "true");
+        localStorage.setItem("bss_admin_role", "super_admin");
+        window.location.href = "superadmin.html";
+      } else {
+        alert("SUPER ADMIN INFO PA BON.");
+      }
+    }
+  </script>
 
 </body>
 </html>
