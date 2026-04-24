@@ -424,4 +424,13 @@ body {
 .admin-card p{
   color:#ff7a00;
   line-height:1.6;
-                         }
+/* OGMENTASYON 2 LOGO HOMEPAGE YO */
+.navbar-logo img {
+  width: 200px;
+  height: auto;
+}
+
+.logo-strip img {
+  width: 180px;
+  height: auto;
+}                         }
