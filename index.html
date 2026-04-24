@@ -1241,5 +1241,29 @@
   setLanguage("kre");
 </script>
 
-</body>
+<script>
+const translations = {
+  kre: {
+    heroTitle: "BRIYANT SOLÈY SIGNO 1815",
+    contactTitle: "KONTAK"
+  },
+  fran: {
+    heroTitle: "BRIYANT SOLÈY SIGNO 1815",
+    contactTitle: "CONTACT"
+  },
+  eng: {
+    heroTitle: "BRIYANT SOLEY SIGNO 1815",
+    contactTitle: "CONTACT"
+  }
+};
+
+function setLanguage(lang){
+  document.getElementById("heroTitle").textContent = translations[lang].heroTitle;
+  document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
+}
+
+document.getElementById("kreBtn").onclick = () => setLanguage("kre");
+document.getElementById("franBtn").onclick = () => setLanguage("fran");
+document.getElementById("engBtn").onclick = () => setLanguage("eng");
+</script></body>
 </html>
