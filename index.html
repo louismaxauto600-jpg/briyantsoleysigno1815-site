@@ -1,131 +1,1244 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSS1815 OFFICIAL</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSS1815 Official Store</title>
 
-<style>
-body{margin:0;background:#000;color:#ff7a00;font-family:Arial}
-header{display:flex;justify-content:space-between;align-items:center;padding:15px;background:#111;border-bottom:2px solid #ff7a00}
-header img{width:60px;border-radius:50%;border:2px solid #ff7a00}
-nav a{color:#ff7a00;margin-left:15px;text-decoration:none;font-weight:bold}
+  <style>
+    :root{
+      --orange:#ff7a00;
+      --black:#000;
+      --border:rgba(255,122,0,.35);
+      --panel:rgba(255,122,0,.06);
+    }
 
-#slideshow{height:420px;position:relative;overflow:hidden}
-.slide{position:absolute;width:100%;height:100%;opacity:0;transition:.8s}
-.slide img{width:100%;height:100%;object-fit:cover}
-.slide.active{opacity:1}
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:#000;color:var(--orange);overflow-x:hidden}
+    img,video{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit;cursor:pointer;border:none}
+    .container{width:min(94%,1400px);margin:0 auto}
 
-.section{padding:40px;text-align:center}
-.card{border:1px solid #ff7a00;padding:20px;margin:10px;border-radius:12px}
+    .topbar{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(0,0,0,.96);
+      border-bottom:1px solid var(--orange);
+      backdrop-filter:blur(8px);
+    }
 
-input{display:block;margin:10px auto;padding:10px;width:250px;background:#000;border:1px solid #ff7a00;color:#ff7a00}
-button{padding:10px 20px;background:#ff7a00;color:#000;border:none}
-</style>
+    .topbar-inner{
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:16px;
+      padding:12px 0;
+    }
+
+    .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+
+    .brand img{
+      width:56px;height:56px;object-fit:cover;border-radius:50%;
+      border:2px solid var(--orange);background:#000;
+    }
+
+    .brand-text h1{
+      font-size:18px;text-transform:uppercase;line-height:1;color:var(--orange);
+    }
+
+    .brand-text p{
+      font-size:11px;margin-top:4px;text-transform:uppercase;letter-spacing:.8px;color:var(--orange);
+    }
+
+    .lang-switch,.nav,.hero-buttons,.quick-buttons,.product-actions{
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+
+    .lang-switch{justify-content:center}
+    .nav{justify-content:flex-end}
+
+    .lang-switch button,
+    .nav a,
+    .hero-buttons a,
+    .q-btn,
+    .shop-btn{
+      border:1px solid var(--orange);
+      background:#000;
+      color:var(--orange);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:700;
+      transition:.25s ease;
+      display:inline-block;
+    }
+
+    .lang-switch button.active,
+    .lang-switch button:hover,
+    .nav a:hover,
+    .nav a.active,
+    .hero-buttons a.primary,
+    .q-btn:hover,
+    .shop-btn:hover,
+    .shop-btn.primary{
+      background:var(--orange);
+      color:#000;
+    }
+
+    .hero{padding:22px 0 26px}
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+    }
+
+    .hero-slider{
+      position:relative;
+      min-height:620px;
+      border:1px solid var(--border);
+      border-radius:26px;
+      overflow:hidden;
+      background:#000;
+    }
+
+    .slide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:opacity 1s ease-in-out;
+    }
+
+    .slide.active{opacity:1}
+
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      filter:brightness(.68);
+      background:#000;
+    }
+
+    .slide-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.18)),
+        radial-gradient(circle at center,rgba(255,122,0,.12),transparent 46%);
+      z-index:2;
+    }
+
+    .slide-text{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:3;
+      padding:22px;
+      background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.12));
+    }
+
+    .slide-text h2{
+      font-size:clamp(24px,4vw,44px);
+      text-transform:uppercase;
+      line-height:1.02;
+      margin-bottom:10px;
+      color:var(--orange);
+    }
+
+    .slide-text p{
+      font-size:clamp(13px,1.7vw,17px);
+      line-height:1.55;
+      max-width:680px;
+      color:var(--orange);
+    }
+
+    .slide-counter{
+      position:absolute;
+      top:16px;
+      right:16px;
+      z-index:4;
+      border:1px solid var(--orange);
+      background:rgba(0,0,0,.85);
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:700;
+    }
+
+    .progress-wrap{
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:4px;
+      z-index:4;
+      background:rgba(255,122,0,.15);
+    }
+
+    .progress-bar{
+      width:0%;
+      height:100%;
+      background:var(--orange);
+      transition:width 8s linear;
+    }
+
+    .hero-card{
+      border:1px solid var(--border);
+      border-radius:26px;
+      padding:28px;
+      background:linear-gradient(180deg,rgba(255,122,0,.08),rgba(0,0,0,.96));
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+      min-height:620px;
+    }
+
+    .hero-card img{
+      width:92px;height:92px;object-fit:cover;border-radius:50%;
+      border:2px solid var(--orange);background:#000;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      border:1px solid var(--orange);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:12px;
+      font-weight:700;
+      text-transform:uppercase;
+      width:max-content;
+    }
+
+    .hero-card h3{
+      font-size:clamp(24px,4vw,42px);
+      text-transform:uppercase;
+      line-height:1.05;
+    }
+
+    .hero-card p{font-size:16px;line-height:1.7}
+
+    .quote-box{
+      margin-top:8px;
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(0,0,0,.72);
+    }
+
+    .quote{font-size:18px;line-height:1.65;margin-bottom:10px}
+    .name{font-size:18px;font-weight:900;text-transform:uppercase}
+    .role{font-size:14px;margin-top:4px}
+
+    .section{padding:34px 0 24px}
+
+    .section-header{text-align:center;margin-bottom:24px}
+
+    .section-header h2{
+      font-size:clamp(26px,4vw,40px);
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .section-header p{
+      max-width:950px;
+      margin:0 auto;
+      line-height:1.75;
+    }
+
+    .cards,
+    .gallery-grid,
+    .category-grid,
+    .collections-grid,
+    .products-grid,
+    .testimonial-grid,
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+
+    .card,
+    .category-card,
+    .collection-card,
+    .product-card,
+    .testimonial-card,
+    .contact-box,
+    .upload-panel,
+    .admin-panel,
+    .media-db{
+      border:1px solid var(--border);
+      border-radius:20px;
+      background:linear-gradient(180deg,var(--panel),rgba(0,0,0,.98));
+      overflow:hidden;
+    }
+
+    .card,
+    .contact-box,
+    .upload-panel,
+    .admin-panel,
+    .media-db,
+    .category-card .inner,
+    .collection-card .inner,
+    .testimonial-card .inner{
+      padding:22px;
+    }
+
+    .card h3,
+    .category-card h3,
+    .collection-card h3,
+    .testimonial-card h3,
+    .contact-box h3{
+      margin-bottom:10px;
+      font-size:20px;
+      text-transform:uppercase;
+    }
+
+    .card p,
+    .category-card p,
+    .collection-card p,
+    .testimonial-card p,
+    .contact-box p{
+      line-height:1.65;
+      word-break:break-word;
+    }
+
+    .gallery-item{
+      border:1px solid var(--border);
+      border-radius:18px;
+      overflow:hidden;
+      background:#000;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      object-position:center top;
+      background:#000;
+    }
+
+    .gallery-item p{
+      padding:12px;
+      text-align:center;
+      text-transform:uppercase;
+      font-size:14px;
+      font-weight:700;
+      border-top:1px solid rgba(255,122,0,.22);
+    }
+
+    .store-hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .store-banner,
+    .store-media{
+      border:1px solid var(--border);
+      border-radius:22px;
+      overflow:hidden;
+      background:#000;
+      position:relative;
+      min-height:420px;
+    }
+
+    .store-banner img,
+    .store-media .store-slide img,
+    .store-media .store-slide video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      background:#000;
+    }
+
+    .store-banner-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.16));
+      display:flex;
+      align-items:flex-end;
+      padding:24px;
+    }
+
+    .store-banner-text h3{
+      font-size:clamp(26px,4vw,42px);
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .store-banner-text p{
+      line-height:1.7;
+      max-width:620px;
+    }
+
+    .store-slide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:opacity .9s ease-in-out;
+    }
+
+    .store-slide.active{opacity:1}
+
+    .store-counter{
+      position:absolute;
+      right:14px;
+      top:14px;
+      z-index:5;
+      border:1px solid var(--orange);
+      background:rgba(0,0,0,.82);
+      border-radius:999px;
+      padding:7px 11px;
+      font-weight:700;
+    }
+
+    .product-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      object-position:center;
+      background:#000;
+      border-bottom:1px solid rgba(255,122,0,.22);
+    }
+
+    .product-info{padding:18px}
+
+    .product-info h3{
+      font-size:19px;
+      margin-bottom:8px;
+      text-transform:uppercase;
+    }
+
+    .price{
+      font-size:20px;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+
+    .sizes{
+      font-size:14px;
+      line-height:1.55;
+      margin-bottom:14px;
+    }
+
+    .upload-panel pre,
+    .admin-panel pre,
+    .media-db pre{
+      white-space:pre-wrap;
+      word-break:break-word;
+      line-height:1.6;
+      font-size:14px;
+      font-family:Consolas,monospace;
+    }
+
+    .contact-box a.link{
+      display:inline-block;
+      margin-top:12px;
+      border:1px solid var(--orange);
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:700;
+    }
+
+    .contact-box a.link:hover{
+      background:var(--orange);
+      color:#000;
+    }
+
+    .quick-buttons{justify-content:center;margin-top:18px}
+
+    footer{
+      margin-top:36px;
+      border-top:1px solid rgba(255,122,0,.25);
+      padding:22px 0 30px;
+      text-align:center;
+    }
+
+    @media(max-width:1024px){
+      .topbar-inner{grid-template-columns:1fr;justify-items:center}
+      .nav{justify-content:center}
+      .hero-grid,.store-hero{grid-template-columns:1fr}
+      .hero-slider,.hero-card{min-height:unset}
+      .hero-slider{min-height:460px}
+    }
+
+    @media(max-width:680px){
+      .hero-slider{min-height:360px}
+      .slide-text{padding:18px 16px 16px}
+      .hero-card,.upload-panel,.admin-panel,.media-db{padding:22px 16px}
+      .hero-buttons a,.q-btn,.shop-btn{width:100%;text-align:center}
+      .gallery-item img,.product-card img{height:220px}
+      .store-banner,.store-media{min-height:320px}
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div style="display:flex;align-items:center;gap:10px">
-    <img src="bss-logo-ofisyel.jpeg">
-    <div>BSS 1815</div>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">
+      <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
+      <div class="brand-text">
+        <h1>BSS 1815</h1>
+        <p id="brandSub">Platfòm ofisyèl la</p>
+      </div>
+    </div>
+
+    <div class="lang-switch">
+      <button class="active" id="kreBtn" type="button">KRE</button>
+      <button id="franBtn" type="button">FRAN</button>
+      <button id="engBtn" type="button">ENG</button>
+    </div>
+
+    <nav class="nav">
+      <a href="#home" id="homeBtn" class="active">AKÈY</a>
+      <a href="#about" id="aboutBtn">SOU NOU</a>
+      <a href="#services" id="servicesBtn">SÈVIS</a>
+      <a href="#gallery" id="galleryBtn">GALERI</a>
+      <a href="#store" id="storeBtn">STORE</a>
+      <a href="#contact" id="contactBtn">KONTAK</a>
+    </nav>
   </div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#store">Store</a>
-    <a href="#admin">Admin</a>
-  </nav>
 </header>
 
-<!-- SLIDESHOW -->
-<div id="slideshow"></div>
+<main id="home">
 
-<!-- GALERI -->
-<div id="gallery" class="section"></div>
+  <section class="hero">
+    <div class="container hero-grid">
 
-<!-- STORE -->
-<div id="store" class="section">
-<h2>BSS STORE</h2>
-<div class="card">T-Shirt $25</div>
-<div class="card">Hoodie $30</div>
-</div>
+      <div class="hero-slider">
+        <div id="slidesContainer"></div>
+        <div class="slide-overlay"></div>
 
-<!-- ADMIN LOGIN -->
-<div id="admin" class="section">
+        <div class="slide-text">
+          <h2 id="heroTitle">BRIYANT SOLÈY SIGNO 1815</h2>
+          <p id="heroText">
+            BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
+            Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm,
+            fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.
+          </p>
+        </div>
 
-<h2>ADMIN LOGIN</h2>
+        <div class="slide-counter" id="slideCounter">1 / 1</div>
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
 
-<div id="loginBox">
-<input id="email" placeholder="Email">
-<input id="pass" type="password" placeholder="Password">
-<button onclick="login()">LOGIN</button>
-<p id="msg"></p>
-</div>
+      <aside class="hero-card">
+        <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
+        <span class="eyebrow" id="eyebrowText">BSS OFFISYÈL</span>
+        <h3 id="sideTitle">Yon vrè platfòm pou BSS 1815</h3>
+        <p id="sideText">
+          Nou mete imaj, fanbase, sèvis, ak kontak yo ansanm sou yon sèl sit ki pwòp,
+          fò, epi fasil pou moun navige ladan li.
+        </p>
 
-<div id="panel" style="display:none">
-<h3>WELCOME ADMIN</h3>
-<button onclick="logout()">LOGOUT</button>
-</div>
+        <div class="hero-buttons">
+          <a href="#gallery" class="primary" id="heroGalleryBtn">Antre nan galeri a</a>
+          <a href="#contact" id="heroContactBtn">Kontakte nou</a>
+        </div>
 
-</div>
+        <div class="quote-box">
+          <div class="quote" id="quoteText">
+            BSS 1815 se plis pase yon non. Se yon direksyon, yon respè,
+            ak yon prezans ki make lespri moun.
+          </div>
+          <div class="name" id="quoteName">BSS WAY</div>
+          <div class="role" id="quoteRole">Orange ak nwa sèlman</div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="aboutTitle">SOU NOU</h2>
+        <p id="aboutLead">
+          Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, disiplin ak fyète.
+          Nou reprezante yon vizyon solid ki mete moun yo an valè epi ki kenbe memwa bann lan vivan.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3 id="aboutCard1Title">Vizyon</h3>
+          <p id="aboutCard1Text">Nou bati yon espas ki montre eritaj, prezans, ak fòs BSS 1815 nan yon fason klè, modèn, ak pwofesyonèl.</p>
+        </div>
+        <div class="card">
+          <h3 id="aboutCard2Title">Misyon</h3>
+          <p id="aboutCard2Text">Misyon nou se pote tout kontni, fanatik, ak sèvis yo ansanm sou yon platfòm ofisyèl ki fasil pou itilize.</p>
+        </div>
+        <div class="card">
+          <h3 id="aboutCard3Title">Valè</h3>
+          <p id="aboutCard3Text">Respè, disiplin, inite, vizyon, ak limyè se baz ki soutni non Briyant Solèy Signo 1815 la.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="servicesTitle">SÈVIS</h2>
+        <p id="servicesLead">
+          Men kèk nan sèvis ak fonksyon nou vle mete an avan sou platfòm la pou rann li itil, aktif, epi pwofesyonèl.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3 id="service1Title">Pwomosyon</h3>
+          <p id="service1Text">Pwomosyon pou imaj, atis, ak aktivite ki gen rapò ak BSS 1815.</p>
+        </div>
+        <div class="card">
+          <h3 id="service2Title">Galeri</h3>
+          <p id="service2Text">Prezante fanatik, manm, ak moman espesyal yo ak bon jan vizibilite.</p>
+        </div>
+        <div class="card">
+          <h3 id="service3Title">Kontak</h3>
+          <p id="service3Text">Pèmèt moun ak patnè jwenn enfòmasyon ofisyèl fasilman.</p>
+        </div>
+        <div class="card">
+          <h3 id="service4Title">Platfòm ofisyèl</h3>
+          <p id="service4Text">Rasanble tout eleman enpòtan yo sou yon sèl sit ki stab epi pwòp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="galleryTitle">GALERI</h2>
+        <p id="galleryLead">
+          Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="store">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="storeTitle">BSS1815 OFFICIAL STORE</h2>
+        <p id="storeLead">
+          Bryant Soley Signo 1815 — Official Merchandise & Media Platform.
+          Platfòm ofisyèl pou pwodwi, medya, ak kontni ki soti nan kominote BSS1815 la.
+        </p>
+      </div>
+
+      <div class="store-hero">
+        <div class="store-banner">
+          <img src="magazen.jpg" alt="BSS Store Banner">
+          <div class="store-banner-overlay">
+            <div class="store-banner-text">
+              <h3>Shop Now • View Products</h3>
+              <p>
+                BSS1815 Official Store fèt pou bay fanatik yo, manm ekip la, ak dirijan yo
+                yon eksperyans pwofesyonèl, modèn, ak totalman òganize.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-media">
+          <div id="storeSlidesContainer"></div>
+          <div class="store-counter" id="storeCounter">1 / 1</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h2 id="missionTitle">Misyon</h2>
+        <p id="missionText">
+          Misyon nou se kreye yon espas ki mete disiplin ak eritaj BSS1815 an valè,
+          fasilite aksè a pwodwi ofisyèl yo, pèmèt fanatik yo pataje moman yo,
+          epi bay dirijan yo yon zouti pwofesyonèl pou jere medya yo.
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <div class="category-card"><div class="inner"><h3>T-Shirts</h3><p>Pwodwi debaz fanatik yo ak style ofisyèl BSS1815.</p></div></div>
+        <div class="category-card"><div class="inner"><h3>Hoodies</h3><p>Abiman cho ak idantite mak la anwo nivo.</p></div></div>
+        <div class="category-card"><div class="inner"><h3>Caps</h3><p>Kèpi ofisyèl pou fanatik ak manm ekip la.</p></div></div>
+        <div class="category-card"><div class="inner"><h3>Tcha</h3><p>Akseswa espesyal nan koleksyon BSS1815 yo.</p></div></div>
+        <div class="category-card"><div class="inner"><h3>Bracelets</h3><p>Braslè fan essentials pou reprezante mak la chak jou.</p></div></div>
+        <div class="category-card"><div class="inner"><h3>Gode</h3><p>Gode / mugs pou koleksyon fanatik yo ak medya ofisyèl la.</p></div></div>
+      </div>
+
+      <div class="section-header" style="margin-top:30px;">
+        <h2 id="productsTitle">Products Grid</h2>
+        <p id="productsLead">Chak pwodwi vini ak foto, pri, opsyon, ak bouton kòmande dirèk sou WhatsApp.</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="store.jpg" alt="T-Shirt">
+          <div class="product-info">
+            <h3>T-Shirt BSS1815</h3>
+            <div class="price">$25</div>
+            <div class="sizes">Gwosè: S • M • L • XL • XXL • XXXL</div>
+            <div class="product-actions">
+              <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20T-Shirt%20BSS1815%20la" target="_blank">Buy Now</a>
+              <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20T-Shirt%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="store2.jpeg" alt="Hoodie">
+          <div class="product-info">
+            <h3>Hoodie BSS1815</h3>
+            <div class="price">$30</div>
+            <div class="sizes">Gwosè: S • M • L • XL • XXL • XXXL</div>
+            <div class="product-actions">
+              <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Hoodie%20BSS1815%20la" target="_blank">Buy Now</a>
+              <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Hoodie%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="magazen.jpg" alt="Caps">
+          <div class="product-info">
+            <h3>Cap / Kèpi</h3>
+            <div class="price">$15</div>
+            <div class="sizes">Opsyon: One Size Fits All</div>
+            <div class="product-actions">
+              <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20K%C3%A8pi%20BSS1815%20la" target="_blank">Buy Now</a>
+              <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20K%C3%A8pi%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="store.jpg" alt="Bracelet">
+          <div class="product-info">
+            <h3>Bracelet</h3>
+            <div class="price">$10</div>
+            <div class="sizes">Opsyon: Fan Essentials</div>
+            <div class="product-actions">
+              <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Bracelet%20BSS1815%20la" target="_blank">Buy Now</a>
+              <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Bracelet%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="store2.jpeg" alt="Gode">
+          <div class="product-info">
+            <h3>Gode / Mug</h3>
+            <div class="price">$10</div>
+            <div class="sizes">Opsyon: Classic Collection</div>
+            <div class="product-actions">
+              <a class="shop-btn primary" href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Gode%20BSS1815%20la" target="_blank">Buy Now</a>
+              <a class="shop-btn" href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Gode%20BSS1815%20la%20nan%20cart" target="_blank">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top:30px;">
+        <h2 id="collectionsTitle">Collections</h2>
+        <p id="collectionsLead">Fire Edition • Classic Collection • Fan Essentials</p>
+      </div>
+
+      <div class="collections-grid">
+        <div class="collection-card"><div class="inner"><h3>Fire Edition</h3><p>Koleksyon dife a pou fanatik ki renmen style fò, koulè vivan, ak imaj mak la.</p></div></div>
+        <div class="collection-card"><div class="inner"><h3>Classic Collection</h3><p>Yon liy pwòp, elegant, ak ofisyèl pou reprezante eritaj BSS1815 la.</p></div></div>
+        <div class="collection-card"><div class="inner"><h3>Fan Essentials</h3><p>Pwodwi debaz fanatik yo bezwen pou montre sipò yo chak jou.</p></div></div>
+      </div>
+
+      <div class="section-header" style="margin-top:30px;">
+        <h2 id="fanUploadTitle">Fan Upload Center</h2>
+        <p id="fanUploadLead">
+          Seksiyon piblik kote fanatik yo ka upload foto, videyo, ekri deskripsyon,
+          epi pataje moman yo ak BSS1815.
+        </p>
+      </div>
+
+      <div class="upload-panel">
+<pre>{
+  "fan_uploads": [
+    "upload foto",
+    "upload videyo",
+    "ekri yon deskripsyon",
+    "pataje moman ak BSS1815"
+  ]
+}</pre>
+      </div>
+
+      <div class="section-header" style="margin-top:30px;">
+        <h2 id="leadersPanelTitle">Leaders Control Panel</h2>
+        <p id="leadersPanelLead">
+          Seksiyon prive pou SUPER ADMIN ak ADMIN pou upload bannè, medya ofisyèl,
+          foto pwodwi, epi sove tout bagay nan Media Library.
+        </p>
+      </div>
+
+      <div class="admin-panel">
+<pre>LEADERS CONTROL PANEL
+- SUPER ADMIN
+- ADMIN
+- Upload foto/videyo ofisyèl
+- Upload bannè
+- Upload foto pwodwi
+- Chwazi kategori medya yo
+- Sove nan Media Library</pre>
+      </div>
+
+      <div class="section-header" style="margin-top:30px;">
+        <h2 id="storeAboutTitle">About BSS1815 Store</h2>
+        <p id="storeAboutLead">
+          Koulè ofisyèl yo se Abriko & Nwa. Platfòm nan pote istwa, misyon, logo,
+          ak valè mak BSS1815 la ansanm nan yon eksperyans modèn.
+        </p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card"><div class="inner"><h3>Fanclub</h3><p>Temwayaj kout, foto, non, ak tit pou mete valè fanatik yo an avan.</p></div></div>
+        <div class="testimonial-card"><div class="inner"><h3>Media Platform</h3><p>Yon espas ki pwofesyonèl pou kolekte pwodwi, medya, ak memwa kominote a.</p></div></div>
+        <div class="testimonial-card"><div class="inner"><h3>Official Image</h3><p>BSS1815 OFFICIAL STORE mete disiplin, imaj mak, ak òganizasyon nan menm liy lan.</p></div></div>
+      </div>
+
+      <div class="section-header" style="margin-top:30px;">
+        <h2 id="mediaDbTitle">Media Library / Database</h2>
+      </div>
+
+      <div class="media-db">
+<pre>{
+  "fan_uploads": []
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="contactTitle">KONTAK</h2>
+        <p id="contactLead">
+          Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-box">
+          <h3 id="contactBox1Title">Email</h3>
+          <p id="contactEmail">briyantsoleysigno1815@gmail.com</p>
+        </div>
+
+        <div class="contact-box">
+          <h3 id="contactBox2Title">Telefòn</h3>
+          <p id="contactPhone">+509 4343-7488</p>
+        </div>
+
+        <div class="contact-box">
+          <h3 id="contactBox3Title">WhatsApp</h3>
+          <p id="contactWhatsText">Klike anba a pou voye mesaj dirèk.</p>
+          <a class="link" href="https://wa.me/15162168494" target="_blank" rel="noopener" id="whatsBtn">VOYE MESAJ</a>
+        </div>
+      </div>
+
+      <div class="quick-buttons">
+        <a href="https://wa.me/15162168494" target="_blank" class="q-btn">WHATSAPP</a>
+        <a href="mailto:briyantsoleysigno1815@gmail.com" class="q-btn">EMAIL</a>
+        <a href="tel:+50943437488" class="q-btn">TELEFÒN</a>
+        <a href="https://www.briyantsoleysigno1815.com" target="_blank" class="q-btn">WEBSITE</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container" id="footerText">
+    © BSS 1815 — Platfòm ofisyèl
+  </div>
+</footer>
 
 <script>
+  const translations = {
+    kre:{
+      brandSub:"Platfòm ofisyèl la",
+      home:"AKÈY",
+      about:"SOU NOU",
+      services:"SÈVIS",
+      gallery:"GALERI",
+      store:"STORE",
+      contact:"KONTAK",
+      heroTitle:"BRIYANT SOLÈY SIGNO 1815",
+      heroText:"BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn. Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm, fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.",
+      eyebrowText:"BSS OFFISYÈL",
+      sideTitle:"Yon vrè platfòm pou BSS 1815",
+      sideText:"Nou mete imaj, fanbase, sèvis, ak kontak yo ansanm sou yon sèl sit ki pwòp, fò, epi fasil pou moun navige ladan li.",
+      heroGalleryBtn:"Antre nan galeri a",
+      heroContactBtn:"Kontakte nou",
+      quoteText:"BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.",
+      quoteName:"BSS WAY",
+      quoteRole:"Orange ak nwa sèlman",
+      aboutTitle:"SOU NOU",
+      aboutLead:"Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, disiplin ak fyète. Nou reprezante yon vizyon solid ki mete moun yo an valè epi ki kenbe memwa bann lan vivan.",
+      aboutCard1Title:"Vizyon",
+      aboutCard1Text:"Nou bati yon espas ki montre eritaj, prezans, ak fòs BSS 1815 nan yon fason klè, modèn, ak pwofesyonèl.",
+      aboutCard2Title:"Misyon",
+      aboutCard2Text:"Misyon nou se pote tout kontni, fanatik, ak sèvis yo ansanm sou yon platfòm ofisyèl ki fasil pou itilize.",
+      aboutCard3Title:"Valè",
+      aboutCard3Text:"Respè, disiplin, inite, vizyon, ak limyè se baz ki soutni non Briyant Solèy Signo 1815 la.",
+      servicesTitle:"SÈVIS",
+      servicesLead:"Men kèk nan sèvis ak fonksyon nou vle mete an avan sou platfòm la pou rann li itil, aktif, epi pwofesyonèl.",
+      service1Title:"Pwomosyon",
+      service1Text:"Pwomosyon pou imaj, atis, ak aktivite ki gen rapò ak BSS 1815.",
+      service2Title:"Galeri",
+      service2Text:"Prezante fanatik, manm, ak moman espesyal yo ak bon jan vizibilite.",
+      service3Title:"Kontak",
+      service3Text:"Pèmèt moun ak patnè jwenn enfòmasyon ofisyèl fasilman.",
+      service4Title:"Platfòm ofisyèl",
+      service4Text:"Rasanble tout eleman enpòtan yo sou yon sèl sit ki stab epi pwòp.",
+      galleryTitle:"GALERI",
+      galleryLead:"Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.",
+      storeTitle:"BSS1815 OFFICIAL STORE",
+      storeLead:"Bryant Soley Signo 1815 — Official Merchandise & Media Platform. Platfòm ofisyèl pou pwodwi, medya, ak kontni ki soti nan kominote BSS1815 la.",
+      missionTitle:"Misyon",
+      missionText:"Misyon nou se kreye yon espas ki mete disiplin ak eritaj BSS1815 an valè, fasilite aksè a pwodwi ofisyèl yo, pèmèt fanatik yo pataje moman yo, epi bay dirijan yo yon zouti pwofesyonèl pou jere medya yo.",
+      productsTitle:"Products Grid",
+      productsLead:"Chak pwodwi vini ak foto, pri, opsyon, ak bouton kòmande dirèk sou WhatsApp.",
+      collectionsTitle:"Collections",
+      collectionsLead:"Fire Edition • Classic Collection • Fan Essentials",
+      fanUploadTitle:"Fan Upload Center",
+      fanUploadLead:"Seksiyon piblik kote fanatik yo ka upload foto, videyo, ekri deskripsyon, epi pataje moman yo ak BSS1815.",
+      leadersPanelTitle:"Leaders Control Panel",
+      leadersPanelLead:"Seksiyon prive pou SUPER ADMIN ak ADMIN pou upload bannè, medya ofisyèl, foto pwodwi, epi sove tout bagay nan Media Library.",
+      storeAboutTitle:"About BSS1815 Store",
+      storeAboutLead:"Koulè ofisyèl yo se Abriko & Nwa. Platfòm nan pote istwa, misyon, logo, ak valè mak BSS1815 la ansanm nan yon eksperyans modèn.",
+      mediaDbTitle:"Media Library / Database",
+      contactTitle:"KONTAK",
+      contactLead:"Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.",
+      contactBox1Title:"Email",
+      contactBox2Title:"Telefòn",
+      contactBox3Title:"WhatsApp",
+      contactWhatsText:"Klike anba a pou voye mesaj dirèk.",
+      whatsBtn:"VOYE MESAJ",
+      footerText:"© BSS 1815 — Platfòm ofisyèl"
+    },
+    fran:{
+      brandSub:"Plateforme officielle",
+      home:"ACCUEIL",
+      about:"À PROPOS",
+      services:"SERVICES",
+      gallery:"GALERIE",
+      store:"BOUTIQUE",
+      contact:"CONTACT",
+      heroTitle:"BRIYANT SOLÈY SIGNO 1815",
+      heroText:"BSS 1815 est une force, une vision, une lumière qui ne s’éteindra jamais.",
+      eyebrowText:"BSS OFFICIEL",
+      sideTitle:"Une vraie plateforme pour BSS 1815",
+      sideText:"Nous réunissons l’image, la fanbase, les services et les contacts sur un seul site propre, fort et facile à parcourir.",
+      heroGalleryBtn:"Entrer dans la galerie",
+      heroContactBtn:"Nous contacter",
+      quoteText:"BSS 1815 est plus qu’un nom.",
+      quoteName:"BSS WAY",
+      quoteRole:"Orange et noir uniquement",
+      aboutTitle:"À PROPOS",
+      aboutLead:"Briyant Solèy Signo 1815 est une organisation qui apporte lumière, énergie, discipline et fierté.",
+      aboutCard1Title:"Vision",
+      aboutCard1Text:"Nous construisons un espace clair, moderne et professionnel.",
+      aboutCard2Title:"Mission",
+      aboutCard2Text:"Notre mission est de réunir tous les contenus, les fans et les services.",
+      aboutCard3Title:"Valeurs",
+      aboutCard3Text:"Respect, discipline, unité, vision et lumière.",
+      servicesTitle:"SERVICES",
+      servicesLead:"Voici quelques services et fonctions mis en avant.",
+      service1Title:"Promotion",
+      service1Text:"Promotion pour l’image, les artistes et les activités liées à BSS 1815.",
+      service2Title:"Galerie",
+      service2Text:"Présenter les fans, les membres et les moments spéciaux.",
+      service3Title:"Contact",
+      service3Text:"Permettre au public d’obtenir des informations officielles.",
+      service4Title:"Plateforme officielle",
+      service4Text:"Réunir tous les éléments importants sur un seul site.",
+      galleryTitle:"GALERIE",
+      galleryLead:"Voici quelques belles images de fans, de membres et de moments spéciaux.",
+      storeTitle:"BSS1815 OFFICIAL STORE",
+      storeLead:"Plateforme officielle de produits dérivés et de médias.",
+      missionTitle:"Mission",
+      missionText:"Créer un espace qui valorise la discipline et l’héritage de BSS1815.",
+      productsTitle:"Produits",
+      productsLead:"Chaque produit comprend une photo, un prix et des boutons de commande.",
+      collectionsTitle:"Collections",
+      collectionsLead:"Fire Edition • Classic Collection • Fan Essentials",
+      fanUploadTitle:"Centre d’upload des fans",
+      fanUploadLead:"Section publique où les fans peuvent envoyer des photos et des vidéos.",
+      leadersPanelTitle:"Panneau de contrôle des dirigeants",
+      leadersPanelLead:"Section privée pour SUPER ADMIN et ADMIN.",
+      storeAboutTitle:"À propos de la boutique BSS1815",
+      storeAboutLead:"Les couleurs officielles sont Abricot & Noir.",
+      mediaDbTitle:"Médiathèque / Base de données",
+      contactTitle:"CONTACT",
+      contactLead:"Contactez-nous pour des informations, des collaborations ou des questions.",
+      contactBox1Title:"Email",
+      contactBox2Title:"Téléphone",
+      contactBox3Title:"WhatsApp",
+      contactWhatsText:"Cliquez ci-dessous pour envoyer un message direct.",
+      whatsBtn:"ENVOYER UN MESSAGE",
+      footerText:"© BSS 1815 — Plateforme officielle"
+    },
+    eng:{
+      brandSub:"Official platform",
+      home:"HOME",
+      about:"ABOUT",
+      services:"SERVICES",
+      gallery:"GALLERY",
+      store:"STORE",
+      contact:"CONTACT",
+      heroTitle:"BRIYANT SOLÈY SIGNO 1815",
+      heroText:"BSS 1815 is a force, a vision, a light that will never go out.",
+      eyebrowText:"BSS OFFICIAL",
+      sideTitle:"A real platform for BSS 1815",
+      sideText:"We bring image, fanbase, services, and contact together on one clean, strong, and easy-to-navigate website.",
+      heroGalleryBtn:"Enter the gallery",
+      heroContactBtn:"Contact us",
+      quoteText:"BSS 1815 is more than a name.",
+      quoteName:"BSS WAY",
+      quoteRole:"Orange and black only",
+      aboutTitle:"ABOUT",
+      aboutLead:"Briyant Solèy Signo 1815 is an organization that brings light, energy, discipline, and pride.",
+      aboutCard1Title:"Vision",
+      aboutCard1Text:"We are building a clear, modern, and professional space.",
+      aboutCard2Title:"Mission",
+      aboutCard2Text:"Our mission is to bring all content, fans, and services together.",
+      aboutCard3Title:"Values",
+      aboutCard3Text:"Respect, discipline, unity, vision, and light.",
+      servicesTitle:"SERVICES",
+      servicesLead:"Here are some highlighted services and features.",
+      service1Title:"Promotion",
+      service1Text:"Promotion for image, artists, and activities related to BSS 1815.",
+      service2Title:"Gallery",
+      service2Text:"Showcasing fans, members, and special moments.",
+      service3Title:"Contact",
+      service3Text:"Allowing the public to get official information easily.",
+      service4Title:"Official platform",
+      service4Text:"Bringing all important elements together on one website.",
+      galleryTitle:"GALLERY",
+      galleryLead:"Here are some beautiful images of fans, members, and special moments.",
+      storeTitle:"BSS1815 OFFICIAL STORE",
+      storeLead:"Official Merchandise & Media Platform.",
+      missionTitle:"Mission",
+      missionText:"To create a space that highlights the discipline and heritage of BSS1815.",
+      productsTitle:"Products Grid",
+      productsLead:"Each product includes a photo, price, and direct ordering buttons.",
+      collectionsTitle:"Collections",
+      collectionsLead:"Fire Edition • Classic Collection • Fan Essentials",
+      fanUploadTitle:"Fan Upload Center",
+      fanUploadLead:"Public section where fans can upload photos and videos.",
+      leadersPanelTitle:"Leaders Control Panel",
+      leadersPanelLead:"Private section for SUPER ADMIN and ADMIN.",
+      storeAboutTitle:"About BSS1815 Store",
+      storeAboutLead:"The official colors are Apricot & Black.",
+      mediaDbTitle:"Media Library / Database",
+      contactTitle:"CONTACT",
+      contactLead:"Contact us for information, collaborations, or questions.",
+      contactBox1Title:"Email",
+      contactBox2Title:"Phone",
+      contactBox3Title:"WhatsApp",
+      contactWhatsText:"Click below to send a direct message.",
+      whatsBtn:"SEND MESSAGE",
+      footerText:"© BSS 1815 — Official platform"
+    }
+  };
 
-// IMAGES
-const photos = [
-"bawon-an.jpeg","cange.jpeg","miami-an-aksyon.jpeg",
-"adan-signo.jpeg","andy.jpeg","fanfan.jpg","roro-lajan.jpeg"
-];
+  const allImages = [
+    "only-u.jpeg","ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","blackson.jpeg",
+    "nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg","roro-lajan.jpg",
+    "jeff-colin.jpg","fanfan.jpg","may.jpg","sonson1.jpg","warrens.jpg","majis-mauc.jpg",
+    "emaze.jpg","la-belle-yole.jpg","maximax-multi-serv.jpeg","queen-naylove.jpeg","macu-mv.jpg",
+    "ti-leta.jpg","anpere-ti-rat.jpg","mario.jpg","perodin.jpg","cange1.jpg","maximax1.jpg",
+    "nadege.jpg","sinndy.jpg","asmide.jpg","andre-asouman.jpg","one-love.jpg","slogan.jpg",
+    "ygens.jpg","prodin.jpeg","cange.jpg","ralph.jpg","slogan1.jpg","odelinne.jpg","jij-mayan.jpg",
+    "ti-marasa-yo.jpg","baron-plenn-lan.jpeg","bouboul.jpeg","bawon-an!.jpeg","brunel.jpeg",
+    "caldos.jpeg","cange2.jpeg","cols.jpeg","don-dodo.jpeg","doodly23.jpeg","doudou.jpeg",
+    "elson2.jpeg","guypson.jpeg","karl-henry.jpeg","kendy.jpeg","kriye-pou-fanm.jpeg","landry.jpeg",
+    "macu.jpeg","majis-junior.jpeg","mambo_fifi.jpeg","max-louis.jpeg","montinat.jpeg",
+    "michel-briyant.jpeg","nadege-b.jpeg","nnaylove.jpeg","ones-1.jpeg","paulema.jpeg",
+    "pdg-ti-rat.jpeg","prez-aly.jpeg","prez-papit.jpeg","rooso.jpeg","roro-lajan.jpeg",
+    "roro23.jpeg","synthia-jn-baptiste.jpeg","tania.jpeg","the-only-1.jpeg","ti-chery.jpeg",
+    "ti-reynold.jpeg","ti_la_france.jpeg","ti_marasa.jpeg","ti_papouche.jpeg","toto-senkant.jpeg",
+    "valery2.jpeg","flore.jpeg","jij_mayan.jpeg","adia.jpeg","nnadia.png","roro-lajan2.jpeg",
+    "odeline.jpeg","dede.png"
+  ];
 
-// BUILD SLIDESHOW
-const slideBox = document.getElementById("slideshow");
-photos.forEach(p=>{
-let d=document.createElement("div");
-d.className="slide";
-d.innerHTML=`<img src="${p}">`;
-slideBox.appendChild(d);
-});
+  const storeMedia = [
+    {type:"image",src:"magazen.jpg"},
+    {type:"image",src:"store2.jpeg"},
+    {type:"video",src:"bss-video.mp4"},
+    {type:"video",src:"store-video.mp4"},
+    {type:"image",src:"store.jpg"},
+    {type:"video",src:"bss-boutique.mp4"}
+  ];
 
-let slides=document.querySelectorAll(".slide");
-let i=0;
-slides[0].classList.add("active");
+  const slidesContainer = document.getElementById("slidesContainer");
+  const galleryGrid = document.getElementById("galleryGrid");
+  const slideCounter = document.getElementById("slideCounter");
+  const progressBar = document.getElementById("progressBar");
+  const storeSlidesContainer = document.getElementById("storeSlidesContainer");
+  const storeCounter = document.getElementById("storeCounter");
 
-setInterval(()=>{
-slides[i].classList.remove("active");
-i=(i+1)%slides.length;
-slides[i].classList.add("active");
-},4000);
+  const kreBtn = document.getElementById("kreBtn");
+  const franBtn = document.getElementById("franBtn");
+  const engBtn = document.getElementById("engBtn");
 
-// GALERI
-const gallery=document.getElementById("gallery");
-photos.forEach(p=>{
-let img=document.createElement("img");
-img.src=p;
-img.style.width="120px";
-img.style.margin="5px";
-gallery.appendChild(img);
-});
+  function prettyName(file){
+    let name = file
+      .replace(".jpeg","")
+      .replace(".jpg","")
+      .replace(".png","")
+      .replace(".mp4","")
+      .replace(/[-_]/g," ");
+    return name.replace(/\b\w/g, l => l.toUpperCase());
+  }
 
-// LOGIN SYSTEM
-function login(){
-let email=document.getElementById("email").value;
-let pass=document.getElementById("pass").value;
+  allImages.forEach(file=>{
+    const name = prettyName(file);
 
-if(email==="admin@bss1815.com" && pass==="BSS2025"){
-document.getElementById("loginBox").style.display="none";
-document.getElementById("panel").style.display="block";
-}else{
-document.getElementById("msg").innerText="Wrong login";
-}
-}
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    slide.innerHTML = `<img src="${file}" alt="${name}">`;
+    slidesContainer.appendChild(slide);
 
-function logout(){
-document.getElementById("loginBox").style.display="block";
-document.getElementById("panel").style.display="none";
-}
+    const item = document.createElement("div");
+    item.className = "gallery-item";
+    item.innerHTML = `<img src="${file}" alt="${name}"><p>${name}</p>`;
+    galleryGrid.appendChild(item);
+  });
 
+  storeMedia.forEach((media,index)=>{
+    const wrap = document.createElement("div");
+    wrap.className = "store-slide";
+    if(index===0) wrap.classList.add("active");
+
+    if(media.type==="video"){
+      wrap.innerHTML = `<video src="${media.src}" autoplay muted loop playsinline></video>`;
+    }else{
+      wrap.innerHTML = `<img src="${media.src}" alt="${prettyName(media.src)}">`;
+    }
+
+    storeSlidesContainer.appendChild(wrap);
+  });
+
+  const slides = document.querySelectorAll(".slide");
+  const storeSlides = document.querySelectorAll(".store-slide");
+
+  let currentSlide = 0;
+  let currentStoreSlide = 0;
+  const slideDuration = 8000;
+  const storeDuration = 6000;
+
+  function updateCounter(){
+    slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
+
+  function resetProgressBar(){
+    progressBar.style.transition = "none";
+    progressBar.style.width = "0%";
+    setTimeout(()=>{
+      progressBar.style.transition = `width ${slideDuration}ms linear`;
+      progressBar.style.width = "100%";
+    },60);
+  }
+
+  function showSlide(index){
+    slides.forEach((slide,i)=>slide.classList.toggle("active",i===index));
+    currentSlide = index;
+    updateCounter();
+    resetProgressBar();
+  }
+
+  function nextSlide(){
+    let next = currentSlide + 1;
+    if(next >= slides.length) next = 0;
+    showSlide(next);
+  }
+
+  function startSlideshow(){
+    if(!slides.length) return;
+    showSlide(0);
+    setInterval(nextSlide,slideDuration);
+  }
+
+  function showStoreSlide(index){
+    storeSlides.forEach((slide,i)=>slide.classList.toggle("active",i===index));
+    currentStoreSlide = index;
+    storeCounter.textContent = `${currentStoreSlide + 1} / ${storeSlides.length}`;
+  }
+
+  function nextStoreSlide(){
+    let next = currentStoreSlide + 1;
+    if(next >= storeSlides.length) next = 0;
+    showStoreSlide(next);
+  }
+
+  function startStoreSlideshow(){
+    if(!storeSlides.length) return;
+    showStoreSlide(0);
+    setInterval(nextStoreSlide,storeDuration);
+  }
+
+  function setLanguage(lang){
+    const t = translations[lang];
+
+    document.getElementById("brandSub").textContent = t.brandSub;
+    document.getElementById("homeBtn").textContent = t.home;
+    document.getElementById("aboutBtn").textContent = t.about;
+    document.getElementById("servicesBtn").textContent = t.services;
+    document.getElementById("galleryBtn").textContent = t.gallery;
+    document.getElementById("storeBtn").textContent = t.store;
+    document.getElementById("contactBtn").textContent = t.contact;
+
+    const ids = [
+      "heroTitle","heroText","eyebrowText","sideTitle","sideText",
+      "heroGalleryBtn","heroContactBtn","quoteText","quoteName","quoteRole",
+      "aboutTitle","aboutLead","aboutCard1Title","aboutCard1Text",
+      "aboutCard2Title","aboutCard2Text","aboutCard3Title","aboutCard3Text",
+      "servicesTitle","servicesLead","service1Title","service1Text",
+      "service2Title","service2Text","service3Title","service3Text",
+      "service4Title","service4Text","galleryTitle","galleryLead",
+      "storeTitle","storeLead","missionTitle","missionText",
+      "productsTitle","productsLead","collectionsTitle","collectionsLead",
+      "fanUploadTitle","fanUploadLead","leadersPanelTitle","leadersPanelLead",
+      "storeAboutTitle","storeAboutLead","mediaDbTitle","contactTitle",
+      "contactLead","contactBox1Title","contactBox2Title","contactBox3Title",
+      "contactWhatsText","whatsBtn","footerText"
+    ];
+
+    ids.forEach(id=>{
+      if(document.getElementById(id) && t[id]){
+        document.getElementById(id).textContent = t[id];
+      }
+    });
+
+    kreBtn.classList.remove("active");
+    franBtn.classList.remove("active");
+    engBtn.classList.remove("active");
+
+    if(lang==="kre") kreBtn.classList.add("active");
+    if(lang==="fran") franBtn.classList.add("active");
+    if(lang==="eng") engBtn.classList.add("active");
+  }
+
+  kreBtn.addEventListener("click",()=>setLanguage("kre"));
+  franBtn.addEventListener("click",()=>setLanguage("fran"));
+  engBtn.addEventListener("click",()=>setLanguage("eng"));
+
+  startSlideshow();
+  startStoreSlideshow();
+  setLanguage("kre");
 </script>
 
 </body>
