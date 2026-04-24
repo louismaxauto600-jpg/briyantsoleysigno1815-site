@@ -1362,6 +1362,59 @@
     startSlideshow();
     startStoreSlideshow();
     setLanguage("kre");
-  </script>
+<!-- ================= ADMIN LOGIN ================= -->
+<section id="admin" style="padding:40px; text-align:center;">
+
+  <h2 style="color:#ff7a00;">ADMIN LOGIN</h2>
+
+  <div id="loginBox">
+    <input id="adminEmail" placeholder="Email"
+      style="display:block;margin:10px auto;padding:10px;width:250px;">
+    
+    <input id="adminPassword" type="password" placeholder="Password"
+      style="display:block;margin:10px auto;padding:10px;width:250px;">
+
+    <button id="loginBtn"
+      style="padding:10px 20px;background:#ff7a00;color:#000;border:none;">
+      LOGIN
+    </button>
+
+    <p id="msg" style="color:#ff7a00;"></p>
+  </div>
+
+  <div id="panel" style="display:none;">
+    <h3 style="color:#ff7a00;">WELCOME ADMIN</h3>
+    <button id="logoutBtn"
+      style="padding:10px 20px;background:#ff7a00;color:#000;border:none;">
+      LOGOUT
+    </button>
+  </div>
+
+</section>
+
+<script>
+const email = document.getElementById("adminEmail");
+const pass = document.getElementById("adminPassword");
+const btn = document.getElementById("loginBtn");
+const msg = document.getElementById("msg");
+
+const loginBox = document.getElementById("loginBox");
+const panel = document.getElementById("panel");
+
+btn.onclick = () => {
+  if(email.value === "admin@bss1815.com" && pass.value === "BSS2025"){
+    loginBox.style.display = "none";
+    panel.style.display = "block";
+    msg.textContent = "Login OK";
+  } else {
+    msg.textContent = "Wrong login";
+  }
+};
+
+document.getElementById("logoutBtn").onclick = () => {
+  loginBox.style.display = "block";
+  panel.style.display = "none";
+};
+</script>  </script>
 </body>
 </html>
