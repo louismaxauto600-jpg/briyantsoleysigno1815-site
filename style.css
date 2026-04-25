@@ -434,3 +434,54 @@ body {
   width: 180px;
   height: auto;
 }                         }
+#koukou {
+  position: absolute;
+  top: 40px;
+  right: -350px;
+  width: 180px;
+  opacity: 0;
+  animation: koukouFull 20s ease-in-out forwards;
+  z-index: 9999;
+}
+
+@keyframes koukouFull {
+  0% {
+    transform: translateX(350px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0) rotate(5deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(0) rotate(-10deg) scale(1.03);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0) rotate(10deg) scale(0.97);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(0) rotate(-10deg) scale(1.03);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(0) rotate(-15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(600px) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+#slideshow {
+  opacity: 0;
+  animation: slideAppear 1.2s ease-in forwards;
+  animation-delay: 20s;
+}
+
+@keyframes slideAppear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
