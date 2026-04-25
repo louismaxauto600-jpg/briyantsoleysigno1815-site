@@ -1,6 +1,6 @@
-// ===============================
-//  BSS1815 — WHATSAPP TWILIO PRO‑MAX
-// ===============================
+/* ===============================
+   BSS1815 — WHATSAPP TWILIO PRO‑MAX
+   =============================== */
 
 const accountSid = "YOUR_ACCOUNT_SID";
 const authToken  = "YOUR_AUTH_TOKEN";
@@ -23,5 +23,7 @@ async function sendWhatsAppAlert(message) {
     }
 }
 
-// EXEMPLE ALÈT
+// TEST DIRECT NAN MENM FICHYE A
 sendWhatsAppAlert("BSS1815 ALERT: Nouvo tranzaksyon detekte.");
+
+module.exports = { sendWhatsAppAlert };
