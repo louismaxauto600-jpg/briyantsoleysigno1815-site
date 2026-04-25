@@ -514,7 +514,37 @@
 </head>
 
 <body>
+<script>
+  const galleryGrid = document.getElementById("galleryGrid");
 
+  const allImages = [
+    "admin-mizisyen.jpeg",
+    "bss-miami-a-a.jpeg",
+    "bss-pro-max-bdg.jpeg",
+    "fanfan.jpg",
+    "la-belle-yole2.jpeg",
+    "magaz.jpeg",
+    "magazen1.jpeg",
+    "may-t.jpg",
+    "majis-mauc.jpg",
+    "maximax-multi-serv.jpeg",
+    "melisa-paraison.jpeg",
+    "queen-naylove.jpeg",
+    "roberson.png",
+    "serette.jpg",
+    "shirley.jpeg",
+    "sindy.png",
+    "sindy.jpeg",
+    "super-fanclub-5stars.png",
+    "t-leta.jpg"
+  ];
+
+  allImages.forEach(img => {
+    const el = document.createElement("img");
+    el.src = "gallery/team/" + img;
+    galleryGrid.appendChild(el);
+  });
+</script>
 <header class="topbar">
   <div class="container topbar-inner">
     <div class="brand">
