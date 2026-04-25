@@ -555,4 +555,42 @@ body {
   95%{ opacity: 1; }
   100%{ opacity: 0; }
 }
+}/* KOUKOU CONTAINER */
+#koukou {
+    position: fixed;
+    top: 40px;
+    left: -220px;
+    width: 180px;
+    height: auto;
+    z-index: 9999;
+    pointer-events: none;
+    animation: koukouFlySequence 14s ease-in-out forwards;
+}
+
+/* LOGO ANDEDAN KOUKOU (FLAP) */
+#koukou .koukou-logo {
+    width: 100%;
+    height: auto;
+    animation: koukouFlap 0.45s ease-in-out infinite;
+}
+
+/* SEKWANS: FLY-IN → PAUSE → MOVE → FLY-OUT */
+@keyframes koukouFlySequence {
+    0%   { left: -220px; top: 40px; opacity: 0; transform: scale(1) rotate(0deg); }
+    10%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(2deg); }
+    30%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(-2deg); }
+    45%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(0deg); }
+    60%  { left: 50%;    top: 40px; opacity: 1; transform: translateX(-50%) scale(1.05); }
+    80%  { left: 50%;    top: 40px; opacity: 1; transform: translateX(-50%) scale(1.05); }
+    95%  { left: 120%;   top: 40px; opacity: 1; transform: scale(1) rotate(0deg); }
+    100% { left: 140%;   top: 40px; opacity: 0; transform: scale(1) rotate(0deg); }
+}
+
+/* FLAP ZÈL / VIBRASYON LOGO A */
+@keyframes koukouFlap {
+    0%   { transform: translateY(0) rotate(0deg); }
+    25%  { transform: translateY(-2px) rotate(-1.5deg); }
+    50%  { transform: translateY(0) rotate(0deg); }
+    75%  { transform: translateY(2px) rotate(1.5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
 }
