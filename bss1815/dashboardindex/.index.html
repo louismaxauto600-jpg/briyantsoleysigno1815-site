@@ -1,0 +1,24 @@
+<div id="waBox" style="padding:20px;background:#111;border:2px solid #f90;color:#fff;border-radius:10px;max-width:400px;margin:20px auto;">
+    <h2 style="margin:0 0 10px 0;font-size:22px;color:#f90;">WhatsApp Twilio</h2>
+    <textarea id="waMessage" placeholder="Tape mesaj la..." style="width:100%;height:100px;border:1px solid #f90;background:#000;color:#fff;padding:10px;border-radius:6px;"></textarea>
+    <input id="waNumber" placeholder="+509XXXXXXXX" style="width:100%;margin-top:10px;padding:10px;border:1px solid #f90;background:#000;color:#fff;border-radius:6px;">
+    <button id="waSendBtn" style="width:100%;margin-top:15px;padding:12px;background:#f90;color:#000;font-weight:bold;border:none;border-radius:6px;cursor:pointer;">VOYE MESAJ</button>
+</div>
+
+<script>
+document.getElementById("waSendBtn").onclick = async () => {
+    const message = document.getElementById("waMessage").value;
+    const number  = document.getElementById("waNumber").value;
+
+    const payload = number ? { message, to:number } : { message };
+
+    const res = await fetch("http://localhost:3000/send", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+    alert(JSON.stringify(data));
+};
+</script>
