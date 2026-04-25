@@ -8,38 +8,74 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Twilio credentials (ENV VARIABLES)
+/* ===============================
+   BSS1815 — WHATSAPP TWILIO PRO‑MAX
+   =============================== */
+
 const accountSid = process.env.TWILIO_SID;
-const authToken = process.env.TWILIO_TOKEN;
+const authToken  = process.env.TWILIO_TOKEN;
 const client = twilio(accountSid, authToken);
 
-// WhatsApp numbers
-const FROM = "whatsapp:+14155238886"; // Twilio Sandbox
-const TO = "whatsapp:+509XXXXXXXX";  // Nimewo ou vle voye mesaj la
+const FROM = "whatsapp:+14155238886"; 
+const DEFAULT_TO = "whatsapp:+509XXXXXXXX";
 
-// Test route
+// VOYE MESAJ BAY YON SÈL NIMEWO
+async function sendWhatsAppAlert(message, toNumber = DEFAULT_TO) {
+    try {
+        const response = await client.messages.create({
+            from: FROM,
+            to: toNumber,
+            body: message
+        });
+
+        console.log("ALÈT WHATSAPP VOYE ✔️ →", toNumber);
+        return response.sid;
+
+    } catch (error) {
+        console.error("ERÈ WHATSAPP ❌ →", toNumber, error.message);
+    }
+}
+
+// BROADCAST: VOYE MENM MESAJ LA BAY PLIZYÈ NIMEWO
+async function sendWhatsAppBroadcast(message, numbers) {
+    for (const number of numbers) {
+        await sendWhatsAppAlert(message, `whatsapp:${number}`);
+    }
+}
+
+/* ===============================
+   BSS1815 DASHBOARD ROUTES
+   =============================== */
+
 app.get("/", (req, res) => {
   res.send("BSS1815 Backend PRO‑MAX is running");
 });
 
-// Send WhatsApp message
+// ROUTE POU VOYE MESAJ SINGLE
 app.post("/send", async (req, res) => {
-  const { message } = req.body;
+  const { message, to } = req.body;
 
   try {
-    const msg = await client.messages.create({
-      from: FROM,
-      to: TO,
-      body: message
-    });
-
-    res.json({ status: "sent", sid: msg.sid });
+    const sid = await sendWhatsAppAlert(message, `whatsapp:${to}`);
+    res.json({ status: "sent", sid });
   } catch (err) {
     res.json({ status: "error", error: err.message });
   }
 });
 
-// Receive WhatsApp messages
+// ROUTE POU BROADCAST
+app.post("/broadcast", async (req, res) => {
+  const { message, numbers } = req.body;
+
+  try {
+    await sendWhatsAppBroadcast(message, numbers);
+    res.json({ status: "broadcast_sent" });
+  } catch (err) {
+    res.json({ status: "error", error: err.message });
+  }
+});
+
+// RECEIVE WEBHOOK
 app.post("/whatsapp", (req, res) => {
   const MessagingResponse = twilio.twiml.MessagingResponse;
   const twiml = new MessagingResponse();
