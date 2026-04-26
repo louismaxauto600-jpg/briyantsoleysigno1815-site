@@ -1,0 +1,5 @@
+const slides = [
+  "test1.jpg",
+  "test2.jpg",
+  "test3.jpg"
+];
