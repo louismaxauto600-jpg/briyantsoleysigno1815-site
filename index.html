@@ -1,163 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSS 1815</title>
-
-<style>
-:root{
-  --orange:#ff7a00;
-  --black:#000;
-}
-
-/* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  background:#000;
-  color:var(--orange);
-  font-family:Arial, sans-serif;
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-
-.slider{
-  width:100%;
-  max-width:1200px;
-  height:520px;
-  border-radius:20px;
-  overflow:hidden;
-  border:2px solid var(--orange);
-  box-shadow:0 0 40px var(--orange);
-}
-
-/* IMAGE */
-#slide-image{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:opacity .8s ease, transform 6s ease;
-}
-
-/* TEAM */
-.team{
-  padding:80px 20px;
-  text-align:center;
-  background:linear-gradient(180deg,#000,#ff7a00,#000);
-}
-
-.team h2{
-  font-size:40px;
-  margin-bottom:10px;
-  text-shadow:0 0 20px var(--orange);
-}
-
-.team p{
-  margin-bottom:40px;
-}
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.gallery img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:15px;
-  border:2px solid var(--orange);
-  box-shadow:0 0 25px var(--orange);
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .slider{
-    height:300px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <title>BSS TEST</title>
+  <style>
+    body{
+      margin:0;
+      background:#000;
+      color:#ff7a00;
+      font-family:Arial;
+      text-align:center;
+      padding:60px 20px;
+    }
+    h1{font-size:42px;}
+  </style>
 </head>
-
 <body>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="slider">
-    <img id="slide-image" src="">
-  </div>
-</section>
-
-<!-- TEAM SAN PRESYON -->
-<section class="team">
+  <h1>BRIYANT SOLEY SIGNO 1815</h1>
   <h2>TEAM SAN PRESYON</h2>
-  <p>NOU PAP METE MOUN DEYO • NOU PAP POUSE MOUN</p>
-
-  <div class="gallery">
-    <img src="assets/team/1.jpg">
-    <img src="assets/team/2.jpg">
-    <img src="assets/team/3.jpg">
-    <img src="assets/team/4.jpg">
-    <img src="assets/team/5.jpg">
-  </div>
-</section>
-
-<script>
-const slides = [
-  "only-u.jpeg","ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","blackson.jpeg",
-  "nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg","roro-lajan.jpg",
-  "jeff-colin.jpg","fanfan.jpg","anpere-ti-rat.jpg","mario.jpg","perodin.jpg","cange1.jpg",
-  "maximax1.jpg","nadege.jpg","sinndy.jpg","may.jpg","asmide.jpg","andre-asouman.jpg",
-  "one-love.jpg","slogan.jpg","sonson1.jpg","ygens.jpg","prodin.jpeg","cange.jpg",
-  "ralph.jpg","slogan1.jpg","odelinne.jpg","jij-mayan.jpg","warrens.jpg","ti-marasa-yo.jpg",
-  "majis-mauc.jpg","baron-plenn-lan.jpeg","bouboul.jpeg","bawon-an.jpeg","brunel.jpeg",
-  "caldos.jpeg","cange2.jpeg","cols.jpeg","don-dodo.jpeg","doodly23.jpeg","doudou.jpeg",
-  "elson2.jpeg","emaze.jpg","guypson.jpeg","karl-henry.jpeg","kendy.jpeg",
-  "kriye-pou-fanm.jpeg","la-belle-yole.jpg","landry.jpeg","macu.jpeg","majis-junior.jpeg",
-  "max-louis.jpeg","maximax-multi-serv.jpeg","montinat.jpeg",
-  "michel-briyant.jpeg","nadege-b.jpeg","queen-naylove.jpeg","ones-1.jpeg","paulema.jpeg",
-  "pdg-ti-rat.jpeg","prez-aly.jpeg","prez-papit.jpeg","rooso.jpeg","roro-lajan.jpeg",
-  "roro23.jpeg","synthia-jn-baptiste.jpeg","tania.jpeg","the-only-1.jpeg","ti-chery.jpeg",
-  "ti-reynold.jpeg","ti_la_france.jpeg","ti_marasa.jpeg","ti_papouche.jpeg",
-  "toto-senkant.jpeg","valery2.jpeg","flore.jpeg","jij_mayan.jpeg","macu-mv.jpg",
-  "ti-leta.jpg","adia.jpeg","nnadia.png","roro-lajan2.jpeg","odeline.jpeg","dede.png"
-];
-
-let index = 0;
-const img = document.getElementById("slide-image");
-
-function nextSlide(){
-  img.style.opacity = 0;
-  img.style.transform = "scale(1)";
-
-  setTimeout(()=>{
-    index = (index + 1) % slides.length;
-    img.src = "assets/slides/" + slides[index];
-    img.style.opacity = 1;
-    img.style.transform = "scale(1.08)";
-  }, 400);
-}
-
-img.src = "assets/slides/" + slides[index];
-img.style.transform = "scale(1.08)";
-
-setInterval(nextSlide, 10000);
-</script>
-
+  <p>SIT LA AP MACHE — TEST OK</p>
 </body>
 </html>
