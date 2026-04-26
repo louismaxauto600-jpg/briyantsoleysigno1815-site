@@ -3,106 +3,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSS 1815</title>
+<title>BRIYANT SOLEY SIGNO 1815</title>
 
 <style>
+:root{
+  --orange:#ff7a00;
+  --black:#000000;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  margin:0;
-  background:#000;
-  color:#ff7a00;
-  font-family:Arial;
+  background:var(--black);
+  color:var(--orange);
+  font-family:Arial, sans-serif;
+  overflow-x:hidden;
+}
+
+header{
+  min-height:100vh;
+  padding:30px 20px;
+  background:radial-gradient(circle at center,#2a0f00 0%,#000 65%);
   text-align:center;
 }
 
-/* HEADER */
-h1{
-  margin-top:30px;
-  text-shadow:0 0 15px #ff7a00;
+.logo-title{
+  font-size:42px;
+  margin-top:25px;
+  text-shadow:0 0 20px var(--orange);
 }
 
-/* SLIDER */
+.slogan{
+  font-size:18px;
+  margin:15px auto 35px;
+  max-width:900px;
+}
+
 .slider{
-  width:90%;
-  max-width:1000px;
-  height:450px;
-  margin:40px auto;
+  width:95%;
+  max-width:1150px;
+  height:560px;
+  margin:0 auto;
+  border:3px solid var(--orange);
+  border-radius:25px;
   overflow:hidden;
-  border-radius:20px;
-  border:2px solid #ff7a00;
-  box-shadow:0 0 25px #ff7a00;
+  box-shadow:0 0 40px var(--orange);
   position:relative;
+  background:#000;
 }
 
 .slide{
   position:absolute;
-  width:100%;
-  height:100%;
+  inset:0;
   opacity:0;
-  animation:slide 15s infinite;
+  animation:fade 190s infinite;
 }
 
 .slide img{
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center;
 }
 
-/* TIMING */
-.slide:nth-child(1){animation-delay:0s;}
-.slide:nth-child(2){animation-delay:5s;}
-.slide:nth-child(3){animation-delay:10s;}
+.slide:nth-child(1){animation-delay:0s}
+.slide:nth-child(2){animation-delay:10s}
+.slide:nth-child(3){animation-delay:20s}
+.slide:nth-child(4){animation-delay:30s}
+.slide:nth-child(5){animation-delay:40s}
+.slide:nth-child(6){animation-delay:50s}
+.slide:nth-child(7){animation-delay:60s}
+.slide:nth-child(8){animation-delay:70s}
+.slide:nth-child(9){animation-delay:80s}
+.slide:nth-child(10){animation-delay:90s}
+.slide:nth-child(11){animation-delay:100s}
+.slide:nth-child(12){animation-delay:110s}
+.slide:nth-child(13){animation-delay:120s}
+.slide:nth-child(14){animation-delay:130s}
+.slide:nth-child(15){animation-delay:140s}
+.slide:nth-child(16){animation-delay:150s}
+.slide:nth-child(17){animation-delay:160s}
+.slide:nth-child(18){animation-delay:170s}
+.slide:nth-child(19){animation-delay:180s}
 
-@keyframes slide{
-  0%{opacity:0;}
-  10%{opacity:1;}
-  30%{opacity:1;}
-  40%{opacity:0;}
-  100%{opacity:0;}
+@keyframes fade{
+  0%{opacity:0;transform:scale(1)}
+  2%{opacity:1;transform:scale(1.03)}
+  5%{opacity:1;transform:scale(1.07)}
+  7%{opacity:0;transform:scale(1.09)}
+  100%{opacity:0}
 }
 
-/* TEAM */
-.team{
-  margin-top:50px;
+section{
+  padding:80px 20px;
+  text-align:center;
+  background:#000;
+}
+
+section:nth-of-type(even){
+  background:linear-gradient(180deg,#000,#1f0b00,#000);
+}
+
+h2{
+  font-size:36px;
+  margin-bottom:18px;
+  text-shadow:0 0 18px var(--orange);
+}
+
+p{
+  max-width:950px;
+  margin:0 auto 18px;
+  font-size:18px;
+  line-height:1.7;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:35px auto 0;
+}
+
+.card{
+  border:2px solid var(--orange);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 0 25px rgba(255,122,0,.55);
+  background:#050200;
 }
 
 .gallery{
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-  justify-content:center;
-  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+  max-width:1150px;
+  margin:35px auto 0;
 }
 
 .gallery img{
-  width:180px;
-  height:240px;
+  width:100%;
+  height:260px;
   object-fit:cover;
-  border:2px solid #ff7a00;
-  border-radius:15px;
+  border-radius:18px;
+  border:2px solid var(--orange);
+  box-shadow:0 0 22px rgba(255,122,0,.75);
+  background:#000;
+}
+
+footer{
+  padding:35px 20px;
+  text-align:center;
+  border-top:2px solid var(--orange);
+  background:#000;
+}
+
+@media(max-width:768px){
+  .logo-title{font-size:28px}
+  .slider{height:340px}
+  h2{font-size:28px}
+  p{font-size:16px}
 }
 </style>
 </head>
 
 <body>
 
-<h1>BRIYANT SOLEY SIGNO 1815</h1>
+<header>
+  <h1 class="logo-title">BRIYANT SOLEY SIGNO 1815</h1>
+  <p class="slogan">YON MOUVMAN • YON VIZYON • YON LIMYÈ KI PAP JANM ETENN</p>
 
-<div class="slider">
-  <div class="slide"><img src="don-dodo.jpg"></div>
-  <div class="slide"><img src="may.jpg"></div>
-  <div class="slide"><img src="queen-naylove.jpg"></div>
-</div>
+  <div class="slider">
+    <div class="slide"><img src="don-dodo.jpg"></div>
+    <div class="slide"><img src="jude-joseph.joseph.jpg"></div>
+    <div class="slide"><img src="magazen.jpg"></div>
+    <div class="slide"><img src="majistra-mauclaire.jpeg"></div>
+    <div class="slide"><img src="may.jpg"></div>
+    <div class="slide"><img src="queen-naylove.jpg"></div>
+    <div class="slide"><img src="robert-colin.jpg"></div>
+    <div class="slide"><img src="sindy-berlus.jpg"></div>
+    <div class="slide"><img src="sonson.jpg"></div>
+    <div class="slide"><img src="t-leta.jpg"></div>
+    <div class="slide"><img src="sonsonn-mia.jpg"></div>
+    <div class="slide"><img src="shirley-klein.jpeg"></div>
+    <div class="slide"><img src="roberson.png"></div>
+    <div class="slide"><img src="prez-ti-rat.jpeg"></div>
+    <div class="slide"><img src="may.jpeg"></div>
+    <div class="slide"><img src="serette.jpg"></div>
+    <div class="slide"><img src="sosonn-bank.jpg"></div>
+    <div class="slide"><img src="ofisyel.jpg"></div>
+    <div class="slide"><img src="maximax-m-serv.jpg"></div>
+  </div>
+</header>
 
-<div class="team">
+<section>
+  <h2>VIZYON BSS1815</h2>
+  <p>Briyant Soley Signo 1815 se yon espas ki chita sou respè, disiplin, kilti, inite, ak devlopman kominotè.</p>
+  <p>Objektif nou se bati yon modèl pozitif pou jenerasyon k ap vini yo, pou jèn yo ka suiv yon chemen ki pi solid pou yon bon demen.</p>
+</section>
+
+<section>
+  <h2>LEADERSHIP</h2>
+  <div class="cards">
+    <div class="card">DIRIJAN</div>
+    <div class="card">VIZYONÈ</div>
+    <div class="card">ESTRATEJ</div>
+    <div class="card">ÒGANIZATÈ</div>
+  </div>
+</section>
+
+<section>
   <h2>TEAM SAN PRESYON</h2>
   <p>NOU PAP METE MOUN DEYO • NOU PAP POUSE MOUN</p>
+  <p>Team San Presyon se yon pati enpòtan nan mouvman BSS1815 la, kote disiplin, respè, ak prezans kole ansanm.</p>
 
+  <div class="gallery">
+    <img src="assets/team/1.jpg">
+    <img src="assets/team/2.jpg">
+    <img src="assets/team/3.jpg">
+    <img src="assets/team/4.jpg">
+    <img src="assets/team/5.jpg">
+  </div>
+</section>
+
+<section>
+  <h2>GALERI BSS1815</h2>
   <div class="gallery">
     <img src="don-dodo.jpg">
     <img src="may.jpg">
     <img src="queen-naylove.jpg">
+    <img src="robert-colin.jpg">
+    <img src="sonson.jpg">
+    <img src="ofisyel.jpg">
   </div>
-</div>
+</section>
+
+<footer>
+  BRIYANT SOLEY SIGNO 1815 • ORANGE AK NWA • BSS STYLE
+</footer>
 
 </body>
 </html>
