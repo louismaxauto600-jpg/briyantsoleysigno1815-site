@@ -1240,6 +1240,22 @@
   startStoreSlideshow();
   setLanguage("kre");
 </script>
+<button onclick="sendBroadcast()">Send Broadcast</button>
 
+<script>
+async function sendBroadcast() {
+  try {
+    const res = await fetch("/api/send-broadcast", {
+      method: "POST"
+    });
+
+    const data = await res.text();
+    alert("Message sent: " + data);
+  } catch (err) {
+    alert("Error sending message");
+    console.error(err);
+  }
+}
+</script>
 </body>
                 </html>
