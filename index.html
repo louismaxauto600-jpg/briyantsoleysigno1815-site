@@ -1258,4 +1258,26 @@ async function sendBroadcast() {
 <h2>TEST BUTTON</h2>}
 </script>
 </body>
-                </html>
+<body style="background:black; color:orange; text-align:center;">
+
+<h1>BSS TEST PAGE</h1>
+
+<button onclick="sendBroadcast()"
+        style="padding:20px; font-size:20px; background:orange; color:black; border:none; cursor:pointer;">
+SEND WHATSAPP BROADCAST
+</button>
+
+<script>
+async function sendBroadcast() {
+  try {
+    const res = await fetch("/api/send-broadcast", { method: "POST" });
+    const data = await res.text();
+    alert("Response: " + data);
+  } catch (err) {
+    alert("Error");
+    console.error(err);
+  }
+}
+</script>
+
+</body>                </html>
