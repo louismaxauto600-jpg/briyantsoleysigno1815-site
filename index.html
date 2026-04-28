@@ -1,14 +1,319 @@
-<header style="
-  width:100%;
-  padding:22px 7%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:linear-gradient(to right, #000000, #ff8c00);
-  border-bottom:1px solid #ff8c00;
-">
+<!-- LOGO AN KÒD --><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MAXIMAX Multi Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --orange: #ff8c00;
+      --black: #000000;
+    }
 
-  <!-- LOGO AN KÒD -->
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--black);
+      color: var(--orange);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--orange);
+    }
+
+    section {
+      padding: 60px 7%;
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+      background: radial-gradient(circle at top left, var(--orange) 0, var(--black) 55%);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      max-width: 520px;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--orange);
+      background: var(--orange);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .btn-outline {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--orange);
+      background: transparent;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--orange);
+      padding-left: 10px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--orange);
+      padding: 18px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, var(--black), #1a0b00);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .dmv-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--orange);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      padding: 22px 7%;
+      border-top: 1px solid var(--orange);
+      background: linear-gradient(to right, var(--black), var(--orange));
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-block p {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER PRO‑MAX -->
+  <header style="
+    width:100%;
+    padding:22px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:linear-gradient(to right, #000000, #ff8c00);
+    border-bottom:1px solid #ff8c00;
+  ">
+
+    <!-- LOGO AN KÒD -->
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="
+        width:60px;
+        height:60px;
+        border-radius:50%;
+        background:linear-gradient(135deg, #ff8c00, #000000);
+        border:3px solid #ff8c00;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:900;
+        font-size:1.6rem;
+        color:#ff8c00;
+      ">
+        MM
+      </div>
+
+      <div>
+        <h1 style="margin:0; font-size:1.2rem; color:#ff8c00; text-transform:uppercase;">
+          MAXIMAX Multi Services
+        </h1>
+        <p style="margin:0; font-size:0.75rem; color:#ff8c00;">
+          MAXIMAX ALWAYS MAXIMIZED
+        </p>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav style="display:flex; gap:24px; font-weight:bold; font-size:0.9rem; text-transform:uppercase;">
+      <a href="#services" style="color:#ff8c00;">Services</a>
+      <a href="#dmv" style="color:#ff8c00;">DMV Services</a>
+      <a href="#contact" style="color:#ff8c00;">Contact</a>
+    </nav>
+
+    <!-- LANGUAGE TOGGLE -->
+    <div style="display:flex; gap:8px; font-weight:bold; font-size:0.8rem; text-transform:uppercase;">
+      <span style="padding:4px 8px; background:#000000; color:#ff8c00;">ENG</span>
+      <span style="padding:4px 8px; background:#000000; color:#ff8c00;">ESP</span>
+      <span style="padding:4px 8px; background:#000000; color:#ff8c00;">KREYÒL</span>
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Multi‑Services pou lavi w toujou maximized</h2>
+    <p>
+      MAXIMAX Multi Services se sant santral ou pou sèvis administratif, dokiman, DMV, tradiksyon,
+      ak tout sa ki ede w rete legal, klè, ak òganize. Yon sèl non, plizyè solisyon.
+    </p>
+    <div class="hero-cta">
+      <a href="#dmv" class="btn-primary">DMV Services</a>
+      <a href="#services" class="btn-outline">Tout Services</a>
+    </div>
+  </section>
+
+  <!-- SERVICES GENERALS -->
+  <section id="services">
+    <h2 class="section-title">Main Services</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Dokiman & Papye Ofisyèl</h3>
+        <p>
+          Ranpli fòm, koreksyon enfòmasyon, kopi ofisyèl, òganizasyon dosye, ak asistans pou tout papye
+          administratif ou yo.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Tradiksyon & Fòm Biling</h3>
+        <p>
+          Tradiksyon ENG / ESP / KREYÒL pou fòm, lèt, kontra, ak dokiman ofisyèl pou enstitisyon ak ajans.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Konsiltasyon & Swivi</h3>
+        <p>
+          Konsiltasyon sou randevou, aplikasyon, renouvèlman, ak swivi dosye pou evite erè ak reta.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DMV SERVICES -->
+  <section id="dmv">
+    <h2 class="section-title">DMV Services</h2>
+    <div class="grid-3">
+      <div class="card">
+        <span class="dmv-tag">DMV</span>
+        <h3>Renouvèlman & Chanjman Adrès</h3>
+        <p>
+          Asistans pou renouvle lisans, ID, ak mete ajou adrès ou san konfizyon, san pèdi tan.
+        </p>
+      </div>
+      <div class="card">
+        <span class="dmv-tag">DMV</span>
+        <h3>Plak & Enskripsyon</h3>
+        <p>
+          Enskripsyon machin, transfè plak, ak verifikasyon papye pou machin ou an rete an règ.
+        </p>
+      </div>
+      <div class="card">
+        <span class="dmv-tag">DMV</span>
+        <h3>Aplikasyon Premye Lisans</h3>
+        <p>
+          Gid sou etap yo, dokiman ou bezwen, ak ranpli fòm pou premye lisans oswa pemi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">Contact & Randevou</h2>
+    <div class="grid-3">
+      <div class="card contact-block">
+        <h3>Kontak Dirèk</h3>
+        <p>
+          Telefòn: (000) 000‑0000<br />
+          Email: info@maximaxmultiservices.com
+        </p>
+      </div>
+      <div class="card contact-block">
+        <h3>Orè Travay</h3>
+        <p>
+          Lendi – Samdi: 9:00 AM – 6:00 PM<br />
+          Dimanch: sou randevou sèlman.
+        </p>
+      </div>
+      <div class="card contact-block">
+        <h3>Randevou</h3>
+        <p>
+          Kontakte nou pou pran randevou pou DMV, dokiman, oswa lòt sèvis kle ou bezwen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© MAXIMAX Multi Services — MAXIMAX ALWAYS MAXIMIZED</span>
+    <span>ENG | ESP | KREYÒL</span>
+  </footer>
+
+</body>
+</html>
   <div style="display:flex; align-items:center; gap:12px;">
     <div style="
       width:60px;
