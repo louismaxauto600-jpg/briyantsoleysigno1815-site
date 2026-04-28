@@ -1349,18 +1349,64 @@ async function sendBroadcast() {
   } catch (err) {
     alert("ERROR ❌ Broadcast pa voye");
     console.error(err);
-  }
-}
 </script>
-</script>
-<button id="bssBtn" onclick="sendBroadcast()">
-  SEND WHATSAPP BROADCAST
-</button>
-</body>
-  
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>BSS Broadcast</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      background:linear-gradient(135deg,#000,#1a0b00,#000);
+      color:#ff8c42;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:Arial,sans-serif;
+      text-align:center;
+    }
+    .box{
+      border:2px solid #ff8c42;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 0 30px rgba(255,140,66,.7);
+    }
+    button{
+      background:linear-gradient(135deg,#ff8c42,#e85d04);
+      color:#000;
+      border:none;
+      padding:18px 32px;
+      border-radius:14px;
+      font-weight:900;
+      font-size:18px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
 
-<style>
-}
+  <div class="box">
+    <h1>BSS 1815 BROADCAST</h1>
+    <button onclick="sendBroadcast()">SEND WHATSAPP BROADCAST</button>
+  </div>
+
+  <script>
+    async function sendBroadcast(){
+      try{
+        const res = await fetch("/api/send-broadcast",{method:"POST"});
+        const text = await res.text();
+        alert("SENT ✅ " + text);
+      }catch(e){
+        alert("ERROR ❌ Broadcast pa voye");
+      }
+    }
+  </script>
+
+</body>
+</html>
+</body>
 </style>
   }
 
