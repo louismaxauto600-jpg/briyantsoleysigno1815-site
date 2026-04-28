@@ -1306,13 +1306,64 @@ async function sendBroadcast() {
     alert("Error");
     console.error(err);
   }
+}<div class="bss-broadcast-box">
+  <h2>BSS TEST PAGE</h2>
+
+  <button id="bssBtn" onclick="sendBroadcast()">
+    SEND WHATSAPP BROADCAST
+  </button>
+</div>
+
+<style>
+  .bss-broadcast-box{
+    text-align:center;
+    margin:30px auto;
+  }
+
+  .bss-broadcast-box h2{
+    color:#ff8c42;
+    font-weight:900;
+  }
+
+  #bssBtn{
+    background:linear-gradient(135deg,#ff8c42,#e85d04);
+    color:#000000;
+    padding:18px 32px;
+    font-size:18px;
+    font-weight:900;
+    border:2px solid #ff8c42;
+    border-radius:16px;
+    cursor:pointer;
+    box-shadow:0 0 22px rgba(255,140,66,0.85);
+    text-transform:uppercase;
+  }
+
+  #bssBtn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(255,140,66,1);
+  }
+
+  #bssBtn:active{
+    transform:scale(0.95);
+  }
+</style>
+
+<script>
+async function sendBroadcast() {
+  try {
+    const res = await fetch("/api/send-broadcast", { method: "POST" });
+    const text = await res.text();
+    alert("SENT ✅ " + text);
+  } catch (err) {
+    alert("ERROR ❌ Broadcast pa voye");
+    console.error(err);
+  }
 }
+</script>
 </script>
 
 </body>
-  <button id="bssBtn" onclick="sendBroadcast()">
-  SEND WHATSAPP BROADCAST
-</button>
+  
 
 <style>
 #bssBtn{
