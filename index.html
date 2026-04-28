@@ -1,90 +1,508 @@
-<!DOCTYPE html>
-<html lang="ht">
+<!DOCTYPE html><html lang="ht">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAXIMAX Multi Services</title>
-</head>
+  <meta name="description" content="MAXIMAX Multi Services - Immigration, Tax, Forms, Translation, Resume, Appointment, Document Services." />  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<body style="
-  margin:0;
-  padding:0;
-  font-family:Arial, sans-serif;
-  background:linear-gradient(to bottom, #ff8c42, #000000);
-  color:#ff8c42;
-  text-align:center;
-">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  <!-- HEADER -->
-  <header style="padding:28px 0;">
-    <h1 style="margin:0; font-size:32px; color:#000;">MAXIMAX Multi Services</h1>
-    <p style="margin:0; font-size:15px; color:#000;">MAXIMAX ALWAYS MAXIMIZED</p>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    <nav style="margin-top:18px;">
-      <a href="services.html" style="margin:0 14px; color:#000; font-weight:bold; text-decoration:none;">Services</a>
-      <a href="about.html" style="margin:0 14px; color:#000; font-weight:bold; text-decoration:none;">About</a>
-      <a href="contact.html" style="margin:0 14px; color:#000; font-weight:bold; text-decoration:none;">Contact</a>
-    </nav>
-  </header>
+    .page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(255, 140, 0, 0.42), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(255, 102, 0, 0.28), transparent 35%),
+        linear-gradient(135deg, #000000 0%, #111111 45%, #f28c28 140%);
+    }
 
-  <!-- HERO -->
-  <section style="padding:45px 20px;">
-    <h2 style="margin:0 0 12px; font-size:22px; color:#000;">
-      Immigration • Taxes • Forms
-    </h2>
+    header {
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(0, 0, 0, 0.76);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 140, 0, 0.35);
+    }
 
-    <p style="max-width:600px; margin:0 auto; font-size:15px; color:#ff8c42;">
-      Nou ede w ranpli fòm yo, prepare dokiman yo, epi mete tout bagay an òd.
-    </p>
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-    <div style="margin-top:28px;">
-      <a href="contact.html"
-         style="padding:12px 26px; margin-right:10px;
-                background:#000; color:#ff8c42;
-                font-weight:bold; text-decoration:none; border-radius:5px;">
-        Book / Contact
-      </a>
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff9b2f, #000000);
+      border: 2px solid #ff9b2f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(255, 139, 37, 0.55);
+    }
 
-      <a href="services.html"
-         style="padding:12px 26px;
-                background:#ff8c42; color:#000;
-                font-weight:bold; text-decoration:none; border-radius:5px;">
-        View Services
-      </a>
+    .brand h1 {
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      color: #ff9b2f;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      font-size: 0.75rem;
+      color: #ddd;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      color: #f2f2f2;
+    }
+
+    nav a:hover {
+      color: #ff9b2f;
+    }
+
+    .hero {
+      padding: 90px 7% 70px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(255, 155, 47, 0.75);
+      border-radius: 999px;
+      background: rgba(255, 155, 47, 0.12);
+      color: #ffb15c;
+      font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h2 {
+      font-size: clamp(2.4rem, 6vw, 5.4rem);
+      line-height: 0.98;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h2 span {
+      color: #ff9b2f;
+      text-shadow: 0 0 22px rgba(255, 139, 37, 0.55);
+    }
+
+    .hero p {
+      max-width: 660px;
+      font-size: 1.12rem;
+      color: #e9e9e9;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff9b2f, #ff6b00);
+      color: #000;
+      box-shadow: 0 14px 34px rgba(255, 116, 0, 0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 155, 47, 0.7);
+      color: #ffb15c;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 34px;
+      border-radius: 28px;
+      background: rgba(10, 10, 10, 0.78);
+      border: 1px solid rgba(255, 155, 47, 0.45);
+      box-shadow: 0 0 45px rgba(255, 123, 0, 0.22);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px -70px auto auto;
+      width: 190px;
+      height: 190px;
+      background: #ff9b2f;
+      filter: blur(80px);
+      opacity: 0.5;
+    }
+
+    .hero-card h3 {
+      color: #ff9b2f;
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      position: relative;
+    }
+
+    .hero-card li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f6f6f6;
+    }
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      color: #ff9b2f;
+    }
+
+    .section-title p {
+      color: #d9d9d9;
+      max-width: 720px;
+      margin: 10px auto 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255, 155, 47, 0.13), rgba(0, 0, 0, 0.72));
+      border: 1px solid rgba(255, 155, 47, 0.32);
+      min-height: 210px;
+      transition: 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(255, 123, 0, 0.2);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: #ff9b2f;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .service-card p {
+      color: #d8d8d8;
+    }
+
+    .why {
+      background: rgba(0, 0, 0, 0.5);
+      border-top: 1px solid rgba(255, 155, 47, 0.22);
+      border-bottom: 1px solid rgba(255, 155, 47, 0.22);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      text-align: center;
+    }
+
+    .why-box {
+      padding: 26px 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .why-box strong {
+      display: block;
+      color: #ff9b2f;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-panel {
+      max-width: 1000px;
+      margin: auto;
+      padding: 42px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(255, 155, 47, 0.24), rgba(0, 0, 0, 0.78)),
+        #101010;
+      border: 1px solid rgba(255, 155, 47, 0.45);
+      text-align: center;
+      box-shadow: 0 0 50px rgba(255, 116, 0, 0.18);
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #ff9b2f;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .contact-panel p {
+      color: #f1f1f1;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      padding: 28px 7%;
+      text-align: center;
+      border-top: 1px solid rgba(255, 155, 47, 0.25);
+      background: #000;
+      color: #cfcfcf;
+    }
+
+    footer span {
+      color: #ff9b2f;
+      font-weight: 900;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        align-items: flex-start;
+        gap: 16px;
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .contact-panel {
+        padding: 26px 20px;
+      }
+    }
+  </style></head><body>
+  <div class="page">
+    <header>
+      <div class="logo-box">
+        <div class="logo-mark">MM</div>
+        <div class="brand">
+          <h1>MAXIMAX Multi Services</h1>
+          <p>MAXIMAX ALWAY MAXIMIZED</p>
+        </div>
+      </div><nav>
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <span class="hero-badge">Official Client Support Center</span>
+      <h2>We Help You <span>Move Forward</span></h2>
+      <p>
+        MAXIMAX Multi Services ede kliyan ak immigration, taxes, forms, translation,
+        resume, appointments, document preparation, and professional support. Nou travay
+        ak konfyans, disiplin, respè, epi rapidite.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#contact">Book Appointment</a>
+        <a class="btn btn-secondary" href="#services">View Services</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Fast Help. Clear Direction.</h3>
+      <ul>
+        <li>✅ Immigration form assistance</li>
+        <li>✅ Tax preparation support</li>
+        <li>✅ Translation & document services</li>
+        <li>✅ Resume builder & official letters</li>
+        <li>✅ Online appointments & file upload</li>
+      </ul>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section style="padding:35px 20px;">
-    <h3 style="margin:0 0 12px; color:#000; font-size:20px;">Services</h3>
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Tout sèvis yo prepare pou ede kominote a jwenn bon direksyon, bon dokiman, ak bon rezilta.</p>
+    </div>
 
-    <ul style="list-style:none; padding:0; margin:0; color:#ff8c42; font-size:15px; line-height:32px;">
-      <li>Immigration Services</li>
-      <li>Tax Preparation</li>
-      <li>Form Assistance (SNAP, SSA, DMV, elatriye)</li>
-      <li>Document Upload & Receipts (pita)</li>
-    </ul>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">I</div>
+        <h3>Immigration Services</h3>
+        <p>Assistance with common immigration forms, case organization, appointments, and document review.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">T</div>
+        <h3>Tax Services</h3>
+        <p>Tax preparation support, filing organization, document checklist, and client intake assistance.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">F</div>
+        <h3>Government Forms</h3>
+        <p>Support for forms like SNAP, Medicaid, Social Security, Housing, Child Support, and more.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">D</div>
+        <h3>Document Upload</h3>
+        <p>Clients can submit files securely for review, processing, and follow-up.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">R</div>
+        <h3>Resume Builder</h3>
+        <p>Professional resumes in English, Kreyòl, or Spanish with clean PDF-ready format.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">A</div>
+        <h3>Alerts & Updates</h3>
+        <p>Important alerts about immigration, policy updates, deadlines, and community services.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- ABOUT -->
-  <section style="padding:35px 20px;">
-    <h3 style="margin:0 0 12px; color:#000; font-size:20px;">About</h3>
-    <p style="margin:0; color:#ff8c42; font-size:15px;">
-      MAXIMAX Multi Services — sèvis rapid, pwòp, e serye.
-    </p>
+  <section id="why" class="why">
+    <div class="section-title">
+      <h2>Why Choose MAXIMAX?</h2>
+      <p>Nou pa sèlman ranpli papye. Nou gide kliyan yo avèk respè, sekirite, ak bon kominikasyon.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-box">
+        <strong>01</strong>
+        Professional Service
+      </div>
+      <div class="why-box">
+        <strong>02</strong>
+        Clear Communication
+      </div>
+      <div class="why-box">
+        <strong>03</strong>
+        Multilingual Support
+      </div>
+      <div class="why-box">
+        <strong>04</strong>
+        Community Focused
+      </div>
+    </div>
   </section>
 
-  <!-- CONTACT -->
-  <section style="padding:35px 20px;">
-    <h3 style="margin:0 0 12px; color:#000; font-size:20px;">Contact</h3>
-    <p style="margin:0; color:#ff8c42; font-size:15px;">Email: maximaxmultiservices@gmail.com</p>
-    <p style="margin:0; color:#ff8c42; font-size:15px;">Phone: (317) 538-1150</p>
+  <section id="contact">
+    <div class="contact-panel">
+      <h2>Start Your Service Today</h2>
+      <p>
+        Contact MAXIMAX Multi Services pou appointment, kesyon, oubyen pou voye dokiman ou yo.
+      </p>
+      <div class="hero-buttons" style="justify-content:center;">
+        <a class="btn btn-primary" href="mailto:maximaxmultiservices@gmail.com">Email Us</a>
+        <a class="btn btn-secondary" href="tel:+13175381150">Call / Text</a>
+      </div>
+    </div>
   </section>
+</main>
 
-  <!-- FOOTER -->
-  <footer style="padding:20px 0; color:#ff8c42; font-size:13px;">
-    © 2026 MAXIMAX Multi Services
-  </footer>
+<footer>
+  <p>© 2026 <span>MAXIMAX Multi Services</span>. MAXIMAX ALWAY MAXIMIZED.</p>
+</footer>
 
+  </div>
 </body>
 </html>
