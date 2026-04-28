@@ -1281,3 +1281,37 @@ async function sendBroadcast() {
 </script>
 
 </body>                </html>
+<button id="bssBtn" onclick="sendBroadcast()">
+  SEND WHATSAPP BROADCAST
+</button>
+
+<style>
+  body{
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    color: #ff8c42;
+    text-align:center;
+    font-family: Arial, sans-serif;
+  }
+
+  #bssBtn{
+    background: linear-gradient(135deg, #ff8c42, #ff5e00); /* apricot orange */
+    color: #000;
+    padding: 18px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255,140,66,0.7);
+    transition: all 0.3s ease;
+  }
+
+  #bssBtn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,140,66,1);
+  }
+
+  #bssBtn:active{
+    transform: scale(0.95);
+  }
+</style>
