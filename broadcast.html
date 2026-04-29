@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSS1815 Broadcast Panel</title>
+  <style>
+    body{
+      margin:0;
+      background:#000;
+      color:#ff7a00;
+      font-family:Arial, sans-serif;
+    }
+    .box{
+      max-width:700px;
+      margin:50px auto;
+      padding:25px;
+      border:1px solid #ff7a00;
+      border-radius:20px;
+      background:#080808;
+    }
+    h1{text-align:center;text-transform:uppercase}
+    label{display:block;margin-top:18px;font-weight:bold}
+    select,textarea,button{
+      width:100%;
+      margin-top:8px;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid #ff7a00;
+      background:#000;
+      color:#ff7a00;
+      font-size:16px;
+    }
+    textarea{min-height:150px}
+    button{
+      margin-top:22px;
+      background:#ff7a00;
+      color:#000;
+      font-weight:900;
+      cursor:pointer;
+    }
+    pre{
+      margin-top:20px;
+      background:#000;
+      border:1px solid #ff7a00;
+      padding:15px;
+      border-radius:12px;
+      white-space:pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1>BSS1815 Broadcast Panel</h1>
+
+  <label>Chwazi Group</label>
+  <select id="group">
+    <option value="all">Tout Moun</option>
+    <option value="admin">Admin</option>
+    <option value="fanatik">Fanatik</option>
+    <option value="mizisyen">Mizisyen</option>
+    <option value="store">Store Clients</option>
+  </select>
+
+  <label>Mesaj</label>
+  <textarea id="message">🔥 BSS1815 mesaj ofisyèl pou tout fanatik yo</textarea>
+
+  <button onclick="sendBroadcast()">SEND BROADCAST</button>
+
+  <pre id="result">Rezilta ap parèt la...</pre>
+</div>
+
+<script>
+async function sendBroadcast(){
+  const group = document.getElementById("group").value;
+  const message = document.getElementById("message").value;
+  const resultBox = document.getElementById("result");
+
+  resultBox.textContent = "Ap voye mesaj yo...";
+
+  try{
+    const res = await fetch("/.netlify/functions/send-broadcast", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body:JSON.stringify({ group, message })
+    });
+
+    const data = await res.json();
+    resultBox.textContent = JSON.stringify(data, null, 2);
+  }catch(error){
+    resultBox.textContent = "ERÈ: " + error.message;
+  }
+}
+</script>
+
+</body>
+</html>
