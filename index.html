@@ -705,6 +705,24 @@ function sendWhatsApp() {
   const db = firebase.firestore();
 
   console.log("🔥 Firebase Connected");
-</script>/script>
+</script>/<script>
+function sendBroadcast(){
+  fetch("/.netlify/functions/send-broadcast", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      group: "all",
+      message: document.getElementById("message").value
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("result").textContent =
+      JSON.stringify(data, null, 2);
+  });
+}
+</script>>
 </body>
 </html>
