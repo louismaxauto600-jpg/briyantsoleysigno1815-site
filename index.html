@@ -5,26 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BSS1815 Official Store</title>
 
- .admin-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#ff7a00;
-  color:#000;
-  padding:14px 18px;
-  border-radius:50px;
-  font-weight:900;
-  text-decoration:none;
-  box-shadow:0 0 15px rgba(255,122,0,0.6);
-  z-index:9999;
-  transition:0.3s;
-}
-
-.admin-btn:hover{
-  background:#000;
-  color:#ff7a00;
-  border:1px solid #ff7a00;
-} <style>
+  <style>
     :root{
       --orange:#ff7a00;
       --black:#000;
@@ -507,7 +488,7 @@
     "odeline.jpeg","dede.png","may-t.jpg","bss-slogan.jpeg","desulme-derosier.jpg",
     "Marie-flore.jpg","mass-vokal.png","maximax-multi-services.jpeg",
     "naylove.jpeg","nadia-lafortune.png","serette.jpg","t-leta.jpg",
-    "bss-1815.jpeg","james.jpeg","macu-on-the-move.mp4"
+    "bss-1815.jpeg","james.png","macu-on-the-move.mp4"
   ];
 
   const storeMedia = [
@@ -676,72 +657,11 @@
   kreBtn.addEventListener("click",()=>setLanguage("kre"));
   franBtn.addEventListener("click",()=>setLanguage("fran"));
   engBtn.addEventListener("click",()=>setLanguage("eng"));
+
   startSlideshow();
   startStoreSlideshow();
   setLanguage("kre");
-</script><script>
-function sendWhatsApp() {
-  fetch("/.netlify/functions/send-whatsapp", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      to: "+14076405166",
-      message: "BSS1815 mesaj ofisyèl 🔥"
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    alert("Mesaj voye ✔️");
-    console.log(data);
-  })
-  .catch(err => {
-    alert("Gen erè ❌");
-    console.error(err);
-  });
-}
-<!-- FIREBASE SDK (NO NPM) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+</script>
 
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyB24Sbq_ud2qSFtdHwRhiKelokeIjCtDuY",
-    authDomain: "briyant-soley-signo-1815.firebaseapp.com",
-    projectId: "briyant-soley-signo-1815",
-    storageBucket: "briyant-soley-signo-1815.firebasestorage.app",
-    messagingSenderId: "873317957685",
-    appId: "1:873317957685:web:fd8fed6192a1303099717c",
-    measurementId: "G-8BX11QJQED"
-  };
-
-  // INIT FIREBASE
-  firebase.initializeApp(firebaseConfig);
-
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-
-  console.log("🔥 Firebase Connected");
-</script>/<script>
-function sendBroadcast(){
-  fetch("/.netlify/functions/send-broadcast", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      group: "all",
-      message: document.getElementById("message").value
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("result").textContent =
-      JSON.stringify(data, null, 2);
-  });
-}
-</script>>
-</<a href="broadcast.html">ADMIN</a>body>
+</body>
 </html>
