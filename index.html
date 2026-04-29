@@ -682,6 +682,29 @@ function sendWhatsApp() {
     console.error(err);
   });
 }
-</script>
+<!-- FIREBASE SDK (NO NPM) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyB24Sbq_ud2qSFtdHwRhiKelokeIjCtDuY",
+    authDomain: "briyant-soley-signo-1815.firebaseapp.com",
+    projectId: "briyant-soley-signo-1815",
+    storageBucket: "briyant-soley-signo-1815.firebasestorage.app",
+    messagingSenderId: "873317957685",
+    appId: "1:873317957685:web:fd8fed6192a1303099717c",
+    measurementId: "G-8BX11QJQED"
+  };
+
+  // INIT FIREBASE
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  console.log("🔥 Firebase Connected");
+</script>/script>
 </body>
 </html>
