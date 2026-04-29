@@ -1,0 +1,12 @@
+{
+  "name": "bss-broadcast",
+  "version": "1.0.0",
+  "description": "BSS1815 WhatsApp Broadcast System",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo no build needed"
+  },
+  "dependencies": {
+    "twilio": "^5.4.0"
+  }
+}
