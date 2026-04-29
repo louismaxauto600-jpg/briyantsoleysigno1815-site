@@ -657,11 +657,31 @@
   kreBtn.addEventListener("click",()=>setLanguage("kre"));
   franBtn.addEventListener("click",()=>setLanguage("fran"));
   engBtn.addEventListener("click",()=>setLanguage("eng"));
-
   startSlideshow();
   startStoreSlideshow();
   setLanguage("kre");
+</script><script>
+function sendWhatsApp() {
+  fetch("/.netlify/functions/send-whatsapp", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      to: "+14076405166",
+      message: "BSS1815 mesaj ofisyèl 🔥"
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Mesaj voye ✔️");
+    console.log(data);
+  })
+  .catch(err => {
+    alert("Gen erè ❌");
+    console.error(err);
+  });
+}
 </script>
-
 </body>
 </html>
