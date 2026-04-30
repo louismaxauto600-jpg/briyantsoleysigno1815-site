@@ -1,0 +1,103 @@
+const twilio = require("twilio");
+const admin = require("firebase-admin");
+
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(
+      JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
+    )
+  });
+}
+
+exports.handler = async function(event) {
+  try {
+    const authHeader = event.headers.authorization || "";
+    const token = authHeader.replace("Bearer ", "");
+
+    if (!token) {
+      return {
+        statusCode: 401,
+        body: JSON.stringify({ error: "LOGIN REQUIRED" })
+      };
+    }
+
+    const decoded = await admin.auth().verifyIdToken(token);
+
+    const allowedAdmins = [
+      "maximaxmultiservices@gmail.com",
+      "briyantsigno@gmail.com"
+    ];
+
+    if (!allowedAdmins.includes(decoded.email)) {
+      return {
+        statusCode: 403,
+        body: JSON.stringify({ error: "ADMIN ONLY - ACCESS DENIED" })
+      };
+    }
+
+    const { message } = JSON.parse(event.body);
+
+    if (!message) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "No message provided" })
+      };
+    }
+
+    const client = twilio(
+      process.env.TWILIO_SID,
+      process.env.TWILIO_AUTH_TOKEN
+    );
+
+    const contacts = [
+      { name: "MAXIMAX", phone: "+13175381150" },
+      { name: "Test User", phone: "+14076405166" }
+    ];
+
+    const results = [];
+
+    for (const contact of contacts) {
+      try {
+        const res = await client.messages.create({
+          from: "whatsapp:+14155238886",
+          to: "whatsapp:" + contact.phone,
+          body: message
+        });
+
+        results.push({
+          name: contact.name,
+          phone: contact.phone,
+          status: "sent",
+          sid: res.sid
+        });
+
+      } catch (error) {
+        results.push({
+          name: contact.name,
+          phone: contact.phone,
+          status: "failed",
+          error: error.message
+        });
+      }
+    }
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        success: true,
+        sentBy: decoded.email,
+        total: contacts.length,
+        results
+      })
+    };
+
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        success: false,
+        error: error.message
+      })
+    };
+  }
+};
