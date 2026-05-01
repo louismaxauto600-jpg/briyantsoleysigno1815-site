@@ -1,10 +1,13 @@
 const twilio = require("twilio");
 
-exports.handler = async function () {
+exports.handler = async function (event) {
   const client = twilio(
     process.env.TWILIO_SID,
     process.env.TWILIO_AUTH_TOKEN
   );
+
+  const data = JSON.parse(event.body || "{}");
+  const messageText = data.message || "🔥 BSS1815 Broadcast ap mache pou tout moun!";
 
   const numbers = [
     "whatsapp:+13175381150",
@@ -18,7 +21,7 @@ exports.handler = async function () {
       const msg = await client.messages.create({
         from: "whatsapp:+14155238886",
         to: number,
-        body: "🔥 BSS1815 Broadcast ap mache pou tout moun!"
+        body: messageText
       });
 
       results.push({
