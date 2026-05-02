@@ -1,0 +1,135 @@
+{
+  "LEADERS_CONTROL_PANEL": {
+    "ACCESS": {
+      "allowed_roles": ["ADMIN", "SUPER_ADMIN"],
+      "super_admin_privileges": [
+        "override_any_media",
+        "edit_any_leader",
+        "delete_any_leader",
+        "manage_categories",
+        "view_system_logs"
+      ]
+    },
+
+    "SECTIONS": {
+      "dashboard": {
+        "stats": [
+          "total_leaders",
+          "total_media",
+          "recent_uploads",
+          "pending_items"
+        ]
+      },
+
+      "leaders_manager": {
+        "actions": [
+          "add_leader",
+          "edit_leader",
+          "delete_leader",
+          "view_leader_profile"
+        ],
+        "leader_fields": [
+          "full_name",
+          "role_title",
+          "bio",
+          "photo_url",
+          "social_links",
+          "status"
+        ]
+      },
+
+      "media_manager": {
+        "actions": [
+          "upload_media",
+          "edit_media",
+          "delete_media",
+          "assign_category",
+          "preview_media"
+        ],
+        "media_fields": [
+          "file_url",
+          "file_type",
+          "category",
+          "description",
+          "upload_date"
+        ]
+      },
+
+      "categories_manager": {
+        "actions": [
+          "create_category",
+          "rename_category",
+          "delete_category"
+        ],
+        "default_categories": [
+          "leadership",
+          "events",
+          "fanclub",
+          "store",
+          "products",
+          "banners"
+        ]
+      },
+
+      "permissions_manager": {
+        "actions": [
+          "assign_role",
+          "revoke_role",
+          "view_user_permissions"
+        ]
+      },
+
+      "logs_center": {
+        "visible_to": ["SUPER_ADMIN"],
+        "logs_tracked": [
+          "uploads",
+          "edits",
+          "deletions",
+          "admin_actions"
+        ]
+      }
+    },
+
+    "UI_LAYOUT": {
+      "sidebar": [
+        "Dashboard",
+        "Leaders",
+        "Media",
+        "Categories",
+        "Permissions",
+        "Logs"
+      ],
+      "topbar": [
+        "search",
+        "notifications",
+        "profile_menu"
+      ],
+      "dashboard_widgets": [
+        "leaders_count",
+        "media_count",
+        "pending_approvals",
+        "recent_activity"
+      ]
+    },
+
+    "ACTIONS_FLOW": {
+      "add_leader": [
+        "open_form",
+        "fill_fields",
+        "upload_photo",
+        "save_to_database"
+      ],
+      "upload_media": [
+        "select_file",
+        "validate_file",
+        "assign_category",
+        "save_to_database"
+      ],
+      "edit_leader": [
+        "load_profile",
+        "modify_fields",
+        "save_changes"
+      ]
+    }
+  }
+}
