@@ -1,0 +1,70 @@
+{
+  "BSS1815_CONTROL_PANEL": {
+    "LAYOUT": {
+      "Sidebar": ["Dashboard", "Leaders", "Media", "Categories", "Permissions", "Logs"],
+      "Topbar": ["Search", "Notifications", "UserMenu"],
+      "PageContainer": "Wrap all pages"
+    },
+
+    "MODULES": {
+      "Dashboard": ["StatCards", "RecentActivity"],
+      "Leaders": ["LeadersTable", "LeaderFormModal"],
+      "Media": ["MediaGrid", "MediaUploadModal", "MediaPreviewModal"],
+      "Categories": ["CategoryList", "CategoryFormModal"],
+      "Permissions": ["UserPermissionsTable", "RoleChangeModal"],
+      "Logs": ["LogsTable", "LogFilters"]
+    },
+
+    "STATE": {
+      "global": {
+        "auth": ["user", "role", "token"],
+        "leaders": ["leaders_list", "selected_leader"],
+        "media": ["media_list", "selected_media"],
+        "categories": ["categories_list", "selected_category"],
+        "permissions": ["users_list", "selected_user"],
+        "logs": ["logs_list", "filters"]
+      },
+      "local": {
+        "forms": ["LeaderForm", "MediaForm", "CategoryForm", "RoleForm"],
+        "modals": ["LeaderModal", "MediaUploadModal", "MediaPreviewModal", "CategoryModal"]
+      }
+    },
+
+    "API": {
+      "leaders": {
+        "GET": "/leaders/uploads",
+        "POST": "/leaders/uploads",
+        "PUT": "/leaders/uploads/:id",
+        "DELETE": "/leaders/uploads/:id"
+      },
+      "media": {
+        "GET": "/products/media",
+        "POST": "/products/media",
+        "PUT": "/products/media/:id",
+        "DELETE": "/products/media/:id"
+      },
+      "categories": {
+        "GET": "/categories",
+        "POST": "/categories",
+        "PUT": "/categories/:id",
+        "DELETE": "/categories/:id"
+      },
+      "permissions": {
+        "GET": "/users",
+        "PUT": "/users/:id/role",
+        "DELETE": "/users/:id"
+      },
+      "logs": {
+        "GET": "/system/logs"
+      }
+    },
+
+    "EVENT_FLOW": {
+      "AddLeader": ["open_modal", "fill_form", "POST", "update_state", "refresh_table"],
+      "UploadMedia": ["open_modal", "select_file", "POST", "update_state", "refresh_grid"],
+      "EditCategory": ["select", "open_modal", "PUT", "update_state"],
+      "ChangeRole": ["select_user", "open_modal", "PUT", "update_state"],
+      "ViewLogs": ["apply_filters", "GET", "update_state"]
+    }
+  }
+}
