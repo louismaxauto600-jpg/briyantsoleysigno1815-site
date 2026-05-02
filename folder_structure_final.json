@@ -1,0 +1,90 @@
+{
+  "FOLDER_STRUCTURE": {
+    "root": {
+      "src/": {
+        "controllers/": {
+          "fanUploads.controller.js": "",
+          "leadersUploads.controller.js": "",
+          "productsMedia.controller.js": "",
+          "banners.controller.js": "",
+          "eventsMedia.controller.js": "",
+          "system.controller.js": "",
+          "auth.controller.js": ""
+        },
+        "middleware/": {
+          "auth/": {
+            "verifyToken.js": "",
+            "requireLogin.js": ""
+          },
+          "roles/": {
+            "isFan.js": "",
+            "isAdmin.js": "",
+            "isSuperAdmin.js": "",
+            "isAdminOrSuper.js": ""
+          },
+          "uploads/": {
+            "validateFileType.js": "",
+            "validateFileSize.js": "",
+            "sanitizeFilename.js": ""
+          },
+          "security/": {
+            "rateLimiter.js": "",
+            "xssProtection.js": "",
+            "sanitizeInput.js": "",
+            "corsHandler.js": ""
+          },
+          "logging/": {
+            "requestLogger.js": "",
+            "adminActionLogger.js": ""
+          }
+        },
+        "routes/": {
+          "fanUploads.routes.js": "",
+          "leadersUploads.routes.js": "",
+          "productsMedia.routes.js": "",
+          "banners.routes.js": "",
+          "eventsMedia.routes.js": "",
+          "system.routes.js": "",
+          "auth.routes.js": ""
+        },
+        "services/": {
+          "media.service.js": "",
+          "auth.service.js": "",
+          "stats.service.js": "",
+          "logs.service.js": ""
+        },
+        "config/": {
+          "database.js": "",
+          "storage.js": "",
+          "env.js": ""
+        },
+        "utils/": {
+          "generateId.js": "",
+          "timestamp.js": "",
+          "responseHandler.js": ""
+        },
+        "validators/": {
+          "fanUploads.validator.js": "",
+          "leadersUploads.validator.js": "",
+          "productsMedia.validator.js": "",
+          "banners.validator.js": "",
+          "eventsMedia.validator.js": "",
+          "auth.validator.js": ""
+        },
+        "app.js": "",
+        "server.js": ""
+      },
+      "public/": {
+        "uploads/": {
+          "fan/": "",
+          "leaders/": "",
+          "products/": "",
+          "banners/": "",
+          "events/": ""
+        }
+      },
+      "package.json": "",
+      "README.md": ""
+    }
+  }
+}
