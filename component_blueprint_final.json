@@ -1,0 +1,184 @@
+{
+  "COMPONENT_BLUEPRINT": {
+    "CORE_LAYOUT": {
+      "Sidebar": {
+        "purpose": "Main navigation for all panel sections",
+        "elements": ["Logo", "MenuItems", "ActiveIndicator"],
+        "interactions": ["navigate", "collapse_optional"]
+      },
+      "Topbar": {
+        "purpose": "Search, notifications, user menu",
+        "elements": ["PageTitle", "Breadcrumbs", "SearchBar", "Notifications", "UserMenu"]
+      },
+      "PageContainer": {
+        "purpose": "Wraps each page with padding + theme",
+        "elements": ["children", "scroll_container"]
+      }
+    },
+
+    "DASHBOARD": {
+      "StatCard": {
+        "purpose": "Display key metrics",
+        "props": ["title", "value", "icon", "trend"]
+      },
+      "RecentActivityList": {
+        "purpose": "Show latest admin actions",
+        "props": ["activity_items"]
+      }
+    },
+
+    "LEADERS": {
+      "LeadersTable": {
+        "purpose": "List all leaders",
+        "columns": ["Photo", "FullName", "Role", "Status", "UpdatedAt", "Actions"],
+        "interactions": ["view", "edit", "deactivate", "delete"]
+      },
+      "LeaderRow": {
+        "purpose": "Single row in table",
+        "props": ["leader"]
+      },
+      "LeaderForm": {
+        "purpose": "Add/Edit leader",
+        "fields": ["full_name", "role_title", "bio", "photo_upload", "social_links", "status"],
+        "actions": ["save", "cancel"]
+      },
+      "LeaderStatusBadge": {
+        "purpose": "Show active/inactive",
+        "props": ["status"]
+      }
+    },
+
+    "MEDIA": {
+      "MediaGrid": {
+        "purpose": "Grid view of media",
+        "props": ["media_items"]
+      },
+      "MediaCard": {
+        "purpose": "Thumbnail + metadata",
+        "props": ["file_url", "type", "category", "description", "upload_date"],
+        "actions": ["preview", "edit", "assign_category", "delete"]
+      },
+      "MediaFilters": {
+        "purpose": "Filter media list",
+        "fields": ["category", "type", "date", "search"]
+      },
+      "MediaUploadForm": {
+        "purpose": "Upload new media",
+        "fields": ["file", "category", "description"]
+      },
+      "MediaPreviewModal": {
+        "purpose": "Full preview",
+        "props": ["file_url", "type"]
+      }
+    },
+
+    "CATEGORIES": {
+      "CategoryList": {
+        "purpose": "List all categories",
+        "props": ["categories"]
+      },
+      "CategoryDetails": {
+        "purpose": "Show selected category info",
+        "props": ["name", "description", "media_count"]
+      },
+      "CategoryForm": {
+        "purpose": "Add/Edit category",
+        "fields": ["name", "description"]
+      }
+    },
+
+    "PERMISSIONS": {
+      "UserPermissionsTable": {
+        "purpose": "List users + roles",
+        "columns": ["User", "Role", "Email", "LastLogin", "Actions"]
+      },
+      "RoleBadge": {
+        "purpose": "Display role visually",
+        "props": ["role"]
+      }
+    },
+
+    "LOGS": {
+      "LogsTable": {
+        "purpose": "Show system logs",
+        "columns": ["Timestamp", "Admin", "Action", "Target", "Details"]
+      },
+      "LogFilters": {
+        "purpose": "Filter logs",
+        "fields": ["date_range", "admin", "action_type"]
+      }
+    },
+
+    "UI_KIT": {
+      "Button": {
+        "variants": ["primary", "secondary", "danger"],
+        "props": ["label", "onClick", "icon"]
+      },
+      "Input": {
+        "types": ["text", "email", "password", "search"],
+        "props": ["value", "placeholder", "onChange"]
+      },
+      "Select": {
+        "props": ["options", "value", "onChange"]
+      },
+      "Card": {
+        "purpose": "Reusable container",
+        "props": ["children"]
+      },
+      "Modal": {
+        "purpose": "Popup container",
+        "props": ["open", "onClose", "children"]
+      },
+      "Table": {
+        "purpose": "Reusable table",
+        "props": ["columns", "rows"]
+      },
+      "Tabs": {
+        "purpose": "Switch between views",
+        "props": ["tabs", "active"]
+      },
+      "Avatar": {
+        "purpose": "User image",
+        "props": ["src"]
+      },
+      "Tag": {
+        "purpose": "Small label",
+        "props": ["text", "color"]
+      }
+    },
+
+    "EVENT_FLOW": {
+      "AddLeader": [
+        "open_form",
+        "fill_fields",
+        "upload_photo",
+        "submit",
+        "refresh_table"
+      ],
+      "UploadMedia": [
+        "open_upload_modal",
+        "select_file",
+        "validate",
+        "assign_category",
+        "submit",
+        "refresh_media_grid"
+      ],
+      "EditCategory": [
+        "select_category",
+        "open_form",
+        "edit_fields",
+        "save_changes"
+      ],
+      "ChangePermissions": [
+        "open_user_row",
+        "select_new_role",
+        "save"
+      ],
+      "ViewLogs": [
+        "open_logs_page",
+        "apply_filters",
+        "scroll_history"
+      ]
+    }
+  }
+}
