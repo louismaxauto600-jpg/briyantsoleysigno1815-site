@@ -1,0 +1,108 @@
+{
+  "API_INTEGRATION_MAP": {
+    "AUTH": {
+      "components": ["LoginPage", "AuthProvider"],
+      "service": "auth.api.ts",
+      "routes": {
+        "POST /auth/login": "loginUser",
+        "POST /auth/logout": "logoutUser",
+        "GET /auth/me": "getCurrentUser"
+      }
+    },
+
+    "LEADERS": {
+      "components": [
+        "LeadersPage",
+        "LeadersTable",
+        "LeaderRow",
+        "LeaderForm",
+        "LeaderModal"
+      ],
+      "service": "leaders.api.ts",
+      "routes": {
+        "GET /leaders/uploads": "fetchLeaders",
+        "POST /leaders/uploads": "createLeader",
+        "GET /leaders/uploads/:id": "getLeader",
+        "PUT /leaders/uploads/:id": "updateLeader",
+        "DELETE /leaders/uploads/:id": "deleteLeader"
+      }
+    },
+
+    "MEDIA": {
+      "components": [
+        "MediaPage",
+        "MediaGrid",
+        "MediaCard",
+        "MediaFilters",
+        "MediaUploadForm",
+        "MediaUploadModal",
+        "MediaPreviewModal"
+      ],
+      "service": "media.api.ts",
+      "routes": {
+        "GET /products/media": "fetchMedia",
+        "POST /products/media": "uploadMedia",
+        "GET /products/media/:id": "getMedia",
+        "PUT /products/media/:id": "updateMedia",
+        "DELETE /products/media/:id": "deleteMedia"
+      }
+    },
+
+    "CATEGORIES": {
+      "components": [
+        "CategoriesPage",
+        "CategoryList",
+        "CategoryDetails",
+        "CategoryForm",
+        "CategoryModal"
+      ],
+      "service": "categories.api.ts",
+      "routes": {
+        "GET /categories": "fetchCategories",
+        "POST /categories": "createCategory",
+        "PUT /categories/:id": "updateCategory",
+        "DELETE /categories/:id": "deleteCategory"
+      }
+    },
+
+    "PERMISSIONS": {
+      "components": [
+        "PermissionsPage",
+        "UserPermissionsTable",
+        "RoleBadge",
+        "PermissionsForm"
+      ],
+      "service": "permissions.api.ts",
+      "routes": {
+        "GET /users": "fetchUsers",
+        "PUT /users/:id/role": "changeUserRole",
+        "DELETE /users/:id": "revokeUserAccess"
+      }
+    },
+
+    "LOGS": {
+      "components": [
+        "LogsPage",
+        "LogsTable",
+        "LogFilters"
+      ],
+      "service": "logs.api.ts",
+      "routes": {
+        "GET /system/logs": "fetchLogs"
+      }
+    },
+
+    "DASHBOARD": {
+      "components": [
+        "DashboardPage",
+        "StatCard",
+        "RecentActivityList"
+      ],
+      "service": "stats.api.ts",
+      "routes": {
+        "GET /system/stats": "getStats",
+        "GET /system/logs?limit=10": "getRecentActivity"
+      }
+    }
+  }
+}
