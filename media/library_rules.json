@@ -1,0 +1,93 @@
+{
+  "MEDIA_LIBRARY_RULES": {
+    "ACCESS_LEVELS": {
+      "FAN": {
+        "can_upload": true,
+        "can_view_library": false,
+        "can_edit": false,
+        "can_delete": false
+      },
+      "ADMIN": {
+        "can_upload": true,
+        "can_view_library": true,
+        "can_edit": true,
+        "can_delete": true,
+        "can_approve_fan_uploads": true
+      },
+      "SUPER_ADMIN": {
+        "can_upload": true,
+        "can_view_library": true,
+        "can_edit": true,
+        "can_delete": true,
+        "can_manage_categories": true,
+        "full_control": true
+      }
+    },
+
+    "UPLOAD_RULES": {
+      "fan_uploads": {
+        "allowed_types": ["photo", "video"],
+        "max_size_mb": 25,
+        "status_flow": ["pending", "approved", "rejected"],
+        "review_required": true
+      },
+      "leaders_uploads": {
+        "allowed_types": ["photo", "video"],
+        "categories": ["store", "event", "leadership", "fanclub", "banner", "product"],
+        "review_required": false
+      }
+    },
+
+    "CONTENT_POLICIES": {
+      "prohibited_content": [
+        "nudity",
+        "violence",
+        "hate_symbols",
+        "copyrighted_material_without_permission",
+        "political_propaganda",
+        "religious_attacks"
+      ],
+      "auto_reject_if": [
+        "file_corrupted",
+        "virus_detected",
+        "invalid_format"
+      ]
+    },
+
+    "WORKFLOW": {
+      "fan_upload_process": [
+        "fan_submits_media",
+        "media_enters_pending_queue",
+        "admin_reviews",
+        "admin_approves_or_rejects",
+        "approved_media_goes_to_fanclub_section"
+      ],
+      "leaders_upload_process": [
+        "leader_uploads_media",
+        "media_goes_directly_to_assigned_category",
+        "super_admin_can_override_any_media"
+      ]
+    },
+
+    "SECURITY": {
+      "logging": {
+        "track_uploads": true,
+        "track_edits": true,
+        "track_deletions": true,
+        "track_admin_actions": true
+      },
+      "backup": {
+        "auto_backup_enabled": true,
+        "frequency": "daily",
+        "retention_days": 30
+      }
+    },
+
+    "SYSTEM_BEHAVIOR": {
+      "auto_generate_id": true,
+      "auto_timestamp_upload": true,
+      "auto_sort_by_date": true,
+      "max_items_per_page": 50
+    }
+  }
+}
