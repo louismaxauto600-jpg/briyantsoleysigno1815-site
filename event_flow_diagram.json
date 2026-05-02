@@ -1,0 +1,118 @@
+{
+  "EVENT_FLOW": {
+    "ADD_LEADER": {
+      "trigger": "Admin clicks 'Add Leader'",
+      "ui": ["Open LeaderModal", "Render LeaderForm"],
+      "local_state": ["form_fields = empty"],
+      "actions": ["Admin fills form", "Admin clicks Save"],
+      "validation": ["Check required fields", "Check photo format"],
+      "api_call": "POST /leaders/uploads",
+      "global_state_update": ["leaders_list.push(new_leader)"],
+      "ui_update": ["Close modal", "Refresh LeadersTable"]
+    },
+
+    "EDIT_LEADER": {
+      "trigger": "Admin clicks 'Edit'",
+      "ui": ["Open LeaderModal", "Pre-fill LeaderForm"],
+      "local_state": ["form_fields = leader_data"],
+      "actions": ["Admin edits fields", "Admin clicks Save"],
+      "api_call": "PUT /leaders/uploads/:id",
+      "global_state_update": ["update leaders_list[index]"],
+      "ui_update": ["Close modal", "Refresh LeadersTable"]
+    },
+
+    "DELETE_LEADER": {
+      "trigger": "Admin clicks 'Delete'",
+      "ui": ["Show confirmation modal"],
+      "actions": ["Admin confirms"],
+      "api_call": "DELETE /leaders/uploads/:id",
+      "global_state_update": ["remove leader from leaders_list"],
+      "ui_update": ["Refresh LeadersTable"]
+    },
+
+    "UPLOAD_MEDIA": {
+      "trigger": "Admin clicks 'Upload Media'",
+      "ui": ["Open MediaUploadModal"],
+      "local_state": ["file = null", "category = null", "description = ''"],
+      "actions": ["Admin selects file", "Admin fills fields", "Admin clicks Upload"],
+      "validation": ["Check file type", "Check file size"],
+      "api_call": "POST /products/media",
+      "global_state_update": ["media_list.push(new_media)"],
+      "ui_update": ["Close modal", "Refresh MediaGrid"]
+    },
+
+    "EDIT_MEDIA": {
+      "trigger": "Admin clicks 'Edit'",
+      "ui": ["Open MediaEditModal"],
+      "local_state": ["form_fields = media_data"],
+      "actions": ["Admin edits fields", "Admin clicks Save"],
+      "api_call": "PUT /products/media/:id",
+      "global_state_update": ["update media_list[index]"],
+      "ui_update": ["Close modal", "Refresh MediaGrid"]
+    },
+
+    "DELETE_MEDIA": {
+      "trigger": "Admin clicks 'Delete'",
+      "ui": ["Show confirmation modal"],
+      "actions": ["Admin confirms"],
+      "api_call": "DELETE /products/media/:id",
+      "global_state_update": ["remove media from media_list"],
+      "ui_update": ["Refresh MediaGrid"]
+    },
+
+    "ASSIGN_CATEGORY": {
+      "trigger": "Admin clicks 'Assign Category'",
+      "ui": ["Open CategorySelectModal"],
+      "actions": ["Admin selects category", "Admin clicks Save"],
+      "api_call": "PUT /products/media/:id",
+      "global_state_update": ["update media_list[index].category"],
+      "ui_update": ["Refresh MediaGrid"]
+    },
+
+    "ADD_CATEGORY": {
+      "trigger": "Admin clicks 'Add Category'",
+      "ui": ["Open CategoryModal"],
+      "local_state": ["name = ''", "description = ''"],
+      "actions": ["Admin fills fields", "Admin clicks Save"],
+      "api_call": "POST /categories",
+      "global_state_update": ["categories_list.push(new_category)"],
+      "ui_update": ["Close modal", "Refresh CategoryList"]
+    },
+
+    "EDIT_CATEGORY": {
+      "trigger": "Admin selects category",
+      "ui": ["Open CategoryModal", "Pre-fill fields"],
+      "actions": ["Admin edits fields", "Admin clicks Save"],
+      "api_call": "PUT /categories/:id",
+      "global_state_update": ["update categories_list[index]"],
+      "ui_update": ["Close modal", "Refresh CategoryList"]
+    },
+
+    "DELETE_CATEGORY": {
+      "trigger": "Admin clicks 'Delete Category'",
+      "ui": ["Show confirmation modal"],
+      "actions": ["Admin confirms"],
+      "api_call": "DELETE /categories/:id",
+      "global_state_update": ["remove category from categories_list"],
+      "ui_update": ["Refresh CategoryList"]
+    },
+
+    "CHANGE_ROLE": {
+      "trigger": "Admin clicks 'Change Role'",
+      "ui": ["Open PermissionsModal"],
+      "actions": ["Admin selects new role", "Admin clicks Save"],
+      "api_call": "PUT /users/:id/role",
+      "global_state_update": ["update users_list[index].role"],
+      "ui_update": ["Close modal", "Refresh PermissionsTable"]
+    },
+
+    "VIEW_LOGS": {
+      "trigger": "Admin opens LogsPage",
+      "ui": ["Render LogFilters", "Render LogsTable"],
+      "actions": ["Admin applies filters"],
+      "api_call": "GET /system/logs",
+      "global_state_update": ["logs_list = response"],
+      "ui_update": ["Refresh LogsTable"]
+    }
+  }
+}
