@@ -1,0 +1,56 @@
+{
+  "CONTROLLERS": {
+    "FAN_UPLOADS_CONTROLLER": {
+      "createFanUpload": "Receive fan media, validate, save to FAN_UPLOADS",
+      "getFanUpload": "Return single fan upload by ID",
+      "getPendingFanUploads": "Return all pending fan uploads for admin review",
+      "approveFanUpload": "Admin approves fan upload and updates status",
+      "rejectFanUpload": "Admin rejects fan upload and updates status",
+      "deleteFanUpload": "Admin or Super Admin deletes fan upload"
+    },
+
+    "LEADERS_UPLOADS_CONTROLLER": {
+      "createLeaderUpload": "Admin/Super Admin uploads media to LEADERS_UPLOADS",
+      "getAllLeaderUploads": "Return all leaders uploads",
+      "getLeaderUpload": "Return single leader upload by ID",
+      "updateLeaderUpload": "Edit leader upload fields",
+      "deleteLeaderUpload": "Delete leader upload"
+    },
+
+    "PRODUCTS_MEDIA_CONTROLLER": {
+      "createProductMedia": "Upload product media and save to PRODUCTS_MEDIA",
+      "getAllProductMedia": "Return all product media",
+      "getProductMedia": "Return single product media by ID",
+      "updateProductMedia": "Edit product media",
+      "deleteProductMedia": "Delete product media"
+    },
+
+    "BANNERS_CONTROLLER": {
+      "createBanner": "Upload banner and save to BANNERS_LIBRARY",
+      "getAllBanners": "Return all banners",
+      "getBanner": "Return single banner by ID",
+      "updateBanner": "Edit banner",
+      "deleteBanner": "Delete banner"
+    },
+
+    "EVENTS_MEDIA_CONTROLLER": {
+      "createEventMedia": "Upload event media and save to EVENTS_MEDIA",
+      "getAllEventMedia": "Return all event media",
+      "getEventMedia": "Return single event media by ID",
+      "updateEventMedia": "Edit event media",
+      "deleteEventMedia": "Delete event media"
+    },
+
+    "SYSTEM_CONTROLLER": {
+      "healthCheck": "Return API health status",
+      "getStats": "Return media library statistics",
+      "getLogs": "Super Admin only — return system logs"
+    },
+
+    "AUTH_CONTROLLER": {
+      "login": "Authenticate user and return token",
+      "logout": "Invalidate session/token",
+      "getCurrentUser": "Return authenticated user info"
+    }
+  }
+}
