@@ -1,0 +1,421 @@
+{
+  "BACKEND_BLUEPRINT_FINAL": {
+    "DATABASE": {
+      "FAN_UPLOADS": [
+        {
+          "id": "",
+          "fan_name": "",
+          "fan_email": "",
+          "file_url": "",
+          "file_type": "",
+          "description": "",
+          "status": "",
+          "upload_date": ""
+        }
+      ],
+      "LEADERS_UPLOADS": [
+        {
+          "id": "",
+          "admin_name": "",
+          "category": "",
+          "file_url": "",
+          "file_type": "",
+          "description": "",
+          "upload_date": ""
+        }
+      ],
+      "PRODUCTS_MEDIA": [
+        {
+          "id": "",
+          "product_name": "",
+          "product_category": "",
+          "file_url": "",
+          "file_type": "",
+          "upload_date": ""
+        }
+      ],
+      "BANNERS_LIBRARY": [
+        {
+          "id": "",
+          "banner_title": "",
+          "file_url": "",
+          "upload_date": ""
+        }
+      ],
+      "EVENTS_MEDIA": [
+        {
+          "id": "",
+          "event_name": "",
+          "file_url": "",
+          "file_type": "",
+          "upload_date": ""
+        }
+      ]
+    },
+
+    "RULES": {
+      "ACCESS_LEVELS": {
+        "FAN": {
+          "can_upload": true,
+          "can_view_library": false,
+          "can_edit": false,
+          "can_delete": false
+        },
+        "ADMIN": {
+          "can_upload": true,
+          "can_view_library": true,
+          "can_edit": true,
+          "can_delete": true,
+          "can_approve_fan_uploads": true
+        },
+        "SUPER_ADMIN": {
+          "can_upload": true,
+          "can_view_library": true,
+          "can_edit": true,
+          "can_delete": true,
+          "can_manage_categories": true,
+          "full_control": true
+        }
+      },
+      "UPLOAD_RULES": {
+        "fan_uploads": {
+          "allowed_types": ["photo", "video"],
+          "max_size_mb": 25,
+          "status_flow": ["pending", "approved", "rejected"],
+          "review_required": true
+        },
+        "leaders_uploads": {
+          "allowed_types": ["photo", "video"],
+          "categories": ["store", "event", "leadership", "fanclub", "banner", "product"],
+          "review_required": false
+        }
+      },
+      "CONTENT_POLICIES": {
+        "prohibited_content": [
+          "nudity",
+          "violence",
+          "hate_symbols",
+          "copyrighted_material_without_permission",
+          "political_propaganda",
+          "religious_attacks"
+        ],
+        "auto_reject_if": [
+          "file_corrupted",
+          "virus_detected",
+          "invalid_format"
+        ]
+      },
+      "WORKFLOW": {
+        "fan_upload_process": [
+          "fan_submits_media",
+          "media_enters_pending_queue",
+          "admin_reviews",
+          "admin_approves_or_rejects",
+          "approved_media_goes_to_fanclub_section"
+        ],
+        "leaders_upload_process": [
+          "leader_uploads_media",
+          "media_goes_directly_to_assigned_category",
+          "super_admin_can_override_any_media"
+        ]
+      },
+      "SECURITY": {
+        "logging": {
+          "track_uploads": true,
+          "track_edits": true,
+          "track_deletions": true,
+          "track_admin_actions": true
+        },
+        "backup": {
+          "auto_backup_enabled": true,
+          "frequency": "daily",
+          "retention_days": 30
+        }
+      },
+      "SYSTEM_BEHAVIOR": {
+        "auto_generate_id": true,
+        "auto_timestamp_upload": true,
+        "auto_sort_by_date": true,
+        "max_items_per_page": 50
+      }
+    },
+
+    "API_ROUTES": {
+      "FAN_UPLOADS": {
+        "POST /fan/uploads": "Fan uploads media (photo/video)",
+        "GET /fan/uploads/:id": "Get single fan upload",
+        "GET /fan/uploads/pending": "Admin fetch pending uploads",
+        "PUT /fan/uploads/:id/approve": "Admin approves fan upload",
+        "PUT /fan/uploads/:id/reject": "Admin rejects fan upload",
+        "DELETE /fan/uploads/:id": "Admin or Super Admin deletes fan upload"
+      },
+      "LEADERS_UPLOADS": {
+        "POST /leaders/uploads": "Admin or Super Admin uploads media",
+        "GET /leaders/uploads": "Fetch all leaders uploads",
+        "GET /leaders/uploads/:id": "Fetch single leader upload",
+        "PUT /leaders/uploads/:id": "Edit leader upload",
+        "DELETE /leaders/uploads/:id": "Delete leader upload"
+      },
+      "PRODUCTS_MEDIA": {
+        "POST /products/media": "Upload product image/video",
+        "GET /products/media": "Get all product media",
+        "GET /products/media/:id": "Get single product media",
+        "PUT /products/media/:id": "Edit product media",
+        "DELETE /products/media/:id": "Delete product media"
+      },
+      "BANNERS_LIBRARY": {
+        "POST /banners": "Upload banner",
+        "GET /banners": "Get all banners",
+        "GET /banners/:id": "Get single banner",
+        "PUT /banners/:id": "Edit banner",
+        "DELETE /banners/:id": "Delete banner"
+      },
+      "EVENTS_MEDIA": {
+        "POST /events/media": "Upload event media",
+        "GET /events/media": "Get all event media",
+        "GET /events/media/:id": "Get single event media",
+        "PUT /events/media/:id": "Edit event media",
+        "DELETE /events/media/:id": "Delete event media"
+      },
+      "SYSTEM": {
+        "GET /system/health": "Check API health",
+        "GET /system/stats": "Get media library statistics",
+        "GET /system/logs": "Super Admin only — view logs"
+      },
+      "AUTH": {
+        "POST /auth/login": "User login",
+        "POST /auth/logout": "User logout",
+        "GET /auth/me": "Get current user info"
+      }
+    },
+
+    "CONTROLLERS": {
+      "FAN_UPLOADS_CONTROLLER": {
+        "createFanUpload": "Receive fan media, validate, save to FAN_UPLOADS",
+        "getFanUpload": "Return single fan upload by ID",
+        "getPendingFanUploads": "Return all pending fan uploads for admin review",
+        "approveFanUpload": "Admin approves fan upload and updates status",
+        "rejectFanUpload": "Admin rejects fan upload and updates status",
+        "deleteFanUpload": "Admin or Super Admin deletes fan upload"
+      },
+      "LEADERS_UPLOADS_CONTROLLER": {
+        "createLeaderUpload": "Admin/Super Admin uploads media to LEADERS_UPLOADS",
+        "getAllLeaderUploads": "Return all leaders uploads",
+        "getLeaderUpload": "Return single leader upload by ID",
+        "updateLeaderUpload": "Edit leader upload fields",
+        "deleteLeaderUpload": "Delete leader upload"
+      },
+      "PRODUCTS_MEDIA_CONTROLLER": {
+        "createProductMedia": "Upload product media and save to PRODUCTS_MEDIA",
+        "getAllProductMedia": "Return all product media",
+        "getProductMedia": "Return single product media by ID",
+        "updateProductMedia": "Edit product media",
+        "deleteProductMedia": "Delete product media"
+      },
+      "BANNERS_CONTROLLER": {
+        "createBanner": "Upload banner and save to BANNERS_LIBRARY",
+        "getAllBanners": "Return all banners",
+        "getBanner": "Return single banner by ID",
+        "updateBanner": "Edit banner",
+        "deleteBanner": "Delete banner"
+      },
+      "EVENTS_MEDIA_CONTROLLER": {
+        "createEventMedia": "Upload event media and save to EVENTS_MEDIA",
+        "getAllEventMedia": "Return all event media",
+        "getEventMedia": "Return single event media by ID",
+        "updateEventMedia": "Edit event media",
+        "deleteEventMedia": "Delete event media"
+      },
+      "SYSTEM_CONTROLLER": {
+        "healthCheck": "Return API health status",
+        "getStats": "Return media library statistics",
+        "getLogs": "Super Admin only — return system logs"
+      },
+      "AUTH_CONTROLLER": {
+        "login": "Authenticate user and return token",
+        "logout": "Invalidate session/token",
+        "getCurrentUser": "Return authenticated user info"
+      }
+    },
+
+    "MIDDLEWARE": {
+      "auth": {
+        "verifyToken": "Validate JWT token, attach user to request",
+        "requireLogin": "Block access if user is not authenticated"
+      },
+      "roles": {
+        "isFan": "Allow only FAN role",
+        "isAdmin": "Allow only ADMIN role",
+        "isSuperAdmin": "Allow only SUPER ADMIN role",
+        "isAdminOrSuper": "Allow ADMIN or SUPER ADMIN"
+      },
+      "uploads": {
+        "validateFileType": "Check if file is photo/video",
+        "validateFileSize": "Block files larger than allowed size",
+        "sanitizeFilename": "Clean filename to prevent injection"
+      },
+      "security": {
+        "rateLimiter": "Limit requests per IP",
+        "xssProtection": "Block malicious HTML/JS payloads",
+        "sanitizeInput": "Clean request body/params/query",
+        "corsHandler": "Control allowed origins"
+      },
+      "logging": {
+        "requestLogger": "Log all incoming requests",
+        "adminActionLogger": "Track admin/super admin actions"
+      }
+    },
+
+    "SERVICES": {
+      "MEDIA_SERVICE": {
+        "saveMedia": "Save uploaded media to database with auto ID + timestamp",
+        "deleteMedia": "Delete media from database + storage",
+        "updateMedia": "Update media fields",
+        "getMediaById": "Return single media item",
+        "getAllMedia": "Return all media items sorted by date"
+      },
+      "FAN_UPLOADS_SERVICE": {
+        "createFanUpload": "Validate fan upload, save to FAN_UPLOADS",
+        "getPendingUploads": "Return all pending fan uploads",
+        "approveUpload": "Set status to approved",
+        "rejectUpload": "Set status to rejected",
+        "deleteFanUpload": "Remove fan upload from system"
+      },
+      "LEADERS_UPLOADS_SERVICE": {
+        "createLeaderUpload": "Save leader media to LEADERS_UPLOADS",
+        "getAllLeaderUploads": "Return all leader uploads",
+        "getLeaderUploadById": "Return single leader upload",
+        "updateLeaderUpload": "Edit leader upload",
+        "deleteLeaderUpload": "Delete leader upload"
+      },
+      "PRODUCTS_MEDIA_SERVICE": {
+        "createProductMedia": "Save product media",
+        "getAllProductMedia": "Return all product media",
+        "getProductMediaById": "Return single product media",
+        "updateProductMedia": "Edit product media",
+        "deleteProductMedia": "Delete product media"
+      },
+      "BANNERS_SERVICE": {
+        "createBanner": "Save banner to BANNERS_LIBRARY",
+        "getAllBanners": "Return all banners",
+        "getBannerById": "Return single banner",
+        "updateBanner": "Edit banner",
+        "deleteBanner": "Delete banner"
+      },
+      "EVENTS_MEDIA_SERVICE": {
+        "createEventMedia": "Save event media",
+        "getAllEventMedia": "Return all event media",
+        "getEventMediaById": "Return single event media",
+        "updateEventMedia": "Edit event media",
+        "deleteEventMedia": "Delete event media"
+      },
+      "AUTH_SERVICE": {
+        "loginUser": "Validate credentials + return token",
+        "logoutUser": "Invalidate token/session",
+        "getUserByToken": "Return authenticated user info",
+        "hashPassword": "Encrypt password",
+        "verifyPassword": "Compare encrypted password"
+      },
+      "STATS_SERVICE": {
+        "getTotalUploads": "Return total media count",
+        "getUploadsByCategory": "Return grouped stats",
+        "getDailyActivity": "Return uploads per day",
+        "getSystemOverview": "Return full system stats"
+      },
+      "LOGS_SERVICE": {
+        "logRequest": "Save request logs",
+        "logAdminAction": "Save admin/super admin actions",
+        "getLogs": "Return logs (Super Admin only)"
+      }
+    },
+
+    "FOLDER_STRUCTURE": {
+      "root": {
+        "src/": {
+          "controllers/": {
+            "fanUploads.controller.js": "",
+            "leadersUploads.controller.js": "",
+            "productsMedia.controller.js": "",
+            "banners.controller.js": "",
+            "eventsMedia.controller.js": "",
+            "system.controller.js": "",
+            "auth.controller.js": ""
+          },
+          "middleware/": {
+            "auth/": {
+              "verifyToken.js": "",
+              "requireLogin.js": ""
+            },
+            "roles/": {
+              "isFan.js": "",
+              "isAdmin.js": "",
+              "isSuperAdmin.js": "",
+              "isAdminOrSuper.js": ""
+            },
+            "uploads/": {
+              "validateFileType.js": "",
+              "validateFileSize.js": "",
+              "sanitizeFilename.js": ""
+            },
+            "security/": {
+              "rateLimiter.js": "",
+              "xssProtection.js": "",
+              "sanitizeInput.js": "",
+              "corsHandler.js": ""
+            },
+            "logging/": {
+              "requestLogger.js": "",
+              "adminActionLogger.js": ""
+            }
+          },
+          "routes/": {
+            "fanUploads.routes.js": "",
+            "leadersUploads.routes.js": "",
+            "productsMedia.routes.js": "",
+            "banners.routes.js": "",
+            "eventsMedia.routes.js": "",
+            "system.routes.js": "",
+            "auth.routes.js": ""
+          },
+          "services/": {
+            "media.service.js": "",
+            "auth.service.js": "",
+            "stats.service.js": "",
+            "logs.service.js": ""
+          },
+          "config/": {
+            "database.js": "",
+            "storage.js": "",
+            "env.js": ""
+          },
+          "utils/": {
+            "generateId.js": "",
+            "timestamp.js": "",
+            "responseHandler.js": ""
+          },
+          "validators/": {
+            "fanUploads.validator.js": "",
+            "leadersUploads.validator.js": "",
+            "productsMedia.validator.js": "",
+            "banners.validator.js": "",
+            "eventsMedia.validator.js": "",
+            "auth.validator.js": ""
+          },
+          "app.js": "",
+          "server.js": ""
+        },
+        "public/": {
+          "uploads/": {
+            "fan/": "",
+            "leaders/": "",
+            "products/": "",
+            "banners/": "",
+            "events/": ""
+          }
+        },
+        "package.json": "",
+        "README.md": ""
+      }
+    }
+  }
+}
