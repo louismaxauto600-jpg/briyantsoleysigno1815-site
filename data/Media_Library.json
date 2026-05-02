@@ -1,0 +1,52 @@
+{
+  "FAN_UPLOADS": [
+    {
+      "id": "",
+      "fan_name": "",
+      "fan_email": "",
+      "file_url": "",
+      "file_type": "photo",
+      "description": "",
+      "status": "pending",
+      "upload_date": ""
+    }
+  ],
+  "LEADERS_UPLOADS": [
+    {
+      "id": "",
+      "admin_name": "",
+      "category": "store",
+      "file_url": "",
+      "file_type": "photo",
+      "description": "",
+      "upload_date": ""
+    }
+  ],
+  "PRODUCTS_MEDIA": [
+    {
+      "id": "",
+      "product_name": "",
+      "product_category": "",
+      "file_url": "",
+      "file_type": "photo",
+      "upload_date": ""
+    }
+  ],
+  "BANNERS_LIBRARY": [
+    {
+      "id": "",
+      "banner_title": "",
+      "file_url": "",
+      "upload_date": ""
+    }
+  ],
+  "EVENTS_MEDIA": [
+    {
+      "id": "",
+      "event_name": "",
+      "file_url": "",
+      "file_type": "photo",
+      "upload_date": ""
+    }
+  ]
+}
