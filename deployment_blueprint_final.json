@@ -1,0 +1,63 @@
+{
+  "DEPLOYMENT_BLUEPRINT_FINAL": {
+    "FRONTEND (NETLIFY)": {
+      "requirements": [
+        "Next.js or React build",
+        "Environment variables configured",
+        "API base URL from Render"
+      ],
+      "steps": [
+        "1. Push frontend to GitHub",
+        "2. Go to Netlify → Add New Site → Import from GitHub",
+        "3. Select repo",
+        "4. Set build command: `npm run build`",
+        "5. Set publish directory: `.next` (Next.js) or `dist` (React)",
+        "6. Add environment variables (API_URL, TOKEN_SECRET, etc.)",
+        "7. Deploy site",
+        "8. Enable Netlify HTTPS + Domain"
+      ],
+      "post_deploy": [
+        "Test all pages",
+        "Test protected routes",
+        "Test API calls to Render backend"
+      ]
+    },
+
+    "BACKEND (RENDER)": {
+      "requirements": [
+        "Node.js backend",
+        "Express or similar framework",
+        "Database config (Firebase or MongoDB)",
+        "Storage config"
+      ],
+      "steps": [
+        "1. Push backend to GitHub",
+        "2. Go to Render → New Web Service",
+        "3. Select repo",
+        "4. Set runtime: Node 18+",
+        "5. Set build command: `npm install`",
+        "6. Set start command: `node server.js` or `npm start`",
+        "7. Add environment variables (DB_URL, STORAGE_BUCKET, JWT_SECRET)",
+        "8. Deploy backend",
+        "9. Copy Render API URL → paste into Netlify frontend"
+      ],
+      "post_deploy": [
+        "Test all routes",
+        "Test auth",
+        "Test uploads",
+        "Test logs"
+      ]
+    },
+
+    "STORAGE (FIREBASE)": {
+      "requirements": [
+        "Firebase project",
+        "Storage bucket",
+        "Service account key"
+      ],
+      "steps": [
+        "1. Create Firebase project",
+        "2. Enable Firebase Storage",
+        "3. Create service account key (JSON)",
+        "4. Add key to backend environment variables",
+        "5. Configure storage
