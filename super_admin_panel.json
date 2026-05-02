@@ -1,0 +1,186 @@
+{
+  "SUPER_ADMIN_PANEL": {
+    "ACCESS_LEVEL": "SUPER_ADMIN_ONLY",
+
+    "CAPABILITIES": {
+      "full_system_control": true,
+      "override_admin_actions": true,
+      "view_all_logs": true,
+      "manage_roles": true,
+      "manage_permissions": true,
+      "manage_categories": true,
+      "manage_all_media": true,
+      "manage_all_leaders": true,
+      "system_settings": true,
+      "backup_restore": true,
+      "security_controls": true
+    },
+
+    "SECTIONS": {
+      "dashboard": {
+        "widgets": [
+          "total_admins",
+          "total_leaders",
+          "total_media",
+          "total_categories",
+          "system_health",
+          "storage_usage",
+          "api_status"
+        ]
+      },
+
+      "admins_manager": {
+        "actions": [
+          "add_admin",
+          "edit_admin",
+          "delete_admin",
+          "reset_admin_password",
+          "assign_roles",
+          "revoke_roles"
+        ],
+        "fields": [
+          "full_name",
+          "email",
+          "role",
+          "status",
+          "last_login"
+        ]
+      },
+
+      "leaders_manager": {
+        "super_admin_overrides": [
+          "edit_any_leader",
+          "delete_any_leader",
+          "restore_deleted_leader",
+          "force_deactivate"
+        ]
+      },
+
+      "media_manager": {
+        "super_admin_overrides": [
+          "delete_any_media",
+          "restore_deleted_media",
+          "force_reassign_category",
+          "bulk_delete",
+          "bulk_move"
+        ]
+      },
+
+      "categories_manager": {
+        "super_admin_overrides": [
+          "create_category",
+          "rename_category",
+          "delete_category",
+          "merge_categories",
+          "lock_category"
+        ]
+      },
+
+      "permissions_manager": {
+        "actions": [
+          "assign_role",
+          "revoke_role",
+          "promote_to_admin",
+          "demote_to_fan",
+          "lock_user",
+          "unlock_user"
+        ]
+      },
+
+      "system_logs": {
+        "filters": [
+          "admin",
+          "action_type",
+          "date_range",
+          "severity"
+        ],
+        "log_types": [
+          "uploads",
+          "deletions",
+          "edits",
+          "auth_events",
+          "system_errors",
+          "security_alerts"
+        ]
+      },
+
+      "system_settings": {
+        "options": [
+          "toggle_maintenance_mode",
+          "update_api_keys",
+          "update_storage_settings",
+          "update_security_rules",
+          "update_backup_frequency"
+        ]
+      },
+
+      "backup_center": {
+        "actions": [
+          "manual_backup",
+          "restore_backup",
+          "download_backup",
+          "view_backup_history"
+        ]
+      },
+
+      "security_center": {
+        "features": [
+          "ip_blocklist",
+          "ip_allowlist",
+          "rate_limit_settings",
+          "failed_login_monitor",
+          "admin_activity_monitor",
+          "suspicious_behavior_alerts"
+        ]
+      }
+    },
+
+    "UI_LAYOUT": {
+      "sidebar": [
+        "Dashboard",
+        "Admins",
+        "Leaders",
+        "Media",
+        "Categories",
+        "Permissions",
+        "System Logs",
+        "System Settings",
+        "Backup Center",
+        "Security Center"
+      ],
+      "topbar": [
+        "search",
+        "notifications",
+        "super_admin_profile"
+      ]
+    },
+
+    "EVENT_FLOW": {
+      "promote_admin": [
+        "open_admin_profile",
+        "select_role",
+        "confirm_promotion",
+        "PUT /users/:id/role",
+        "refresh_admin_list"
+      ],
+      "delete_media_force": [
+        "select_media",
+        "confirm_force_delete",
+        "DELETE /products/media/:id?force=true",
+        "refresh_media_grid"
+      ],
+      "restore_backup": [
+        "select_backup",
+        "confirm_restore",
+        "POST /system/restore",
+        "system_restarts"
+      ],
+      "toggle_maintenance_mode": [
+        "open_system_settings",
+        "switch_toggle",
+        "PUT /system/settings",
+        "notify_all_admins"
+      ]
+    }
+  }
+}
