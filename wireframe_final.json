@@ -1,0 +1,89 @@
+{
+  "WIREFRAMES": {
+    "Dashboard": {
+      "layout": "Sidebar + Topbar + Main",
+      "main": {
+        "row_1": ["StatCard_TotalLeaders", "StatCard_TotalMedia", "StatCard_Pending", "StatCard_Recent"],
+        "row_2": ["RecentActivityList"]
+      }
+    },
+
+    "LeadersPage": {
+      "layout": "Sidebar + Topbar + Main",
+      "header": {
+        "title": "Leaders",
+        "actions": ["AddLeaderButton"]
+      },
+      "filters": ["SearchInput", "RoleFilter", "StatusFilter"],
+      "content": ["LeadersTable"]
+    },
+
+    "LeaderFormPage": {
+      "layout": "Modal",
+      "form_sections": {
+        "left_column": ["FullNameInput", "RoleTitleInput", "StatusToggle"],
+        "right_column": ["PhotoUpload", "SocialLinksInput", "BioTextarea"]
+      },
+      "actions": ["SaveButton", "CancelButton"]
+    },
+
+    "MediaPage": {
+      "layout": "Sidebar + Topbar + Main",
+      "header": {
+        "title": "Media Library",
+        "actions": ["UploadMediaButton"]
+      },
+      "filters": ["CategoryFilter", "TypeFilter", "DateFilter", "SearchInput"],
+      "view_modes": ["GridViewToggle", "TableViewToggle"],
+      "content": ["MediaGrid OR MediaTable"]
+    },
+
+    "MediaUploadModal": {
+      "layout": "Modal",
+      "fields": ["FileInput", "CategorySelect", "DescriptionTextarea"],
+      "actions": ["UploadButton", "CancelButton"]
+    },
+
+    "MediaPreviewModal": {
+      "layout": "Modal",
+      "content": ["MediaViewer", "MetadataSection"],
+      "actions": ["CloseButton"]
+    },
+
+    "CategoriesPage": {
+      "layout": "Sidebar + Topbar + SplitView",
+      "left_panel": {
+        "title": "Categories",
+        "actions": ["AddCategoryButton"],
+        "content": ["CategoryList"]
+      },
+      "right_panel": {
+        "title": "Category Details",
+        "content": ["CategoryName", "CategoryDescription", "MediaCount"]
+      }
+    },
+
+    "CategoryFormModal": {
+      "layout": "Modal",
+      "fields": ["NameInput", "DescriptionTextarea"],
+      "actions": ["SaveButton", "CancelButton"]
+    },
+
+    "PermissionsPage": {
+      "layout": "Sidebar + Topbar + Main",
+      "header": {
+        "title": "Permissions"
+      },
+      "content": ["UserPermissionsTable"]
+    },
+
+    "LogsPage": {
+      "layout": "Sidebar + Topbar + Main",
+      "header": {
+        "title": "System Logs"
+      },
+      "filters": ["DateRangeFilter", "AdminFilter", "ActionTypeFilter"],
+      "content": ["LogsTable"]
+    }
+  }
+}
