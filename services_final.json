@@ -1,0 +1,72 @@
+{
+  "SERVICES": {
+    "MEDIA_SERVICE": {
+      "saveMedia": "Save uploaded media to database with auto ID + timestamp",
+      "deleteMedia": "Delete media from database + storage",
+      "updateMedia": "Update media fields",
+      "getMediaById": "Return single media item",
+      "getAllMedia": "Return all media items sorted by date"
+    },
+
+    "FAN_UPLOADS_SERVICE": {
+      "createFanUpload": "Validate fan upload, save to FAN_UPLOADS",
+      "getPendingUploads": "Return all pending fan uploads",
+      "approveUpload": "Set status to approved",
+      "rejectUpload": "Set status to rejected",
+      "deleteFanUpload": "Remove fan upload from system"
+    },
+
+    "LEADERS_UPLOADS_SERVICE": {
+      "createLeaderUpload": "Save leader media to LEADERS_UPLOADS",
+      "getAllLeaderUploads": "Return all leader uploads",
+      "getLeaderUploadById": "Return single leader upload",
+      "updateLeaderUpload": "Edit leader upload",
+      "deleteLeaderUpload": "Delete leader upload"
+    },
+
+    "PRODUCTS_MEDIA_SERVICE": {
+      "createProductMedia": "Save product media",
+      "getAllProductMedia": "Return all product media",
+      "getProductMediaById": "Return single product media",
+      "updateProductMedia": "Edit product media",
+      "deleteProductMedia": "Delete product media"
+    },
+
+    "BANNERS_SERVICE": {
+      "createBanner": "Save banner to BANNERS_LIBRARY",
+      "getAllBanners": "Return all banners",
+      "getBannerById": "Return single banner",
+      "updateBanner": "Edit banner",
+      "deleteBanner": "Delete banner"
+    },
+
+    "EVENTS_MEDIA_SERVICE": {
+      "createEventMedia": "Save event media",
+      "getAllEventMedia": "Return all event media",
+      "getEventMediaById": "Return single event media",
+      "updateEventMedia": "Edit event media",
+      "deleteEventMedia": "Delete event media"
+    },
+
+    "AUTH_SERVICE": {
+      "loginUser": "Validate credentials + return token",
+      "logoutUser": "Invalidate token/session",
+      "getUserByToken": "Return authenticated user info",
+      "hashPassword": "Encrypt password",
+      "verifyPassword": "Compare encrypted password"
+    },
+
+    "STATS_SERVICE": {
+      "getTotalUploads": "Return total media count",
+      "getUploadsByCategory": "Return grouped stats",
+      "getDailyActivity": "Return uploads per day",
+      "getSystemOverview": "Return full system stats"
+    },
+
+    "LOGS_SERVICE": {
+      "logRequest": "Save request logs",
+      "logAdminAction": "Save admin/super admin actions",
+      "getLogs": "Return logs (Super Admin only)"
+    }
+  }
+}
