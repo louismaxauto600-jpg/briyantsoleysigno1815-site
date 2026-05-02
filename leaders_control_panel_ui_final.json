@@ -1,0 +1,254 @@
+{
+  "LEADERS_CONTROL_PANEL_UI_FINAL": {
+    "THEME": {
+      "primary_color": "#FF7A00",
+      "primary_accent": "#FFA94D",
+      "background_main": "#050505",
+      "background_panel": "#101010",
+      "background_card": "#151515",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#B3B3B3",
+      "border_subtle": "#262626",
+      "status_colors": {
+        "active": "#18C964",
+        "inactive": "#FF4D4D",
+        "pending": "#FFC107"
+      }
+    },
+
+    "LAYOUT": {
+      "structure": "sidebar_left + topbar + main_content",
+      "max_width": "1440px",
+      "sidebar_width": "260px",
+      "topbar_height": "64px",
+      "content_padding": "24px",
+      "border_radius_global": "10px",
+      "shadow_style": "subtle_soft"
+    },
+
+    "SIDEBAR": {
+      "logo_area": {
+        "height": "72px",
+        "content": "BSS 1815 | LEADERS PANEL",
+        "style": "bold, uppercase, orange_on_black"
+      },
+      "menu_items": [
+        "Dashboard",
+        "Leaders",
+        "Media Library",
+        "Categories",
+        "Permissions",
+        "Logs"
+      ],
+      "menu_style": {
+        "default_text_color": "#B3B3B3",
+        "active_text_color": "#FFFFFF",
+        "active_indicator": "left_orange_bar",
+        "hover_background": "#1C1C1C",
+        "icon_style": "minimal_line_icons_orange"
+      }
+    },
+
+    "TOPBAR": {
+      "left": [
+        "page_title",
+        "breadcrumb"
+      ],
+      "center": [],
+      "right": [
+        "search_bar",
+        "notifications_icon",
+        "user_avatar_dropdown"
+      ],
+      "search_bar": {
+        "placeholder": "Search leaders, media, categories…",
+        "width": "320px",
+        "style": "rounded, subtle_border, icon_left"
+      }
+    },
+
+    "DASHBOARD_VIEW": {
+      "widgets_row_1": [
+        "total_leaders_card",
+        "total_media_card",
+        "pending_approvals_card",
+        "recent_activity_card"
+      ],
+      "widget_style": {
+        "background": "#151515",
+        "border": "#262626",
+        "title_color": "#B3B3B3",
+        "value_color": "#FFFFFF",
+        "icon_color": "#FF7A00"
+      },
+      "activity_section": {
+        "title": "Recent Admin Activity",
+        "type": "table_or_timeline"
+      }
+    },
+
+    "LEADERS_VIEW": {
+      "header": {
+        "title": "Leaders",
+        "actions": [
+          "Add Leader"
+        ]
+      },
+      "filters": [
+        "role_filter",
+        "status_filter",
+        "search_input"
+      ],
+      "table_columns": [
+        "Photo",
+        "Full Name",
+        "Role Title",
+        "Status",
+        "Last Updated",
+        "Actions"
+      ],
+      "row_actions": [
+        "View",
+        "Edit",
+        "Deactivate",
+        "Delete"
+      ],
+      "add_edit_modal": {
+        "layout": "two_column_form",
+        "fields": [
+          "full_name",
+          "role_title",
+          "bio",
+          "photo_upload",
+          "social_links",
+          "status_toggle"
+        ],
+        "primary_button": "Save Leader",
+        "secondary_button": "Cancel"
+      }
+    },
+
+    "MEDIA_VIEW": {
+      "header": {
+        "title": "Media Library",
+        "actions": [
+          "Upload Media"
+        ]
+      },
+      "view_modes": [
+        "grid_view",
+        "table_view"
+      ],
+      "filters": [
+        "category_filter",
+        "type_filter",
+        "date_filter",
+        "search_input"
+      ],
+      "card_style": {
+        "thumbnail_ratio": "16:9",
+        "overlay_badge": "category",
+        "footer": [
+          "description",
+          "upload_date",
+          "uploaded_by"
+        ]
+      },
+      "media_actions": [
+        "Preview",
+        "Edit",
+        "Assign Category",
+        "Delete"
+      ]
+    },
+
+    "CATEGORIES_VIEW": {
+      "layout": "left_list + right_details",
+      "left_panel": {
+        "title": "Categories",
+        "actions": [
+          "Add Category"
+        ]
+      },
+      "right_panel": {
+        "title": "Category Details",
+        "shows": [
+          "name",
+          "description",
+          "assigned_media_count"
+        ]
+      }
+    },
+
+    "PERMISSIONS_VIEW": {
+      "layout": "table",
+      "columns": [
+        "User",
+        "Role",
+        "Email",
+        "Last Login",
+        "Actions"
+      ],
+      "actions": [
+        "Change Role",
+        "Revoke Access"
+      ]
+    },
+
+    "LOGS_VIEW": {
+      "visible_to": [
+        "SUPER_ADMIN"
+      ],
+      "layout": "table",
+      "columns": [
+        "Timestamp",
+        "Admin",
+        "Action",
+        "Target",
+        "Details"
+      ],
+      "filters": [
+        "date_range",
+        "admin_filter",
+        "action_type_filter"
+      ]
+    },
+
+    "INTERACTIONS": {
+      "buttons": {
+        "primary": {
+          "background": "#FF7A00",
+          "text_color": "#000000",
+          "hover_background": "#FFA94D"
+        },
+        "secondary": {
+          "background": "#151515",
+          "text_color": "#FFFFFF",
+          "border_color": "#FF7A00"
+        },
+        "danger": {
+          "background": "#FF4D4D",
+          "text_color": "#FFFFFF"
+        }
+      },
+      "inputs": {
+        "background": "#101010",
+        "border_default": "#262626",
+        "border_focus": "#FF7A00",
+        "text_color": "#FFFFFF",
+        "placeholder_color": "#666666"
+      },
+      "modals": {
+        "background": "#101010",
+        "backdrop": "rgba(0,0,0,0.75)",
+        "border_radius": "12px"
+      },
+      "tables": {
+        "row_hover_background": "#181818",
+        "header_background": "#101010",
+        "header_text_color": "#B3B3B3",
+        "row_divider_color": "#202020"
+      }
+    }
+  }
+}
