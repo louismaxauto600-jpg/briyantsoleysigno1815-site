@@ -1,0 +1,33 @@
+{
+  "MIDDLEWARE": {
+    "auth": {
+      "verifyToken": "Validate JWT token, attach user to request",
+      "requireLogin": "Block access if user is not authenticated"
+    },
+
+    "roles": {
+      "isFan": "Allow only FAN role",
+      "isAdmin": "Allow only ADMIN role",
+      "isSuperAdmin": "Allow only SUPER ADMIN role",
+      "isAdminOrSuper": "Allow ADMIN or SUPER ADMIN"
+    },
+
+    "uploads": {
+      "validateFileType": "Check if file is photo/video",
+      "validateFileSize": "Block files larger than allowed size",
+      "sanitizeFilename": "Clean filename to prevent injection"
+    },
+
+    "security": {
+      "rateLimiter": "Limit requests per IP",
+      "xssProtection": "Block malicious HTML/JS payloads",
+      "sanitizeInput": "Clean request body/params/query",
+      "corsHandler": "Control allowed origins"
+    },
+
+    "logging": {
+      "requestLogger": "Log all incoming requests",
+      "adminActionLogger": "Track admin/super admin actions"
+    }
+  }
+}
