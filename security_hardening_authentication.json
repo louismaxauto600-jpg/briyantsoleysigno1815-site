@@ -1,0 +1,127 @@
+{
+  "SECURITY_HARDENING": {
+    "AUTHENTICATION": {
+      "jwt": {
+        "access_token_lifetime": "15m",
+        "refresh_token_lifetime": "7d",
+        "rotation": "enabled",
+        "blacklist_on_logout": true
+      },
+      "password_policy": {
+        "min_length": 12,
+        "require_uppercase": true,
+        "require_numbers": true,
+        "require_symbols": true
+      },
+      "2fa": {
+        "enabled_for_admins": true,
+        "enabled_for_super_admin": true,
+        "method": "TOTP"
+      }
+    },
+
+    "AUTHORIZATION": {
+      "rbac": {
+        "roles": ["SUPER_ADMIN", "ADMIN", "EDITOR", "VIEWER"],
+        "super_admin": "full_access",
+        "admin": "restricted_write",
+        "editor": "content_only",
+        "viewer": "read_only"
+      },
+      "route_protection": {
+        "leaders": ["ADMIN", "SUPER_ADMIN"],
+        "media": ["ADMIN", "SUPER_ADMIN"],
+        "categories": ["ADMIN", "SUPER_ADMIN"],
+        "permissions": ["SUPER_ADMIN"],
+        "logs": ["SUPER_ADMIN"]
+      }
+    },
+
+    "API_SECURITY": {
+      "rate_limiting": {
+        "enabled": true,
+        "window": "1m",
+        "max_requests": 60
+      },
+      "ip_filtering": {
+        "admin_panel": "allowlist_only",
+        "public_api": "blocklist_enabled"
+      },
+      "cors": {
+        "allowed_origins": ["netlify_frontend_url"],
+        "allowed_methods": ["GET", "POST", "PUT", "DELETE"],
+        "allowed_headers": ["Authorization", "Content-Type"]
+      },
+      "input_validation": {
+        "sanitize_html": true,
+        "sanitize_files": true,
+        "block_sql_injection": true,
+        "block_xss": true
+      }
+    },
+
+    "STORAGE_SECURITY": {
+      "firebase_rules": {
+        "leaders": "admin_only_write",
+        "media": "admin_only_write",
+        "categories": "admin_only_write",
+        "logs": "super_admin_only_write",
+        "public_read": false
+      },
+      "file_validation": {
+        "max_size": "10MB",
+        "allowed_types": ["jpg", "png", "mp4", "pdf"],
+        "virus_scan": "enabled"
+      }
+    },
+
+    "DATABASE_SECURITY": {
+      "firestore_rules": {
+        "leaders": "role >= ADMIN",
+        "media": "role >= ADMIN",
+        "categories": "role >= ADMIN",
+        "users": "role >= SUPER_ADMIN",
+        "logs": "role >= SUPER_ADMIN"
+      },
+      "backup_policy": {
+        "frequency": "daily",
+        "retention": "30_days",
+        "encrypted": true
+      }
+    },
+
+    "ADMIN_PANEL_SECURITY": {
+      "session_timeout": "15m_inactivity",
+      "auto_logout": true,
+      "admin_activity_logging": true,
+      "suspicious_behavior_detection": true,
+      "ui_protection": {
+        "hide_super_admin_features_from_admins": true,
+        "lock_critical_actions_with_password": true
+      }
+    },
+
+    "SUPER_ADMIN_PROTECTIONS": {
+      "root_lock": true,
+      "cannot_be_deleted": true,
+      "cannot_be_demoted": true,
+      "ip_lock": "required",
+      "2fa_required": true,
+      "audit_every_action": true
+    },
+
+    "LOGGING_AND_MONITORING": {
+      "log_types": [
+        "auth_events",
+        "failed_logins",
+        "file_uploads",
+        "file_deletions",
+        "role_changes",
+        "category_changes",
+        "system_errors",
+        "security_alerts"
+      ],
+      "alerting": {
+        "failed_login_threshold": 5,
+        "notify_super_admin": true,
+        "notify
