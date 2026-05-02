@@ -1,4 +1,4 @@
-const twilio = require('twilio');
+const twilio = require("twilio");
 
 exports.handler = async function () {
   const client = twilio(
@@ -6,14 +6,30 @@ exports.handler = async function () {
     process.env.TWILIO_AUTH_TOKEN
   );
 
-  await client.messages.create({
-    from: 'whatsapp:+14155238886',
-    to: 'whatsapp:+509XXXXXXXX',
-    body: 'BSS1815 TEST OK'
-  });
+  const numbers = [
+    "whatsapp:+13175381150",
+    "whatsapp:+14076405166"
+  ];
+
+  const results = [];
+
+  for (const number of numbers) {
+    try {
+      const msg = await client.messages.create({
+        from: "whatsapp:+14155238886",
+        to: number,
+        body: "🔥 BSS1815 Broadcast ap mache pou tout moun!"
+      });
+
+      results.push({ to: number, status: "sent" });
+
+    } catch (error) {
+      results.push({ to: number, status: "failed", error: error.message });
+    }
+  }
 
   return {
     statusCode: 200,
-    body: 'Message sent'
+    body: JSON.stringify(results)
   };
 };
