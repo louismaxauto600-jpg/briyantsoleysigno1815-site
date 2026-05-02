@@ -1,0 +1,124 @@
+{
+  "STATE_MANAGEMENT": {
+    "GLOBAL_STATE": {
+      "auth": {
+        "fields": ["user", "role", "token", "permissions"],
+        "actions": ["login", "logout", "refreshUser"],
+        "persists": true
+      },
+      "ui": {
+        "fields": ["sidebar_open", "theme_mode", "active_page"],
+        "actions": ["toggleSidebar", "setTheme", "setActivePage"],
+        "persists": true
+      },
+      "leaders": {
+        "fields": ["leaders_list", "selected_leader", "loading"],
+        "actions": ["fetchLeaders", "addLeader", "updateLeader", "deleteLeader"],
+        "persists": false
+      },
+      "media": {
+        "fields": ["media_list", "selected_media", "filters", "loading"],
+        "actions": ["fetchMedia", "uploadMedia", "updateMedia", "deleteMedia"],
+        "persists": false
+      },
+      "categories": {
+        "fields": ["categories_list", "selected_category"],
+        "actions": ["fetchCategories", "addCategory", "updateCategory", "deleteCategory"],
+        "persists": false
+      },
+      "permissions": {
+        "fields": ["users_list", "selected_user"],
+        "actions": ["fetchUsers", "changeRole", "revokeAccess"],
+        "persists": false
+      },
+      "logs": {
+        "fields": ["logs_list", "filters", "loading"],
+        "actions": ["fetchLogs", "filterLogs"],
+        "persists": false
+      }
+    },
+
+    "LOCAL_STATE": {
+      "forms": {
+        "LeaderForm": ["full_name", "role_title", "bio", "photo", "social_links", "status"],
+        "MediaUploadForm": ["file", "category", "description"],
+        "CategoryForm": ["name", "description"],
+        "PermissionsForm": ["role"]
+      },
+      "modals": {
+        "LeaderModal": ["open", "mode"],
+        "MediaUploadModal": ["open"],
+        "MediaPreviewModal": ["open", "media"],
+        "CategoryModal": ["open", "mode"]
+      },
+      "filters": {
+        "leaders": ["search", "role", "status"],
+        "media": ["category", "type", "date", "search"],
+        "logs": ["date_range", "admin", "action_type"]
+      }
+    },
+
+    "API_DRIVEN_STATE": {
+      "leaders": {
+        "GET /leaders/uploads": "populate leaders_list",
+        "POST /leaders/uploads": "update leaders_list",
+        "PUT /leaders/uploads/:id": "update leaders_list",
+        "DELETE /leaders/uploads/:id": "update leaders_list"
+      },
+      "media": {
+        "GET /products/media": "populate media_list",
+        "POST /products/media": "update media_list",
+        "PUT /products/media/:id": "update media_list",
+        "DELETE /products/media/:id": "update media_list"
+      },
+      "categories": {
+        "GET /categories": "populate categories_list",
+        "POST /categories": "update categories_list",
+        "PUT /categories/:id": "update categories_list",
+        "DELETE /categories/:id": "update categories_list"
+      },
+      "permissions": {
+        "GET /users": "populate users_list",
+        "PUT /users/:id/role": "update users_list",
+        "DELETE /users/:id": "update users_list"
+      },
+      "logs": {
+        "GET /system/logs": "populate logs_list"
+      }
+    },
+
+    "STATE_FLOW": {
+      "AddLeader": [
+        "open LeaderModal",
+        "local_state.form = filled",
+        "POST /leaders/uploads",
+        "update global.leaders_list",
+        "close modal"
+      ],
+      "UploadMedia": [
+        "open MediaUploadModal",
+        "local_state.form = filled",
+        "POST /products/media",
+        "update global.media_list",
+        "close modal"
+      ],
+      "EditCategory": [
+        "select category",
+        "open CategoryModal",
+        "PUT /categories/:id",
+        "update global.categories_list"
+      ],
+      "ChangePermissions": [
+        "select user",
+        "open PermissionsForm",
+        "PUT /users/:id/role",
+        "update global.users_list"
+      ],
+      "ViewLogs": [
+        "apply filters",
+        "GET /system/logs",
+        "update global.logs_list"
+      ]
+    }
+  }
+}
