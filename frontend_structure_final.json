@@ -1,0 +1,153 @@
+{
+  "FRONTEND_STRUCTURE_FINAL": {
+    "stack": "React (SPA) or Next.js (recommended)",
+    "root": {
+      "src/": {
+        "assets/": {
+          "icons/": "",
+          "images/": "",
+          "styles/": {
+            "globals.css": "",
+            "theme.css": ""
+          }
+        },
+
+        "config/": {
+          "api.config.ts": "",
+          "routes.config.ts": "",
+          "theme.config.ts": ""
+        },
+
+        "layouts/": {
+          "LeadersPanelLayout.tsx": "",
+          "AuthLayout.tsx": ""
+        },
+
+        "components/": {
+          "ui/": {
+            "Button.tsx": "",
+            "Input.tsx": "",
+            "Select.tsx": "",
+            "Badge.tsx": "",
+            "Card.tsx": "",
+            "Modal.tsx": "",
+            "Table.tsx": "",
+            "Tabs.tsx": "",
+            "Avatar.tsx": "",
+            "Tag.tsx": ""
+          },
+          "navigation/": {
+            "Sidebar.tsx": "",
+            "Topbar.tsx": "",
+            "Breadcrumbs.tsx": ""
+          },
+          "dashboard/": {
+            "StatCard.tsx": "",
+            "RecentActivityList.tsx": ""
+          },
+          "leaders/": {
+            "LeadersTable.tsx": "",
+            "LeaderRow.tsx": "",
+            "LeaderForm.tsx": "",
+            "LeaderStatusBadge.tsx": ""
+          },
+          "media/": {
+            "MediaGrid.tsx": "",
+            "MediaCard.tsx": "",
+            "MediaFilters.tsx": "",
+            "MediaUploadForm.tsx": "",
+            "MediaPreviewModal.tsx": ""
+          },
+          "categories/": {
+            "CategoryList.tsx": "",
+            "CategoryDetails.tsx": "",
+            "CategoryForm.tsx": ""
+          },
+          "permissions/": {
+            "UserPermissionsTable.tsx": "",
+            "RoleBadge.tsx": ""
+          },
+          "logs/": {
+            "LogsTable.tsx": "",
+            "LogFilters.tsx": ""
+          }
+        },
+
+        "pages/": {
+          "index.tsx": "",
+          "login.tsx": "",
+          "leaders-panel/": {
+            "index.tsx": "",
+            "dashboard.tsx": "",
+            "leaders.tsx": "",
+            "media.tsx": "",
+            "categories.tsx": "",
+            "permissions.tsx": "",
+            "logs.tsx": ""
+          }
+        },
+
+        "hooks/": {
+          "useAuth.ts": "",
+          "useSidebar.ts": "",
+          "useTheme.ts": "",
+          "usePagination.ts": "",
+          "useFilters.ts": ""
+        },
+
+        "store/": {
+          "index.ts": "",
+          "auth.store.ts": "",
+          "leaders.store.ts": "",
+          "media.store.ts": "",
+          "categories.store.ts": "",
+          "permissions.store.ts": "",
+          "logs.store.ts": ""
+        },
+
+        "services/": {
+          "apiClient.ts": "",
+          "leaders.api.ts": "",
+          "media.api.ts": "",
+          "categories.api.ts": "",
+          "permissions.api.ts": "",
+          "logs.api.ts": "",
+          "auth.api.ts": ""
+        },
+
+        "types/": {
+          "leader.types.ts": "",
+          "media.types.ts": "",
+          "category.types.ts": "",
+          "user.types.ts": "",
+          "log.types.ts": ""
+        },
+
+        "utils/": {
+          "formatDate.ts": "",
+          "formatStatus.ts": "",
+          "classNames.ts": "",
+          "pagination.ts": ""
+        },
+
+        "providers/": {
+          "ThemeProvider.tsx": "",
+          "AuthProvider.tsx": "",
+          "StoreProvider.tsx": ""
+        },
+
+        "App.tsx": "",
+        "main.tsx": ""
+      },
+
+      "public/": {
+        "favicon.ico": "",
+        "logo.png": ""
+      },
+
+      "package.json": "",
+      "tsconfig.json": "",
+      "README.md": ""
+    }
+  }
+}
