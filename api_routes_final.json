@@ -1,0 +1,56 @@
+{
+  "API_ROUTES": {
+    "FAN_UPLOADS": {
+      "POST /fan/uploads": "Fan uploads media (photo/video)",
+      "GET /fan/uploads/:id": "Get single fan upload",
+      "GET /fan/uploads/pending": "Admin fetch pending uploads",
+      "PUT /fan/uploads/:id/approve": "Admin approves fan upload",
+      "PUT /fan/uploads/:id/reject": "Admin rejects fan upload",
+      "DELETE /fan/uploads/:id": "Admin or Super Admin deletes fan upload"
+    },
+
+    "LEADERS_UPLOADS": {
+      "POST /leaders/uploads": "Admin or Super Admin uploads media",
+      "GET /leaders/uploads": "Fetch all leaders uploads",
+      "GET /leaders/uploads/:id": "Fetch single leader upload",
+      "PUT /leaders/uploads/:id": "Edit leader upload",
+      "DELETE /leaders/uploads/:id": "Delete leader upload"
+    },
+
+    "PRODUCTS_MEDIA": {
+      "POST /products/media": "Upload product image/video",
+      "GET /products/media": "Get all product media",
+      "GET /products/media/:id": "Get single product media",
+      "PUT /products/media/:id": "Edit product media",
+      "DELETE /products/media/:id": "Delete product media"
+    },
+
+    "BANNERS_LIBRARY": {
+      "POST /banners": "Upload banner",
+      "GET /banners": "Get all banners",
+      "GET /banners/:id": "Get single banner",
+      "PUT /banners/:id": "Edit banner",
+      "DELETE /banners/:id": "Delete banner"
+    },
+
+    "EVENTS_MEDIA": {
+      "POST /events/media": "Upload event media",
+      "GET /events/media": "Get all event media",
+      "GET /events/media/:id": "Get single event media",
+      "PUT /events/media/:id": "Edit event media",
+      "DELETE /events/media/:id": "Delete event media"
+    },
+
+    "SYSTEM": {
+      "GET /system/health": "Check API health",
+      "GET /system/stats": "Get media library statistics",
+      "GET /system/logs": "Super Admin only — view logs"
+    },
+
+    "AUTH": {
+      "POST /auth/login": "User login",
+      "POST /auth/logout": "User logout",
+      "GET /auth/me": "Get current user info"
+    }
+  }
+}
