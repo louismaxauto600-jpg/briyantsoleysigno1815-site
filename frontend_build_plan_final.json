@@ -1,0 +1,95 @@
+{
+  "FRONTEND_BUILD_PLAN_FINAL": {
+    "PHASE_1_SETUP": {
+      "1": "Initialize project (Next.js recommended)",
+      "2": "Install dependencies (React Query, Zustand/Redux, Axios, React Router if SPA)",
+      "3": "Create folder structure EXACTLY as defined",
+      "4": "Configure theme provider (orange + black fade)",
+      "5": "Configure API client with baseURL + interceptors"
+    },
+
+    "PHASE_2_CORE_LAYOUT": {
+      "1": "Build Sidebar (static first, dynamic later)",
+      "2": "Build Topbar (search, notifications, user menu)",
+      "3": "Build PageContainer wrapper",
+      "4": "Integrate layout into routing system"
+    },
+
+    "PHASE_3_AUTH_SYSTEM": {
+      "1": "Build Login Page",
+      "2": "Implement AuthProvider",
+      "3": "Connect login to POST /auth/login",
+      "4": "Store token + user in global state",
+      "5": "Protect routes (redirect if not logged in)"
+    },
+
+    "PHASE_4_DASHBOARD": {
+      "1": "Build StatCard component",
+      "2": "Build RecentActivityList",
+      "3": "Connect to GET /system/stats",
+      "4": "Connect to GET /system/logs?limit=10"
+    },
+
+    "PHASE_5_LEADERS_MODULE": {
+      "1": "Build LeadersTable",
+      "2": "Build LeaderRow",
+      "3": "Build LeaderForm + Modal",
+      "4": "Connect to GET /leaders/uploads",
+      "5": "Connect Add Leader → POST /leaders/uploads",
+      "6": "Connect Edit Leader → PUT /leaders/uploads/:id",
+      "7": "Connect Delete Leader → DELETE /leaders/uploads/:id"
+    },
+
+    "PHASE_6_MEDIA_MODULE": {
+      "1": "Build MediaGrid",
+      "2": "Build MediaCard",
+      "3": "Build MediaFilters",
+      "4": "Build MediaUploadModal",
+      "5": "Build MediaPreviewModal",
+      "6": "Connect to GET /products/media",
+      "7": "Connect Upload → POST /products/media",
+      "8": "Connect Edit → PUT /products/media/:id",
+      "9": "Connect Delete → DELETE /products/media/:id"
+    },
+
+    "PHASE_7_CATEGORIES_MODULE": {
+      "1": "Build CategoryList",
+      "2": "Build CategoryDetails",
+      "3": "Build CategoryFormModal",
+      "4": "Connect to GET /categories",
+      "5": "Connect Add → POST /categories",
+      "6": "Connect Edit → PUT /categories/:id",
+      "7": "Connect Delete → DELETE /categories/:id"
+    },
+
+    "PHASE_8_PERMISSIONS_MODULE": {
+      "1": "Build UserPermissionsTable",
+      "2": "Build RoleBadge",
+      "3": "Build PermissionsForm",
+      "4": "Connect to GET /users",
+      "5": "Connect Change Role → PUT /users/:id/role",
+      "6": "Connect Revoke Access → DELETE /users/:id"
+    },
+
+    "PHASE_9_LOGS_MODULE": {
+      "1": "Build LogsTable",
+      "2": "Build LogFilters",
+      "3": "Connect to GET /system/logs"
+    },
+
+    "PHASE_10_GLOBAL_POLISH": {
+      "1": "Add loading states",
+      "2": "Add error states",
+      "3": "Add toast notifications",
+      "4": "Add responsive behavior",
+      "5": "Add animations (subtle, pro)"
+    },
+
+    "PHASE_11_FINALIZATION": {
+      "1": "Run full QA test",
+      "2": "Fix UI inconsistencies",
+      "3": "Optimize API calls",
+      "4": "Prepare for deployment"
+    }
+  }
+}
