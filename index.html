@@ -341,7 +341,13 @@
   <form id="uploadForm">
     <input type="text" id="fanName" placeholder="Non ou" required>
     <textarea id="fanMessage" placeholder="Mesaj ou pou BSS 1815" required></textarea>
-
+<script>
+document.getElementById("fanFile").addEventListener("change", function () {
+    if (this.files && this.files.length > 0) {
+        this.style.color = "#FFA500"; // Orange pou matche ak BSS
+    }
+});
+</script>
     <input type="file" id="fanFile" accept="image/*,video/*" required>
 
     <button type="submit">UPLOAD NOW</button>
