@@ -594,3 +594,30 @@ body {
     75%  { transform: translateY(2px) rotate(1.5deg); }
     100% { transform: translateY(0) rotate(0deg); }
 }
+/* ... dènye blòk ou te deja genyen ... */
+
+}  /* dènye '}' ki te deja nan fichye a */
+
+/* =========================================================
+   BSS1815 — FINAL OVERRIDES (REMOVE ALL WHITE)
+   ========================================================= */
+.lang-btn {
+    background: #000000 !important;
+    color: #ff7a00 !important;
+    border: none !important;
+}
+
+.product-card,
+.store-item,
+.item-box {
+    background: #000000 !important;
+    border: 1px solid #ff7a00 !important;
+    color: #ff7a00 !important;
+}
+
+.buy-btn,
+.cart-btn {
+    background: #ff7a00 !important;
+    color: #000000 !important;
+    border: none !important;
+}
