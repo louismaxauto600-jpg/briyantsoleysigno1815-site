@@ -1,45 +1,34 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const twilio = require("twilio");
+import express from "express";
+import dotenv from "dotenv";
+import twilio from "twilio";
+import cors from "cors";
 
+dotenv.config();
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors());
 
-// Twilio credentials
-const accountSid = process.env.TWILIO_SID;
-const authToken = process.env.TWILIO_TOKEN;
-const client = twilio(accountSid, authToken);
+const client = twilio(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
 
-// WhatsApp numbers
-const FROM = "whatsapp:+14155238886"; // Twilio Sandbox
-const TO = "whatsapp:+509XXXXXXXX";  // Nimewo ou vle voye mesaj la
-
-// Send WhatsApp message
-app.get("/send", async (req, res) => {
+app.post("/send-whatsapp", async (req, res) => {
   try {
-    const message = await client.messages.create({
-      from: FROM,
-      to: TO,
-      body: "BSS1815 WhatsApp PRO‑MAX connected successfully!"
+    const { message, to } = req.body;
+
+    const response = await client.messages.create({
+      from: process.env.TWILIO_WHATSAPP_NUMBER,
+      to: `whatsapp:${to}`,
+      body: message,
     });
 
-    res.send("Message sent: " + message.sid);
-  } catch (err) {
-    res.send("Error: " + err.message);
+    res.json({ success: true, sid: response.sid });
+  } catch (error) {
+    res.json({ success: false, error: error.message });
   }
 });
 
-// Receive WhatsApp messages
-app.post("/whatsapp", (req, res) => {
-  const MessagingResponse = twilio.twiml.MessagingResponse;
-  const twiml = new MessagingResponse();
-
-  const incoming = req.body.Body;
-
-  twiml.message(`Mwen resevwa mesaj ou: ${incoming}`);
-
-  res.writeHead(200, { "Content-Type": "text/xml" });
-  res.end(twiml.toString());
+app.listen(3000, () => {
+  console.log("WHATSAPP TWILIO SERVER RUNNING ON PORT 3000");
 });
-
-app.listen(3000, () => console.log("Server running on port 3000"));
