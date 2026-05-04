@@ -12,29 +12,22 @@ body{
   margin:0;
   padding:20px;
 }
-
-h1{
-  text-align:center;
-}
-
+h1{text-align:center;}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:15px;
   margin-top:20px;
 }
-
 .card{
   border:1px solid #ff7a00;
   border-radius:12px;
   overflow:hidden;
 }
-
 .card img, .card video{
   width:100%;
   display:block;
 }
-
 </style>
 </head>
 
@@ -42,32 +35,20 @@ h1{
 
 <h1>🔥 BSS1815 MEDIA LIBRARY 🔥</h1>
 
-<div class="grid" id="mediaGrid"></div>
+<div class="grid">
+  <!-- PUT YOUR REAL FILE PATHS HERE -->
+  <div class="card">
+    <img src="images/dirijan/maximax.jpg">
+  </div>
 
-<script>
-const media = [
-  { type:"image", src:"images/media/photo1.jpg" },
-  { type:"image", src:"images/media/photo2.jpg" },
-  { type:"video", src:"videos/video1.mp4" }
-];
+  <div class="card">
+    <img src="images/dirijan/ygens.jpg">
+  </div>
 
-const grid = document.getElementById("mediaGrid");
-
-media.forEach(item=>{
-  const div = document.createElement("div");
-  div.className="card";
-
-  if(item.type==="image"){
-    div.innerHTML = `<img src="${item.src}">`;
-  }
-
-  if(item.type==="video"){
-    div.innerHTML = `<video controls src="${item.src}"></video>`;
-  }
-
-  grid.appendChild(div);
-});
-</script>
+  <div class="card">
+    <video controls src="videos/video1.mp4"></video>
+  </div>
+</div>
 
 </body>
 </html>
