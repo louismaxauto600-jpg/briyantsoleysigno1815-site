@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="ht">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BSS1815 Media Library</title>
 
 <style>
@@ -12,21 +13,29 @@ body{
   margin:0;
   padding:20px;
 }
-h1{text-align:center;}
+h1{text-align:center;text-transform:uppercase}
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-  margin-top:20px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin-top:25px;
 }
 .card{
   border:1px solid #ff7a00;
-  border-radius:12px;
+  border-radius:14px;
   overflow:hidden;
+  background:#050505;
 }
-.card img, .card video{
+.card img,.card video{
   width:100%;
+  height:260px;
+  object-fit:cover;
   display:block;
+}
+.caption{
+  padding:10px;
+  text-align:center;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -35,34 +44,41 @@ h1{text-align:center;}
 
 <h1>🔥 BSS1815 MEDIA LIBRARY 🔥</h1>
 
-<div class="grid" id="gallery"></div>
+<div class="grid" id="mediaGrid"></div>
 
 <script>
-const images = [
-  "images/dirijan/maximax.jpg",
-  "images/dirijan/ygens.jpg"
+// 🔥 METE NON FILE OU YO ISIT
+const media = [
+  "photo1.jpg",
+  "photo2.jpeg",
+  "image3.png",
+  "video1.mp4",
+  "video2.mp4"
 ];
 
-const videos = [
-  "videos/video1.mp4"
-];
+// 🔥 PATH OU (OU DEJA GEN SA)
+const imagePath = "images/media/";
+const videoPath = "videos/";
 
-const gallery = document.getElementById("gallery");
+const grid = document.getElementById("mediaGrid");
 
-images.forEach(src=>{
-  gallery.innerHTML += `
-    <div class="card">
-      <img src="${src}">
-    </div>
-  `;
-});
+media.forEach(file => {
+  const card = document.createElement("div");
+  card.className = "card";
 
-videos.forEach(src=>{
-  gallery.innerHTML += `
-    <div class="card">
-      <video controls src="${src}"></video>
-    </div>
-  `;
+  if(file.endsWith(".mp4")){
+    card.innerHTML = `
+      <video controls src="${videoPath + file}"></video>
+      <div class="caption">${file}</div>
+    `;
+  } else {
+    card.innerHTML = `
+      <img src="${imagePath + file}">
+      <div class="caption">${file}</div>
+    `;
+  }
+
+  grid.appendChild(card);
 });
 </script>
 
