@@ -150,6 +150,14 @@ async function sendBroadcast(){
   }
 }
 </script>
+async function checkAdmin(email){
+  const res = await fetch("/.netlify/functions/check-admin",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({email})
+  });
 
+  return await res.json();
+}
 </body>
 </html>
