@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ht">
 <head>
@@ -34,6 +35,7 @@ input,textarea,button{
   background:#000;
   color:#ff7a00;
   font-size:16px;
+  box-sizing:border-box;
 }
 textarea{height:150px}
 button{
@@ -43,15 +45,11 @@ button{
   cursor:pointer;
 }
 #broadcastArea{display:none}
-#status{margin-top:15px;white-space:pre-wrap;text-align:center}
+#status,#loginStatus{margin-top:15px;white-space:pre-wrap;text-align:center}
 </style>
 </head>
 
-<body>await client.messages.create({
-  from: "whatsapp:+14155238886",
-  to: number,
-  body: "🔥 BSS1815 Broadcast ap mache pou tout moun!"
-});
+<body>
 
 <div class="panel">
 
@@ -106,7 +104,7 @@ function loginAdmin(){
 
   auth.signInWithEmailAndPassword(email,password)
     .then(()=>document.getElementById("loginStatus").innerText="Login success ✅")
-    .catch(err=>document.getElementById("loginStatus").innerText="Access denied ❌");
+    .catch(()=>document.getElementById("loginStatus").innerText="Access denied ❌");
 }
 
 function logoutAdmin(){
@@ -115,7 +113,7 @@ function logoutAdmin(){
 
 async function sendBroadcast(){
   const user=auth.currentUser;
-  const msg=document.getElementById("message").value;
+  const msg=document.getElementById("message").value.trim();
 
   if(!user){
     document.getElementById("status").innerText="Login required ❌";
@@ -129,29 +127,29 @@ async function sendBroadcast(){
 
   document.getElementById("status").innerText="Sending...";
 
-  const token=await user.getIdToken();
+  try{
+    const token=await user.getIdToken();
 
-  fetch("/.netlify/functions/send-broadcast",{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json",
-      "Authorization":"Bearer "+token
-    },
-    body:JSON.stringify({
-      group:"all",
-      message:msg
-    })
-  })
-  .then(res=>res.json())
-  .then(data=>{
+    const res = await fetch("/.netlify/functions/send-broadcast",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"Bearer "+token
+      },
+      body:JSON.stringify({
+        group:"all",
+        message:msg
+      })
+    });
+
+    const data = await res.json();
     document.getElementById("status").innerText=JSON.stringify(data,null,2);
-  })
-  .catch(err=>{
-    document.getElementById("status").innerText="Error ❌";
-  });
+
+  }catch(err){
+    document.getElementById("status").innerText="Error ❌ " + err.message;
+  }
 }
 </script>
 
 </body>
-  </html>
-LOVE
+</html>
