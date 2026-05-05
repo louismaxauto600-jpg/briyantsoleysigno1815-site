@@ -1,4 +1,6 @@
-/* BACKGROUND GLOBAL BSS1815 */
+/* =========================================================
+   BACKGROUND GLOBAL BSS1815
+   ========================================================= */
 body {
   margin: 0;
   background: radial-gradient(circle at center,
@@ -9,7 +11,9 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* HERO SECTION */
+/* =========================================================
+   HERO SECTION + SLIDESHOW
+   ========================================================= */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -20,7 +24,6 @@ body {
   box-sizing: border-box;
 }
 
-/* SLIDESHOW WRAPPER */
 .hero-slideshow-wrapper {
   position: relative;
   width: 100%;
@@ -29,33 +32,68 @@ body {
   border-radius: 18px;
 }
 
-/* SLIDESHOW IMAGES */
-.hero-slideshow-wrapper img {
+.hero-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255,122,0,.35);
+}
+
+.slider-container {
+  position: relative;
   width: 100%;
   height: 520px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: fadeSlide 190s infinite;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center 12%;
   display: block;
   filter: brightness(1.08) contrast(1.03);
 }
 
-/* AJOUTE BLOK OU MANDE A */
-.slide img {
-  object-position: center 12%;
+/* DELAY POU 19 SLIDE YO */
+.slide:nth-child(1)  { animation-delay: 0s; }
+.slide:nth-child(2)  { animation-delay: 10s; }
+.slide:nth-child(3)  { animation-delay: 20s; }
+.slide:nth-child(4)  { animation-delay: 30s; }
+.slide:nth-child(5)  { animation-delay: 40s; }
+.slide:nth-child(6)  { animation-delay: 50s; }
+.slide:nth-child(7)  { animation-delay: 60s; }
+.slide:nth-child(8)  { animation-delay: 70s; }
+.slide:nth-child(9)  { animation-delay: 80s; }
+.slide:nth-child(10) { animation-delay: 90s; }
+.slide:nth-child(11) { animation-delay: 100s; }
+.slide:nth-child(12) { animation-delay: 110s; }
+.slide:nth-child(13) { animation-delay: 120s; }
+.slide:nth-child(14) { animation-delay: 130s; }
+.slide:nth-child(15) { animation-delay: 140s; }
+.slide:nth-child(16) { animation-delay: 150s; }
+.slide:nth-child(17) { animation-delay: 160s; }
+.slide:nth-child(18) { animation-delay: 170s; }
+.slide:nth-child(19) { animation-delay: 180s; }
+
+@keyframes fadeSlide {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 
-.slide-text {
-  left: 12px;
-  right: 12px;
-  width: auto;
-  bottom: 12px;
-  padding: 14px 14px 12px;
-}
-
-/* SLIDE TEXT — BOX */
+/* SLIDE TEXT BOX */
 .slide-text {
   position: absolute;
   left: 18px;
-  right: auto;
   bottom: 18px;
   z-index: 3;
   width: min(52%, 560px);
@@ -65,24 +103,22 @@ body {
   border-radius: 18px;
 }
 
-/* SLIDE TEXT — TIT */
 .slide-text h2 {
   font-size: clamp(20px, 3vw, 34px);
   text-transform: uppercase;
   line-height: 1.02;
   margin-bottom: 8px;
-  color: var(--orange);
+  color: #ff7a00;
 }
 
-/* SLIDE TEXT — PARAGRAF */
 .slide-text p {
   font-size: clamp(12px, 1.25vw, 15px);
   line-height: 1.45;
   max-width: 100%;
-  color: var(--orange);
+  color: #ff7a00;
 }
 
-/* MASK TEKST */
+/* MASK TEKST HERO */
 .hero-content {
   position: absolute;
   inset: 0;
@@ -94,7 +130,6 @@ body {
   pointer-events: none;
 }
 
-/* TEKST BOX */
 .hero-text-box {
   max-width: 60%;
   background: linear-gradient(
@@ -108,7 +143,6 @@ body {
   pointer-events: auto;
 }
 
-/* TIT */
 .hero-title {
   font-size: 1.9rem;
   line-height: 1.15;
@@ -119,7 +153,6 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* SOUS-TIT */
 .hero-subtitle {
   font-size: 0.98rem;
   line-height: 1.5;
@@ -127,7 +160,6 @@ body {
   margin: 0 0 0.8rem;
 }
 
-/* CTA BUTTON */
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -146,7 +178,9 @@ body {
   box-shadow: 0 0 22px rgba(0, 0, 0, 0.75);
 }
 
-/* NAVBAR */
+/* =========================================================
+   NAVBAR + LOGO STRIP
+   ========================================================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -166,7 +200,6 @@ body {
   );
 }
 
-/* LOGO */
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -179,7 +212,6 @@ body {
   display: block;
 }
 
-/* LOGO STRIP */
 .logo-strip {
   display: flex;
   align-items: center;
@@ -193,7 +225,6 @@ body {
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.9));
 }
 
-/* NAV LINKS */
 .nav-links {
   display: flex;
   align-items: center;
@@ -208,62 +239,9 @@ body {
   text-decoration: none;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero-slideshow-wrapper img {
-    height: 420px;
-  }
-
-  .hero-text-box {
-    max-width: 80%;
-    padding: 1.4rem 1.6rem 0.4rem;
-  }
-
-  .hero-title {
-    font-size: 1.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .navbar-logo img {
-    width: 110px;
-  }
-
-  .logo-strip img {
-    width: 100px;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-slideshow-wrapper img {
-    height: 360px;
-  }
-
-  .hero-text-box {
-    max-width: 100%;
-    padding: 1.2rem 1.3rem 0.4rem;
-  }
-
-  .hero-title {
-    font-size: 1.3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.86rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .nav-links a {
-    font-size: 0.78rem;
-  }
-}
-
-/* ABOUT BSS1815 — PRO-MAX */
+/* =========================================================
+   ABOUT BSS1815 — PRO-MAX
+   ========================================================= */
 .about-section {
   padding: 4rem 8vw;
   background: radial-gradient(circle at top, #1a1a1a 0%, #000 55%, #000 100%);
@@ -313,6 +291,201 @@ body {
   font-weight: 700;
 }
 
+/* =========================================================
+   ADMIN LOGIN — BSS 1815
+   ========================================================= */
+.admin-login-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.admin-login-box,
+.admin-panel-box {
+  border: 1px solid rgba(255,122,0,.35);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,122,0,.08), rgba(0,0,0,.96));
+  padding: 28px;
+  text-align: center;
+}
+
+.admin-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ff7a00;
+  margin: 0 auto 16px;
+  background: #000;
+}
+
+.admin-login-box h3,
+.admin-panel-box h3 {
+  color: #ff7a00;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.admin-login-box input {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 12px auto;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #ff7a00;
+  background: #000;
+  color: #ff7a00;
+  outline: none;
+}
+
+.admin-login-box input::placeholder {
+  color: #ff7a00;
+  opacity: .7;
+}
+
+.admin-login-box button,
+.logout-btn {
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid #ff7a00;
+  background: #000;
+  color: #ff7a00;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-login-box button:hover,
+.logout-btn:hover {
+  background: #ff7a00;
+  color: #000;
+}
+
+.admin-msg {
+  margin-top: 14px;
+  font-weight: 700;
+  color: #ff7a00;
+}
+
+.admin-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.admin-card {
+  border: 1px solid rgba(255,122,0,.35);
+  border-radius: 18px;
+  padding: 18px;
+  background: #000;
+}
+
+.admin-card h4 {
+  color: #ff7a00;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.admin-card p {
+  color: #ff7a00;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   KOUKOU ANIMASYON
+   ========================================================= */
+#koukou {
+  position: fixed;
+  top: 40px;
+  left: -220px;
+  width: 180px;
+  height: auto;
+  z-index: 9999;
+  pointer-events: none;
+  animation: koukouFlySequence 14s ease-in-out forwards;
+}
+
+#koukou .koukou-logo {
+  width: 100%;
+  height: auto;
+  animation: koukouFlap 0.45s ease-in-out infinite;
+}
+
+@keyframes koukouFlySequence {
+  0%   { left: -220px; top: 40px; opacity: 0; transform: scale(1) rotate(0deg); }
+  10%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(2deg); }
+  30%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(-2deg); }
+  45%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(0deg); }
+  60%  { left: 50%;    top: 40px; opacity: 1; transform: translateX(-50%) scale(1.05); }
+  80%  { left: 50%;    top: 40px; opacity: 1; transform: translateX(-50%) scale(1.05); }
+  95%  { left: 120%;   top: 40px; opacity: 1; transform: scale(1) rotate(0deg); }
+  100% { left: 140%;   top: 40px; opacity: 0; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes koukouFlap {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-2px) rotate(-1.5deg); }
+  50%  { transform: translateY(0) rotate(0deg); }
+  75%  { transform: translateY(2px) rotate(1.5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* =========================================================
+   FINAL OVERRIDES (REMOVE ALL WHITE)
+   ========================================================= */
+.lang-btn {
+  background: #000000 !important;
+  color: #ff7a00 !important;
+  border: none !important;
+}
+
+.product-card,
+.store-item,
+.item-box {
+  background: #000000 !important;
+  border: 1px solid #ff7a00 !important;
+  color: #ff7a00 !important;
+}
+
+.buy-btn,
+.cart-btn {
+  background: #ff7a00 !important;
+  color: #000000 !important;
+  border: none !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero-slideshow-wrapper img,
+  .slider-container {
+    height: 420px;
+  }
+
+  .hero-text-box {
+    max-width: 80%;
+    padding: 1.4rem 1.6rem 0.4rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .navbar-logo img {
+    width: 110px;
+  }
+
+  .logo-strip img {
+    width: 100px;
+  }
+}
+
 @media (max-width: 700px) {
   .about-section {
     padding: 3rem 6vw;
@@ -325,299 +498,30 @@ body {
   }
 }
 
-/* =========================================================
-   ADMIN LOGIN — BSS 1815
-   ========================================================= */
-
-.admin-login-wrap{
-  max-width:900px;
-  margin:0 auto;
-}
-
-.admin-login-box,
-.admin-panel-box{
-  border:1px solid rgba(255,122,0,.35);
-  border-radius:24px;
-  background:linear-gradient(180deg, rgba(255,122,0,.08), rgba(0,0,0,.96));
-  padding:28px;
-  text-align:center;
-}
-
-.admin-logo{
-  width:90px;
-  height:90px;
-  object-fit:cover;
-  border-radius:50%;
-  border:2px solid #ff7a00;
-  margin:0 auto 16px;
-  background:#000;
-}
-
-.admin-login-box h3,
-.admin-panel-box h3{
-  color:#ff7a00;
-  margin-bottom:16px;
-  text-transform:uppercase;
-}
-
-.admin-login-box input{
-  width:100%;
-  max-width:420px;
-  display:block;
-  margin:12px auto;
-  padding:14px 16px;
-  border-radius:14px;
-  border:1px solid #ff7a00;
-  background:#000;
-  color:#ff7a00;
-  outline:none;
-}
-
-.admin-login-box input::placeholder{
-  color:#ff7a00;
-  opacity:.7;
-}
-
-.admin-login-box button,
-.logout-btn{
-  margin-top:14px;
-  padding:12px 18px;
-  border-radius:999px;
-  border:1px solid #ff7a00;
-  background:#000;
-  color:#ff7a00;
-  font-weight:700;
-}
-
-.admin-login-box button:hover,
-.logout-btn:hover{
-  background:#ff7a00;
-  color:#000;
-}
-
-.admin-msg{
-  margin-top:14px;
-  font-weight:700;
-  color:#ff7a00;
-}
-
-.admin-panel-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:14px;
-  margin-top:22px;
-}
-
-.admin-card{
-  border:1px solid rgba(255,122,0,.35);
-  border-radius:18px;
-  padding:18px;
-  background:#000;
-}
-
-.admin-card h4{
-  color:#ff7a00;
-  margin-bottom:8px;
-  text-transform:uppercase;
-}
-
-.admin-card p{
-  color:#ff7a00;
-  line-height:1.6;
-/* OGMENTASYON 2 LOGO HOMEPAGE YO */
-.navbar-logo img {
-  width: 200px;
-  height: auto;
-}
-
-.logo-strip img {
-  width: 180px;
-  height: auto;
-}                         }
-#koukou {
-  position: absolute;
-  top: 40px;
-  right: -350px;
-  width: 180px;
-  opacity: 0;
-  animation: koukouFull 20s ease-in-out forwards;
-  z-index: 9999;
-}
-
-@keyframes koukouFull {
-  0% {
-    transform: translateX(350px) rotate(0deg);
-    opacity: 0;
+@media (max-width: 600px) {
+  .hero-slideshow-wrapper img,
+  .slider-container {
+    height: 360px;
   }
-  10% {
-    transform: translateX(0) rotate(5deg);
-    opacity: 1;
+
+  .hero-text-box {
+    max-width: 100%;
+    padding: 1.2rem 1.3rem 0.4rem;
   }
-  40% {
-    transform: translateX(0) rotate(-10deg) scale(1.03);
-    opacity: 1;
+
+  .hero-title {
+    font-size: 1.3rem;
   }
-  50% {
-    transform: translateX(0) rotate(10deg) scale(0.97);
-    opacity: 1;
+
+  .hero-subtitle {
+    font-size: 0.86rem;
   }
-  60% {
-    transform: translateX(0) rotate(-10deg) scale(1.03);
-    opacity: 1;
+
+  .nav-links {
+    gap: 1rem;
   }
-  80% {
-    transform: translateX(0) rotate(-15deg);
-    opacity: 1;
+
+  .nav-links a {
+    font-size: 0.78rem;
   }
-  100% {
-    transform: translateX(600px) rotate(-25deg);
-    opacity: 0;
-  }
-}
-
-#slideshow {
-  opacity: 0;
-  animation: slideAppear 1.2s ease-in forwards;
-  animation-delay: 20s;
-}
-
-@keyframes slideAppear {
-  from { opacity: 0; }
-  to { opacity: 1; }
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 60px;
-}
-
-.hero-slideshow-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  overflow: hidden;
-  border-radius: 18px;
-}
-
-.hero-slider{
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid rgba(255,122,0,.35);
-}
-
-.slider-container{
-  position: relative;
-  width: 100%;
-  height: 520px;
-}
-
-.slide{
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  animation: fadeSlide 190s infinite;
-}
-
-.slide img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 12%;
-  display: block;
-}
-
-.slide:nth-child(1){ animation-delay: 0s; }
-.slide:nth-child(2){ animation-delay: 10s; }
-.slide:nth-child(3){ animation-delay: 20s; }
-.slide:nth-child(4){ animation-delay: 30s; }
-.slide:nth-child(5){ animation-delay: 40s; }
-.slide:nth-child(6){ animation-delay: 50s; }
-.slide:nth-child(7){ animation-delay: 60s; }
-.slide:nth-child(8){ animation-delay: 70s; }
-.slide:nth-child(9){ animation-delay: 80s; }
-.slide:nth-child(10){ animation-delay: 90s; }
-.slide:nth-child(11){ animation-delay: 100s; }
-.slide:nth-child(12){ animation-delay: 110s; }
-.slide:nth-child(13){ animation-delay: 120s; }
-.slide:nth-child(14){ animation-delay: 130s; }
-.slide:nth-child(15){ animation-delay: 140s; }
-.slide:nth-child(16){ animation-delay: 150s; }
-.slide:nth-child(17){ animation-delay: 160s; }
-.slide:nth-child(18){ animation-delay: 170s; }
-.slide:nth-child(19){ animation-delay: 180s; }
-
-@keyframes fadeSlide{
-  0%{ opacity: 0; }
-  5%{ opacity: 1; }
-  95%{ opacity: 1; }
-  100%{ opacity: 0; }
-}
-}/* KOUKOU CONTAINER */
-#koukou {
-    position: fixed;
-    top: 40px;
-    left: -220px;
-    width: 180px;
-    height: auto;
-    z-index: 9999;
-    pointer-events: none;
-    animation: koukouFlySequence 14s ease-in-out forwards;
-}
-
-/* LOGO ANDEDAN KOUKOU (FLAP) */
-#koukou .koukou-logo {
-    width: 100%;
-    height: auto;
-    animation: koukouFlap 0.45s ease-in-out infinite;
-}
-
-/* SEKWANS: FLY-IN → PAUSE → MOVE → FLY-OUT */
-@keyframes koukouFlySequence {
-    0%   { left: -220px; top: 40px; opacity: 0; transform: scale(1) rotate(0deg); }
-    10%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(2deg); }
-    30%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(-2deg); }
-    45%  { left: 40px;   top: 40px; opacity: 1; transform: scale(1.05) rotate(0deg); }
-    60%  { left: 50%;    top: 40px; opacity: 1; transform: translateX(-50%) scale(1.05); }
-    80%  { left: 50%;    top: 40px; opacity: 1; transform: translateX(-50%) scale(1.05); }
-    95%  { left: 120%;   top: 40px; opacity: 1; transform: scale(1) rotate(0deg); }
-    100% { left: 140%;   top: 40px; opacity: 0; transform: scale(1) rotate(0deg); }
-}
-
-/* FLAP ZÈL / VIBRASYON LOGO A */
-@keyframes koukouFlap {
-    0%   { transform: translateY(0) rotate(0deg); }
-    25%  { transform: translateY(-2px) rotate(-1.5deg); }
-    50%  { transform: translateY(0) rotate(0deg); }
-    75%  { transform: translateY(2px) rotate(1.5deg); }
-    100% { transform: translateY(0) rotate(0deg); }
-}
-/* ... dènye blòk ou te deja genyen ... */
-
-}  /* dènye '}' ki te deja nan fichye a */
-
-/* =========================================================
-   BSS1815 — FINAL OVERRIDES (REMOVE ALL WHITE)
-   ========================================================= */
-.lang-btn {
-    background: #000000 !important;
-    color: #ff7a00 !important;
-    border: none !important;
-}
-
-.product-card,
-.store-item,
-.item-box {
-    background: #000000 !important;
-    border: 1px solid #ff7a00 !important;
-    color: #ff7a00 !important;
-}
-
-.buy-btn,
-.cart-btn {
-    background: #ff7a00 !important;
-    color: #000000 !important;
-    border: none !important;
-}
+    }
