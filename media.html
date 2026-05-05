@@ -1,18 +1,33 @@
-
 <!DOCTYPE html>
-<html lang="ht">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BSS1815 Media Library</title>
 
 <style>
-body{background:#000;color:#ff7a00;font-family:Arial;margin:0;padding:20px}
-h1{text-align:center;text-transform:uppercase}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:25px}
-.card{border:1px solid #ff7a00;border-radius:14px;overflow:hidden;background:#050505}
-.card img,.card video{width:100%;height:260px;object-fit:cover;display:block;background:#111}
-.caption{padding:12px;text-align:center;font-weight:900;text-transform:uppercase;border-top:1px solid #ff7a00}
+body{
+  background:#000;
+  color:#ff7a00;
+  font-family:Arial;
+  margin:0;
+  padding:20px;
+}
+h1{text-align:center;}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
+.card{
+  border:1px solid #ff7a00;
+  border-radius:12px;
+  overflow:hidden;
+}
+.card img, .card video{
+  width:100%;
+  display:block;
+}
 </style>
 </head>
 
@@ -20,34 +35,36 @@ h1{text-align:center;text-transform:uppercase}
 
 <h1>🔥 BSS1815 MEDIA LIBRARY 🔥</h1>
 
-<div class="grid">
+<div class="grid" id="gallery"></div>
 
-  <div class="card">
-    <img src="images/dirijan/maximax.jpg" alt="MAXIMAX">
-    <div class="caption">MAXIMAX</div>
-  </div>
+<script>
+const images = [
+  "images/dirijan/maximax.jpg",
+  "images/dirijan/ygens.jpg"
+];
 
-  <div class="card">
-    <img src="images/dirijan/ygens.jpg" alt="Ygens">
-    <div class="caption">Ygens</div>
-  </div>
+const videos = [
+  "videos/video1.mp4"
+];
 
-  <div class="card">
-    <img src="images/dirijan/kevin-blaise.jpg" alt="Kevin Blaise">
-    <div class="caption">Kevin Blaise</div>
-  </div>
+const gallery = document.getElementById("gallery");
 
-  <div class="card">
-    <img src="images/dirijan/evens-elie.jpg" alt="Evens Elie">
-    <div class="caption">Evens Elie</div>
-  </div>
+images.forEach(src=>{
+  gallery.innerHTML += `
+    <div class="card">
+      <img src="${src}">
+    </div>
+  `;
+});
 
-  <div class="card">
-    <video controls src="videos/video1.mp4"></video>
-    <div class="caption">BSS Video 1</div>
-  </div>
-
-</div>
+videos.forEach(src=>{
+  gallery.innerHTML += `
+    <div class="card">
+      <video controls src="${src}"></video>
+    </div>
+  `;
+});
+</script>
 
 </body>
 </html>
