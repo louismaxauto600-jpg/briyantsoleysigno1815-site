@@ -1,10 +1,7 @@
-<!-- COPY+PASTE TOUT SA A NAN: media.html -->
-
 <!DOCTYPE html>
-<html lang="ht">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BSS1815 Media Library</title>
 
 <style>
@@ -15,30 +12,21 @@ body{
   margin:0;
   padding:20px;
 }
-h1{text-align:center;text-transform:uppercase}
+h1{text-align:center;}
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:16px;
-  margin-top:25px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-top:20px;
 }
 .card{
   border:1px solid #ff7a00;
-  border-radius:14px;
+  border-radius:12px;
   overflow:hidden;
-  background:#050505;
 }
-.card img,.card video{
+.card img, .card video{
   width:100%;
-  height:260px;
-  object-fit:cover;
   display:block;
-}
-.caption{
-  padding:10px;
-  text-align:center;
-  font-weight:bold;
-  border-top:1px solid #ff7a00;
 }
 </style>
 </head>
@@ -47,86 +35,36 @@ h1{text-align:center;text-transform:uppercase}
 
 <h1>🔥 BSS1815 MEDIA LIBRARY 🔥</h1>
 
-<div class="grid">
+<div class="grid" id="gallery"></div>
 
-  <!-- 📸 IMAGES -->
-  <div class="card"><img src="images/media/fanfan.jpg"><div class="caption">fanfan</div></div>
-  <div class="card"><img src="images/media/cange1.jpg"><div class="caption">cange1</div></div>
-  <div class="card"><img src="images/media/Valdos.jpg"><div class="caption">Valdos</div></div>
-  <div class="card"><img src="images/media/asmide.jpg"><div class="caption">asmide</div></div>
-  <div class="card"><img src="images/media/ygens.jpg"><div class="caption">ygens</div></div>
-  <div class="card"><img src="images/media/tania.jpg"><div class="caption">tania</div></div>
-  <div class="card"><img src="images/media/ralph.jpg"><div class="caption">ralph</div></div>
-  <div class="card"><img src="images/media/may.jpg"><div class="caption">may</div></div>
-  <div class="card"><img src="images/media/may-t.jpg"><div class="caption">may-t</div></div>
-  <div class="card"><img src="images/media/mario.jpg"><div class="caption">mario</div></div>
-  <div class="card"><img src="images/media/macu1.jpg"><div class="caption">macu1</div></div>
-  <div class="card"><img src="images/media/james.jpg"><div class="caption">james</div></div>
-  <div class="card"><img src="images/media/emaze.jpg"><div class="caption">emaze</div></div>
-  <div class="card"><img src="images/media/badin.jpg"><div class="caption">badin</div></div>
-  <div class="card"><img src="images/media/prez.jpg"><div class="caption">prez</div></div>
-  <div class="card"><img src="images/media/Yole.jpg"><div class="caption">Yole</div></div>
-  <div class="card"><img src="images/media/roro.jpg"><div class="caption">roro</div></div>
-  <div class="card"><img src="images/media/ones.jpg"><div class="caption">ones</div></div>
+<script>
+const images = [
+  "images/dirijan/maximax.jpg",
+  "images/dirijan/ygens.jpg"
+];
 
-  <div class="card"><img src="images/media/roro23.jpeg"><div class="caption">roro23</div></div>
-  <div class="card"><img src="images/media/only-u.jpeg"><div class="caption">only-u</div></div>
-  <div class="card"><img src="images/media/ones-1.jpeg"><div class="caption">ones-1</div></div>
-  <div class="card"><img src="images/media/magaz.jpeg"><div class="caption">magaz</div></div>
-  <div class="card"><img src="images/media/landry.jpeg"><div class="caption">landry</div></div>
-  <div class="card"><img src="images/media/elson2.jpeg"><div class="caption">elson2</div></div>
-  <div class="card"><img src="images/media/doudou.jpeg"><div class="caption">doudou</div></div>
-  <div class="card"><img src="images/media/caldos.jpeg"><div class="caption">caldos</div></div>
-  <div class="card"><img src="images/media/brunel.jpeg"><div class="caption">brunel</div></div>
-  <div class="card"><img src="images/media/jude-j.jpeg"><div class="caption">jude-j</div></div>
-  <div class="card"><img src="images/media/yole1.jpeg"><div class="caption">yole1</div></div>
-  <div class="card"><img src="images/media/rooso.jpeg"><div class="caption">rooso</div></div>
-  <div class="card"><img src="images/media/nadia.jpeg"><div class="caption">nadia</div></div>
-  <div class="card"><img src="images/media/kendy.jpeg"><div class="caption">kendy</div></div>
-  <div class="card"><img src="images/media/flore.jpeg"><div class="caption">flore</div></div>
-  <div class="card"><img src="images/media/cange.jpeg"><div class="caption">cange</div></div>
-  <div class="card"><img src="images/media/baron.jpeg"><div class="caption">baron</div></div>
-  <div class="card"><img src="images/media/andre.jpeg"><div class="caption">andre</div></div>
-  <div class="card"><img src="images/media/zeze.jpeg"><div class="caption">zeze</div></div>
-  <div class="card"><img src="images/media/yple.jpeg"><div class="caption">yple</div></div>
-  <div class="card"><img src="images/media/tsp2.jpeg"><div class="caption">tsp2</div></div>
-  <div class="card"><img src="images/media/may2.jpeg"><div class="caption">may2</div></div>
-  <div class="card"><img src="images/media/maxo.jpeg"><div class="caption">maxo</div></div>
-  <div class="card"><img src="images/media/macu.jpeg"><div class="caption">macu</div></div>
-  <div class="card"><img src="images/media/cols.jpeg"><div class="caption">cols</div></div>
-  <div class="card"><img src="images/media/ange.jpeg"><div class="caption">ange</div></div>
-  <div class="card"><img src="images/media/andy.jpeg"><div class="caption">andy</div></div>
+const videos = [
+  "videos/video1.mp4"
+];
 
-  <!-- 🎬 VIDEOS -->
-  <div class="card"><video controls src="videos/vid1.mp4"></video><div class="caption">vid1</div></div>
-  <div class="card"><video controls src="videos/vid4.mp4"></video><div class="caption">vid4</div></div>
-  <div class="card"><video controls src="videos/koukou.mp4"></video><div class="caption">koukou</div></div>
-  <div class="card"><video controls src="videos/magazen.mp4"></video><div class="caption">magazen</div></div>
-  <div class="card"><video controls src="videos/magazen3.mp4"></video><div class="caption">magazen3</div></div>
-  <div class="card"><video controls src="videos/vview-vid.mp4"></video><div class="caption">vview</div></div>
-  <div class="card"><video controls src="videos/video-vide.mp4"></video><div class="caption">vide</div></div>
-  <div class="card"><video controls src="videos/master-mind.mp4"></video><div class="caption">master-mind</div></div>
-  <div class="card"><video controls src="videos/koukou-poze.mp4"></video><div class="caption">koukou-poze</div></div>
-  <div class="card"><video controls src="videos/store-front.mp4"></video><div class="caption">store-front</div></div>
-  <div class="card"><video controls src="videos/store-video.mp4"></video><div class="caption">store-video</div></div>
-  <div class="card"><video controls src="videos/boutique-bss.mp4"></video><div class="caption">boutique-bss</div></div>
-  <div class="card"><video controls src="videos/bss-boutique.mp4"></video><div class="caption">bss-boutique</div></div>
-  <div class="card"><video controls src="videos/koukou-poze2.mp4"></video><div class="caption">koukou-poze2</div></div>
-  <div class="card"><video controls src="videos/koukou-kontan.mp4"></video><div class="caption">koukou-kontan</div></div>
-  <div class="card"><video controls src="videos/koukou-return.mp4"></video><div class="caption">koukou-return</div></div>
-  <div class="card"><video controls src="videos/video.mp4"></video><div class="caption">video</div></div>
-  <div class="card"><video controls src="videos/macu-pitit-kay.mp4"></video><div class="caption">macu</div></div>
-  <div class="card"><video controls src="videos/video-transform.mp4"></video><div class="caption">transform</div></div>
-  <div class="card"><video controls src="videos/koukou-fly-stay.mp4"></video><div class="caption">fly-stay</div></div>
-  <div class="card"><video controls src="videos/macu-on-the-move.mp4"></video><div class="caption">macu-move</div></div>
-  <div class="card"><video controls src="videos/miami-on-the-move.mp4"></video><div class="caption">miami</div></div>
-  <div class="card"><video controls src="videos/team-sanpresyon12.mp4"></video><div class="caption">team12</div></div>
-  <div class="card"><video controls src="videos/team-sanpresyon19.mp4"></video><div class="caption">team19</div></div>
-  <div class="card"><video controls src="videos/team-sanpresyon21.mp4"></video><div class="caption">team21</div></div>
-  <div class="card"><video controls src="videos/dirijan-vizyone.mp4"></video><div class="caption">vizyonè</div></div>
-  <div class="card"><video controls src="videos/bss-luxury-store.mp4"></video><div class="caption">luxury</div></div>
+const gallery = document.getElementById("gallery");
 
-</div>
+images.forEach(src=>{
+  gallery.innerHTML += `
+    <div class="card">
+      <img src="${src}">
+    </div>
+  `;
+});
+
+videos.forEach(src=>{
+  gallery.innerHTML += `
+    <div class="card">
+      <video controls src="${src}"></video>
+    </div>
+  `;
+});
+</script>
 
 </body>
 </html>
