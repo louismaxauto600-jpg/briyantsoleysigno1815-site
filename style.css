@@ -1,4 +1,3 @@
-
 /* =========================================================
    BACKGROUND GLOBAL BSS1815
    ========================================================= */
@@ -293,7 +292,7 @@ body {
 }
 
 /* =========================================================
-   ABOUT BANNER + ANIMASYON — AJOUT FINAL
+   ABOUT BANNER + ANIMASYON (AJOUT OU TE MANDE A)
    ========================================================= */
 
 .about-banner {
@@ -312,9 +311,6 @@ body {
   object-fit: cover;
   object-position: center;
   filter: brightness(1.05) contrast(1.05);
-}.about-text strong {
-  color: #ffb35a;
-  font-weight: 700;
 }
 
 .about-anim {
@@ -331,3 +327,9 @@ body {
 /* =========================================================
    ADMIN LOGIN — BSS 1815
    ========================================================= */
+.admin-login-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* … RESTE CSS OU A KONTINYE MENM JAN LI TE YE … */
