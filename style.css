@@ -1,205 +1,331 @@
 /* =========================================================
-   ADMIN LOGIN — FORM + INPUT + BUTTON
+   GLOBAL FORM STYLES — BSS1815
    ========================================================= */
 
-.admin-login-box {
-  width: 100%;
-  max-width: 480px;
-  margin: 3rem auto 6rem;
-  padding: 2.4rem 2.6rem;
-  background: linear-gradient(135deg, rgba(0,0,0,0.96), rgba(25,25,25,0.96));
-  border-radius: 18px;
-  border: 1px solid rgba(255,122,0,0.35);
-  box-shadow: 0 0 32px rgba(0,0,0,0.85);
+.form-group {
+  margin-bottom: 1.4rem;
 }
 
-.admin-login-title {
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #ffb35a;
-  margin-bottom: 1.6rem;
-  text-align: center;
-}
-
-.admin-login-box label {
+.form-group label {
   display: block;
   font-size: 0.9rem;
   color: #ffb35a;
   margin-bottom: 0.4rem;
 }
 
-.admin-login-box input {
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 1rem;
   border-radius: 12px;
   border: 1px solid rgba(255,122,0,0.35);
   background: rgba(0,0,0,0.65);
   color: #f5f5f5;
   font-size: 0.95rem;
-  margin-bottom: 1.2rem;
   outline: none;
   transition: 0.25s ease;
 }
 
-.admin-login-box input:focus {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
   border-color: #ff7a00;
   box-shadow: 0 0 12px rgba(255,122,0,0.55);
 }
 
-.admin-login-btn {
-  width: 100%;
-  padding: 0.9rem 1rem;
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* =========================================================
+   GLOBAL BUTTONS — BSS1815
+   ========================================================= */
+
+.btn {
+  padding: 0.75rem 1.6rem;
   border-radius: 999px;
   border: 1px solid #ff9a2a;
   background: linear-gradient(135deg, #ff7a00, #ffb347);
   color: #1a1a1a;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   cursor: pointer;
   transition: 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.admin-login-btn:hover {
+.btn:hover {
   filter: brightness(1.12);
   box-shadow: 0 0 22px rgba(255,122,0,0.55);
 }
 
-/* =========================================================
-   ADMIN DASHBOARD — WRAPPER
-   ========================================================= */
-
-.admin-dashboard {
-  padding: 4rem 6vw;
-  color: #f5f5f5;
+.btn-danger {
+  background: linear-gradient(135deg, #ff3b00, #ff7a00);
+  border-color: #ff3b00;
+  color: #fff;
 }
 
-.admin-dashboard h1 {
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+.btn-dark {
+  background: rgba(0,0,0,0.75);
+  border-color: #ff7a00;
   color: #ffb35a;
+}
+
+/* =========================================================
+   MODAL SYSTEM — BSS1815
+   ========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  width: 95%;
+  max-width: 520px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.96), rgba(25,25,25,0.96));
+  border-radius: 18px;
+  border: 1px solid #ff7a00;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+}
+
+.modal h2 {
+  color: #ffb35a;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.4rem;
+  color: #ff7a00;
+  cursor: pointer;
+}
+
+/* =========================================================
+   ALERT / NOTIFICATION — BSS1815
+   ========================================================= */
+
+.alert {
+  padding: 1rem 1.4rem;
+  border-radius: 12px;
+  margin-bottom: 1.4rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.alert-success {
+  background: rgba(0,255,120,0.12);
+  border: 1px solid rgba(0,255,120,0.35);
+  color: #7affb5;
+}
+
+.alert-error {
+  background: rgba(255,0,0,0.12);
+  border: 1px solid rgba(255,0,0,0.35);
+  color: #ff8a8a;
+}
+
+/* =========================================================
+   ADMIN UPLOAD MANAGER — FOTO / DOSYE
+   ========================================================= */
+
+.upload-box {
+  padding: 2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255,122,0,0.35);
+  background: rgba(0,0,0,0.65);
+  text-align: center;
   margin-bottom: 2rem;
 }
 
-/* =========================================================
-   ADMIN CARDS — STATISTICS / ACTIONS
-   ========================================================= */
-
-.admin-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.8rem;
+.upload-box input[type="file"] {
+  margin-top: 1rem;
 }
 
-.admin-card {
-  padding: 1.8rem 2rem;
-  background: linear-gradient(135deg, rgba(0,0,0,0.92), rgba(25,25,25,0.92));
-  border-radius: 18px;
-  border: 1px solid rgba(255,122,0,0.35);
-  box-shadow: 0 0 26px rgba(0,0,0,0.85);
-  transition: 0.25s ease;
-}
-
-.admin-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 32px rgba(255,122,0,0.45);
-}
-
-.admin-card h3 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #ffb35a;
-  margin-bottom: 0.8rem;
-}
-
-.admin-card p {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: #e8e8e8;
-}
-
-/* =========================================================
-   ADMIN TABLE — LISTE FOTO / MEMB / DOSYE
-   ========================================================= */
-
-.admin-table-wrap {
-  margin-top: 3rem;
-  overflow-x: auto;
-  border-radius: 14px;
-  border: 1px solid rgba(255,122,0,0.35);
-}
-
-.admin-table {
+.upload-preview {
+  margin-top: 1.4rem;
   width: 100%;
-  border-collapse: collapse;
-  background: rgba(0,0,0,0.65);
+  max-width: 260px;
+  height: 260px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #ff7a00;
 }
 
-.admin-table th,
-.admin-table td {
-  padding: 0.9rem 1rem;
-  border-bottom: 1px solid rgba(255,122,0,0.15);
-  color: #f5f5f5;
-  font-size: 0.9rem;
-}
-
-.admin-table th {
-  background: rgba(255,122,0,0.15);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #ffb35a;
-}
-
-.admin-table tr:hover {
-  background: rgba(255,122,0,0.12);
+.upload-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* =========================================================
-   ADMIN ACTION BUTTONS
+   ADMIN SLIDESHOW MANAGER
    ========================================================= */
 
-.admin-btn {
-  padding: 0.5rem 1rem;
+.slideshow-manager {
+  margin-top: 3rem;
+}
+
+.slide-item {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255,122,0,0.15);
+}
+
+.slide-item img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
   border-radius: 10px;
   border: 1px solid #ff7a00;
-  background: rgba(255,122,0,0.15);
-  color: #ffb35a;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: 0.25s ease;
 }
 
-.admin-btn:hover {
-  background: #ff7a00;
-  color: #000;
-  box-shadow: 0 0 18px rgba(255,122,0,0.55);
+.slide-item-info {
+  flex: 1;
+}
+
+.slide-item-actions {
+  display: flex;
+  gap: 0.6rem;
 }
 
 /* =========================================================
-   FOOTER — BSS1815
+   ADMIN GALLERY MANAGER
    ========================================================= */
 
-.footer {
-  padding: 2.5rem 6vw;
-  background: #000;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ff7a00;
+  box-shadow: 0 0 18px rgba(0,0,0,0.65);
+}
+
+/* =========================================================
+   ADMIN EVENTS MANAGER
+   ========================================================= */
+
+.event-card {
+  padding: 1.6rem;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(255,122,0,0.35);
+  margin-bottom: 1.4rem;
+}
+
+.event-card h3 {
   color: #ffb35a;
-  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
+}
+
+.event-card p {
   font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  margin-top: 4rem;
+  color: #e8e8e8;
+  margin-bottom: 0.6rem;
 }
 
-.footer a {
-  color: #ff7a00;
-  text-decoration: none;
+/* =========================================================
+   ADMIN BADGES — BSS1815
+   ========================================================= */
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 0.4rem;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+.badge-orange {
+  background: rgba(255,122,0,0.25);
+  border: 1px solid #ff7a00;
+  color: #ffb35a;
+}
+
+.badge-green {
+  background: rgba(0,255,120,0.25);
+  border: 1px solid #00ff78;
+  color: #9affd1;
+}
+
+.badge-red {
+  background: rgba(255,0,0,0.25);
+  border: 1px solid #ff3b00;
+  color: #ff9a9a;
+}
+
+/* =========================================================
+   SETTINGS PANEL
+   ========================================================= */
+
+.settings-box {
+  padding: 2rem;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(255,122,0,0.35);
+  margin-bottom: 2rem;
+}
+
+.settings-box h3 {
+  color: #ffb35a;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   RESPONSIVE FIXES — MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .hero-text-box {
+    max-width: 100%;
+  }
+
+  .slide-text {
+    width: 90%;
+  }
+
+  .admin-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .slide-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
 }
