@@ -1,0 +1,17 @@
+exports.handler = function(context, event, callback) {
+  const twiml = new Twilio.twiml.MessagingResponse();
+
+  twiml.message(
+`🟠⚫ BRIYANT SOLÈY SIGNO 1815 ⚫🟠
+🔥 MESAJ OFISYÈL BSS 1815 🔥
+
+Nou se:
+• Yon Vizyon
+• Yon Mouvman
+• Yon Disiplin
+
+MAXIMAX MULTI SERVICES ap mache PRO-MAX!`
+  );
+
+  return callback(null, twiml);
+};
