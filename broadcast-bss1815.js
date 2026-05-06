@@ -2,7 +2,10 @@ const accountSid = 'VIRE_ACCOUNT_SID_W';
 const authToken = 'VIRE_AUTH_TOKEN_W';
 const client = require('twilio')(accountSid, authToken);
 
-// LIS MANM YO — BSS 1815 OFFICIEL
+// 👉 SEKSYON EDITAB — CHANJE SA CHAK FWA OU GEN YON MOUVMAN
+let mouvement = "APEL KONFERANS BSS1815-9PM";
+
+// 👉 LIS MANM YO — BSS 1815 OFFICIEL
 const members = [
   { name: "VICE-PREZIDAN YGENS", phone: "+15618091476" },
   { name: "FANFAN TREZORYE", phone: "+15612899763" },
@@ -31,15 +34,18 @@ const members = [
   { name: "VICE-PREZIDAN TATANE", phone: "+13479458913" }
 ];
 
-// BLOK MESAJ OFISYÈL BSS 1815
-const messageBody = 
+// 👉 BLOK MESAJ OFISYÈL BSS 1815 (AVÈK MOUVMAN EDITAB)
+function buildMessage() {
+  return (
 `🟠⚫ BRIYANT SOLÈY SIGNO 1815 ⚫🟠
-🔥 MESAJ OFISYÈL BSS 1815 🔥
+🔥 ${mouvement} 🔥
 
 Nou se:
 • Yon Vizyon
 • Yon Mouvman
-• Yon Disiplin`;
+• Yon Disiplin`
+  );
+}
 
 async function sendBroadcast() {
   console.log("🚀 Kòmanse voye mesaj bay tout manm BSS 1815...\n");
@@ -49,7 +55,7 @@ async function sendBroadcast() {
       const msg = await client.messages.create({
         from: 'whatsapp:+14155238886',
         to: `whatsapp:${member.phone}`,
-        body: messageBody
+        body: buildMessage()
       });
 
       console.log(`✔️ Mesaj voye bay ${member.name} (${member.phone}) — SID: ${msg.sid}`);
