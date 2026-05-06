@@ -1,72 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>BSS1815 Media Library</title>
-
-<style>
-body{
-  background:#000;
-  color:#ff7a00;
-  font-family:Arial;
-  margin:0;
-  padding:20px;
-}
-h1{text-align:center;}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-  margin-top:20px;
-}
-.card{
-  border:1px solid #ff7a00;
-  border-radius:12px;
-  overflow:hidden;
-}
-.card img, .card video{
-  width:100%;
-  display:block;
-}
-</style>
-</head>
-
-<body>
-
-<h1>🔥 BSS1815 MEDIA LIBRARY 🔥</h1>
-
-<div class="grid" id="gallery"></div>
+<div class="grid" id="mediaGrid"></div>
 
 <script>
-const images = [
-  "images/dirijan/maximax.jpg",
-  "images/dirijan/ygens.jpg"
+const media = [
+  "fanfan.jpg","cange1.jpg","Valdos.jpg","asmide.jpg","ygens.jpg","tania.jpg",
+  "ralph.jpg","may.jpg","may-t.jpg","mario.jpg","macu1.jpg","james.jpg",
+  "emaze.jpg","badin.jpg","prez.jpg","Yole.jpg","roro.jpg","ones.jpg",
+  "roro23.jpeg","only-u.jpeg","ones-1.jpeg","magaz.jpeg","landry.jpeg",
+  "elson2.jpeg","doudou.jpeg","caldos.jpeg","brunel.jpeg","asmide.jpeg",
+  "jude-j.jpeg","yole1.jpeg","tania.jpeg","rooso.jpeg","nadia.jpeg",
+  "mario.jpeg","kendy.jpeg","flore.jpeg","cange.jpeg","baron.jpeg",
+  "badin.jpeg","andre.jpeg","zeze.jpeg","yple.jpeg","tsp2.jpeg",
+  "prez.jpeg","may2.jpeg","maxo.jpeg","macu.jpeg","cols.jpeg",
+  "ange.jpeg","andy.jpeg",
+
+  "vid1.mp4","vid4.mp4","koukou.mp4","magazen.mp4","magazen3.mp4",
+  "vview-vid.mp4","video-vide.mp4","master-mind.mp4","koukou-poze.mp4",
+  "store-front.mp4","store-video.mp4","boutique-bss.mp4","bss-boutique.mp4",
+  "koukou-poze2.mp4","koukou-kontan.mp4","koukou-return.mp4",
+  "video.mp4","macu-pitit-kay.mp4","video-transform.mp4",
+  "koukou-fly-stay.mp4","macu-on-the-move.mp4","miami-on-the-move.mp4",
+  "team-sanpresyon12.mp4","team-sanpresyon19.mp4","team-sanpresyon21.mp4",
+  "dirijan-vizyone.mp4","bss-luxury-store.mp4"
 ];
 
-const videos = [
-  "videos/video1.mp4"
-];
+const grid = document.getElementById("mediaGrid");
 
-const gallery = document.getElementById("gallery");
+media.forEach(file => {
+  const card = document.createElement("div");
+  card.className = "card";
 
-images.forEach(src=>{
-  gallery.innerHTML += `
-    <div class="card">
-      <img src="${src}">
-    </div>
-  `;
-});
+  if(file.endsWith(".mp4")){
+    card.innerHTML = `<video controls src="/videos/${file}"></video>`;
+  } else {
+    card.innerHTML = `<img src="/images/media/${file}">`;
+  }
 
-videos.forEach(src=>{
-  gallery.innerHTML += `
-    <div class="card">
-      <video controls src="${src}"></video>
-    </div>
-  `;
+  grid.appendChild(card);
 });
 </script>
-
-</body>
-<<h1>🔥 BSS1815 MEDIA TEST 🔥</h1>
-
-<img src="/images/media/fanfan.jpg" style="width:300px;border:3px solid #ff7a00;">/html>
