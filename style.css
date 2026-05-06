@@ -1,205 +1,310 @@
 /* =========================================================
-   ADMIN LOGIN — FORM + INPUT + BUTTON
+   BACKGROUND GLOBAL BSS1815
    ========================================================= */
-
-.admin-login-box {
-  width: 100%;
-  max-width: 480px;
-  margin: 3rem auto 6rem;
-  padding: 2.4rem 2.6rem;
-  background: linear-gradient(135deg, rgba(0,0,0,0.96), rgba(25,25,25,0.96));
-  border-radius: 18px;
-  border: 1px solid rgba(255,122,0,0.35);
-  box-shadow: 0 0 32px rgba(0,0,0,0.85);
-}
-
-.admin-login-title {
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #ffb35a;
-  margin-bottom: 1.6rem;
-  text-align: center;
-}
-
-.admin-login-box label {
-  display: block;
-  font-size: 0.9rem;
-  color: #ffb35a;
-  margin-bottom: 0.4rem;
-}
-
-.admin-login-box input {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255,122,0,0.35);
-  background: rgba(0,0,0,0.65);
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #ff7a00 0%, #d85f00 35%, #000 100%);
   color: #f5f5f5;
-  font-size: 0.95rem;
-  margin-bottom: 1.2rem;
-  outline: none;
-  transition: 0.25s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.admin-login-box input:focus {
-  border-color: #ff7a00;
-  box-shadow: 0 0 12px rgba(255,122,0,0.55);
+/* =========================================================
+   HERO SECTION + SLIDESHOW
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 6vw;
+  box-sizing: border-box;
 }
 
-.admin-login-btn {
+.hero-slideshow-wrapper {
+  position: relative;
   width: 100%;
-  padding: 0.9rem 1rem;
+  max-width: 1200px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.hero-slider {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255,122,0,.35);
+}
+
+.slider-container {
+  width: 100%;
+  height: 520px;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: fadeSlide 190s infinite;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  display: block;
+  filter: brightness(1.08) contrast(1.03);
+}
+
+/* DELAY POU 19 SLIDE YO */
+.slide:nth-child(1)  { animation-delay: 0s; }
+.slide:nth-child(2)  { animation-delay: 10s; }
+.slide:nth-child(3)  { animation-delay: 20s; }
+.slide:nth-child(4)  { animation-delay: 30s; }
+.slide:nth-child(5)  { animation-delay: 40s; }
+.slide:nth-child(6)  { animation-delay: 50s; }
+.slide:nth-child(7)  { animation-delay: 60s; }
+.slide:nth-child(8)  { animation-delay: 70s; }
+.slide:nth-child(9)  { animation-delay: 80s; }
+.slide:nth-child(10) { animation-delay: 90s; }
+.slide:nth-child(11) { animation-delay: 100s; }
+.slide:nth-child(12) { animation-delay: 110s; }
+.slide:nth-child(13) { animation-delay: 120s; }
+.slide:nth-child(14) { animation-delay: 130s; }
+.slide:nth-child(15) { animation-delay: 140s; }
+.slide:nth-child(16) { animation-delay: 150s; }
+.slide:nth-child(17) { animation-delay: 160s; }
+.slide:nth-child(18) { animation-delay: 170s; }
+.slide:nth-child(19) { animation-delay: 180s; }
+
+@keyframes fadeSlide {
+  0%, 100% { opacity: 0; }
+  5%, 95%  { opacity: 1; }
+}
+
+/* SLIDE TEXT BOX */
+.slide-text {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 3;
+  width: min(52%, 560px);
+  padding: 16px 18px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.24));
+  border: 1px solid rgba(255,122,0,.22);
+  border-radius: 18px;
+}
+
+.slide-text h2 {
+  font-size: clamp(20px, 3vw, 34px);
+  text-transform: uppercase;
+  line-height: 1.02;
+  margin-bottom: 8px;
+  color: #ff7a00;
+}
+
+.slide-text p {
+  font-size: clamp(12px, 1.25vw, 15px);
+  line-height: 1.45;
+  color: #ff7a00;
+}
+
+/* MASK TEKST HERO */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 3rem;
+  pointer-events: none;
+}
+
+.hero-text-box {
+  max-width: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.55), transparent);
+  padding: 1.8rem 2rem 0.5rem;
+  border-radius: 16px 16px 0 0;
+  pointer-events: auto;
+}
+
+.hero-title {
+  font-size: 1.9rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #ffb35a;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-subtitle {
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: #f3f3f3;
+  margin-bottom: 0.8rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
   border-radius: 999px;
   border: 1px solid #ff9a2a;
   background: linear-gradient(135deg, #ff7a00, #ffb347);
   color: #1a1a1a;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.admin-login-btn:hover {
-  filter: brightness(1.12);
-  box-shadow: 0 0 22px rgba(255,122,0,0.55);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  box-shadow: 0 0 22px rgba(0,0,0,0.75);
 }
 
 /* =========================================================
-   ADMIN DASHBOARD — WRAPPER
+   NAVBAR + LOGO STRIP
    ========================================================= */
-
-.admin-dashboard {
-  padding: 4rem 6vw;
-  color: #f5f5f5;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 5vw;
+  background: linear-gradient(to bottom, rgba(0,0,0,.92), rgba(0,0,0,.65), transparent);
 }
 
-.admin-dashboard h1 {
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #ffb35a;
-  margin-bottom: 2rem;
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 
-/* =========================================================
-   ADMIN CARDS — STATISTICS / ACTIONS
-   ========================================================= */
+.navbar-logo img {
+  width: 200px;
+  display: block;
+}
 
-.admin-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.logo-strip {
+  display: flex;
+  align-items: center;
   gap: 1.8rem;
+  padding: 1.4rem 5vw 0.4rem;
 }
 
-.admin-card {
-  padding: 1.8rem 2rem;
-  background: linear-gradient(135deg, rgba(0,0,0,0.92), rgba(25,25,25,0.92));
-  border-radius: 18px;
-  border: 1px solid rgba(255,122,0,0.35);
-  box-shadow: 0 0 26px rgba(0,0,0,0.85);
-  transition: 0.25s ease;
+.logo-strip img {
+  width: 180px;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.9));
 }
 
-.admin-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 32px rgba(255,122,0,0.45);
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 }
 
-.admin-card h3 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #ffb35a;
-  margin-bottom: 0.8rem;
-}
-
-.admin-card p {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: #e8e8e8;
-}
-
-/* =========================================================
-   ADMIN TABLE — LISTE FOTO / MEMB / DOSYE
-   ========================================================= */
-
-.admin-table-wrap {
-  margin-top: 3rem;
-  overflow-x: auto;
-  border-radius: 14px;
-  border: 1px solid rgba(255,122,0,0.35);
-}
-
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: rgba(0,0,0,0.65);
-}
-
-.admin-table th,
-.admin-table td {
-  padding: 0.9rem 1rem;
-  border-bottom: 1px solid rgba(255,122,0,0.15);
-  color: #f5f5f5;
-  font-size: 0.9rem;
-}
-
-.admin-table th {
-  background: rgba(255,122,0,0.15);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #ffb35a;
-}
-
-.admin-table tr:hover {
-  background: rgba(255,122,0,0.12);
-}
-
-/* =========================================================
-   ADMIN ACTION BUTTONS
-   ========================================================= */
-
-.admin-btn {
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #ff7a00;
-  background: rgba(255,122,0,0.15);
-  color: #ffb35a;
+.nav-links a {
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.admin-btn:hover {
-  background: #ff7a00;
-  color: #000;
-  box-shadow: 0 0 18px rgba(255,122,0,0.55);
-}
-
-/* =========================================================
-   FOOTER — BSS1815
-   ========================================================= */
-
-.footer {
-  padding: 2.5rem 6vw;
-  background: #000;
-  color: #ffb35a;
-  text-align: center;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  margin-top: 4rem;
-}
-
-.footer a {
-  color: #ff7a00;
+  letter-spacing: 0.12em;
+  color: #f0f0f0;
   text-decoration: none;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+/* =========================================================
+   ABOUT BSS1815 — PRO-MAX
+   ========================================================= */
+.about-section {
+  padding: 4rem 8vw;
+  background: radial-gradient(circle at top, #1a1a1a 0%, #000 55%, #000 100%);
+  color: #f5f5f5;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 18px;
+  padding: 2.5rem 2.8rem;
+  background: linear-gradient(135deg, rgba(0,0,0,.96), rgba(20,20,20,.96));
+  border: 1px solid rgba(255,122,0,0.35);
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+}
+
+.about-title {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #ffb35a;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.about-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.6rem;
+  width: 72px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff7a00, #ffb347);
+  box-shadow: 0 0 14px rgba(255,122,0,0.9);
+}
+
+.about-text {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #f0f0f0;
+  margin-bottom: 1.1rem;
+}
+
+.about-text strong {
+  color: #ffb35a;
+  font-weight: 700;
+}
+
+/* =========================================================
+   ABOUT BANNER + ANIMASYON — OPTIMIZE
+   ========================================================= */
+.about-banner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #ff7a00;
+  box-shadow: 0 0 28px rgba(0,0,0,0.9);
+}
+
+.about-banner img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.about-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: aboutFadeIn 1.4s ease-out forwards;
+}
+
+@keyframes aboutFadeIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   ADMIN LOGIN — BSS 1815
+   ========================================================= */
+.admin-login-wrap {
+  max-width: 900px;
+  margin: 0 auto;
 }
