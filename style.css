@@ -312,6 +312,9 @@ body {
   object-fit: cover;
   object-position: center;
   filter: brightness(1.05) contrast(1.05);
+}.about-text strong {
+  color: #ffb35a;
+  font-weight: 700;
 }
 
 .about-anim {
