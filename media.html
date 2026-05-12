@@ -1,48 +1,221 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSS1815 Media Library</title>
+
+<style>
+body{
+  margin:0;
+  padding:20px;
+  background:#000;
+  color:#ff7a00;
+  font-family:Arial,sans-serif;
+}
+
+h1{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:5px;
+}
+
+h2{
+  text-align:center;
+  color:#ffbb77;
+  margin-top:0;
+}
+
+.info{
+  text-align:center;
+  font-size:18px;
+  margin-bottom:30px;
+  color:#ff9933;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#111;
+  border:1px solid #ff7a00;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 0 10px rgba(255,166,77,.25);
+}
+
+.card img,
+.card video{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  display:block;
+  background:#000;
+}
+
+.caption{
+  padding:10px;
+  text-align:center;
+  font-weight:bold;
+  color:#ffbb77;
+  border-top:1px solid #ff7a00;
+  word-break:break-word;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 BSS1815 MEDIA LIBRARY 🔥</h1>
+
+<h2>BSS1815 Official Media Center</h2>
+
+<p class="info">
+Foto ak videyo yo ap òganize pandan update ofisyèl yo.
+</p>
+
 <div class="grid" id="mediaGrid"></div>
 
 <script>
-const media = [
-  "fanfan.jpg","cange1.jpg","Valdos.jpg","asmide.jpg","ygens.jpg","tania.jpg",
-  "ralph.jpg","may.jpg","may-t.jpg","mario.jpg","macu1.jpg","james.jpg",
-  "emaze.jpg","badin.jpg","prez.jpg","Yole.jpg","roro.jpg","ones.jpg",
-  "roro23.jpeg","only-u.jpeg","ones-1.jpeg","magaz.jpeg","landry.jpeg",
-  "elson2.jpeg","doudou.jpeg","caldos.jpeg","brunel.jpeg","asmide.jpeg",
-  "jude-j.jpeg","yole1.jpeg","tania.jpeg","rooso.jpeg","nadia.jpeg",
-  "mario.jpeg","kendy.jpeg","flore.jpeg","cange.jpeg","baron.jpeg",
-  "badin.jpeg","andre.jpeg","zeze.jpeg","yple.jpeg","tsp2.jpeg",
-  "prez.jpeg","may2.jpeg","maxo.jpeg","macu.jpeg","cols.jpeg",
-  "ange.jpeg","andy.jpeg",
 
-  "vid1.mp4","vid4.mp4","koukou.mp4","magazen.mp4","magazen3.mp4",
-  "vview-vid.mp4","video-vide.mp4","master-mind.mp4","koukou-poze.mp4",
-  "store-front.mp4","store-video.mp4","boutique-bss.mp4","bss-boutique.mp4",
-  "koukou-poze2.mp4","koukou-kontan.mp4","koukou-return.mp4",
-  "video.mp4","macu-pitit-kay.mp4","video-transform.mp4",
-  "koukou-fly-stay.mp4","macu-on-the-move.mp4","miami-on-the-move.mp4",
-  "team-sanpresyon12.mp4","team-sanpresyon19.mp4","team-sanpresyon21.mp4",
-  "dirijan-vizyone.mp4","bss-luxury-store.mp4"
+const media = [
+
+  // 📸 IMAGES
+  "fanfan.jpg",
+  "cange1.jpg",
+  "Valdos.jpg",
+  "asmide.jpg",
+  "ygens.jpg",
+  "tania.jpg",
+  "ralph.jpg",
+  "may.jpg",
+  "may-t.jpg",
+  "mario.jpg",
+  "macu1.jpg",
+  "james.jpg",
+  "emaze.jpg",
+  "badin.jpg",
+  "prez.jpg",
+  "Yole.jpg",
+  "roro.jpg",
+  "ones.jpg",
+  "roro23.jpeg",
+  "only-u.jpeg",
+  "ones-1.jpeg",
+  "magaz.jpeg",
+  "landry.jpeg",
+  "elson2.jpeg",
+  "doudou.jpeg",
+  "caldos.jpeg",
+  "brunel.jpeg",
+  "asmide.jpeg",
+  "jude-j.jpeg",
+  "yole1.jpeg",
+  "tania.jpeg",
+  "rooso.jpeg",
+  "nadia.jpeg",
+  "mario.jpeg",
+  "kendy.jpeg",
+  "flore.jpeg",
+  "cange.jpeg",
+  "baron.jpeg",
+  "badin.jpeg",
+  "andre.jpeg",
+  "zeze.jpeg",
+  "yple.jpeg",
+  "tsp2.jpeg",
+  "prez.jpeg",
+  "may2.jpeg",
+  "maxo.jpeg",
+  "macu.jpeg",
+  "cols.jpeg",
+  "ange.jpeg",
+  "andy.jpeg",
+
+  // 🔥 NEW
+  "vice-president-ernso.jpg",
+  "team-sanpresyon.jpeg",
+  "super-fanclub-5stars.png",
+  "team-angrenay.jpeg",
+  "fanfan-decokline.jpg",
+  "desulme-derosier1.jpeg",
+  "geraldson-asouman.jpeg",
+  "roro-lajan.png",
+  "berry-lariviere.jpg",
+  "sindy-berlus.jpg",
+
+  // 🎬 VIDEOS
+  "vid1.mp4",
+  "vid4.mp4",
+  "koukou.mp4",
+  "magazen.mp4",
+  "magazen3.mp4",
+  "vview-vid.mp4",
+  "video-vide.mp4",
+  "master-mind.mp4",
+  "koukou-poze.mp4",
+  "store-front.mp4",
+  "store-video.mp4",
+  "boutique-bss.mp4",
+  "bss-boutique.mp4",
+  "koukou-poze2.mp4",
+  "koukou-kontan.mp4",
+  "koukou-return.mp4",
+  "video.mp4",
+  "macu-pitit-kay.mp4",
+  "video-transform.mp4",
+  "koukou-fly-stay.mp4",
+  "macu-on-the-move.mp4",
+  "miami-on-the-move.mp4",
+  "team-sanpresyon12.mp4",
+  "team-sanpresyon19.mp4",
+  "team-sanpresyon21.mp4",
+  "dirijan-vizyone.mp4",
+  "bss-luxury-store.mp4"
+
 ];
 
 const grid = document.getElementById("mediaGrid");
 
 media.forEach(file => {
+
   const card = document.createElement("div");
   card.className = "card";
 
-  if(file.endsWith(".mp4")){
-    card.innerHTML = `<video controls src="/videos/${file}"></video>`;
+  if(
+    file.endsWith(".mp4")
+  ){
+
+    card.innerHTML = `
+      <video controls>
+        <source src="${file}" type="video/mp4">
+      </video>
+
+      <div class="caption">
+        ${file}
+      </div>
+    `;
+
   } else {
-    card.innerHTML = `<img src="/images/media/${file}">`;
+
+    card.innerHTML = `
+      <img src="${file}" alt="${file}">
+
+      <div class="caption">
+        ${file}
+      </div>
+    `;
+
   }
 
   grid.appendChild(card);
-});
-</script>
-BSS1815 MEDIA LIBRARY 
-<h2 style="text-align:center;color:#ffbb77;">
-BSS1815 Official Media Center
-</h2>
 
-<p style="text-align:center;color:#ff7a00;font-size:20px;">
-Foto ak videyo yo ap òganize pandan update ofisyèl yo.
-</p>
+});
+
+</script>
+
+</body>
+</html>
