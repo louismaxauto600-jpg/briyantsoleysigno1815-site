@@ -1,18 +1,112 @@
-<!-- HTML SECTION — MAXIMAX FM
-     ORYANTASYON: HORIZONTAL
-     DIREKSYON: LEFT → RIGHT
--->
-<div class="maximax-radio-wrapper">
-    <div class="maximax-info">
-        <h2>MAXIMAX FM</h2>
-        <p>ALWAYS MAXIMIZE</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MAXIMAX FM</title>
+
+    <!-- CSS — MAXIMAX FM
+         ORYANTASYON: HORIZONTAL
+         DIREKSYON: LEFT → RIGHT
+    -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .maximax-radio-wrapper {
+            display: flex;                    /* ORYANTASYON: HORIZONTAL */
+            flex-direction: row;              /* HORIZONTAL */
+            justify-content: space-between;   /* DIREKSYON: LEFT → RIGHT */
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            background: linear-gradient(90deg, #FFA64D, #000000); /* ORANGE → BLACK */
+        }
+
+        .maximax-info {
+            display: flex;
+            flex-direction: column;           /* ORYANTASYON ENTÈN: VERTICAL */
+            color: #FFA64D;
+        }
+
+        .maximax-info h2 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .maximax-info p {
+            margin: 2px 0 0 0;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .maximax-controls {
+            display: flex;
+            flex-direction: row;              /* ORYANTASYON: HORIZONTAL */
+            align-items: center;
+            gap: 10px;
+        }
+
+        #maximaxPlayBtn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: #FFA64D;
+            color: #000000;
+            font-size: 20px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HTML — MAXIMAX FM
+         ORYANTASYON: HORIZONTAL
+         DIREKSYON: LEFT → RIGHT
+    -->
+    <div class="maximax-radio-wrapper">
+        <div class="maximax-info">
+            <h2>MAXIMAX FM</h2>
+            <p>ALWAYS MAXIMIZE</p>
+        </div>
+
+        <div class="maximax-controls">
+            <button id="maximaxPlayBtn">▶</button>
+
+            <audio id="maximaxPlayer">
+                <!-- RANPLASE SA A AK URL STREAM OU -->
+                <source src="URL_STREAM_RADIO_A_LA" type="audio/mpeg">
+            </audio>
+        </div>
     </div>
 
-    <div class="maximax-controls">
-        <button id="maximaxPlayBtn">▶</button>
+    <!-- JS — MAXIMAX FM
+         DIREKSYON ENTÈRAKSYON: USER → CLICK → BUTTON → PLAYER
+    -->
+    <script>
+        const maximaxPlayer  = document.getElementById("maximaxPlayer");
+        const maximaxPlayBtn = document.getElementById("maximaxPlayBtn");
 
-        <audio id="maximaxPlayer">
-            <source src="URL_STREAM_RADIO_A_LA" type="audio/mpeg">
-        </audio>
-    </div>
-</div>
+        maximaxPlayer.volume = 1.0;
+
+        maximaxPlayBtn.addEventListener("click", () => {
+            if (maximaxPlayer.paused) {
+                maximaxPlayer.play();
+                maximaxPlayBtn.textContent = "⏸";
+            } else {
+                maximaxPlayer.pause();
+                maximaxPlayBtn.textContent = "▶";
+            }
+        });
+    </script>
+
+</body>
+</html>
