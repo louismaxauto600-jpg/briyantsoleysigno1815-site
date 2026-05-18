@@ -5,7 +5,15 @@ body {
     padding: 0;
     background: #000000;
     font-family: Arial, sans-serif;
-    color: #ff7f00;
+  <body>
+
+  <!-- LANGUAGE TOGGLE -->
+  <div class="lang-toggle">
+    <span data-lang="kre">KRE</span>
+    <span data-lang="eng">ENG</span>
+    <span data-lang="fra">FRA</span>
+  </div>
+  color: #ff7f00;
 }
 
 header {
