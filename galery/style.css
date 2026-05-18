@@ -5,17 +5,39 @@ body {
     padding: 0;
     background: #000000;
     font-family: Arial, sans-serif;
-  <body>
-
-  <!-- LANGUAGE TOGGLE -->
-  <div class="lang-toggle">
-    <span data-lang="kre">KRE</span>
-    <span data-lang="eng">ENG</span>
-    <span data-lang="fra">FRA</span>
-  </div>
-  color: #ff7f00;
+    color: #ff7f00;
 }
 
+/* ============================
+   LANGUAGE TOGGLE STYLE
+   ============================ */
+.lang-toggle {
+    display: flex;
+    gap: 15px;
+    padding: 15px 20px;
+    background: #111111;
+    border-bottom: 2px solid #ff7f00;
+}
+
+.lang-toggle span {
+    padding: 6px 14px;
+    font-weight: 700;
+    font-size: 18px;
+    background: #222222;
+    color: #ff7f00;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lang-toggle span:hover {
+    background: #ff7f00;
+    color: #000000;
+}
+
+/* ============================
+   HEADER
+   ============================ */
 header {
     text-align: center;
     padding: 20px 0;
@@ -30,6 +52,9 @@ h1 {
     color: #ff7f00;
 }
 
+/* ============================
+   GALLERY
+   ============================ */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -63,6 +88,10 @@ h1 {
     font-weight: bold;
     color: #ff7f00;
 }
+
+/* ============================
+   KOUKOU ANIMATION
+   ============================ */
 #koukou {
   position: absolute;
   top: 40px;
@@ -73,29 +102,22 @@ h1 {
 
 /* FLY-IN RAPID + PAUSE + BAT ZÈL + FLY-OUT DYAGONAL */
 @keyframes koukouFly {
-  /* FLY-IN AN DYAGONAL */
   0% {
     transform: translate(300px, -50px) rotate(0deg) scale(1);
     opacity: 0;
   }
-
   20% {
     transform: translate(0, 0) rotate(5deg) scale(1.05);
     opacity: 1;
   }
-
-  /* BAT ZÈL (ti mouvman scale + rotate) */
   40% {
     transform: translate(0, 0) rotate(-5deg) scale(1);
     opacity: 1;
   }
-
   60% {
     transform: translate(0, 0) rotate(3deg) scale(1.03);
     opacity: 1;
   }
-
-  /* FLY-OUT AN DYAGONAL DESANN GOCH */
   100% {
     transform: translate(-450px, 120px) rotate(-20deg) scale(0.9);
     opacity: 0;
