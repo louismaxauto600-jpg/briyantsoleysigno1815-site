@@ -29,10 +29,37 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-.lang-toggle span:hover {
-    background: #ff7f00;
-    color: #000000;
+  // EXACT ORDER: ENG → FRA → KRE
+  const toggle = document.createElement("div");
+  toggle.className = "lang-toggle";
+  toggle.innerHTML = `
+    <span data-lang="eng">ENG</span>
+    <span data-lang="fra">FRA</span>
+    <span data-lang="kre">KRE</span>
+  `;
+
+  document.body.prepend(toggle);
+
+  const buttons = toggle.querySelectorAll("[data-lang]");
+  const elements = document.querySelectorAll("[data-text]");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("data-lang");
+
+      elements.forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+      });
+    });
+  });
+
+});
+</script>
+
 }
 
 /* ============================
