@@ -8,7 +8,7 @@ const instruments = [
   { name: "Assiette", file: "assiette.jpeg" },
   { name: "Charlemagne", file: "charlemagne.jpeg" },
   { name: "Vaksen", file: "vaksen.jpeg" }
-];
+];js/instrument-logos.js
 
 function renderInstruments() {
   const container = document.getElementById("instruments-grid");
