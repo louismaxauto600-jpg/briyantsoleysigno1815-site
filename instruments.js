@@ -8,17 +8,40 @@ const instruments = [
   { name: "Assiette", file: "assiette.jpeg" },
   { name: "Charlemagne", file: "charlemagne.jpeg" },
   { name: "Vaksen", file: "vaksen.jpeg" }
-];js/instrument-logos.js
+];
 
 function renderInstruments() {
-  const container = document.getElementById("instruments-grid");
+
+  const container =
+  document.getElementById("instruments-grid");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
   instruments.forEach(inst => {
-    const card = document.createElement("div");
-    card.className = "instrument-card";
+
+    const card =
+    document.createElement("div");
+
+    card.className =
+    "instrument-card";
+
     card.innerHTML = `
-      <img src="assets/instruments/${inst.file}" alt="${inst.name}">
+      <img
+      src="assets/instruments/${inst.file}"
+      alt="${inst.name}">
+
       <h3>${inst.name}</h3>
     `;
+
     container.appendChild(card);
+
   });
+
 }
+
+document.addEventListener(
+"DOMContentLoaded",
+renderInstruments
+);
