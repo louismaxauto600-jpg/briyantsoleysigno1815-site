@@ -1,0 +1,120 @@
+<!-- SECTION NAME: IMMIGRATION ASSISTANCE -->
+
+<section class="immigration-section">
+    <div class="container">
+        <h2 class="section-title">IMMIGRATION ASSISTANCE</h2>
+        <p class="section-subtitle">Nou pran tout pwosesis imigrasyon ou an men avèk presizyon, vitès, ak konfidansyalite.</p>
+
+        <div class="services-grid">
+
+            <div class="service-box">
+                <h3>Family Petition I‑130</h3>
+                <p>Reini ak mari/madanm, pitit, paran, frè/sè.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Adjustment of Status I‑485</h3>
+                <p>Aplikasyon Green Card Ozetazini.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Work Permit I‑765</h3>
+                <p>Premye EAD oswa renouvèlman.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Travel Document I‑131</h3>
+                <p>Re‑entry permit, advance parole.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Affidavit of Support I‑864</h3>
+                <p>Sipò finansye pou petisyon fanmi.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Waivers I‑601 / I‑601A</h3>
+                <p>Padon pou prezans ilegal, refi, elatriye.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>TPS Registration & Renewal</h3>
+                <p>Nou ranpli, verifye, epi soumèt aplikasyon ou.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Asylum Package</h3>
+                <p>Naratif, prèv, dokiman, depo.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Consular Processing</h3>
+                <p>NVC, DS‑260, dokiman, entèvyou.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Citizenship N‑400</h3>
+                <p>Aplikasyon, preparasyon entèvyou, tès.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>FOIA Request</h3>
+                <p>Rekipere dosye USCIS, CBP, ICE.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>USCIS Case Review</h3>
+                <p>RFE, NOID, refi, analiz dosye.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* SECTION NAME: IMMIGRATION ASSISTANCE */
+
+    .immigration-section {
+        background: #000;
+        padding: 60px 0;
+        color: #fff;
+    }
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 800;
+        color: #ff7a00;
+        margin-bottom: 10px;
+    }
+    .section-subtitle {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 40px;
+        color: #ddd;
+    }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+    .service-box {
+        background: #111;
+        border: 1px solid #ff7a00;
+        padding: 20px;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    .service-box:hover {
+        background: #1a1a1a;
+        transform: translateY(-5px);
+    }
+    .service-box h3 {
+        color: #ff7a00;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    .service-box p {
+        color: #ccc;
+        font-size: 15px;
+    }
+</style>
