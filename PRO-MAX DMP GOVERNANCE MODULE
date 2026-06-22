@@ -1,0 +1,88 @@
+
+
+```text
+PRO-MAX DMP GOVERNANCE MODULE
+
+1. Create Collections:
+- member_records
+- warnings
+- disciplinary_cases
+- committee_votes
+- appeals
+- suspensions
+- audit_logs
+- governance
+- administrative_team
+- disciplinary_committee
+- advisory_council
+
+2. Configure Roles:
+
+SUPER ADMIN
+- Max Louis
+- Cange
+
+ADMIN
+- Ti La France
+- Montina
+- Roro Lajan
+- Vice Prezidan Tatane
+- Valery
+- Roberson
+- Jij Mayan
+
+DISCIPLINARY COMMITTEE
+- Ex Prez Aly
+- Warrens
+- Michel
+- Roosevelt
+- Guypson
+- Sekretè Ajwen
+
+SPOKESPERSON
+- Ti La France
+
+ADVISORY COUNCIL
+- Conseiller 1
+- Conseiller 2
+- Conseiller 3
+
+3. Required Workflow:
+
+Warning #1
+→ Warning #2
+→ Warning #3
+→ Automatic Disciplinary Case
+→ Committee Review
+→ Committee Vote
+→ Final Decision
+→ Audit Log
+→ Action
+
+4. Governance Policy:
+
+No WhatsApp Admin, Moderator, Firebase Admin, Committee Member, or Team Leader may independently remove a member.
+
+Any member removal requires:
+- Disciplinary Case
+- Evidence
+- Committee Vote
+- Final Decision
+- Audit Log
+
+5. Dashboard Sections:
+
+- Governance Center
+- Administrative Team
+- Disciplinary Committee
+- Advisory Council
+- Warning Management
+- Disciplinary Cases
+- Committee Voting
+- Appeals Center
+- Audit Logs
+
+All governance actions must be stored in Firebase.
+```
+
+Sa se spesifikasyon final la pou modil gouvènans PRO-MAX DMP la. Devlopè a ka entegre li dirèkteman nan sistèm nan.
