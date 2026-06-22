@@ -1,0 +1,76 @@
+rules_version = '2';
+
+service cloud.firestore {
+
+  match /databases/{database}/documents {
+
+    match /member_records/{document} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /warnings/{document} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /disciplinary_cases/{document} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth.token.role == "super_admin";
+      allow delete: if false;
+    }
+
+    match /committee_votes/{document} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    match /appeals/{document} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth.token.role == "super_admin";
+      allow delete: if false;
+    }
+
+    match /suspensions/{document} {
+      allow read: if request.auth != null;
+      allow create: if request.auth.token.role == "super_admin";
+      allow update: if request.auth.token.role == "super_admin";
+      allow delete: if false;
+    }
+
+    match /audit_logs/{document} {
+      allow read: if request.auth.token.role == "super_admin";
+      allow create: if request.auth != null;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    match /governance/{document} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.token.role == "super_admin";
+    }
+
+    match /administrative_team/{document} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.token.role == "super_admin";
+    }
+
+    match /disciplinary_committee/{document} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.token.role == "super_admin";
+    }
+
+    match /advisory_council/{document} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.token.role == "super_admin";
+    }
+  }
+}
