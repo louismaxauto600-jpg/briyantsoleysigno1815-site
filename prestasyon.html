@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontra Prestasyon</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(to bottom,#000,#331100,#ff6600);
+    color:white;
+    margin:0;
+    padding:20px;
+}
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:rgba(0,0,0,.85);
+    padding:30px;
+    border-radius:15px;
+    border:2px solid #ff6600;
+}
+h1,h2{
+    color:#ff9900;
+    text-align:center;
+}
+input,textarea,select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:none;
+}
+.signature{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+.btn{
+    background:#ff8800;
+    color:black;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+.btn:hover{
+    background:#ffaa33;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>KONTRA PRESTASYON</h1>
+
+<p>
+Kontra sa a etabli kondisyon sèvis oswa prestasyon ant BSS1815 PRO-MAX DMP ak prestatè sèvis la.
+</p>
+
+<h2>Enfòmasyon Prestatè</h2>
+
+<label>Non Konplè</label>
+<input type="text">
+
+<label>Non Biznis (si genyen)</label>
+<input type="text">
+
+<label>Telefòn</label>
+<input type="text">
+
+<label>Imèl</label>
+<input type="email">
+
+<label>Dat Kòmansman</label>
+<input type="date">
+
+<label>Dat Fen</label>
+<input type="date">
+
+<h2>Kalite Prestasyon</h2>
+
+<select>
+<option>Animasyon</option>
+<option>Sonorizasyon</option>
+<option>Fotografi</option>
+<option>Videografi</option>
+<option>Maketing</option>
+<option>IT / Teknoloji</option>
+<option>Lòt Sèvis</option>
+</select>
+
+<label>Deskripsyon Travay la</label>
+<textarea rows="8"></textarea>
+
+<h2>Montan Akò a</h2>
+
+<label>Kantite ($)</label>
+<input type="number">
+
+<label>Mòd Peman</label>
+<select>
+<option>Cash</option>
+<option>Zelle</option>
+<option>Cash App</option>
+<option>Bank Transfer</option>
+<option>Check</option>
+</select>
+
+<h2>Kondisyon</h2>
+
+<textarea rows="10">
+• Travay la dwe fèt selon kondisyon yo dakò.
+
+• Nenpòt chanjman dwe jwenn apwobasyon tou de pati yo.
+
+• BSS1815 PRO-MAX DMP gen dwa verifye kalite sèvis la.
+
+• Peman fèt dapre kondisyon ki nan kontra sa a.
+
+• Nenpòt vyolasyon ka lakòz kontra a sispann.
+</textarea>
+
+<div class="signature">
+
+<div>
+<label>Siyati Reprezantan BSS1815</label>
+<input type="text">
+</div>
+
+<div>
+<label>Siyati Prestatè</label>
+<input type="text">
+</div>
+
+</div>
+
+<center>
+<button class="btn" onclick="window.print()">
+PRINT KONTRA
+</button>
+</center>
+
+</div>
+
+</body>
+</html>
