@@ -1,0 +1,434 @@
+<!-- FILE: settings-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1200px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:100px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.setting-box{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.setting-box h3{
+color:#ff7a00;
+margin-bottom:10px;
+}
+
+.status{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:15px;
+white-space:pre-wrap;
+color:#ffb366;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>SETTINGS CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Platform Settings</h2>
+
+<div class="grid">
+
+<div>
+<label>Default Language</label>
+<select id="defaultLanguage">
+<option>Kreyòl</option>
+<option>English</option>
+<option>Français</option>
+</select>
+</div>
+
+<div>
+<label>Theme</label>
+<select id="theme">
+<option>Orange + Black Fade</option>
+</select>
+</div>
+
+<div>
+<label>Platform Status</label>
+<select id="platformStatus">
+<option>Active</option>
+<option>Maintenance Mode</option>
+<option>Private Mode</option>
+</select>
+</div>
+
+<div>
+<label>Default Time Zone</label>
+<input type="text" id="timeZone" placeholder="America/New_York">
+</div>
+
+</div>
+
+<button onclick="savePlatformSettings()">Save Platform Settings</button>
+</section>
+
+<section class="card">
+<h2>PRO-MAX FM Settings</h2>
+
+<div class="grid">
+
+<div>
+<label>FM Status</label>
+<select id="fmStatus">
+<option>ON AIR</option>
+<option>OFF AIR</option>
+<option>Scheduled</option>
+<option>Maintenance</option>
+</select>
+</div>
+
+<div>
+<label>Default Stream Link</label>
+<input type="url" id="streamLink" placeholder="Paste live stream link">
+</div>
+
+<div>
+<label>Default Program Name</label>
+<input type="text" id="programName" placeholder="PRO-MAX FM Live">
+</div>
+
+<div>
+<label>Default Host / DJ</label>
+<input type="text" id="hostName" placeholder="Host name">
+</div>
+
+</div>
+
+<button onclick="saveFMSettings()">Save FM Settings</button>
+</section>
+
+<section class="card">
+<h2>Notification Settings</h2>
+
+<div class="grid">
+
+<div class="setting-box">
+<h3>Email Notifications</h3>
+<select id="emailNotifications">
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+</div>
+
+<div class="setting-box">
+<h3>SMS Notifications</h3>
+<select id="smsNotifications">
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+</div>
+
+<div class="setting-box">
+<h3>WhatsApp Notifications</h3>
+<select id="whatsappNotifications">
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+</div>
+
+<div class="setting-box">
+<h3>Emergency Alerts</h3>
+<select id="emergencyAlerts">
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+</div>
+
+</div>
+
+<button onclick="saveNotificationSettings()">Save Notification Settings</button>
+</section>
+
+<section class="card">
+<h2>Security Settings</h2>
+
+<div class="grid">
+
+<div>
+<label>Registration Access</label>
+<select id="registrationAccess">
+<option>Open Registration</option>
+<option>Admin Approval Required</option>
+<option>Closed Registration</option>
+</select>
+</div>
+
+<div>
+<label>Minimum Password Length</label>
+<input type="number" id="passwordLength" value="8">
+</div>
+
+<div>
+<label>Admin Approval</label>
+<select id="adminApproval">
+<option>Required</option>
+<option>Not Required</option>
+</select>
+</div>
+
+<div>
+<label>Audit Logs</label>
+<select id="auditLogs">
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+</div>
+
+</div>
+
+<button onclick="saveSecuritySettings()">Save Security Settings</button>
+</section>
+
+<section class="card">
+<h2>Current Settings Summary</h2>
+<div id="settingsSummary" class="status">
+No settings saved yet.
+</div>
+<button onclick="loadSettings()">Refresh Summary</button>
+<button onclick="downloadSettings()">Download Settings</button>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Settings Center
+</footer>
+
+<script>
+function saveData(key,data){
+localStorage.setItem(key,JSON.stringify(data));
+loadSettings();
+}
+
+function getData(key){
+return JSON.parse(localStorage.getItem(key)) || {};
+}
+
+function savePlatformSettings(){
+
+const settings = {
+defaultLanguage: document.getElementById("defaultLanguage").value,
+theme: document.getElementById("theme").value,
+platformStatus: document.getElementById("platformStatus").value,
+timeZone: document.getElementById("timeZone").value || "America/New_York",
+updated: new Date().toLocaleString()
+};
+
+saveData("bss1815_platform_settings",settings);
+
+}
+
+function saveFMSettings(){
+
+const settings = {
+fmStatus: document.getElementById("fmStatus").value,
+streamLink: document.getElementById("streamLink").value,
+programName: document.getElementById("programName").value,
+hostName: document.getElementById("hostName").value,
+updated: new Date().toLocaleString()
+};
+
+saveData("bss1815_fm_settings",settings);
+
+}
+
+function saveNotificationSettings(){
+
+const settings = {
+email: document.getElementById("emailNotifications").value,
+sms: document.getElementById("smsNotifications").value,
+whatsapp: document.getElementById("whatsappNotifications").value,
+emergency: document.getElementById("emergencyAlerts").value,
+updated: new Date().toLocaleString()
+};
+
+saveData("bss1815_notification_settings",settings);
+
+}
+
+function saveSecuritySettings(){
+
+const settings = {
+registrationAccess: document.getElementById("registrationAccess").value,
+passwordLength: document.getElementById("passwordLength").value,
+adminApproval: document.getElementById("adminApproval").value,
+auditLogs: document.getElementById("auditLogs").value,
+updated: new Date().toLocaleString()
+};
+
+saveData("bss1815_security_settings",settings);
+
+}
+
+function loadSettings(){
+
+const platform = getData("bss1815_platform_settings");
+const fm = getData("bss1815_fm_settings");
+const notifications = getData("bss1815_notification_settings");
+const security = getData("bss1815_security_settings");
+
+document.getElementById("settingsSummary").innerText =
+`BSS1815 PRO-MAX-DMP SETTINGS SUMMARY
+
+Platform:
+Language: ${platform.defaultLanguage || "Not set"}
+Theme: ${platform.theme || "Orange + Black Fade"}
+Status: ${platform.platformStatus || "Not set"}
+Time Zone: ${platform.timeZone || "America/New_York"}
+
+PRO-MAX FM:
+FM Status: ${fm.fmStatus || "Not set"}
+Stream Link: ${fm.streamLink || "Not set"}
+Program: ${fm.programName || "Not set"}
+Host: ${fm.hostName || "Not set"}
+
+Notifications:
+Email: ${notifications.email || "Not set"}
+SMS: ${notifications.sms || "Not set"}
+WhatsApp: ${notifications.whatsapp || "Not set"}
+Emergency Alerts: ${notifications.emergency || "Not set"}
+
+Security:
+Registration: ${security.registrationAccess || "Not set"}
+Password Length: ${security.passwordLength || "Not set"}
+Admin Approval: ${security.adminApproval || "Not set"}
+Audit Logs: ${security.auditLogs || "Not set"}
+
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+
+}
+
+function downloadSettings(){
+
+const text =
+document.getElementById("settingsSummary").innerText;
+
+const blob =
+new Blob([text],{type:"text/plain"});
+
+const link =
+document.createElement("a");
+
+link.href =
+URL.createObjectURL(blob);
+
+link.download =
+"BSS1815_Settings_Summary.txt";
+
+link.click();
+
+}
+
+loadSettings();
+</script>
+
+</body>
+</html>
