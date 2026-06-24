@@ -1,0 +1,396 @@
+<!-- FILE: live-streaming-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Streaming Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{min-height:110px}
+
+button,.btn{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+text-decoration:none;
+display:inline-block;
+}
+
+.stream-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.stream-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+.player{
+background:#000;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+text-align:center;
+}
+
+.video-placeholder{
+height:300px;
+border:2px dashed #ff7a00;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#050505;
+color:#ff7a00;
+font-size:24px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>LIVE STREAMING CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP | PRO-MAX FM LIVE</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Live Streaming Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalStreams">0</h3>
+<p>Total Streams</p>
+</div>
+
+<div class="stat">
+<h3 id="liveNow">0</h3>
+<p>Live Now</p>
+</div>
+
+<div class="stat">
+<h3 id="scheduledStreams">0</h3>
+<p>Scheduled</p>
+</div>
+
+<div class="stat">
+<h3 id="completedStreams">0</h3>
+<p>Completed</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Current Live Player</h2>
+
+<div class="player">
+<div class="video-placeholder" id="livePlayer">
+PRO-MAX FM LIVE PLAYER
+</div>
+
+<p id="currentStreamInfo">
+No live stream selected.
+</p>
+</div>
+</section>
+
+<section class="card">
+<h2>Create / Schedule Live Stream</h2>
+
+<div class="grid">
+
+<div>
+<label>Stream Title</label>
+<input type="text" id="streamTitle" placeholder="Stream title">
+</div>
+
+<div>
+<label>Platform</label>
+<select id="platform">
+<option>PRO-MAX FM Live</option>
+<option>YouTube Live</option>
+<option>Facebook Live</option>
+<option>TikTok Live</option>
+<option>Zoom / Meeting</option>
+<option>Event Broadcast</option>
+</select>
+</div>
+
+<div>
+<label>Stream Type</label>
+<select id="streamType">
+<option>Radio Live</option>
+<option>Podcast Live</option>
+<option>Interview</option>
+<option>Community Meeting</option>
+<option>Rara Event</option>
+<option>Emergency Broadcast</option>
+<option>Special Program</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="streamStatus">
+<option>Scheduled</option>
+<option>Live Now</option>
+<option>Completed</option>
+<option>Cancelled</option>
+</select>
+</div>
+
+<div>
+<label>Date</label>
+<input type="date" id="streamDate">
+</div>
+
+<div>
+<label>Time</label>
+<input type="time" id="streamTime">
+</div>
+
+</div>
+
+<label>Streaming Link</label>
+<input type="url" id="streamLink" placeholder="Paste YouTube/Facebook/TikTok/Live link here">
+
+<label>Description</label>
+<textarea id="streamDescription" placeholder="Stream description..."></textarea>
+
+<button onclick="saveStream()">Save Stream</button>
+</section>
+
+<section class="card">
+<h2>Search Streams</h2>
+<input type="text" id="search" placeholder="Search streams..." onkeyup="renderStreams()">
+</section>
+
+<section class="card">
+<h2>Stream List</h2>
+<div id="streamList" class="grid"></div>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Live Streaming Center
+</footer>
+
+<script>
+let streams =
+JSON.parse(localStorage.getItem("bss1815_live_streams")) || [];
+
+function saveStream(){
+
+const stream = {
+title: document.getElementById("streamTitle").value.trim(),
+platform: document.getElementById("platform").value,
+type: document.getElementById("streamType").value,
+status: document.getElementById("streamStatus").value,
+date: document.getElementById("streamDate").value,
+time: document.getElementById("streamTime").value,
+link: document.getElementById("streamLink").value.trim(),
+description: document.getElementById("streamDescription").value.trim(),
+created: new Date().toLocaleString()
+};
+
+if(!stream.title){
+alert("Stream Title required.");
+return;
+}
+
+streams.unshift(stream);
+
+localStorage.setItem(
+"bss1815_live_streams",
+JSON.stringify(streams)
+);
+
+document.getElementById("streamTitle").value="";
+document.getElementById("streamLink").value="";
+document.getElementById("streamDescription").value="";
+
+renderStreams();
+
+}
+
+function renderStreams(){
+
+const list = document.getElementById("streamList");
+const search = document.getElementById("search").value.toLowerCase();
+
+list.innerHTML = "";
+
+streams
+.filter(s =>
+Object.values(s)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach((s,index)=>{
+
+list.innerHTML += `
+<div class="stream-card">
+<h3>${s.title}</h3>
+<p class="meta">${s.platform} | ${s.type} | ${s.status}</p>
+<p><strong>Date:</strong> ${s.date}</p>
+<p><strong>Time:</strong> ${s.time}</p>
+<p>${s.description}</p>
+${s.link ? `<a class="btn" href="${s.link}" target="_blank">Open Stream</a>` : ""}
+<button onclick="setCurrentStream(${index})">Set As Current Live</button>
+</div>
+`;
+
+});
+
+updateStats();
+
+}
+
+function setCurrentStream(index){
+
+const s = streams[index];
+
+document.getElementById("currentStreamInfo").innerHTML =
+`
+<strong>${s.title}</strong><br>
+${s.platform} | ${s.type} | ${s.status}<br>
+${s.date} ${s.time}<br>
+${s.link ? `<a class="btn" href="${s.link}" target="_blank">Watch Live</a>` : "No link added."}
+`;
+
+document.getElementById("livePlayer").innerText =
+s.status === "Live Now" ? "LIVE NOW: " + s.title : "SELECTED STREAM: " + s.title;
+
+}
+
+function updateStats(){
+
+document.getElementById("totalStreams").innerText =
+streams.length;
+
+document.getElementById("liveNow").innerText =
+streams.filter(s => s.status === "Live Now").length;
+
+document.getElementById("scheduledStreams").innerText =
+streams.filter(s => s.status === "Scheduled").length;
+
+document.getElementById("completedStreams").innerText =
+streams.filter(s => s.status === "Completed").length;
+
+}
+
+renderStreams();
+</script>
+
+</body>
+</html>
