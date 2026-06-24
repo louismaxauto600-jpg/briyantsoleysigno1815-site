@@ -1,0 +1,388 @@
+<!-- FILE: admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:45px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+.module-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.module-card h3{
+color:#ff7a00;
+margin-bottom:10px;
+}
+
+.module-card a{
+display:inline-block;
+margin-top:12px;
+background:#ff7a00;
+color:#000;
+text-decoration:none;
+padding:10px 14px;
+border-radius:10px;
+font-weight:bold;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ADMIN DASHBOARD</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Platform Overview</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalUsers">0</h3>
+<p>Total Users</p>
+</div>
+
+<div class="stat">
+<h3 id="totalModules">10</h3>
+<p>Modules</p>
+</div>
+
+<div class="stat">
+<h3 id="totalAdmins">0</h3>
+<p>Admins</p>
+</div>
+
+<div class="stat">
+<h3 id="totalModerators">0</h3>
+<p>Moderators</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Module Access</h2>
+
+<div class="grid">
+
+<div class="module-card">
+<h3>AI Center</h3>
+<p>AI Assistant, Voice Studio, Content Generator.</p>
+<a href="ai-center.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>CRM System</h3>
+<p>Manage members, musicians, partners, and contacts.</p>
+<a href="crm-system.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>Communication Center</h3>
+<p>Official notices, announcements, alerts, and community messages.</p>
+<a href="communication-center.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>Flyer Studio</h3>
+<p>Create flyers, posters, announcements, and visual content.</p>
+<a href="flyer-studio.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>Digital Registry</h3>
+<p>Register members, musicians, fanatik, ti machann, and partners.</p>
+<a href="digital-registry.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>Event Management</h3>
+<p>Create, track, and manage events.</p>
+<a href="event-management.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>Document Center</h3>
+<p>Official documents, contracts, letters, memos, and archives.</p>
+<a href="document-center.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>PRO-MAX FM</h3>
+<p>Radio, podcast, news, announcements, and live media.</p>
+<a href="pro-max-fm.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>PRO-MAX FM News</h3>
+<p>News bulletin, community updates, podcast news, and radio announcements.</p>
+<a href="pro-max-fm-news.html">Open Module</a>
+</div>
+
+<div class="module-card">
+<h3>Latest News</h3>
+<p>Latest platform and community news.</p>
+<a href="latest-news.html">Open Module</a>
+</div>
+
+</div>
+</section>
+
+<section class="card">
+<h2>Admin / Role Management</h2>
+
+<div class="grid">
+<div>
+<label>Full Name</label>
+<input type="text" id="adminName" placeholder="Admin full name">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="adminEmail" placeholder="Admin email">
+</div>
+
+<div>
+<label>Role</label>
+<select id="adminRole">
+<option>Super Admin</option>
+<option>Admin</option>
+<option>Moderator</option>
+<option>Radio Host</option>
+<option>Content Manager</option>
+<option>Event Manager</option>
+<option>Document Manager</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="adminStatus">
+<option>Active</option>
+<option>Pending</option>
+<option>Inactive</option>
+</select>
+</div>
+</div>
+
+<button onclick="addAdmin()">Add Admin / Role</button>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Role</th>
+<th>Status</th>
+<th>Date Added</th>
+</tr>
+</thead>
+<tbody id="adminTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Admin Dashboard
+</footer>
+
+<script>
+let admins =
+JSON.parse(localStorage.getItem("bss1815_admin_roles")) || [];
+
+function addAdmin(){
+
+const admin = {
+name: document.getElementById("adminName").value,
+email: document.getElementById("adminEmail").value,
+role: document.getElementById("adminRole").value,
+status: document.getElementById("adminStatus").value,
+date: new Date().toLocaleString()
+};
+
+if(!admin.name || !admin.email){
+alert("Name and Email required.");
+return;
+}
+
+admins.unshift(admin);
+
+localStorage.setItem(
+"bss1815_admin_roles",
+JSON.stringify(admins)
+);
+
+document.getElementById("adminName").value="";
+document.getElementById("adminEmail").value="";
+
+renderAdmins();
+
+}
+
+function renderAdmins(){
+
+const table = document.getElementById("adminTable");
+
+table.innerHTML = "";
+
+admins.forEach(admin=>{
+
+table.innerHTML += `
+<tr>
+<td>${admin.name}</td>
+<td>${admin.email}</td>
+<td>${admin.role}</td>
+<td>${admin.status}</td>
+<td>${admin.date}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalUsers").innerText = admins.length;
+
+document.getElementById("totalAdmins").innerText =
+admins.filter(x => x.role === "Admin" || x.role === "Super Admin").length;
+
+document.getElementById("totalModerators").innerText =
+admins.filter(x => x.role === "Moderator").length;
+
+}
+
+renderAdmins();
+</script>
+
+</body>
+</html>
