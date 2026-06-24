@@ -1,0 +1,388 @@
+<!-- FILE: profile-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1100px,95%);
+margin:35px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:22px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.profile-preview{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+align-items:center;
+}
+
+.avatar{
+width:130px;
+height:130px;
+border-radius:50%;
+border:3px solid #ff7a00;
+background:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+color:#ff7a00;
+overflow:hidden;
+}
+
+.avatar img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:110px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>USER PROFILE CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Profile Preview</h2>
+
+<div class="profile-preview">
+<div class="avatar" id="avatarPreview">👤</div>
+
+<div>
+<h2 id="previewName">No Profile Selected</h2>
+<p><strong>Role:</strong> <span id="previewRole">N/A</span></p>
+<p><strong>Status:</strong> <span id="previewStatus">N/A</span></p>
+<p><strong>Membership:</strong> <span id="previewMembership">N/A</span></p>
+<p><strong>Contact:</strong> <span id="previewContact">N/A</span></p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create / Update Profile</h2>
+
+<div class="grid">
+
+<div>
+<label>Full Name</label>
+<input type="text" id="fullName" placeholder="Full name">
+</div>
+
+<div>
+<label>Role</label>
+<select id="role">
+<option>Member</option>
+<option>Fanatik</option>
+<option>Musician</option>
+<option>Ti Machann</option>
+<option>Leader</option>
+<option>Moderator</option>
+<option>Admin</option>
+<option>Super Admin</option>
+<option>Radio Host</option>
+<option>Partner</option>
+</select>
+</div>
+
+<div>
+<label>Membership Status</label>
+<select id="membership">
+<option>Active</option>
+<option>Pending</option>
+<option>Inactive</option>
+<option>VIP</option>
+</select>
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="phone" placeholder="Phone number">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="email" placeholder="Email address">
+</div>
+
+<div>
+<label>Location</label>
+<input type="text" id="location" placeholder="City / State / Country">
+</div>
+
+<div>
+<label>Profile Photo</label>
+<input type="file" id="photo" accept="image/*" onchange="previewPhoto(event)">
+</div>
+
+<div>
+<label>Language Preference</label>
+<select id="language">
+<option>Kreyòl</option>
+<option>English</option>
+<option>Français</option>
+</select>
+</div>
+
+</div>
+
+<label>Bio / Notes</label>
+<textarea id="bio" placeholder="Profile notes or short bio..."></textarea>
+
+<button onclick="saveProfile()">Save Profile</button>
+</section>
+
+<section class="card">
+<h2>Saved Profiles</h2>
+
+<input type="text" id="search" placeholder="Search profiles..." onkeyup="renderProfiles()">
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Role</th>
+<th>Membership</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="profileTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | User Profile Center
+</footer>
+
+<script>
+let profiles =
+JSON.parse(localStorage.getItem("bss1815_profiles")) || [];
+
+let currentPhoto = "";
+
+function previewPhoto(event){
+
+const file = event.target.files[0];
+
+if(!file)return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+currentPhoto = e.target.result;
+document.getElementById("avatarPreview").innerHTML =
+`<img src="${currentPhoto}" alt="Profile Photo">`;
+};
+
+reader.readAsDataURL(file);
+
+}
+
+function saveProfile(){
+
+const profile = {
+fullName: document.getElementById("fullName").value.trim(),
+role: document.getElementById("role").value,
+membership: document.getElementById("membership").value,
+phone: document.getElementById("phone").value.trim(),
+email: document.getElementById("email").value.trim(),
+location: document.getElementById("location").value.trim(),
+language: document.getElementById("language").value,
+bio: document.getElementById("bio").value.trim(),
+photo: currentPhoto,
+date: new Date().toLocaleString()
+};
+
+if(!profile.fullName || !profile.phone){
+alert("Full Name and Phone required.");
+return;
+}
+
+profiles.unshift(profile);
+
+localStorage.setItem(
+"bss1815_profiles",
+JSON.stringify(profiles)
+);
+
+showPreview(profile);
+renderProfiles();
+
+document.getElementById("fullName").value="";
+document.getElementById("phone").value="";
+document.getElementById("email").value="";
+document.getElementById("location").value="";
+document.getElementById("bio").value="";
+document.getElementById("photo").value="";
+currentPhoto="";
+
+}
+
+function showPreview(profile){
+
+document.getElementById("previewName").innerText = profile.fullName;
+document.getElementById("previewRole").innerText = profile.role;
+document.getElementById("previewStatus").innerText = profile.membership;
+document.getElementById("previewMembership").innerText = profile.membership;
+document.getElementById("previewContact").innerText = profile.phone;
+
+if(profile.photo){
+document.getElementById("avatarPreview").innerHTML =
+`<img src="${profile.photo}" alt="Profile Photo">`;
+}else{
+document.getElementById("avatarPreview").innerText = "👤";
+}
+
+}
+
+function renderProfiles(){
+
+const table = document.getElementById("profileTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+table.innerHTML = "";
+
+profiles
+.filter(profile =>
+Object.values(profile)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach(profile=>{
+
+table.innerHTML += `
+<tr>
+<td>${profile.fullName}</td>
+<td>${profile.role}</td>
+<td>${profile.membership}</td>
+<td>${profile.phone}</td>
+<td>${profile.email}</td>
+<td>${profile.membership}</td>
+</tr>
+`;
+
+});
+
+}
+
+renderProfiles();
+</script>
+
+</body>
+</html>
