@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Center | BSS1815 PRO-MAX-DMP</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(135deg,#000,#1a0900,#ff6a00,#000);
+      color:#fff3e6;
+      min-height:100vh;
+      line-height:1.6;
+    }
+    header{
+      text-align:center;
+      padding:45px 20px;
+      background:linear-gradient(135deg,#000,#ff6a00,#000);
+      border-bottom:3px solid #ff7a00;
+    }
+    header h1{
+      font-size:3rem;
+      color:#ff7a00;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+    header p{font-size:1.1rem;color:#ffd2a1;margin-top:10px}
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      padding:18px;
+      background:#000;
+      border-bottom:1px solid #ff7a00;
+    }
+    nav a{
+      color:#fff3e6;
+      text-decoration:none;
+      border:1px solid #ff7a00;
+      padding:10px 16px;
+      border-radius:30px;
+      font-weight:bold;
+    }
+    nav a:hover{background:#ff7a00;color:#000}
+    main{
+      width:min(1150px,94%);
+      margin:35px auto;
+    }
+    .intro,.tool-card,.output-box{
+      background:rgba(0,0,0,.78);
+      border:1px solid #ff7a00;
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 0 20px rgba(255,122,0,.25);
+    }
+    .intro h2,.section-title{color:#ff7a00;text-transform:uppercase;margin-bottom:12px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+      margin-top:28px;
+    }
+    .tool-card h3{color:#ff7a00;margin-bottom:10px}
+    .tool-card p{color:#fff3e6}
+    .tool-card button,.btn{
+      margin-top:15px;
+      background:#ff7a00;
+      color:#000;
+      border:none;
+      padding:11px 15px;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .generator{
+      margin-top:35px;
+      background:rgba(0,0,0,.82);
+      border:1px solid #ff7a00;
+      border-radius:18px;
+      padding:24px;
+    }
+    label{display:block;margin-top:15px;color:#ffd2a1;font-weight:bold}
+    select,textarea,input{
+      width:100%;
+      margin-top:8px;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #ff7a00;
+      background:#000;
+      color:#fff3e6;
+      font-size:1rem;
+    }
+    textarea{min-height:130px;resize:vertical}
+    .output-box{
+      margin-top:20px;
+      white-space:pre-wrap;
+      min-height:120px;
+    }
+    footer{
+      text-align:center;
+      padding:25px;
+      margin-top:45px;
+      background:#000;
+      border-top:3px solid #ff7a00;
+      color:#ffd2a1;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>AI CENTER</h1>
+  <p>BSS1815 PRO-MAX-DMP</p>
+  <p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="pro-max-fm.html">PRO-MAX FM</a>
+  <a href="latest-news.html">Latest News</a>
+  <a href="ai-center.html">AI Center</a>
+</nav>
+
+<main>
+
+  <section class="intro">
+    <h2>🤖 Sant Entèlijans Atifisyèl</h2>
+    <p>
+      AI CENTER se sant dijital BSS1815 PRO-MAX-DMP pou ede admin yo kreye
+      mesaj, anons, script, tradiksyon, dokiman, vwa radyo, ak kontni kominotè.
+    </p>
+  </section>
+
+  <section class="grid">
+
+    <div class="tool-card">
+      <h3>AI Assistant</h3>
+      <p>Ede admin yo ekri mesaj, nòt ofisyèl, repons, ak kominikasyon kominotè.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>AI Content Generator</h3>
+      <p>Kreye death announcement, birthday message, condolence, event announcement, ak official notice.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>AI Translation</h3>
+      <p>Tradui kontni yo an Kreyòl, English, ak Français pou tout kominote a.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>AI Voice Studio</h3>
+      <p>Prepare tèks pou vwa PRO-MAX-DMP FM, podcast, video, ak radio announcement.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>AI FM News Reader</h3>
+      <p>Prepare nouvèl ak anons pou li sou PRO-MAX-DMP FM.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>AI Document Helper</h3>
+      <p>Ede prepare memo, PDF, lèt, kontra, règleman, ak dokiman ofisyèl.</p>
+    </div>
+
+  </section>
+
+  <section class="generator">
+    <h2 class="section-title">AI Content Generator Demo</h2>
+
+    <label for="contentType">Chwazi kalite kontni an</label>
+    <select id="contentType">
+      <option value="official">Official Notice</option>
+      <option value="birthday">Birthday Message</option>
+      <option value="condolence">Condolence Message</option>
+      <option value="event">Event Announcement</option>
+      <option value="fm">PRO-MAX FM Radio Script</option>
+      <option value="emergency">Emergency Alert</option>
+    </select>
+
+    <label for="language">Chwazi lang lan</label>
+    <select id="language">
+      <option value="ht">Kreyòl</option>
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+    </select>
+
+    <label for="topic">Ekri sijè a</label>
+    <input id="topic" type="text" placeholder="Egzanp: Reyinyon kominotè samdi 7 PM" />
+
+    <label for="details">Ajoute detay yo</label>
+    <textarea id="details" placeholder="Mete tout detay admin la bezwen itilize..."></textarea>
+
+    <button class="btn" onclick="generateContent()">Generate Content</button>
+
+    <div class="output-box" id="outputBox">
+      Rezilta AI a ap parèt isit la.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 BSS1815 PRO-MAX-DMP | AI CENTER</p>
+  <p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</footer>
+
+<script>
+  function generateContent() {
+    const type = document.getElementById("contentType").value;
+    const language = document.getElementById("language").value;
+    const topic = document.getElementById("topic").value || "Sijè pa antre";
+    const details = document.getElementById("details").value || "Pa gen detay ajoute.";
+    const output = document.getElementById("outputBox");
+
+    let title = "";
+
+    if (type === "official") title = "OFFICIAL NOTICE";
+    if (type === "birthday") title = "BIRTHDAY MESSAGE";
+    if (type === "condolence") title = "CONDOLENCE MESSAGE";
+    if (type === "event") title = "EVENT ANNOUNCEMENT";
+    if (type === "fm") title = "PRO-MAX FM RADIO SCRIPT";
+    if (type === "emergency") title = "EMERGENCY ALERT";
+
+    output.textContent =
+`${title}
+
+Platform: BSS1815 PRO-MAX-DMP
+Language: ${language.toUpperCase()}
+Topic: ${topic}
+
+Message:
+${details}
+
+Prepared by AI CENTER
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+  }
+</script>
+
+</body>
+</html>
