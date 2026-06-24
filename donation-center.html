@@ -1,0 +1,523 @@
+<!-- FILE: donation-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:110px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.donation-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.donation-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>DONATION CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Donation Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalDonations">$0.00</h3>
+<p>Total Donations</p>
+</div>
+
+<div class="stat">
+<h3 id="totalDonors">0</h3>
+<p>Total Donors</p>
+</div>
+
+<div class="stat">
+<h3 id="totalSponsors">0</h3>
+<p>Sponsors</p>
+</div>
+
+<div class="stat">
+<h3 id="campaignCount">0</h3>
+<p>Fundraising Campaigns</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Record Donation / Sponsorship</h2>
+
+<div class="grid">
+
+<div>
+<label>Donor / Sponsor Name</label>
+<input type="text" id="donorName" placeholder="Full name or business name">
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="donorPhone" placeholder="Phone number">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="donorEmail" placeholder="Email address">
+</div>
+
+<div>
+<label>Contribution Type</label>
+<select id="contributionType">
+<option>Donation</option>
+<option>Sponsorship</option>
+<option>Membership Support</option>
+<option>Event Support</option>
+<option>PRO-MAX FM Support</option>
+<option>Community Support</option>
+<option>Equipment Support</option>
+</select>
+</div>
+
+<div>
+<label>Amount</label>
+<input type="number" id="amount" placeholder="0.00" step="0.01">
+</div>
+
+<div>
+<label>Payment Method</label>
+<select id="paymentMethod">
+<option>Cash</option>
+<option>Zelle</option>
+<option>Cash App</option>
+<option>PayPal</option>
+<option>Card</option>
+<option>Check</option>
+<option>Bank Transfer</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Received</option>
+<option>Pending</option>
+<option>Pledged</option>
+<option>Cancelled</option>
+</select>
+</div>
+
+<div>
+<label>Date</label>
+<input type="date" id="donationDate">
+</div>
+
+</div>
+
+<label>Notes</label>
+<textarea id="notes" placeholder="Donation notes..."></textarea>
+
+<button onclick="saveDonation()">Save Donation</button>
+</section>
+
+<section class="card">
+<h2>Create Fundraising Campaign</h2>
+
+<div class="grid">
+<div>
+<label>Campaign Name</label>
+<input type="text" id="campaignName" placeholder="Campaign name">
+</div>
+
+<div>
+<label>Goal Amount</label>
+<input type="number" id="goalAmount" placeholder="0.00" step="0.01">
+</div>
+
+<div>
+<label>Campaign Status</label>
+<select id="campaignStatus">
+<option>Active</option>
+<option>Pending</option>
+<option>Completed</option>
+<option>Paused</option>
+</select>
+</div>
+
+<div>
+<label>End Date</label>
+<input type="date" id="endDate">
+</div>
+</div>
+
+<label>Campaign Description</label>
+<textarea id="campaignDescription" placeholder="Describe the campaign..."></textarea>
+
+<button onclick="saveCampaign()">Save Campaign</button>
+</section>
+
+<section class="card">
+<h2>Search Donation Records</h2>
+<input type="text" id="search" placeholder="Search donations, sponsors, campaigns..." onkeyup="renderAll()">
+</section>
+
+<section class="card">
+<h2>Donation Cards</h2>
+<div id="donationCards" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Donation Table</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Amount</th>
+<th>Method</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="donationTable"></tbody>
+</table>
+</section>
+
+<section class="card">
+<h2>Fundraising Campaigns</h2>
+
+<table>
+<thead>
+<tr>
+<th>Campaign</th>
+<th>Goal</th>
+<th>Status</th>
+<th>End Date</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody id="campaignTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Donation Center
+</footer>
+
+<script>
+let donations =
+JSON.parse(localStorage.getItem("bss1815_donations")) || [];
+
+let campaigns =
+JSON.parse(localStorage.getItem("bss1815_fundraising_campaigns")) || [];
+
+function money(value){
+return "$" + Number(value || 0).toFixed(2);
+}
+
+function saveDonation(){
+
+const donation = {
+name: document.getElementById("donorName").value.trim(),
+phone: document.getElementById("donorPhone").value.trim(),
+email: document.getElementById("donorEmail").value.trim(),
+type: document.getElementById("contributionType").value,
+amount: Number(document.getElementById("amount").value || 0),
+method: document.getElementById("paymentMethod").value,
+status: document.getElementById("status").value,
+date: document.getElementById("donationDate").value || new Date().toLocaleDateString(),
+notes: document.getElementById("notes").value.trim(),
+created: new Date().toLocaleString()
+};
+
+if(!donation.name || donation.amount <= 0){
+alert("Donor/Sponsor Name and valid Amount required.");
+return;
+}
+
+donations.unshift(donation);
+
+localStorage.setItem(
+"bss1815_donations",
+JSON.stringify(donations)
+);
+
+document.getElementById("donorName").value="";
+document.getElementById("donorPhone").value="";
+document.getElementById("donorEmail").value="";
+document.getElementById("amount").value="";
+document.getElementById("donationDate").value="";
+document.getElementById("notes").value="";
+
+renderAll();
+
+}
+
+function saveCampaign(){
+
+const campaign = {
+name: document.getElementById("campaignName").value.trim(),
+goal: Number(document.getElementById("goalAmount").value || 0),
+status: document.getElementById("campaignStatus").value,
+endDate: document.getElementById("endDate").value,
+description: document.getElementById("campaignDescription").value.trim(),
+created: new Date().toLocaleString()
+};
+
+if(!campaign.name || campaign.goal <= 0){
+alert("Campaign Name and Goal Amount required.");
+return;
+}
+
+campaigns.unshift(campaign);
+
+localStorage.setItem(
+"bss1815_fundraising_campaigns",
+JSON.stringify(campaigns)
+);
+
+document.getElementById("campaignName").value="";
+document.getElementById("goalAmount").value="";
+document.getElementById("endDate").value="";
+document.getElementById("campaignDescription").value="";
+
+renderAll();
+
+}
+
+function renderAll(){
+
+const search = document.getElementById("search").value.toLowerCase();
+
+renderDonations(search);
+renderCampaigns(search);
+updateStats();
+
+}
+
+function renderDonations(search){
+
+const cards = document.getElementById("donationCards");
+const table = document.getElementById("donationTable");
+
+cards.innerHTML="";
+table.innerHTML="";
+
+donations
+.filter(d => Object.values(d).join(" ").toLowerCase().includes(search))
+.forEach(d=>{
+
+cards.innerHTML += `
+<div class="donation-card">
+<h3>${d.name}</h3>
+<p class="meta">${d.type} | ${d.status} | ${d.date}</p>
+<p><strong>Amount:</strong> ${money(d.amount)}</p>
+<p><strong>Method:</strong> ${d.method}</p>
+<p><strong>Phone:</strong> ${d.phone}</p>
+<p>${d.notes}</p>
+</div>
+`;
+
+table.innerHTML += `
+<tr>
+<td>${d.name}</td>
+<td>${d.type}</td>
+<td>${money(d.amount)}</td>
+<td>${d.method}</td>
+<td>${d.status}</td>
+<td>${d.date}</td>
+</tr>
+`;
+
+});
+
+}
+
+function renderCampaigns(search){
+
+const table = document.getElementById("campaignTable");
+
+table.innerHTML="";
+
+campaigns
+.filter(c => Object.values(c).join(" ").toLowerCase().includes(search))
+.forEach(c=>{
+
+table.innerHTML += `
+<tr>
+<td>${c.name}</td>
+<td>${money(c.goal)}</td>
+<td>${c.status}</td>
+<td>${c.endDate}</td>
+<td>${c.description}</td>
+</tr>
+`;
+
+});
+
+}
+
+function updateStats(){
+
+const total =
+donations
+.filter(d => d.status === "Received")
+.reduce((sum,d)=>sum + Number(d.amount || 0),0);
+
+document.getElementById("totalDonations").innerText =
+money(total);
+
+document.getElementById("totalDonors").innerText =
+new Set(donations.map(d => d.name)).size;
+
+document.getElementById("totalSponsors").innerText =
+donations.filter(d => d.type === "Sponsorship").length;
+
+document.getElementById("campaignCount").innerText =
+campaigns.length;
+
+}
+
+renderAll();
+</script>
+
+</body>
+</html>
