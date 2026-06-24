@@ -1,0 +1,452 @@
+<!-- FILE: digital-signature-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Signature Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{min-height:110px}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.signature-pad{
+background:#fff;
+border:3px solid #ff7a00;
+border-radius:12px;
+width:100%;
+height:220px;
+touch-action:none;
+cursor:crosshair;
+}
+
+.signature-preview{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+margin-top:15px;
+}
+
+.signature-preview img{
+max-width:100%;
+background:#fff;
+border-radius:8px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>DIGITAL SIGNATURE CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Signature Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalSignatures">0</h3>
+<p>Total Signatures</p>
+</div>
+
+<div class="stat">
+<h3 id="pendingSignatures">0</h3>
+<p>Pending</p>
+</div>
+
+<div class="stat">
+<h3 id="signedDocuments">0</h3>
+<p>Signed</p>
+</div>
+
+<div class="stat">
+<h3 id="approvedDocuments">0</h3>
+<p>Approved</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create Signature Request</h2>
+
+<div class="grid">
+
+<div>
+<label>Signer Full Name</label>
+<input type="text" id="signerName" placeholder="Signer name">
+</div>
+
+<div>
+<label>Signer Role</label>
+<select id="signerRole">
+<option>Super Admin</option>
+<option>Admin</option>
+<option>Moderator</option>
+<option>Member</option>
+<option>Musician</option>
+<option>Volunteer</option>
+<option>Partner</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Document Type</label>
+<select id="documentType">
+<option>Official Document</option>
+<option>Contract</option>
+<option>Musician Contract</option>
+<option>Permission Form</option>
+<option>Approval Form</option>
+<option>Meeting Minutes</option>
+<option>Event Agreement</option>
+<option>Finance Approval</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="signatureStatus">
+<option>Pending</option>
+<option>Signed</option>
+<option>Approved</option>
+<option>Rejected</option>
+</select>
+</div>
+
+</div>
+
+<label>Document Title</label>
+<input type="text" id="documentTitle" placeholder="Document title">
+
+<label>Document / Approval Details</label>
+<textarea id="documentDetails" placeholder="Write document details here..."></textarea>
+
+<h2 style="margin-top:20px;">Draw Signature</h2>
+<canvas id="signaturePad" class="signature-pad"></canvas>
+
+<button onclick="clearSignature()">Clear Signature</button>
+<button onclick="saveSignature()">Save Signature</button>
+</section>
+
+<section class="card">
+<h2>Signature Preview</h2>
+<div id="signaturePreview" class="signature-preview">
+No signature saved yet.
+</div>
+</section>
+
+<section class="card">
+<h2>Search Signature Records</h2>
+<input type="text" id="search" placeholder="Search signatures..." onkeyup="renderSignatures()">
+</section>
+
+<section class="card">
+<h2>Signature Registry</h2>
+
+<table>
+<thead>
+<tr>
+<th>Signer</th>
+<th>Role</th>
+<th>Document</th>
+<th>Type</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="signatureTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Digital Signature Center
+</footer>
+
+<script>
+let signatures =
+JSON.parse(localStorage.getItem("bss1815_digital_signatures")) || [];
+
+const canvas = document.getElementById("signaturePad");
+const ctx = canvas.getContext("2d");
+
+let drawing = false;
+
+function resizeCanvas(){
+const rect = canvas.getBoundingClientRect();
+canvas.width = rect.width;
+canvas.height = rect.height;
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.strokeStyle = "#000000";
+ctx.lineWidth = 3;
+ctx.lineCap = "round";
+}
+
+window.addEventListener("load",resizeCanvas);
+window.addEventListener("resize",resizeCanvas);
+
+function getPosition(event){
+const rect = canvas.getBoundingClientRect();
+
+if(event.touches){
+return {
+x:event.touches[0].clientX - rect.left,
+y:event.touches[0].clientY - rect.top
+};
+}
+
+return {
+x:event.clientX - rect.left,
+y:event.clientY - rect.top
+};
+}
+
+function startDraw(event){
+drawing = true;
+const pos = getPosition(event);
+ctx.beginPath();
+ctx.moveTo(pos.x,pos.y);
+event.preventDefault();
+}
+
+function draw(event){
+if(!drawing)return;
+const pos = getPosition(event);
+ctx.lineTo(pos.x,pos.y);
+ctx.stroke();
+event.preventDefault();
+}
+
+function stopDraw(){
+drawing = false;
+}
+
+canvas.addEventListener("mousedown",startDraw);
+canvas.addEventListener("mousemove",draw);
+canvas.addEventListener("mouseup",stopDraw);
+canvas.addEventListener("mouseleave",stopDraw);
+
+canvas.addEventListener("touchstart",startDraw);
+canvas.addEventListener("touchmove",draw);
+canvas.addEventListener("touchend",stopDraw);
+
+function clearSignature(){
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.strokeStyle = "#000000";
+ctx.lineWidth = 3;
+}
+
+function saveSignature(){
+
+const record = {
+signerName: document.getElementById("signerName").value.trim(),
+signerRole: document.getElementById("signerRole").value,
+documentType: document.getElementById("documentType").value,
+status: document.getElementById("signatureStatus").value,
+documentTitle: document.getElementById("documentTitle").value.trim(),
+details: document.getElementById("documentDetails").value.trim(),
+signatureImage: canvas.toDataURL("image/png"),
+date: new Date().toLocaleString()
+};
+
+if(!record.signerName || !record.documentTitle){
+alert("Signer Name and Document Title required.");
+return;
+}
+
+signatures.unshift(record);
+
+localStorage.setItem(
+"bss1815_digital_signatures",
+JSON.stringify(signatures)
+);
+
+document.getElementById("signaturePreview").innerHTML =
+`
+<h3>${record.documentTitle}</h3>
+<p><strong>Signer:</strong> ${record.signerName}</p>
+<p><strong>Role:</strong> ${record.signerRole}</p>
+<p><strong>Status:</strong> ${record.status}</p>
+<img src="${record.signatureImage}" alt="Signature">
+`;
+
+document.getElementById("signerName").value="";
+document.getElementById("documentTitle").value="";
+document.getElementById("documentDetails").value="";
+clearSignature();
+
+renderSignatures();
+
+}
+
+function renderSignatures(){
+
+const table = document.getElementById("signatureTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+table.innerHTML = "";
+
+signatures
+.filter(s => Object.values(s).join(" ").toLowerCase().includes(search))
+.forEach(s=>{
+
+table.innerHTML += `
+<tr>
+<td>${s.signerName}</td>
+<td>${s.signerRole}</td>
+<td>${s.documentTitle}</td>
+<td>${s.documentType}</td>
+<td>${s.status}</td>
+<td>${s.date}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalSignatures").innerText =
+signatures.length;
+
+document.getElementById("pendingSignatures").innerText =
+signatures.filter(s => s.status === "Pending").length;
+
+document.getElementById("signedDocuments").innerText =
+signatures.filter(s => s.status === "Signed").length;
+
+document.getElementById("approvedDocuments").innerText =
+signatures.filter(s => s.status === "Approved").length;
+
+}
+
+renderSignatures();
+</script>
+
+</body>
+</html>
