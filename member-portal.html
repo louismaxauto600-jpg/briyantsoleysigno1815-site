@@ -1,0 +1,300 @@
+<!-- FILE: member-portal.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Member Portal | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.portal-box{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:14px;
+padding:18px;
+}
+
+.portal-box h3{
+color:#ff7a00;
+margin-bottom:10px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:110px;
+}
+
+button,.btn{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+text-decoration:none;
+display:inline-block;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MEMBER PORTAL</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Member Dashboard</h2>
+
+<div class="grid">
+
+<div class="portal-box">
+<h3>Profile</h3>
+<p>View or update member profile information.</p>
+<a class="btn" href="profile-center.html">Open Profile</a>
+</div>
+
+<div class="portal-box">
+<h3>Documents</h3>
+<p>Access personal and official documents.</p>
+<a class="btn" href="document-center.html">Open Documents</a>
+</div>
+
+<div class="portal-box">
+<h3>Events</h3>
+<p>View upcoming meetings, rara events, and community activities.</p>
+<a class="btn" href="event-management.html">Open Events</a>
+</div>
+
+<div class="portal-box">
+<h3>Notifications</h3>
+<p>Check alerts, messages, and community updates.</p>
+<a class="btn" href="notification-center.html">Open Notifications</a>
+</div>
+
+<div class="portal-box">
+<h3>PRO-MAX FM</h3>
+<p>Listen to radio, podcast, and community announcements.</p>
+<a class="btn" href="pro-max-fm.html">Open PRO-MAX FM</a>
+</div>
+
+<div class="portal-box">
+<h3>Support</h3>
+<p>Submit a request or contact the admin team.</p>
+<a class="btn" href="#supportForm">Request Support</a>
+</div>
+
+</div>
+</section>
+
+<section class="card" id="supportForm">
+<h2>Member Support Request</h2>
+
+<label>Member Name</label>
+<input type="text" id="memberName" placeholder="Full name">
+
+<label>Phone</label>
+<input type="text" id="memberPhone" placeholder="Phone number">
+
+<label>Request Type</label>
+<select id="requestType">
+<option>Profile Help</option>
+<option>Document Request</option>
+<option>Event Question</option>
+<option>Membership Status</option>
+<option>PRO-MAX FM Support</option>
+<option>Technical Support</option>
+<option>Other</option>
+</select>
+
+<label>Message</label>
+<textarea id="requestMessage" placeholder="Write your request here..."></textarea>
+
+<button onclick="submitRequest()">Submit Request</button>
+</section>
+
+<section class="card">
+<h2>My Support Requests</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Type</th>
+<th>Message</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="requestTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Member Portal
+</footer>
+
+<script>
+let requests =
+JSON.parse(localStorage.getItem("bss1815_member_requests")) || [];
+
+function submitRequest(){
+
+const request = {
+name: document.getElementById("memberName").value.trim(),
+phone: document.getElementById("memberPhone").value.trim(),
+type: document.getElementById("requestType").value,
+message: document.getElementById("requestMessage").value.trim(),
+status: "Pending",
+date: new Date().toLocaleString()
+};
+
+if(!request.name || !request.phone || !request.message){
+alert("Name, Phone, and Message required.");
+return;
+}
+
+requests.unshift(request);
+
+localStorage.setItem(
+"bss1815_member_requests",
+JSON.stringify(requests)
+);
+
+document.getElementById("memberName").value="";
+document.getElementById("memberPhone").value="";
+document.getElementById("requestMessage").value="";
+
+renderRequests();
+
+}
+
+function renderRequests(){
+
+const table = document.getElementById("requestTable");
+
+table.innerHTML = "";
+
+requests.forEach(r=>{
+
+table.innerHTML += `
+<tr>
+<td>${r.name}</td>
+<td>${r.phone}</td>
+<td>${r.type}</td>
+<td>${r.message}</td>
+<td>${r.status}</td>
+<td>${r.date}</td>
+</tr>
+`;
+
+});
+
+}
+
+renderRequests();
+</script>
+
+</body>
+</html>
