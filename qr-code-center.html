@@ -1,0 +1,387 @@
+<!-- FILE: qr-code-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Center | BSS1815 PRO-MAX-DMP</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#fff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.qr-preview{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+text-align:center;
+}
+
+#qrcode{
+background:#fff;
+padding:15px;
+display:inline-block;
+border-radius:10px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>QR CODE CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+
+<h2>QR Dashboard</h2>
+
+<div class="grid">
+
+<div class="stat">
+<h3 id="totalQR">0</h3>
+<p>Total QR Codes</p>
+</div>
+
+<div class="stat">
+<h3 id="memberQR">0</h3>
+<p>Member QR</p>
+</div>
+
+<div class="stat">
+<h3 id="eventQR">0</h3>
+<p>Event QR</p>
+</div>
+
+<div class="stat">
+<h3 id="badgeQR">0</h3>
+<p>Badge QR</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Create QR Code</h2>
+
+<div class="grid">
+
+<div>
+<label>QR Type</label>
+<select id="qrType">
+<option>Member Verification</option>
+<option>Event Check-In</option>
+<option>Badge Verification</option>
+<option>Volunteer Verification</option>
+<option>Musician Verification</option>
+<option>Document Verification</option>
+</select>
+</div>
+
+<div>
+<label>Name / Title</label>
+<input type="text" id="qrTitle">
+</div>
+
+<div>
+<label>ID Number</label>
+<input type="text" id="qrId">
+</div>
+
+<div>
+<label>Status</label>
+<select id="qrStatus">
+<option>Active</option>
+<option>Inactive</option>
+<option>Expired</option>
+</select>
+</div>
+
+</div>
+
+<label>QR Data</label>
+<textarea id="qrData"></textarea>
+
+<button onclick="generateQR()">
+Generate QR Code
+</button>
+
+</section>
+
+<section class="card">
+
+<h2>QR Preview</h2>
+
+<div class="qr-preview">
+
+<div id="qrcode"></div>
+
+<div id="qrInfo" style="margin-top:20px;"></div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>QR Registry</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>ID</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody id="qrTable"></tbody>
+
+</table>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | QR Code Center
+</footer>
+
+<script>
+
+let qrRegistry =
+JSON.parse(
+localStorage.getItem("bss1815_qr_registry")
+) || [];
+
+function generateQR(){
+
+const record = {
+
+type:
+document.getElementById("qrType").value,
+
+title:
+document.getElementById("qrTitle").value,
+
+id:
+document.getElementById("qrId").value,
+
+status:
+document.getElementById("qrStatus").value,
+
+data:
+document.getElementById("qrData").value,
+
+date:
+new Date().toLocaleString()
+
+};
+
+if(!record.title || !record.id){
+alert("Name and ID Required");
+return;
+}
+
+qrRegistry.unshift(record);
+
+localStorage.setItem(
+"bss1815_qr_registry",
+JSON.stringify(qrRegistry)
+);
+
+document.getElementById("qrcode").innerHTML="";
+
+new QRCode(
+document.getElementById("qrcode"),
+{
+text:record.data,
+width:220,
+height:220
+}
+);
+
+document.getElementById("qrInfo").innerHTML =
+
+`
+<strong>${record.title}</strong><br>
+${record.type}<br>
+ID: ${record.id}<br>
+Status: ${record.status}
+`;
+
+renderQR();
+
+}
+
+function renderQR(){
+
+const table =
+document.getElementById("qrTable");
+
+table.innerHTML = "";
+
+qrRegistry.forEach(qr=>{
+
+table.innerHTML += `
+<tr>
+<td>${qr.type}</td>
+<td>${qr.title}</td>
+<td>${qr.id}</td>
+<td>${qr.status}</td>
+<td>${qr.date}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("totalQR")
+.innerText = qrRegistry.length;
+
+document.getElementById("memberQR")
+.innerText =
+qrRegistry.filter(
+q=>q.type==="Member Verification"
+).length;
+
+document.getElementById("eventQR")
+.innerText =
+qrRegistry.filter(
+q=>q.type==="Event Check-In"
+).length;
+
+document.getElementById("badgeQR")
+.innerText =
+qrRegistry.filter(
+q=>q.type==="Badge Verification"
+).length;
+
+}
+
+renderQR();
+
+</script>
+
+</body>
+</html>
