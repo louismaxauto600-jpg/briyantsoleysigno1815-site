@@ -1,0 +1,406 @@
+<!-- FILE: task-project-management.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task & Project Management | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:120px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.task-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:15px;
+}
+
+.task-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>TASK & PROJECT MANAGEMENT</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Project Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalTasks">0</h3>
+<p>Total Tasks</p>
+</div>
+
+<div class="stat">
+<h3 id="pendingTasks">0</h3>
+<p>Pending</p>
+</div>
+
+<div class="stat">
+<h3 id="inProgressTasks">0</h3>
+<p>In Progress</p>
+</div>
+
+<div class="stat">
+<h3 id="completedTasks">0</h3>
+<p>Completed</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create New Task / Project</h2>
+
+<div class="grid">
+<div>
+<label>Task / Project Title</label>
+<input type="text" id="taskTitle" placeholder="Task title">
+</div>
+
+<div>
+<label>Assigned To</label>
+<input type="text" id="assignedTo" placeholder="Team member name">
+</div>
+
+<div>
+<label>Module</label>
+<select id="moduleName">
+<option>AI Center</option>
+<option>CRM System</option>
+<option>Communication Center</option>
+<option>Flyer Studio</option>
+<option>Digital Registry</option>
+<option>Event Management</option>
+<option>Document Center</option>
+<option>PRO-MAX FM</option>
+<option>Admin Dashboard</option>
+<option>Bulk Messaging</option>
+<option>Website / GitHub</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Priority</label>
+<select id="priority">
+<option>Normal</option>
+<option>Important</option>
+<option>Urgent</option>
+<option>Critical</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Pending</option>
+<option>In Progress</option>
+<option>Completed</option>
+<option>On Hold</option>
+<option>Cancelled</option>
+</select>
+</div>
+
+<div>
+<label>Deadline</label>
+<input type="date" id="deadline">
+</div>
+</div>
+
+<label>Description</label>
+<textarea id="description" placeholder="Write task/project details..."></textarea>
+
+<button onclick="saveTask()">Save Task</button>
+</section>
+
+<section class="card">
+<h2>Search Tasks</h2>
+<input type="text" id="search" placeholder="Search tasks..." onkeyup="renderTasks()">
+</section>
+
+<section class="card">
+<h2>Task Board</h2>
+<div id="taskBoard" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Task Table</h2>
+
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Assigned To</th>
+<th>Module</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Deadline</th>
+<th>Date Created</th>
+</tr>
+</thead>
+<tbody id="taskTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Task & Project Management
+</footer>
+
+<script>
+let tasks =
+JSON.parse(localStorage.getItem("bss1815_tasks_projects")) || [];
+
+function saveTask(){
+
+const task = {
+title: document.getElementById("taskTitle").value.trim(),
+assignedTo: document.getElementById("assignedTo").value.trim(),
+moduleName: document.getElementById("moduleName").value,
+priority: document.getElementById("priority").value,
+status: document.getElementById("status").value,
+deadline: document.getElementById("deadline").value,
+description: document.getElementById("description").value.trim(),
+dateCreated: new Date().toLocaleString()
+};
+
+if(!task.title || !task.assignedTo){
+alert("Task Title and Assigned To required.");
+return;
+}
+
+tasks.unshift(task);
+
+localStorage.setItem(
+"bss1815_tasks_projects",
+JSON.stringify(tasks)
+);
+
+document.getElementById("taskTitle").value="";
+document.getElementById("assignedTo").value="";
+document.getElementById("deadline").value="";
+document.getElementById("description").value="";
+
+renderTasks();
+
+}
+
+function renderTasks(){
+
+const board = document.getElementById("taskBoard");
+const table = document.getElementById("taskTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+board.innerHTML = "";
+table.innerHTML = "";
+
+const filtered = tasks.filter(t =>
+Object.values(t)
+.join(" ")
+.toLowerCase()
+.includes(search)
+);
+
+filtered.forEach((t,index)=>{
+
+board.innerHTML += `
+<div class="task-card">
+<h3>${t.title}</h3>
+<p class="meta">${t.moduleName} | ${t.priority} | ${t.status}</p>
+<p><strong>Assigned To:</strong> ${t.assignedTo}</p>
+<p><strong>Deadline:</strong> ${t.deadline}</p>
+<p>${t.description}</p>
+<button onclick="markComplete(${index})">Mark Completed</button>
+</div>
+`;
+
+table.innerHTML += `
+<tr>
+<td>${t.title}</td>
+<td>${t.assignedTo}</td>
+<td>${t.moduleName}</td>
+<td>${t.priority}</td>
+<td>${t.status}</td>
+<td>${t.deadline}</td>
+<td>${t.dateCreated}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function markComplete(index){
+
+tasks[index].status = "Completed";
+
+localStorage.setItem(
+"bss1815_tasks_projects",
+JSON.stringify(tasks)
+);
+
+renderTasks();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalTasks").innerText =
+tasks.length;
+
+document.getElementById("pendingTasks").innerText =
+tasks.filter(t => t.status === "Pending").length;
+
+document.getElementById("inProgressTasks").innerText =
+tasks.filter(t => t.status === "In Progress").length;
+
+document.getElementById("completedTasks").innerText =
+tasks.filter(t => t.status === "Completed").length;
+
+}
+
+renderTasks();
+</script>
+
+</body>
+</html>
