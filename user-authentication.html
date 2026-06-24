@@ -1,0 +1,282 @@
+<!-- FILE: login.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Authentication | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(950px,95%);
+margin:35px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:22px;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:22px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.status-box{
+width:min(950px,95%);
+margin:0 auto 30px auto;
+background:#000;
+border:1px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+}
+
+.status-box h2{
+color:#ff7a00;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>USER AUTHENTICATION</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Login</h2>
+
+<label>Email</label>
+<input type="email" id="loginEmail" placeholder="Email">
+
+<label>Password</label>
+<input type="password" id="loginPassword" placeholder="Password">
+
+<button onclick="loginUser()">Login</button>
+<button onclick="logoutUser()">Logout</button>
+</section>
+
+<section class="card">
+<h2>Register User</h2>
+
+<label>Full Name</label>
+<input type="text" id="registerName" placeholder="Full name">
+
+<label>Email</label>
+<input type="email" id="registerEmail" placeholder="Email">
+
+<label>Password</label>
+<input type="password" id="registerPassword" placeholder="Password">
+
+<label>Role</label>
+<select id="registerRole">
+<option>Member</option>
+<option>Moderator</option>
+<option>Admin</option>
+<option>Super Admin</option>
+<option>Radio Host</option>
+<option>Content Manager</option>
+<option>Event Manager</option>
+<option>Document Manager</option>
+</select>
+
+<button onclick="registerUser()">Register</button>
+</section>
+
+</div>
+
+<section class="status-box">
+<h2>Current User Status</h2>
+<p id="authStatus">No user logged in.</p>
+</section>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | User Authentication
+</footer>
+
+<script>
+let users =
+JSON.parse(localStorage.getItem("bss1815_users")) || [];
+
+let currentUser =
+JSON.parse(localStorage.getItem("bss1815_current_user")) || null;
+
+function registerUser(){
+
+const user = {
+name: document.getElementById("registerName").value.trim(),
+email: document.getElementById("registerEmail").value.trim(),
+password: document.getElementById("registerPassword").value,
+role: document.getElementById("registerRole").value,
+date: new Date().toLocaleString()
+};
+
+if(!user.name || !user.email || !user.password){
+alert("Name, Email, and Password required.");
+return;
+}
+
+const exists = users.some(u => u.email === user.email);
+
+if(exists){
+alert("User already exists.");
+return;
+}
+
+users.push(user);
+
+localStorage.setItem(
+"bss1815_users",
+JSON.stringify(users)
+);
+
+alert("User registered successfully.");
+
+document.getElementById("registerName").value="";
+document.getElementById("registerEmail").value="";
+document.getElementById("registerPassword").value="";
+
+}
+
+function loginUser(){
+
+const email =
+document.getElementById("loginEmail").value.trim();
+
+const password =
+document.getElementById("loginPassword").value;
+
+const user =
+users.find(u => u.email === email && u.password === password);
+
+if(!user){
+alert("Invalid email or password.");
+return;
+}
+
+currentUser = {
+name:user.name,
+email:user.email,
+role:user.role,
+loginTime:new Date().toLocaleString()
+};
+
+localStorage.setItem(
+"bss1815_current_user",
+JSON.stringify(currentUser)
+);
+
+updateAuthStatus();
+
+}
+
+function logoutUser(){
+
+currentUser = null;
+
+localStorage.removeItem("bss1815_current_user");
+
+updateAuthStatus();
+
+}
+
+function updateAuthStatus(){
+
+const box =
+document.getElementById("authStatus");
+
+if(currentUser){
+
+box.innerHTML =
+`
+<strong>Name:</strong> ${currentUser.name}<br>
+<strong>Email:</strong> ${currentUser.email}<br>
+<strong>Role:</strong> ${currentUser.role}<br>
+<strong>Login Time:</strong> ${currentUser.loginTime}
+`;
+
+}else{
+
+box.innerText =
+"No user logged in.";
+
+}
+
+}
+
+updateAuthStatus();
+</script>
+
+</body>
+</html>
