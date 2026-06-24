@@ -1,0 +1,395 @@
+<!-- FILE: help-desk-support-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Desk / Support Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{min-height:120px}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.ticket-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.ticket-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>HELP DESK / SUPPORT CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Support Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalTickets">0</h3>
+<p>Total Tickets</p>
+</div>
+
+<div class="stat">
+<h3 id="openTickets">0</h3>
+<p>Open</p>
+</div>
+
+<div class="stat">
+<h3 id="inProgressTickets">0</h3>
+<p>In Progress</p>
+</div>
+
+<div class="stat">
+<h3 id="resolvedTickets">0</h3>
+<p>Resolved</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create Support Ticket</h2>
+
+<div class="grid">
+<div>
+<label>Requester Name</label>
+<input type="text" id="requesterName" placeholder="Full name">
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="phone" placeholder="Phone number">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="email" placeholder="Email address">
+</div>
+
+<div>
+<label>Request Type</label>
+<select id="requestType">
+<option>Member Support</option>
+<option>Technical Support</option>
+<option>Login Issue</option>
+<option>Document Request</option>
+<option>Event Support</option>
+<option>PRO-MAX FM Support</option>
+<option>Complaint</option>
+<option>Suggestion</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Priority</label>
+<select id="priority">
+<option>Normal</option>
+<option>Important</option>
+<option>Urgent</option>
+<option>Emergency</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Open</option>
+<option>In Progress</option>
+<option>Resolved</option>
+<option>Closed</option>
+</select>
+</div>
+</div>
+
+<label>Subject</label>
+<input type="text" id="subject" placeholder="Ticket subject">
+
+<label>Description</label>
+<textarea id="description" placeholder="Explain the issue or request..."></textarea>
+
+<button onclick="saveTicket()">Save Ticket</button>
+</section>
+
+<section class="card">
+<h2>Search Tickets</h2>
+<input type="text" id="search" placeholder="Search support tickets..." onkeyup="renderTickets()">
+</section>
+
+<section class="card">
+<h2>Support Tickets</h2>
+<div id="ticketCards" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Ticket Table</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Subject</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="ticketTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Help Desk / Support Center
+</footer>
+
+<script>
+let tickets =
+JSON.parse(localStorage.getItem("bss1815_support_tickets")) || [];
+
+function saveTicket(){
+
+const ticket = {
+requesterName: document.getElementById("requesterName").value.trim(),
+phone: document.getElementById("phone").value.trim(),
+email: document.getElementById("email").value.trim(),
+requestType: document.getElementById("requestType").value,
+priority: document.getElementById("priority").value,
+status: document.getElementById("status").value,
+subject: document.getElementById("subject").value.trim(),
+description: document.getElementById("description").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!ticket.requesterName || !ticket.subject || !ticket.description){
+alert("Requester Name, Subject, and Description required.");
+return;
+}
+
+tickets.unshift(ticket);
+
+localStorage.setItem(
+"bss1815_support_tickets",
+JSON.stringify(tickets)
+);
+
+document.getElementById("requesterName").value="";
+document.getElementById("phone").value="";
+document.getElementById("email").value="";
+document.getElementById("subject").value="";
+document.getElementById("description").value="";
+
+renderTickets();
+
+}
+
+function renderTickets(){
+
+const cards = document.getElementById("ticketCards");
+const table = document.getElementById("ticketTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+cards.innerHTML = "";
+table.innerHTML = "";
+
+tickets
+.filter(t => Object.values(t).join(" ").toLowerCase().includes(search))
+.forEach((t,index)=>{
+
+cards.innerHTML += `
+<div class="ticket-card">
+<h3>${t.subject}</h3>
+<p class="meta">${t.requestType} | ${t.priority} | ${t.status}</p>
+<p><strong>Name:</strong> ${t.requesterName}</p>
+<p><strong>Phone:</strong> ${t.phone}</p>
+<p><strong>Email:</strong> ${t.email}</p>
+<p>${t.description}</p>
+<p class="meta">${t.date}</p>
+<button onclick="markResolved(${index})">Mark Resolved</button>
+</div>
+`;
+
+table.innerHTML += `
+<tr>
+<td>${t.requesterName}</td>
+<td>${t.requestType}</td>
+<td>${t.subject}</td>
+<td>${t.priority}</td>
+<td>${t.status}</td>
+<td>${t.date}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function markResolved(index){
+
+tickets[index].status = "Resolved";
+
+localStorage.setItem(
+"bss1815_support_tickets",
+JSON.stringify(tickets)
+);
+
+renderTickets();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalTickets").innerText =
+tickets.length;
+
+document.getElementById("openTickets").innerText =
+tickets.filter(t => t.status === "Open").length;
+
+document.getElementById("inProgressTickets").innerText =
+tickets.filter(t => t.status === "In Progress").length;
+
+document.getElementById("resolvedTickets").innerText =
+tickets.filter(t => t.status === "Resolved").length;
+
+}
+
+renderTickets();
+</script>
+
+</body>
+</html>
