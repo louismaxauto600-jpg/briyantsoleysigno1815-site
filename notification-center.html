@@ -1,0 +1,394 @@
+<!-- FILE: notification-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notification Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:14px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:120px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.notification-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:18px;
+}
+
+.notification-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:14px;
+padding:18px;
+}
+
+.notification-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.badge{
+display:inline-block;
+background:#ff7a00;
+color:#000;
+padding:5px 10px;
+border-radius:20px;
+font-weight:bold;
+font-size:13px;
+margin-bottom:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>NOTIFICATION CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Notification Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalNotifications">0</h3>
+<p>Total Notifications</p>
+</div>
+
+<div class="stat">
+<h3 id="urgentNotifications">0</h3>
+<p>Urgent</p>
+</div>
+
+<div class="stat">
+<h3 id="eventNotifications">0</h3>
+<p>Events</p>
+</div>
+
+<div class="stat">
+<h3 id="fmNotifications">0</h3>
+<p>PRO-MAX FM</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create Notification</h2>
+
+<div class="grid">
+
+<div>
+<label>Notification Title</label>
+<input type="text" id="notificationTitle" placeholder="Notification title">
+</div>
+
+<div>
+<label>Category</label>
+<select id="notificationCategory">
+<option>Community Update</option>
+<option>Event Reminder</option>
+<option>Emergency Alert</option>
+<option>Official Notice</option>
+<option>PRO-MAX FM</option>
+<option>Document Alert</option>
+<option>Membership Alert</option>
+<option>System Update</option>
+</select>
+</div>
+
+<div>
+<label>Priority</label>
+<select id="notificationPriority">
+<option>Normal</option>
+<option>Important</option>
+<option>Urgent</option>
+<option>Emergency</option>
+</select>
+</div>
+
+<div>
+<label>Audience</label>
+<select id="notificationAudience">
+<option>All Users</option>
+<option>Members</option>
+<option>Admins</option>
+<option>Moderators</option>
+<option>Musicians</option>
+<option>Fanatik</option>
+<option>Ti Machann</option>
+<option>Radio Listeners</option>
+</select>
+</div>
+
+</div>
+
+<label>Message</label>
+<textarea id="notificationMessage" placeholder="Write notification message here..."></textarea>
+
+<button onclick="createNotification()">Create Notification</button>
+</section>
+
+<section class="card">
+<h2>Search Notifications</h2>
+<input type="text" id="search" placeholder="Search notifications..." onkeyup="renderNotifications()">
+</section>
+
+<section class="card">
+<h2>Notifications</h2>
+<div id="notificationList" class="notification-list"></div>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Notification Center
+</footer>
+
+<script>
+let notifications =
+JSON.parse(localStorage.getItem("bss1815_notifications")) || [];
+
+function createNotification(){
+
+const notification = {
+title: document.getElementById("notificationTitle").value.trim(),
+category: document.getElementById("notificationCategory").value,
+priority: document.getElementById("notificationPriority").value,
+audience: document.getElementById("notificationAudience").value,
+message: document.getElementById("notificationMessage").value.trim(),
+date: new Date().toLocaleString(),
+status: "Unread"
+};
+
+if(!notification.title || !notification.message){
+alert("Notification Title and Message required.");
+return;
+}
+
+notifications.unshift(notification);
+
+localStorage.setItem(
+"bss1815_notifications",
+JSON.stringify(notifications)
+);
+
+document.getElementById("notificationTitle").value="";
+document.getElementById("notificationMessage").value="";
+
+renderNotifications();
+
+}
+
+function renderNotifications(){
+
+const list = document.getElementById("notificationList");
+const search = document.getElementById("search").value.toLowerCase();
+
+list.innerHTML = "";
+
+notifications
+.filter(n =>
+Object.values(n)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach((n,index)=>{
+
+list.innerHTML += `
+<div class="notification-card">
+<span class="badge">${n.priority}</span>
+<h3>${n.title}</h3>
+<p class="meta">${n.category} | ${n.audience} | ${n.date}</p>
+<p>${n.message}</p>
+<p><strong>Status:</strong> ${n.status}</p>
+<button onclick="markRead(${index})">Mark Read</button>
+<button onclick="shareNotification(${index})">Share</button>
+</div>
+`;
+
+});
+
+updateStats();
+
+}
+
+function markRead(index){
+
+notifications[index].status = "Read";
+
+localStorage.setItem(
+"bss1815_notifications",
+JSON.stringify(notifications)
+);
+
+renderNotifications();
+
+}
+
+function shareNotification(index){
+
+const n = notifications[index];
+
+const text =
+`${n.title}
+
+${n.message}
+
+Category: ${n.category}
+Priority: ${n.priority}
+Audience: ${n.audience}
+
+BSS1815 PRO-MAX-DMP
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+
+if(navigator.share){
+navigator.share({
+title:n.title,
+text:text
+});
+}else{
+navigator.clipboard.writeText(text);
+alert("Notification copied.");
+}
+
+}
+
+function updateStats(){
+
+document.getElementById("totalNotifications").innerText =
+notifications.length;
+
+document.getElementById("urgentNotifications").innerText =
+notifications.filter(n =>
+n.priority === "Urgent" || n.priority === "Emergency"
+).length;
+
+document.getElementById("eventNotifications").innerText =
+notifications.filter(n =>
+n.category === "Event Reminder"
+).length;
+
+document.getElementById("fmNotifications").innerText =
+notifications.filter(n =>
+n.category === "PRO-MAX FM"
+).length;
+
+}
+
+renderNotifications();
+</script>
+
+</body>
+</html>
