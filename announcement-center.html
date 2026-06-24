@@ -1,0 +1,400 @@
+<!-- FILE: announcement-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Announcement Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{min-height:140px}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.announcement-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.announcement-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ANNOUNCEMENT CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Announcement Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalAnnouncements">0</h3>
+<p>Total Announcements</p>
+</div>
+
+<div class="stat">
+<h3 id="deathNotices">0</h3>
+<p>Death Notices</p>
+</div>
+
+<div class="stat">
+<h3 id="birthdayCount">0</h3>
+<p>Birthdays</p>
+</div>
+
+<div class="stat">
+<h3 id="emergencyCount">0</h3>
+<p>Emergency Alerts</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create Announcement</h2>
+
+<div class="grid">
+<div>
+<label>Announcement Type</label>
+<select id="announcementType">
+<option>Death Notice</option>
+<option>Birthday</option>
+<option>Congratulations</option>
+<option>Emergency Alert</option>
+<option>Official Statement</option>
+<option>Community Update</option>
+<option>Event Announcement</option>
+<option>Condolence</option>
+<option>Thank You Message</option>
+<option>PRO-MAX FM Announcement</option>
+</select>
+</div>
+
+<div>
+<label>Language</label>
+<select id="language">
+<option>Kreyòl</option>
+<option>English</option>
+<option>Français</option>
+</select>
+</div>
+
+<div>
+<label>Priority</label>
+<select id="priority">
+<option>Normal</option>
+<option>Important</option>
+<option>Urgent</option>
+<option>Emergency</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Draft</option>
+<option>Published</option>
+<option>Archived</option>
+<option>Pending Review</option>
+</select>
+</div>
+</div>
+
+<label>Title</label>
+<input type="text" id="title" placeholder="Announcement title">
+
+<label>Message</label>
+<textarea id="message" placeholder="Write announcement message..."></textarea>
+
+<label>Published By</label>
+<input type="text" id="publishedBy" placeholder="Admin name">
+
+<button onclick="saveAnnouncement()">Save Announcement</button>
+</section>
+
+<section class="card">
+<h2>Search Announcements</h2>
+<input type="text" id="search" placeholder="Search announcements..." onkeyup="renderAnnouncements()">
+</section>
+
+<section class="card">
+<h2>Announcement Cards</h2>
+<div id="announcementCards" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Announcement Table</h2>
+
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Type</th>
+<th>Language</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="announcementTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Announcement Center
+</footer>
+
+<script>
+let announcements =
+JSON.parse(localStorage.getItem("bss1815_announcements")) || [];
+
+function saveAnnouncement(){
+
+const announcement = {
+type: document.getElementById("announcementType").value,
+language: document.getElementById("language").value,
+priority: document.getElementById("priority").value,
+status: document.getElementById("status").value,
+title: document.getElementById("title").value.trim(),
+message: document.getElementById("message").value.trim(),
+publishedBy: document.getElementById("publishedBy").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!announcement.title || !announcement.message){
+alert("Title and Message required.");
+return;
+}
+
+announcements.unshift(announcement);
+
+localStorage.setItem(
+"bss1815_announcements",
+JSON.stringify(announcements)
+);
+
+document.getElementById("title").value="";
+document.getElementById("message").value="";
+document.getElementById("publishedBy").value="";
+
+renderAnnouncements();
+
+}
+
+function renderAnnouncements(){
+
+const cards = document.getElementById("announcementCards");
+const table = document.getElementById("announcementTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+cards.innerHTML = "";
+table.innerHTML = "";
+
+announcements
+.filter(a => Object.values(a).join(" ").toLowerCase().includes(search))
+.forEach((a,index)=>{
+
+cards.innerHTML += `
+<div class="announcement-card">
+<h3>${a.title}</h3>
+<p class="meta">${a.type} | ${a.language} | ${a.priority} | ${a.status}</p>
+<p>${a.message}</p>
+<p><strong>Published By:</strong> ${a.publishedBy}</p>
+<p class="meta">${a.date}</p>
+<button onclick="shareAnnouncement(${index})">Share</button>
+</div>
+`;
+
+table.innerHTML += `
+<tr>
+<td>${a.title}</td>
+<td>${a.type}</td>
+<td>${a.language}</td>
+<td>${a.priority}</td>
+<td>${a.status}</td>
+<td>${a.date}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function shareAnnouncement(index){
+
+const a = announcements[index];
+
+const text =
+`${a.title}
+
+${a.message}
+
+${a.type} | ${a.language}
+BSS1815 PRO-MAX-DMP
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+
+if(navigator.share){
+navigator.share({
+title:a.title,
+text:text
+});
+}else{
+navigator.clipboard.writeText(text);
+alert("Announcement copied.");
+}
+
+}
+
+function updateStats(){
+
+document.getElementById("totalAnnouncements").innerText =
+announcements.length;
+
+document.getElementById("deathNotices").innerText =
+announcements.filter(a => a.type === "Death Notice").length;
+
+document.getElementById("birthdayCount").innerText =
+announcements.filter(a => a.type === "Birthday").length;
+
+document.getElementById("emergencyCount").innerText =
+announcements.filter(a => a.type === "Emergency Alert").length;
+
+}
+
+renderAnnouncements();
+</script>
+
+</body>
+</html>
