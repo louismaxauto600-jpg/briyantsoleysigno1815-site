@@ -1,0 +1,454 @@
+<!-- FILE: reports-analytics.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports & Analytics | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:14px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:32px;
+}
+
+.report-box{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:14px;
+padding:18px;
+}
+
+.report-box h3{
+color:#ff7a00;
+margin-bottom:10px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+select,input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+.bar{
+height:22px;
+background:#ff7a00;
+border-radius:8px;
+margin-top:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>REPORTS & ANALYTICS</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Platform Analytics Overview</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="membersCount">0</h3>
+<p>Members / Profiles</p>
+</div>
+
+<div class="stat">
+<h3 id="eventsCount">0</h3>
+<p>Events</p>
+</div>
+
+<div class="stat">
+<h3 id="documentsCount">0</h3>
+<p>Documents</p>
+</div>
+
+<div class="stat">
+<h3 id="communicationsCount">0</h3>
+<p>Communications</p>
+</div>
+
+<div class="stat">
+<h3 id="notificationsCount">0</h3>
+<p>Notifications</p>
+</div>
+
+<div class="stat">
+<h3 id="mediaCount">0</h3>
+<p>Media Files</p>
+</div>
+
+<div class="stat">
+<h3 id="broadcastsCount">0</h3>
+<p>Broadcasts</p>
+</div>
+
+<div class="stat">
+<h3 id="adminsCount">0</h3>
+<p>Admins / Roles</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Generate Report</h2>
+
+<div class="grid">
+<div>
+<label>Report Type</label>
+<select id="reportType">
+<option>Full Platform Report</option>
+<option>Member Report</option>
+<option>Event Report</option>
+<option>Document Report</option>
+<option>Communication Report</option>
+<option>PRO-MAX FM Report</option>
+<option>Notification Report</option>
+<option>Media Report</option>
+<option>Admin Role Report</option>
+</select>
+</div>
+
+<div>
+<label>Period</label>
+<select id="reportPeriod">
+<option>Today</option>
+<option>This Week</option>
+<option>This Month</option>
+<option>This Year</option>
+<option>All Time</option>
+</select>
+</div>
+</div>
+
+<button onclick="generateReport()">Generate Report</button>
+<button onclick="downloadReport()">Download Report</button>
+
+<div id="reportOutput" class="report-box" style="margin-top:20px;">
+Report output will appear here.
+</div>
+</section>
+
+<section class="card">
+<h2>Module Activity Bars</h2>
+
+<div class="report-box">
+<h3>Members / Profiles</h3>
+<div class="bar" id="barMembers" style="width:1%"></div>
+</div>
+
+<div class="report-box">
+<h3>Events</h3>
+<div class="bar" id="barEvents" style="width:1%"></div>
+</div>
+
+<div class="report-box">
+<h3>Documents</h3>
+<div class="bar" id="barDocuments" style="width:1%"></div>
+</div>
+
+<div class="report-box">
+<h3>Communications</h3>
+<div class="bar" id="barCommunications" style="width:1%"></div>
+</div>
+
+<div class="report-box">
+<h3>Media Gallery</h3>
+<div class="bar" id="barMedia" style="width:1%"></div>
+</div>
+</section>
+
+<section class="card">
+<h2>Analytics Table</h2>
+
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Local Storage Key</th>
+<th>Total Records</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody id="analyticsTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Reports & Analytics
+</footer>
+
+<script>
+const modules = [
+{ name:"Profiles", key:"bss1815_profiles" },
+{ name:"CRM Contacts", key:"bss1815_crm_contacts" },
+{ name:"Digital Registry", key:"bss1815_registry" },
+{ name:"Events", key:"bss1815_events" },
+{ name:"Documents", key:"bss1815_documents" },
+{ name:"Communications", key:"bss1815_communications" },
+{ name:"Notifications", key:"bss1815_notifications" },
+{ name:"Media Gallery", key:"bss1815_media_gallery" },
+{ name:"Broadcasts", key:"bss1815_broadcasts" },
+{ name:"Admins / Roles", key:"bss1815_admin_roles" },
+{ name:"FM News", key:"promax_fm_news" }
+];
+
+function getData(key){
+return JSON.parse(localStorage.getItem(key)) || [];
+}
+
+function count(key){
+return getData(key).length;
+}
+
+function updateOverview(){
+
+document.getElementById("membersCount").innerText =
+count("bss1815_profiles") + count("bss1815_registry") + count("bss1815_crm_contacts");
+
+document.getElementById("eventsCount").innerText =
+count("bss1815_events");
+
+document.getElementById("documentsCount").innerText =
+count("bss1815_documents");
+
+document.getElementById("communicationsCount").innerText =
+count("bss1815_communications");
+
+document.getElementById("notificationsCount").innerText =
+count("bss1815_notifications");
+
+document.getElementById("mediaCount").innerText =
+count("bss1815_media_gallery");
+
+document.getElementById("broadcastsCount").innerText =
+count("bss1815_broadcasts");
+
+document.getElementById("adminsCount").innerText =
+count("bss1815_admin_roles");
+
+}
+
+function renderTable(){
+
+const table = document.getElementById("analyticsTable");
+
+table.innerHTML = "";
+
+modules.forEach(module=>{
+
+const total = count(module.key);
+
+table.innerHTML += `
+<tr>
+<td>${module.name}</td>
+<td>${module.key}</td>
+<td>${total}</td>
+<td>${total > 0 ? "Active" : "No Data Yet"}</td>
+</tr>
+`;
+
+});
+
+}
+
+function updateBars(){
+
+const max =
+Math.max(
+1,
+count("bss1815_profiles"),
+count("bss1815_events"),
+count("bss1815_documents"),
+count("bss1815_communications"),
+count("bss1815_media_gallery")
+);
+
+document.getElementById("barMembers").style.width =
+Math.max(1,(count("bss1815_profiles") / max) * 100) + "%";
+
+document.getElementById("barEvents").style.width =
+Math.max(1,(count("bss1815_events") / max) * 100) + "%";
+
+document.getElementById("barDocuments").style.width =
+Math.max(1,(count("bss1815_documents") / max) * 100) + "%";
+
+document.getElementById("barCommunications").style.width =
+Math.max(1,(count("bss1815_communications") / max) * 100) + "%";
+
+document.getElementById("barMedia").style.width =
+Math.max(1,(count("bss1815_media_gallery") / max) * 100) + "%";
+
+}
+
+function generateReport(){
+
+const type = document.getElementById("reportType").value;
+const period = document.getElementById("reportPeriod").value;
+
+const report =
+`BSS1815 PRO-MAX-DMP
+REPORTS & ANALYTICS
+
+Report Type: ${type}
+Period: ${period}
+Generated: ${new Date().toLocaleString()}
+
+Summary:
+Members / Profiles: ${document.getElementById("membersCount").innerText}
+Events: ${document.getElementById("eventsCount").innerText}
+Documents: ${document.getElementById("documentsCount").innerText}
+Communications: ${document.getElementById("communicationsCount").innerText}
+Notifications: ${document.getElementById("notificationsCount").innerText}
+Media Files: ${document.getElementById("mediaCount").innerText}
+Broadcasts: ${document.getElementById("broadcastsCount").innerText}
+Admins / Roles: ${document.getElementById("adminsCount").innerText}
+
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+
+document.getElementById("reportOutput").innerText = report;
+
+}
+
+function downloadReport(){
+
+const text =
+document.getElementById("reportOutput").innerText;
+
+const blob =
+new Blob([text], {type:"text/plain"});
+
+const link =
+document.createElement("a");
+
+link.href =
+URL.createObjectURL(blob);
+
+link.download =
+"BSS1815_Reports_Analytics.txt";
+
+link.click();
+
+}
+
+updateOverview();
+renderTable();
+updateBars();
+</script>
+
+</body>
+</html>
