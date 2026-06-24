@@ -1,0 +1,396 @@
+<!-- FILE: media-gallery.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Gallery | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:100px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.gallery-item{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:14px;
+padding:15px;
+overflow:hidden;
+}
+
+.gallery-item img,
+.gallery-item video{
+width:100%;
+border-radius:10px;
+border:1px solid #ff7a00;
+margin-bottom:12px;
+background:#000;
+}
+
+.gallery-item h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-bottom:25px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+padding:18px;
+border-radius:12px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MEDIA GALLERY</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="stats">
+<div class="stat">
+<h3 id="totalMedia">0</h3>
+<p>Total Media</p>
+</div>
+
+<div class="stat">
+<h3 id="totalPhotos">0</h3>
+<p>Photos</p>
+</div>
+
+<div class="stat">
+<h3 id="totalVideos">0</h3>
+<p>Videos</p>
+</div>
+
+<div class="stat">
+<h3 id="totalAudio">0</h3>
+<p>Audio / FM</p>
+</div>
+</section>
+
+<section class="card">
+<h2>Upload / Register Media</h2>
+
+<div class="grid">
+
+<div>
+<label>Media Title</label>
+<input type="text" id="mediaTitle" placeholder="Media title">
+</div>
+
+<div>
+<label>Media Type</label>
+<select id="mediaType">
+<option>Photo</option>
+<option>Video</option>
+<option>Audio / FM</option>
+<option>Flyer</option>
+<option>Event Gallery</option>
+<option>Rara Gallery</option>
+<option>PRO-MAX FM Media</option>
+</select>
+</div>
+
+<div>
+<label>Category</label>
+<select id="mediaCategory">
+<option>Community</option>
+<option>BSS1815</option>
+<option>PRO-MAX FM</option>
+<option>Rara</option>
+<option>Event</option>
+<option>Leadership</option>
+<option>Podcast</option>
+<option>Archive</option>
+</select>
+</div>
+
+<div>
+<label>Media File</label>
+<input type="file" id="mediaFile" accept="image/*,video/*,audio/*" onchange="previewMedia(event)">
+</div>
+
+</div>
+
+<label>Description</label>
+<textarea id="mediaDescription" placeholder="Write media description..."></textarea>
+
+<button onclick="saveMedia()">Save Media</button>
+</section>
+
+<section class="card">
+<h2>Media Preview</h2>
+<div id="mediaPreview">
+<p>No media selected.</p>
+</div>
+</section>
+
+<section class="card">
+<h2>Search Gallery</h2>
+<input type="text" id="search" placeholder="Search media..." onkeyup="renderGallery()">
+</section>
+
+<section class="card">
+<h2>Gallery</h2>
+<div id="gallery" class="grid"></div>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Media Gallery
+</footer>
+
+<script>
+let mediaGallery =
+JSON.parse(localStorage.getItem("bss1815_media_gallery")) || [];
+
+let currentMediaData = "";
+let currentMediaFormat = "";
+
+function previewMedia(event){
+
+const file = event.target.files[0];
+
+if(!file)return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+currentMediaData = e.target.result;
+currentMediaFormat = file.type;
+
+const preview = document.getElementById("mediaPreview");
+
+if(file.type.startsWith("image/")){
+preview.innerHTML = `<img src="${currentMediaData}" style="max-width:100%;border:1px solid #ff7a00;border-radius:12px;">`;
+}
+
+else if(file.type.startsWith("video/")){
+preview.innerHTML = `<video controls src="${currentMediaData}" style="max-width:100%;border:1px solid #ff7a00;border-radius:12px;"></video>`;
+}
+
+else if(file.type.startsWith("audio/")){
+preview.innerHTML = `<audio controls src="${currentMediaData}" style="width:100%;"></audio>`;
+}
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+function saveMedia(){
+
+const media = {
+title: document.getElementById("mediaTitle").value.trim(),
+type: document.getElementById("mediaType").value,
+category: document.getElementById("mediaCategory").value,
+description: document.getElementById("mediaDescription").value.trim(),
+fileData: currentMediaData,
+format: currentMediaFormat,
+date: new Date().toLocaleString()
+};
+
+if(!media.title || !media.fileData){
+alert("Media Title and File required.");
+return;
+}
+
+mediaGallery.unshift(media);
+
+localStorage.setItem(
+"bss1815_media_gallery",
+JSON.stringify(mediaGallery)
+);
+
+document.getElementById("mediaTitle").value="";
+document.getElementById("mediaDescription").value="";
+document.getElementById("mediaFile").value="";
+document.getElementById("mediaPreview").innerHTML="<p>No media selected.</p>";
+
+currentMediaData="";
+currentMediaFormat="";
+
+renderGallery();
+
+}
+
+function renderGallery(){
+
+const gallery = document.getElementById("gallery");
+const search = document.getElementById("search").value.toLowerCase();
+
+gallery.innerHTML = "";
+
+mediaGallery
+.filter(item =>
+Object.values(item)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach(item=>{
+
+let mediaElement = "";
+
+if(item.format.startsWith("image/")){
+mediaElement = `<img src="${item.fileData}" alt="${item.title}">`;
+}
+
+else if(item.format.startsWith("video/")){
+mediaElement = `<video controls src="${item.fileData}"></video>`;
+}
+
+else if(item.format.startsWith("audio/")){
+mediaElement = `<audio controls src="${item.fileData}" style="width:100%;margin-bottom:12px;"></audio>`;
+}
+
+gallery.innerHTML += `
+<div class="gallery-item">
+${mediaElement}
+<h3>${item.title}</h3>
+<p class="meta">${item.type} | ${item.category} | ${item.date}</p>
+<p>${item.description}</p>
+</div>
+`;
+
+});
+
+updateStats();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalMedia").innerText =
+mediaGallery.length;
+
+document.getElementById("totalPhotos").innerText =
+mediaGallery.filter(x => x.format.startsWith("image/")).length;
+
+document.getElementById("totalVideos").innerText =
+mediaGallery.filter(x => x.format.startsWith("video/")).length;
+
+document.getElementById("totalAudio").innerText =
+mediaGallery.filter(x => x.format.startsWith("audio/")).length;
+
+}
+
+renderGallery();
+</script>
+
+</body>
+</html>
