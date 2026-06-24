@@ -1,0 +1,447 @@
+<!-- FILE: check-in-attendance-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check-In / Attendance Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:100px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.attendance-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.attendance-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+.status-box{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:15px;
+margin-top:15px;
+color:#ffb366;
+white-space:pre-wrap;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>CHECK-IN / ATTENDANCE CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Attendance Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalCheckins">0</h3>
+<p>Total Check-Ins</p>
+</div>
+
+<div class="stat">
+<h3 id="eventCheckins">0</h3>
+<p>Event Attendance</p>
+</div>
+
+<div class="stat">
+<h3 id="musicianCheckins">0</h3>
+<p>Musicians</p>
+</div>
+
+<div class="stat">
+<h3 id="volunteerCheckins">0</h3>
+<p>Volunteers</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Manual Check-In</h2>
+
+<div class="grid">
+<div>
+<label>Full Name</label>
+<input type="text" id="fullName" placeholder="Full name">
+</div>
+
+<div>
+<label>ID / QR Code Number</label>
+<input type="text" id="idNumber" placeholder="Member ID, badge ID, or QR code">
+</div>
+
+<div>
+<label>Attendance Type</label>
+<select id="attendanceType">
+<option>Event Attendance</option>
+<option>Musician Attendance</option>
+<option>Volunteer Attendance</option>
+<option>Member Attendance</option>
+<option>Admin Attendance</option>
+<option>Visitor Check-In</option>
+<option>PRO-MAX FM Check-In</option>
+</select>
+</div>
+
+<div>
+<label>Event / Activity</label>
+<input type="text" id="eventName" placeholder="Event or activity name">
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Present</option>
+<option>Late</option>
+<option>Excused</option>
+<option>Absent</option>
+</select>
+</div>
+
+<div>
+<label>Check-In Method</label>
+<select id="method">
+<option>Manual</option>
+<option>QR Code</option>
+<option>Badge Scan</option>
+<option>Member ID</option>
+</select>
+</div>
+</div>
+
+<label>Notes</label>
+<textarea id="notes" placeholder="Attendance notes..."></textarea>
+
+<button onclick="saveCheckin()">Save Check-In</button>
+</section>
+
+<section class="card">
+<h2>QR / Badge Check-In</h2>
+
+<label>Scan or Paste QR / Badge Data</label>
+<input type="text" id="scanData" placeholder="Paste scanned QR or Badge ID here">
+
+<button onclick="processScan()">Process Check-In</button>
+
+<div id="scanResult" class="status-box">
+No scan processed yet.
+</div>
+</section>
+
+<section class="card">
+<h2>Search Attendance Records</h2>
+<input type="text" id="search" placeholder="Search check-ins..." onkeyup="renderCheckins()">
+</section>
+
+<section class="card">
+<h2>Attendance Cards</h2>
+<div id="attendanceCards" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Attendance Table</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>ID / QR</th>
+<th>Type</th>
+<th>Event</th>
+<th>Status</th>
+<th>Method</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody id="attendanceTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Check-In / Attendance Center
+</footer>
+
+<script>
+let checkins =
+JSON.parse(localStorage.getItem("bss1815_checkin_attendance")) || [];
+
+function saveCheckin(){
+
+const record = {
+fullName: document.getElementById("fullName").value.trim(),
+idNumber: document.getElementById("idNumber").value.trim(),
+attendanceType: document.getElementById("attendanceType").value,
+eventName: document.getElementById("eventName").value.trim(),
+status: document.getElementById("status").value,
+method: document.getElementById("method").value,
+notes: document.getElementById("notes").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!record.fullName || !record.idNumber || !record.eventName){
+alert("Full Name, ID/QR, and Event/Activity required.");
+return;
+}
+
+checkins.unshift(record);
+
+localStorage.setItem(
+"bss1815_checkin_attendance",
+JSON.stringify(checkins)
+);
+
+document.getElementById("fullName").value="";
+document.getElementById("idNumber").value="";
+document.getElementById("eventName").value="";
+document.getElementById("notes").value="";
+
+renderCheckins();
+
+}
+
+function processScan(){
+
+const scanData = document.getElementById("scanData").value.trim();
+
+if(!scanData){
+alert("Scan data required.");
+return;
+}
+
+const record = {
+fullName: "QR / Badge User",
+idNumber: scanData,
+attendanceType: "Event Attendance",
+eventName: "QR Check-In",
+status: "Present",
+method: "QR Code",
+notes: "Processed from QR / Badge scan data.",
+date: new Date().toLocaleString()
+};
+
+checkins.unshift(record);
+
+localStorage.setItem(
+"bss1815_checkin_attendance",
+JSON.stringify(checkins)
+);
+
+document.getElementById("scanResult").innerText =
+`CHECK-IN PROCESSED
+
+ID / QR: ${record.idNumber}
+Status: ${record.status}
+Method: ${record.method}
+Date: ${record.date}`;
+
+document.getElementById("scanData").value="";
+
+renderCheckins();
+
+}
+
+function renderCheckins(){
+
+const cards = document.getElementById("attendanceCards");
+const table = document.getElementById("attendanceTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+cards.innerHTML = "";
+table.innerHTML = "";
+
+checkins
+.filter(record =>
+Object.values(record)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach(record=>{
+
+cards.innerHTML += `
+<div class="attendance-card">
+<h3>${record.fullName}</h3>
+<p class="meta">${record.attendanceType} | ${record.status} | ${record.method}</p>
+<p><strong>ID / QR:</strong> ${record.idNumber}</p>
+<p><strong>Event:</strong> ${record.eventName}</p>
+<p>${record.notes}</p>
+<p class="meta">${record.date}</p>
+</div>
+`;
+
+table.innerHTML += `
+<tr>
+<td>${record.fullName}</td>
+<td>${record.idNumber}</td>
+<td>${record.attendanceType}</td>
+<td>${record.eventName}</td>
+<td>${record.status}</td>
+<td>${record.method}</td>
+<td>${record.date}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalCheckins").innerText =
+checkins.length;
+
+document.getElementById("eventCheckins").innerText =
+checkins.filter(x => x.attendanceType === "Event Attendance").length;
+
+document.getElementById("musicianCheckins").innerText =
+checkins.filter(x => x.attendanceType === "Musician Attendance").length;
+
+document.getElementById("volunteerCheckins").innerText =
+checkins.filter(x => x.attendanceType === "Volunteer Attendance").length;
+
+}
+
+renderCheckins();
+</script>
+
+</body>
+</html>
