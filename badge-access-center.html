@@ -1,0 +1,465 @@
+<!-- FILE: badge-access-control-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badge & Access Control Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#fff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+color:#000;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.badge{
+width:380px;
+background:linear-gradient(135deg,#000000,#ff6a00);
+border:3px solid #ff7a00;
+border-radius:20px;
+padding:20px;
+margin-top:20px;
+}
+
+.badge-header{
+text-align:center;
+margin-bottom:15px;
+}
+
+.badge-header h3{
+color:#fff;
+}
+
+.badge-photo{
+width:100px;
+height:100px;
+border-radius:50%;
+overflow:hidden;
+border:3px solid #fff;
+margin:auto;
+}
+
+.badge-photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.badge-info{
+margin-top:15px;
+line-height:1.8;
+}
+
+.access{
+background:#000;
+border:1px solid #ff7a00;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>BADGE & ACCESS CONTROL CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+
+<h2>Access Dashboard</h2>
+
+<div class="grid">
+
+<div class="stat">
+<h3 id="totalBadges">0</h3>
+<p>Total Badges</p>
+</div>
+
+<div class="stat">
+<h3 id="adminBadges">0</h3>
+<p>Admin Badges</p>
+</div>
+
+<div class="stat">
+<h3 id="volunteerBadges">0</h3>
+<p>Volunteer Badges</p>
+</div>
+
+<div class="stat">
+<h3 id="securityBadges">0</h3>
+<p>Security Access</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Create Badge</h2>
+
+<div class="grid">
+
+<div>
+<label>Full Name</label>
+<input type="text" id="fullName">
+</div>
+
+<div>
+<label>Badge ID</label>
+<input type="text" id="badgeId">
+</div>
+
+<div>
+<label>Role</label>
+<select id="role">
+
+<option>Super Admin</option>
+<option>Admin</option>
+<option>Moderator</option>
+<option>Volunteer</option>
+<option>Musician</option>
+<option>Fanatik</option>
+<option>Security</option>
+<option>Event Staff</option>
+<option>PRO-MAX FM Staff</option>
+
+</select>
+</div>
+
+<div>
+<label>Access Level</label>
+<select id="accessLevel">
+
+<option>Level 1</option>
+<option>Level 2</option>
+<option>Level 3</option>
+<option>Level 4</option>
+<option>Full Access</option>
+
+</select>
+</div>
+
+<div>
+<label>Expiration Date</label>
+<input type="date" id="expiration">
+</div>
+
+<div>
+<label>Photo</label>
+<input type="file" id="photo" accept="image/*">
+</div>
+
+</div>
+
+<button onclick="generateBadge()">
+Generate Badge
+</button>
+
+</section>
+
+<section class="card">
+
+<h2>Badge Preview</h2>
+
+<div id="badgePreview"></div>
+
+</section>
+
+<section class="card">
+
+<h2>Badge Registry</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Badge ID</th>
+<th>Name</th>
+<th>Role</th>
+<th>Access</th>
+<th>Expiration</th>
+</tr>
+</thead>
+
+<tbody id="badgeTable"></tbody>
+
+</table>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Badge & Access Control Center
+</footer>
+
+<script>
+
+let badges =
+JSON.parse(
+localStorage.getItem("bss1815_badges")
+) || [];
+
+function generateBadge(){
+
+const file =
+document.getElementById("photo").files[0];
+
+if(!file){
+alert("Photo Required");
+return;
+}
+
+const reader =
+new FileReader();
+
+reader.onload = function(e){
+
+const badge = {
+
+name:
+document.getElementById("fullName").value,
+
+badgeId:
+document.getElementById("badgeId").value,
+
+role:
+document.getElementById("role").value,
+
+access:
+document.getElementById("accessLevel").value,
+
+expiration:
+document.getElementById("expiration").value,
+
+photo:
+e.target.result,
+
+created:
+new Date().toLocaleString()
+
+};
+
+badges.unshift(badge);
+
+localStorage.setItem(
+"bss1815_badges",
+JSON.stringify(badges)
+);
+
+document.getElementById("badgePreview")
+.innerHTML =
+
+`
+<div class="badge">
+
+<div class="badge-header">
+<h3>BSS1815 ACCESS BADGE</h3>
+</div>
+
+<div class="badge-photo">
+<img src="${badge.photo}">
+</div>
+
+<div class="badge-info">
+
+<strong>Name:</strong>
+${badge.name}<br>
+
+<strong>ID:</strong>
+${badge.badgeId}<br>
+
+<strong>Role:</strong>
+${badge.role}<br>
+
+<strong>Access:</strong>
+${badge.access}<br>
+
+<strong>Expires:</strong>
+${badge.expiration}
+
+</div>
+
+<div class="access">
+
+ACCESS AUTHORIZED
+<br>
+${badge.access}
+
+</div>
+
+</div>
+`;
+
+renderBadges();
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+function renderBadges(){
+
+const table =
+document.getElementById("badgeTable");
+
+table.innerHTML = "";
+
+badges.forEach(badge=>{
+
+table.innerHTML += `
+<tr>
+<td>${badge.badgeId}</td>
+<td>${badge.name}</td>
+<td>${badge.role}</td>
+<td>${badge.access}</td>
+<td>${badge.expiration}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("totalBadges")
+.innerText = badges.length;
+
+document.getElementById("adminBadges")
+.innerText =
+badges.filter(
+b=>b.role.includes("Admin")
+).length;
+
+document.getElementById("volunteerBadges")
+.innerText =
+badges.filter(
+b=>b.role==="Volunteer"
+).length;
+
+document.getElementById("securityBadges")
+.innerText =
+badges.filter(
+b=>b.role==="Security"
+).length;
+
+}
+
+renderBadges();
+
+</script>
+
+</body>
+</html>
