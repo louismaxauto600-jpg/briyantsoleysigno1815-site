@@ -1,0 +1,150 @@
+<!-- FILE: ai-assistant.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant | BSS1815 PRO-MAX-DMP</title>
+</head>
+<body>
+
+<section id="ai-assistant" class="ai-assistant-section">
+  <h1>AI ASSISTANT</h1>
+  <h2>BSS1815 PRO-MAX-DMP</h2>
+  <p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+
+  <div class="ai-box">
+    <label>Chwazi kalite mesaj la</label>
+    <select id="aiType">
+      <option value="Official Notice">Official Notice</option>
+      <option value="Death Announcement">Death Announcement</option>
+      <option value="Birthday Message">Birthday Message</option>
+      <option value="Condolence Message">Condolence Message</option>
+      <option value="Event Announcement">Event Announcement</option>
+      <option value="Community Update">Community Update</option>
+      <option value="Emergency Alert">Emergency Alert</option>
+      <option value="PRO-MAX FM Script">PRO-MAX FM Script</option>
+    </select>
+
+    <label>Chwazi lang lan</label>
+    <select id="aiLang">
+      <option value="Kreyòl">Kreyòl</option>
+      <option value="English">English</option>
+      <option value="Français">Français</option>
+    </select>
+
+    <label>Sijè a</label>
+    <input type="text" id="aiTopic" placeholder="Ekri sijè a isit la">
+
+    <label>Detay yo</label>
+    <textarea id="aiDetails" placeholder="Mete detay mesaj la isit la"></textarea>
+
+    <button onclick="generateAIMessage()">Generate</button>
+
+    <div id="aiOutput"></div>
+  </div>
+</section>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #ff6a00, #000000);
+    color: #fff3e6;
+  }
+
+  .ai-assistant-section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .ai-assistant-section h1 {
+    color: #ff7a00;
+    font-size: 42px;
+  }
+
+  .ai-assistant-section h2 {
+    color: #ffb15c;
+  }
+
+  .ai-box {
+    margin-top: 30px;
+    background: #000000;
+    border: 2px solid #ff7a00;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: left;
+  }
+
+  label {
+    display: block;
+    margin-top: 18px;
+    color: #ffb15c;
+    font-weight: bold;
+  }
+
+  select,
+  input,
+  textarea {
+    width: 100%;
+    padding: 13px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 1px solid #ff7a00;
+    background: #090909;
+    color: #fff3e6;
+    font-size: 16px;
+  }
+
+  textarea {
+    min-height: 140px;
+  }
+
+  button {
+    margin-top: 22px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #ff7a00;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #aiOutput {
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid #ff7a00;
+    border-radius: 12px;
+    background: #111;
+    white-space: pre-wrap;
+    min-height: 120px;
+  }
+</style>
+
+<script>
+  function generateAIMessage() {
+    const type = document.getElementById("aiType").value;
+    const lang = document.getElementById("aiLang").value;
+    const topic = document.getElementById("aiTopic").value;
+    const details = document.getElementById("aiDetails").value;
+
+    document.getElementById("aiOutput").innerText =
+`${type}
+
+Language: ${lang}
+Topic: ${topic}
+
+Message:
+${details}
+
+Prepared by AI Assistant
+BSS1815 PRO-MAX-DMP
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+  }
+</script>
+
+</body>
+</html>
