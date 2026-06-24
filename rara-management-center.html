@@ -1,0 +1,550 @@
+<!-- FILE: rara-management-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rara Management Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:110px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+.rara-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.rara-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>RARA MANAGEMENT CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Rara Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalGroups">0</h3>
+<p>Rara Groups</p>
+</div>
+
+<div class="stat">
+<h3 id="totalMembers">0</h3>
+<p>Total Members</p>
+</div>
+
+<div class="stat">
+<h3 id="totalInstruments">0</h3>
+<p>Instruments</p>
+</div>
+
+<div class="stat">
+<h3 id="totalActivities">0</h3>
+<p>Activities</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Register Rara Group</h2>
+
+<div class="grid">
+<div>
+<label>Rara Group Name</label>
+<input type="text" id="groupName" placeholder="Rara group name">
+</div>
+
+<div>
+<label>Leader / Responsible Person</label>
+<input type="text" id="leaderName" placeholder="Leader name">
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="phone" placeholder="Phone number">
+</div>
+
+<div>
+<label>Location</label>
+<input type="text" id="location" placeholder="City / zone / country">
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Active</option>
+<option>Pending</option>
+<option>Inactive</option>
+<option>Suspended</option>
+</select>
+</div>
+
+<div>
+<label>Category</label>
+<select id="category">
+<option>Official Rara Group</option>
+<option>Community Rara</option>
+<option>Youth Rara</option>
+<option>Event Rara</option>
+<option>Partner Group</option>
+</select>
+</div>
+</div>
+
+<label>Description / Notes</label>
+<textarea id="description" placeholder="Write group description or notes..."></textarea>
+
+<button onclick="saveGroup()">Save Rara Group</button>
+</section>
+
+<section class="card">
+<h2>Register Instrument / Equipment</h2>
+
+<div class="grid">
+<div>
+<label>Instrument Name</label>
+<input type="text" id="instrumentName" placeholder="Bamboo, drum, trumpet, etc.">
+</div>
+
+<div>
+<label>Assigned Group</label>
+<input type="text" id="assignedGroup" placeholder="Group name">
+</div>
+
+<div>
+<label>Quantity</label>
+<input type="number" id="quantity" min="1" value="1">
+</div>
+
+<div>
+<label>Condition</label>
+<select id="condition">
+<option>Good</option>
+<option>Needs Repair</option>
+<option>Missing</option>
+<option>Reserved</option>
+</select>
+</div>
+</div>
+
+<button onclick="saveInstrument()">Save Instrument</button>
+</section>
+
+<section class="card">
+<h2>Create Rara Activity</h2>
+
+<div class="grid">
+<div>
+<label>Activity Title</label>
+<input type="text" id="activityTitle" placeholder="Activity title">
+</div>
+
+<div>
+<label>Rara Group</label>
+<input type="text" id="activityGroup" placeholder="Group name">
+</div>
+
+<div>
+<label>Date</label>
+<input type="date" id="activityDate">
+</div>
+
+<div>
+<label>Status</label>
+<select id="activityStatus">
+<option>Scheduled</option>
+<option>Active</option>
+<option>Completed</option>
+<option>Cancelled</option>
+</select>
+</div>
+</div>
+
+<label>Activity Details</label>
+<textarea id="activityDetails" placeholder="Activity details..."></textarea>
+
+<button onclick="saveActivity()">Save Activity</button>
+</section>
+
+<section class="card">
+<h2>Search Rara Records</h2>
+<input type="text" id="search" placeholder="Search groups, instruments, activities..." onkeyup="renderAll()">
+</section>
+
+<section class="card">
+<h2>Rara Groups</h2>
+<div id="groupList" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Instruments / Equipment</h2>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Group</th>
+<th>Quantity</th>
+<th>Condition</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="instrumentTable"></tbody>
+</table>
+</section>
+
+<section class="card">
+<h2>Rara Activities</h2>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Group</th>
+<th>Date</th>
+<th>Status</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody id="activityTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Rara Management Center
+</footer>
+
+<script>
+let groups =
+JSON.parse(localStorage.getItem("bss1815_rara_groups")) || [];
+
+let instruments =
+JSON.parse(localStorage.getItem("bss1815_rara_instruments")) || [];
+
+let activities =
+JSON.parse(localStorage.getItem("bss1815_rara_activities")) || [];
+
+function saveGroup(){
+
+const group = {
+groupName: document.getElementById("groupName").value.trim(),
+leaderName: document.getElementById("leaderName").value.trim(),
+phone: document.getElementById("phone").value.trim(),
+location: document.getElementById("location").value.trim(),
+status: document.getElementById("status").value,
+category: document.getElementById("category").value,
+description: document.getElementById("description").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!group.groupName || !group.leaderName){
+alert("Group Name and Leader required.");
+return;
+}
+
+groups.unshift(group);
+localStorage.setItem("bss1815_rara_groups",JSON.stringify(groups));
+
+document.getElementById("groupName").value="";
+document.getElementById("leaderName").value="";
+document.getElementById("phone").value="";
+document.getElementById("location").value="";
+document.getElementById("description").value="";
+
+renderAll();
+
+}
+
+function saveInstrument(){
+
+const instrument = {
+instrumentName: document.getElementById("instrumentName").value.trim(),
+assignedGroup: document.getElementById("assignedGroup").value.trim(),
+quantity: document.getElementById("quantity").value,
+condition: document.getElementById("condition").value,
+date: new Date().toLocaleString()
+};
+
+if(!instrument.instrumentName || !instrument.assignedGroup){
+alert("Instrument Name and Assigned Group required.");
+return;
+}
+
+instruments.unshift(instrument);
+localStorage.setItem("bss1815_rara_instruments",JSON.stringify(instruments));
+
+document.getElementById("instrumentName").value="";
+document.getElementById("assignedGroup").value="";
+document.getElementById("quantity").value="1";
+
+renderAll();
+
+}
+
+function saveActivity(){
+
+const activity = {
+activityTitle: document.getElementById("activityTitle").value.trim(),
+activityGroup: document.getElementById("activityGroup").value.trim(),
+activityDate: document.getElementById("activityDate").value,
+activityStatus: document.getElementById("activityStatus").value,
+activityDetails: document.getElementById("activityDetails").value.trim()
+};
+
+if(!activity.activityTitle || !activity.activityGroup){
+alert("Activity Title and Group required.");
+return;
+}
+
+activities.unshift(activity);
+localStorage.setItem("bss1815_rara_activities",JSON.stringify(activities));
+
+document.getElementById("activityTitle").value="";
+document.getElementById("activityGroup").value="";
+document.getElementById("activityDetails").value="";
+
+renderAll();
+
+}
+
+function renderAll(){
+
+const search = document.getElementById("search").value.toLowerCase();
+
+renderGroups(search);
+renderInstruments(search);
+renderActivities(search);
+updateStats();
+
+}
+
+function renderGroups(search){
+
+const list = document.getElementById("groupList");
+list.innerHTML = "";
+
+groups
+.filter(g => Object.values(g).join(" ").toLowerCase().includes(search))
+.forEach(g=>{
+
+list.innerHTML += `
+<div class="rara-card">
+<h3>${g.groupName}</h3>
+<p class="meta">${g.category} | ${g.status} | ${g.date}</p>
+<p><strong>Leader:</strong> ${g.leaderName}</p>
+<p><strong>Phone:</strong> ${g.phone}</p>
+<p><strong>Location:</strong> ${g.location}</p>
+<p>${g.description}</p>
+</div>
+`;
+
+});
+
+}
+
+function renderInstruments(search){
+
+const table = document.getElementById("instrumentTable");
+table.innerHTML = "";
+
+instruments
+.filter(i => Object.values(i).join(" ").toLowerCase().includes(search))
+.forEach(i=>{
+
+table.innerHTML += `
+<tr>
+<td>${i.instrumentName}</td>
+<td>${i.assignedGroup}</td>
+<td>${i.quantity}</td>
+<td>${i.condition}</td>
+<td>${i.date}</td>
+</tr>
+`;
+
+});
+
+}
+
+function renderActivities(search){
+
+const table = document.getElementById("activityTable");
+table.innerHTML = "";
+
+activities
+.filter(a => Object.values(a).join(" ").toLowerCase().includes(search))
+.forEach(a=>{
+
+table.innerHTML += `
+<tr>
+<td>${a.activityTitle}</td>
+<td>${a.activityGroup}</td>
+<td>${a.activityDate}</td>
+<td>${a.activityStatus}</td>
+<td>${a.activityDetails}</td>
+</tr>
+`;
+
+});
+
+}
+
+function updateStats(){
+
+document.getElementById("totalGroups").innerText = groups.length;
+
+document.getElementById("totalMembers").innerText =
+groups.length;
+
+document.getElementById("totalInstruments").innerText =
+instruments.reduce((sum,i)=>sum + Number(i.quantity || 0),0);
+
+document.getElementById("totalActivities").innerText =
+activities.length;
+
+}
+
+renderAll();
+</script>
+
+</body>
+</html>
