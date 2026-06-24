@@ -1,0 +1,558 @@
+<!-- FILE: finance-treasury-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finance / Treasury Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:110px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.finance-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.finance-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>FINANCE / TREASURY CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Treasury Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalIncome">$0.00</h3>
+<p>Total Income</p>
+</div>
+
+<div class="stat">
+<h3 id="totalExpenses">$0.00</h3>
+<p>Total Expenses</p>
+</div>
+
+<div class="stat">
+<h3 id="netBalance">$0.00</h3>
+<p>Net Balance</p>
+</div>
+
+<div class="stat">
+<h3 id="donationCount">0</h3>
+<p>Donations</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Add Financial Transaction</h2>
+
+<div class="grid">
+<div>
+<label>Transaction Title</label>
+<input type="text" id="transactionTitle" placeholder="Transaction title">
+</div>
+
+<div>
+<label>Transaction Type</label>
+<select id="transactionType">
+<option>Income</option>
+<option>Expense</option>
+<option>Donation</option>
+<option>Sponsorship</option>
+<option>Membership Fee</option>
+<option>Event Revenue</option>
+<option>PRO-MAX FM Revenue</option>
+<option>Vendor Payment</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Amount</label>
+<input type="number" id="amount" placeholder="0.00" step="0.01">
+</div>
+
+<div>
+<label>Payment Method</label>
+<select id="paymentMethod">
+<option>Cash</option>
+<option>Zelle</option>
+<option>Cash App</option>
+<option>PayPal</option>
+<option>Bank Transfer</option>
+<option>Credit / Debit Card</option>
+<option>Check</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Pending</option>
+<option>Paid</option>
+<option>Received</option>
+<option>Cancelled</option>
+</select>
+</div>
+
+<div>
+<label>Date</label>
+<input type="date" id="transactionDate">
+</div>
+</div>
+
+<label>Notes</label>
+<textarea id="notes" placeholder="Transaction notes..."></textarea>
+
+<button onclick="saveTransaction()">Save Transaction</button>
+</section>
+
+<section class="card">
+<h2>Donation / Sponsorship Record</h2>
+
+<div class="grid">
+<div>
+<label>Donor / Sponsor Name</label>
+<input type="text" id="donorName" placeholder="Name">
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="donorPhone" placeholder="Phone">
+</div>
+
+<div>
+<label>Contribution Type</label>
+<select id="contributionType">
+<option>Donation</option>
+<option>Sponsorship</option>
+<option>Membership Support</option>
+<option>Event Support</option>
+<option>PRO-MAX FM Support</option>
+<option>Community Support</option>
+</select>
+</div>
+
+<div>
+<label>Contribution Amount</label>
+<input type="number" id="contributionAmount" placeholder="0.00" step="0.01">
+</div>
+</div>
+
+<label>Contribution Notes</label>
+<textarea id="contributionNotes" placeholder="Notes..."></textarea>
+
+<button onclick="saveContribution()">Save Contribution</button>
+</section>
+
+<section class="card">
+<h2>Search Finance Records</h2>
+<input type="text" id="search" placeholder="Search transactions, donations, sponsors..." onkeyup="renderAll()">
+</section>
+
+<section class="card">
+<h2>Transactions</h2>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Type</th>
+<th>Amount</th>
+<th>Method</th>
+<th>Status</th>
+<th>Date</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody id="transactionTable"></tbody>
+</table>
+</section>
+
+<section class="card">
+<h2>Donations / Sponsorships</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Type</th>
+<th>Amount</th>
+<th>Notes</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="contributionTable"></tbody>
+</table>
+</section>
+
+<section class="card">
+<h2>Financial Report</h2>
+<div class="finance-card">
+<h3>Summary Report</h3>
+<p id="financeReport">No report generated yet.</p>
+<button onclick="generateReport()">Generate Report</button>
+<button onclick="downloadReport()">Download Report</button>
+</div>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Finance / Treasury Center
+</footer>
+
+<script>
+let transactions =
+JSON.parse(localStorage.getItem("bss1815_finance_transactions")) || [];
+
+let contributions =
+JSON.parse(localStorage.getItem("bss1815_finance_contributions")) || [];
+
+function money(value){
+return "$" + Number(value || 0).toFixed(2);
+}
+
+function saveTransaction(){
+
+const transaction = {
+title: document.getElementById("transactionTitle").value.trim(),
+type: document.getElementById("transactionType").value,
+amount: Number(document.getElementById("amount").value || 0),
+method: document.getElementById("paymentMethod").value,
+status: document.getElementById("status").value,
+date: document.getElementById("transactionDate").value,
+notes: document.getElementById("notes").value.trim(),
+created: new Date().toLocaleString()
+};
+
+if(!transaction.title || transaction.amount <= 0){
+alert("Transaction Title and valid Amount required.");
+return;
+}
+
+transactions.unshift(transaction);
+
+localStorage.setItem(
+"bss1815_finance_transactions",
+JSON.stringify(transactions)
+);
+
+document.getElementById("transactionTitle").value="";
+document.getElementById("amount").value="";
+document.getElementById("transactionDate").value="";
+document.getElementById("notes").value="";
+
+renderAll();
+
+}
+
+function saveContribution(){
+
+const contribution = {
+name: document.getElementById("donorName").value.trim(),
+phone: document.getElementById("donorPhone").value.trim(),
+type: document.getElementById("contributionType").value,
+amount: Number(document.getElementById("contributionAmount").value || 0),
+notes: document.getElementById("contributionNotes").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!contribution.name || contribution.amount <= 0){
+alert("Donor/Sponsor Name and valid Amount required.");
+return;
+}
+
+contributions.unshift(contribution);
+
+localStorage.setItem(
+"bss1815_finance_contributions",
+JSON.stringify(contributions)
+);
+
+document.getElementById("donorName").value="";
+document.getElementById("donorPhone").value="";
+document.getElementById("contributionAmount").value="";
+document.getElementById("contributionNotes").value="";
+
+renderAll();
+
+}
+
+function renderAll(){
+
+const search = document.getElementById("search").value.toLowerCase();
+
+renderTransactions(search);
+renderContributions(search);
+updateStats();
+
+}
+
+function renderTransactions(search){
+
+const table = document.getElementById("transactionTable");
+table.innerHTML = "";
+
+transactions
+.filter(t => Object.values(t).join(" ").toLowerCase().includes(search))
+.forEach(t=>{
+
+table.innerHTML += `
+<tr>
+<td>${t.title}</td>
+<td>${t.type}</td>
+<td>${money(t.amount)}</td>
+<td>${t.method}</td>
+<td>${t.status}</td>
+<td>${t.date || t.created}</td>
+<td>${t.notes}</td>
+</tr>
+`;
+
+});
+
+}
+
+function renderContributions(search){
+
+const table = document.getElementById("contributionTable");
+table.innerHTML = "";
+
+contributions
+.filter(c => Object.values(c).join(" ").toLowerCase().includes(search))
+.forEach(c=>{
+
+table.innerHTML += `
+<tr>
+<td>${c.name}</td>
+<td>${c.phone}</td>
+<td>${c.type}</td>
+<td>${money(c.amount)}</td>
+<td>${c.notes}</td>
+<td>${c.date}</td>
+</tr>
+`;
+
+});
+
+}
+
+function updateStats(){
+
+let income = 0;
+let expenses = 0;
+
+transactions.forEach(t=>{
+
+if(
+t.type === "Income" ||
+t.type === "Donation" ||
+t.type === "Sponsorship" ||
+t.type === "Membership Fee" ||
+t.type === "Event Revenue" ||
+t.type === "PRO-MAX FM Revenue"
+){
+income += Number(t.amount || 0);
+}else if(
+t.type === "Expense" ||
+t.type === "Vendor Payment"
+){
+expenses += Number(t.amount || 0);
+}
+
+});
+
+contributions.forEach(c=>{
+income += Number(c.amount || 0);
+});
+
+document.getElementById("totalIncome").innerText = money(income);
+document.getElementById("totalExpenses").innerText = money(expenses);
+document.getElementById("netBalance").innerText = money(income - expenses);
+document.getElementById("donationCount").innerText = contributions.length;
+
+}
+
+function generateReport(){
+
+const report =
+`BSS1815 PRO-MAX-DMP
+FINANCE / TREASURY REPORT
+
+Generated: ${new Date().toLocaleString()}
+
+Total Income: ${document.getElementById("totalIncome").innerText}
+Total Expenses: ${document.getElementById("totalExpenses").innerText}
+Net Balance: ${document.getElementById("netBalance").innerText}
+Donations / Sponsorships: ${document.getElementById("donationCount").innerText}
+
+Transactions: ${transactions.length}
+Contributions: ${contributions.length}
+
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+
+document.getElementById("financeReport").innerText = report;
+
+}
+
+function downloadReport(){
+
+const text = document.getElementById("financeReport").innerText;
+
+const blob = new Blob([text],{type:"text/plain"});
+const link = document.createElement("a");
+
+link.href = URL.createObjectURL(blob);
+link.download = "BSS1815_Finance_Treasury_Report.txt";
+link.click();
+
+}
+
+renderAll();
+</script>
+
+</body>
+</html>
