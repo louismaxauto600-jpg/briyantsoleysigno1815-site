@@ -1,0 +1,447 @@
+<!-- FILE: bulk-messaging.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twilio / Bulk Messaging Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:40px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:140px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+.status{
+background:#000;
+border:1px solid #ff7a00;
+padding:15px;
+border-radius:12px;
+margin-top:15px;
+white-space:pre-wrap;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>TWILIO / BULK MESSAGING CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Messaging Dashboard</h2>
+
+<div class="grid">
+<div class="status">
+<strong>SMS:</strong> Ready
+</div>
+
+<div class="status">
+<strong>WhatsApp:</strong> Ready for Twilio Integration
+</div>
+
+<div class="status">
+<strong>Bulk Broadcast:</strong> Draft Mode
+</div>
+
+<div class="status">
+<strong>Audience:</strong> Members / Fanatik / Musicians / Ti Machann
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create Broadcast Message</h2>
+
+<div class="grid">
+<div>
+<label>Message Type</label>
+<select id="messageType">
+<option>SMS</option>
+<option>WhatsApp</option>
+<option>Email</option>
+<option>Internal Notification</option>
+</select>
+</div>
+
+<div>
+<label>Audience</label>
+<select id="audience">
+<option>All Contacts</option>
+<option>Members</option>
+<option>Fanatik</option>
+<option>Musicians</option>
+<option>Ti Machann</option>
+<option>Admins</option>
+<option>Radio Listeners</option>
+<option>Event Guests</option>
+</select>
+</div>
+
+<div>
+<label>Priority</label>
+<select id="priority">
+<option>Normal</option>
+<option>Important</option>
+<option>Urgent</option>
+<option>Emergency</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Draft</option>
+<option>Ready To Send</option>
+<option>Sent</option>
+</select>
+</div>
+</div>
+
+<label>Broadcast Title</label>
+<input type="text" id="title" placeholder="Message title">
+
+<label>Message Content</label>
+<textarea id="content" placeholder="Write SMS / WhatsApp broadcast message here..."></textarea>
+
+<button onclick="saveBroadcast()">Save Broadcast</button>
+<button onclick="previewTwilioPayload()">Preview Twilio Payload</button>
+
+<div id="payloadPreview" class="status">
+Twilio preview will appear here.
+</div>
+</section>
+
+<section class="card">
+<h2>Add Recipient</h2>
+
+<div class="grid">
+<div>
+<label>Full Name</label>
+<input type="text" id="recipientName" placeholder="Full name">
+</div>
+
+<div>
+<label>Phone Number</label>
+<input type="text" id="recipientPhone" placeholder="+14070000000">
+</div>
+
+<div>
+<label>Category</label>
+<select id="recipientCategory">
+<option>Member</option>
+<option>Fanatik</option>
+<option>Musician</option>
+<option>Ti Machann</option>
+<option>Admin</option>
+<option>Radio Listener</option>
+<option>Event Guest</option>
+</select>
+</div>
+
+<div>
+<label>Opt-In Status</label>
+<select id="recipientOptin">
+<option>Opted In</option>
+<option>Pending</option>
+<option>Opted Out</option>
+</select>
+</div>
+</div>
+
+<button onclick="addRecipient()">Add Recipient</button>
+</section>
+
+<section class="card">
+<h2>Recipients</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Category</th>
+<th>Opt-In</th>
+</tr>
+</thead>
+<tbody id="recipientTable"></tbody>
+</table>
+</section>
+
+<section class="card">
+<h2>Broadcast History</h2>
+
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Type</th>
+<th>Audience</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="broadcastTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Twilio / Bulk Messaging Center
+</footer>
+
+<script>
+let broadcasts =
+JSON.parse(localStorage.getItem("bss1815_broadcasts")) || [];
+
+let recipients =
+JSON.parse(localStorage.getItem("bss1815_recipients")) || [];
+
+function saveBroadcast(){
+
+const broadcast = {
+type: document.getElementById("messageType").value,
+audience: document.getElementById("audience").value,
+priority: document.getElementById("priority").value,
+status: document.getElementById("status").value,
+title: document.getElementById("title").value.trim(),
+content: document.getElementById("content").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!broadcast.title || !broadcast.content){
+alert("Title and Message Content required.");
+return;
+}
+
+broadcasts.unshift(broadcast);
+
+localStorage.setItem(
+"bss1815_broadcasts",
+JSON.stringify(broadcasts)
+);
+
+document.getElementById("title").value="";
+document.getElementById("content").value="";
+
+renderBroadcasts();
+
+}
+
+function addRecipient(){
+
+const recipient = {
+name: document.getElementById("recipientName").value.trim(),
+phone: document.getElementById("recipientPhone").value.trim(),
+category: document.getElementById("recipientCategory").value,
+optin: document.getElementById("recipientOptin").value
+};
+
+if(!recipient.name || !recipient.phone){
+alert("Name and Phone required.");
+return;
+}
+
+recipients.unshift(recipient);
+
+localStorage.setItem(
+"bss1815_recipients",
+JSON.stringify(recipients)
+);
+
+document.getElementById("recipientName").value="";
+document.getElementById("recipientPhone").value="";
+
+renderRecipients();
+
+}
+
+function renderRecipients(){
+
+const table = document.getElementById("recipientTable");
+
+table.innerHTML = "";
+
+recipients.forEach(r=>{
+
+table.innerHTML += `
+<tr>
+<td>${r.name}</td>
+<td>${r.phone}</td>
+<td>${r.category}</td>
+<td>${r.optin}</td>
+</tr>
+`;
+
+});
+
+}
+
+function renderBroadcasts(){
+
+const table = document.getElementById("broadcastTable");
+
+table.innerHTML = "";
+
+broadcasts.forEach(b=>{
+
+table.innerHTML += `
+<tr>
+<td>${b.title}</td>
+<td>${b.type}</td>
+<td>${b.audience}</td>
+<td>${b.priority}</td>
+<td>${b.status}</td>
+<td>${b.date}</td>
+</tr>
+`;
+
+});
+
+}
+
+function previewTwilioPayload(){
+
+const type = document.getElementById("messageType").value;
+const audience = document.getElementById("audience").value;
+const title = document.getElementById("title").value.trim();
+const content = document.getElementById("content").value.trim();
+
+const matchedRecipients =
+recipients.filter(r =>
+audience === "All Contacts" ||
+r.category === audience.replace("s","")
+);
+
+const payload = {
+platform: "BSS1815 PRO-MAX-DMP",
+module: "Twilio / Bulk Messaging Center",
+messageType: type,
+audience: audience,
+title: title,
+message: content,
+recipientCount: matchedRecipients.length,
+note: "This is a frontend preview. Real Twilio sending must be handled securely on a backend/server or Firebase Cloud Function. Never expose Twilio Account SID/Auth Token in frontend code."
+};
+
+document.getElementById("payloadPreview").innerText =
+JSON.stringify(payload,null,2);
+
+}
+
+renderRecipients();
+renderBroadcasts();
+</script>
+
+</body>
+</html>
