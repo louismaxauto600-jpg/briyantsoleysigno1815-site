@@ -1,0 +1,472 @@
+<!-- FILE: musician-management.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musician Management | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:110px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.musician-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.musician-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MUSICIAN MANAGEMENT</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Musician Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalMusicians">0</h3>
+<p>Total Musicians</p>
+</div>
+
+<div class="stat">
+<h3 id="activeMusicians">0</h3>
+<p>Active</p>
+</div>
+
+<div class="stat">
+<h3 id="contractedMusicians">0</h3>
+<p>With Contract</p>
+</div>
+
+<div class="stat">
+<h3 id="performancesCount">0</h3>
+<p>Performances</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Register Musician</h2>
+
+<div class="grid">
+<div>
+<label>Full Name</label>
+<input type="text" id="musicianName" placeholder="Musician full name">
+</div>
+
+<div>
+<label>Stage Name</label>
+<input type="text" id="stageName" placeholder="Stage name">
+</div>
+
+<div>
+<label>Instrument / Role</label>
+<input type="text" id="instrument" placeholder="Drum, trumpet, singer, DJ, etc.">
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="phone" placeholder="Phone number">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="email" placeholder="Email address">
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Active</option>
+<option>Pending</option>
+<option>Inactive</option>
+<option>Suspended</option>
+</select>
+</div>
+
+<div>
+<label>Contract Status</label>
+<select id="contractStatus">
+<option>No Contract</option>
+<option>Pending Contract</option>
+<option>Signed Contract</option>
+<option>Expired Contract</option>
+</select>
+</div>
+
+<div>
+<label>Location</label>
+<input type="text" id="location" placeholder="City / State / Country">
+</div>
+</div>
+
+<label>Notes</label>
+<textarea id="notes" placeholder="Musician notes..."></textarea>
+
+<button onclick="saveMusician()">Save Musician</button>
+</section>
+
+<section class="card">
+<h2>Add Performance History</h2>
+
+<div class="grid">
+<div>
+<label>Musician Name</label>
+<input type="text" id="performanceMusician" placeholder="Musician name">
+</div>
+
+<div>
+<label>Event Name</label>
+<input type="text" id="eventName" placeholder="Event name">
+</div>
+
+<div>
+<label>Date</label>
+<input type="date" id="performanceDate">
+</div>
+
+<div>
+<label>Payment Status</label>
+<select id="paymentStatus">
+<option>Unpaid</option>
+<option>Pending</option>
+<option>Paid</option>
+<option>Volunteer</option>
+</select>
+</div>
+</div>
+
+<label>Performance Notes</label>
+<textarea id="performanceNotes" placeholder="Performance notes..."></textarea>
+
+<button onclick="savePerformance()">Save Performance</button>
+</section>
+
+<section class="card">
+<h2>Search Musician Records</h2>
+<input type="text" id="search" placeholder="Search musicians, contracts, performances..." onkeyup="renderAll()">
+</section>
+
+<section class="card">
+<h2>Musician List</h2>
+<div id="musicianList" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Performance History</h2>
+<table>
+<thead>
+<tr>
+<th>Musician</th>
+<th>Event</th>
+<th>Date</th>
+<th>Payment</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody id="performanceTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Musician Management
+</footer>
+
+<script>
+let musicians =
+JSON.parse(localStorage.getItem("bss1815_musicians")) || [];
+
+let performances =
+JSON.parse(localStorage.getItem("bss1815_musician_performances")) || [];
+
+function saveMusician(){
+
+const musician = {
+name: document.getElementById("musicianName").value.trim(),
+stageName: document.getElementById("stageName").value.trim(),
+instrument: document.getElementById("instrument").value.trim(),
+phone: document.getElementById("phone").value.trim(),
+email: document.getElementById("email").value.trim(),
+status: document.getElementById("status").value,
+contractStatus: document.getElementById("contractStatus").value,
+location: document.getElementById("location").value.trim(),
+notes: document.getElementById("notes").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!musician.name || !musician.phone){
+alert("Full Name and Phone required.");
+return;
+}
+
+musicians.unshift(musician);
+
+localStorage.setItem(
+"bss1815_musicians",
+JSON.stringify(musicians)
+);
+
+document.getElementById("musicianName").value="";
+document.getElementById("stageName").value="";
+document.getElementById("instrument").value="";
+document.getElementById("phone").value="";
+document.getElementById("email").value="";
+document.getElementById("location").value="";
+document.getElementById("notes").value="";
+
+renderAll();
+
+}
+
+function savePerformance(){
+
+const performance = {
+musician: document.getElementById("performanceMusician").value.trim(),
+eventName: document.getElementById("eventName").value.trim(),
+date: document.getElementById("performanceDate").value,
+paymentStatus: document.getElementById("paymentStatus").value,
+notes: document.getElementById("performanceNotes").value.trim()
+};
+
+if(!performance.musician || !performance.eventName){
+alert("Musician Name and Event Name required.");
+return;
+}
+
+performances.unshift(performance);
+
+localStorage.setItem(
+"bss1815_musician_performances",
+JSON.stringify(performances)
+);
+
+document.getElementById("performanceMusician").value="";
+document.getElementById("eventName").value="";
+document.getElementById("performanceNotes").value="";
+
+renderAll();
+
+}
+
+function renderAll(){
+
+const search = document.getElementById("search").value.toLowerCase();
+
+renderMusicians(search);
+renderPerformances(search);
+updateStats();
+
+}
+
+function renderMusicians(search){
+
+const list = document.getElementById("musicianList");
+list.innerHTML = "";
+
+musicians
+.filter(m => Object.values(m).join(" ").toLowerCase().includes(search))
+.forEach(m=>{
+
+list.innerHTML += `
+<div class="musician-card">
+<h3>${m.name}</h3>
+<p class="meta">${m.stageName} | ${m.instrument} | ${m.status}</p>
+<p><strong>Phone:</strong> ${m.phone}</p>
+<p><strong>Email:</strong> ${m.email}</p>
+<p><strong>Contract:</strong> ${m.contractStatus}</p>
+<p><strong>Location:</strong> ${m.location}</p>
+<p>${m.notes}</p>
+<p class="meta">${m.date}</p>
+</div>
+`;
+
+});
+
+}
+
+function renderPerformances(search){
+
+const table = document.getElementById("performanceTable");
+table.innerHTML = "";
+
+performances
+.filter(p => Object.values(p).join(" ").toLowerCase().includes(search))
+.forEach(p=>{
+
+table.innerHTML += `
+<tr>
+<td>${p.musician}</td>
+<td>${p.eventName}</td>
+<td>${p.date}</td>
+<td>${p.paymentStatus}</td>
+<td>${p.notes}</td>
+</tr>
+`;
+
+});
+
+}
+
+function updateStats(){
+
+document.getElementById("totalMusicians").innerText =
+musicians.length;
+
+document.getElementById("activeMusicians").innerText =
+musicians.filter(m => m.status === "Active").length;
+
+document.getElementById("contractedMusicians").innerText =
+musicians.filter(m => m.contractStatus === "Signed Contract").length;
+
+document.getElementById("performancesCount").innerText =
+performances.length;
+
+}
+
+renderAll();
+</script>
+
+</body>
+</html>
