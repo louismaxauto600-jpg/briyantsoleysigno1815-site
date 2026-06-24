@@ -1,0 +1,511 @@
+<!-- FILE: file-storage-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Storage Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:100px;
+}
+
+button,.btn{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+text-decoration:none;
+display:inline-block;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.file-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.file-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+.preview-box{
+background:#000;
+border:1px dashed #ff7a00;
+border-radius:14px;
+padding:18px;
+margin-top:15px;
+text-align:center;
+}
+
+.preview-box img,
+.preview-box video{
+max-width:100%;
+border-radius:10px;
+border:1px solid #ff7a00;
+}
+
+.preview-box audio{
+width:100%;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>FILE STORAGE CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Storage Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalFiles">0</h3>
+<p>Total Files</p>
+</div>
+
+<div class="stat">
+<h3 id="imageFiles">0</h3>
+<p>Images</p>
+</div>
+
+<div class="stat">
+<h3 id="documentFiles">0</h3>
+<p>Documents</p>
+</div>
+
+<div class="stat">
+<h3 id="archivedFiles">0</h3>
+<p>Archived</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Upload / Register File</h2>
+
+<div class="grid">
+<div>
+<label>File Title</label>
+<input type="text" id="fileTitle" placeholder="File title">
+</div>
+
+<div>
+<label>Folder</label>
+<select id="folder">
+<option>Official Documents</option>
+<option>Contracts</option>
+<option>PDF Storage</option>
+<option>Images</option>
+<option>Videos</option>
+<option>Audio / PRO-MAX FM</option>
+<option>Flyers</option>
+<option>Event Files</option>
+<option>Member Files</option>
+<option>Archive</option>
+</select>
+</div>
+
+<div>
+<label>File Status</label>
+<select id="fileStatus">
+<option>Active</option>
+<option>Archived</option>
+<option>Pending Review</option>
+<option>Private</option>
+</select>
+</div>
+
+<div>
+<label>File</label>
+<input type="file" id="fileInput" onchange="previewFile(event)">
+</div>
+</div>
+
+<label>Description</label>
+<textarea id="fileDescription" placeholder="File description or internal notes..."></textarea>
+
+<button onclick="saveFile()">Save File</button>
+
+<div class="preview-box" id="filePreview">
+No file selected.
+</div>
+</section>
+
+<section class="card">
+<h2>Search Files</h2>
+<input type="text" id="search" placeholder="Search files..." onkeyup="renderFiles()">
+</section>
+
+<section class="card">
+<h2>Stored Files</h2>
+<div id="fileList" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Storage Table</h2>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Folder</th>
+<th>Status</th>
+<th>Type</th>
+<th>Size</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="fileTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | File Storage Center
+</footer>
+
+<script>
+let storedFiles =
+JSON.parse(localStorage.getItem("bss1815_file_storage")) || [];
+
+let currentFileData = "";
+let currentFileType = "";
+let currentFileName = "";
+let currentFileSize = "";
+
+function previewFile(event){
+
+const file = event.target.files[0];
+
+if(!file)return;
+
+currentFileName = file.name;
+currentFileType = file.type || "unknown";
+currentFileSize = formatSize(file.size);
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+currentFileData = e.target.result;
+
+const preview = document.getElementById("filePreview");
+
+if(currentFileType.startsWith("image/")){
+preview.innerHTML = `<img src="${currentFileData}" alt="${currentFileName}">`;
+}
+
+else if(currentFileType.startsWith("video/")){
+preview.innerHTML = `<video controls src="${currentFileData}"></video>`;
+}
+
+else if(currentFileType.startsWith("audio/")){
+preview.innerHTML = `<audio controls src="${currentFileData}"></audio>`;
+}
+
+else{
+preview.innerHTML = `
+<strong>${currentFileName}</strong><br>
+Type: ${currentFileType}<br>
+Size: ${currentFileSize}
+`;
+}
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+function saveFile(){
+
+const fileRecord = {
+title: document.getElementById("fileTitle").value.trim(),
+folder: document.getElementById("folder").value,
+status: document.getElementById("fileStatus").value,
+description: document.getElementById("fileDescription").value.trim(),
+fileName: currentFileName,
+fileType: currentFileType,
+fileSize: currentFileSize,
+fileData: currentFileData,
+date: new Date().toLocaleString()
+};
+
+if(!fileRecord.title || !fileRecord.fileData){
+alert("File Title and File required.");
+return;
+}
+
+storedFiles.unshift(fileRecord);
+
+localStorage.setItem(
+"bss1815_file_storage",
+JSON.stringify(storedFiles)
+);
+
+document.getElementById("fileTitle").value="";
+document.getElementById("fileDescription").value="";
+document.getElementById("fileInput").value="";
+document.getElementById("filePreview").innerHTML="No file selected.";
+
+currentFileData="";
+currentFileType="";
+currentFileName="";
+currentFileSize="";
+
+renderFiles();
+
+}
+
+function renderFiles(){
+
+const fileList = document.getElementById("fileList");
+const fileTable = document.getElementById("fileTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+fileList.innerHTML = "";
+fileTable.innerHTML = "";
+
+storedFiles
+.filter(file =>
+Object.values(file)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach((file,index)=>{
+
+let preview = "";
+
+if(file.fileType.startsWith("image/")){
+preview = `<img src="${file.fileData}" style="max-width:100%;border-radius:10px;border:1px solid #ff7a00;">`;
+}else if(file.fileType.startsWith("video/")){
+preview = `<video controls src="${file.fileData}" style="width:100%;border-radius:10px;border:1px solid #ff7a00;"></video>`;
+}else if(file.fileType.startsWith("audio/")){
+preview = `<audio controls src="${file.fileData}" style="width:100%;"></audio>`;
+}else{
+preview = `<p><strong>${file.fileName}</strong></p>`;
+}
+
+fileList.innerHTML += `
+<div class="file-card">
+${preview}
+<h3>${file.title}</h3>
+<p class="meta">${file.folder} | ${file.status} | ${file.date}</p>
+<p><strong>File:</strong> ${file.fileName}</p>
+<p><strong>Type:</strong> ${file.fileType}</p>
+<p><strong>Size:</strong> ${file.fileSize}</p>
+<p>${file.description}</p>
+<button onclick="downloadFile(${index})">Download</button>
+<button onclick="archiveFile(${index})">Archive</button>
+</div>
+`;
+
+fileTable.innerHTML += `
+<tr>
+<td>${file.title}</td>
+<td>${file.folder}</td>
+<td>${file.status}</td>
+<td>${file.fileType}</td>
+<td>${file.fileSize}</td>
+<td>${file.date}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function downloadFile(index){
+
+const file = storedFiles[index];
+
+const link = document.createElement("a");
+link.href = file.fileData;
+link.download = file.fileName || file.title;
+link.click();
+
+}
+
+function archiveFile(index){
+
+storedFiles[index].status = "Archived";
+
+localStorage.setItem(
+"bss1815_file_storage",
+JSON.stringify(storedFiles)
+);
+
+renderFiles();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalFiles").innerText =
+storedFiles.length;
+
+document.getElementById("imageFiles").innerText =
+storedFiles.filter(f => f.fileType.startsWith("image/")).length;
+
+document.getElementById("documentFiles").innerText =
+storedFiles.filter(f =>
+f.fileType.includes("pdf") ||
+f.fileType.includes("word") ||
+f.fileType.includes("text") ||
+f.fileType.includes("document")
+).length;
+
+document.getElementById("archivedFiles").innerText =
+storedFiles.filter(f => f.status === "Archived").length;
+
+}
+
+function formatSize(bytes){
+
+if(bytes < 1024){
+return bytes + " B";
+}
+
+if(bytes < 1024 * 1024){
+return (bytes / 1024).toFixed(2) + " KB";
+}
+
+return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+
+}
+
+renderFiles();
+</script>
+
+</body>
+</html>
