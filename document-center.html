@@ -1,0 +1,403 @@
+<!-- FILE: document-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:45px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:120px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+button:hover{
+background:#ff8c1a;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-bottom:25px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+.document-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+.document-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.document-card h3{
+color:#ff7a00;
+margin-bottom:10px;
+}
+
+.document-meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.search-box{
+margin-bottom:20px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>DOCUMENT CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h3 id="totalDocuments">0</h3>
+<p>Total Documents</p>
+</div>
+
+<div class="stat">
+<h3 id="officialDocuments">0</h3>
+<p>Official Documents</p>
+</div>
+
+<div class="stat">
+<h3 id="contracts">0</h3>
+<p>Contracts</p>
+</div>
+
+<div class="stat">
+<h3 id="letters">0</h3>
+<p>Letters / Memos</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Create / Register Document</h2>
+
+<div class="grid">
+
+<div>
+<label>Document Title</label>
+<input type="text" id="documentTitle">
+</div>
+
+<div>
+<label>Document Type</label>
+<select id="documentType">
+<option>Official Document</option>
+<option>Contract</option>
+<option>Letter</option>
+<option>Memo</option>
+<option>Meeting Minutes</option>
+<option>Policy</option>
+<option>Musician Contract</option>
+<option>Community Notice</option>
+<option>PRO-MAX FM Document</option>
+</select>
+</div>
+
+<div>
+<label>Language</label>
+<select id="documentLanguage">
+<option>Kreyòl</option>
+<option>English</option>
+<option>Français</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="documentStatus">
+<option>Draft</option>
+<option>Published</option>
+<option>Archived</option>
+<option>Pending Review</option>
+</select>
+</div>
+
+</div>
+
+<label>Document Content</label>
+<textarea id="documentContent" placeholder="Write or paste document content here..."></textarea>
+
+<label>Notes</label>
+<textarea id="documentNotes" placeholder="Internal notes..."></textarea>
+
+<button onclick="saveDocument()">Save Document</button>
+
+</div>
+
+<div class="card">
+
+<h2>Search Documents</h2>
+
+<div class="search-box">
+<input
+type="text"
+id="search"
+placeholder="Search documents..."
+onkeyup="renderDocuments()">
+</div>
+
+<div id="documentContainer" class="document-list"></div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Document Center
+</footer>
+
+<script>
+let documents =
+JSON.parse(localStorage.getItem("bss1815_documents")) || [];
+
+function saveDocument(){
+
+const doc = {
+title: document.getElementById("documentTitle").value,
+type: document.getElementById("documentType").value,
+language: document.getElementById("documentLanguage").value,
+status: document.getElementById("documentStatus").value,
+content: document.getElementById("documentContent").value,
+notes: document.getElementById("documentNotes").value,
+date: new Date().toLocaleString()
+};
+
+if(!doc.title || !doc.content){
+alert("Document Title and Content required.");
+return;
+}
+
+documents.unshift(doc);
+
+localStorage.setItem(
+"bss1815_documents",
+JSON.stringify(documents)
+);
+
+document.getElementById("documentTitle").value="";
+document.getElementById("documentContent").value="";
+document.getElementById("documentNotes").value="";
+
+renderDocuments();
+
+}
+
+function renderDocuments(){
+
+const container =
+document.getElementById("documentContainer");
+
+const search =
+document.getElementById("search")
+.value
+.toLowerCase();
+
+container.innerHTML="";
+
+documents
+.filter(doc =>
+Object.values(doc)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach((doc,index)=>{
+
+container.innerHTML += `
+<div class="document-card">
+
+<h3>${doc.title}</h3>
+
+<div class="document-meta">
+${doc.type} | ${doc.language} | ${doc.status}
+</div>
+
+<p><strong>Date:</strong> ${doc.date}</p>
+
+<p>${doc.content}</p>
+
+<p><strong>Notes:</strong> ${doc.notes}</p>
+
+<button onclick="downloadDocument(${index})">
+Download Text
+</button>
+
+</div>
+`;
+
+});
+
+updateStats();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalDocuments").innerText =
+documents.length;
+
+document.getElementById("officialDocuments").innerText =
+documents.filter(x => x.type === "Official Document").length;
+
+document.getElementById("contracts").innerText =
+documents.filter(x => x.type === "Contract" || x.type === "Musician Contract").length;
+
+document.getElementById("letters").innerText =
+documents.filter(x => x.type === "Letter" || x.type === "Memo").length;
+
+}
+
+function downloadDocument(index){
+
+const doc = documents[index];
+
+const text =
+`${doc.title}
+
+Type: ${doc.type}
+Language: ${doc.language}
+Status: ${doc.status}
+Date: ${doc.date}
+
+${doc.content}
+
+Notes:
+${doc.notes}
+
+BSS1815 PRO-MAX-DMP
+DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+
+const blob = new Blob([text], {type:"text/plain"});
+const link = document.createElement("a");
+
+link.href = URL.createObjectURL(blob);
+link.download = doc.title.replaceAll(" ","_") + ".txt";
+link.click();
+
+}
+
+renderDocuments();
+</script>
+
+</body>
+</html>
