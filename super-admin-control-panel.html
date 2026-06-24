@@ -1,0 +1,462 @@
+<!-- FILE: super-admin.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Admin Control Panel | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#fff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:120px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+button:hover{
+background:#ff8c1a;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+.module{
+background:#000;
+border:1px solid #ff7a00;
+padding:15px;
+border-radius:12px;
+}
+
+.audit-log{
+background:#000;
+border:1px solid #ff7a00;
+padding:15px;
+border-radius:12px;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>SUPER ADMIN CONTROL PANEL</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+
+<h2>System Overview</h2>
+
+<div class="grid">
+
+<div class="stat">
+<h3 id="totalAdmins">0</h3>
+<p>Total Admins</p>
+</div>
+
+<div class="stat">
+<h3 id="totalModules">18</h3>
+<p>Modules</p>
+</div>
+
+<div class="stat">
+<h3 id="auditCount">0</h3>
+<p>Audit Logs</p>
+</div>
+
+<div class="stat">
+<h3 id="activeModules">0</h3>
+<p>Active Modules</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Role Management</h2>
+
+<div class="grid">
+
+<div>
+<label>Full Name</label>
+<input type="text" id="adminName">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="adminEmail">
+</div>
+
+<div>
+<label>Role</label>
+<select id="adminRole">
+<option>Super Admin</option>
+<option>Admin</option>
+<option>Moderator</option>
+<option>Radio Host</option>
+<option>Content Manager</option>
+<option>Event Manager</option>
+<option>Document Manager</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="adminStatus">
+<option>Active</option>
+<option>Pending</option>
+<option>Suspended</option>
+</select>
+</div>
+
+</div>
+
+<button onclick="addAdmin()">Add Admin</button>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Role</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="adminTable"></tbody>
+</table>
+
+</section>
+
+<section class="card">
+
+<h2>Module Access Control</h2>
+
+<div class="grid" id="moduleGrid">
+
+<div class="module">AI Center</div>
+<div class="module">AI Voice Studio</div>
+<div class="module">CRM System</div>
+<div class="module">Communication Center</div>
+<div class="module">Flyer Studio</div>
+<div class="module">Digital Registry</div>
+<div class="module">Event Management</div>
+<div class="module">Document Center</div>
+<div class="module">Admin Dashboard</div>
+<div class="module">User Authentication</div>
+<div class="module">User Profile Center</div>
+<div class="module">Member Portal</div>
+<div class="module">Notification Center</div>
+<div class="module">Reports & Analytics</div>
+<div class="module">Media Gallery</div>
+<div class="module">Bulk Messaging Center</div>
+<div class="module">PRO-MAX FM</div>
+<div class="module">PRO-MAX FM News</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Audit Logs</h2>
+
+<label>System Action</label>
+<textarea id="auditMessage"></textarea>
+
+<button onclick="addAuditLog()">Create Audit Log</button>
+
+<div id="auditLogs"></div>
+
+</section>
+
+<section class="card">
+
+<h2>Security Controls</h2>
+
+<div class="grid">
+
+<div class="module">
+<h3>Password Policy</h3>
+<p>Minimum password length control.</p>
+</div>
+
+<div class="module">
+<h3>Account Lock</h3>
+<p>Disable suspicious accounts.</p>
+</div>
+
+<div class="module">
+<h3>Role Verification</h3>
+<p>Restrict module access.</p>
+</div>
+
+<div class="module">
+<h3>Backup Verification</h3>
+<p>System backup validation.</p>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Super Admin Control Panel
+</footer>
+
+<script>
+
+let admins =
+JSON.parse(localStorage.getItem("bss1815_super_admins")) || [];
+
+let auditLogs =
+JSON.parse(localStorage.getItem("bss1815_audit_logs")) || [];
+
+function addAdmin(){
+
+const admin = {
+
+name:
+document.getElementById("adminName").value,
+
+email:
+document.getElementById("adminEmail").value,
+
+role:
+document.getElementById("adminRole").value,
+
+status:
+document.getElementById("adminStatus").value,
+
+date:
+new Date().toLocaleString()
+
+};
+
+if(!admin.name || !admin.email){
+alert("Name and Email Required");
+return;
+}
+
+admins.unshift(admin);
+
+localStorage.setItem(
+"bss1815_super_admins",
+JSON.stringify(admins)
+);
+
+renderAdmins();
+
+}
+
+function renderAdmins(){
+
+const table =
+document.getElementById("adminTable");
+
+table.innerHTML="";
+
+admins.forEach(admin=>{
+
+table.innerHTML += `
+<tr>
+<td>${admin.name}</td>
+<td>${admin.email}</td>
+<td>${admin.role}</td>
+<td>${admin.status}</td>
+<td>${admin.date}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("totalAdmins")
+.innerText=admins.length;
+
+}
+
+function addAuditLog(){
+
+const log = {
+
+message:
+document.getElementById("auditMessage").value,
+
+date:
+new Date().toLocaleString()
+
+};
+
+if(!log.message){
+alert("Audit Message Required");
+return;
+}
+
+auditLogs.unshift(log);
+
+localStorage.setItem(
+"bss1815_audit_logs",
+JSON.stringify(auditLogs)
+);
+
+document.getElementById("auditMessage").value="";
+
+renderLogs();
+
+}
+
+function renderLogs(){
+
+const container =
+document.getElementById("auditLogs");
+
+container.innerHTML="";
+
+auditLogs.forEach(log=>{
+
+container.innerHTML += `
+<div class="audit-log">
+<strong>${log.date}</strong>
+<br>
+${log.message}
+</div>
+`;
+
+});
+
+document.getElementById("auditCount")
+.innerText=auditLogs.length;
+
+}
+
+document.getElementById("activeModules")
+.innerText=
+document.querySelectorAll(".module").length;
+
+renderAdmins();
+renderLogs();
+
+</script>
+
+</body>
+</html>
