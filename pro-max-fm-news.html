@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX FM News | BSS1815 PRO-MAX-DMP</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(135deg,#000,#ff6a00,#000);color:#fff3e6}
+header,footer{text-align:center;padding:30px;background:#000;border-bottom:3px solid #ff7a00}
+footer{border-top:3px solid #ff7a00;border-bottom:none}
+h1,h2,h3{color:#ff7a00}
+main{width:min(1100px,94%);margin:30px auto}
+.card{background:#000;border:1px solid #ff7a00;border-radius:16px;padding:22px;margin-bottom:22px}
+label{display:block;margin-top:12px;color:#ffd2a1;font-weight:bold}
+input,select,textarea{width:100%;padding:12px;margin-top:6px;border-radius:10px;border:1px solid #ff7a00;background:#090909;color:#fff}
+textarea{min-height:120px}
+button,.btn{background:#ff7a00;color:#000;border:none;border-radius:10px;padding:11px 15px;font-weight:bold;cursor:pointer;margin-top:14px;text-decoration:none;display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.news{background:#111;border:1px solid #ff7a00;border-radius:14px;padding:18px}
+.tag{display:inline-block;background:#ff7a00;color:#000;padding:5px 10px;border-radius:20px;font-weight:bold;font-size:13px}
+.small{color:#ffd2a1;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>PRO-MAX FM NEWS MODULE</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Admin Publish News</h2>
+
+<label>News Title</label>
+<input id="title" placeholder="Egzanp: PRO-MAX FM ap lanse nouvo emisyon">
+
+<label>Category</label>
+<select id="category">
+<option>News Bulletin</option>
+<option>Community Update</option>
+<option>Radio Announcement</option>
+<option>Podcast News</option>
+<option>Emergency Alert</option>
+<option>Official Notice</option>
+</select>
+
+<label>News Content</label>
+<textarea id="content" placeholder="Ekri nouvèl la isit la..."></textarea>
+
+<label>Status</label>
+<select id="status">
+<option>Published</option>
+<option>Draft</option>
+</select>
+
+<button onclick="publishNews()">Publish News</button>
+</section>
+
+<section class="card">
+<h2>Latest News / PRO-MAX FM Feed</h2>
+<div id="newsFeed" class="grid"></div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 BSS1815 PRO-MAX-DMP | PRO-MAX FM NEWS</p>
+</footer>
+
+<script>
+let newsList = JSON.parse(localStorage.getItem("promax_fm_news")) || [];
+
+function publishNews(){
+  const title=document.getElementById("title").value.trim();
+  const category=document.getElementById("category").value;
+  const content=document.getElementById("content").value.trim();
+  const status=document.getElementById("status").value;
+
+  if(!title || !content){
+    alert("Title ak Content obligatwa.");
+    return;
+  }
+
+  newsList.unshift({
+    title,
+    category,
+    content,
+    status,
+    date:new Date().toLocaleString()
+  });
+
+  localStorage.setItem("promax_fm_news",JSON.stringify(newsList));
+
+  document.getElementById("title").value="";
+  document.getElementById("content").value="";
+  renderNews();
+}
+
+function shareNews(title,content){
+  const text=`${title}\\n\\n${content}\\n\\nBSS1815 PRO-MAX-DMP | PRO-MAX FM`;
+  if(navigator.share){
+    navigator.share({title:title,text:text});
+  }else{
+    navigator.clipboard.writeText(text);
+    alert("News copied for WhatsApp/Facebook sharing.");
+  }
+}
+
+function renderNews(){
+  const feed=document.getElementById("newsFeed");
+  feed.innerHTML="";
+
+  newsList.filter(n=>n.status==="Published").forEach((n,index)=>{
+    feed.innerHTML+=`
+      <article class="news">
+        <span class="tag">${n.category}</span>
+        <h3>${n.title}</h3>
+        <p class="small">${n.date}</p>
+        <p>${n.content}</p>
+        <button onclick="shareNews('${n.title.replace(/'/g,"")}','${n.content.replace(/'/g,"")}')">Share WhatsApp/Facebook</button>
+        <a class="btn" href="pro-max-fm.html">Send To PRO-MAX FM</a>
+      </article>
+    `;
+  });
+}
+
+renderNews();
+</script>
+
+</body>
+</html>
