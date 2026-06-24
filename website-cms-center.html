@@ -1,0 +1,424 @@
+<!-- FILE: website-cms-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website CMS Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat,.cms-box{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.stat{text-align:center}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+.cms-box h3{
+color:#ff7a00;
+margin-bottom:10px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:130px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.preview{
+background:#000;
+border:1px dashed #ff7a00;
+border-radius:12px;
+padding:18px;
+white-space:pre-wrap;
+color:#ffcc99;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>WEBSITE CMS CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>CMS Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalPages">0</h3>
+<p>CMS Pages</p>
+</div>
+
+<div class="stat">
+<h3 id="publishedPages">0</h3>
+<p>Published</p>
+</div>
+
+<div class="stat">
+<h3 id="draftPages">0</h3>
+<p>Drafts</p>
+</div>
+
+<div class="stat">
+<h3 id="fmPages">0</h3>
+<p>PRO-MAX FM Content</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Create / Edit Website Content</h2>
+
+<div class="grid">
+
+<div>
+<label>Page / Section</label>
+<select id="pageSection">
+<option>Homepage Hero</option>
+<option>Mission Section</option>
+<option>Vision Section</option>
+<option>Latest News</option>
+<option>PRO-MAX FM</option>
+<option>AI Center</option>
+<option>Communication Center</option>
+<option>Events</option>
+<option>Donation Section</option>
+<option>Contact Section</option>
+<option>Footer</option>
+<option>Custom Page</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Draft</option>
+<option>Published</option>
+<option>Archived</option>
+<option>Pending Review</option>
+</select>
+</div>
+
+<div>
+<label>Language</label>
+<select id="language">
+<option>Kreyòl</option>
+<option>English</option>
+<option>Français</option>
+</select>
+</div>
+
+<div>
+<label>Author / Admin</label>
+<input type="text" id="author" placeholder="Admin name">
+</div>
+
+</div>
+
+<label>Title</label>
+<input type="text" id="title" placeholder="Content title">
+
+<label>Content Body</label>
+<textarea id="contentBody" placeholder="Write website content here..."></textarea>
+
+<label>Button Text</label>
+<input type="text" id="buttonText" placeholder="Example: Learn More">
+
+<label>Button Link</label>
+<input type="text" id="buttonLink" placeholder="Example: pro-max-fm.html">
+
+<button onclick="saveContent()">Save CMS Content</button>
+<button onclick="previewContent()">Preview Content</button>
+</section>
+
+<section class="card">
+<h2>Content Preview</h2>
+<div id="contentPreview" class="preview">
+No preview yet.
+</div>
+</section>
+
+<section class="card">
+<h2>CMS Quick Modules</h2>
+
+<div class="grid">
+
+<div class="cms-box">
+<h3>Homepage Editor</h3>
+<p>Edit hero text, mission, buttons, and featured sections.</p>
+</div>
+
+<div class="cms-box">
+<h3>News Editor</h3>
+<p>Create and manage Latest News and community updates.</p>
+</div>
+
+<div class="cms-box">
+<h3>PRO-MAX FM Editor</h3>
+<p>Update radio schedule, stream links, podcast text, and FM announcements.</p>
+</div>
+
+<div class="cms-box">
+<h3>Content Publisher</h3>
+<p>Publish or archive website content by section.</p>
+</div>
+
+</div>
+</section>
+
+<section class="card">
+<h2>Search CMS Content</h2>
+<input type="text" id="search" placeholder="Search CMS content..." onkeyup="renderContent()">
+</section>
+
+<section class="card">
+<h2>CMS Content Registry</h2>
+
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Title</th>
+<th>Language</th>
+<th>Status</th>
+<th>Author</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="cmsTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Website CMS Center
+</footer>
+
+<script>
+let cmsContent =
+JSON.parse(localStorage.getItem("bss1815_cms_content")) || [];
+
+function saveContent(){
+
+const item = {
+section: document.getElementById("pageSection").value,
+status: document.getElementById("status").value,
+language: document.getElementById("language").value,
+author: document.getElementById("author").value.trim(),
+title: document.getElementById("title").value.trim(),
+body: document.getElementById("contentBody").value.trim(),
+buttonText: document.getElementById("buttonText").value.trim(),
+buttonLink: document.getElementById("buttonLink").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!item.title || !item.body){
+alert("Title and Content Body required.");
+return;
+}
+
+cmsContent.unshift(item);
+
+localStorage.setItem(
+"bss1815_cms_content",
+JSON.stringify(cmsContent)
+);
+
+document.getElementById("title").value="";
+document.getElementById("contentBody").value="";
+document.getElementById("buttonText").value="";
+document.getElementById("buttonLink").value="";
+
+renderContent();
+
+}
+
+function previewContent(){
+
+const section = document.getElementById("pageSection").value;
+const status = document.getElementById("status").value;
+const language = document.getElementById("language").value;
+const title = document.getElementById("title").value;
+const body = document.getElementById("contentBody").value;
+const buttonText = document.getElementById("buttonText").value;
+const buttonLink = document.getElementById("buttonLink").value;
+
+document.getElementById("contentPreview").innerText =
+`SECTION: ${section}
+STATUS: ${status}
+LANGUAGE: ${language}
+
+${title}
+
+${body}
+
+BUTTON: ${buttonText}
+LINK: ${buttonLink}`;
+}
+
+function renderContent(){
+
+const table = document.getElementById("cmsTable");
+const search = document.getElementById("search").value.toLowerCase();
+
+table.innerHTML = "";
+
+cmsContent
+.filter(item =>
+Object.values(item)
+.join(" ")
+.toLowerCase()
+.includes(search)
+)
+.forEach(item=>{
+
+table.innerHTML += `
+<tr>
+<td>${item.section}</td>
+<td>${item.title}</td>
+<td>${item.language}</td>
+<td>${item.status}</td>
+<td>${item.author}</td>
+<td>${item.date}</td>
+</tr>
+`;
+
+});
+
+updateStats();
+
+}
+
+function updateStats(){
+
+document.getElementById("totalPages").innerText =
+cmsContent.length;
+
+document.getElementById("publishedPages").innerText =
+cmsContent.filter(x => x.status === "Published").length;
+
+document.getElementById("draftPages").innerText =
+cmsContent.filter(x => x.status === "Draft").length;
+
+document.getElementById("fmPages").innerText =
+cmsContent.filter(x => x.section === "PRO-MAX FM").length;
+
+}
+
+renderContent();
+</script>
+
+</body>
+</html>
