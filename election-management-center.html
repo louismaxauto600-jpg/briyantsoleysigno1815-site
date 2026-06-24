@@ -1,0 +1,442 @@
+<!-- FILE: election-management-center.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Election Management Center | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#fff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+.container{
+width:min(1400px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:120px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+}
+
+.candidate-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.candidate-card h3{
+color:#ff7a00;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ELECTION MANAGEMENT CENTER</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+</header>
+
+<div class="container">
+
+<section class="card">
+
+<h2>Election Dashboard</h2>
+
+<div class="grid">
+
+<div class="stat">
+<h3 id="totalCandidates">0</h3>
+<p>Candidates</p>
+</div>
+
+<div class="stat">
+<h3 id="totalVoters">0</h3>
+<p>Voters</p>
+</div>
+
+<div class="stat">
+<h3 id="totalVotes">0</h3>
+<p>Votes Cast</p>
+</div>
+
+<div class="stat">
+<h3 id="activeElections">1</h3>
+<p>Active Elections</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Register Candidate</h2>
+
+<div class="grid">
+
+<div>
+<label>Candidate Name</label>
+<input type="text" id="candidateName">
+</div>
+
+<div>
+<label>Position</label>
+<select id="candidatePosition">
+<option>President</option>
+<option>Vice President</option>
+<option>Secretary</option>
+<option>Treasurer</option>
+<option>Moderator</option>
+<option>Committee Member</option>
+</select>
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="candidatePhone">
+</div>
+
+<div>
+<label>Election Year</label>
+<input type="number" id="electionYear" value="2026">
+</div>
+
+</div>
+
+<label>Campaign Message</label>
+<textarea id="campaignMessage"></textarea>
+
+<button onclick="registerCandidate()">
+Register Candidate
+</button>
+
+</section>
+
+<section class="card">
+
+<h2>Voting Center</h2>
+
+<div class="grid">
+
+<div>
+<label>Voter Name</label>
+<input type="text" id="voterName">
+</div>
+
+<div>
+<label>Select Candidate</label>
+<select id="voteCandidate"></select>
+</div>
+
+</div>
+
+<button onclick="castVote()">
+Submit Vote
+</button>
+
+</section>
+
+<section class="card">
+
+<h2>Candidates</h2>
+
+<div id="candidateList" class="grid"></div>
+
+</section>
+
+<section class="card">
+
+<h2>Election Results</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Position</th>
+<th>Votes</th>
+</tr>
+</thead>
+
+<tbody id="resultsTable"></tbody>
+
+</table>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Election Management Center
+</footer>
+
+<script>
+
+let candidates =
+JSON.parse(
+localStorage.getItem("bss1815_candidates")
+) || [];
+
+let votes =
+JSON.parse(
+localStorage.getItem("bss1815_votes")
+) || [];
+
+function registerCandidate(){
+
+const candidate = {
+
+name:
+document.getElementById("candidateName").value,
+
+position:
+document.getElementById("candidatePosition").value,
+
+phone:
+document.getElementById("candidatePhone").value,
+
+year:
+document.getElementById("electionYear").value,
+
+message:
+document.getElementById("campaignMessage").value,
+
+votes:0
+
+};
+
+if(!candidate.name){
+alert("Candidate Name Required");
+return;
+}
+
+candidates.push(candidate);
+
+localStorage.setItem(
+"bss1815_candidates",
+JSON.stringify(candidates)
+);
+
+renderCandidates();
+
+}
+
+function castVote(){
+
+const voter =
+document.getElementById("voterName").value;
+
+const candidateName =
+document.getElementById("voteCandidate").value;
+
+if(!voter){
+alert("Voter Name Required");
+return;
+}
+
+votes.push({
+voter,
+candidateName,
+date:new Date().toLocaleString()
+});
+
+localStorage.setItem(
+"bss1815_votes",
+JSON.stringify(votes)
+);
+
+const candidate =
+candidates.find(
+c=>c.name===candidateName
+);
+
+if(candidate){
+candidate.votes++;
+}
+
+localStorage.setItem(
+"bss1815_candidates",
+JSON.stringify(candidates)
+);
+
+renderCandidates();
+
+alert("Vote Submitted Successfully");
+
+}
+
+function renderCandidates(){
+
+const list =
+document.getElementById("candidateList");
+
+const select =
+document.getElementById("voteCandidate");
+
+const table =
+document.getElementById("resultsTable");
+
+list.innerHTML = "";
+select.innerHTML = "";
+table.innerHTML = "";
+
+candidates.forEach(candidate=>{
+
+list.innerHTML += `
+<div class="candidate-card">
+<h3>${candidate.name}</h3>
+<p><strong>Position:</strong>
+${candidate.position}</p>
+
+<p><strong>Phone:</strong>
+${candidate.phone}</p>
+
+<p><strong>Votes:</strong>
+${candidate.votes}</p>
+
+<p>${candidate.message}</p>
+</div>
+`;
+
+select.innerHTML += `
+<option>${candidate.name}</option>
+`;
+
+table.innerHTML += `
+<tr>
+<td>${candidate.name}</td>
+<td>${candidate.position}</td>
+<td>${candidate.votes}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("totalCandidates")
+.innerText = candidates.length;
+
+document.getElementById("totalVotes")
+.innerText = votes.length;
+
+document.getElementById("totalVoters")
+.innerText =
+new Set(
+votes.map(v=>v.voter)
+).size;
+
+}
+
+renderCandidates();
+
+</script>
+
+</body>
+</html>
