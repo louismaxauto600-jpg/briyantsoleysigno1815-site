@@ -1,0 +1,567 @@
+<!-- FILE: volunteer-management.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer Management | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#000000,#ff6a00,#000000);
+color:#ffffff;
+min-height:100vh;
+}
+
+header{
+background:#000;
+padding:35px;
+text-align:center;
+border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+color:#ff7a00;
+font-size:42px;
+}
+
+header p{
+color:#ffb366;
+margin-top:10px;
+}
+
+.container{
+width:min(1300px,95%);
+margin:30px auto;
+}
+
+.card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.stat{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat h3{
+color:#ff7a00;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:12px;
+margin-bottom:6px;
+font-weight:bold;
+color:#ffb366;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+}
+
+textarea{
+min-height:110px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+background:#ff7a00;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#ff7a00;
+color:#000;
+padding:12px;
+}
+
+td{
+border:1px solid #ff7a00;
+padding:10px;
+background:#000;
+vertical-align:top;
+}
+
+.volunteer-card{
+background:#000;
+border:1px solid #ff7a00;
+border-radius:12px;
+padding:18px;
+}
+
+.volunteer-card h3{
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.meta{
+color:#ffb366;
+font-size:14px;
+margin-bottom:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#000;
+border-top:3px solid #ff7a00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>VOLUNTEER MANAGEMENT</h1>
+<p>BSS1815 PRO-MAX-DMP</p>
+<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+</header>
+
+<div class="container">
+
+<section class="card">
+<h2>Volunteer Dashboard</h2>
+
+<div class="grid">
+<div class="stat">
+<h3 id="totalVolunteers">0</h3>
+<p>Total Volunteers</p>
+</div>
+
+<div class="stat">
+<h3 id="activeVolunteers">0</h3>
+<p>Active</p>
+</div>
+
+<div class="stat">
+<h3 id="assignedVolunteers">0</h3>
+<p>Assigned</p>
+</div>
+
+<div class="stat">
+<h3 id="attendanceCount">0</h3>
+<p>Attendance Records</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Register Volunteer</h2>
+
+<div class="grid">
+<div>
+<label>Full Name</label>
+<input type="text" id="volunteerName" placeholder="Volunteer full name">
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="phone" placeholder="Phone number">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="email" placeholder="Email address">
+</div>
+
+<div>
+<label>Skill / Area</label>
+<select id="skillArea">
+<option>Event Support</option>
+<option>Media Support</option>
+<option>Security</option>
+<option>Registration</option>
+<option>Transportation</option>
+<option>Food / Logistics</option>
+<option>PRO-MAX FM</option>
+<option>Community Outreach</option>
+<option>Technology Support</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<select id="status">
+<option>Active</option>
+<option>Pending</option>
+<option>Inactive</option>
+<option>Suspended</option>
+</select>
+</div>
+
+<div>
+<label>Availability</label>
+<select id="availability">
+<option>Weekdays</option>
+<option>Weekends</option>
+<option>Evenings</option>
+<option>Anytime</option>
+<option>On Call</option>
+</select>
+</div>
+</div>
+
+<label>Notes</label>
+<textarea id="notes" placeholder="Volunteer notes..."></textarea>
+
+<button onclick="saveVolunteer()">Save Volunteer</button>
+</section>
+
+<section class="card">
+<h2>Assign Volunteer</h2>
+
+<div class="grid">
+<div>
+<label>Volunteer Name</label>
+<input type="text" id="assignmentVolunteer" placeholder="Volunteer name">
+</div>
+
+<div>
+<label>Assignment</label>
+<input type="text" id="assignmentTitle" placeholder="Assignment title">
+</div>
+
+<div>
+<label>Module / Event</label>
+<select id="assignmentModule">
+<option>Event Management</option>
+<option>Rara Management</option>
+<option>PRO-MAX FM</option>
+<option>Media Gallery</option>
+<option>Communication Center</option>
+<option>Community Outreach</option>
+<option>Logistics</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Assignment Status</label>
+<select id="assignmentStatus">
+<option>Assigned</option>
+<option>In Progress</option>
+<option>Completed</option>
+<option>Cancelled</option>
+</select>
+</div>
+</div>
+
+<label>Assignment Details</label>
+<textarea id="assignmentDetails" placeholder="Assignment details..."></textarea>
+
+<button onclick="saveAssignment()">Save Assignment</button>
+</section>
+
+<section class="card">
+<h2>Volunteer Attendance</h2>
+
+<div class="grid">
+<div>
+<label>Volunteer Name</label>
+<input type="text" id="attendanceVolunteer" placeholder="Volunteer name">
+</div>
+
+<div>
+<label>Date</label>
+<input type="date" id="attendanceDate">
+</div>
+
+<div>
+<label>Attendance Status</label>
+<select id="attendanceStatus">
+<option>Present</option>
+<option>Absent</option>
+<option>Late</option>
+<option>Excused</option>
+</select>
+</div>
+
+<div>
+<label>Activity / Event</label>
+<input type="text" id="attendanceActivity" placeholder="Activity or event">
+</div>
+</div>
+
+<button onclick="saveAttendance()">Save Attendance</button>
+</section>
+
+<section class="card">
+<h2>Search Volunteer Records</h2>
+<input type="text" id="search" placeholder="Search volunteers, assignments, attendance..." onkeyup="renderAll()">
+</section>
+
+<section class="card">
+<h2>Volunteer List</h2>
+<div id="volunteerList" class="grid"></div>
+</section>
+
+<section class="card">
+<h2>Assignments</h2>
+<table>
+<thead>
+<tr>
+<th>Volunteer</th>
+<th>Assignment</th>
+<th>Module / Event</th>
+<th>Status</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody id="assignmentTable"></tbody>
+</table>
+</section>
+
+<section class="card">
+<h2>Attendance Records</h2>
+<table>
+<thead>
+<tr>
+<th>Volunteer</th>
+<th>Date</th>
+<th>Status</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody id="attendanceTable"></tbody>
+</table>
+</section>
+
+</div>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Volunteer Management
+</footer>
+
+<script>
+let volunteers =
+JSON.parse(localStorage.getItem("bss1815_volunteers")) || [];
+
+let assignments =
+JSON.parse(localStorage.getItem("bss1815_volunteer_assignments")) || [];
+
+let attendance =
+JSON.parse(localStorage.getItem("bss1815_volunteer_attendance")) || [];
+
+function saveVolunteer(){
+
+const volunteer = {
+name: document.getElementById("volunteerName").value.trim(),
+phone: document.getElementById("phone").value.trim(),
+email: document.getElementById("email").value.trim(),
+skillArea: document.getElementById("skillArea").value,
+status: document.getElementById("status").value,
+availability: document.getElementById("availability").value,
+notes: document.getElementById("notes").value.trim(),
+date: new Date().toLocaleString()
+};
+
+if(!volunteer.name || !volunteer.phone){
+alert("Full Name and Phone required.");
+return;
+}
+
+volunteers.unshift(volunteer);
+localStorage.setItem("bss1815_volunteers",JSON.stringify(volunteers));
+
+document.getElementById("volunteerName").value="";
+document.getElementById("phone").value="";
+document.getElementById("email").value="";
+document.getElementById("notes").value="";
+
+renderAll();
+
+}
+
+function saveAssignment(){
+
+const assignment = {
+volunteer: document.getElementById("assignmentVolunteer").value.trim(),
+title: document.getElementById("assignmentTitle").value.trim(),
+module: document.getElementById("assignmentModule").value,
+status: document.getElementById("assignmentStatus").value,
+details: document.getElementById("assignmentDetails").value.trim()
+};
+
+if(!assignment.volunteer || !assignment.title){
+alert("Volunteer Name and Assignment Title required.");
+return;
+}
+
+assignments.unshift(assignment);
+localStorage.setItem("bss1815_volunteer_assignments",JSON.stringify(assignments));
+
+document.getElementById("assignmentVolunteer").value="";
+document.getElementById("assignmentTitle").value="";
+document.getElementById("assignmentDetails").value="";
+
+renderAll();
+
+}
+
+function saveAttendance(){
+
+const record = {
+volunteer: document.getElementById("attendanceVolunteer").value.trim(),
+date: document.getElementById("attendanceDate").value,
+status: document.getElementById("attendanceStatus").value,
+activity: document.getElementById("attendanceActivity").value.trim()
+};
+
+if(!record.volunteer || !record.date){
+alert("Volunteer Name and Date required.");
+return;
+}
+
+attendance.unshift(record);
+localStorage.setItem("bss1815_volunteer_attendance",JSON.stringify(attendance));
+
+document.getElementById("attendanceVolunteer").value="";
+document.getElementById("attendanceDate").value="";
+document.getElementById("attendanceActivity").value="";
+
+renderAll();
+
+}
+
+function renderAll(){
+
+const search = document.getElementById("search").value.toLowerCase();
+
+renderVolunteers(search);
+renderAssignments(search);
+renderAttendance(search);
+updateStats();
+
+}
+
+function renderVolunteers(search){
+
+const list = document.getElementById("volunteerList");
+list.innerHTML = "";
+
+volunteers
+.filter(v => Object.values(v).join(" ").toLowerCase().includes(search))
+.forEach(v=>{
+
+list.innerHTML += `
+<div class="volunteer-card">
+<h3>${v.name}</h3>
+<p class="meta">${v.skillArea} | ${v.status} | ${v.availability}</p>
+<p><strong>Phone:</strong> ${v.phone}</p>
+<p><strong>Email:</strong> ${v.email}</p>
+<p>${v.notes}</p>
+<p class="meta">${v.date}</p>
+</div>
+`;
+
+});
+
+}
+
+function renderAssignments(search){
+
+const table = document.getElementById("assignmentTable");
+table.innerHTML = "";
+
+assignments
+.filter(a => Object.values(a).join(" ").toLowerCase().includes(search))
+.forEach(a=>{
+
+table.innerHTML += `
+<tr>
+<td>${a.volunteer}</td>
+<td>${a.title}</td>
+<td>${a.module}</td>
+<td>${a.status}</td>
+<td>${a.details}</td>
+</tr>
+`;
+
+});
+
+}
+
+function renderAttendance(search){
+
+const table = document.getElementById("attendanceTable");
+table.innerHTML = "";
+
+attendance
+.filter(a => Object.values(a).join(" ").toLowerCase().includes(search))
+.forEach(a=>{
+
+table.innerHTML += `
+<tr>
+<td>${a.volunteer}</td>
+<td>${a.date}</td>
+<td>${a.status}</td>
+<td>${a.activity}</td>
+</tr>
+`;
+
+});
+
+}
+
+function updateStats(){
+
+document.getElementById("totalVolunteers").innerText =
+volunteers.length;
+
+document.getElementById("activeVolunteers").innerText =
+volunteers.filter(v => v.status === "Active").length;
+
+document.getElementById("assignedVolunteers").innerText =
+assignments.filter(a => a.status === "Assigned" || a.status === "In Progress").length;
+
+document.getElementById("attendanceCount").innerText =
+attendance.length;
+
+}
+
+renderAll();
+</script>
+
+</body>
+</html>
