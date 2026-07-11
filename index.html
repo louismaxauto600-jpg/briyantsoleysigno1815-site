@@ -1,234 +1,1641 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MAXIMAX Multi Services - Immigration, Taxes, Forms and Document Assistance">
-<title>MAXIMAX Multi Services</title>
+  <meta charset="UTF-8">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-body{
-    font-family:Arial, sans-serif;
-    background:#000;
-    color:#fff;
-    line-height:1.6;
-}
+  <meta
+    name="description"
+    content="Briyant Solèy Signo 1815 — PRO-MAX Digital Management Platform."
+  >
 
-header{
-    background:#ff8c42;
-    text-align:center;
-    padding:20px;
-}
+  <title>Briyant Solèy Signo 1815 | PRO-MAX DMP</title>
 
-header h1{
-    color:#000;
-    font-size:2rem;
-}
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-light: #ff9d00;
+      --orange-dark: #b83d00;
+      --black: #000000;
+      --black-soft: #101010;
+      --black-card: #161616;
+      --text-orange: #ff8a00;
+      --border-orange: rgba(255, 106, 0, 0.55);
+      --shadow-orange: rgba(255, 106, 0, 0.35);
+    }
 
-header p{
-    color:#000;
-    font-weight:bold;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-nav{
-    margin-top:15px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-nav a{
-    color:#000;
-    text-decoration:none;
-    font-weight:bold;
-    margin:0 15px;
-}
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--orange-light);
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(255, 106, 0, 0.25),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          var(--orange-dark) 0%,
+          var(--black) 35%,
+          var(--black) 70%,
+          var(--orange-dark) 100%
+        );
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
 
-nav a:hover{
-    text-decoration:underline;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.hero{
-    padding:80px 20px;
-    text-align:center;
-}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-.hero h2{
-    color:#ff8c42;
-    margin-bottom:15px;
-    font-size:2rem;
-}
+    button {
+      font: inherit;
+    }
 
-.hero p{
-    max-width:700px;
-    margin:auto;
-}
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
 
-.btn{
-    display:inline-block;
-    margin:10px 5px;
-    padding:12px 25px;
-    border-radius:5px;
-    text-decoration:none;
-    font-weight:bold;
-}
+    .top-bar {
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--black);
+      background: linear-gradient(
+        90deg,
+        var(--orange-dark),
+        var(--orange-light),
+        var(--orange-dark)
+      );
+    }
 
-.btn-primary{
-    background:#ff8c42;
-    color:#000;
-}
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-orange);
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
 
-.btn-secondary{
-    background:#fff;
-    color:#000;
-}
+    .navbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
 
-.section{
-    padding:60px 20px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
 
-.dark{
-    background:#111;
-}
+    .brand-logo {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--orange);
+      box-shadow:
+        0 0 10px var(--shadow-orange),
+        0 0 24px var(--shadow-orange);
+    }
 
-.section h2{
-    color:#ff8c42;
-    margin-bottom:20px;
-    text-align:center;
-}
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--orange-light);
+      letter-spacing: 0.5px;
+    }
 
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    max-width:1100px;
-    margin:auto;
-}
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      color: var(--orange);
+      letter-spacing: 1.5px;
+    }
 
-.card{
-    background:#1a1a1a;
-    padding:20px;
-    border-radius:10px;
-    text-align:center;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      list-style: none;
+    }
 
-.card h3{
-    color:#ff8c42;
-    margin-bottom:10px;
-}
+    .nav-links a {
+      display: block;
+      padding: 11px 13px;
+      border-radius: 8px;
+      color: var(--orange-light);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
 
-.about,
-.contact{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-}
+    .nav-links a:hover {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--orange),
+        var(--orange-light)
+      );
+    }
 
-.contact a{
-    color:#ff8c42;
-    text-decoration:none;
-}
+    .language-switcher {
+      display: flex;
+      gap: 5px;
+    }
 
-footer{
-    background:#000;
-    text-align:center;
-    padding:20px;
-    border-top:1px solid #222;
-}
-</style>
+    .language-btn {
+      cursor: pointer;
+      padding: 8px 10px;
+      border: 1px solid var(--orange);
+      border-radius: 7px;
+      color: var(--orange-light);
+      background: var(--black);
+      font-size: 0.75rem;
+      font-weight: 900;
+      transition: 0.25s ease;
+    }
+
+    .language-btn:hover,
+    .language-btn.active {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      padding: 8px;
+      border: 1px solid var(--orange);
+      border-radius: 7px;
+      color: var(--orange);
+      background: var(--black);
+      font-size: 1.5rem;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+      border-bottom: 2px solid var(--orange-dark);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.96) 0%,
+          rgba(0, 0, 0, 0.80) 48%,
+          rgba(0, 0, 0, 0.45) 100%
+        ),
+        url("assets/hall-of-leaders.webp") center / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(255, 106, 0, 0.22),
+          transparent 32%
+        ),
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(255, 106, 0, 0.08),
+          rgba(0, 0, 0, 0.95)
+        );
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 100px 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 9px 16px;
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+      color: var(--orange-light);
+      background: rgba(0, 0, 0, 0.72);
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      box-shadow: 0 0 20px var(--shadow-orange);
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(2.8rem, 7vw, 6.2rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-shadow:
+        0 2px 0 var(--black),
+        0 0 12px rgba(255, 106, 0, 0.6),
+        0 0 35px rgba(255, 106, 0, 0.25);
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 12px;
+      color: var(--orange-light);
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin-top: 28px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ffb45c;
+    }
+
+    .hero-slogan {
+      margin-top: 24px;
+      color: var(--orange);
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 24px;
+      border: 2px solid var(--orange);
+      border-radius: 10px;
+      font-weight: 900;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px var(--shadow-orange);
+    }
+
+    .btn-primary {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--orange),
+        var(--orange-light)
+      );
+    }
+
+    .btn-secondary {
+      color: var(--orange-light);
+      background: rgba(0, 0, 0, 0.78);
+    }
+
+    .statistics {
+      position: relative;
+      z-index: 10;
+      margin-top: -55px;
+    }
+
+    .statistics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border-orange);
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 106, 0, 0.16),
+        rgba(0, 0, 0, 0.96)
+      );
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.7);
+    }
+
+    .stat-card {
+      min-height: 145px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 15px;
+      text-align: center;
+      border-right: 1px solid var(--border-orange);
+    }
+
+    .stat-card:last-child {
+      border-right: none;
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--orange);
+      font-size: 2rem;
+    }
+
+    .stat-card span {
+      margin-top: 8px;
+      color: var(--orange-light);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-label {
+      color: var(--orange);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin-top: 12px;
+      color: var(--orange-light);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .section-description {
+      margin-top: 18px;
+      color: #e97800;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-image {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--orange);
+      border-radius: 20px;
+      box-shadow:
+        0 0 20px var(--shadow-orange),
+        0 25px 55px rgba(0, 0, 0, 0.65);
+    }
+
+    .about-image img {
+      width: 100%;
+      min-height: 480px;
+      object-fit: cover;
+    }
+
+    .about-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 45%,
+        rgba(0, 0, 0, 0.93)
+      );
+    }
+
+    .about-content h2 {
+      color: var(--orange);
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .about-content p {
+      margin-top: 22px;
+      color: #ff9c32;
+      font-size: 1.03rem;
+      line-height: 1.8;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    .about-list li {
+      position: relative;
+      padding: 15px 16px 15px 48px;
+      border: 1px solid rgba(255, 106, 0, 0.35);
+      border-radius: 10px;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 106, 0, 0.12),
+        rgba(0, 0, 0, 0.8)
+      );
+      color: var(--orange-light);
+      font-weight: 700;
+    }
+
+    .about-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 18px;
+      color: var(--orange);
+      font-size: 1.2rem;
+    }
+
+    .modules-section {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.85),
+          rgba(122, 42, 0, 0.36),
+          rgba(0, 0, 0, 0.92)
+        );
+      border-top: 1px solid rgba(255, 106, 0, 0.25);
+      border-bottom: 1px solid rgba(255, 106, 0, 0.25);
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .module-card {
+      position: relative;
+      min-height: 255px;
+      padding: 28px 22px;
+      overflow: hidden;
+      border: 1px solid var(--border-orange);
+      border-radius: 16px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 106, 0, 0.18),
+          rgba(0, 0, 0, 0.93) 55%
+        );
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .module-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: -50px;
+      right: -50px;
+      border-radius: 50%;
+      background: rgba(255, 106, 0, 0.25);
+      filter: blur(10px);
+    }
+
+    .module-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--orange-light);
+      box-shadow: 0 18px 40px rgba(255, 106, 0, 0.18);
+    }
+
+    .module-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--orange);
+      border-radius: 14px;
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--orange),
+        var(--orange-light)
+      );
+      font-size: 1.7rem;
+      font-weight: 900;
+    }
+
+    .module-card h3 {
+      margin-top: 22px;
+      color: var(--orange-light);
+      font-size: 1.13rem;
+      text-transform: uppercase;
+    }
+
+    .module-card p {
+      margin-top: 13px;
+      color: #dc6b00;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .leader-card {
+      overflow: hidden;
+      border: 1px solid var(--border-orange);
+      border-radius: 17px;
+      background: linear-gradient(
+        155deg,
+        rgba(255, 106, 0, 0.14),
+        rgba(0, 0, 0, 0.94)
+      );
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
+    }
+
+    .leader-image {
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .leader-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .leader-card:hover .leader-image img {
+      transform: scale(1.05);
+    }
+
+    .leader-info {
+      padding: 23px;
+      text-align: center;
+      border-top: 2px solid var(--orange-dark);
+    }
+
+    .leader-info h3 {
+      color: var(--orange-light);
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .leader-info p {
+      margin-top: 8px;
+      color: var(--orange);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .cta {
+      padding: 90px 0;
+    }
+
+    .cta-box {
+      padding: 60px 30px;
+      text-align: center;
+      border: 2px solid var(--orange);
+      border-radius: 22px;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255, 106, 0, 0.24),
+          rgba(0, 0, 0, 0.96) 65%
+        );
+      box-shadow:
+        0 0 30px var(--shadow-orange),
+        inset 0 0 45px rgba(255, 106, 0, 0.08);
+    }
+
+    .cta-box h2 {
+      color: var(--orange-light);
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .cta-box p {
+      max-width: 720px;
+      margin: 22px auto 0;
+      color: var(--orange);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .cta-box .hero-actions {
+      justify-content: center;
+    }
+
+    .site-footer {
+      padding: 65px 0 25px;
+      border-top: 2px solid var(--orange-dark);
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.92),
+        var(--black)
+      );
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 45px;
+    }
+
+    .footer-brand p {
+      max-width: 480px;
+      margin-top: 18px;
+      color: #ce6500;
+      line-height: 1.75;
+    }
+
+    .footer-title {
+      color: var(--orange-light);
+      font-size: 1.05rem;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--orange);
+      transition: 0.25s ease;
+    }
+
+    .footer-links a:hover {
+      padding-left: 6px;
+      color: var(--orange-light);
+    }
+
+    .copyright {
+      margin-top: 50px;
+      padding-top: 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 106, 0, 0.25);
+      color: #b84e00;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 1050px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+        border-bottom: 1px solid var(--orange);
+        background: rgba(0, 0, 0, 0.98);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        text-align: center;
+      }
+
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .leadership-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .language-switcher {
+        margin-left: auto;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        min-height: 650px;
+        background-position: center;
+      }
+
+      .hero-content {
+        padding: 85px 0 110px;
+      }
+
+      .statistics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-card:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-card:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--border-orange);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .top-bar {
+        font-size: 0.7rem;
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      .brand-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .language-btn {
+        padding: 7px;
+        font-size: 0.68rem;
+      }
+
+      .hero {
+        min-height: 610px;
+      }
+
+      .hero-description {
+        font-size: 0.97rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .statistics {
+        margin-top: -35px;
+      }
+
+      .statistics-grid,
+      .modules-grid,
+      .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card {
+        border-right: none;
+        border-bottom: 1px solid var(--border-orange);
+      }
+
+      .stat-card:last-child {
+        border-bottom: none;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .leader-image {
+        height: 400px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>MAXIMAX Multi Services</h1>
-    <p>MAXIMAX ALWAYS MAXIMIZED</p>
+  <div
+    class="top-bar"
+    data-kre="DEVAN DEVAN NÈT — BATI POU JODI A — PARE POU DEMEN"
+    data-fra="TOUJOURS EN AVANT — BÂTIR POUR AUJOURD’HUI — PRÊT POUR DEMAIN"
+    data-eng="ALWAYS FORWARD — BUILT FOR TODAY — READY FOR TOMORROW"
+  >
+    DEVAN DEVAN NÈT — BATI POU JODI A — PARE POU DEMEN
+  </div>
 
-    <nav>
-        #servicesServices</a>
-        #aboutAbout</a>
-        #contactContact</a>
-    </nav>
-</header>
+  <header class="site-header">
+    <div class="container navbar">
 
-<section class="hero">
-    <h2>Immigration • Taxes • Forms</h2>
+      <a class="brand" href="#home">
+        <img
+          class="brand-logo"
+          src="assets/bss1815-logo.png"
+          alt="Logo Briyant Solèy Signo 1815"
+        >
 
-    <p>
-        Nou ede w ranpli fòm yo, prepare dokiman yo, epi mete tout bagay an òd
-        avèk sèvis rapid, serye, ak pwofesyonèl.
-    </p>
+        <div class="brand-text">
+          <strong>BRIYANT SOLÈY SIGNO 1815</strong>
+          <span>PRO-MAX DIGITAL MANAGEMENT PLATFORM</span>
+        </div>
+      </a>
 
-    <div style="margin-top:25px;">
-        #contactBook / Contact</a>
-        #servicesView Services</a>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Ouvri meni an"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a
+            href="#home"
+            data-kre="Akèy"
+            data-fra="Accueil"
+            data-eng="Home"
+          >
+            Akèy
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#about"
+            data-kre="Konsènan"
+            data-fra="À propos"
+            data-eng="About"
+          >
+            Konsènan
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#modules"
+            data-kre="Modil"
+            data-fra="Modules"
+            data-eng="Modules"
+          >
+            Modil
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#leadership"
+            data-kre="Dirijan"
+            data-fra="Dirigeants"
+            data-eng="Leadership"
+          >
+            Dirijan
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="history.html"
+            data-kre="Istwa"
+            data-fra="Histoire"
+            data-eng="History"
+          >
+            Istwa
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="contact.html"
+            data-kre="Kontak"
+            data-fra="Contact"
+            data-eng="Contact"
+          >
+            Kontak
+          </a>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <button
+          class="language-btn active"
+          type="button"
+          data-language="kre"
+        >
+          KRE
+        </button>
+
+        <button
+          class="language-btn"
+          type="button"
+          data-language="fra"
+        >
+          FRA
+        </button>
+
+        <button
+          class="language-btn"
+          type="button"
+          data-language="eng"
+        >
+          ENG
+        </button>
+      </div>
+
     </div>
-</section>
+  </header>
 
-<section id="services" class="section dark">
-    <h2>Our Services</h2>
+  <main>
 
-    <div class="services">
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
 
-        <div class="card">
-            <h3>Immigration Services</h3>
-            <p>Asistans pou aplikasyon ak dokiman imigrasyon.</p>
-        </div>
+          <span
+            class="hero-badge"
+            data-kre="PLATFÒM OFISYÈL BSS1815"
+            data-fra="PLATEFORME OFFICIELLE BSS1815"
+            data-eng="OFFICIAL BSS1815 PLATFORM"
+          >
+            PLATFÒM OFISYÈL BSS1815
+          </span>
 
-        <div class="card">
-            <h3>Tax Preparation</h3>
-            <p>Preparasyon taks pou moun ak biznis.</p>
-        </div>
+          <h1>
+            BRIYANT SOLÈY
+            <span>SIGNO 1815</span>
+          </h1>
 
-        <div class="card">
-            <h3>Form Assistance</h3>
-            <p>SNAP, SSA, DMV ak lòt aplikasyon enpòtan.</p>
-        </div>
+          <p
+            class="hero-description"
+            data-kre="Yon nouvo jenerasyon platfòm dijital ki fèt pou prezève istwa nou, òganize kominote nou, valorize dirijan nou, sipòte mizisyen nou epi prepare BSS1815 pou lavni."
+            data-fra="Une nouvelle génération de plateforme numérique conçue pour préserver notre histoire, organiser notre communauté, valoriser nos dirigeants, soutenir nos musiciens et préparer BSS1815 pour l’avenir."
+            data-eng="A new generation digital platform created to preserve our history, organize our community, honor our leaders, support our musicians and prepare BSS1815 for the future."
+          >
+            Yon nouvo jenerasyon platfòm dijital ki fèt pou prezève
+            istwa nou, òganize kominote nou, valorize dirijan nou,
+            sipòte mizisyen nou epi prepare BSS1815 pou lavni.
+          </p>
 
-        <div class="card">
-            <h3>Document Services</h3>
-            <p>Upload, enprime, eskane ak òganizasyon dokiman.</p>
-        </div>
+          <p class="hero-slogan">
+            DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.
+          </p>
 
-    </div>
-</section>
-
-<section id="about" class="section">
-    <div class="about">
-        <h2>About Us</h2>
-        <p>
-            MAXIMAX Multi Services bay sèvis pwofesyonèl pou ede kliyan yo
-            jere dokiman, taks ak bezwen administratif yo avèk konfyans.
-        </p>
-    </div>
-</section>
-
-<section id="contact" class="section dark">
-    <div class="contact">
-        <h2>Contact Us</h2>
-
-        <p>
-            Email:
-            <a href="mailto:maximaxmultiservices@gmail.com">
-                maximaxmultiservices@gmail.com
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="#modules"
+              data-kre="Dekouvri Platfòm Lan"
+              data-fra="Découvrir la plateforme"
+              data-eng="Explore the Platform"
+            >
+              Dekouvri Platfòm Lan
             </a>
-        </p>
 
-        <p>
-            Phone:
-            tel:+13175381150
-                (317) 538-1150
-              (407) 640-5166
-        </p>
+            <a
+              class="btn btn-secondary"
+              href="login.html"
+              data-kre="Konekte"
+              data-fra="Se connecter"
+              data-eng="Sign In"
+            >
+              Konekte
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="statistics">
+      <div class="container">
+        <div class="statistics-grid">
+
+          <article class="stat-card">
+            <strong>1815</strong>
+            <span
+              data-kre="Eritaj ak Idantite"
+              data-fra="Héritage et identité"
+              data-eng="Heritage and Identity"
+            >
+              Eritaj ak Idantite
+            </span>
+          </article>
+
+          <article class="stat-card">
+            <strong>3</strong>
+            <span
+              data-kre="Lang Sistèm"
+              data-fra="Langues du système"
+              data-eng="System Languages"
+            >
+              Lang Sistèm
+            </span>
+          </article>
+
+          <article class="stat-card">
+            <strong>8+</strong>
+            <span
+              data-kre="Modil Dijital"
+              data-fra="Modules numériques"
+              data-eng="Digital Modules"
+            >
+              Modil Dijital
+            </span>
+          </article>
+
+          <article class="stat-card">
+            <strong>1</strong>
+            <span
+              data-kre="Gran Vizyon"
+              data-fra="Grande vision"
+              data-eng="Unified Vision"
+            >
+              Gran Vizyon
+            </span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-image">
+            <img
+              src="assets/hall-of-leaders.webp"
+              alt="Hall of Leaders Briyant Solèy Signo 1815"
+            >
+          </div>
+
+          <div class="about-content">
+            <span
+              class="section-label"
+              data-kre="ISTWA • ERITAJ • LAVNI"
+              data-fra="HISTOIRE • HÉRITAGE • AVENIR"
+              data-eng="HISTORY • HERITAGE • FUTURE"
+            >
+              ISTWA • ERITAJ • LAVNI
+            </span>
+
+            <h2
+              data-kre="Yon platfòm pou tout jenerasyon"
+              data-fra="Une plateforme pour toutes les générations"
+              data-eng="A platform for every generation"
+            >
+              Yon platfòm pou tout jenerasyon
+            </h2>
+
+            <p
+              data-kre="Briyant Solèy Signo 1815 se plis pase yon non. Se yon eritaj, yon mouvman kiltirèl ak yon fòs kominotè ki pote memwa, talan ak vizyon pèp Signo a."
+              data-fra="Briyant Solèy Signo 1815 est plus qu’un nom. C’est un héritage, un mouvement culturel et une force communautaire qui porte la mémoire, le talent et la vision du peuple de Signo."
+              data-eng="Briyant Solèy Signo 1815 is more than a name. It is a heritage, a cultural movement and a community force carrying the memory, talent and vision of the people of Signo."
+            >
+              Briyant Solèy Signo 1815 se plis pase yon non. Se yon
+              eritaj, yon mouvman kiltirèl ak yon fòs kominotè ki pote
+              memwa, talan ak vizyon pèp Signo a.
+            </p>
+
+            <ul class="about-list">
+              <li
+                data-kre="Prezève istwa ak dokiman ofisyèl BSS1815."
+                data-fra="Préserver l’histoire et les documents officiels de BSS1815."
+                data-eng="Preserve BSS1815 history and official documents."
+              >
+                Prezève istwa ak dokiman ofisyèl BSS1815.
+              </li>
+
+              <li
+                data-kre="Mete dirijan, mizisyen ak fanatik zèlé yo an valè."
+                data-fra="Valoriser les dirigeants, musiciens et fidèles supporters."
+                data-eng="Honor leaders, musicians and dedicated supporters."
+              >
+                Mete dirijan, mizisyen ak fanatik zèlé yo an valè.
+              </li>
+
+              <li
+                data-kre="Kreye yon sistèm administrasyon dijital modèn."
+                data-fra="Créer un système d’administration numérique moderne."
+                data-eng="Build a modern digital administration system."
+              >
+                Kreye yon sistèm administrasyon dijital modèn.
+              </li>
+
+              <li
+                data-kre="Konekte kominote a atravè teknoloji ak kominikasyon."
+                data-fra="Connecter la communauté grâce à la technologie et à la communication."
+                data-eng="Connect the community through technology and communication."
+              >
+                Konekte kominote a atravè teknoloji ak kominikasyon.
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section modules-section" id="modules">
+      <div class="container">
+
+        <div class="section-header">
+          <span
+            class="section-label"
+            data-kre="PRO-MAX DMP"
+            data-fra="PRO-MAX DMP"
+            data-eng="PRO-MAX DMP"
+          >
+            PRO-MAX DMP
+          </span>
+
+          <h2
+            class="section-title"
+            data-kre="Tout zouti yo nan yon sèl platfòm"
+            data-fra="Tous les outils sur une seule plateforme"
+            data-eng="Every tool in one platform"
+          >
+            Tout zouti yo nan yon sèl platfòm
+          </h2>
+
+          <p
+            class="section-description"
+            data-kre="PRO-MAX DMP mete administrasyon, kominikasyon, dokiman, manm, evènman ak entèlijans atifisyèl ansanm nan yon sistèm ki òganize epi fasil pou itilize."
+            data-fra="PRO-MAX DMP regroupe l’administration, la communication, les documents, les membres, les événements et l’intelligence artificielle dans un système organisé et facile à utiliser."
+            data-eng="PRO-MAX DMP brings administration, communication, documents, members, events and artificial intelligence together in one organized and easy-to-use system."
+          >
+            PRO-MAX DMP mete administrasyon, kominikasyon, dokiman,
+            manm, evènman ak entèlijans atifisyèl ansanm.
+          </p>
+        </div>
+
+        <div class="modules-grid">
+
+          <a class="module-card" href="ai-center.html">
+            <div class="module-icon">AI</div>
+            <h3>AI Center</h3>
+            <p
+              data-kre="Kreye kontni, mesaj, dokiman ak asistans entèlijan pou administrasyon an."
+              data-fra="Créer du contenu, des messages, des documents et une assistance intelligente."
+              data-eng="Create content, messages, documents and intelligent administrative assistance."
+            >
+              Kreye kontni, mesaj, dokiman ak asistans entèlijan.
+            </p>
+          </a>
+
+          <a class="module-card" href="crm.html">
+            <div class="module-icon">CRM</div>
+            <h3>CRM System</h3>
+            <p
+              data-kre="Jere manm, kontak, relasyon, rechèch, kategori ak enfòmasyon kominotè."
+              data-fra="Gérer les membres, contacts, relations, recherches et informations communautaires."
+              data-eng="Manage members, contacts, relationships, searches and community information."
+            >
+              Jere manm, kontak, relasyon ak enfòmasyon kominotè.
+            </p>
+          </a>
+
+          <a class="module-card" href="communication-center.html">
+            <div class="module-icon">COM</div>
+            <h3>Communication Center</h3>
+            <p
+              data-kre="Kreye anons lanmò, anivèsè, kondoleyans, alèt ak avi ofisyèl."
+              data-fra="Créer des annonces de décès, anniversaires, condoléances, alertes et avis officiels."
+              data-eng="Create death notices, birthdays, condolences, alerts and official announcements."
+            >
+              Kreye anons, kondoleyans, alèt ak avi ofisyèl.
+            </p>
+          </a>
+
+          <a class="module-card" href="flyer-studio.html">
+            <div class="module-icon">FX</div>
+            <h3>Flyer Studio</h3>
+            <p
+              data-kre="Prepare flyer ak vizyèl ofisyèl nan stil PRO-MAX orange ak black fade."
+              data-fra="Créer des flyers et visuels officiels dans le style PRO-MAX orange et noir."
+              data-eng="Create official flyers and visuals in the PRO-MAX orange and black style."
+            >
+              Prepare flyer ak vizyèl ofisyèl nan stil PRO-MAX.
+            </p>
+          </a>
+
+          <a class="module-card" href="digital-registry.html">
+            <div class="module-icon">REG</div>
+            <h3>Digital Registry</h3>
+            <p
+              data-kre="Anrejistre manm, mizisyen, fanatik, pitit kay ak ti machann yo."
+              data-fra="Enregistrer les membres, musiciens, supporters, familles et petits commerçants."
+              data-eng="Register members, musicians, supporters, families and local vendors."
+            >
+              Anrejistre manm, mizisyen, fanatik ak ti machann yo.
+            </p>
+          </a>
+
+          <a class="module-card" href="events.html">
+            <div class="module-icon">EVT</div>
+            <h3>Event Management</h3>
+            <p
+              data-kre="Planifye aktivite, reyinyon, kalandriye, envitasyon ak pwogram espesyal."
+              data-fra="Planifier les activités, réunions, calendriers, invitations et programmes spéciaux."
+              data-eng="Plan activities, meetings, calendars, invitations and special programs."
+            >
+              Planifye aktivite, reyinyon ak pwogram espesyal.
+            </p>
+          </a>
+
+          <a class="module-card" href="documents.html">
+            <div class="module-icon">DOC</div>
+            <h3>Document Center</h3>
+            <p
+              data-kre="Konsève kontra, rapò, lèt, PDF, testaman dirijan ak dokiman ofisyèl."
+              data-fra="Conserver contrats, rapports, lettres, PDF, témoignages et documents officiels."
+              data-eng="Store contracts, reports, letters, PDFs, leader testimonies and official records."
+            >
+              Konsève rapò, lèt, PDF ak dokiman ofisyèl yo.
+            </p>
+          </a>
+
+          <a class="module-card" href="admin-dashboard.html">
+            <div class="module-icon">ADM</div>
+            <h3>Admin Dashboard</h3>
+            <p
+              data-kre="Kontwole wòl Super Admin, Admin, Moderatè, pèmisyon ak aktivite sistèm lan."
+              data-fra="Contrôler les rôles, permissions et activités du système."
+              data-eng="Control Super Admin, Admin, Moderator roles, permissions and system activity."
+            >
+              Kontwole wòl, pèmisyon ak aktivite sistèm lan.
+            </p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="container">
+
+        <div class="section-header">
+          <span
+            class="section-label"
+            data-kre="HALL OF LEADERS"
+            data-fra="GALERIE DES DIRIGEANTS"
+            data-eng="HALL OF LEADERS"
+          >
+            HALL OF LEADERS
+          </span>
+
+          <h2
+            class="section-title"
+            data-kre="Onore moun ki kenbe flanbo a"
+            data-fra="Honorer ceux qui portent le flambeau"
+            data-eng="Honoring those who carry the torch"
+          >
+            Onore moun ki kenbe flanbo a
+          </h2>
+
+          <p
+            class="section-description"
+            data-kre="Yon espas espesyal pou prezève kontribisyon, memwa ak travay dirijan BSS1815 yo."
+            data-fra="Un espace spécial pour préserver les contributions, la mémoire et le travail des dirigeants de BSS1815."
+            data-eng="A special space preserving the contributions, memory and work of BSS1815 leaders."
+          >
+            Yon espas espesyal pou prezève kontribisyon, memwa ak
+            travay dirijan BSS1815 yo.
+          </p>
+        </div>
+
+        <div class="leadership-grid">
+
+          <article class="leader-card">
+            <div class="leader-image">
+              <img
+                src="assets/hall-of-leaders.webp"
+                alt="Hall of Leaders"
+              >
+            </div>
+
+            <div class="leader-info">
+              <h3
+                data-kre="Hall of Leaders"
+                data-fra="Galerie des dirigeants"
+                data-eng="Hall of Leaders"
+              >
+                Hall of Leaders
+              </h3>
+
+              <p
+                data-kre="Dirijan • Vizyon • Eritaj"
+                data-fra="Leadership • Vision • Héritage"
+                data-eng="Leadership • Vision • Heritage"
+              >
+                Dirijan • Vizyon • Eritaj
+              </p>
+            </div>
+          </article>
+
+          <article class="leader-card">
+            <div class="leader-image">
+              <img
+                src="assets/musicians.webp"
+                alt="Mizisyen BSS1815"
+              >
+            </div>
+
+            <div class="leader-info">
+              <h3
+                data-kre="Mizisyen BSS1815"
+                data-fra="Musiciens BSS1815"
+                data-eng="BSS1815 Musicians"
+              >
+                Mizisyen BSS1815
+              </h3>
+
+              <p
+                data-kre="Talan • Kilti • Tradisyon"
+                data-fra="Talent • Culture • Tradition"
+                data-eng="Talent • Culture • Tradition"
+              >
+                Talan • Kilti • Tradisyon
+              </p>
+            </div>
+          </article>
+
+          <article class="leader-card">
+            <div class="leader-image">
+              <img
+                src="assets/fanbase.webp"
+                alt="Fanatik zèlé BSS1815"
+              >
+            </div>
+
+            <div class="leader-info">
+              <h3
+                data-kre="Fanatik Zèlé"
+                data-fra="Supporters fidèles"
+                data-eng="Dedicated Supporters"
+              >
+                Fanatik Zèlé
+              </h3>
+
+              <p
+                data-kre="Fòs • Fidelite • Kominote"
+                data-fra="Force • Fidélité • Communauté"
+                data-eng="Strength • Loyalty • Community"
+              >
+                Fòs • Fidelite • Kominote
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+
+          <h2
+            data-kre="Briyant Solèy toujou klere"
+            data-fra="Briyant Solèy brille toujours"
+            data-eng="Briyant Solèy always shines"
+          >
+            Briyant Solèy toujou klere
+          </h2>
+
+          <p
+            data-kre="Antre nan nouvo epòk dijital BSS1815 la. Yon sistèm ki bati sou istwa nou, idantite nou ak vizyon nou pou demen."
+            data-fra="Entrez dans la nouvelle ère numérique de BSS1815. Un système fondé sur notre histoire, notre identité et notre vision de demain."
+            data-eng="Enter the new digital era of BSS1815. A system built on our history, identity and vision for tomorrow."
+          >
+            Antre nan nouvo epòk dijital BSS1815 la. Yon sistèm ki
+            bati sou istwa nou, idantite nou ak vizyon nou pou demen.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="register.html"
+              data-kre="Kreye Kont"
+              data-fra="Créer un compte"
+              data-eng="Create Account"
+            >
+              Kreye Kont
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="contact.html"
+              data-kre="Kontakte Nou"
+              data-fra="Nous contacter"
+              data-eng="Contact Us"
+            >
+              Kontakte Nou
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a class="brand" href="#home">
+            <img
+              class="brand-logo"
+              src="assets/bss1815-logo.png"
+              alt="Logo BSS1815"
+            >
+
+            <div class="brand-text">
+              <strong>BRIYANT SOLÈY SIGNO 1815</strong>
+              <span>PRO-MAX DMP</span>
+            </div>
+          </a>
+
+          <p
+            data-kre="Platfòm dijital ofisyèl pou administrasyon, kominikasyon, istwa, kilti ak devlopman kominote Briyant Solèy Signo 1815."
+            data-fra="Plateforme numérique officielle pour l’administration, la communication, l’histoire, la culture et le développement de la communauté Briyant Solèy Signo 1815."
+            data-eng="Official digital platform for administration, communication, history, culture and development of the Briyant Solèy Signo 1815 community."
+          >
+            Platfòm dijital ofisyèl pou administrasyon, kominikasyon,
+            istwa, kilti ak devlopman kominote Briyant Solèy Signo 1815.
+          </p>
+        </div>
+
+        <div>
+          <h3
+            class="footer-title"
+            data-kre="Navigasyon"
+            data-fra="Navigation"
+            data-eng="Navigation"
+          >
+            Navigasyon
+          </h3>
+
+          <ul class="footer-links">
+            <li><a href="#home">Akèy</a></li>
+            <li><a href="#about">Konsènan</a></li>
+            <li><a href="#modules">Modil</a></li>
+            <li><a href="#leadership">Dirijan</a></li>
+            <li><a href="history.html">Istwa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="footer-title"
+            data-kre="Sistèm"
+            data-fra="Système"
+            data-eng="System"
+          >
+            Sistèm
+          </h3>
+
+          <ul class="footer-links">
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="documents.html">Document Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © <span id="currentYear"></span>
+        Briyant Solèy Signo 1815 — PRO-MAX DMP.
+        Tout dwa rezève.
+      </div>
+
     </div>
-</section>
+  </footer>
 
-<footer>
-    <p>&copy; 2026 MAXIMAX Multi Services. All Rights Reserved.</p>
-</footer>
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const languageButtons = document.querySelectorAll(".language-btn");
+    const translatedElements = document.querySelectorAll(
+      "[data-kre][data-fra][data-eng]"
+    );
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+
+      menuToggle.textContent = navLinks.classList.contains("open")
+        ? "✕"
+        : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedLanguage = button.dataset.language;
+
+        languageButtons.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        translatedElements.forEach((element) => {
+          const translatedText = element.dataset[selectedLanguage];
+
+          if (translatedText) {
+            element.textContent = translatedText;
+          }
+        });
+
+        document.documentElement.lang =
+          selectedLanguage === "kre"
+            ? "ht"
+            : selectedLanguage === "fra"
+            ? "fr"
+            : "en";
+
+        localStorage.setItem(
+          "bss1815-language",
+          selectedLanguage
+        );
+      });
+    });
+
+    const savedLanguage =
+      localStorage.getItem("bss1815-language") || "kre";
+
+    const savedLanguageButton = document.querySelector(
+      `[data-language="${savedLanguage}"]`
+    );
+
+    if (savedLanguageButton) {
+      savedLanguageButton.click();
+    }
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
-</html>=======MEN KOD LA RANJE L POU BYEN POU MWEN
+</html>
