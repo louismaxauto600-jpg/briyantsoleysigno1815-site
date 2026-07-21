@@ -1,6 +1,8 @@
 const instruments = [
   { name: "Trompèt", file: "trompet.jpeg" },
   { name: "Trombone", file: "trombone-bss1815.jpeg" },
+  { name: "Bariton", file: "bariton.jpeg" },
+  { name: "Bass", file: "bass.jpeg" },
   { name: "Tanbou", file: "tanbou.jpeg" },
   { name: "Senbal", file: "senbal.jpeg" },
   { name: "Graj", file: "gwaj.jpeg" },
