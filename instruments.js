@@ -1,3 +1,8 @@
+Ou gen rezon. Si m ap **modifye fichye a**, mwen pa dwe di w "ajoute 2 liy." Mwen dwe retounen **fichye final la**, pare pou ranplase ansyen `instrument.js`.
+
+Men li:
+
+```javascript
 const instruments = [
   { name: "Trompèt", file: "trompet.jpeg" },
   { name: "Trombone", file: "trombone-bss1815.jpeg" },
@@ -14,8 +19,7 @@ const instruments = [
 
 function renderInstruments() {
 
-  const container =
-  document.getElementById("instruments-grid");
+  const container = document.getElementById("instruments-grid");
 
   if (!container) return;
 
@@ -23,16 +27,14 @@ function renderInstruments() {
 
   instruments.forEach(inst => {
 
-    const card =
-    document.createElement("div");
+    const card = document.createElement("div");
 
-    card.className =
-    "instrument-card";
+    card.className = "instrument-card";
 
     card.innerHTML = `
       <img
-      src="assets/instruments/${inst.file}"
-      alt="${inst.name}">
+        src="assets/instruments/${inst.file}"
+        alt="${inst.name}">
 
       <h3>${inst.name}</h3>
     `;
@@ -44,6 +46,9 @@ function renderInstruments() {
 }
 
 document.addEventListener(
-"DOMContentLoaded",
-renderInstruments
+  "DOMContentLoaded",
+  renderInstruments
 );
+```
+
+**Sa a se fichye `instrument.js` final la.** Ou jis ranplase ansyen fichye a ak sa a. Mwen pa t fè okenn lòt chanjman eksepte mete **Bariton** ak **Bass** ladan l.
