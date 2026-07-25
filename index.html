@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  >
+  />
 
   <meta
     name="description"
-    content="Briyant Solèy Signo 1815 — PRO-MAX Digital Management Platform."
-  >
+    content="PRO-MAX FM DMP — Radyo dijital, nouvèl, mizik, emisyon ak sèvis medya."
+  />
 
-  <title>Briyant Solèy Signo 1815 | PRO-MAX DMP</title>
+  <title>PRO-MAX FM DMP</title>
 
   <style>
     :root {
       --orange: #ff6a00;
-      --orange-light: #ff9d00;
-      --orange-dark: #b83d00;
+      --orange-light: #ffad33;
       --black: #000000;
-      --black-soft: #101010;
-      --black-card: #161616;
-      --text-orange: #ff8a00;
-      --border-orange: rgba(255, 106, 0, 0.55);
-      --shadow-orange: rgba(255, 106, 0, 0.35);
+      --black-soft: #120600;
+      --orange-muted: #d97706;
+      --border: rgba(255, 106, 0, 0.35);
+      --shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
     }
 
     * {
@@ -41,22 +39,35 @@
     body {
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--orange-light);
       background:
         radial-gradient(
-          circle at top left,
+          circle at top right,
           rgba(255, 106, 0, 0.25),
           transparent 35%
         ),
         linear-gradient(
           135deg,
-          var(--orange-dark) 0%,
-          var(--black) 35%,
-          var(--black) 70%,
-          var(--orange-dark) 100%
+          #000000 0%,
+          #120600 50%,
+          #351100 100%
         );
-      background-attachment: fixed;
+      color: #ffb35c;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        linear-gradient(
+          120deg,
+          transparent 0 35%,
+          rgba(255, 106, 0, 0.08) 50%,
+          transparent 65% 100%
+        );
     }
 
     a {
@@ -64,763 +75,714 @@
       text-decoration: none;
     }
 
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
     img {
       display: block;
       max-width: 100%;
     }
 
-    button {
-      font: inherit;
-    }
-
     .container {
-      width: min(1180px, 92%);
+      width: min(1200px, 92%);
       margin: 0 auto;
     }
 
-    .top-bar {
-      padding: 10px 20px;
-      text-align: center;
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: var(--black);
-      background: linear-gradient(
-        90deg,
-        var(--orange-dark),
-        var(--orange-light),
-        var(--orange-dark)
-      );
-    }
-
-    .site-header {
+    header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--border-orange);
       background: rgba(0, 0, 0, 0.94);
+      border-bottom: 1px solid var(--border);
       backdrop-filter: blur(14px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .navbar {
+    .header-inner {
       min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 24px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 13px;
+      gap: 14px;
+      min-width: 0;
     }
 
     .brand-logo {
       width: 62px;
       height: 62px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--orange);
-      box-shadow:
-        0 0 10px var(--shadow-orange),
-        0 0 24px var(--shadow-orange);
+      object-fit: contain;
+      border-radius: 14px;
+      background: #000000;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 22px rgba(255, 106, 0, 0.35);
     }
 
-    .brand-text strong {
-      display: block;
-      font-size: 1rem;
-      color: var(--orange-light);
+    .brand-text h1 {
+      font-size: clamp(1.05rem, 2vw, 1.55rem);
+      color: var(--orange);
       letter-spacing: 0.5px;
     }
 
-    .brand-text span {
-      display: block;
+    .brand-text p {
       margin-top: 4px;
-      font-size: 0.72rem;
-      color: var(--orange);
-      letter-spacing: 1.5px;
+      color: var(--orange-muted);
+      font-size: 0.8rem;
     }
 
-    .nav-links {
+    nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
-      list-style: none;
+      gap: 8px;
     }
 
-    .nav-links a {
-      display: block;
-      padding: 11px 13px;
-      border-radius: 8px;
-      color: var(--orange-light);
-      font-size: 0.88rem;
+    nav a {
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
       font-weight: 700;
       transition: 0.25s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--black);
-      background: linear-gradient(
-        135deg,
-        var(--orange),
-        var(--orange-light)
-      );
-    }
-
-    .language-switcher {
-      display: flex;
-      gap: 5px;
-    }
-
-    .language-btn {
-      cursor: pointer;
-      padding: 8px 10px;
-      border: 1px solid var(--orange);
-      border-radius: 7px;
-      color: var(--orange-light);
-      background: var(--black);
-      font-size: 0.75rem;
-      font-weight: 900;
-      transition: 0.25s ease;
-    }
-
-    .language-btn:hover,
-    .language-btn.active {
-      color: var(--black);
+    nav a:hover {
+      color: #000000;
       background: var(--orange);
     }
 
-    .menu-toggle {
+    .menu-button {
       display: none;
-      cursor: pointer;
-      padding: 8px;
-      border: 1px solid var(--orange);
-      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: #120600;
       color: var(--orange);
-      background: var(--black);
-      font-size: 1.5rem;
+      width: 46px;
+      height: 42px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.4rem;
     }
 
-    .hero {
-      position: relative;
-      min-height: 720px;
-      display: flex;
-      align-items: center;
-      isolation: isolate;
-      border-bottom: 2px solid var(--orange-dark);
+    .ticker {
+      overflow: hidden;
       background:
         linear-gradient(
           90deg,
-          rgba(0, 0, 0, 0.96) 0%,
-          rgba(0, 0, 0, 0.80) 48%,
-          rgba(0, 0, 0, 0.45) 100%
-        ),
-        url("assets/hall-of-leaders.webp") center / cover no-repeat;
+          #ff6a00,
+          #ffad33,
+          #ff6a00
+        );
+      color: #000000;
+      font-weight: 900;
+      border-bottom: 2px solid #000000;
+    }
+
+    .ticker-track {
+      display: inline-block;
+      white-space: nowrap;
+      min-width: 100%;
+      padding: 11px 0;
+      animation: tickerMove 24s linear infinite;
+    }
+
+    @keyframes tickerMove {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      min-height: 650px;
+      display: grid;
+      place-items: center;
+      padding: 80px 0;
+      position: relative;
+      isolation: isolate;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: -1;
+      z-index: -2;
       background:
-        radial-gradient(
-          circle at 80% 30%,
-          rgba(255, 106, 0, 0.22),
-          transparent 32%
-        ),
         linear-gradient(
-          180deg,
-          transparent,
-          rgba(255, 106, 0, 0.08),
-          rgba(0, 0, 0, 0.95)
+          90deg,
+          rgba(0, 0, 0, 0.94),
+          rgba(0, 0, 0, 0.62)
+        ),
+        radial-gradient(
+          circle at 75% 35%,
+          rgba(255, 106, 0, 0.45),
+          transparent 35%
         );
     }
 
-    .hero-content {
-      max-width: 760px;
-      padding: 100px 0;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 55px;
     }
 
-    .hero-badge {
+    .eyebrow {
       display: inline-block;
-      margin-bottom: 22px;
-      padding: 9px 16px;
-      border: 1px solid var(--orange);
+      margin-bottom: 18px;
+      padding: 9px 14px;
       border-radius: 999px;
-      color: var(--orange-light);
-      background: rgba(0, 0, 0, 0.72);
-      font-size: 0.85rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      box-shadow: 0 0 20px var(--shadow-orange);
-    }
-
-    .hero h1 {
-      max-width: 850px;
-      font-size: clamp(2.8rem, 7vw, 6.2rem);
-      line-height: 0.95;
-      text-transform: uppercase;
+      border: 1px solid var(--border);
+      background: rgba(255, 106, 0, 0.12);
       color: var(--orange);
-      text-shadow:
-        0 2px 0 var(--black),
-        0 0 12px rgba(255, 106, 0, 0.6),
-        0 0 35px rgba(255, 106, 0, 0.25);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 1.4px;
     }
 
-    .hero h1 span {
-      display: block;
-      margin-top: 12px;
-      color: var(--orange-light);
+    .hero h2 {
+      max-width: 760px;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      line-height: 0.98;
+      text-transform: uppercase;
+    }
+
+    .hero h2 span {
+      color: var(--orange);
+      text-shadow: 0 0 30px rgba(255, 106, 0, 0.35);
     }
 
     .hero-description {
-      max-width: 720px;
-      margin-top: 28px;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #ffb45c;
-    }
-
-    .hero-slogan {
+      max-width: 690px;
       margin-top: 24px;
-      color: var(--orange);
-      font-size: 1rem;
-      font-weight: 900;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
+      color: #ffb35c;
+      font-size: 1.08rem;
+      line-height: 1.75;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
       min-height: 50px;
-      padding: 13px 24px;
-      border: 2px solid var(--orange);
-      border-radius: 10px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 12px;
       font-weight: 900;
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px var(--shadow-orange);
+      cursor: pointer;
+      transition: 0.25s ease;
     }
 
     .btn-primary {
-      color: var(--black);
-      background: linear-gradient(
-        135deg,
-        var(--orange),
-        var(--orange-light)
-      );
+      color: #000000;
+      background:
+        linear-gradient(
+          135deg,
+          var(--orange),
+          var(--orange-light)
+        );
+      box-shadow: 0 12px 30px rgba(255, 106, 0, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(255, 106, 0, 0.38);
     }
 
     .btn-secondary {
-      color: var(--orange-light);
-      background: rgba(0, 0, 0, 0.78);
+      color: #ffb35c;
+      border-color: var(--border);
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    .statistics {
-      position: relative;
-      z-index: 10;
-      margin-top: -55px;
+    .btn-secondary:hover {
+      color: #000000;
+      background: var(--orange);
     }
 
-    .statistics-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--border-orange);
-      border-radius: 16px;
-      overflow: hidden;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 106, 0, 0.16),
-        rgba(0, 0, 0, 0.96)
-      );
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.7);
-    }
-
-    .stat-card {
-      min-height: 145px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 25px 15px;
-      text-align: center;
-      border-right: 1px solid var(--border-orange);
-    }
-
-    .stat-card:last-child {
-      border-right: none;
-    }
-
-    .stat-card strong {
-      display: block;
-      color: var(--orange);
-      font-size: 2rem;
-    }
-
-    .stat-card span {
-      margin-top: 8px;
-      color: var(--orange-light);
-      font-size: 0.88rem;
-      font-weight: 700;
-    }
-
-    .section {
-      padding: 100px 0;
-    }
-
-    .section-header {
-      max-width: 800px;
-      margin: 0 auto 50px;
-      text-align: center;
-    }
-
-    .section-label {
-      color: var(--orange);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      margin-top: 12px;
-      color: var(--orange-light);
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.1;
-      text-transform: uppercase;
-    }
-
-    .section-description {
-      margin-top: 18px;
-      color: #e97800;
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .about-image {
-      position: relative;
-      overflow: hidden;
-      border: 2px solid var(--orange);
-      border-radius: 20px;
-      box-shadow:
-        0 0 20px var(--shadow-orange),
-        0 25px 55px rgba(0, 0, 0, 0.65);
-    }
-
-    .about-image img {
-      width: 100%;
-      min-height: 480px;
-      object-fit: cover;
-    }
-
-    .about-image::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        transparent 45%,
-        rgba(0, 0, 0, 0.93)
-      );
-    }
-
-    .about-content h2 {
-      color: var(--orange);
-      font-size: clamp(2.1rem, 5vw, 4rem);
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .about-content p {
-      margin-top: 22px;
-      color: #ff9c32;
-      font-size: 1.03rem;
-      line-height: 1.8;
-    }
-
-    .about-list {
-      display: grid;
-      gap: 13px;
-      margin-top: 25px;
-      list-style: none;
-    }
-
-    .about-list li {
-      position: relative;
-      padding: 15px 16px 15px 48px;
-      border: 1px solid rgba(255, 106, 0, 0.35);
-      border-radius: 10px;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 106, 0, 0.12),
-        rgba(0, 0, 0, 0.8)
-      );
-      color: var(--orange-light);
-      font-weight: 700;
-    }
-
-    .about-list li::before {
-      content: "✦";
-      position: absolute;
-      left: 18px;
-      color: var(--orange);
-      font-size: 1.2rem;
-    }
-
-    .modules-section {
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          rgba(122, 42, 0, 0.36),
-          rgba(0, 0, 0, 0.92)
-        );
-      border-top: 1px solid rgba(255, 106, 0, 0.25);
-      border-bottom: 1px solid rgba(255, 106, 0, 0.25);
-    }
-
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .module-card {
-      position: relative;
-      min-height: 255px;
-      padding: 28px 22px;
-      overflow: hidden;
-      border: 1px solid var(--border-orange);
-      border-radius: 16px;
+    .hero-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 26px;
       background:
         linear-gradient(
           145deg,
-          rgba(255, 106, 0, 0.18),
-          rgba(0, 0, 0, 0.93) 55%
+          rgba(255, 106, 0, 0.17),
+          rgba(0, 0, 0, 0.92)
         );
-      transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+      box-shadow: var(--shadow);
     }
 
-    .module-card::before {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      top: -50px;
-      right: -50px;
-      border-radius: 50%;
-      background: rgba(255, 106, 0, 0.25);
-      filter: blur(10px);
+    .hero-card-logo {
+      width: 210px;
+      height: 210px;
+      object-fit: contain;
+      margin: 0 auto 22px;
+      filter: drop-shadow(0 0 20px rgba(255, 106, 0, 0.4));
     }
 
-    .module-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--orange-light);
-      box-shadow: 0 18px 40px rgba(255, 106, 0, 0.18);
-    }
-
-    .module-icon {
-      width: 58px;
-      height: 58px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--orange);
-      border-radius: 14px;
-      color: var(--black);
-      background: linear-gradient(
-        135deg,
-        var(--orange),
-        var(--orange-light)
-      );
-      font-size: 1.7rem;
+    .live-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--orange);
       font-weight: 900;
     }
 
-    .module-card h3 {
-      margin-top: 22px;
-      color: var(--orange-light);
-      font-size: 1.13rem;
+    .live-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 7px rgba(255, 106, 0, 0.12);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.3);
+        opacity: 0.65;
+      }
+    }
+
+    .player {
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading span {
+      color: var(--orange);
+      font-weight: 900;
       text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 0.82rem;
+    }
+
+    .section-heading h3 {
+      margin-top: 10px;
+      font-size: clamp(1.9rem, 4vw, 3.4rem);
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      margin-top: 15px;
+      color: #e88921;
+      line-height: 1.7;
+    }
+
+    .modules {
+      background: rgba(0, 0, 0, 0.38);
+      border-top: 1px solid rgba(255, 106, 0, 0.12);
+      border-bottom: 1px solid rgba(255, 106, 0, 0.12);
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .module-card {
+      min-height: 175px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 106, 0, 0.1),
+          rgba(5, 5, 5, 0.94)
+        );
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .module-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--orange);
+      box-shadow: 0 16px 38px rgba(255, 106, 0, 0.14);
+    }
+
+    .module-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .module-card h4 {
+      color: var(--orange);
+      font-size: 1.05rem;
     }
 
     .module-card p {
-      margin-top: 13px;
-      color: #dc6b00;
-      font-size: 0.92rem;
-      line-height: 1.65;
+      margin-top: 9px;
+      color: #df7b12;
+      line-height: 1.55;
+      font-size: 0.9rem;
     }
 
-    .leadership-grid {
+    .module-status {
+      display: inline-block;
+      margin-top: 14px;
+      color: #000000;
+      background: var(--orange);
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .news-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .news-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #100500;
+      box-shadow: var(--shadow);
+    }
+
+    .news-image {
+      height: 210px;
+      display: grid;
+      place-items: center;
+      font-size: 4rem;
+      background:
+        radial-gradient(
+          circle,
+          rgba(255, 106, 0, 0.4),
+          transparent 60%
+        ),
+        linear-gradient(
+          135deg,
+          #1b0900,
+          #351100
+        );
+    }
+
+    .news-content {
+      padding: 23px;
+    }
+
+    .news-content small {
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .news-content h4 {
+      margin-top: 10px;
+      font-size: 1.22rem;
+      line-height: 1.35;
+    }
+
+    .news-content p {
+      margin-top: 12px;
+      color: #e88921;
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .social-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 25px;
     }
 
-    .leader-card {
-      overflow: hidden;
-      border: 1px solid var(--border-orange);
-      border-radius: 17px;
-      background: linear-gradient(
-        155deg,
-        rgba(255, 106, 0, 0.14),
-        rgba(0, 0, 0, 0.94)
-      );
-      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
-    }
-
-    .leader-image {
-      height: 350px;
-      overflow: hidden;
-    }
-
-    .leader-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .leader-card:hover .leader-image img {
-      transform: scale(1.05);
-    }
-
-    .leader-info {
-      padding: 23px;
-      text-align: center;
-      border-top: 2px solid var(--orange-dark);
-    }
-
-    .leader-info h3 {
-      color: var(--orange-light);
-      font-size: 1.2rem;
-      text-transform: uppercase;
-    }
-
-    .leader-info p {
-      margin-top: 8px;
-      color: var(--orange);
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-
-    .cta {
-      padding: 90px 0;
-    }
-
-    .cta-box {
-      padding: 60px 30px;
-      text-align: center;
-      border: 2px solid var(--orange);
+    .social-card {
+      padding: 34px;
+      border: 1px solid var(--border);
       border-radius: 22px;
       background:
-        radial-gradient(
-          circle at center,
-          rgba(255, 106, 0, 0.24),
-          rgba(0, 0, 0, 0.96) 65%
+        linear-gradient(
+          145deg,
+          rgba(255, 106, 0, 0.15),
+          rgba(0, 0, 0, 0.94)
         );
-      box-shadow:
-        0 0 30px var(--shadow-orange),
-        inset 0 0 45px rgba(255, 106, 0, 0.08);
     }
 
-    .cta-box h2 {
-      color: var(--orange-light);
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .cta-box p {
-      max-width: 720px;
-      margin: 22px auto 0;
+    .social-card h4 {
       color: var(--orange);
-      font-size: 1.05rem;
-      line-height: 1.75;
+      font-size: 1.55rem;
     }
 
-    .cta-box .hero-actions {
-      justify-content: center;
+    .social-card p {
+      margin: 13px 0 24px;
+      color: #ef9233;
+      line-height: 1.65;
     }
 
-    .site-footer {
-      padding: 65px 0 25px;
-      border-top: 2px solid var(--orange-dark);
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.92),
-        var(--black)
-      );
+    .schedule-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 125px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .schedule-time {
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .schedule-item p {
+      color: #e88921;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    .schedule-label {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #000000;
+      background: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    footer {
+      padding: 42px 0 28px;
+      background: #000000;
+      border-top: 1px solid var(--border);
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 45px;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 34px;
     }
 
-    .footer-brand p {
-      max-width: 480px;
-      margin-top: 18px;
-      color: #ce6500;
-      line-height: 1.75;
+    .footer-logo {
+      width: 80px;
+      margin-bottom: 16px;
     }
 
-    .footer-title {
-      color: var(--orange-light);
-      font-size: 1.05rem;
-      text-transform: uppercase;
+    footer h4 {
+      color: var(--orange);
+      margin-bottom: 13px;
     }
 
-    .footer-links {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
+    footer p,
+    footer li,
+    footer a {
+      color: #c96808;
+      line-height: 1.8;
+      font-size: 0.9rem;
+    }
+
+    footer ul {
       list-style: none;
     }
 
-    .footer-links a {
+    footer a:hover {
       color: var(--orange);
-      transition: 0.25s ease;
-    }
-
-    .footer-links a:hover {
-      padding-left: 6px;
-      color: var(--orange-light);
     }
 
     .copyright {
-      margin-top: 50px;
-      padding-top: 24px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 106, 0, 0.18);
+      color: #9f4300;
       text-align: center;
-      border-top: 1px solid rgba(255, 106, 0, 0.25);
-      color: #b84e00;
-      font-size: 0.86rem;
+      font-size: 0.82rem;
     }
 
-    @media (max-width: 1050px) {
-      .menu-toggle {
+    .logo-fallback {
+      width: 62px;
+      height: 62px;
+      display: none;
+      place-items: center;
+      border-radius: 14px;
+      color: #000000;
+      background: var(--orange);
+      font-weight: 900;
+    }
+
+    body,
+    p,
+    li,
+    strong,
+    footer p,
+    footer li,
+    footer a {
+      color: #e88921;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .brand-text h1,
+    .section-heading span,
+    .module-card h4,
+    .social-card h4,
+    footer h4 {
+      color: var(--orange);
+    }
+
+    .hero h2,
+    .section-heading h3,
+    .schedule-item strong {
+      color: var(--orange-light);
+    }
+
+    .btn-secondary {
+      color: var(--orange-light);
+      border-color: var(--border);
+      background:
+        linear-gradient(
+          135deg,
+          #000000,
+          #241000
+        );
+    }
+
+    .module-card,
+    .news-card,
+    .social-card,
+    .schedule-item,
+    .hero-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 106, 0, 0.16),
+          rgba(0, 0, 0, 0.96)
+        );
+    }
+
+    @media (max-width: 1000px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 600px;
+      }
+
+      .module-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 780px) {
+      .menu-button {
         display: block;
       }
 
-      .nav-links {
+      nav {
         position: absolute;
         top: 82px;
-        left: 0;
-        width: 100%;
+        left: 4%;
+        right: 4%;
         display: none;
         flex-direction: column;
         align-items: stretch;
-        padding: 20px;
-        border-bottom: 1px solid var(--orange);
-        background: rgba(0, 0, 0, 0.98);
+        padding: 14px;
+        background: #0b0300;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
       }
 
-      .nav-links.open {
+      nav.open {
         display: flex;
       }
 
-      .nav-links a {
+      nav a {
         text-align: center;
       }
 
-      .modules-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .leadership-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .language-switcher {
-        margin-left: auto;
-      }
-    }
-
-    @media (max-width: 800px) {
       .hero {
-        min-height: 650px;
-        background-position: center;
+        min-height: auto;
+        padding: 65px 0;
       }
 
-      .hero-content {
-        padding: 85px 0 110px;
+      .module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .statistics-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat-card:nth-child(2) {
-        border-right: none;
-      }
-
-      .stat-card:nth-child(-n + 2) {
-        border-bottom: 1px solid var(--border-orange);
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .news-grid,
+      .social-layout,
       .footer-grid {
         grid-template-columns: 1fr;
       }
-    }
 
-    @media (max-width: 580px) {
-      .top-bar {
-        font-size: 0.7rem;
+      .schedule-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
       }
 
-      .brand-text {
+      .schedule-label {
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand-text p {
         display: none;
       }
 
-      .brand-logo {
+      .brand-logo,
+      .logo-fallback {
         width: 52px;
         height: 52px;
       }
 
-      .language-btn {
-        padding: 7px;
-        font-size: 0.68rem;
+      .header-inner {
+        min-height: 72px;
       }
 
-      .hero {
-        min-height: 610px;
+      nav {
+        top: 73px;
       }
 
-      .hero-description {
-        font-size: 0.97rem;
+      .hero h2 {
+        font-size: 2.45rem;
+      }
+
+      .module-grid {
+        grid-template-columns: 1fr;
       }
 
       .hero-actions {
@@ -830,737 +792,382 @@
       .btn {
         width: 100%;
       }
-
-      .statistics {
-        margin-top: -35px;
-      }
-
-      .statistics-grid,
-      .modules-grid,
-      .leadership-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stat-card {
-        border-right: none;
-        border-bottom: 1px solid var(--border-orange);
-      }
-
-      .stat-card:last-child {
-        border-bottom: none;
-      }
-
-      .section {
-        padding: 75px 0;
-      }
-
-      .leader-image {
-        height: 400px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <div
-    class="top-bar"
-    data-kre="DEVAN DEVAN NÈT — BATI POU JODI A — PARE POU DEMEN"
-    data-fra="TOUJOURS EN AVANT — BÂTIR POUR AUJOURD’HUI — PRÊT POUR DEMAIN"
-    data-eng="ALWAYS FORWARD — BUILT FOR TODAY — READY FOR TOMORROW"
-  >
-    DEVAN DEVAN NÈT — BATI POU JODI A — PARE POU DEMEN
-  </div>
+  <header>
+    <div class="container header-inner">
 
-  <header class="site-header">
-    <div class="container navbar">
+      <a href="index.html" class="brand">
 
-      <a class="brand" href="#home">
         <img
+          src="assets/pro-max-fm-dmp.png"
+          alt="Logo PRO-MAX FM DMP"
           class="brand-logo"
-          src="assets/bss1815-logo.png"
-          alt="Logo Briyant Solèy Signo 1815"
-        >
+          onerror="handleLogoError(this)"
+        />
+
+        <div class="logo-fallback">PM</div>
 
         <div class="brand-text">
-          <strong>BRIYANT SOLÈY SIGNO 1815</strong>
-          <span>PRO-MAX DIGITAL MANAGEMENT PLATFORM</span>
+          <h1>PRO-MAX FM DMP</h1>
+          <p>Powering the Future of Digital Radio</p>
         </div>
+
       </a>
 
       <button
-        class="menu-toggle"
-        id="menuToggle"
         type="button"
-        aria-label="Ouvri meni an"
+        class="menu-button"
+        id="menuButton"
+        aria-label="Louvri meni an"
+        aria-expanded="false"
       >
         ☰
       </button>
 
-      <ul class="nav-links" id="navLinks">
-        <li>
-          <a
-            href="#home"
-            data-kre="Akèy"
-            data-fra="Accueil"
-            data-eng="Home"
-          >
-            Akèy
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="#about"
-            data-kre="Konsènan"
-            data-fra="À propos"
-            data-eng="About"
-          >
-            Konsènan
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="#modules"
-            data-kre="Modil"
-            data-fra="Modules"
-            data-eng="Modules"
-          >
-            Modil
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="#leadership"
-            data-kre="Dirijan"
-            data-fra="Dirigeants"
-            data-eng="Leadership"
-          >
-            Dirijan
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="history.html"
-            data-kre="Istwa"
-            data-fra="Histoire"
-            data-eng="History"
-          >
-            Istwa
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="contact.html"
-            data-kre="Kontak"
-            data-fra="Contact"
-            data-eng="Contact"
-          >
-            Kontak
-          </a>
-        </li>
-      </ul>
-
-      <div class="language-switcher">
-        <button
-          class="language-btn active"
-          type="button"
-          data-language="kre"
-        >
-          KRE
-        </button>
-
-        <button
-          class="language-btn"
-          type="button"
-          data-language="fra"
-        >
-          FRA
-        </button>
-
-        <button
-          class="language-btn"
-          type="button"
-          data-language="eng"
-        >
-          ENG
-        </button>
-      </div>
+      <nav id="mainNav">
+        <a href="index.html">Akèy</a>
+        <a href="#modules">Modil</a>
+        <a href="live.html">Live</a>
+        <a href="news.html">Nouvèl</a>
+        <a href="shows.html">Emisyon</a>
+        <a href="podcasts.html">Podcast</a>
+        <a href="login.html">Admin</a>
+      </nav>
 
     </div>
   </header>
 
+  <div class="ticker">
+    <div class="ticker-track">
+      🔥 BYENVENI SOU PRO-MAX FM DMP — RADYO DIJITAL, NOUVÈL,
+      MIZIK, PODCAST, ESPÒ, BIZNIS, AKADEMI AK LIVE STREAMING 🔥
+    </div>
+  </div>
+
   <main>
 
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
+    <section class="hero">
+      <div class="container hero-grid">
 
-          <span
-            class="hero-badge"
-            data-kre="PLATFÒM OFISYÈL BSS1815"
-            data-fra="PLATEFORME OFFICIELLE BSS1815"
-            data-eng="OFFICIAL BSS1815 PLATFORM"
-          >
-            PLATFÒM OFISYÈL BSS1815
+        <div>
+          <span class="eyebrow">
+            PLATFÒM RADYO DIJITAL
           </span>
 
-          <h1>
-            BRIYANT SOLÈY
-            <span>SIGNO 1815</span>
-          </h1>
+          <h2>
+            PRO-MAX FM
+            <span>DMP</span>
+          </h2>
 
-          <p
-            class="hero-description"
-            data-kre="Yon nouvo jenerasyon platfòm dijital ki fèt pou prezève istwa nou, òganize kominote nou, valorize dirijan nou, sipòte mizisyen nou epi prepare BSS1815 pou lavni."
-            data-fra="Une nouvelle génération de plateforme numérique conçue pour préserver notre histoire, organiser notre communauté, valoriser nos dirigeants, soutenir nos musiciens et préparer BSS1815 pour l’avenir."
-            data-eng="A new generation digital platform created to preserve our history, organize our community, honor our leaders, support our musicians and prepare BSS1815 for the future."
-          >
-            Yon nouvo jenerasyon platfòm dijital ki fèt pou prezève
-            istwa nou, òganize kominote nou, valorize dirijan nou,
-            sipòte mizisyen nou epi prepare BSS1815 pou lavni.
-          </p>
-
-          <p class="hero-slogan">
-            DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.
+          <p class="hero-description">
+            Yon platfòm radyo modèn ki rasanble emisyon an dirèk,
+            nouvèl, mizik, podcast, videyo, espò, biznis, akademi,
+            evènman ak sèvis medya dijital sou yon sèl espas.
           </p>
 
           <div class="hero-actions">
-            <a
-              class="btn btn-primary"
-              href="#modules"
-              data-kre="Dekouvri Platfòm Lan"
-              data-fra="Découvrir la plateforme"
-              data-eng="Explore the Platform"
-            >
-              Dekouvri Platfòm Lan
+            <a href="live.html" class="btn btn-primary">
+              ▶ Koute Live
             </a>
 
-            <a
-              class="btn btn-secondary"
-              href="login.html"
-              data-kre="Konekte"
-              data-fra="Se connecter"
-              data-eng="Sign In"
-            >
-              Konekte
+            <a href="#modules" class="btn btn-secondary">
+              Gade Tout Modil Yo
             </a>
           </div>
-
         </div>
-      </div>
-    </section>
 
-    <section class="statistics">
-      <div class="container">
-        <div class="statistics-grid">
+        <div class="hero-card">
 
-          <article class="stat-card">
-            <strong>1815</strong>
-            <span
-              data-kre="Eritaj ak Idantite"
-              data-fra="Héritage et identité"
-              data-eng="Heritage and Identity"
-            >
-              Eritaj ak Idantite
-            </span>
-          </article>
+          <img
+            src="assets/pro-max-fm-dmp.png"
+            alt="PRO-MAX FM DMP"
+            class="hero-card-logo"
+            onerror="this.style.display='none'"
+          />
 
-          <article class="stat-card">
-            <strong>3</strong>
-            <span
-              data-kre="Lang Sistèm"
-              data-fra="Langues du système"
-              data-eng="System Languages"
-            >
-              Lang Sistèm
-            </span>
-          </article>
-
-          <article class="stat-card">
-            <strong>8+</strong>
-            <span
-              data-kre="Modil Dijital"
-              data-fra="Modules numériques"
-              data-eng="Digital Modules"
-            >
-              Modil Dijital
-            </span>
-          </article>
-
-          <article class="stat-card">
-            <strong>1</strong>
-            <span
-              data-kre="Gran Vizyon"
-              data-fra="Grande vision"
-              data-eng="Unified Vision"
-            >
-              Gran Vizyon
-            </span>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container">
-        <div class="about-grid">
-
-          <div class="about-image">
-            <img
-              src="assets/hall-of-leaders.webp"
-              alt="Hall of Leaders Briyant Solèy Signo 1815"
-            >
+          <div class="live-status">
+            <span class="live-dot"></span>
+            LIVE RADIO
           </div>
 
-          <div class="about-content">
-            <span
-              class="section-label"
-              data-kre="ISTWA • ERITAJ • LAVNI"
-              data-fra="HISTOIRE • HÉRITAGE • AVENIR"
-              data-eng="HISTORY • HERITAGE • FUTURE"
-            >
-              ISTWA • ERITAJ • LAVNI
-            </span>
+          <p style="text-align:center; color:#e88921; line-height:1.6;">
+            Klike sou bouton an pou antre sou paj radyo an dirèk la.
+          </p>
 
-            <h2
-              data-kre="Yon platfòm pou tout jenerasyon"
-              data-fra="Une plateforme pour toutes les générations"
-              data-eng="A platform for every generation"
-            >
-              Yon platfòm pou tout jenerasyon
-            </h2>
-
-            <p
-              data-kre="Briyant Solèy Signo 1815 se plis pase yon non. Se yon eritaj, yon mouvman kiltirèl ak yon fòs kominotè ki pote memwa, talan ak vizyon pèp Signo a."
-              data-fra="Briyant Solèy Signo 1815 est plus qu’un nom. C’est un héritage, un mouvement culturel et une force communautaire qui porte la mémoire, le talent et la vision du peuple de Signo."
-              data-eng="Briyant Solèy Signo 1815 is more than a name. It is a heritage, a cultural movement and a community force carrying the memory, talent and vision of the people of Signo."
-            >
-              Briyant Solèy Signo 1815 se plis pase yon non. Se yon
-              eritaj, yon mouvman kiltirèl ak yon fòs kominotè ki pote
-              memwa, talan ak vizyon pèp Signo a.
-            </p>
-
-            <ul class="about-list">
-              <li
-                data-kre="Prezève istwa ak dokiman ofisyèl BSS1815."
-                data-fra="Préserver l’histoire et les documents officiels de BSS1815."
-                data-eng="Preserve BSS1815 history and official documents."
-              >
-                Prezève istwa ak dokiman ofisyèl BSS1815.
-              </li>
-
-              <li
-                data-kre="Mete dirijan, mizisyen ak fanatik zèlé yo an valè."
-                data-fra="Valoriser les dirigeants, musiciens et fidèles supporters."
-                data-eng="Honor leaders, musicians and dedicated supporters."
-              >
-                Mete dirijan, mizisyen ak fanatik zèlé yo an valè.
-              </li>
-
-              <li
-                data-kre="Kreye yon sistèm administrasyon dijital modèn."
-                data-fra="Créer un système d’administration numérique moderne."
-                data-eng="Build a modern digital administration system."
-              >
-                Kreye yon sistèm administrasyon dijital modèn.
-              </li>
-
-              <li
-                data-kre="Konekte kominote a atravè teknoloji ak kominikasyon."
-                data-fra="Connecter la communauté grâce à la technologie et à la communication."
-                data-eng="Connect the community through technology and communication."
-              >
-                Konekte kominote a atravè teknoloji ak kominikasyon.
-              </li>
-            </ul>
-          </div>
+          <a
+            href="live.html"
+            class="btn btn-primary"
+            style="width:100%; margin-top:22px;"
+          >
+            🎙️ Louvri Live Player
+          </a>
 
         </div>
+
       </div>
     </section>
 
-    <section class="section modules-section" id="modules">
+    <section class="modules" id="modules">
       <div class="container">
 
-        <div class="section-header">
-          <span
-            class="section-label"
-            data-kre="PRO-MAX DMP"
-            data-fra="PRO-MAX DMP"
-            data-eng="PRO-MAX DMP"
-          >
-            PRO-MAX DMP
-          </span>
+        <div class="section-heading">
+          <span>Sèvis dijital</span>
+          <h3>Tout modil prensipal yo</h3>
 
-          <h2
-            class="section-title"
-            data-kre="Tout zouti yo nan yon sèl platfòm"
-            data-fra="Tous les outils sur une seule plateforme"
-            data-eng="Every tool in one platform"
-          >
-            Tout zouti yo nan yon sèl platfòm
-          </h2>
-
-          <p
-            class="section-description"
-            data-kre="PRO-MAX DMP mete administrasyon, kominikasyon, dokiman, manm, evènman ak entèlijans atifisyèl ansanm nan yon sistèm ki òganize epi fasil pou itilize."
-            data-fra="PRO-MAX DMP regroupe l’administration, la communication, les documents, les membres, les événements et l’intelligence artificielle dans un système organisé et facile à utiliser."
-            data-eng="PRO-MAX DMP brings administration, communication, documents, members, events and artificial intelligence together in one organized and easy-to-use system."
-          >
-            PRO-MAX DMP mete administrasyon, kominikasyon, dokiman,
-            manm, evènman ak entèlijans atifisyèl ansanm.
+          <p>
+            Chak kat anba a konekte ak paj sèvis li. Pa gen JavaScript
+            ekstèn ki nesesè pou homepage sa a parèt.
           </p>
         </div>
 
-        <div class="modules-grid">
+        <div class="module-grid" id="moduleGrid"></div>
 
-          <a class="module-card" href="ai-center.html">
-            <div class="module-icon">AI</div>
-            <h3>AI Center</h3>
-            <p
-              data-kre="Kreye kontni, mesaj, dokiman ak asistans entèlijan pou administrasyon an."
-              data-fra="Créer du contenu, des messages, des documents et une assistance intelligente."
-              data-eng="Create content, messages, documents and intelligent administrative assistance."
-            >
-              Kreye kontni, mesaj, dokiman ak asistans entèlijan.
-            </p>
-          </a>
-
-          <a class="module-card" href="crm.html">
-            <div class="module-icon">CRM</div>
-            <h3>CRM System</h3>
-            <p
-              data-kre="Jere manm, kontak, relasyon, rechèch, kategori ak enfòmasyon kominotè."
-              data-fra="Gérer les membres, contacts, relations, recherches et informations communautaires."
-              data-eng="Manage members, contacts, relationships, searches and community information."
-            >
-              Jere manm, kontak, relasyon ak enfòmasyon kominotè.
-            </p>
-          </a>
-
-          <a class="module-card" href="communication-center.html">
-            <div class="module-icon">COM</div>
-            <h3>Communication Center</h3>
-            <p
-              data-kre="Kreye anons lanmò, anivèsè, kondoleyans, alèt ak avi ofisyèl."
-              data-fra="Créer des annonces de décès, anniversaires, condoléances, alertes et avis officiels."
-              data-eng="Create death notices, birthdays, condolences, alerts and official announcements."
-            >
-              Kreye anons, kondoleyans, alèt ak avi ofisyèl.
-            </p>
-          </a>
-
-          <a class="module-card" href="flyer-studio.html">
-            <div class="module-icon">FX</div>
-            <h3>Flyer Studio</h3>
-            <p
-              data-kre="Prepare flyer ak vizyèl ofisyèl nan stil PRO-MAX orange ak black fade."
-              data-fra="Créer des flyers et visuels officiels dans le style PRO-MAX orange et noir."
-              data-eng="Create official flyers and visuals in the PRO-MAX orange and black style."
-            >
-              Prepare flyer ak vizyèl ofisyèl nan stil PRO-MAX.
-            </p>
-          </a>
-
-          <a class="module-card" href="digital-registry.html">
-            <div class="module-icon">REG</div>
-            <h3>Digital Registry</h3>
-            <p
-              data-kre="Anrejistre manm, mizisyen, fanatik, pitit kay ak ti machann yo."
-              data-fra="Enregistrer les membres, musiciens, supporters, familles et petits commerçants."
-              data-eng="Register members, musicians, supporters, families and local vendors."
-            >
-              Anrejistre manm, mizisyen, fanatik ak ti machann yo.
-            </p>
-          </a>
-
-          <a class="module-card" href="events.html">
-            <div class="module-icon">EVT</div>
-            <h3>Event Management</h3>
-            <p
-              data-kre="Planifye aktivite, reyinyon, kalandriye, envitasyon ak pwogram espesyal."
-              data-fra="Planifier les activités, réunions, calendriers, invitations et programmes spéciaux."
-              data-eng="Plan activities, meetings, calendars, invitations and special programs."
-            >
-              Planifye aktivite, reyinyon ak pwogram espesyal.
-            </p>
-          </a>
-
-          <a class="module-card" href="documents.html">
-            <div class="module-icon">DOC</div>
-            <h3>Document Center</h3>
-            <p
-              data-kre="Konsève kontra, rapò, lèt, PDF, testaman dirijan ak dokiman ofisyèl."
-              data-fra="Conserver contrats, rapports, lettres, PDF, témoignages et documents officiels."
-              data-eng="Store contracts, reports, letters, PDFs, leader testimonies and official records."
-            >
-              Konsève rapò, lèt, PDF ak dokiman ofisyèl yo.
-            </p>
-          </a>
-
-          <a class="module-card" href="admin-dashboard.html">
-            <div class="module-icon">ADM</div>
-            <h3>Admin Dashboard</h3>
-            <p
-              data-kre="Kontwole wòl Super Admin, Admin, Moderatè, pèmisyon ak aktivite sistèm lan."
-              data-fra="Contrôler les rôles, permissions et activités du système."
-              data-eng="Control Super Admin, Admin, Moderator roles, permissions and system activity."
-            >
-              Kontwole wòl, pèmisyon ak aktivite sistèm lan.
-            </p>
-          </a>
-
-        </div>
       </div>
     </section>
 
-    <section class="section" id="leadership">
+    <section id="latest-news">
       <div class="container">
 
-        <div class="section-header">
-          <span
-            class="section-label"
-            data-kre="HALL OF LEADERS"
-            data-fra="GALERIE DES DIRIGEANTS"
-            data-eng="HALL OF LEADERS"
-          >
-            HALL OF LEADERS
-          </span>
-
-          <h2
-            class="section-title"
-            data-kre="Onore moun ki kenbe flanbo a"
-            data-fra="Honorer ceux qui portent le flambeau"
-            data-eng="Honoring those who carry the torch"
-          >
-            Onore moun ki kenbe flanbo a
-          </h2>
-
-          <p
-            class="section-description"
-            data-kre="Yon espas espesyal pou prezève kontribisyon, memwa ak travay dirijan BSS1815 yo."
-            data-fra="Un espace spécial pour préserver les contributions, la mémoire et le travail des dirigeants de BSS1815."
-            data-eng="A special space preserving the contributions, memory and work of BSS1815 leaders."
-          >
-            Yon espas espesyal pou prezève kontribisyon, memwa ak
-            travay dirijan BSS1815 yo.
-          </p>
+        <div class="section-heading">
+          <span>Dènye nouvèl</span>
+          <h3>Enfòmasyon ak aktyalite</h3>
         </div>
 
-        <div class="leadership-grid">
+        <div class="news-grid">
 
-          <article class="leader-card">
-            <div class="leader-image">
-              <img
-                src="assets/hall-of-leaders.webp"
-                alt="Hall of Leaders"
-              >
-            </div>
+          <article class="news-card">
+            <div class="news-image">📻</div>
 
-            <div class="leader-info">
-              <h3
-                data-kre="Hall of Leaders"
-                data-fra="Galerie des dirigeants"
-                data-eng="Hall of Leaders"
-              >
-                Hall of Leaders
-              </h3>
+            <div class="news-content">
+              <small>PRO-MAX FM</small>
 
-              <p
-                data-kre="Dirijan • Vizyon • Eritaj"
-                data-fra="Leadership • Vision • Héritage"
-                data-eng="Leadership • Vision • Heritage"
-              >
-                Dirijan • Vizyon • Eritaj
+              <h4>
+                Radyo dijital la pare pou konekte kominote a
+              </h4>
+
+              <p>
+                Suiv emisyon, entèvyou, mizik ak pwogram espesyal sou
+                platfòm PRO-MAX FM DMP.
               </p>
             </div>
           </article>
 
-          <article class="leader-card">
-            <div class="leader-image">
-              <img
-                src="assets/musicians.webp"
-                alt="Mizisyen BSS1815"
-              >
-            </div>
+          <article class="news-card">
+            <div class="news-image">🎙️</div>
 
-            <div class="leader-info">
-              <h3
-                data-kre="Mizisyen BSS1815"
-                data-fra="Musiciens BSS1815"
-                data-eng="BSS1815 Musicians"
-              >
-                Mizisyen BSS1815
-              </h3>
+            <div class="news-content">
+              <small>EMISYON</small>
 
-              <p
-                data-kre="Talan • Kilti • Tradisyon"
-                data-fra="Talent • Culture • Tradition"
-                data-eng="Talent • Culture • Tradition"
-              >
-                Talan • Kilti • Tradisyon
+              <h4>
+                Dekouvri pwogram ak animatè nou yo
+              </h4>
+
+              <p>
+                Konsilte orè emisyon yo epi jwenn tout enfòmasyon sou
+                animatè, DJ ak jounalis yo.
               </p>
             </div>
           </article>
 
-          <article class="leader-card">
-            <div class="leader-image">
-              <img
-                src="assets/fanbase.webp"
-                alt="Fanatik zèlé BSS1815"
-              >
-            </div>
+          <article class="news-card">
+            <div class="news-image">🌐</div>
 
-            <div class="leader-info">
-              <h3
-                data-kre="Fanatik Zèlé"
-                data-fra="Supporters fidèles"
-                data-eng="Dedicated Supporters"
-              >
-                Fanatik Zèlé
-              </h3>
+            <div class="news-content">
+              <small>DIJITAL</small>
 
-              <p
-                data-kre="Fòs • Fidelite • Kominote"
-                data-fra="Force • Fidélité • Communauté"
-                data-eng="Strength • Loyalty • Community"
-              >
-                Fòs • Fidelite • Kominote
+              <h4>
+                YouTube ak Spotify disponib sou platfòm nan
+              </h4>
+
+              <p>
+                Gade videyo, suiv live stream epi koute podcast ak mizik
+                atravè sèvis sosyal nou yo.
               </p>
             </div>
           </article>
 
         </div>
+
       </div>
     </section>
 
-    <section class="cta">
+    <section id="social-streaming">
       <div class="container">
-        <div class="cta-box">
 
-          <h2
-            data-kre="Briyant Solèy toujou klere"
-            data-fra="Briyant Solèy brille toujours"
-            data-eng="Briyant Solèy always shines"
-          >
-            Briyant Solèy toujou klere
-          </h2>
+        <div class="section-heading">
+          <span>Social Streaming</span>
+          <h3>YouTube ak Spotify</h3>
+        </div>
 
-          <p
-            data-kre="Antre nan nouvo epòk dijital BSS1815 la. Yon sistèm ki bati sou istwa nou, idantite nou ak vizyon nou pou demen."
-            data-fra="Entrez dans la nouvelle ère numérique de BSS1815. Un système fondé sur notre histoire, notre identité et notre vision de demain."
-            data-eng="Enter the new digital era of BSS1815. A system built on our history, identity and vision for tomorrow."
-          >
-            Antre nan nouvo epòk dijital BSS1815 la. Yon sistèm ki
-            bati sou istwa nou, idantite nou ak vizyon nou pou demen.
-          </p>
+        <div class="social-layout">
 
-          <div class="hero-actions">
-            <a
-              class="btn btn-primary"
-              href="register.html"
-              data-kre="Kreye Kont"
-              data-fra="Créer un compte"
-              data-eng="Create Account"
-            >
-              Kreye Kont
+          <article class="social-card">
+            <h4>📺 YouTube</h4>
+
+            <p>
+              Aksede chanèl YouTube PRO-MAX FM la pou videyo,
+              entèvyou, emisyon ak live streaming.
+            </p>
+
+            <a href="video.html" class="btn btn-primary">
+              Louvri YouTube Center
             </a>
+          </article>
 
-            <a
-              class="btn btn-secondary"
-              href="contact.html"
-              data-kre="Kontakte Nou"
-              data-fra="Nous contacter"
-              data-eng="Contact Us"
-            >
-              Kontakte Nou
+          <article class="social-card">
+            <h4>🎵 Spotify</h4>
+
+            <p>
+              Jwenn podcast, mizik, epizòd espesyal ak lòt kontni
+              odyo PRO-MAX FM.
+            </p>
+
+            <a href="podcasts.html" class="btn btn-primary">
+              Louvri Spotify Center
             </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <span>Pwogramasyon</span>
+          <h3>Orè emisyon</h3>
+        </div>
+
+        <div class="schedule-list">
+
+          <div class="schedule-item">
+            <div class="schedule-time">6:00 AM</div>
+
+            <div>
+              <strong>Bonjou PRO-MAX</strong>
+
+              <p>
+                Nouvèl, enfòmasyon ak mizik pou kòmanse jounen an.
+              </p>
+            </div>
+
+            <span class="schedule-label">Matin</span>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-time">12:00 PM</div>
+
+            <div>
+              <strong>Midi Live</strong>
+
+              <p>
+                Deba, entèvyou ak aktyalite kominotè.
+              </p>
+            </div>
+
+            <span class="schedule-label">Live</span>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-time">7:00 PM</div>
+
+            <div>
+              <strong>PRO-MAX Night Show</strong>
+
+              <p>
+                Mizik, divètisman ak envite espesyal.
+              </p>
+            </div>
+
+            <span class="schedule-label">Aswè</span>
           </div>
 
         </div>
+
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="container">
 
       <div class="footer-grid">
 
-        <div class="footer-brand">
-          <a class="brand" href="#home">
-            <img
-              class="brand-logo"
-              src="assets/bss1815-logo.png"
-              alt="Logo BSS1815"
-            >
+        <div>
+          <img
+            src="assets/pro-max-fm-dmp.png"
+            alt="PRO-MAX FM DMP"
+            class="footer-logo"
+            onerror="this.style.display='none'"
+          />
 
-            <div class="brand-text">
-              <strong>BRIYANT SOLÈY SIGNO 1815</strong>
-              <span>PRO-MAX DMP</span>
-            </div>
-          </a>
+          <h4>PRO-MAX FM DMP</h4>
 
-          <p
-            data-kre="Platfòm dijital ofisyèl pou administrasyon, kominikasyon, istwa, kilti ak devlopman kominote Briyant Solèy Signo 1815."
-            data-fra="Plateforme numérique officielle pour l’administration, la communication, l’histoire, la culture et le développement de la communauté Briyant Solèy Signo 1815."
-            data-eng="Official digital platform for administration, communication, history, culture and development of the Briyant Solèy Signo 1815 community."
-          >
-            Platfòm dijital ofisyèl pou administrasyon, kominikasyon,
-            istwa, kilti ak devlopman kominote Briyant Solèy Signo 1815.
+          <p>
+            Powering the Future of Digital Radio.
           </p>
         </div>
 
         <div>
-          <h3
-            class="footer-title"
-            data-kre="Navigasyon"
-            data-fra="Navigation"
-            data-eng="Navigation"
-          >
-            Navigasyon
-          </h3>
+          <h4>Lyen rapid</h4>
 
-          <ul class="footer-links">
-            <li><a href="#home">Akèy</a></li>
-            <li><a href="#about">Konsènan</a></li>
-            <li><a href="#modules">Modil</a></li>
-            <li><a href="#leadership">Dirijan</a></li>
-            <li><a href="history.html">Istwa</a></li>
+          <ul>
+            <li>
+              <a href="live.html">Live Radio</a>
+            </li>
+
+            <li>
+              <a href="news.html">Nouvèl</a>
+            </li>
+
+            <li>
+              <a href="shows.html">Emisyon</a>
+            </li>
+
+            <li>
+              <a href="podcasts.html">Podcast</a>
+            </li>
+
+            <li>
+              <a href="gallery.html">Galri</a>
+            </li>
           </ul>
         </div>
 
         <div>
-          <h3
-            class="footer-title"
-            data-kre="Sistèm"
-            data-fra="Système"
-            data-eng="System"
-          >
-            Sistèm
-          </h3>
+          <h4>Administrasyon</h4>
 
-          <ul class="footer-links">
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
-            <li><a href="documents.html">Document Center</a></li>
-            <li><a href="contact.html">Contact</a></li>
+          <ul>
+            <li>
+              <a href="login.html">Login</a>
+            </li>
+
+            <li>
+              <a href="register.html">Enskripsyon</a>
+            </li>
+
+            <li>
+              <a href="privacy.html">Konfidansyalite</a>
+            </li>
+
+            <li>
+              <a href="faq.html">FAQ</a>
+            </li>
           </ul>
         </div>
 
       </div>
 
       <div class="copyright">
-        © <span id="currentYear"></span>
-        Briyant Solèy Signo 1815 — PRO-MAX DMP.
+        © <span id="currentYear"></span> PRO-MAX FM DMP.
         Tout dwa rezève.
       </div>
 
@@ -1568,74 +1175,230 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    const languageButtons = document.querySelectorAll(".language-btn");
-    const translatedElements = document.querySelectorAll(
-      "[data-kre][data-fra][data-eng]"
-    );
+    "use strict";
 
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
+    const modules = [
+      {
+        icon: "📻",
+        name: "Live Radio",
+        description: "Koute radyo PRO-MAX FM an dirèk.",
+        page: "live.html"
+      },
+      {
+        icon: "📰",
+        name: "Latest News",
+        description: "Nouvèl lokal, entènasyonal ak kominotè.",
+        page: "news.html"
+      },
+      {
+        icon: "🎙️",
+        name: "Shows",
+        description: "Emisyon, animatè ak pwogram espesyal.",
+        page: "shows.html"
+      },
+      {
+        icon: "🎧",
+        name: "Podcasts",
+        description: "Koute tout podcast ak epizòd yo.",
+        page: "podcasts.html"
+      },
+      {
+        icon: "📺",
+        name: "YouTube",
+        description: "Chanèl, videyo ak live streaming.",
+        page: "video.html"
+      },
+      {
+        icon: "🎵",
+        name: "Spotify",
+        description: "Podcast ak mizik PRO-MAX FM.",
+        page: "podcasts.html"
+      },
+      {
+        icon: "🎼",
+        name: "Music",
+        description: "Dekouvri mizik ak playlist yo.",
+        page: "musics.html"
+      },
+      {
+        icon: "🎤",
+        name: "Artists",
+        description: "Atis, mizisyen ak talan yo.",
+        page: "artists.html"
+      },
+      {
+        icon: "🎬",
+        name: "Videos",
+        description: "Videyo, repòtaj ak pwodiksyon espesyal.",
+        page: "video.html"
+      },
+      {
+        icon: "🖼️",
+        name: "Gallery",
+        description: "Foto evènman, emisyon ak aktivite yo.",
+        page: "gallery.html"
+      },
+      {
+        icon: "🏫",
+        name: "PRO-MAX Academy",
+        description: "Fòmasyon, edikasyon ak seri dijital.",
+        page: "academy.html"
+      },
+      {
+        icon: "⚽",
+        name: "Sports",
+        description: "Nouvèl espò, rezilta ak analiz.",
+        page: "sports.html"
+      },
+      {
+        icon: "💼",
+        name: "Business",
+        description: "Biznis, antreprenarya ak opòtinite.",
+        page: "business.html"
+      },
+      {
+        icon: "🌦️",
+        name: "Weather",
+        description: "Enfòmasyon sou kondisyon meteyo.",
+        page: "weather.html"
+      },
+      {
+        icon: "📅",
+        name: "Events",
+        description: "Evènman, pwogram ak aktivite espesyal.",
+        page: "events.html"
+      },
+      {
+        icon: "🗣️",
+        name: "Interviews",
+        description: "Entèvyou ak pèsonalite espesyal.",
+        page: "interviews.html"
+      },
+      {
+        icon: "🕯️",
+        name: "An Memwa",
+        description: "Memorial Hall pou moun nou onore yo.",
+        page: "an-memwa.html"
+      },
+      {
+        icon: "📢",
+        name: "Advertise",
+        description: "Piblisite ak patenarya komèsyal.",
+        page: "advertise.html"
+      },
+      {
+        icon: "❓",
+        name: "FAQ",
+        description: "Repons pou kesyon moun poze souvan.",
+        page: "faq.html"
+      },
+      {
+        icon: "🔐",
+        name: "Admin Login",
+        description: "Aksè sekirize pou ekip administrasyon an.",
+        page: "login.html"
+      }
+    ];
 
-      menuToggle.textContent = navLinks.classList.contains("open")
-        ? "✕"
-        : "☰";
-    });
+    const moduleGrid =
+      document.getElementById("moduleGrid");
 
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.textContent = "☰";
-      });
-    });
+    const menuButton =
+      document.getElementById("menuButton");
 
-    languageButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const selectedLanguage = button.dataset.language;
+    const mainNav =
+      document.getElementById("mainNav");
 
-        languageButtons.forEach((item) => {
-          item.classList.remove("active");
-        });
+    function renderModules() {
+      if (!moduleGrid) {
+        return;
+      }
 
-        button.classList.add("active");
+      moduleGrid.innerHTML = modules
+        .map((module) => {
+          return `
+            <a
+              class="module-card"
+              href="${module.page}"
+              aria-label="Louvri ${module.name}"
+            >
+              <div class="module-icon">
+                ${module.icon}
+              </div>
 
-        translatedElements.forEach((element) => {
-          const translatedText = element.dataset[selectedLanguage];
+              <h4>
+                ${module.name}
+              </h4>
 
-          if (translatedText) {
-            element.textContent = translatedText;
-          }
-        });
+              <p>
+                ${module.description}
+              </p>
 
-        document.documentElement.lang =
-          selectedLanguage === "kre"
-            ? "ht"
-            : selectedLanguage === "fra"
-            ? "fr"
-            : "en";
-
-        localStorage.setItem(
-          "bss1815-language",
-          selectedLanguage
-        );
-      });
-    });
-
-    const savedLanguage =
-      localStorage.getItem("bss1815-language") || "kre";
-
-    const savedLanguageButton = document.querySelector(
-      `[data-language="${savedLanguage}"]`
-    );
-
-    if (savedLanguageButton) {
-      savedLanguageButton.click();
+              <span class="module-status">
+                Aktif
+              </span>
+            </a>
+          `;
+        })
+        .join("");
     }
 
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
+    function toggleMenu() {
+      const isOpen =
+        mainNav.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.textContent =
+        isOpen ? "✕" : "☰";
+    }
+
+    function closeMenu() {
+      mainNav.classList.remove("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuButton.textContent = "☰";
+    }
+
+    function handleLogoError(image) {
+      image.style.display = "none";
+
+      const fallback =
+        image.nextElementSibling;
+
+      if (fallback) {
+        fallback.style.display = "grid";
+      }
+    }
+
+    menuButton.addEventListener(
+      "click",
+      toggleMenu
+    );
+
+    mainNav
+      .querySelectorAll("a")
+      .forEach((link) => {
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+      });
+
+    document
+      .getElementById("currentYear")
+      .textContent =
+        new Date().getFullYear();
+
+    renderModules();
   </script>
 
 </body>
-</html>
+                </html>
