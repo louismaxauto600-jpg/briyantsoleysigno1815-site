@@ -17,12 +17,12 @@
 
   <style>
     :root {
-      --orange: #ff7300;
-      --orange-light: #ff9d00;
-      --black: #050505;
-      --black-soft: #111111;
-      --gray: #bdbdbd;
-      --border: rgba(255, 115, 0, 0.35);
+      --orange: #ff6a00;
+      --orange-light: #ffad33;
+      --black: #000000;
+      --black-soft: #120600;
+      --orange-muted: #d97706;
+      --border: rgba(255, 106, 0, 0.35);
       --shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
     }
 
@@ -42,17 +42,32 @@
       background:
         radial-gradient(
           circle at top right,
-          rgba(255, 115, 0, 0.25),
+          rgba(255, 106, 0, 0.25),
           transparent 35%
         ),
         linear-gradient(
           135deg,
           #000000 0%,
-          #111111 50%,
-          #2b1200 100%
+          #120600 50%,
+          #351100 100%
         );
-      color: #ffffff;
+      color: #ffb35c;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        linear-gradient(
+          120deg,
+          transparent 0 35%,
+          rgba(255, 106, 0, 0.08) 50%,
+          transparent 65% 100%
+        );
     }
 
     a {
@@ -75,8 +90,6 @@
       width: min(1200px, 92%);
       margin: 0 auto;
     }
-
-    /* HEADER */
 
     header {
       position: sticky;
@@ -109,7 +122,7 @@
       border-radius: 14px;
       background: #000000;
       border: 1px solid var(--border);
-      box-shadow: 0 0 22px rgba(255, 115, 0, 0.35);
+      box-shadow: 0 0 22px rgba(255, 106, 0, 0.35);
     }
 
     .brand-text h1 {
@@ -120,7 +133,7 @@
 
     .brand-text p {
       margin-top: 4px;
-      color: var(--gray);
+      color: var(--orange-muted);
       font-size: 0.8rem;
     }
 
@@ -146,7 +159,7 @@
     .menu-button {
       display: none;
       border: 1px solid var(--border);
-      background: #111111;
+      background: #120600;
       color: var(--orange);
       width: 46px;
       height: 42px;
@@ -155,16 +168,15 @@
       font-size: 1.4rem;
     }
 
-    /* TICKER */
-
     .ticker {
       overflow: hidden;
-      background: linear-gradient(
-        90deg,
-        #ff7300,
-        #ff9d00,
-        #ff7300
-      );
+      background:
+        linear-gradient(
+          90deg,
+          #ff6a00,
+          #ffad33,
+          #ff6a00
+        );
       color: #000000;
       font-weight: 900;
       border-bottom: 2px solid #000000;
@@ -188,8 +200,6 @@
       }
     }
 
-    /* HERO */
-
     .hero {
       min-height: 650px;
       display: grid;
@@ -212,7 +222,7 @@
         ),
         radial-gradient(
           circle at 75% 35%,
-          rgba(255, 115, 0, 0.45),
+          rgba(255, 106, 0, 0.45),
           transparent 35%
         );
     }
@@ -230,7 +240,7 @@
       padding: 9px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(255, 115, 0, 0.12);
+      background: rgba(255, 106, 0, 0.12);
       color: var(--orange);
       font-size: 0.82rem;
       font-weight: 900;
@@ -246,13 +256,13 @@
 
     .hero h2 span {
       color: var(--orange);
-      text-shadow: 0 0 30px rgba(255, 115, 0, 0.35);
+      text-shadow: 0 0 30px rgba(255, 106, 0, 0.35);
     }
 
     .hero-description {
       max-width: 690px;
       margin-top: 24px;
-      color: #d5d5d5;
+      color: #ffb35c;
       font-size: 1.08rem;
       line-height: 1.75;
     }
@@ -280,21 +290,22 @@
 
     .btn-primary {
       color: #000000;
-      background: linear-gradient(
-        135deg,
-        var(--orange),
-        var(--orange-light)
-      );
-      box-shadow: 0 12px 30px rgba(255, 115, 0, 0.25);
+      background:
+        linear-gradient(
+          135deg,
+          var(--orange),
+          var(--orange-light)
+        );
+      box-shadow: 0 12px 30px rgba(255, 106, 0, 0.25);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 18px 35px rgba(255, 115, 0, 0.38);
+      box-shadow: 0 18px 35px rgba(255, 106, 0, 0.38);
     }
 
     .btn-secondary {
-      color: #ffffff;
+      color: #ffb35c;
       border-color: var(--border);
       background: rgba(0, 0, 0, 0.6);
     }
@@ -311,7 +322,7 @@
       background:
         linear-gradient(
           145deg,
-          rgba(255, 115, 0, 0.17),
+          rgba(255, 106, 0, 0.17),
           rgba(0, 0, 0, 0.92)
         );
       box-shadow: var(--shadow);
@@ -322,7 +333,7 @@
       height: 210px;
       object-fit: contain;
       margin: 0 auto 22px;
-      filter: drop-shadow(0 0 20px rgba(255, 115, 0, 0.4));
+      filter: drop-shadow(0 0 20px rgba(255, 106, 0, 0.4));
     }
 
     .live-status {
@@ -340,7 +351,7 @@
       height: 11px;
       border-radius: 50%;
       background: var(--orange);
-      box-shadow: 0 0 0 7px rgba(255, 115, 0, 0.12);
+      box-shadow: 0 0 0 7px rgba(255, 106, 0, 0.12);
       animation: pulse 1.5s infinite;
     }
 
@@ -355,8 +366,6 @@
       width: 100%;
       margin-top: 14px;
     }
-
-    /* SECTIONS */
 
     section {
       padding: 78px 0;
@@ -383,16 +392,14 @@
 
     .section-heading p {
       margin-top: 15px;
-      color: #bfbfbf;
+      color: #e88921;
       line-height: 1.7;
     }
 
-    /* MODULES */
-
     .modules {
       background: rgba(0, 0, 0, 0.38);
-      border-top: 1px solid rgba(255, 115, 0, 0.12);
-      border-bottom: 1px solid rgba(255, 115, 0, 0.12);
+      border-top: 1px solid rgba(255, 106, 0, 0.12);
+      border-bottom: 1px solid rgba(255, 106, 0, 0.12);
     }
 
     .module-grid {
@@ -409,7 +416,7 @@
       background:
         linear-gradient(
           145deg,
-          rgba(255, 115, 0, 0.1),
+          rgba(255, 106, 0, 0.1),
           rgba(5, 5, 5, 0.94)
         );
       transition: 0.25s ease;
@@ -419,7 +426,7 @@
     .module-card:hover {
       transform: translateY(-7px);
       border-color: var(--orange);
-      box-shadow: 0 16px 38px rgba(255, 115, 0, 0.14);
+      box-shadow: 0 16px 38px rgba(255, 106, 0, 0.14);
     }
 
     .module-icon {
@@ -434,7 +441,7 @@
 
     .module-card p {
       margin-top: 9px;
-      color: #bcbcbc;
+      color: #df7b12;
       line-height: 1.55;
       font-size: 0.9rem;
     }
@@ -451,8 +458,6 @@
       text-transform: uppercase;
     }
 
-    /* NEWS */
-
     .news-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -463,7 +468,7 @@
       overflow: hidden;
       border: 1px solid var(--border);
       border-radius: 20px;
-      background: #0c0c0c;
+      background: #100500;
       box-shadow: var(--shadow);
     }
 
@@ -475,10 +480,14 @@
       background:
         radial-gradient(
           circle,
-          rgba(255, 115, 0, 0.4),
+          rgba(255, 106, 0, 0.4),
           transparent 60%
         ),
-        linear-gradient(135deg, #171717, #291000);
+        linear-gradient(
+          135deg,
+          #1b0900,
+          #351100
+        );
     }
 
     .news-content {
@@ -498,12 +507,10 @@
 
     .news-content p {
       margin-top: 12px;
-      color: #bdbdbd;
+      color: #e88921;
       line-height: 1.6;
       font-size: 0.92rem;
     }
-
-    /* SOCIAL */
 
     .social-layout {
       display: grid;
@@ -518,7 +525,7 @@
       background:
         linear-gradient(
           145deg,
-          rgba(255, 115, 0, 0.15),
+          rgba(255, 106, 0, 0.15),
           rgba(0, 0, 0, 0.94)
         );
     }
@@ -530,53 +537,9 @@
 
     .social-card p {
       margin: 13px 0 24px;
-      color: #c2c2c2;
+      color: #ef9233;
       line-height: 1.65;
     }
-
-    .social-network-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .social-network-link {
-      min-height: 110px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-align: center;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 115, 0, 0.13),
-          rgba(0, 0, 0, 0.94)
-        );
-      transition: 0.25s ease;
-    }
-
-    .social-network-link:hover {
-      transform: translateY(-5px);
-      border-color: var(--orange);
-      box-shadow: 0 14px 30px rgba(255, 115, 0, 0.18);
-    }
-
-    .social-network-icon {
-      font-size: 1.8rem;
-    }
-
-    .social-network-name {
-      color: var(--orange);
-      font-weight: 900;
-    }
-
-    /* SCHEDULE */
 
     .schedule-list {
       display: grid;
@@ -600,7 +563,7 @@
     }
 
     .schedule-item p {
-      color: #bdbdbd;
+      color: #e88921;
       margin-top: 5px;
       font-size: 0.9rem;
     }
@@ -614,8 +577,6 @@
       font-weight: 900;
     }
 
-    /* FOOTER */
-
     footer {
       padding: 42px 0 28px;
       background: #000000;
@@ -624,7 +585,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
       gap: 34px;
     }
 
@@ -641,7 +602,7 @@
     footer p,
     footer li,
     footer a {
-      color: #a9a9a9;
+      color: #c96808;
       line-height: 1.8;
       font-size: 0.9rem;
     }
@@ -654,20 +615,14 @@
       color: var(--orange);
     }
 
-    .footer-contact {
-      overflow-wrap: anywhere;
-    }
-
     .copyright {
       margin-top: 32px;
       padding-top: 20px;
-      border-top: 1px solid rgba(255, 115, 0, 0.18);
-      color: #777777;
+      border-top: 1px solid rgba(255, 106, 0, 0.18);
+      color: #9f4300;
       text-align: center;
       font-size: 0.82rem;
     }
-
-    /* ERROR FALLBACK */
 
     .logo-fallback {
       width: 62px;
@@ -680,7 +635,57 @@
       font-weight: 900;
     }
 
-    /* RESPONSIVE */
+    body,
+    p,
+    li,
+    strong,
+    footer p,
+    footer li,
+    footer a {
+      color: #e88921;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .brand-text h1,
+    .section-heading span,
+    .module-card h4,
+    .social-card h4,
+    footer h4 {
+      color: var(--orange);
+    }
+
+    .hero h2,
+    .section-heading h3,
+    .schedule-item strong {
+      color: var(--orange-light);
+    }
+
+    .btn-secondary {
+      color: var(--orange-light);
+      border-color: var(--border);
+      background:
+        linear-gradient(
+          135deg,
+          #000000,
+          #241000
+        );
+    }
+
+    .module-card,
+    .news-card,
+    .social-card,
+    .schedule-item,
+    .hero-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 106, 0, 0.16),
+          rgba(0, 0, 0, 0.96)
+        );
+    }
 
     @media (max-width: 1000px) {
       .hero-grid {
@@ -696,14 +701,6 @@
       }
 
       .news-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .social-network-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -722,7 +719,7 @@
         flex-direction: column;
         align-items: stretch;
         padding: 14px;
-        background: #080808;
+        background: #0b0300;
         border: 1px solid var(--border);
         border-radius: 14px;
         box-shadow: var(--shadow);
@@ -784,8 +781,7 @@
         font-size: 2.45rem;
       }
 
-      .module-grid,
-      .social-network-grid {
+      .module-grid {
         grid-template-columns: 1fr;
       }
 
@@ -899,7 +895,7 @@
             LIVE RADIO
           </div>
 
-          <p style="text-align:center; color:#bdbdbd; line-height:1.6;">
+          <p style="text-align:center; color:#e88921; line-height:1.6;">
             Klike sou bouton an pou antre sou paj radyo an dirèk la.
           </p>
 
@@ -922,6 +918,7 @@
         <div class="section-heading">
           <span>Sèvis dijital</span>
           <h3>Tout modil prensipal yo</h3>
+
           <p>
             Chak kat anba a konekte ak paj sèvis li. Pa gen JavaScript
             ekstèn ki nesesè pou homepage sa a parèt.
@@ -948,7 +945,11 @@
 
             <div class="news-content">
               <small>PRO-MAX FM</small>
-              <h4>Radyo dijital la pare pou konekte kominote a</h4>
+
+              <h4>
+                Radyo dijital la pare pou konekte kominote a
+              </h4>
+
               <p>
                 Suiv emisyon, entèvyou, mizik ak pwogram espesyal sou
                 platfòm PRO-MAX FM DMP.
@@ -961,7 +962,11 @@
 
             <div class="news-content">
               <small>EMISYON</small>
-              <h4>Dekouvri pwogram ak animatè nou yo</h4>
+
+              <h4>
+                Dekouvri pwogram ak animatè nou yo
+              </h4>
+
               <p>
                 Konsilte orè emisyon yo epi jwenn tout enfòmasyon sou
                 animatè, DJ ak jounalis yo.
@@ -974,7 +979,11 @@
 
             <div class="news-content">
               <small>DIJITAL</small>
-              <h4>YouTube ak Spotify disponib sou platfòm nan</h4>
+
+              <h4>
+                YouTube ak Spotify disponib sou platfòm nan
+              </h4>
+
               <p>
                 Gade videyo, suiv live stream epi koute podcast ak mizik
                 atravè sèvis sosyal nou yo.
@@ -1025,90 +1034,6 @@
 
         </div>
 
-        <div class="social-network-grid">
-
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">▶️</span>
-            <span class="social-network-name">YouTube</span>
-          </a>
-
-          <a
-            href="https://open.spotify.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">🎵</span>
-            <span class="social-network-name">Spotify</span>
-          </a>
-
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">📘</span>
-            <span class="social-network-name">Facebook</span>
-          </a>
-
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">📸</span>
-            <span class="social-network-name">Instagram</span>
-          </a>
-
-          <a
-            href="https://www.tiktok.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">🎶</span>
-            <span class="social-network-name">TikTok</span>
-          </a>
-
-          <a
-            href="https://truthsocial.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">🇺🇸</span>
-            <span class="social-network-name">Truth Social</span>
-          </a>
-
-          <a
-            href="https://telegram.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">✈️</span>
-            <span class="social-network-name">Telegram</span>
-          </a>
-
-          <a
-            href="https://x.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-network-link"
-          >
-            <span class="social-network-icon">𝕏</span>
-            <span class="social-network-name">X / Twitter</span>
-          </a>
-
-        </div>
-
       </div>
     </section>
 
@@ -1127,7 +1052,10 @@
 
             <div>
               <strong>Bonjou PRO-MAX</strong>
-              <p>Nouvèl, enfòmasyon ak mizik pou kòmanse jounen an.</p>
+
+              <p>
+                Nouvèl, enfòmasyon ak mizik pou kòmanse jounen an.
+              </p>
             </div>
 
             <span class="schedule-label">Matin</span>
@@ -1138,7 +1066,10 @@
 
             <div>
               <strong>Midi Live</strong>
-              <p>Deba, entèvyou ak aktyalite kominotè.</p>
+
+              <p>
+                Deba, entèvyou ak aktyalite kominotè.
+              </p>
             </div>
 
             <span class="schedule-label">Live</span>
@@ -1149,7 +1080,10 @@
 
             <div>
               <strong>PRO-MAX Night Show</strong>
-              <p>Mizik, divètisman ak envite espesyal.</p>
+
+              <p>
+                Mizik, divètisman ak envite espesyal.
+              </p>
             </div>
 
             <span class="schedule-label">Aswè</span>
@@ -1186,11 +1120,25 @@
           <h4>Lyen rapid</h4>
 
           <ul>
-            <li><a href="live.html">Live Radio</a></li>
-            <li><a href="news.html">Nouvèl</a></li>
-            <li><a href="shows.html">Emisyon</a></li>
-            <li><a href="podcasts.html">Podcast</a></li>
-            <li><a href="gallery.html">Galri</a></li>
+            <li>
+              <a href="live.html">Live Radio</a>
+            </li>
+
+            <li>
+              <a href="news.html">Nouvèl</a>
+            </li>
+
+            <li>
+              <a href="shows.html">Emisyon</a>
+            </li>
+
+            <li>
+              <a href="podcasts.html">Podcast</a>
+            </li>
+
+            <li>
+              <a href="gallery.html">Galri</a>
+            </li>
           </ul>
         </div>
 
@@ -1198,85 +1146,20 @@
           <h4>Administrasyon</h4>
 
           <ul>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Enskripsyon</a></li>
-            <li><a href="privacy.html">Konfidansyalite</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-contact">
-          <h4>Kontak</h4>
-
-          <ul>
             <li>
-              📧
-              <a href="mailto:BSS1815-PROMAXFMDMP@GMAIL.COM">
-                BSS1815-PROMAXFMDMP@GMAIL.COM
-              </a>
+              <a href="login.html">Login</a>
             </li>
 
             <li>
-              🌐
-              <a
-                href="https://BRIYANTSOLEYSIGNO1815.COM"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                BRIYANTSOLEYSIGNO1815.COM
-              </a>
-            </li>
-          </ul>
-
-          <h4 style="margin-top:20px;">Rezo sosyal</h4>
-
-          <ul>
-            <li>
-              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-                ▶️ YouTube
-              </a>
+              <a href="register.html">Enskripsyon</a>
             </li>
 
             <li>
-              <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
-                🎵 Spotify
-              </a>
+              <a href="privacy.html">Konfidansyalite</a>
             </li>
 
             <li>
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                📘 Facebook
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                📸 Instagram
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
-                🎶 TikTok
-              </a>
-            </li>
-
-            <li>
-              <a href="https://truthsocial.com/" target="_blank" rel="noopener noreferrer">
-                🇺🇸 Truth Social
-              </a>
-            </li>
-
-            <li>
-              <a href="https://telegram.org/" target="_blank" rel="noopener noreferrer">
-                ✈️ Telegram
-              </a>
-            </li>
-
-            <li>
-              <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
-                𝕏 X / Twitter
-              </a>
+              <a href="faq.html">FAQ</a>
             </li>
           </ul>
         </div>
@@ -1417,9 +1300,14 @@
       }
     ];
 
-    const moduleGrid = document.getElementById("moduleGrid");
-    const menuButton = document.getElementById("menuButton");
-    const mainNav = document.getElementById("mainNav");
+    const moduleGrid =
+      document.getElementById("moduleGrid");
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const mainNav =
+      document.getElementById("mainNav");
 
     function renderModules() {
       if (!moduleGrid) {
@@ -1434,10 +1322,21 @@
               href="${module.page}"
               aria-label="Louvri ${module.name}"
             >
-              <div class="module-icon">${module.icon}</div>
-              <h4>${module.name}</h4>
-              <p>${module.description}</p>
-              <span class="module-status">Aktif</span>
+              <div class="module-icon">
+                ${module.icon}
+              </div>
+
+              <h4>
+                ${module.name}
+              </h4>
+
+              <p>
+                ${module.description}
+              </p>
+
+              <span class="module-status">
+                Aktif
+              </span>
             </a>
           `;
         })
@@ -1445,38 +1344,61 @@
     }
 
     function toggleMenu() {
-      const isOpen = mainNav.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.textContent = isOpen ? "✕" : "☰";
+      const isOpen =
+        mainNav.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.textContent =
+        isOpen ? "✕" : "☰";
     }
 
     function closeMenu() {
       mainNav.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
       menuButton.textContent = "☰";
     }
 
     function handleLogoError(image) {
       image.style.display = "none";
 
-      const fallback = image.nextElementSibling;
+      const fallback =
+        image.nextElementSibling;
 
       if (fallback) {
         fallback.style.display = "grid";
       }
     }
 
-    menuButton.addEventListener("click", toggleMenu);
+    menuButton.addEventListener(
+      "click",
+      toggleMenu
+    );
 
-    mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
+    mainNav
+      .querySelectorAll("a")
+      .forEach((link) => {
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+      });
 
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
+    document
+      .getElementById("currentYear")
+      .textContent =
+        new Date().getFullYear();
 
     renderModules();
   </script>
 
 </body>
-</html>
+  </html>
