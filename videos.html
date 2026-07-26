@@ -1,35 +1,426 @@
-<section class="video-grid">
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="video-card">
-    <video controls>
-      <source src="/videos/vid1.mp4" type="video/mp4">
-    </video>
-    <h3>Vid 1</h3>
-    <p>BSS1815 Official Video</p>
+<title>Video | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#000,#151515,#000);
+  color:#fff;
+  min-height:100vh;
+}
+
+header{
+  background:#000;
+  padding:45px 20px;
+  text-align:center;
+  border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+  color:#ff7a00;
+  font-size:42px;
+}
+
+header p{
+  color:#ffb366;
+  margin-top:10px;
+}
+
+.container{
+  width:min(1200px,94%);
+  margin:35px auto;
+}
+
+.hero{
+  background:#111;
+  border:2px solid #ff7a00;
+  border-radius:18px;
+  padding:35px;
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.hero h2{
+  color:#ff7a00;
+  margin-bottom:12px;
+}
+
+.hero p{
+  color:#ddd;
+  line-height:1.6;
+}
+
+.section-title{
+  color:#ff7a00;
+  font-size:28px;
+  margin:30px 0 18px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.video-card{
+  background:#111;
+  border:1px solid #ff7a00;
+  border-radius:16px;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.video-card:hover{
+  transform:translateY(-5px);
+}
+
+.video-screen{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid #ff7a00;
+  font-size:55px;
+}
+
+.video-content{
+  padding:20px;
+}
+
+.video-content h3{
+  color:#ff7a00;
+  margin-bottom:10px;
+}
+
+.video-content p{
+  color:#ccc;
+  line-height:1.5;
+}
+
+.meta{
+  color:#ffb366;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:11px 16px;
+  background:#ff7a00;
+  color:#000;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.featured{
+  background:#111;
+  border:2px solid #ff7a00;
+  border-radius:16px;
+  padding:25px;
+  margin-bottom:35px;
+}
+
+.featured-video{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border:1px solid #ff7a00;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+}
+
+.categories{
+  margin-top:35px;
+  background:#111;
+  border:2px solid #ff7a00;
+  border-radius:16px;
+  padding:25px;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:12px;
+}
+
+.category{
+  background:#000;
+  border:1px solid #ff7a00;
+  border-radius:10px;
+  padding:15px;
+  text-align:center;
+  color:#ffb366;
+}
+
+footer{
+  background:#000;
+  border-top:3px solid #ff7a00;
+  padding:25px;
+  text-align:center;
+  margin-top:50px;
+  color:#aaa;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:32px;
+  }
+
+  .hero{
+    padding:25px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>VIDEO CENTER</h1>
+  <p>BSS1815 PRO-MAX-DMP</p>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <h2>PRO-MAX Video Network</h2>
+
+  <p>
+    Gade emisyon, entèvyou, nouvèl, evènman,
+    mizik, edikasyon ak pwogram espesyal
+    BSS1815 PRO-MAX-DMP.
+  </p>
+</section>
+
+
+<section class="featured">
+
+  <h2 class="section-title">Featured Video</h2>
+
+  <div class="featured-video">
+    ▶️
   </div>
 
-  <div class="video-card">
-    <video controls>
-      <source src="/videos/vid4.mp4" type="video/mp4">
-    </video>
-    <h3>Vid 4</h3>
-    <p>BSS1815 Official Video</p>
-  </div>
+  <h3 style="color:#ff7a00;margin-top:18px;">
+    PRO-MAX Featured Program
+  </h3>
 
-  <div class="video-card">
-    <video controls>
-      <source src="/videos/koukou.mp4" type="video/mp4">
-    </video>
-    <h3>Koukou</h3>
-    <p>BSS1815 Official Video</p>
-  </div>
-
-  <div class="video-card">
-    <video controls>
-      <source src="/videos/magazen.mp4" type="video/mp4">
-    </video>
-    <h3>Magazen</h3>
-    <p>BSS1815 Store Video</p>
-  </div>
+  <p style="color:#ccc;margin-top:10px;line-height:1.5;">
+    Dènye videyo ak pwogram espesyal PRO-MAX
+    ap parèt isit la.
+  </p>
 
 </section>
+
+
+<h2 class="section-title">Latest Videos</h2>
+
+<section class="grid">
+
+  <article class="video-card">
+
+    <div class="video-screen">
+      ▶️
+    </div>
+
+    <div class="video-content">
+
+      <h3>PRO-MAX Live</h3>
+
+      <p>
+        Pwogram ak transmisyon espesyal
+        PRO-MAX.
+      </p>
+
+      <div class="meta">
+        Live & Special Programs
+      </div>
+
+      <a href="live.html" class="btn">
+        Watch Live
+      </a>
+
+    </div>
+
+  </article>
+
+
+  <article class="video-card">
+
+    <div class="video-screen">
+      🎤
+    </div>
+
+    <div class="video-content">
+
+      <h3>Interviews</h3>
+
+      <p>
+        Entèvyou ak lidè, atis,
+        antreprenè ak envite espesyal.
+      </p>
+
+      <div class="meta">
+        Interviews
+      </div>
+
+      <a href="interviews.html" class="btn">
+        View Interviews
+      </a>
+
+    </div>
+
+  </article>
+
+
+  <article class="video-card">
+
+    <div class="video-screen">
+      📰
+    </div>
+
+    <div class="video-content">
+
+      <h3>News Video</h3>
+
+      <p>
+        Nouvèl, kominote ak
+        enfòmasyon espesyal an videyo.
+      </p>
+
+      <div class="meta">
+        News & Community
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <article class="video-card">
+
+    <div class="video-screen">
+      🎵
+    </div>
+
+    <div class="video-content">
+
+      <h3>Music & Culture</h3>
+
+      <p>
+        Videyo mizik, atis,
+        kilti ayisyen ak dyaspora.
+      </p>
+
+      <div class="meta">
+        Music & Entertainment
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <article class="video-card">
+
+    <div class="video-screen">
+      🎓
+    </div>
+
+    <div class="video-content">
+
+      <h3>PRO-MAX Academy</h3>
+
+      <p>
+        Videyo edikatif, fòmasyon,
+        teknoloji ak devlopman.
+      </p>
+
+      <div class="meta">
+        Education
+      </div>
+
+      <a href="academy.html" class="btn">
+        Open Academy
+      </a>
+
+    </div>
+
+  </article>
+
+
+  <article class="video-card">
+
+    <div class="video-screen">
+      🎬
+    </div>
+
+    <div class="video-content">
+
+      <h3>Events & Highlights</h3>
+
+      <p>
+        Videyo evènman, aktivite
+        ak moman espesyal kominote a.
+      </p>
+
+      <div class="meta">
+        Events
+      </div>
+
+      <a href="events.html" class="btn">
+        View Events
+      </a>
+
+    </div>
+
+  </article>
+
+</section>
+
+
+<section class="categories">
+
+<h2 class="section-title">Video Categories</h2>
+
+<div class="category-grid">
+
+  <div class="category">Live</div>
+  <div class="category">News</div>
+  <div class="category">Interviews</div>
+  <div class="category">Music</div>
+  <div class="category">Culture</div>
+  <div class="category">Business</div>
+  <div class="category">Education</div>
+  <div class="category">Events</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+  © 2026 BSS1815 PRO-MAX-DMP | Video Center
+</footer>
+
+</body>
+</html>
