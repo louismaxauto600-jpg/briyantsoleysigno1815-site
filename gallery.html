@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | BSS1815 PRO-MAX-DMP</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#000,#151515,#000);
+  color:#fff;
+  min-height:100vh;
+}
+
+header{
+  background:#000;
+  padding:45px 20px;
+  text-align:center;
+  border-bottom:3px solid #ff7a00;
+}
+
+header h1{
+  color:#ff7a00;
+  font-size:42px;
+}
+
+header p{
+  color:#ffb366;
+  margin-top:10px;
+}
+
+.container{
+  width:min(1200px,94%);
+  margin:35px auto;
+}
+
+.hero{
+  background:#111;
+  border:2px solid #ff7a00;
+  border-radius:18px;
+  padding:35px;
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.hero h2{
+  color:#ff7a00;
+  margin-bottom:12px;
+}
+
+.hero p{
+  color:#ddd;
+  line-height:1.6;
+}
+
+.section-title{
+  color:#ff7a00;
+  font-size:28px;
+  margin:30px 0 18px;
+}
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.filter-btn{
+  padding:10px 16px;
+  border:1px solid #ff7a00;
+  border-radius:20px;
+  background:#000;
+  color:#ffb366;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+  background:#ff7a00;
+  color:#000;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.gallery-card{
+  background:#111;
+  border:1px solid #ff7a00;
+  border-radius:16px;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.gallery-card:hover{
+  transform:translateY(-5px);
+}
+
+.photo{
+  width:100%;
+  height:220px;
+  background:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+  border-bottom:1px solid #ff7a00;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.gallery-content{
+  padding:18px;
+}
+
+.gallery-content h3{
+  color:#ff7a00;
+  margin-bottom:8px;
+}
+
+.gallery-content p{
+  color:#ccc;
+  line-height:1.5;
+}
+
+.meta{
+  color:#ffb366;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.album-section{
+  margin-top:40px;
+  background:#111;
+  border:2px solid #ff7a00;
+  border-radius:16px;
+  padding:25px;
+}
+
+.album-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.album{
+  background:#000;
+  border:1px solid #ff7a00;
+  border-radius:12px;
+  padding:22px;
+  text-align:center;
+}
+
+.album .icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.album h3{
+  color:#ff7a00;
+  margin-bottom:7px;
+}
+
+.album p{
+  color:#bbb;
+  font-size:14px;
+}
+
+footer{
+  background:#000;
+  border-top:3px solid #ff7a00;
+  text-align:center;
+  padding:25px;
+  margin-top:50px;
+  color:#aaa;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:32px;
+  }
+
+  .hero{
+    padding:25px 18px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>PHOTO GALLERY</h1>
+  <p>BSS1815 PRO-MAX-DMP</p>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <h2>PRO-MAX Gallery</h2>
+
+  <p>
+    Foto evènman, emisyon, entèvyou, atis,
+    kominote, biznis ak moman espesyal
+    BSS1815 PRO-MAX-DMP.
+  </p>
+</section>
+
+<h2 class="section-title">Gallery</h2>
+
+<div class="filters">
+  <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
+  <button class="filter-btn" onclick="filterGallery('events',this)">Events</button>
+  <button class="filter-btn" onclick="filterGallery('radio',this)">Radio</button>
+  <button class="filter-btn" onclick="filterGallery('interviews',this)">Interviews</button>
+  <button class="filter-btn" onclick="filterGallery('community',this)">Community</button>
+  <button class="filter-btn" onclick="filterGallery('business',this)">Business</button>
+</div>
+
+<section class="gallery-grid">
+
+<article class="gallery-card" data-category="radio">
+  <div class="photo">📻</div>
+  <div class="gallery-content">
+    <h3>PRO-MAX FM Studio</h3>
+    <p>Foto ak moman espesyal nan estidyo PRO-MAX FM.</p>
+    <div class="meta">Radio</div>
+  </div>
+</article>
+
+<article class="gallery-card" data-category="events">
+  <div class="photo">🎉</div>
+  <div class="gallery-content">
+    <h3>Community Events</h3>
+    <p>Aktivite ak evènman espesyal nan kominote a.</p>
+    <div class="meta">Events</div>
+  </div>
+</article>
+
+<article class="gallery-card" data-category="interviews">
+  <div class="photo">🎤</div>
+  <div class="gallery-content">
+    <h3>Special Interviews</h3>
+    <p>Foto envite ak entèvyou espesyal PRO-MAX.</p>
+    <div class="meta">Interviews</div>
+  </div>
+</article>
+
+<article class="gallery-card" data-category="community">
+  <div class="photo">🤝</div>
+  <div class="gallery-content">
+    <h3>Community Spotlight</h3>
+    <p>Moun, òganizasyon ak aktivite kominotè.</p>
+    <div class="meta">Community</div>
+  </div>
+</article>
+
+<article class="gallery-card" data-category="business">
+  <div class="photo">💼</div>
+  <div class="gallery-content">
+    <h3>Business Spotlight</h3>
+    <p>Antreprenè ak biznis k ap sèvi kominote a.</p>
+    <div class="meta">Business</div>
+  </div>
+</article>
+
+<article class="gallery-card" data-category="events">
+  <div class="photo">📸</div>
+  <div class="gallery-content">
+    <h3>PRO-MAX Highlights</h3>
+    <p>Pi bon moman ak foto espesyal platfòm lan.</p>
+    <div class="meta">Highlights</div>
+  </div>
+</article>
+
+</section>
+
+<section class="album-section">
+
+<h2 class="section-title">Albums</h2>
+
+<div class="album-grid">
+
+<div class="album">
+  <div class="icon">📻</div>
+  <h3>PRO-MAX FM</h3>
+  <p>Studio & Radio</p>
+</div>
+
+<div class="album">
+  <div class="icon">🎤</div>
+  <h3>Interviews</h3>
+  <p>Guests & Conversations</p>
+</div>
+
+<div class="album">
+  <div class="icon">🎉</div>
+  <h3>Events</h3>
+  <p>Community Events</p>
+</div>
+
+<div class="album">
+  <div class="icon">🎵</div>
+  <h3>Music</h3>
+  <p>Artists & Culture</p>
+</div>
+
+<div class="album">
+  <div class="icon">💼</div>
+  <h3>Business</h3>
+  <p>Entrepreneurs</p>
+</div>
+
+<div class="album">
+  <div class="icon">⭐</div>
+  <h3>Special Moments</h3>
+  <p>PRO-MAX Highlights</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 BSS1815 PRO-MAX-DMP | Gallery
+</footer>
+
+<script>
+function filterGallery(category, button){
+
+  const cards = document.querySelectorAll(".gallery-card");
+  const buttons = document.querySelectorAll(".filter-btn");
+
+  buttons.forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+
+  cards.forEach(card => {
+
+    if(
+      category === "all" ||
+      card.dataset.category === category
+    ){
+      card.style.display = "block";
+    }else{
+      card.style.display = "none";
+    }
+
+  });
+}
+</script>
+
+</body>
+</html>
