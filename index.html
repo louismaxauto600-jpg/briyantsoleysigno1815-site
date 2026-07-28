@@ -14,7 +14,25 @@
   />
 
   <title>PRO-MAX FM DMP</title>
+/* FIX: PÈMÈT TOUT BOUTON AK LYEN RESEVWA KLIK */
+a,
+button,
+.primary-button,
+.secondary-button,
+.external-button,
+.module-card,
+.social-link {
+  position: relative !important;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+}
 
+.globe-wrap,
+.globe-sphere,
+body::before,
+body::after {
+  pointer-events: none !important;
+}
   <style>
     :root {
       --orange: #ff6a00;
