@@ -1,133 +1,792 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRO-MAX FM News | BSS1815 PRO-MAX-DMP</title>
+
+<title>PRO-MAX FM News</title>
+
 <style>
-body{margin:0;font-family:Arial;background:linear-gradient(135deg,#000,#ff6a00,#000);color:#fff3e6}
-header,footer{text-align:center;padding:30px;background:#000;border-bottom:3px solid #ff7a00}
-footer{border-top:3px solid #ff7a00;border-bottom:none}
-h1,h2,h3{color:#ff7a00}
-main{width:min(1100px,94%);margin:30px auto}
-.card{background:#000;border:1px solid #ff7a00;border-radius:16px;padding:22px;margin-bottom:22px}
-label{display:block;margin-top:12px;color:#ffd2a1;font-weight:bold}
-input,select,textarea{width:100%;padding:12px;margin-top:6px;border-radius:10px;border:1px solid #ff7a00;background:#090909;color:#fff}
-textarea{min-height:120px}
-button,.btn{background:#ff7a00;color:#000;border:none;border-radius:10px;padding:11px 15px;font-weight:bold;cursor:pointer;margin-top:14px;text-decoration:none;display:inline-block}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.news{background:#111;border:1px solid #ff7a00;border-radius:14px;padding:18px}
-.tag{display:inline-block;background:#ff7a00;color:#000;padding:5px 10px;border-radius:20px;font-weight:bold;font-size:13px}
-.small{color:#ffd2a1;font-size:14px}
+:root{
+  --orange:#ff6a00;
+  --orange2:#ff8c32;
+  --orange3:#ffb066;
+  --black:#000;
+  --black2:#080300;
+  --border:rgba(255,106,0,.35);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,106,0,.12),transparent 35%),
+    linear-gradient(180deg,#000,#0b0400,#000);
+  color:var(--orange2);
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#000;
+  border-bottom:1px solid var(--orange);
+}
+
+.nav{
+  max-width:1250px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-circle{
+  width:48px;
+  height:48px;
+  border:2px solid var(--orange);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+  color:var(--orange);
+}
+
+.brand strong{
+  color:var(--orange);
+  font-size:20px;
+}
+
+.brand small{
+  display:block;
+  color:var(--orange2);
+  margin-top:3px;
+}
+
+.nav-right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.lang{
+  display:flex;
+  border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
+}
+
+.lang button{
+  background:#000;
+  color:var(--orange);
+  border:0;
+  padding:8px 11px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.lang button.active{
+  background:var(--orange);
+  color:#000;
+}
+
+.home-btn{
+  padding:9px 14px;
+  border:1px solid var(--orange);
+  border-radius:8px;
+  color:var(--orange);
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  max-width:1250px;
+  margin:auto;
+  padding:70px 20px 45px;
+  text-align:center;
+}
+
+.hero h1{
+  color:var(--orange);
+  font-size:clamp(38px,7vw,72px);
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:800px;
+  margin:auto;
+  color:var(--orange3);
+  line-height:1.6;
+  font-size:18px;
+}
+
+/* CATEGORY BAR */
+
+.categories{
+  max-width:1250px;
+  margin:0 auto 35px;
+  padding:0 20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.category{
+  border:1px solid var(--orange);
+  padding:9px 14px;
+  border-radius:30px;
+  background:#000;
+  color:var(--orange);
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.category.active,
+.category:hover{
+  background:var(--orange);
+  color:#000;
+}
+
+/* BREAKING */
+
+.breaking{
+  max-width:1250px;
+  margin:0 auto 35px;
+  padding:0 20px;
+}
+
+.breaking-box{
+  border:1px solid var(--orange);
+  border-radius:14px;
+  padding:18px;
+  background:linear-gradient(145deg,#120600,#000);
+}
+
+.breaking-label{
+  display:inline-block;
+  background:var(--orange);
+  color:#000;
+  padding:6px 10px;
+  font-weight:bold;
+  border-radius:6px;
+  margin-bottom:12px;
+}
+
+.breaking-box h2{
+  color:var(--orange);
+  margin-bottom:8px;
+}
+
+.breaking-box p{
+  line-height:1.6;
+}
+
+/* NEWS GRID */
+
+.news-wrap{
+  max-width:1250px;
+  margin:auto;
+  padding:20px 20px 70px;
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.news-card{
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,#100600,#020202);
+  border-radius:14px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.news-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:0 0 22px rgba(255,106,0,.18);
+}
+
+.news-image{
+  height:180px;
+  background:
+    radial-gradient(circle at center,rgba(255,106,0,.25),transparent 60%),
+    #050200;
+  display:grid;
+  place-items:center;
+  font-size:58px;
+}
+
+.news-content{
+  padding:20px;
+}
+
+.news-meta{
+  font-size:12px;
+  color:var(--orange3);
+  margin-bottom:10px;
+}
+
+.news-content h3{
+  color:var(--orange);
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.news-content p{
+  line-height:1.55;
+  font-size:14px;
+  margin-bottom:16px;
+}
+
+.read-more{
+  display:inline-block;
+  background:var(--orange);
+  color:#000;
+  padding:10px 14px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+/* INFO NOTE */
+
+.note{
+  max-width:950px;
+  margin:0 auto 60px;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  text-align:center;
+  line-height:1.6;
+  background:#080300;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--orange);
+  padding:35px 20px;
+  background:#000;
+  text-align:center;
+}
+
+footer p{
+  color:var(--orange2);
+  line-height:1.7;
+}
+
+footer strong{
+  color:var(--orange);
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+  .nav{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .nav-right{
+    width:100%;
+    justify-content:space-between;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>PRO-MAX FM NEWS MODULE</h1>
-<p>BSS1815 PRO-MAX-DMP</p>
-<p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
+  <div class="nav">
+
+    <a href="index.html" class="brand">
+      <div class="brand-circle">FM</div>
+      <div>
+        <strong>PRO-MAX FM</strong>
+        <small>LA FORCE DU SON</small>
+      </div>
+    </a>
+
+    <div class="nav-right">
+      <div class="lang">
+        <button data-lang="fr" class="active">FRA</button>
+        <button data-lang="en">ENG</button>
+        <button data-lang="ht">KRE</button>
+      </div>
+
+      <a href="index.html" class="home-btn" data-i18n="home">
+        ACCUEIL
+      </a>
+    </div>
+
+  </div>
 </header>
 
-<main>
 
-<section class="card">
-<h2>Admin Publish News</h2>
+<section class="hero">
 
-<label>News Title</label>
-<input id="title" placeholder="Egzanp: PRO-MAX FM ap lanse nouvo emisyon">
+  <h1 data-i18n="title">
+    PRO-MAX FM NEWS
+  </h1>
 
-<label>Category</label>
-<select id="category">
-<option>News Bulletin</option>
-<option>Community Update</option>
-<option>Radio Announcement</option>
-<option>Podcast News</option>
-<option>Emergency Alert</option>
-<option>Official Notice</option>
-</select>
+  <p data-i18n="intro">
+    Toute l'actualité réunie dans un seul espace :
+    Haïti, États-Unis, immigration, international,
+    politique, sports, divertissement et communauté.
+  </p>
 
-<label>News Content</label>
-<textarea id="content" placeholder="Ekri nouvèl la isit la..."></textarea>
-
-<label>Status</label>
-<select id="status">
-<option>Published</option>
-<option>Draft</option>
-</select>
-
-<button onclick="publishNews()">Publish News</button>
 </section>
 
-<section class="card">
-<h2>Latest News / PRO-MAX FM Feed</h2>
-<div id="newsFeed" class="grid"></div>
+
+<div class="categories">
+
+  <button class="category active" data-filter="all">
+    ALL
+  </button>
+
+  <button class="category" data-filter="haiti">
+    HAÏTI
+  </button>
+
+  <button class="category" data-filter="usa">
+    ÉTATS-UNIS
+  </button>
+
+  <button class="category" data-filter="immigration">
+    IMMIGRATION
+  </button>
+
+  <button class="category" data-filter="international">
+    INTERNATIONAL
+  </button>
+
+  <button class="category" data-filter="politics">
+    POLITIQUE
+  </button>
+
+  <button class="category" data-filter="sports">
+    SPORTS
+  </button>
+
+  <button class="category" data-filter="entertainment">
+    DIVERTISSEMENT
+  </button>
+
+  <button class="category" data-filter="community">
+    COMMUNAUTÉ
+  </button>
+
+  <button class="category" data-filter="promax">
+    PRO-MAX FM NEWS
+  </button>
+
+</div>
+
+
+<section class="breaking">
+
+  <div class="breaking-box">
+
+    <span class="breaking-label">
+      BREAKING NEWS
+    </span>
+
+    <h2 data-i18n="breakingTitle">
+      Centre d'actualités PRO-MAX FM
+    </h2>
+
+    <p data-i18n="breakingText">
+      Les dernières nouvelles vérifiées apparaîtront ici
+      dès que les sources officielles seront connectées.
+    </p>
+
+  </div>
+
 </section>
+
+
+<main class="news-wrap">
+
+  <div class="news-grid" id="newsGrid">
+
+    <article class="news-card" data-category="haiti">
+
+      <div class="news-image">🇭🇹</div>
+
+      <div class="news-content">
+
+        <div class="news-meta">
+          HAÏTI • SOURCE À CONNECTER
+        </div>
+
+        <h3>
+          Actualités d'Haïti
+        </h3>
+
+        <p>
+          Les nouvelles nationales d'Haïti seront affichées ici
+          à partir de sources vérifiées.
+        </p>
+
+        <a href="#" class="read-more">
+          LIRE PLUS
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="news-card" data-category="usa">
+
+      <div class="news-image">🇺🇸</div>
+
+      <div class="news-content">
+
+        <div class="news-meta">
+          ÉTATS-UNIS • SOURCE À CONNECTER
+        </div>
+
+        <h3>
+          Actualités des États-Unis
+        </h3>
+
+        <p>
+          Informations importantes concernant les États-Unis
+          et la communauté haïtienne.
+        </p>
+
+        <a href="#" class="read-more">
+          LIRE PLUS
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="news-card" data-category="immigration">
+
+      <div class="news-image">🌎</div>
+
+      <div class="news-content">
+
+        <div class="news-meta">
+          IMMIGRATION • SOURCE À CONNECTER
+        </div>
+
+        <h3>
+          Immigration
+        </h3>
+
+        <p>
+          Actualités et informations générales sur les politiques
+          et procédures d'immigration.
+        </p>
+
+        <a href="#" class="read-more">
+          LIRE PLUS
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="news-card" data-category="international">
+
+      <div class="news-image">🌐</div>
+
+      <div class="news-content">
+
+        <div class="news-meta">
+          INTERNATIONAL • SOURCE À CONNECTER
+        </div>
+
+        <h3>
+          Monde
+        </h3>
+
+        <p>
+          Les grands événements internationaux et leurs impacts
+          sur nos communautés.
+        </p>
+
+        <a href="#" class="read-more">
+          LIRE PLUS
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="news-card" data-category="sports">
+
+      <div class="news-image">🏆</div>
+
+      <div class="news-content">
+
+        <div class="news-meta">
+          SPORTS • SOURCE À CONNECTER
+        </div>
+
+        <h3>
+          Sports
+        </h3>
+
+        <p>
+          Résultats, compétitions, équipes et actualités sportives.
+        </p>
+
+        <a href="#" class="read-more">
+          LIRE PLUS
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="news-card" data-category="promax">
+
+      <div class="news-image">📻</div>
+
+      <div class="news-content">
+
+        <div class="news-meta">
+          PRO-MAX FM NEWS
+        </div>
+
+        <h3>
+          Nouvelles de PRO-MAX FM
+        </h3>
+
+        <p>
+          Annonces officielles, événements, programmes,
+          nouveautés et mises à jour PRO-MAX FM.
+        </p>
+
+        <a href="#" class="read-more">
+          LIRE PLUS
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
 
 </main>
 
+
+<div class="note">
+
+  <strong>PRO-MAX FM NEWS</strong>
+
+  <br><br>
+
+  Cette page est conçue pour afficher des nouvelles
+  provenant de sources fiables et vérifiées.
+
+  Les articles externes ne seront pas copiés intégralement.
+  PRO-MAX FM utilisera des résumés, des sources,
+  des liens officiels ou des flux autorisés.
+
+</div>
+
+
 <footer>
-<p>© 2026 BSS1815 PRO-MAX-DMP | PRO-MAX FM NEWS</p>
+
+  <p>
+    <strong>PRO-MAX FM</strong><br>
+    LA FORCE DU SON
+  </p>
+
+  <p>
+    © 2026 PRO-MAX FM DMP — Tous droits réservés.
+  </p>
+
+  <p>
+    DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.
+  </p>
+
 </footer>
 
+
 <script>
-let newsList = JSON.parse(localStorage.getItem("promax_fm_news")) || [];
 
-function publishNews(){
-  const title=document.getElementById("title").value.trim();
-  const category=document.getElementById("category").value;
-  const content=document.getElementById("content").value.trim();
-  const status=document.getElementById("status").value;
+/* FILTER */
 
-  if(!title || !content){
-    alert("Title ak Content obligatwa.");
-    return;
-  }
+const categoryButtons =
+document.querySelectorAll(".category");
 
-  newsList.unshift({
-    title,
-    category,
-    content,
-    status,
-    date:new Date().toLocaleString()
+const cards =
+document.querySelectorAll(".news-card");
+
+categoryButtons.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    categoryButtons.forEach(btn=>
+      btn.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    const filter =
+      button.dataset.filter;
+
+    cards.forEach(card=>{
+
+      if(
+        filter === "all" ||
+        card.dataset.category === filter
+      ){
+        card.style.display="block";
+      }else{
+        card.style.display="none";
+      }
+
+    });
+
   });
 
-  localStorage.setItem("promax_fm_news",JSON.stringify(newsList));
+});
 
-  document.getElementById("title").value="";
-  document.getElementById("content").value="";
-  renderNews();
+
+/* LANGUAGES */
+
+const translations={
+
+fr:{
+  home:"ACCUEIL",
+  title:"PRO-MAX FM NEWS",
+  intro:
+  "Toute l'actualité réunie dans un seul espace : Haïti, États-Unis, immigration, international, politique, sports, divertissement et communauté.",
+  breakingTitle:"Centre d'actualités PRO-MAX FM",
+  breakingText:
+  "Les dernières nouvelles vérifiées apparaîtront ici dès que les sources officielles seront connectées."
+},
+
+en:{
+  home:"HOME",
+  title:"PRO-MAX FM NEWS",
+  intro:
+  "News from Haiti, the United States, immigration, international affairs, politics, sports, entertainment and the community in one place.",
+  breakingTitle:"PRO-MAX FM News Center",
+  breakingText:
+  "The latest verified stories will appear here when official news sources are connected."
+},
+
+ht:{
+  home:"AKÈY",
+  title:"NOUVÈL PRO-MAX FM",
+  intro:
+  "Nouvèl Ayiti, Etazini, imigrasyon, entènasyonal, politik, espò, amizman ak kominote a reyini nan yon sèl espas.",
+  breakingTitle:"Sant Nouvèl PRO-MAX FM",
+  breakingText:
+  "Dènye nouvèl verifye yo ap parèt isit la lè nou konekte sous ofisyèl yo."
 }
 
-function shareNews(title,content){
-  const text=`${title}\\n\\n${content}\\n\\nBSS1815 PRO-MAX-DMP | PRO-MAX FM`;
-  if(navigator.share){
-    navigator.share({title:title,text:text});
-  }else{
-    navigator.clipboard.writeText(text);
-    alert("News copied for WhatsApp/Facebook sharing.");
-  }
-}
+};
 
-function renderNews(){
-  const feed=document.getElementById("newsFeed");
-  feed.innerHTML="";
 
-  newsList.filter(n=>n.status==="Published").forEach((n,index)=>{
-    feed.innerHTML+=`
-      <article class="news">
-        <span class="tag">${n.category}</span>
-        <h3>${n.title}</h3>
-        <p class="small">${n.date}</p>
-        <p>${n.content}</p>
-        <button onclick="shareNews('${n.title.replace(/'/g,"")}','${n.content.replace(/'/g,"")}')">Share WhatsApp/Facebook</button>
-        <a class="btn" href="pro-max-fm.html">Send To PRO-MAX FM</a>
-      </article>
-    `;
+function setLanguage(lang){
+
+  const dictionary =
+  translations[lang] || translations.fr;
+
+  document.documentElement.lang=lang;
+
+  document
+  .querySelectorAll("[data-i18n]")
+  .forEach(element=>{
+
+    const key=
+    element.dataset.i18n;
+
+    if(dictionary[key]){
+      element.textContent=
+      dictionary[key];
+    }
+
   });
+
+  document
+  .querySelectorAll("[data-lang]")
+  .forEach(button=>{
+
+    button.classList.toggle(
+      "active",
+      button.dataset.lang===lang
+    );
+
+  });
+
 }
 
-renderNews();
+
+function detectLanguage(){
+
+  const lang=
+  navigator.language
+  .toLowerCase()
+  .split("-")[0];
+
+  if(lang==="fr") return "fr";
+  if(lang==="en") return "en";
+  if(lang==="ht") return "ht";
+
+  return "fr";
+}
+
+
+document
+.querySelectorAll("[data-lang]")
+.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    setLanguage(
+      button.dataset.lang
+    );
+
+  });
+
+});
+
+
+setLanguage(
+  detectLanguage()
+);
+
 </script>
 
 </body>
