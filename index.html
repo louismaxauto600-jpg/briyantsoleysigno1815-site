@@ -1,1422 +1,203 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <meta
-    name="description"
-    content="PRO-MAX FM DMP — Radyo dijital, nouvèl, mizik, emisyon ak sèvis medya."
-  />
-
-  <title>PRO-MAX FM DMP</title>
-/* FIX: PÈMÈT TOUT BOUTON AK LYEN RESEVWA KLIK */
-a,
-button,
-.primary-button,
-.secondary-button,
-.external-button,
-.module-card,
-.social-link {
-  position: relative !important;
-  z-index: 9999 !important;
-  pointer-events: auto !important;
-}
-
-.globe-wrap,
-.globe-sphere,
-body::before,
-body::after {
-  pointer-events: none !important;
-}
-  <style>
-    :root {
-      --orange: #ff6a00;
-      --orange-light: #ffad33;
-      --black: #000000;
-      --black-soft: #120600;
-      --orange-muted: #d97706;
-      --border: rgba(255, 106, 0, 0.35);
-      --shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(255, 106, 0, 0.25),
-          transparent 35%
-        ),
-        linear-gradient(
-          135deg,
-          #000000 0%,
-          #120600 50%,
-          #351100 100%
-        );
-      color: #ffb35c;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      background:
-        linear-gradient(
-          120deg,
-          transparent 0 35%,
-          rgba(255, 106, 0, 0.08) 50%,
-          transparent 65% 100%
-        );
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    select {
-      font: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(1200px, 92%);
-      margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.94);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(14px);
-    }
-
-    .header-inner {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-logo {
-      width: 62px;
-      height: 62px;
-      object-fit: contain;
-      border-radius: 14px;
-      background: #000000;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 22px rgba(255, 106, 0, 0.35);
-    }
-
-    .brand-text h1 {
-      font-size: clamp(1.05rem, 2vw, 1.55rem);
-      color: var(--orange);
-      letter-spacing: 0.5px;
-    }
-
-    .brand-text p {
-      margin-top: 4px;
-      color: var(--orange-muted);
-      font-size: 0.8rem;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    nav a {
-      padding: 11px 14px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    nav a:hover {
-      color: #000000;
-      background: var(--orange);
-    }
-
-    .menu-button {
-      display: none;
-      border: 1px solid var(--border);
-      background: #120600;
-      color: var(--orange);
-      width: 46px;
-      height: 42px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1.4rem;
-    }
-
-    .ticker {
-      overflow: hidden;
-      background:
-        linear-gradient(
-          90deg,
-          #ff6a00,
-          #ffad33,
-          #ff6a00
-        );
-      color: #000000;
-      font-weight: 900;
-      border-bottom: 2px solid #000000;
-    }
-
-    .ticker-track {
-      display: inline-block;
-      white-space: nowrap;
-      min-width: 100%;
-      padding: 11px 0;
-      animation: tickerMove 24s linear infinite;
-    }
-
-    @keyframes tickerMove {
-      from {
-        transform: translateX(100%);
-      }
-
-      to {
-        transform: translateX(-100%);
-      }
-    }
-
-    .hero {
-      min-height: 650px;
-      display: grid;
-      place-items: center;
-      padding: 80px 0;
-      position: relative;
-      isolation: isolate;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.94),
-          rgba(0, 0, 0, 0.62)
-        ),
-        radial-gradient(
-          circle at 75% 35%,
-          rgba(255, 106, 0, 0.45),
-          transparent 35%
-        );
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 106, 0, 0.12);
-      color: var(--orange);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 1.4px;
-    }
-
-    .hero h2 {
-      max-width: 760px;
-      font-size: clamp(2.5rem, 6vw, 5.5rem);
-      line-height: 0.98;
-      text-transform: uppercase;
-    }
-
-    .hero h2 span {
-      color: var(--orange);
-      text-shadow: 0 0 30px rgba(255, 106, 0, 0.35);
-    }
-
-    .hero-description {
-      max-width: 690px;
-      margin-top: 24px;
-      color: #ffb35c;
-      font-size: 1.08rem;
-      line-height: 1.75;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 50px;
-      padding: 0 22px;
-      border: 1px solid transparent;
-      border-radius: 12px;
-      font-weight: 900;
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
-
-    .btn-primary {
-      color: #000000;
-      background:
-        linear-gradient(
-          135deg,
-          var(--orange),
-          var(--orange-light)
-        );
-      box-shadow: 0 12px 30px rgba(255, 106, 0, 0.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 35px rgba(255, 106, 0, 0.38);
-    }
-
-    .btn-secondary {
-      color: #ffb35c;
-      border-color: var(--border);
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .btn-secondary:hover {
-      color: #000000;
-      background: var(--orange);
-    }
-
-    .hero-card {
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 106, 0, 0.17),
-          rgba(0, 0, 0, 0.92)
-        );
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card-logo {
-      width: 210px;
-      height: 210px;
-      object-fit: contain;
-      margin: 0 auto 22px;
-      filter: drop-shadow(0 0 20px rgba(255, 106, 0, 0.4));
-    }
-
-    .live-status {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--orange);
-      font-weight: 900;
-    }
-
-    .live-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--orange);
-      box-shadow: 0 0 0 7px rgba(255, 106, 0, 0.12);
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      50% {
-        transform: scale(1.3);
-        opacity: 0.65;
-      }
-    }
-
-    .player {
-      width: 100%;
-      margin-top: 14px;
-    }
-
-    section {
-      padding: 78px 0;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 34px;
-    }
-
-    .section-heading span {
-      color: var(--orange);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      font-size: 0.82rem;
-    }
-
-    .section-heading h3 {
-      margin-top: 10px;
-      font-size: clamp(1.9rem, 4vw, 3.4rem);
-      line-height: 1.08;
-    }
-
-    .section-heading p {
-      margin-top: 15px;
-      color: #e88921;
-      line-height: 1.7;
-    }
-
-    .modules {
-      background: rgba(0, 0, 0, 0.38);
-      border-top: 1px solid rgba(255, 106, 0, 0.12);
-      border-bottom: 1px solid rgba(255, 106, 0, 0.12);
-    }
-
-    .module-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .module-card {
-      min-height: 175px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 106, 0, 0.1),
-          rgba(5, 5, 5, 0.94)
-        );
-      transition: 0.25s ease;
-      cursor: pointer;
-    }
-
-    .module-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--orange);
-      box-shadow: 0 16px 38px rgba(255, 106, 0, 0.14);
-    }
-
-    .module-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-
-    .module-card h4 {
-      color: var(--orange);
-      font-size: 1.05rem;
-    }
-
-    .module-card p {
-      margin-top: 9px;
-      color: #df7b12;
-      line-height: 1.55;
-      font-size: 0.9rem;
-    }
-
-    .module-status {
-      display: inline-block;
-      margin-top: 14px;
-      color: #000000;
-      background: var(--orange);
-      padding: 5px 9px;
-      border-radius: 999px;
-      font-size: 0.68rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .news-card {
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: #100500;
-      box-shadow: var(--shadow);
-    }
-
-    .news-image {
-      height: 210px;
-      display: grid;
-      place-items: center;
-      font-size: 4rem;
-      background:
-        radial-gradient(
-          circle,
-          rgba(255, 106, 0, 0.4),
-          transparent 60%
-        ),
-        linear-gradient(
-          135deg,
-          #1b0900,
-          #351100
-        );
-    }
-
-    .news-content {
-      padding: 23px;
-    }
-
-    .news-content small {
-      color: var(--orange);
-      font-weight: 900;
-    }
-
-    .news-content h4 {
-      margin-top: 10px;
-      font-size: 1.22rem;
-      line-height: 1.35;
-    }
-
-    .news-content p {
-      margin-top: 12px;
-      color: #e88921;
-      line-height: 1.6;
-      font-size: 0.92rem;
-    }
-
-    .social-layout {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 25px;
-    }
-
-    .social-card {
-      padding: 34px;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 106, 0, 0.15),
-          rgba(0, 0, 0, 0.94)
-        );
-    }
-
-    .social-card h4 {
-      color: var(--orange);
-      font-size: 1.55rem;
-    }
-
-    .social-card p {
-      margin: 13px 0 24px;
-      color: #ef9233;
-      line-height: 1.65;
-    }
-
-    .schedule-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .schedule-item {
-      display: grid;
-      grid-template-columns: 125px 1fr auto;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .schedule-time {
-      color: var(--orange);
-      font-weight: 900;
-    }
-
-    .schedule-item p {
-      color: #e88921;
-      margin-top: 5px;
-      font-size: 0.9rem;
-    }
-
-    .schedule-label {
-      padding: 7px 10px;
-      border-radius: 999px;
-      color: #000000;
-      background: var(--orange);
-      font-size: 0.72rem;
-      font-weight: 900;
-    }
-
-    footer {
-      padding: 42px 0 28px;
-      background: #000000;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr 0.8fr;
-      gap: 34px;
-    }
-
-    .footer-logo {
-      width: 80px;
-      margin-bottom: 16px;
-    }
-
-    footer h4 {
-      color: var(--orange);
-      margin-bottom: 13px;
-    }
-
-    footer p,
-    footer li,
-    footer a {
-      color: #c96808;
-      line-height: 1.8;
-      font-size: 0.9rem;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer a:hover {
-      color: var(--orange);
-    }
-
-    .copyright {
-      margin-top: 32px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 106, 0, 0.18);
-      color: #9f4300;
-      text-align: center;
-      font-size: 0.82rem;
-    }
-
-    .logo-fallback {
-      width: 62px;
-      height: 62px;
-      display: none;
-      place-items: center;
-      border-radius: 14px;
-      color: #000000;
-      background: var(--orange);
-      font-weight: 900;
-    }
-
-    body,
-    p,
-    li,
-    strong,
-    footer p,
-    footer li,
-    footer a {
-      color: #e88921;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    .brand-text h1,
-    .section-heading span,
-    .module-card h4,
-    .social-card h4,
-    footer h4 {
-      color: var(--orange);
-    }
-
-    .hero h2,
-    .section-heading h3,
-    .schedule-item strong {
-      color: var(--orange-light);
-    }
-
-    .btn-secondary {
-      color: var(--orange-light);
-      border-color: var(--border);
-      background:
-        linear-gradient(
-          135deg,
-          #000000,
-          #241000
-        );
-    }
-
-    .module-card,
-    .news-card,
-    .social-card,
-    .schedule-item,
-    .hero-card {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 106, 0, 0.16),
-          rgba(0, 0, 0, 0.96)
-        );
-    }
-
-    @media (max-width: 1000px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        max-width: 600px;
-      }
-
-      .module-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .news-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 780px) {
-      .menu-button {
-        display: block;
-      }
-
-      nav {
-        position: absolute;
-        top: 82px;
-        left: 4%;
-        right: 4%;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 14px;
-        background: #0b0300;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        box-shadow: var(--shadow);
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      nav a {
-        text-align: center;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 65px 0;
-      }
-
-      .module-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .news-grid,
-      .social-layout,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .schedule-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .schedule-label {
-        width: fit-content;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .brand-text p {
-        display: none;
-      }
-
-      .brand-logo,
-      .logo-fallback {
-        width: 52px;
-        height: 52px;
-      }
-
-      .header-inner {
-        min-height: 72px;
-      }
-
-      nav {
-        top: 73px;
-      }
-
-      .hero h2 {
-        font-size: 2.45rem;
-      }
-
-      .module-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX ACADEMY | Learn. Evolve. Succeed.</title>
+<style>
+:root{--orange:#ff9a1f;--orange-light:#ffb86b;--orange-dark:#e67e00;--border:rgba(255,154,31,0.35);--bg:#000}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-height:100vh;overflow-x:hidden;font-family:Arial,Helvetica,sans-serif;color:var(--orange-light);background:#000}
+a{color:var(--orange-light);text-decoration:none!important}
+a:visited{color:var(--orange-light)!important}
+a:hover{color:var(--orange)!important}
+.contact-top{background:#0a0a0a;border-bottom:1px solid var(--border);padding:8px 0;font-size:0.75rem;text-align:center;color:var(--orange-light)}
+.contact-top a{color:var(--orange)!important;font-weight:900}
+header{position:sticky;top:0;z-index:2000;width:100%;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.98);backdrop-filter:blur(10px)}
+.header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo-video{width:56px;height:56px;flex:0 0 56px;border:2px solid var(--orange);border-radius:50%;background:#000;box-shadow:0 0 18px rgba(255,154,31,0.4);object-fit:cover}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-name{color:var(--orange);font-size:1rem;font-weight:950;letter-spacing:0.03em;text-transform:uppercase}
+.brand-slogan{color:var(--orange-light);font-size:0.62rem;font-weight:800;letter-spacing:0.06em;margin-top:3px}
+.desktop-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.nav-link{padding:10px 10px;color:var(--orange-light)!important;font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:0.02em;transition:0.2s;border-radius:8px}
+.nav-link:hover{color:#000!important;background:var(--orange)}
+.language-switcher{display:flex;gap:3px;padding:3px;margin-left:8px;border:1px solid var(--border);border-radius:999px;background:#0a0a0a}
+.language-button{min-width:38px;padding:7px 8px;border:0;border-radius:999px;color:var(--orange-light);background:transparent;font-size:0.65rem;font-weight:950;cursor:pointer;transition:0.2s}
+.language-button.active{color:#000;background:var(--orange)}
+.language-button:hover{color:#000;background:var(--orange)}
+.menu-button{display:none;width:44px;height:44px;border:1px solid var(--border);border-radius:10px;background:#0a0a0a;cursor:pointer}
+.menu-button span{display:block;height:2px;margin:5px 8px;border-radius:8px;background:var(--orange)}
+.mobile-menu{display:none;position:fixed;top:78px;right:0;bottom:0;z-index:1900;width:min(360px,85%);flex-direction:column;gap:8px;padding:24px;border-left:1px solid var(--border);background:#000;transform:translateX(105%);transition:0.3s}
+.mobile-menu.open{transform:translateX(0);display:flex}
+.container{width:min(1200px,calc(100% - 28px));margin:auto}
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;padding:60px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;align-items:center;gap:40px}
+.hero-badge{display:inline-flex;padding:9px 16px;border:1px solid var(--border);border-radius:999px;color:var(--orange);background:rgba(255,154,31,0.08);font-size:0.75rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase}
+.hero-title{margin-top:22px;color:var(--orange);font-size:clamp(2.8rem,6vw,5.2rem);line-height:0.95;font-weight:950;text-transform:uppercase}
+.hero-title span{display:block;color:var(--orange-light);font-size:0.55em;margin-top:8px}
+.hero-slogan{margin-top:18px;color:var(--orange);font-size:1.1rem;font-weight:950;letter-spacing:0.1em}
+.hero-description{max-width:680px;margin-top:18px;color:var(--orange-light);font-size:1rem;line-height:1.7;opacity:0.9}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border:2px solid var(--orange);border-radius:12px;font-size:0.8rem;font-weight:950;letter-spacing:0.04em;text-transform:uppercase;transition:0.25s;cursor:pointer;text-decoration:none!important}
+.btn-primary{color:#000!important;background:linear-gradient(135deg,var(--orange),#ffb347)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,154,31,0.25)}
+.btn-secondary{color:var(--orange)!important;background:transparent}
+.btn-secondary:hover{color:#000!important;background:var(--orange)}
+.hero-visual{display:flex;align-items:center;justify-content:center}
+.academy-video-wrap{width:min(100%,520px);overflow:hidden;border:2px solid var(--orange);border-radius:22px;background:#000;box-shadow:0 0 40px rgba(255,154,31,0.2)}
+.academy-main-video{width:100%;height:auto;display:block}
+.section{padding:70px 0}
+.section-header{max-width:760px;margin:0 auto 40px;text-align:center}
+.section-label{display:inline-block;padding:7px 14px;border:1px solid var(--border);border-radius:999px;color:var(--orange);background:rgba(255,154,31,0.08);font-size:0.72rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase}
+.section-title{margin-top:14px;color:var(--orange);font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;text-transform:uppercase}
+footer{border-top:1px solid var(--border);background:#000}
+.footer-main{display:grid;grid-template-columns:1.4fr 0.7fr 0.8fr 0.9fr;gap:30px;padding:50px 0 30px}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-brand-text h3{color:var(--orange);font-size:1rem;text-transform:uppercase;line-height:1.1}
+.footer-brand-text p{color:var(--orange-light);font-size:0.65rem;margin-top:4px}
+.footer-description{margin-top:14px;color:var(--orange-light);font-size:0.84rem;line-height:1.6;opacity:0.85;max-width:320px}
+.footer-column h4{color:var(--orange);font-size:0.8rem;text-transform:uppercase;margin-bottom:14px;letter-spacing:0.05em}
+.footer-links{display:grid;gap:9px}
+.footer-links a{color:var(--orange-light)!important;font-size:0.82rem;opacity:0.9;transition:0.2s;text-decoration:none!important}
+.footer-links a:hover{color:var(--orange)!important;opacity:1;transform:translateX(3px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-top:1px solid var(--border);font-size:0.72rem;color:var(--orange-light);opacity:0.7;flex-wrap:wrap}
+@media (max-width:1020px){.desktop-nav{display:none}.menu-button{display:block}.hero-grid{grid-template-columns:1fr}.hero{padding-top:30px}.footer-main{grid-template-columns:1fr 1fr}.footer-main>div:first-child{grid-column:1/-1}}
+@media (max-width:600px){.footer-main{grid-template-columns:1fr}.hero-actions{display:grid}.btn{width:100%}}
+</style>
 </head>
-
 <body>
-
-  <header>
-    <div class="container header-inner">
-
-      <a href="index.html" class="brand">
-
-        <img
-          src="assets/pro-max-fm-dmp.png"
-          alt="Logo PRO-MAX FM DMP"
-          class="brand-logo"
-          onerror="handleLogoError(this)"
-        />
-
-        <div class="logo-fallback">PM</div>
-
-        <div class="brand-text">
-          <h1>PRO-MAX FM DMP</h1>
-          <p>Powering the Future of Digital Radio</p>
-        </div>
-
-      </a>
-
-      <button
-        type="button"
-        class="menu-button"
-        id="menuButton"
-        aria-label="Louvri meni an"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
-
-      <nav id="mainNav">
-        <a href="index.html">Akèy</a>
-        <a href="#modules">Modil</a>
-        <a href="live.html">Live</a>
-        <a href="news.html">Nouvèl</a>
-        <a href="shows.html">Emisyon</a>
-        <a href="podcasts.html">Podcast</a>
-        <a href="login.html">Admin</a>
-      </nav>
-
-    </div>
-  </header>
-
-  <div class="ticker">
-    <div class="ticker-track">
-      🔥 BYENVENI SOU PRO-MAX FM DMP — RADYO DIJITAL, NOUVÈL,
-      MIZIK, PODCAST, ESPÒ, BIZNIS, AKADEMI AK LIVE STREAMING 🔥
-    </div>
-  </div>
-
-  <main>
-
-    <section class="hero">
-      <div class="container hero-grid">
-
-        <div>
-          <span class="eyebrow">
-            PLATFÒM RADYO DIJITAL
-          </span>
-
-          <h2>
-            PRO-MAX FM
-            <span>DMP</span>
-          </h2>
-
-          <p class="hero-description">
-            Yon platfòm radyo modèn ki rasanble emisyon an dirèk,
-            nouvèl, mizik, podcast, videyo, espò, biznis, akademi,
-            evènman ak sèvis medya dijital sou yon sèl espas.
-          </p>
-
-          <div class="hero-actions">
-            <a href="live.html" class="btn btn-primary">
-              ▶ Koute Live
-            </a>
-
-            <a href="#modules" class="btn btn-secondary">
-              Gade Tout Modil Yo
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-card">
-
-          <img
-            src="assets/pro-max-fm-dmp.png"
-            alt="PRO-MAX FM DMP"
-            class="hero-card-logo"
-            onerror="this.style.display='none'"
-          />
-
-          <div class="live-status">
-            <span class="live-dot"></span>
-            LIVE RADIO
-          </div>
-
-          <p style="text-align:center; color:#e88921; line-height:1.6;">
-            Klike sou bouton an pou antre sou paj radyo an dirèk la.
-          </p>
-
-          <a
-            href="live.html"
-            class="btn btn-primary"
-            style="width:100%; margin-top:22px;"
-          >
-            🎙️ Louvri Live Player
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-    <section class="modules" id="modules">
-      <div class="container">
-
-        <div class="section-heading">
-          <span>Sèvis dijital</span>
-          <h3>Tout modil prensipal yo</h3>
-
-          <p>
-            Chak kat anba a konekte ak paj sèvis li. Pa gen JavaScript
-            ekstèn ki nesesè pou homepage sa a parèt.
-          </p>
-        </div>
-
-        <div class="module-grid" id="moduleGrid"></div>
-
-      </div>
-    </section>
-
-    <section id="latest-news">
-      <div class="container">
-
-        <div class="section-heading">
-          <span>Dènye nouvèl</span>
-          <h3>Enfòmasyon ak aktyalite</h3>
-        </div>
-
-        <div class="news-grid">
-
-          <article class="news-card">
-            <div class="news-image">📻</div>
-
-            <div class="news-content">
-              <small>PRO-MAX FM</small>
-
-              <h4>
-                Radyo dijital la pare pou konekte kominote a
-              </h4>
-
-              <p>
-                Suiv emisyon, entèvyou, mizik ak pwogram espesyal sou
-                platfòm PRO-MAX FM DMP.
-              </p>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <div class="news-image">🎙️</div>
-
-            <div class="news-content">
-              <small>EMISYON</small>
-
-              <h4>
-                Dekouvri pwogram ak animatè nou yo
-              </h4>
-
-              <p>
-                Konsilte orè emisyon yo epi jwenn tout enfòmasyon sou
-                animatè, DJ ak jounalis yo.
-              </p>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <div class="news-image">🌐</div>
-
-            <div class="news-content">
-              <small>DIJITAL</small>
-
-              <h4>
-                YouTube ak Spotify disponib sou platfòm nan
-              </h4>
-
-              <p>
-                Gade videyo, suiv live stream epi koute podcast ak mizik
-                atravè sèvis sosyal nou yo.
-              </p>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <section id="social-streaming">
-      <div class="container">
-
-        <div class="section-heading">
-          <span>Social Streaming</span>
-          <h3>YouTube ak Spotify</h3>
-        </div>
-
-        <div class="social-layout">
-
-          <article class="social-card">
-            <h4>📺 YouTube</h4>
-
-            <p>
-              Aksede chanèl YouTube PRO-MAX FM la pou videyo,
-              entèvyou, emisyon ak live streaming.
-            </p>
-
-            <a href="video.html" class="btn btn-primary">
-              Louvri YouTube Center
-            </a>
-          </article>
-
-          <article class="social-card">
-            <h4>🎵 Spotify</h4>
-
-            <p>
-              Jwenn podcast, mizik, epizòd espesyal ak lòt kontni
-              odyo PRO-MAX FM.
-            </p>
-
-            <a href="podcasts.html" class="btn btn-primary">
-              Louvri Spotify Center
-            </a>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-
-        <div class="section-heading">
-          <span>Pwogramasyon</span>
-          <h3>Orè emisyon</h3>
-        </div>
-
-        <div class="schedule-list">
-
-          <div class="schedule-item">
-            <div class="schedule-time">6:00 AM</div>
-
-            <div>
-              <strong>Bonjou PRO-MAX</strong>
-
-              <p>
-                Nouvèl, enfòmasyon ak mizik pou kòmanse jounen an.
-              </p>
-            </div>
-
-            <span class="schedule-label">Matin</span>
-          </div>
-
-          <div class="schedule-item">
-            <div class="schedule-time">12:00 PM</div>
-
-            <div>
-              <strong>Midi Live</strong>
-
-              <p>
-                Deba, entèvyou ak aktyalite kominotè.
-              </p>
-            </div>
-
-            <span class="schedule-label">Live</span>
-          </div>
-
-          <div class="schedule-item">
-            <div class="schedule-time">7:00 PM</div>
-
-            <div>
-              <strong>PRO-MAX Night Show</strong>
-
-              <p>
-                Mizik, divètisman ak envite espesyal.
-              </p>
-            </div>
-
-            <span class="schedule-label">Aswè</span>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div>
-          <img
-            src="assets/pro-max-fm-dmp.png"
-            alt="PRO-MAX FM DMP"
-            class="footer-logo"
-            onerror="this.style.display='none'"
-          />
-
-          <h4>PRO-MAX FM DMP</h4>
-
-          <p>
-            Powering the Future of Digital Radio.
-          </p>
-        </div>
-
-        <div>
-          <h4>Lyen rapid</h4>
-
-          <ul>
-            <li>
-              <a href="live.html">Live Radio</a>
-            </li>
-
-            <li>
-              <a href="news.html">Nouvèl</a>
-            </li>
-
-            <li>
-              <a href="shows.html">Emisyon</a>
-            </li>
-
-            <li>
-              <a href="podcasts.html">Podcast</a>
-            </li>
-
-            <li>
-              <a href="gallery.html">Galri</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Administrasyon</h4>
-
-          <ul>
-            <li>
-              <a href="login.html">Login</a>
-            </li>
-
-            <li>
-              <a href="register.html">Enskripsyon</a>
-            </li>
-
-            <li>
-              <a href="privacy.html">Konfidansyalite</a>
-            </li>
-
-            <li>
-              <a href="faq.html">FAQ</a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="copyright">
-        © <span id="currentYear"></span> PRO-MAX FM DMP.
-        Tout dwa rezève.
-      </div>
-
-    </div>
-  </footer>
-
-  <script>
-    "use strict";
-
-    const modules = [
-      {
-        icon: "📻",
-        name: "Live Radio",
-        description: "Koute radyo PRO-MAX FM an dirèk.",
-        page: "live.html"
-      },
-      {
-        icon: "📰",
-        name: "Latest News",
-        description: "Nouvèl lokal, entènasyonal ak kominotè.",
-        page: "news.html"
-      },
-      {
-        icon: "🎙️",
-        name: "Shows",
-        description: "Emisyon, animatè ak pwogram espesyal.",
-        page: "shows.html"
-      },
-      {
-        icon: "🎧",
-        name: "Podcasts",
-        description: "Koute tout podcast ak epizòd yo.",
-        page: "podcasts.html"
-      },
-      {
-        icon: "📺",
-        name: "YouTube",
-        description: "Chanèl, videyo ak live streaming.",
-        page: "video.html"
-      },
-      {
-        icon: "🎵",
-        name: "Spotify",
-        description: "Podcast ak mizik PRO-MAX FM.",
-        page: "podcasts.html"
-      },
-      {
-        icon: "🎼",
-        name: "Music",
-        description: "Dekouvri mizik ak playlist yo.",
-        page: "musics.html"
-      },
-      {
-        icon: "🎤",
-        name: "Artists",
-        description: "Atis, mizisyen ak talan yo.",
-        page: "artists.html"
-      },
-      {
-        icon: "🎬",
-        name: "Videos",
-        description: "Videyo, repòtaj ak pwodiksyon espesyal.",
-        page: "video.html"
-      },
-      {
-        icon: "🖼️",
-        name: "Gallery",
-        description: "Foto evènman, emisyon ak aktivite yo.",
-        page: "gallery.html"
-      },
-      {
-        icon: "🏫",
-        name: "PRO-MAX Academy",
-        description: "Fòmasyon, edikasyon ak seri dijital.",
-        page: "academy.html"
-      },
-      {
-        icon: "⚽",
-        name: "Sports",
-        description: "Nouvèl espò, rezilta ak analiz.",
-        page: "sports.html"
-      },
-      {
-        icon: "💼",
-        name: "Business",
-        description: "Biznis, antreprenarya ak opòtinite.",
-        page: "business.html"
-      },
-      {
-        icon: "🌦️",
-        name: "Weather",
-        description: "Enfòmasyon sou kondisyon meteyo.",
-        page: "weather.html"
-      },
-      {
-        icon: "📅",
-        name: "Events",
-        description: "Evènman, pwogram ak aktivite espesyal.",
-        page: "events.html"
-      },
-      {
-        icon: "🗣️",
-        name: "Interviews",
-        description: "Entèvyou ak pèsonalite espesyal.",
-        page: "interviews.html"
-      },
-      {
-        icon: "🕯️",
-        name: "An Memwa",
-        description: "Memorial Hall pou moun nou onore yo.",
-        page: "an-memwa.html"
-      },
-      {
-        icon: "📢",
-        name: "Advertise",
-        description: "Piblisite ak patenarya komèsyal.",
-        page: "advertise.html"
-      },
-      {
-        icon: "❓",
-        name: "FAQ",
-        description: "Repons pou kesyon moun poze souvan.",
-        page: "faq.html"
-      },
-      {
-        icon: "🔐",
-        name: "Admin Login",
-        description: "Aksè sekirize pou ekip administrasyon an.",
-        page: "login.html"
-      }
-    ];
-
-    const moduleGrid =
-      document.getElementById("moduleGrid");
-
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const mainNav =
-      document.getElementById("mainNav");
-
-    function renderModules() {
-      if (!moduleGrid) {
-        return;
-      }
-
-      moduleGrid.innerHTML = modules
-        .map((module) => {
-          return `
-            <a
-              class="module-card"
-              href="${module.page}"
-              aria-label="Louvri ${module.name}"
-            >
-              <div class="module-icon">
-                ${module.icon}
-              </div>
-
-              <h4>
-                ${module.name}
-              </h4>
-
-              <p>
-                ${module.description}
-              </p>
-
-              <span class="module-status">
-                Aktif
-              </span>
-            </a>
-          `;
-        })
-        .join("");
-    }
-
-    function toggleMenu() {
-      const isOpen =
-        mainNav.classList.toggle("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuButton.textContent =
-        isOpen ? "✕" : "☰";
-    }
-
-    function closeMenu() {
-      mainNav.classList.remove("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuButton.textContent = "☰";
-    }
-
-    function handleLogoError(image) {
-      image.style.display = "none";
-
-      const fallback =
-        image.nextElementSibling;
-
-      if (fallback) {
-        fallback.style.display = "grid";
-      }
-    }
-
-    menuButton.addEventListener(
-      "click",
-      toggleMenu
-    );
-
-    mainNav
-      .querySelectorAll("a")
-      .forEach((link) => {
-        link.addEventListener(
-          "click",
-          closeMenu
-        );
-      });
-
-    document
-      .getElementById("currentYear")
-      .textContent =
-        new Date().getFullYear();
-
-    renderModules();
-  </script>
-
+<div class="contact-top">
+<div class="container">
+🌐 <a href="https://www.pro-maxacademie.com" target="_blank">www.pro-maxacademie.com</a> &nbsp;&nbsp; 📧 promaxacademie@gmail.com &nbsp;&nbsp; 📞 (407) 640-5166 | (516) 216-8494
+</div>
+</div>
+<header>
+<div class="container header-inner">
+<a href="#home" class="brand">
+<video class="brand-logo-video" autoplay muted loop playsinline poster="">
+<source src="pro-maxa-cademie-II.mp4" type="video/mp4">
+<source src="pro-maxa-cademie-ii.mp4" type="video/mp4">
+<source src="pro-max-academie.mp4" type="video/mp4">
+<source src="pro-max-cademie.mp4" type="video/mp4">
+</video>
+<div class="brand-text">
+<span class="brand-name">PRO-MAX ACADEMY</span>
+<span class="brand-slogan">LEARN • EVOLVE • SUCCEED</span>
+</div>
+</a>
+<nav class="desktop-nav">
+<a href="#home" class="nav-link" data-i18n="navHome">HOME</a>
+<a href="#courses" class="nav-link" data-i18n="navCourses">COURSE</a>
+<a href="#categories" class="nav-link" data-i18n="navCategories">CATEGORY</a>
+<a href="#ai" class="nav-link" data-i18n="navAi">AI TUTOR</a>
+<a href="#certificates" class="nav-link" data-i18n="navCert">CERTIFICATE</a>
+<a href="#login" class="nav-link" data-i18n="navLogin">LOGIN</a>
+<a href="#create" class="btn btn-primary" style="min-height:40px;padding:8px 16px;margin-left:6px">CREATE</a>
+<div class="language-switcher">
+<button class="language-button active" data-lang="en" onclick="setLang('en')">ENG</button>
+<button class="language-button" data-lang="ht" onclick="setLang('ht')">KRE</button>
+<button class="language-button" data-lang="fr" onclick="setLang('fr')">FRA</button>
+</div>
+</nav>
+<button class="menu-button" id="menuButton" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+<a href="#home" class="nav-link" data-i18n="navHome">HOME</a>
+<a href="#courses" class="nav-link" data-i18n="navCourses">COURSE</a>
+<a href="#categories" class="nav-link" data-i18n="navCategories">CATEGORY</a>
+<a href="#ai" class="nav-link" data-i18n="navAi">AI TUTOR</a>
+<a href="#certificates" class="nav-link" data-i18n="navCert">CERTIFICATE</a>
+<a href="#login" class="nav-link" data-i18n="navLogin">LOGIN</a>
+<div class="language-switcher" style="margin-top:10px">
+<button class="language-button active" data-lang="en" onclick="setLang('en')">ENG</button>
+<button class="language-button" data-lang="ht" onclick="setLang('ht')">KRE</button>
+<button class="language-button" data-lang="fr" onclick="setLang('fr')">FRA</button>
+</div>
+</nav>
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<div class="hero-badge" data-i18n="badge">DIGITAL EDUCATION PLATFORM</div>
+<h1 class="hero-title">PRO-MAX<span data-i18n="academy">ACADEMY</span></h1>
+<div class="hero-slogan" data-i18n="slogan">LEARN. EVOLVE. SUCCESSFUL.</div>
+<p class="hero-description" data-i18n="desc">A modern digital education platform to learn, develop skills, take courses, pass exams, use AI Tutor and receive certification.</p>
+<div class="hero-actions">
+<a href="#courses" class="btn btn-primary" data-i18n="explore">EXPLORE COURSES</a>
+<a href="#start" class="btn btn-secondary" data-i18n="start">START LEARNING</a>
+<a href="#login" class="btn btn-secondary" data-i18n="studentLogin">STUDENT LOGIN</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="academy-video-wrap">
+<video class="academy-main-video" autoplay muted loop playsinline>
+<source src="pro-maxa-cademie-II.mp4" type="video/mp4">
+<source src="pro-maxa-cademie-ii.mp4" type="video/mp4">
+<source src="pro-max-academie.mp4" type="video/mp4">
+<source src="pro-max-cademie.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-main">
+<div>
+<div class="footer-brand">
+<video autoplay muted loop playsinline style="width:58px;height:58px;object-fit:cover;border:2px solid #ff9a1f;border-radius:50%">
+<source src="pro-maxa-cademie-II.mp4" type="video/mp4">
+<source src="pro-max-academie.mp4" type="video/mp4">
+</video>
+<div class="footer-brand-text"><h3>PRO-MAX ACADEMY</h3><p>LEARN • EVOLVE • SUCCEED</p></div>
+</div>
+<p class="footer-description" data-i18n="footerDesc">A digital education platform for training, AI learning, exams, progress and certifications.</p>
+</div>
+<div class="footer-column"><h4>QUICK LINKS</h4><div class="footer-links">
+<a href="#home" data-i18n="home">Home</a>
+<a href="#courses" data-i18n="courses">Courses</a>
+<a href="#certificates" data-i18n="certs">Certificates</a>
+<a href="#about" data-i18n="about">About</a>
+</div></div>
+<div class="footer-column"><h4>CONTACT</h4><div class="footer-links">
+<a href="https://www.pro-maxacademie.com" target="_blank">🌐 www.pro-maxacademie.com</a>
+<a href="mailto:promaxacademie@gmail.com">📧 promaxacademie@gmail.com</a>
+<a href="tel:+14076405166">📞 (407) 640-5166</a>
+<a href="tel:+15162168494">📞 (516) 216-8494</a>
+</div></div>
+<div class="footer-column"><h4>SOCIAL NETWORK</h4><div class="footer-links">
+<a href="#">TELEGRAM</a>
+<a href="#">FACEBOOK</a>
+<a href="#">WHATSAPP</a>
+<a href="#">TIKTOK</a>
+<a href="#">INSTAGRAM</a>
+<a href="#">T/TWITTER</a>
+<a href="#">TRUE SOCIAL</a>
+<a href="#">YOUTUBE</a>
+<a href="#">SPOTIFY</a>
+</div></div>
+</div>
+<div class="container footer-bottom"><span>© <span id="year"></span> PRO-MAX ACADEMY</span><span>www.pro-maxacademie.com</span></div>
+</footer>
+<script>
+const menuBtn=document.getElementById('menuButton');const mobileMenu=document.getElementById('mobileMenu');
+menuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('open');});
+const dict={
+en:{navHome:"HOME",navCourses:"COURSE",navCategories:"CATEGORY",navAi:"AI TUTOR",navCert:"CERTIFICATE",navLogin:"LOGIN",badge:"DIGITAL EDUCATION PLATFORM",academy:"ACADEMY",slogan:"LEARN. EVOLVE. SUCCESSFUL.",desc:"A modern digital education platform to learn, develop skills, take courses, pass exams, use AI Tutor and receive certification.",explore:"EXPLORE COURSES",start:"START LEARNING",studentLogin:"STUDENT LOGIN",footerDesc:"A digital education platform for training, AI learning, exams, progress and certifications.",home:"Home",courses:"Courses",certs:"Certificates",about:"About"},
+ht:{navHome:"AKÈY",navCourses:"KOU",navCategories:"KATEGORI",navAi:"AI TUTOR",navCert:"SÈTIFIKA",navLogin:"LOGIN",badge:"PLATFÒM EDİKASYON DIJITAL",academy:"ACADÉMIE",slogan:"APRANN. EVOLYE. REYISI.",desc:"Yon platfòm edikasyon dijital modèn pou aprann, devlope kapasite, suiv kou, pase egzamen, sèvi ak AI Tutor epi resevwa sètifikasyon.",explore:"EKSPLOR KOU",start:"KÒMANSE APRANN",studentLogin:"LOGIN ELÈV",footerDesc:"Yon platfòm edikasyon dijital pou fòmasyon, AI learning, egzamen ak sètifikasyon.",home:"Akèy",courses:"Kou",certs:"Sètifika",about:"Konsènan"},
+fr:{navHome:"ACCUEIL",navCourses:"COURS",navCategories:"CATÉGORIE",navAi:"AI TUTOR",navCert:"CERTIFICAT",navLogin:"CONNEXION",badge:"PLATEFORME ÉDUCATION NUMÉRIQUE",academy:"ACADÉMIE",slogan:"APPRENDRE. ÉVOLUER. RÉUSSIR.",desc:"Une plateforme éducative numérique moderne pour apprendre, développer des compétences, suivre des cours, passer des examens, utiliser AI Tutor et obtenir des certifications.",explore:"EXPLORER COURS",start:"COMMENCER",studentLogin:"CONNEXION ÉTUDIANT",footerDesc:"Une plateforme éducative numérique pour la formation, l'IA, les examens et les certifications.",home:"Accueil",courses:"Cours",certs:"Certificats",about:"À propos"}
+};
+function setLang(lang){
+localStorage.setItem('pma-lang',lang);
+document.querySelectorAll('.language-button').forEach(b=>{b.classList.toggle('active',b.dataset.lang===lang)});
+document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(dict[lang]&&dict[lang][k]){el.textContent=dict[lang][k];}});
+}
+const saved=localStorage.getItem('pma-lang')||'en';setLang(saved);
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
-  </html>
+</html>
