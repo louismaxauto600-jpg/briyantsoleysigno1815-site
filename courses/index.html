@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PRO-MAX ACADÉMIE | Courses Center</title>
+<meta name="description" content="PRO-MAX ACADÉMIE Courses Center — AI, Digital Creation, Digital Leadership, Automation, Communication and Innovation.">
+<meta name="theme-color" content="#000000">
+
+<style>
+:root{
+  --black:#000000;
+  --black2:#080300;
+  --black3:#0d0500;
+
+  --orange:#ff7900;
+  --orange2:#ff8c1a;
+  --orange3:#ffad4d;
+
+  --border:rgba(255,121,0,.30);
+  --borderStrong:rgba(255,121,0,.72);
+
+  --glow:0 0 18px rgba(255,121,0,.35);
+  --glowStrong:
+    0 0 16px rgba(255,121,0,.70),
+    0 0 45px rgba(255,121,0,.28);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--orange3);
+
+  background:
+    radial-gradient(circle at 20% 18%,rgba(255,121,0,.15),transparent 35%),
+    radial-gradient(circle at 82% 72%,rgba(255,121,0,.10),transparent 42%),
+    linear-gradient(180deg,#000000 0%,#090400 48%,#000000 100%);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+
+  background-image:
+    linear-gradient(rgba(255,121,0,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,121,0,.025) 1px,transparent 1px);
+
+  background-size:44px 44px;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1200px,calc(100% - 28px));
+  margin:auto;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(0,0,0,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);
+}
+
+.header-inner{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.brand-video{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#000;
+  border:2px solid var(--orange);
+  box-shadow:var(--glow);
+}
+
+.brand-text strong{
+  display:block;
+  color:var(--orange);
+  font-size:.98rem;
+  font-weight:1000;
+}
+
+.brand-text span{
+  display:block;
+  margin-top:5px;
+  color:var(--orange3);
+  font-size:.55rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.home-btn{
+  padding:10px 15px;
+  border:1px solid var(--borderStrong);
+  border-radius:999px;
+  background:#000;
+  color:var(--orange);
+  font-size:.67rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.home-btn:hover{
+  background:var(--orange);
+  color:#000;
+}
+
+.lang-switch{
+  display:flex;
+  gap:3px;
+  padding:3px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#000;
+}
+
+.lang-btn{
+  min-width:45px;
+  border:0;
+  border-radius:999px;
+  padding:8px 10px;
+  cursor:pointer;
+  background:#000;
+  color:var(--orange3);
+  font-size:.65rem;
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  background:var(--orange);
+  color:#000;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+  padding:80px 0 55px;
+  text-align:center;
+}
+
+.eyebrow{
+  color:var(--orange);
+  font-size:.70rem;
+  font-weight:1000;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.hero h1{
+  margin-top:12px;
+  color:var(--orange);
+  font-size:clamp(2.7rem,8vw,5.7rem);
+  line-height:.90;
+  text-transform:uppercase;
+}
+
+.hero p{
+  max-width:800px;
+  margin:18px auto 0;
+  line-height:1.7;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:36px;
+}
+
+.stat{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  background:#050200;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  color:var(--orange);
+  font-size:1.7rem;
+}
+
+.stat span{
+  display:block;
+  margin-top:7px;
+  font-size:.70rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+/* =========================
+COURSES
+========================= */
+
+.section{
+  padding:70px 0 95px;
+  border-top:1px solid rgba(255,121,0,.10);
+}
+
+.section-title{
+  text-align:center;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,3.8rem);
+  text-transform:uppercase;
+}
+
+.section-desc{
+  max-width:760px;
+  margin:15px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.course-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:42px;
+}
+
+.course-card{
+  min-height:360px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 36%),
+    linear-gradient(145deg,#000,#0b0400);
+
+  display:flex;
+  flex-direction:column;
+  transition:.3s ease;
+}
+
+.course-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glowStrong);
+}
+
+.course-number{
+  color:var(--orange3);
+  font-size:.64rem;
+  font-weight:1000;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.course-icon{
+  width:62px;
+  height:62px;
+  margin-top:18px;
+
+  border:1px solid var(--borderStrong);
+  border-radius:18px;
+
+  display:grid;
+  place-items:center;
+
+  color:var(--orange);
+  background:#000;
+  font-size:1.7rem;
+  font-weight:1000;
+  box-shadow:var(--glow);
+}
+
+.course-card h3{
+  margin-top:22px;
+  color:var(--orange);
+  font-size:1.12rem;
+  text-transform:uppercase;
+}
+
+.course-card p{
+  margin-top:12px;
+  line-height:1.62;
+  font-size:.86rem;
+}
+
+.course-meta{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+.course-meta span{
+  padding:6px 9px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#000;
+  font-size:.60rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.course-btn{
+  margin-top:auto;
+  padding:12px 16px;
+  min-height:48px;
+
+  border:2px solid var(--orange);
+  border-radius:999px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:var(--orange);
+  color:#000;
+
+  font-size:.70rem;
+  font-weight:1000;
+  text-transform:uppercase;
+
+  transition:.25s ease;
+}
+
+.course-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--glowStrong);
+}
+
+/* =========================
+LEARNING PATH
+========================= */
+
+.learning-path{
+  padding:85px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:40px;
+}
+
+.learning-card{
+  min-height:195px;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#050200;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.learning-card strong{
+  color:var(--orange);
+  font-size:1.45rem;
+}
+
+.learning-card h3{
+  margin-top:12px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.learning-card p{
+  margin-top:8px;
+  line-height:1.5;
+  font-size:.80rem;
+}
+
+/* =========================
+FINAL CTA
+========================= */
+
+.final{
+  padding:80px 0 100px;
+  text-align:center;
+}
+
+.final-box{
+  padding:50px 24px;
+  border:1px solid var(--orange);
+  border-radius:26px;
+  background:
+    radial-gradient(circle,rgba(255,121,0,.15),transparent 48%),
+    #000;
+  box-shadow:var(--glow);
+}
+
+.final-box h2{
+  color:var(--orange);
+  font-size:clamp(2.2rem,6vw,4.5rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.final-box p{
+  max-width:700px;
+  margin:18px auto 0;
+  line-height:1.7;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+  padding:40px 0;
+  border-top:1px solid var(--border);
+  background:#000;
+  text-align:center;
+}
+
+footer strong{
+  color:var(--orange);
+}
+
+footer p{
+  margin-top:8px;
+  font-size:.78rem;
+  line-height:1.6;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+  .course-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .learning-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+
+  .header-inner{
+    min-height:76px;
+  }
+
+  .brand-video{
+    width:50px;
+    height:50px;
+  }
+
+  .brand-text strong{
+    font-size:.80rem;
+  }
+
+  .brand-text span{
+    font-size:.48rem;
+  }
+
+  .home-btn{
+    display:none;
+  }
+
+  .lang-btn{
+    min-width:40px;
+    padding:8px 8px;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .course-grid,
+  .learning-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+  <video class="brand-video" autoplay muted loop playsinline preload="auto">
+    <source src="../pro-max-dmp-II.mp4" type="video/mp4">
+  </video>
+
+  <div class="brand-text">
+    <strong>PRO-MAX ACADÉMIE</strong>
+
+    <span
+      data-ht="Fòme Jodi a Pou Dirije Demen"
+      data-fr="Former Aujourd’hui Pour Diriger Demain"
+      data-en="Train Today To Lead Tomorrow">
+      Fòme Jodi a Pou Dirije Demen
+    </span>
+  </div>
+
+</a>
+
+<div class="header-actions">
+
+  <a
+    href="../index.html"
+    class="home-btn"
+    data-ht="← AKADEMI"
+    data-fr="← ACADÉMIE"
+    data-en="← ACADEMY">
+    ← AKADEMI
+  </a>
+
+  <div class="lang-switch" aria-label="Language selector">
+
+    <button type="button" class="lang-btn" data-lang="fr">FRA</button>
+    <button type="button" class="lang-btn" data-lang="en">ENG</button>
+    <button type="button" class="lang-btn active" data-lang="ht">KRE</button>
+
+  </div>
+
+</div>
+
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="container">
+
+<div class="eyebrow">BSS1815 PRO-MAX DMP</div>
+
+<h1
+  data-ht="SANT KOU YO"
+  data-fr="CENTRE DE FORMATION"
+  data-en="COURSES CENTER">
+  SANT KOU YO
+</h1>
+
+<p
+  data-ht="Chwazi kou ou, antre nan modil la, aprann etap pa etap, suiv pwogrè ou, pase evalyasyon an epi avanse nan direksyon sètifikasyon."
+  data-fr="Choisissez votre cours, entrez dans le module, apprenez étape par étape, suivez votre progression, réussissez l’évaluation et avancez vers la certification."
+  data-en="Choose your course, enter the module, learn step by step, track your progress, pass the assessment and move toward certification.">
+  Chwazi kou ou, antre nan modil la, aprann etap pa etap, suiv pwogrè ou, pase evalyasyon an epi avanse nan direksyon sètifikasyon.
+</p>
+
+<div class="stats">
+
+  <div class="stat">
+    <strong>6</strong>
+    <span
+      data-ht="Kou Prensipal"
+      data-fr="Cours Principaux"
+      data-en="Core Courses">
+      Kou Prensipal
+    </span>
+  </div>
+
+  <div class="stat">
+    <strong>3</strong>
+    <span
+      data-ht="Lang"
+      data-fr="Langues"
+      data-en="Languages">
+      Lang
+    </span>
+  </div>
+
+  <div class="stat">
+    <strong>24/7</strong>
+    <span
+      data-ht="Aksè Nimerik"
+      data-fr="Accès Numérique"
+      data-en="Digital Access">
+      Aksè Nimerik
+    </span>
+  </div>
+
+  <div class="stat">
+    <strong>🎓</strong>
+    <span
+      data-ht="Sètifikasyon"
+      data-fr="Certification"
+      data-en="Certification">
+      Sètifikasyon
+    </span>
+  </div>
+
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<h2
+  class="section-title"
+  data-ht="CHWAZI KOU OU"
+  data-fr="CHOISISSEZ VOTRE COURS"
+  data-en="CHOOSE YOUR COURSE">
+  CHWAZI KOU OU
+</h2>
+
+<p
+  class="section-desc"
+  data-ht="Chak kou gen pwòp paj li ak modil, leson, pwogrè, evalyasyon ak chemen sètifikasyon."
+  data-fr="Chaque cours possède sa propre page avec modules, leçons, progression, évaluation et parcours de certification."
+  data-en="Each course has its own page with modules, lessons, progress, assessment and certification path.">
+  Chak kou gen pwòp paj li ak modil, leson, pwogrè, evalyasyon ak chemen sètifikasyon.
+</p>
+
+<div class="course-grid">
+
+<!-- COURSE 01 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 01</div>
+
+<div class="course-icon">AI</div>
+
+<h3
+  data-ht="ENTWODIKSYON NAN AI"
+  data-fr="INTRODUCTION À L’IA"
+  data-en="INTRODUCTION TO AI">
+  ENTWODIKSYON NAN AI
+</h3>
+
+<p
+  data-ht="Aprann fondasyon entèlijans atifisyèl, kijan AI fonksyone ak kijan pou itilize zouti AI nan lavi ak travay."
+  data-fr="Apprenez les fondements de l’intelligence artificielle, son fonctionnement et l’utilisation pratique des outils IA."
+  data-en="Learn the foundations of artificial intelligence, how AI works and how to use AI tools in everyday life and work.">
+  Aprann fondasyon entèlijans atifisyèl, kijan AI fonksyone ak kijan pou itilize zouti AI nan lavi ak travay.
+</p>
+
+<div class="course-meta">
+  <span>AI</span>
+  <span>BEGINNER</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./introduction-ai/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 02 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 02</div>
+
+<div class="course-icon">✦</div>
+
+<h3
+  data-ht="KREYASYON DIJITAL"
+  data-fr="CRÉATION DIGITALE"
+  data-en="DIGITAL CREATION">
+  KREYASYON DIJITAL
+</h3>
+
+<p
+  data-ht="Aprann kreye tèks, imaj, videyo, prezantasyon ak kontni dijital pwofesyonèl."
+  data-fr="Apprenez à créer textes, images, vidéos, présentations et contenus numériques professionnels."
+  data-en="Learn to create text, images, videos, presentations and professional digital content.">
+  Aprann kreye tèks, imaj, videyo, prezantasyon ak kontni dijital pwofesyonèl.
+</p>
+
+<div class="course-meta">
+  <span>CREATIVE</span>
+  <span>MEDIA</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./digital-creation/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 03 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 03</div>
+
+<div class="course-icon">↗</div>
+
+<h3
+  data-ht="LIDÈCHIP DIJITAL"
+  data-fr="LEADERSHIP DIGITAL"
+  data-en="DIGITAL LEADERSHIP">
+  LIDÈCHIP DIJITAL
+</h3>
+
+<p
+  data-ht="Devlope vizyon, disiplin, òganizasyon, responsabilite ak kapasite pou dirije nan yon mond dijital."
+  data-fr="Développez vision, discipline, organisation, responsabilité et leadership dans un monde numérique."
+  data-en="Develop vision, discipline, organization, responsibility and leadership for the digital world.">
+  Devlope vizyon, disiplin, òganizasyon, responsabilite ak kapasite pou dirije nan yon mond dijital.
+</p>
+
+<div class="course-meta">
+  <span>LEADERSHIP</span>
+  <span>VISION</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./digital-leadership/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 04 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 04</div>
+
+<div class="course-icon">⚙</div>
+
+<h3
+  data-ht="OTOMATIZASYON"
+  data-fr="AUTOMATISATION"
+  data-en="AUTOMATION">
+  OTOMATIZASYON
+</h3>
+
+<p
+  data-ht="Aprann òganize workflow, diminye travay repetitif epi itilize teknoloji pou travay pi vit ak pi efikas."
+  data-fr="Apprenez à organiser les workflows, réduire les tâches répétitives et travailler plus efficacement grâce à la technologie."
+  data-en="Learn to organize workflows, reduce repetitive tasks and use technology to work faster and more efficiently.">
+  Aprann òganize workflow, diminye travay repetitif epi itilize teknoloji pou travay pi vit ak pi efikas.
+</p>
+
+<div class="course-meta">
+  <span>WORKFLOW</span>
+  <span>SMART TOOLS</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./automation/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 05 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 05</div>
+
+<div class="course-icon">◎</div>
+
+<h3
+  data-ht="KOMINIKASYON"
+  data-fr="COMMUNICATION"
+  data-en="COMMUNICATION">
+  KOMINIKASYON
+</h3>
+
+<p
+  data-ht="Devlope kominikasyon pwofesyonèl, prezantasyon, mesaj dijital ak kapasite pou kominike avèk enpak."
+  data-fr="Développez la communication professionnelle, la présentation et la capacité à transmettre des messages avec impact."
+  data-en="Develop professional communication, presentation skills and the ability to deliver messages with impact.">
+  Devlope kominikasyon pwofesyonèl, prezantasyon, mesaj dijital ak kapasite pou kominike avèk enpak.
+</p>
+
+<div class="course-meta">
+  <span>COMMUNICATION</span>
+  <span>MEDIA</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./communication/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 06 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 06</div>
+
+<div class="course-icon">◆</div>
+
+<h3
+  data-ht="INOVASYON"
+  data-fr="INNOVATION"
+  data-en="INNOVATION">
+  INOVASYON
+</h3>
+
+<p
+  data-ht="Aprann transfòme lide an pwojè, rezoud pwoblèm epi itilize teknoloji pou konstwi nouvo solisyon."
+  data-fr="Apprenez à transformer les idées en projets, résoudre des problèmes et construire de nouvelles solutions."
+  data-en="Learn to transform ideas into projects, solve problems and use technology to build new solutions.">
+  Aprann transfòme lide an pwojè, rezoud pwoblèm epi itilize teknoloji pou konstwi nouvo solisyon.
+</p>
+
+<div class="course-meta">
+  <span>INNOVATION</span>
+  <span>PROJECT</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./innovation/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+</div>
+</div>
+</section>
+
+
+<section class="learning-path">
+<div class="container">
+
+<h2
+  class="section-title"
+  data-ht="CHEMEN APRANTISAJ"
+  data-fr="PARCOURS D’APPRENTISSAGE"
+  data-en="LEARNING PATH">
+  CHEMEN APRANTISAJ
+</h2>
+
+<div class="learning-grid">
+
+<div class="learning-card">
+  <strong>01</strong>
+  <h3
+    data-ht="APRANN"
+    data-fr="APPRENDRE"
+    data-en="LEARN">
+    APRANN
+  </h3>
+
+  <p
+    data-ht="Swiv leson ak modil kou a."
+    data-fr="Suivez les leçons et les modules du cours."
+    data-en="Follow the lessons and course modules.">
+    Swiv leson ak modil kou a.
+  </p>
+</div>
+
+<div class="learning-card">
+  <strong>02</strong>
+  <h3
+    data-ht="PRATIKE"
+    data-fr="PRATIQUER"
+    data-en="PRACTICE">
+    PRATIKE
+  </h3>
+
+  <p
+    data-ht="Fè egzèsis ak aktivite pratik."
+    data-fr="Réalisez des exercices et activités pratiques."
+    data-en="Complete exercises and practical activities.">
+    Fè egzèsis ak aktivite pratik.
+  </p>
+</div>
+
+<div class="learning-card">
+  <strong>03</strong>
+  <h3
+    data-ht="EVALYE"
+    data-fr="ÉVALUER"
+    data-en="ASSESS">
+    EVALYE
+  </h3>
+
+  <p
+    data-ht="Teste konesans ak konpetans ou."
+    data-fr="Testez vos connaissances et compétences."
+    data-en="Test your knowledge and skills.">
+    Teste konesans ak konpetans ou.
+  </p>
+</div>
+
+<div class="learning-card">
+  <strong>04</strong>
+  <h3
+    data-ht="SÈTIFYE"
+    data-fr="CERTIFIER"
+    data-en="CERTIFY">
+    SÈTIFYE
+  </h3>
+
+  <p
+    data-ht="Ranpli kondisyon yo epi avanse nan sètifikasyon."
+    data-fr="Remplissez les conditions et avancez vers la certification."
+    data-en="Complete the requirements and move toward certification.">
+    Ranpli kondisyon yo epi avanse nan sètifikasyon.
+  </p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="final">
+<div class="container">
+
+<div class="final-box">
+
+<h2
+  data-ht="APRANN. PRATIKE. AVANSE."
+  data-fr="APPRENDRE. PRATIQUER. PROGRESSER."
+  data-en="LEARN. PRACTICE. PROGRESS.">
+  APRANN. PRATIKE. AVANSE.
+</h2>
+
+<p
+  data-ht="PRO-MAX ACADÉMIE prepare elèv yo pou sèvi ak konesans, teknoloji ak entèlijans atifisyèl pou avanse avèk epòk la."
+  data-fr="PRO-MAX ACADÉMIE prépare les étudiants à utiliser les connaissances, la technologie et l’intelligence artificielle pour avancer avec leur époque."
+  data-en="PRO-MAX ACADEMY prepares students to use knowledge, technology and artificial intelligence to move forward with the times.">
+  PRO-MAX ACADÉMIE prepare elèv yo pou sèvi ak konesans, teknoloji ak entèlijans atifisyèl pou avanse avèk epòk la.
+</p>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+
+<footer>
+<div class="container">
+
+<strong>PRO-MAX ACADÉMIE</strong>
+
+<p>
+BSS1815 PRO-MAX DMP<br>
+DEVAN DEVAN NÈT™<br>
+BATI POU JODI A • PARE POU DEMEN
+</p>
+
+</div>
+</footer>
+
+
+<script>
+(function(){
+  "use strict";
+
+  function initPage(){
+
+    var buttons = Array.prototype.slice.call(
+      document.querySelectorAll(".lang-btn[data-lang]")
+    );
+
+    var elements = Array.prototype.slice.call(
+      document.querySelectorAll("[data-ht][data-fr][data-en]")
+    );
+
+    function setLanguage(lang){
+
+      if(["ht","fr","en"].indexOf(lang) === -1){
+        lang = "ht";
+      }
+
+      document.documentElement.setAttribute("lang",lang);
+
+      elements.forEach(function(element){
+
+        var text = element.getAttribute("data-" + lang);
+
+        if(text !== null){
+          element.textContent = text;
+        }
+
+      });
+
+      buttons.forEach(function(button){
+
+        var active = button.getAttribute("data-lang") === lang;
+
+        button.classList.toggle("active",active);
+
+        button.setAttribute(
+          "aria-pressed",
+          active ? "true" : "false"
+        );
+
+      });
+
+    }
+
+    buttons.forEach(function(button){
+
+      button.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        setLanguage(
+          button.getAttribute("data-lang")
+        );
+
+      });
+
+    });
+
+    /* ALWAYS START IN KREYÒL */
+    setLanguage("ht");
+
+
+    /* MAIN VIDEO LOGO */
+    var logo = document.querySelector(".brand-video");
+
+    if(logo){
+
+      logo.muted = true;
+      logo.loop = true;
+      logo.playsInline = true;
+
+      var tryPlay = function(){
+
+        var promise = logo.play();
+
+        if(
+          promise &&
+          typeof promise.catch === "function"
+        ){
+          promise.catch(function(){});
+        }
+
+      };
+
+      tryPlay();
+
+      document.addEventListener(
+        "click",
+        tryPlay,
+        {once:true}
+      );
+
+      document.addEventListener(
+        "touchstart",
+        tryPlay,
+        {once:true}
+      );
+
+    }
+
+  }
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PRO-MAX ACADÉMIE | Courses Center</title>
+<meta name="description" content="PRO-MAX ACADÉMIE Courses Center — AI, Digital Creation, Digital Leadership, Automation, Communication and Innovation.">
+<meta name="theme-color" content="#000000">
+
+<style>
+:root{
+  --black:#000000;
+  --black2:#080300;
+  --black3:#0d0500;
+
+  --orange:#ff7900;
+  --orange2:#ff8c1a;
+  --orange3:#ffad4d;
+
+  --border:rgba(255,121,0,.30);
+  --borderStrong:rgba(255,121,0,.72);
+
+  --glow:0 0 18px rgba(255,121,0,.35);
+  --glowStrong:
+    0 0 16px rgba(255,121,0,.70),
+    0 0 45px rgba(255,121,0,.28);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--orange3);
+
+  background:
+    radial-gradient(circle at 20% 18%,rgba(255,121,0,.15),transparent 35%),
+    radial-gradient(circle at 82% 72%,rgba(255,121,0,.10),transparent 42%),
+    linear-gradient(180deg,#000000 0%,#090400 48%,#000000 100%);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+
+  background-image:
+    linear-gradient(rgba(255,121,0,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,121,0,.025) 1px,transparent 1px);
+
+  background-size:44px 44px;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1200px,calc(100% - 28px));
+  margin:auto;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(0,0,0,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);
+}
+
+.header-inner{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.brand-video{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#000;
+  border:2px solid var(--orange);
+  box-shadow:var(--glow);
+}
+
+.brand-text strong{
+  display:block;
+  color:var(--orange);
+  font-size:.98rem;
+  font-weight:1000;
+}
+
+.brand-text span{
+  display:block;
+  margin-top:5px;
+  color:var(--orange3);
+  font-size:.55rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.home-btn{
+  padding:10px 15px;
+  border:1px solid var(--borderStrong);
+  border-radius:999px;
+  background:#000;
+  color:var(--orange);
+  font-size:.67rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.home-btn:hover{
+  background:var(--orange);
+  color:#000;
+}
+
+.lang-switch{
+  display:flex;
+  gap:3px;
+  padding:3px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#000;
+}
+
+.lang-btn{
+  min-width:45px;
+  border:0;
+  border-radius:999px;
+  padding:8px 10px;
+  cursor:pointer;
+  background:#000;
+  color:var(--orange3);
+  font-size:.65rem;
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  background:var(--orange);
+  color:#000;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+  padding:80px 0 55px;
+  text-align:center;
+}
+
+.eyebrow{
+  color:var(--orange);
+  font-size:.70rem;
+  font-weight:1000;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.hero h1{
+  margin-top:12px;
+  color:var(--orange);
+  font-size:clamp(2.7rem,8vw,5.7rem);
+  line-height:.90;
+  text-transform:uppercase;
+}
+
+.hero p{
+  max-width:800px;
+  margin:18px auto 0;
+  line-height:1.7;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:36px;
+}
+
+.stat{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  background:#050200;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  color:var(--orange);
+  font-size:1.7rem;
+}
+
+.stat span{
+  display:block;
+  margin-top:7px;
+  font-size:.70rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+/* =========================
+COURSES
+========================= */
+
+.section{
+  padding:70px 0 95px;
+  border-top:1px solid rgba(255,121,0,.10);
+}
+
+.section-title{
+  text-align:center;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,3.8rem);
+  text-transform:uppercase;
+}
+
+.section-desc{
+  max-width:760px;
+  margin:15px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.course-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:42px;
+}
+
+.course-card{
+  min-height:360px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 36%),
+    linear-gradient(145deg,#000,#0b0400);
+
+  display:flex;
+  flex-direction:column;
+  transition:.3s ease;
+}
+
+.course-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glowStrong);
+}
+
+.course-number{
+  color:var(--orange3);
+  font-size:.64rem;
+  font-weight:1000;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.course-icon{
+  width:62px;
+  height:62px;
+  margin-top:18px;
+
+  border:1px solid var(--borderStrong);
+  border-radius:18px;
+
+  display:grid;
+  place-items:center;
+
+  color:var(--orange);
+  background:#000;
+  font-size:1.7rem;
+  font-weight:1000;
+  box-shadow:var(--glow);
+}
+
+.course-card h3{
+  margin-top:22px;
+  color:var(--orange);
+  font-size:1.12rem;
+  text-transform:uppercase;
+}
+
+.course-card p{
+  margin-top:12px;
+  line-height:1.62;
+  font-size:.86rem;
+}
+
+.course-meta{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+.course-meta span{
+  padding:6px 9px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#000;
+  font-size:.60rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.course-btn{
+  margin-top:auto;
+  padding:12px 16px;
+  min-height:48px;
+
+  border:2px solid var(--orange);
+  border-radius:999px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:var(--orange);
+  color:#000;
+
+  font-size:.70rem;
+  font-weight:1000;
+  text-transform:uppercase;
+
+  transition:.25s ease;
+}
+
+.course-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--glowStrong);
+}
+
+/* =========================
+LEARNING PATH
+========================= */
+
+.learning-path{
+  padding:85px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:40px;
+}
+
+.learning-card{
+  min-height:195px;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#050200;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.learning-card strong{
+  color:var(--orange);
+  font-size:1.45rem;
+}
+
+.learning-card h3{
+  margin-top:12px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.learning-card p{
+  margin-top:8px;
+  line-height:1.5;
+  font-size:.80rem;
+}
+
+/* =========================
+FINAL CTA
+========================= */
+
+.final{
+  padding:80px 0 100px;
+  text-align:center;
+}
+
+.final-box{
+  padding:50px 24px;
+  border:1px solid var(--orange);
+  border-radius:26px;
+  background:
+    radial-gradient(circle,rgba(255,121,0,.15),transparent 48%),
+    #000;
+  box-shadow:var(--glow);
+}
+
+.final-box h2{
+  color:var(--orange);
+  font-size:clamp(2.2rem,6vw,4.5rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.final-box p{
+  max-width:700px;
+  margin:18px auto 0;
+  line-height:1.7;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+  padding:40px 0;
+  border-top:1px solid var(--border);
+  background:#000;
+  text-align:center;
+}
+
+footer strong{
+  color:var(--orange);
+}
+
+footer p{
+  margin-top:8px;
+  font-size:.78rem;
+  line-height:1.6;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+  .course-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .learning-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+
+  .header-inner{
+    min-height:76px;
+  }
+
+  .brand-video{
+    width:50px;
+    height:50px;
+  }
+
+  .brand-text strong{
+    font-size:.80rem;
+  }
+
+  .brand-text span{
+    font-size:.48rem;
+  }
+
+  .home-btn{
+    display:none;
+  }
+
+  .lang-btn{
+    min-width:40px;
+    padding:8px 8px;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .course-grid,
+  .learning-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+  <video class="brand-video" autoplay muted loop playsinline preload="auto">
+    <source src="../pro-max-dmp-II.mp4" type="video/mp4">
+  </video>
+
+  <div class="brand-text">
+    <strong>PRO-MAX ACADÉMIE</strong>
+
+    <span
+      data-ht="Fòme Jodi a Pou Dirije Demen"
+      data-fr="Former Aujourd’hui Pour Diriger Demain"
+      data-en="Train Today To Lead Tomorrow">
+      Fòme Jodi a Pou Dirije Demen
+    </span>
+  </div>
+
+</a>
+
+<div class="header-actions">
+
+  <a
+    href="../index.html"
+    class="home-btn"
+    data-ht="← AKADEMI"
+    data-fr="← ACADÉMIE"
+    data-en="← ACADEMY">
+    ← AKADEMI
+  </a>
+
+  <div class="lang-switch" aria-label="Language selector">
+
+    <button type="button" class="lang-btn" data-lang="fr">FRA</button>
+    <button type="button" class="lang-btn" data-lang="en">ENG</button>
+    <button type="button" class="lang-btn active" data-lang="ht">KRE</button>
+
+  </div>
+
+</div>
+
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="container">
+
+<div class="eyebrow">BSS1815 PRO-MAX DMP</div>
+
+<h1
+  data-ht="SANT KOU YO"
+  data-fr="CENTRE DE FORMATION"
+  data-en="COURSES CENTER">
+  SANT KOU YO
+</h1>
+
+<p
+  data-ht="Chwazi kou ou, antre nan modil la, aprann etap pa etap, suiv pwogrè ou, pase evalyasyon an epi avanse nan direksyon sètifikasyon."
+  data-fr="Choisissez votre cours, entrez dans le module, apprenez étape par étape, suivez votre progression, réussissez l’évaluation et avancez vers la certification."
+  data-en="Choose your course, enter the module, learn step by step, track your progress, pass the assessment and move toward certification.">
+  Chwazi kou ou, antre nan modil la, aprann etap pa etap, suiv pwogrè ou, pase evalyasyon an epi avanse nan direksyon sètifikasyon.
+</p>
+
+<div class="stats">
+
+  <div class="stat">
+    <strong>6</strong>
+    <span
+      data-ht="Kou Prensipal"
+      data-fr="Cours Principaux"
+      data-en="Core Courses">
+      Kou Prensipal
+    </span>
+  </div>
+
+  <div class="stat">
+    <strong>3</strong>
+    <span
+      data-ht="Lang"
+      data-fr="Langues"
+      data-en="Languages">
+      Lang
+    </span>
+  </div>
+
+  <div class="stat">
+    <strong>24/7</strong>
+    <span
+      data-ht="Aksè Nimerik"
+      data-fr="Accès Numérique"
+      data-en="Digital Access">
+      Aksè Nimerik
+    </span>
+  </div>
+
+  <div class="stat">
+    <strong>🎓</strong>
+    <span
+      data-ht="Sètifikasyon"
+      data-fr="Certification"
+      data-en="Certification">
+      Sètifikasyon
+    </span>
+  </div>
+
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<h2
+  class="section-title"
+  data-ht="CHWAZI KOU OU"
+  data-fr="CHOISISSEZ VOTRE COURS"
+  data-en="CHOOSE YOUR COURSE">
+  CHWAZI KOU OU
+</h2>
+
+<p
+  class="section-desc"
+  data-ht="Chak kou gen pwòp paj li ak modil, leson, pwogrè, evalyasyon ak chemen sètifikasyon."
+  data-fr="Chaque cours possède sa propre page avec modules, leçons, progression, évaluation et parcours de certification."
+  data-en="Each course has its own page with modules, lessons, progress, assessment and certification path.">
+  Chak kou gen pwòp paj li ak modil, leson, pwogrè, evalyasyon ak chemen sètifikasyon.
+</p>
+
+<div class="course-grid">
+
+<!-- COURSE 01 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 01</div>
+
+<div class="course-icon">AI</div>
+
+<h3
+  data-ht="ENTWODIKSYON NAN AI"
+  data-fr="INTRODUCTION À L’IA"
+  data-en="INTRODUCTION TO AI">
+  ENTWODIKSYON NAN AI
+</h3>
+
+<p
+  data-ht="Aprann fondasyon entèlijans atifisyèl, kijan AI fonksyone ak kijan pou itilize zouti AI nan lavi ak travay."
+  data-fr="Apprenez les fondements de l’intelligence artificielle, son fonctionnement et l’utilisation pratique des outils IA."
+  data-en="Learn the foundations of artificial intelligence, how AI works and how to use AI tools in everyday life and work.">
+  Aprann fondasyon entèlijans atifisyèl, kijan AI fonksyone ak kijan pou itilize zouti AI nan lavi ak travay.
+</p>
+
+<div class="course-meta">
+  <span>AI</span>
+  <span>BEGINNER</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./introduction-ai/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 02 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 02</div>
+
+<div class="course-icon">✦</div>
+
+<h3
+  data-ht="KREYASYON DIJITAL"
+  data-fr="CRÉATION DIGITALE"
+  data-en="DIGITAL CREATION">
+  KREYASYON DIJITAL
+</h3>
+
+<p
+  data-ht="Aprann kreye tèks, imaj, videyo, prezantasyon ak kontni dijital pwofesyonèl."
+  data-fr="Apprenez à créer textes, images, vidéos, présentations et contenus numériques professionnels."
+  data-en="Learn to create text, images, videos, presentations and professional digital content.">
+  Aprann kreye tèks, imaj, videyo, prezantasyon ak kontni dijital pwofesyonèl.
+</p>
+
+<div class="course-meta">
+  <span>CREATIVE</span>
+  <span>MEDIA</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./digital-creation/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 03 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 03</div>
+
+<div class="course-icon">↗</div>
+
+<h3
+  data-ht="LIDÈCHIP DIJITAL"
+  data-fr="LEADERSHIP DIGITAL"
+  data-en="DIGITAL LEADERSHIP">
+  LIDÈCHIP DIJITAL
+</h3>
+
+<p
+  data-ht="Devlope vizyon, disiplin, òganizasyon, responsabilite ak kapasite pou dirije nan yon mond dijital."
+  data-fr="Développez vision, discipline, organisation, responsabilité et leadership dans un monde numérique."
+  data-en="Develop vision, discipline, organization, responsibility and leadership for the digital world.">
+  Devlope vizyon, disiplin, òganizasyon, responsabilite ak kapasite pou dirije nan yon mond dijital.
+</p>
+
+<div class="course-meta">
+  <span>LEADERSHIP</span>
+  <span>VISION</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./digital-leadership/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 04 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 04</div>
+
+<div class="course-icon">⚙</div>
+
+<h3
+  data-ht="OTOMATIZASYON"
+  data-fr="AUTOMATISATION"
+  data-en="AUTOMATION">
+  OTOMATIZASYON
+</h3>
+
+<p
+  data-ht="Aprann òganize workflow, diminye travay repetitif epi itilize teknoloji pou travay pi vit ak pi efikas."
+  data-fr="Apprenez à organiser les workflows, réduire les tâches répétitives et travailler plus efficacement grâce à la technologie."
+  data-en="Learn to organize workflows, reduce repetitive tasks and use technology to work faster and more efficiently.">
+  Aprann òganize workflow, diminye travay repetitif epi itilize teknoloji pou travay pi vit ak pi efikas.
+</p>
+
+<div class="course-meta">
+  <span>WORKFLOW</span>
+  <span>SMART TOOLS</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./automation/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 05 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 05</div>
+
+<div class="course-icon">◎</div>
+
+<h3
+  data-ht="KOMINIKASYON"
+  data-fr="COMMUNICATION"
+  data-en="COMMUNICATION">
+  KOMINIKASYON
+</h3>
+
+<p
+  data-ht="Devlope kominikasyon pwofesyonèl, prezantasyon, mesaj dijital ak kapasite pou kominike avèk enpak."
+  data-fr="Développez la communication professionnelle, la présentation et la capacité à transmettre des messages avec impact."
+  data-en="Develop professional communication, presentation skills and the ability to deliver messages with impact.">
+  Devlope kominikasyon pwofesyonèl, prezantasyon, mesaj dijital ak kapasite pou kominike avèk enpak.
+</p>
+
+<div class="course-meta">
+  <span>COMMUNICATION</span>
+  <span>MEDIA</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./communication/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+
+<!-- COURSE 06 -->
+<article class="course-card">
+
+<div class="course-number">COURSE 06</div>
+
+<div class="course-icon">◆</div>
+
+<h3
+  data-ht="INOVASYON"
+  data-fr="INNOVATION"
+  data-en="INNOVATION">
+  INOVASYON
+</h3>
+
+<p
+  data-ht="Aprann transfòme lide an pwojè, rezoud pwoblèm epi itilize teknoloji pou konstwi nouvo solisyon."
+  data-fr="Apprenez à transformer les idées en projets, résoudre des problèmes et construire de nouvelles solutions."
+  data-en="Learn to transform ideas into projects, solve problems and use technology to build new solutions.">
+  Aprann transfòme lide an pwojè, rezoud pwoblèm epi itilize teknoloji pou konstwi nouvo solisyon.
+</p>
+
+<div class="course-meta">
+  <span>INNOVATION</span>
+  <span>PROJECT</span>
+  <span>CERTIFICATE</span>
+</div>
+
+<a
+  href="./innovation/index.html"
+  class="course-btn"
+  data-ht="KÒMANSE KOU →"
+  data-fr="COMMENCER LE COURS →"
+  data-en="START COURSE →">
+  KÒMANSE KOU →
+</a>
+
+</article>
+
+</div>
+</div>
+</section>
+
+
+<section class="learning-path">
+<div class="container">
+
+<h2
+  class="section-title"
+  data-ht="CHEMEN APRANTISAJ"
+  data-fr="PARCOURS D’APPRENTISSAGE"
+  data-en="LEARNING PATH">
+  CHEMEN APRANTISAJ
+</h2>
+
+<div class="learning-grid">
+
+<div class="learning-card">
+  <strong>01</strong>
+  <h3
+    data-ht="APRANN"
+    data-fr="APPRENDRE"
+    data-en="LEARN">
+    APRANN
+  </h3>
+
+  <p
+    data-ht="Swiv leson ak modil kou a."
+    data-fr="Suivez les leçons et les modules du cours."
+    data-en="Follow the lessons and course modules.">
+    Swiv leson ak modil kou a.
+  </p>
+</div>
+
+<div class="learning-card">
+  <strong>02</strong>
+  <h3
+    data-ht="PRATIKE"
+    data-fr="PRATIQUER"
+    data-en="PRACTICE">
+    PRATIKE
+  </h3>
+
+  <p
+    data-ht="Fè egzèsis ak aktivite pratik."
+    data-fr="Réalisez des exercices et activités pratiques."
+    data-en="Complete exercises and practical activities.">
+    Fè egzèsis ak aktivite pratik.
+  </p>
+</div>
+
+<div class="learning-card">
+  <strong>03</strong>
+  <h3
+    data-ht="EVALYE"
+    data-fr="ÉVALUER"
+    data-en="ASSESS">
+    EVALYE
+  </h3>
+
+  <p
+    data-ht="Teste konesans ak konpetans ou."
+    data-fr="Testez vos connaissances et compétences."
+    data-en="Test your knowledge and skills.">
+    Teste konesans ak konpetans ou.
+  </p>
+</div>
+
+<div class="learning-card">
+  <strong>04</strong>
+  <h3
+    data-ht="SÈTIFYE"
+    data-fr="CERTIFIER"
+    data-en="CERTIFY">
+    SÈTIFYE
+  </h3>
+
+  <p
+    data-ht="Ranpli kondisyon yo epi avanse nan sètifikasyon."
+    data-fr="Remplissez les conditions et avancez vers la certification."
+    data-en="Complete the requirements and move toward certification.">
+    Ranpli kondisyon yo epi avanse nan sètifikasyon.
+  </p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="final">
+<div class="container">
+
+<div class="final-box">
+
+<h2
+  data-ht="APRANN. PRATIKE. AVANSE."
+  data-fr="APPRENDRE. PRATIQUER. PROGRESSER."
+  data-en="LEARN. PRACTICE. PROGRESS.">
+  APRANN. PRATIKE. AVANSE.
+</h2>
+
+<p
+  data-ht="PRO-MAX ACADÉMIE prepare elèv yo pou sèvi ak konesans, teknoloji ak entèlijans atifisyèl pou avanse avèk epòk la."
+  data-fr="PRO-MAX ACADÉMIE prépare les étudiants à utiliser les connaissances, la technologie et l’intelligence artificielle pour avancer avec leur époque."
+  data-en="PRO-MAX ACADEMY prepares students to use knowledge, technology and artificial intelligence to move forward with the times.">
+  PRO-MAX ACADÉMIE prepare elèv yo pou sèvi ak konesans, teknoloji ak entèlijans atifisyèl pou avanse avèk epòk la.
+</p>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+
+<footer>
+<div class="container">
+
+<strong>PRO-MAX ACADÉMIE</strong>
+
+<p>
+BSS1815 PRO-MAX DMP<br>
+DEVAN DEVAN NÈT™<br>
+BATI POU JODI A • PARE POU DEMEN
+</p>
+
+</div>
+</footer>
+
+
+<script>
+(function(){
+  "use strict";
+
+  function initPage(){
+
+    var buttons = Array.prototype.slice.call(
+      document.querySelectorAll(".lang-btn[data-lang]")
+    );
+
+    var elements = Array.prototype.slice.call(
+      document.querySelectorAll("[data-ht][data-fr][data-en]")
+    );
+
+    function setLanguage(lang){
+
+      if(["ht","fr","en"].indexOf(lang) === -1){
+        lang = "ht";
+      }
+
+      document.documentElement.setAttribute("lang",lang);
+
+      elements.forEach(function(element){
+
+        var text = element.getAttribute("data-" + lang);
+
+        if(text !== null){
+          element.textContent = text;
+        }
+
+      });
+
+      buttons.forEach(function(button){
+
+        var active = button.getAttribute("data-lang") === lang;
+
+        button.classList.toggle("active",active);
+
+        button.setAttribute(
+          "aria-pressed",
+          active ? "true" : "false"
+        );
+
+      });
+
+    }
+
+    buttons.forEach(function(button){
+
+      button.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        setLanguage(
+          button.getAttribute("data-lang")
+        );
+
+      });
+
+    });
+
+    /* ALWAYS START IN KREYÒL */
+    setLanguage("ht");
+
+
+    /* MAIN VIDEO LOGO */
+    var logo = document.querySelector(".brand-video");
+
+    if(logo){
+
+      logo.muted = true;
+      logo.loop = true;
+      logo.playsInline = true;
+
+      var tryPlay = function(){
+
+        var promise = logo.play();
+
+        if(
+          promise &&
+          typeof promise.catch === "function"
+        ){
+          promise.catch(function(){});
+        }
+
+      };
+
+      tryPlay();
+
+      document.addEventListener(
+        "click",
+        tryPlay,
+        {once:true}
+      );
+
+      document.addEventListener(
+        "touchstart",
+        tryPlay,
+        {once:true}
+      );
+
+    }
+
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded",initPage);
+  }else{
+    initPage();
+  }
+
+})();
+</script>
+
+</body>
+</html>
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded",initPage);
+  }else{
+    initPage();
+  }
+
+})();
+</script>
+
+</body>
+</html>
+
