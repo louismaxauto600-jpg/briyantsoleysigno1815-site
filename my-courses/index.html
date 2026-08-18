@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Courses | PRO-MAX ACADÉMIE</title>
+
+<meta name="description" content="PRO-MAX ACADÉMIE My Courses — Student Learning Dashboard">
+<meta name="theme-color" content="#000000">
+
+<style>
+:root{
+  --black:#000;
+  --black2:#080300;
+  --black3:#0d0500;
+
+  --orange:#ff7900;
+  --orange2:#ff8c1a;
+  --orange3:#ffad4d;
+
+  --border:rgba(255,121,0,.28);
+  --borderStrong:rgba(255,121,0,.72);
+
+  --glow:0 0 18px rgba(255,121,0,.35);
+  --glowStrong:
+    0 0 16px rgba(255,121,0,.70),
+    0 0 42px rgba(255,121,0,.28);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+
+  font-family:Arial,Helvetica,sans-serif;
+
+  color:var(--orange3);
+
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,121,0,.14),transparent 34%),
+    radial-gradient(circle at 82% 72%,rgba(255,121,0,.09),transparent 40%),
+    linear-gradient(180deg,#000 0%,#090400 48%,#000 100%);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+
+  background-image:
+    linear-gradient(rgba(255,121,0,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,121,0,.025) 1px,transparent 1px);
+
+  background-size:44px 44px;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1200px,calc(100% - 28px));
+  margin:auto;
+}
+
+
+/* =========================================================
+HEADER
+========================================================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(0,0,0,.97);
+
+  border-bottom:1px solid var(--border);
+
+  backdrop-filter:blur(14px);
+}
+
+.header-inner{
+  min-height:84px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-logo{
+  width:60px;
+  height:60px;
+
+  border-radius:50%;
+
+  overflow:hidden;
+
+  border:2px solid var(--orange);
+
+  background:#000;
+
+  box-shadow:var(--glow);
+}
+
+.brand-logo video{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  border-radius:50%;
+}
+
+.brand-text strong{
+  display:block;
+
+  color:var(--orange);
+
+  font-size:1rem;
+
+  font-weight:1000;
+}
+
+.brand-text span{
+  display:block;
+
+  margin-top:5px;
+
+  color:var(--orange3);
+
+  font-size:.55rem;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+}
+
+.header-actions{
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+}
+
+.back-btn{
+  padding:10px 16px;
+
+  border:1px solid var(--borderStrong);
+
+  border-radius:999px;
+
+  color:var(--orange);
+
+  background:#000;
+
+  font-size:.67rem;
+
+  font-weight:1000;
+
+  text-transform:uppercase;
+}
+
+.back-btn:hover{
+  background:var(--orange);
+
+  color:#000;
+}
+
+.lang-switch{
+  display:flex;
+
+  gap:3px;
+
+  padding:3px;
+
+  border:1px solid var(--border);
+
+  border-radius:999px;
+
+  background:#000;
+}
+
+.lang-btn{
+  min-width:44px;
+
+  border:0;
+
+  border-radius:999px;
+
+  padding:9px 10px;
+
+  cursor:pointer;
+
+  background:#000;
+
+  color:var(--orange3);
+
+  font-size:.65rem;
+
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  background:var(--orange);
+
+  color:#000;
+}
+
+
+/* =========================================================
+HERO
+========================================================= */
+
+.hero{
+  padding:68px 0 40px;
+
+  text-align:center;
+}
+
+.eyebrow{
+  color:var(--orange);
+
+  font-size:.69rem;
+
+  font-weight:1000;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+}
+
+.hero h1{
+  margin-top:12px;
+
+  color:var(--orange);
+
+  font-size:clamp(2.7rem,8vw,5.6rem);
+
+  line-height:.92;
+
+  text-transform:uppercase;
+}
+
+.hero p{
+  max-width:780px;
+
+  margin:18px auto 0;
+
+  line-height:1.7;
+}
+
+
+/* =========================================================
+SUMMARY
+========================================================= */
+
+.summary-grid{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:14px;
+
+  margin-top:36px;
+}
+
+.summary-card{
+  min-height:125px;
+
+  padding:18px;
+
+  border:1px solid var(--border);
+
+  border-radius:17px;
+
+  background:#050200;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:center;
+
+  text-align:center;
+}
+
+.summary-card strong{
+  color:var(--orange);
+
+  font-size:1.7rem;
+}
+
+.summary-card span{
+  margin-top:7px;
+
+  font-size:.68rem;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+}
+
+
+/* =========================================================
+FILTER BAR
+========================================================= */
+
+.filter-section{
+  padding:25px 0 15px;
+}
+
+.filter-bar{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:9px;
+}
+
+.filter-btn{
+  border:1px solid var(--borderStrong);
+
+  border-radius:999px;
+
+  padding:9px 14px;
+
+  background:#000;
+
+  color:var(--orange3);
+
+  cursor:pointer;
+
+  font-size:.67rem;
+
+  font-weight:1000;
+
+  text-transform:uppercase;
+}
+
+.filter-btn.active{
+  background:var(--orange);
+
+  color:#000;
+}
+
+
+/* =========================================================
+COURSES
+========================================================= */
+
+.courses-section{
+  padding:25px 0 90px;
+}
+
+.course-grid{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:18px;
+}
+
+.course-card{
+  padding:24px;
+
+  border:1px solid var(--border);
+
+  border-radius:22px;
+
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.11),transparent 36%),
+    linear-gradient(145deg,#000,#0b0400);
+
+  display:flex;
+
+  flex-direction:column;
+
+  transition:.3s;
+}
+
+.course-card:hover{
+  transform:translateY(-5px);
+
+  border-color:var(--orange);
+
+  box-shadow:var(--glow);
+}
+
+.course-card.hidden{
+  display:none;
+}
+
+.course-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:15px;
+}
+
+.course-icon{
+  width:64px;
+  height:64px;
+
+  display:grid;
+
+  place-items:center;
+
+  border:1px solid var(--orange);
+
+  border-radius:18px;
+
+  background:#000;
+
+  color:var(--orange);
+
+  font-size:1.7rem;
+
+  font-weight:1000;
+
+  box-shadow:var(--glow);
+}
+
+.course-status{
+  padding:7px 11px;
+
+  border:1px solid var(--borderStrong);
+
+  border-radius:999px;
+
+  font-size:.61rem;
+
+  font-weight:1000;
+
+  text-transform:uppercase;
+}
+
+.course-status.not-started{
+  color:var(--orange3);
+}
+
+.course-status.in-progress{
+  color:var(--orange);
+  box-shadow:0 0 10px rgba(255,121,0,.20);
+}
+
+.course-status.completed{
+  background:var(--orange);
+  color:#000;
+}
+
+.course-number{
+  margin-top:22px;
+
+  color:var(--orange3);
+
+  font-size:.61rem;
+
+  font-weight:1000;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+}
+
+.course-card h2{
+  margin-top:8px;
+
+  color:var(--orange);
+
+  font-size:1.22rem;
+
+  text-transform:uppercase;
+}
+
+.course-card p{
+  margin-top:12px;
+
+  line-height:1.62;
+
+  font-size:.86rem;
+}
+
+.progress-block{
+  margin-top:20px;
+}
+
+.progress-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  font-size:.72rem;
+
+  font-weight:900;
+}
+
+.progress-track{
+  height:15px;
+
+  margin-top:9px;
+
+  border:1px solid var(--border);
+
+  border-radius:999px;
+
+  overflow:hidden;
+
+  background:#160800;
+}
+
+.progress-bar{
+  width:0;
+
+  height:100%;
+
+  background:var(--orange);
+
+  transition:width .45s ease;
+}
+
+.course-info{
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:9px;
+
+  margin-top:18px;
+}
+
+.info-box{
+  padding:12px 8px;
+
+  border:1px solid var(--border);
+
+  border-radius:12px;
+
+  background:#030100;
+
+  text-align:center;
+}
+
+.info-box strong{
+  display:block;
+
+  color:var(--orange);
+
+  font-size:.85rem;
+}
+
+.info-box span{
+  display:block;
+
+  margin-top:4px;
+
+  font-size:.58rem;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+}
+
+.course-actions{
+  display:flex;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+
+  margin-top:20px;
+}
+
+.course-btn{
+  flex:1;
+
+  min-height:46px;
+
+  padding:11px 16px;
+
+  border:2px solid var(--orange);
+
+  border-radius:999px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:.68rem;
+
+  font-weight:1000;
+
+  text-transform:uppercase;
+}
+
+.course-btn.primary{
+  background:var(--orange);
+
+  color:#000;
+}
+
+.course-btn.secondary{
+  background:#000;
+
+  color:var(--orange);
+}
+
+
+/* =========================================================
+CERTIFICATE MESSAGE
+========================================================= */
+
+.certificate-note{
+  margin-top:25px;
+
+  padding:20px;
+
+  border:1px solid var(--borderStrong);
+
+  border-radius:17px;
+
+  background:rgba(255,121,0,.05);
+
+  line-height:1.6;
+
+  font-size:.82rem;
+}
+
+.certificate-note strong{
+  color:var(--orange);
+}
+
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+footer{
+  padding:42px 0;
+
+  border-top:1px solid var(--border);
+
+  background:#000;
+
+  text-align:center;
+}
+
+.footer-title{
+  color:var(--orange);
+
+  font-weight:1000;
+}
+
+.footer-info{
+  margin-top:9px;
+
+  font-size:.76rem;
+
+  line-height:1.7;
+}
+
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+  .summary-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .course-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .header-inner{
+    padding:12px 0;
+  }
+
+  .brand-logo{
+    width:50px;
+
+    height:50px;
+  }
+
+  .brand-text strong{
+    font-size:.80rem;
+  }
+
+  .brand-text span{
+    font-size:.47rem;
+  }
+
+  .back-btn{
+    display:none;
+  }
+
+  .lang-btn{
+    min-width:38px;
+
+    padding:8px 7px;
+  }
+
+  .hero{
+    padding-top:45px;
+  }
+
+  .summary-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .course-info{
+    grid-template-columns:1fr;
+  }
+
+  .course-actions{
+    display:grid;
+
+    grid-template-columns:1fr;
+  }
+
+  .course-btn{
+    width:100%;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+  <div class="brand-logo">
+
+    <video autoplay muted loop playsinline preload="auto">
+
+      <source src="../pro-max-dmp-II.mp4" type="video/mp4">
+
+    </video>
+
+  </div>
+
+  <div class="brand-text">
+
+    <strong>
+      PRO-MAX ACADÉMIE
+    </strong>
+
+    <span
+      data-ht="Fòme Jodi a Pou Dirije Demen"
+      data-fr="Former Aujourd’hui Pour Diriger Demain"
+      data-en="Train Today To Lead Tomorrow">
+
+      Fòme Jodi a Pou Dirije Demen
+
+    </span>
+
+  </div>
+
+</a>
+
+
+<div class="header-actions">
+
+  <a
+    href="../student-profile/index.html"
+    class="back-btn"
+
+    data-ht="← PWOFIL ELÈV"
+    data-fr="← PROFIL ÉTUDIANT"
+    data-en="← STUDENT PROFILE">
+
+    ← PWOFIL ELÈV
+
+  </a>
+
+
+  <div class="lang-switch" aria-label="Language selector">
+
+    <button type="button" class="lang-btn" data-lang="fr">
+      FRA
+    </button>
+
+    <button type="button" class="lang-btn" data-lang="en">
+      ENG
+    </button>
+
+    <button type="button" class="lang-btn active" data-lang="ht">
+      KRE
+    </button>
+
+  </div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<div class="container">
+
+<div class="eyebrow">
+BSS1815 PRO-MAX DMP • STUDENT PORTAL
+</div>
+
+<h1
+  data-ht="KOU MWEN"
+  data-fr="MES COURS"
+  data-en="MY COURSES">
+
+  KOU MWEN
+</h1>
+
+<p
+  data-ht="Gade tout kou ou yo, kontinye kote ou te rete a, suiv pwogrè ou epi prepare pou evalyasyon ak sètifikasyon."
+
+  data-fr="Consultez tous vos cours, reprenez là où vous vous êtes arrêté, suivez votre progression et préparez vos évaluations et certifications."
+
+  data-en="View all your courses, continue where you left off, track your progress and prepare for assessments and certification.">
+
+  Gade tout kou ou yo, kontinye kote ou te rete a, suiv pwogrè ou epi prepare pou evalyasyon ak sètifikasyon.
+</p>
+
+
+<div class="summary-grid">
+
+  <div class="summary-card">
+
+    <strong id="totalCourses">
+      6
+    </strong>
+
+    <span
+      data-ht="TOTAL KOU"
+      data-fr="TOTAL COURS"
+      data-en="TOTAL COURSES">
+
+      TOTAL KOU
+    </span>
+
+  </div>
+
+
+  <div class="summary-card">
+
+    <strong id="activeCourses">
+      0
+    </strong>
+
+    <span
+      data-ht="AN PWOGRÈ"
+      data-fr="EN COURS"
+      data-en="IN PROGRESS">
+
+      AN PWOGRÈ
+    </span>
+
+  </div>
+
+
+  <div class="summary-card">
+
+    <strong id="completedCourses">
+      0
+    </strong>
+
+    <span
+      data-ht="FINI"
+      data-fr="TERMINÉS"
+      data-en="COMPLETED">
+
+      FINI
+    </span>
+
+  </div>
+
+
+  <div class="summary-card">
+
+    <strong id="averageProgress">
+      0%
+    </strong>
+
+    <span
+      data-ht="PWOGRÈ MWAYÈN"
+      data-fr="PROGRESSION MOYENNE"
+      data-en="AVERAGE PROGRESS">
+
+      PWOGRÈ MWAYÈN
+    </span>
+
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="filter-section">
+
+<div class="container">
+
+<div class="filter-bar">
+
+  <button
+    type="button"
+    class="filter-btn active"
+    data-filter="all"
+
+    data-ht="TOUT KOU"
+    data-fr="TOUS LES COURS"
+    data-en="ALL COURSES">
+
+    TOUT KOU
+  </button>
+
+
+  <button
+    type="button"
+    class="filter-btn"
+    data-filter="not-started"
+
+    data-ht="POKO KÒMANSE"
+    data-fr="NON COMMENCÉS"
+    data-en="NOT STARTED">
+
+    POKO KÒMANSE
+  </button>
+
+
+  <button
+    type="button"
+    class="filter-btn"
+    data-filter="in-progress"
+
+    data-ht="AN PWOGRÈ"
+    data-fr="EN COURS"
+    data-en="IN PROGRESS">
+
+    AN PWOGRÈ
+  </button>
+
+
+  <button
+    type="button"
+    class="filter-btn"
+    data-filter="completed"
+
+    data-ht="FINI"
+    data-fr="TERMINÉS"
+    data-en="COMPLETED">
+
+    FINI
+  </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="courses-section">
+
+<div class="container">
+
+<div class="course-grid" id="courseGrid">
+
+
+<!-- =====================================================
+COURSE 01
+===================================================== -->
+
+<article
+  class="course-card"
+  data-course-id="introduction-ai">
+
+<div class="course-top">
+
+  <div class="course-icon">
+    AI
+  </div>
+
+  <div class="course-status not-started">
+    NOT STARTED
+  </div>
+
+</div>
+
+<div class="course-number">
+COURSE 01
+</div>
+
+<h2
+  data-ht="ENTWODIKSYON NAN AI"
+  data-fr="INTRODUCTION À L’IA"
+  data-en="INTRODUCTION TO AI">
+
+  ENTWODIKSYON NAN AI
+</h2>
+
+<p
+  data-ht="Aprann fondasyon entèlijans atifisyèl, kijan AI fonksyone ak kijan pou sèvi ak zouti AI."
+
+  data-fr="Apprenez les fondements de l’intelligence artificielle, son fonctionnement et l’utilisation des outils IA."
+
+  data-en="Learn the foundations of artificial intelligence, how AI works and how to use AI tools.">
+
+  Aprann fondasyon entèlijans atifisyèl, kijan AI fonksyone ak kijan pou sèvi ak zouti AI.
+</p>
+
+<div class="progress-block">
+
+<div class="progress-top">
+
+<span
+  data-ht="PWOGRÈ"
+  data-fr="PROGRESSION"
+  data-en="PROGRESS">
+
+  PWOGRÈ
+</span>
+
+<strong class="course-progress-text">
+0%
+</strong>
+
+</div>
+
+<div class="progress-track">
+
+<div class="progress-bar"></div>
+
+</div>
+
+</div>
+
+<div class="course-info">
+
+<div class="info-box">
+<strong>6</strong>
+<span
+  data-ht="MODIL"
+  data-fr="MODULES"
+  data-en="MODULES">
+  MODIL
+</span>
+</div>
+
+<div class="info-box">
+<strong>24</strong>
+<span
+  data-ht="LESON"
+  data-fr="LEÇONS"
+  data-en="LESSONS">
+  LESON
+</span>
+</div>
+
+<div class="info-box">
+<strong>1</strong>
+<span
+  data-ht="EVALYASYON"
+  data-fr="ÉVALUATION"
+  data-en="ASSESSMENT">
+  EVALYASYON
+</span>
+</div>
+
+</div>
+
+<div class="course-actions">
+
+<a
+  href="../courses/introduction-ai/index.html"
+  class="course-btn primary continue-btn"
+
+  data-ht="KÒMANSE KOU"
+  data-fr="COMMENCER"
+  data-en="START COURSE">
+
+  KÒMANSE KOU
+</a>
+
+<a
+  href="../courses/introduction-ai/index.html#assessment"
+  class="course-btn secondary"
+
+  data-ht="EVALYASYON"
+  data-fr="ÉVALUATION"
+  data-en="ASSESSMENT">
+
+  EVALYASYON
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+COURSE 02
+===================================================== -->
+
+<article
+  class="course-card"
+  data-course-id="digital-creation">
+
+<div class="course-top">
+
+  <div class="course-icon">
+    ✦
+  </div>
+
+  <div class="course-status not-started">
+    NOT STARTED
+  </div>
+
+</div>
+
+<div class="course-number">
+COURSE 02
+</div>
+
+<h2
+  data-ht="KREYASYON DIJITAL"
+  data-fr="CRÉATION DIGITALE"
+  data-en="DIGITAL CREATION">
+
+  KREYASYON DIJITAL
+</h2>
+
+<p
+  data-ht="Aprann kreye tèks, imaj, videyo, prezantasyon ak kontni dijital pwofesyonèl."
+
+  data-fr="Apprenez à créer textes, images, vidéos, présentations et contenus numériques professionnels."
+
+  data-en="Learn to create text, images, videos, presentations and professional digital content.">
+
+  Aprann kreye tèks, imaj, videyo, prezantasyon ak kontni dijital pwofesyonèl.
+</p>
+
+<div class="progress-block">
+
+<div class="progress-top">
+
+<span
+  data-ht="PWOGRÈ"
+  data-fr="PROGRESSION"
+  data-en="PROGRESS">
+
+  PWOGRÈ
+</span>
+
+<strong class="course-progress-text">
+0%
+</strong>
+
+</div>
+
+<div class="progress-track">
+
+<div class="progress-bar"></div>
+
+</div>
+
+</div>
+
+<div class="course-info">
+
+<div class="info-box">
+<strong>6</strong>
+<span>MODIL</span>
+</div>
+
+<div class="info-box">
+<strong>24</strong>
+<span>LESON</span>
+</div>
+
+<div class="info-box">
+<strong>1</strong>
+<span>EVALYASYON</span>
+</div>
+
+</div>
+
+<div class="course-actions">
+
+<a
+  href="../courses/digital-creation/index.html"
+  class="course-btn primary continue-btn"
+
+  data-ht="KÒMANSE KOU"
+  data-fr="COMMENCER"
+  data-en="START COURSE">
+
+  KÒMANSE KOU
+</a>
+
+<a
+  href="../courses/digital-creation/index.html#assessment"
+  class="course-btn secondary">
+
+  EVALYASYON
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+COURSE 03
+===================================================== -->
+
+<article
+  class="course-card"
+  data-course-id="digital-leadership">
+
+<div class="course-top">
+
+<div class="course-icon">
+↗
+</div>
+
+<div class="course-status not-started">
+NOT STARTED
+</div>
+
+</div>
+
+<div class="course-number">
+COURSE 03
+</div>
+
+<h2
+data-ht="LIDÈCHIP DIJITAL"
+data-fr="LEADERSHIP DIGITAL"
+data-en="DIGITAL LEADERSHIP">
+
+LIDÈCHIP DIJITAL
+
+</h2>
+
+<p
+data-ht="Devlope vizyon, disiplin, òganizasyon ak kapasite pou dirije nan epòk dijital la."
+data-fr="Développez vision, discipline, organisation et leadership dans l’ère numérique."
+data-en="Develop vision, discipline, organization and leadership for the digital era.">
+
+Devlope vizyon, disiplin, òganizasyon ak kapasite pou dirije nan epòk dijital la.
+
+</p>
+
+<div class="progress-block">
+
+<div class="progress-top">
+
+<span>PWOGRÈ</span>
+
+<strong class="course-progress-text">
+0%
+</strong>
+
+</div>
+
+<div class="progress-track">
+<div class="progress-bar"></div>
+</div>
+
+</div>
+
+<div class="course-info">
+
+<div class="info-box">
+<strong>6</strong>
+<span>MODIL</span>
+</div>
+
+<div class="info-box">
+<strong>24</strong>
+<span>LESON</span>
+</div>
+
+<div class="info-box">
+<strong>1</strong>
+<span>EVALYASYON</span>
+</div>
+
+</div>
+
+<div class="course-actions">
+
+<a
+href="../courses/digital-leadership/index.html"
+class="course-btn primary continue-btn"
+data-ht="KÒMANSE KOU"
+data-fr="COMMENCER"
+data-en="START COURSE">
+
+KÒMANSE KOU
+
+</a>
+
+<a
+href="../courses/digital-leadership/index.html#assessment"
+class="course-btn secondary">
+
+EVALYASYON
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+COURSE 04
+===================================================== -->
+
+<article
+class="course-card"
+data-course-id="automation">
+
+<div class="course-top">
+
+<div class="course-icon">
+⚙
+</div>
+
+<div class="course-status not-started">
+NOT STARTED
+</div>
+
+</div>
+
+<div class="course-number">
+COURSE 04
+</div>
+
+<h2
+data-ht="OTOMATIZASYON"
+data-fr="AUTOMATISATION"
+data-en="AUTOMATION">
+
+OTOMATIZASYON
+
+</h2>
+
+<p
+data-ht="Aprann kreye workflow entelijan epi diminye travay repetitif avèk teknoloji."
+data-fr="Apprenez à créer des workflows intelligents et réduire les tâches répétitives."
+data-en="Learn to build smart workflows and reduce repetitive work with technology.">
+
+Aprann kreye workflow entelijan epi diminye travay repetitif avèk teknoloji.
+
+</p>
+
+<div class="progress-block">
+
+<div class="progress-top">
+
+<span>PWOGRÈ</span>
+
+<strong class="course-progress-text">
+0%
+</strong>
+
+</div>
+
+<div class="progress-track">
+<div class="progress-bar"></div>
+</div>
+
+</div>
+
+<div class="course-info">
+
+<div class="info-box">
+<strong>6</strong>
+<span>MODIL</span>
+</div>
+
+<div class="info-box">
+<strong>24</strong>
+<span>LESON</span>
+</div>
+
+<div class="info-box">
+<strong>1</strong>
+<span>EVALYASYON</span>
+</div>
+
+</div>
+
+<div class="course-actions">
+
+<a
+href="../courses/automation/index.html"
+class="course-btn primary continue-btn"
+data-ht="KÒMANSE KOU"
+data-fr="COMMENCER"
+data-en="START COURSE">
+
+KÒMANSE KOU
+
+</a>
+
+<a
+href="../courses/automation/index.html#assessment"
+class="course-btn secondary">
+
+EVALYASYON
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+COURSE 05
+===================================================== -->
+
+<article
+class="course-card"
+data-course-id="communication">
+
+<div class="course-top">
+
+<div class="course-icon">
+◎
+</div>
+
+<div class="course-status not-started">
+NOT STARTED
+</div>
+
+</div>
+
+<div class="course-number">
+COURSE 05
+</div>
+
+<h2
+data-ht="KOMINIKASYON"
+data-fr="COMMUNICATION"
+data-en="COMMUNICATION">
+
+KOMINIKASYON
+
+</h2>
+
+<p
+data-ht="Devlope kominikasyon pwofesyonèl, prezantasyon ak kapasite pou kominike avèk enpak."
+data-fr="Développez la communication professionnelle, la présentation et l’impact."
+data-en="Develop professional communication, presentation and impactful messaging.">
+
+Devlope kominikasyon pwofesyonèl, prezantasyon ak kapasite pou kominike avèk enpak.
+
+</p>
+
+<div class="progress-block">
+
+<div class="progress-top">
+
+<span>PWOGRÈ</span>
+
+<strong class="course-progress-text">
+0%
+</strong>
+
+</div>
+
+<div class="progress-track">
+<div class="progress-bar"></div>
+</div>
+
+</div>
+
+<div class="course-info">
+
+<div class="info-box">
+<strong>6</strong>
+<span>MODIL</span>
+</div>
+
+<div class="info-box">
+<strong>24</strong>
+<span>LESON</span>
+</div>
+
+<div class="info-box">
+<strong>1</strong>
+<span>EVALYASYON</span>
+</div>
+
+</div>
+
+<div class="course-actions">
+
+<a
+href="../courses/communication/index.html"
+class="course-btn primary continue-btn"
+data-ht="KÒMANSE KOU"
+data-fr="COMMENCER"
+data-en="START COURSE">
+
+KÒMANSE KOU
+
+</a>
+
+<a
+href="../courses/communication/index.html#assessment"
+class="course-btn secondary">
+
+EVALYASYON
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+COURSE 06
+===================================================== -->
+
+<article
+class="course-card"
+data-course-id="innovation">
+
+<div class="course-top">
+
+<div class="course-icon">
+◆
+</div>
+
+<div class="course-status not-started">
+NOT STARTED
+</div>
+
+</div>
+
+<div class="course-number">
+COURSE 06
+</div>
+
+<h2
+data-ht="INOVASYON"
+data-fr="INNOVATION"
+data-en="INNOVATION">
+
+INOVASYON
+
+</h2>
+
+<p
+data-ht="Aprann transfòme lide an pwojè epi itilize teknoloji pou konstwi nouvo solisyon."
+data-fr="Transformez les idées en projets et utilisez la technologie pour construire de nouvelles solutions."
+data-en="Turn ideas into projects and use technology to build new solutions.">
+
+Aprann transfòme lide an pwojè epi itilize teknoloji pou konstwi nouvo solisyon.
+
+</p>
+
+<div class="progress-block">
+
+<div class="progress-top">
+
+<span>PWOGRÈ</span>
+
+<strong class="course-progress-text">
+0%
+</strong>
+
+</div>
+
+<div class="progress-track">
+<div class="progress-bar"></div>
+</div>
+
+</div>
+
+<div class="course-info">
+
+<div class="info-box">
+<strong>6</strong>
+<span>MODIL</span>
+</div>
+
+<div class="info-box">
+<strong>24</strong>
+<span>LESON</span>
+</div>
+
+<div class="info-box">
+<strong>1</strong>
+<span>EVALYASYON</span>
+</div>
+
+</div>
+
+<div class="course-actions">
+
+<a
+href="../courses/innovation/index.html"
+class="course-btn primary continue-btn"
+data-ht="KÒMANSE KOU"
+data-fr="COMMENCER"
+data-en="START COURSE">
+
+KÒMANSE KOU
+
+</a>
+
+<a
+href="../courses/innovation/index.html#assessment"
+class="course-btn secondary">
+
+EVALYASYON
+
+</a>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<div class="certificate-note">
+
+<strong
+data-ht="RÈG SÈTIFIKASYON:"
+data-fr="RÈGLE DE CERTIFICATION :"
+data-en="CERTIFICATION RULE:">
+
+RÈG SÈTIFIKASYON:
+
+</strong>
+
+<span
+data-ht=" Yon kou dwe rive 100%, evalyasyon an dwe pase, epi 5/5 peman yo dwe fini anvan sètifika a kapab debloke."
+
+data-fr=" Un cours doit atteindre 100 %, l’évaluation doit être réussie et les 5/5 paiements doivent être terminés avant le déblocage du certificat."
+
+data-en=" A course must reach 100%, the assessment must be passed, and all 5/5 payments must be completed before the certificate can be unlocked.">
+
+ Yon kou dwe rive 100%, evalyasyon an dwe pase, epi 5/5 peman yo dwe fini anvan sètifika a kapab debloke.
+
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-title">
+PRO-MAX ACADÉMIE
+</div>
+
+<div class="footer-info">
+BSS1815 PRO-MAX DMP<br>
+DEVAN DEVAN NÈT™<br>
+BATI POU JODI A • PARE POU DEMEN
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+(function(){
+
+"use strict";
+
+
+/* =========================================================
+LANGUAGE TOGGLE
+========================================================= */
+
+var currentLanguage = "ht";
+
+var languageButtons =
+document.querySelectorAll(".lang-btn[data-lang]");
+
+
+function applyLanguage(lang){
+
+  if(["ht","fr","en"].indexOf(lang) === -1){
+    lang = "ht";
+  }
+
+  currentLanguage = lang;
+
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll(
+    "[data-ht][data-fr][data-en]"
+  )
+  .forEach(function(element){
+
+    var value =
+      element.getAttribute(
+        "data-" + lang
+      );
+
+    if(value !== null){
+      element.textContent = value;
+    }
+
+  });
+
+
+  languageButtons.forEach(function(button){
+
+    button.classList.toggle(
+      "active",
+      button.getAttribute("data-lang") === lang
+    );
+
+  });
+
+
+  updateCourseUI();
+
+}
+
+
+languageButtons.forEach(function(button){
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      applyLanguage(
+        this.getAttribute("data-lang")
+      );
+
+    }
+  );
+
+});
+
+
+applyLanguage("ht");
+
+
+/* =========================================================
+VIDEO
+========================================================= */
+
+document.querySelectorAll("video")
+.forEach(function(video){
+
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+
+  var promise = video.play();
+
+  if(promise){
+    promise.catch(function(){});
+  }
+
+});
+
+
+/* =========================================================
+COURSE DATA
+========================================================= */
+
+var courseIds = [
+  "introduction-ai",
+  "digital-creation",
+  "digital-leadership",
+  "automation",
+  "communication",
+  "innovation"
+];
+
+
+function getCourseProgress(courseId){
+
+  var keys = [
+
+    "promax-course-progress-" + courseId,
+
+    "promaxCourseProgress-" + courseId,
+
+    "courseProgress-" + courseId
+
+  ];
+
+
+  for(var i=0;i<keys.length;i++){
+
+    var value =
+      localStorage.getItem(keys[i]);
+
+    if(value !== null){
+
+      var number =
+        Number(value);
+
+      if(!isNaN(number)){
+
+        return Math.max(
+          0,
+          Math.min(
+            number,
+            100
+          )
+        );
+
+      }
+
+    }
+
+  }
+
+
+  return 0;
+
+}
+
+
+function getStatus(progress){
+
+  if(progress >= 100){
+    return "completed";
+  }
+
+  if(progress > 0){
+    return "in-progress";
+  }
+
+  return "not-started";
+
+}
+
+
+function statusText(status){
+
+  var translations = {
+
+    ht:{
+      "not-started":"POKO KÒMANSE",
+      "in-progress":"AN PWOGRÈ",
+      "completed":"FINI"
+    },
+
+    fr:{
+      "not-started":"NON COMMENCÉ",
+      "in-progress":"EN COURS",
+      "completed":"TERMINÉ"
+    },
+
+    en:{
+      "not-started":"NOT STARTED",
+      "in-progress":"IN PROGRESS",
+      "completed":"COMPLETED"
+    }
+
+  };
+
+
+  return translations[currentLanguage][status];
+
+}
+
+
+function continueText(status){
+
+  var translations = {
+
+    ht:{
+      "not-started":"KÒMANSE KOU",
+      "in-progress":"KONTINYE KOU",
+      "completed":"REVIZE KOU"
+    },
+
+    fr:{
+      "not-started":"COMMENCER",
+      "in-progress":"CONTINUER",
+      "completed":"RÉVISER"
+    },
+
+    en:{
+      "not-started":"START COURSE",
+      "in-progress":"CONTINUE COURSE",
+      "completed":"REVIEW COURSE"
+    }
+
+  };
+
+
+  return translations[currentLanguage][status];
+
+}
+
+
+/* =========================================================
+UPDATE COURSES
+========================================================= */
+
+function updateCourseUI(){
+
+  var cards =
+    document.querySelectorAll(".course-card");
+
+  var activeCount = 0;
+  var completedCount = 0;
+  var progressTotal = 0;
+
+
+  cards.forEach(function(card){
+
+    var courseId =
+      card.getAttribute("data-course-id");
+
+    var progress =
+      getCourseProgress(courseId);
+
+    var status =
+      getStatus(progress);
+
+    progressTotal += progress;
+
+
+    if(status === "in-progress"){
+      activeCount++;
+    }
+
+    if(status === "completed"){
+      completedCount++;
+    }
+
+
+    card.setAttribute(
+      "data-status",
+      status
+    );
+
+
+    var progressBar =
+      card.querySelector(
+        ".progress-bar"
+      );
+
+    if(progressBar){
+      progressBar.style.width =
+        progress + "%";
+    }
+
+
+    var progressText =
+      card.querySelector(
+        ".course-progress-text"
+      );
+
+    if(progressText){
+      progressText.textContent =
+        progress + "%";
+    }
+
+
+    var statusElement =
+      card.querySelector(
+        ".course-status"
+      );
+
+    if(statusElement){
+
+      statusElement.className =
+        "course-status " + status;
+
+      statusElement.textContent =
+        statusText(status);
+
+    }
+
+
+    var continueButton =
+      card.querySelector(
+        ".continue-btn"
+      );
+
+    if(continueButton){
+
+      continueButton.textContent =
+        continueText(status);
+
+    }
+
+  });
+
+
+  document.getElementById(
+    "activeCourses"
+  ).textContent =
+    activeCount;
+
+
+  document.getElementById(
+    "completedCourses"
+  ).textContent =
+    completedCount;
+
+
+  var average =
+    Math.round(
+      progressTotal /
+      courseIds.length
+    );
+
+
+  document.getElementById(
+    "averageProgress"
+  ).textContent =
+    average + "%";
+
+}
+
+
+/* =========================================================
+FILTER
+========================================================= */
+
+var filterButtons =
+document.querySelectorAll(
+  ".filter-btn"
+);
+
+
+filterButtons.forEach(
+function(button){
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      var filter =
+        this.getAttribute(
+          "data-filter"
+        );
+
+
+      filterButtons.forEach(
+        function(btn){
+
+          btn.classList.remove(
+            "active"
+          );
+
+        }
+      );
+
+
+      this.classList.add(
+        "active"
+      );
+
+
+      document.querySelectorAll(
+        ".course-card"
+      )
+      .forEach(
+        function(card){
+
+          var status =
+            card.getAttribute(
+              "data-status"
+            );
+
+
+          if(
+            filter === "all" ||
+            filter === status
+          ){
+
+            card.classList.remove(
+              "hidden"
+            );
+
+          }
+
+          else{
+
+            card.classList.add(
+              "hidden"
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+});
+
+
+updateCourseUI();
+
+})();
+</script>
+
+</body>
+</html>
