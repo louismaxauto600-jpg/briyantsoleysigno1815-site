@@ -1,203 +1,1907 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRO-MAX ACADEMY | Learn. Evolve. Succeed.</title>
+<title>Maximax Multi Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--orange:#ff9a1f;--orange-light:#ffb86b;--orange-dark:#e67e00;--border:rgba(255,154,31,0.35);--bg:#000}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{min-height:100vh;overflow-x:hidden;font-family:Arial,Helvetica,sans-serif;color:var(--orange-light);background:#000}
-a{color:var(--orange-light);text-decoration:none!important}
-a:visited{color:var(--orange-light)!important}
-a:hover{color:var(--orange)!important}
-.contact-top{background:#0a0a0a;border-bottom:1px solid var(--border);padding:8px 0;font-size:0.75rem;text-align:center;color:var(--orange-light)}
-.contact-top a{color:var(--orange)!important;font-weight:900}
-header{position:sticky;top:0;z-index:2000;width:100%;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.98);backdrop-filter:blur(10px)}
-.header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-logo-video{width:56px;height:56px;flex:0 0 56px;border:2px solid var(--orange);border-radius:50%;background:#000;box-shadow:0 0 18px rgba(255,154,31,0.4);object-fit:cover}
-.brand-text{display:flex;flex-direction:column;line-height:1.1}
-.brand-name{color:var(--orange);font-size:1rem;font-weight:950;letter-spacing:0.03em;text-transform:uppercase}
-.brand-slogan{color:var(--orange-light);font-size:0.62rem;font-weight:800;letter-spacing:0.06em;margin-top:3px}
-.desktop-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
-.nav-link{padding:10px 10px;color:var(--orange-light)!important;font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:0.02em;transition:0.2s;border-radius:8px}
-.nav-link:hover{color:#000!important;background:var(--orange)}
-.language-switcher{display:flex;gap:3px;padding:3px;margin-left:8px;border:1px solid var(--border);border-radius:999px;background:#0a0a0a}
-.language-button{min-width:38px;padding:7px 8px;border:0;border-radius:999px;color:var(--orange-light);background:transparent;font-size:0.65rem;font-weight:950;cursor:pointer;transition:0.2s}
-.language-button.active{color:#000;background:var(--orange)}
-.language-button:hover{color:#000;background:var(--orange)}
-.menu-button{display:none;width:44px;height:44px;border:1px solid var(--border);border-radius:10px;background:#0a0a0a;cursor:pointer}
-.menu-button span{display:block;height:2px;margin:5px 8px;border-radius:8px;background:var(--orange)}
-.mobile-menu{display:none;position:fixed;top:78px;right:0;bottom:0;z-index:1900;width:min(360px,85%);flex-direction:column;gap:8px;padding:24px;border-left:1px solid var(--border);background:#000;transform:translateX(105%);transition:0.3s}
-.mobile-menu.open{transform:translateX(0);display:flex}
-.container{width:min(1200px,calc(100% - 28px));margin:auto}
-.hero{position:relative;min-height:88vh;display:flex;align-items:center;padding:60px 0 80px}
-.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;align-items:center;gap:40px}
-.hero-badge{display:inline-flex;padding:9px 16px;border:1px solid var(--border);border-radius:999px;color:var(--orange);background:rgba(255,154,31,0.08);font-size:0.75rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase}
-.hero-title{margin-top:22px;color:var(--orange);font-size:clamp(2.8rem,6vw,5.2rem);line-height:0.95;font-weight:950;text-transform:uppercase}
-.hero-title span{display:block;color:var(--orange-light);font-size:0.55em;margin-top:8px}
-.hero-slogan{margin-top:18px;color:var(--orange);font-size:1.1rem;font-weight:950;letter-spacing:0.1em}
-.hero-description{max-width:680px;margin-top:18px;color:var(--orange-light);font-size:1rem;line-height:1.7;opacity:0.9}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border:2px solid var(--orange);border-radius:12px;font-size:0.8rem;font-weight:950;letter-spacing:0.04em;text-transform:uppercase;transition:0.25s;cursor:pointer;text-decoration:none!important}
-.btn-primary{color:#000!important;background:linear-gradient(135deg,var(--orange),#ffb347)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,154,31,0.25)}
-.btn-secondary{color:var(--orange)!important;background:transparent}
-.btn-secondary:hover{color:#000!important;background:var(--orange)}
-.hero-visual{display:flex;align-items:center;justify-content:center}
-.academy-video-wrap{width:min(100%,520px);overflow:hidden;border:2px solid var(--orange);border-radius:22px;background:#000;box-shadow:0 0 40px rgba(255,154,31,0.2)}
-.academy-main-video{width:100%;height:auto;display:block}
-.section{padding:70px 0}
-.section-header{max-width:760px;margin:0 auto 40px;text-align:center}
-.section-label{display:inline-block;padding:7px 14px;border:1px solid var(--border);border-radius:999px;color:var(--orange);background:rgba(255,154,31,0.08);font-size:0.72rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase}
-.section-title{margin-top:14px;color:var(--orange);font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;text-transform:uppercase}
-footer{border-top:1px solid var(--border);background:#000}
-.footer-main{display:grid;grid-template-columns:1.4fr 0.7fr 0.8fr 0.9fr;gap:30px;padding:50px 0 30px}
-.footer-brand{display:flex;align-items:center;gap:12px}
-.footer-brand-text h3{color:var(--orange);font-size:1rem;text-transform:uppercase;line-height:1.1}
-.footer-brand-text p{color:var(--orange-light);font-size:0.65rem;margin-top:4px}
-.footer-description{margin-top:14px;color:var(--orange-light);font-size:0.84rem;line-height:1.6;opacity:0.85;max-width:320px}
-.footer-column h4{color:var(--orange);font-size:0.8rem;text-transform:uppercase;margin-bottom:14px;letter-spacing:0.05em}
-.footer-links{display:grid;gap:9px}
-.footer-links a{color:var(--orange-light)!important;font-size:0.82rem;opacity:0.9;transition:0.2s;text-decoration:none!important}
-.footer-links a:hover{color:var(--orange)!important;opacity:1;transform:translateX(3px)}
-.footer-bottom{display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-top:1px solid var(--border);font-size:0.72rem;color:var(--orange-light);opacity:0.7;flex-wrap:wrap}
-@media (max-width:1020px){.desktop-nav{display:none}.menu-button{display:block}.hero-grid{grid-template-columns:1fr}.hero{padding-top:30px}.footer-main{grid-template-columns:1fr 1fr}.footer-main>div:first-child{grid-column:1/-1}}
-@media (max-width:600px){.footer-main{grid-template-columns:1fr}.hero-actions{display:grid}.btn{width:100%}}
+:root{
+  --black:#070502;
+  --black2:#150E07;
+  --orange:#FF7A1A;
+  --orange-light:#FFB066;
+  --orange-deep:#8A3400;
+  --white:#FFF7EE;
+  --line:rgba(255,176,102,0.28);
+  --panel:rgba(7,5,2,0.62);
+  --panel-solid:#0D0904;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  color:var(--white);
+  font-family:'Public Sans',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(1100px 700px at 15% -10%,rgba(255,122,26,.35),transparent 60%),
+    radial-gradient(1000px 800px at 100% 30%,rgba(255,122,26,.22),transparent 55%),
+    linear-gradient(175deg,#030201 0%,#150E07 16%,#3A1A02 42%,#B34C00 62%,#FF7A1A 78%,#1A0E05 100%);
+  background-attachment:fixed;
+  background-size:cover;
+}
+
+h1,h2,h3{
+  font-family:'Fraunces',serif;
+  margin:0;
+}
+
+.mono{
+  font-family:'IBM Plex Mono',monospace;
+  letter-spacing:.06em;
+}
+
+a{color:inherit;}
+video,img{max-width:100%;}
+button{font-family:inherit;}
+
+/* LOGO */
+.logo-mark{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--orange-light);
+  flex-shrink:0;
+  background:var(--black2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.logo-mark video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0;
+}
+
+.logo-mark .fallback{
+  font-family:'Fraunces',serif;
+  font-weight:700;
+  color:var(--orange-light);
+  font-size:18px;
+  z-index:0;
+}
+
+.logo-mark video + .fallback{
+  display:none;
+}
+
+.seal{
+  position:relative;
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  border:2px solid var(--orange-light);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  background:var(--black2);
+  overflow:hidden;
+}
+
+.seal video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.seal::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px dashed var(--orange-light);
+  border-radius:50%;
+  opacity:.6;
+  pointer-events:none;
+}
+
+.seal.small{
+  width:46px;
+  height:46px;
+  border-width:1.5px;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(7,5,2,.82);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-wrap{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 24px;
+  gap:16px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-name{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:16px;
+  letter-spacing:.02em;
+}
+
+.brand-name span{
+  display:block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.16em;
+  color:var(--orange-light);
+  font-weight:400;
+  margin-top:2px;
+}
+
+nav.desktop-nav{
+  display:flex;
+  gap:18px;
+  font-size:13px;
+  align-items:center;
+}
+
+nav.desktop-nav a{
+  text-decoration:none;
+  color:var(--white);
+  opacity:.8;
+  padding:4px 0;
+  border-bottom:1px solid transparent;
+  transition:.2s;
+  white-space:nowrap;
+}
+
+nav.desktop-nav a:hover{
+  opacity:1;
+  border-color:var(--orange-light);
+}
+
+.lang-toggle{
+  display:flex;
+  gap:4px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:3px;
+}
+
+.lang-btn{
+  background:none;
+  border:none;
+  color:var(--white);
+  opacity:.6;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:.06em;
+  padding:6px 11px;
+  border-radius:16px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.lang-btn.active{
+  background:var(--orange);
+  color:#1A0E05;
+  opacity:1;
+  font-weight:600;
+}
+
+.menu-btn{
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  color:var(--white);
+  width:38px;
+  height:38px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  padding:0 24px 18px;
+  gap:2px;
+}
+
+.mobile-nav a{
+  color:var(--white);
+  text-decoration:none;
+  padding:9px 6px;
+  font-size:14px;
+  border-bottom:1px solid var(--line);
+}
+
+.mobile-nav.open{display:flex;}
+
+@media(max-width:900px){
+  nav.desktop-nav{display:none;}
+  .menu-btn{display:block;}
+}
+
+/* HERO */
+.hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:72px 24px 60px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;
+  align-items:center;
+}
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:.2em;
+  color:var(--orange-light);
+  text-transform:uppercase;
+  margin-bottom:18px;
+  display:inline-block;
+}
+
+.hero h1{
+  font-size:clamp(2.2rem,5.2vw,3.9rem);
+  font-weight:600;
+  line-height:1.06;
+  letter-spacing:-.01em;
+}
+
+.hero h1 em{
+  font-style:italic;
+  font-weight:500;
+  color:var(--orange-light);
+}
+
+.hero p.lede{
+  margin-top:20px;
+  max-width:560px;
+  font-size:16px;
+  line-height:1.65;
+  color:var(--white);
+  opacity:.88;
+}
+
+.hero .creole{
+  margin-top:10px;
+  font-style:italic;
+  color:var(--orange-light);
+  font-size:14px;
+  opacity:.9;
+}
+
+.hero-cta{
+  margin-top:28px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:13px 22px;
+  border-radius:3px;
+  text-decoration:none;
+  display:inline-block;
+  transition:.2s;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+
+.btn-primary{
+  background:var(--orange);
+  color:#1A0E05;
+  border-color:var(--orange);
+}
+
+.btn-primary:hover{background:var(--orange-light);}
+
+.btn-ghost{
+  border:1px solid var(--line);
+  color:var(--white);
+}
+
+.btn-ghost:hover{
+  border-color:var(--orange-light);
+  color:var(--orange-light);
+}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;}
+  .hero-seal{display:none;}
+}
+
+/* CATEGORY MAP */
+.catmap{
+  background:rgba(0,0,0,.35);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:30px 24px;
+}
+
+.catmap-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 26px;
+  align-items:center;
+  justify-content:center;
+}
+
+.catmap-item{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:.05em;
+  color:var(--orange-light);
+  opacity:.9;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.catmap-item b{
+  color:var(--white);
+  opacity:.55;
+  margin-right:6px;
+}
+
+/* SECTIONS */
+main{
+  max-width:1180px;
+  margin:0 auto;
+  padding:64px 24px;
+}
+
+.file{
+  background:var(--panel);
+  color:var(--white);
+  border:1px solid var(--line);
+  border-radius:6px;
+  margin-bottom:26px;
+  position:relative;
+  backdrop-filter:blur(6px);
+  overflow:hidden;
+}
+
+.file-tab{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:22px 26px;
+  cursor:pointer;
+  border-bottom:1px solid var(--line);
+}
+
+.file-tab-left{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.file-num{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--orange-light);
+  border:1px solid var(--orange-light);
+  border-radius:50%;
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.file-tab h2{
+  font-size:1.35rem;
+  font-weight:600;
+}
+
+.file-tab .sub{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--orange-light);
+  margin-top:3px;
+  opacity:.7;
+}
+
+.chev{
+  width:20px;
+  height:20px;
+  flex-shrink:0;
+  transition:transform .3s ease;
+  opacity:.7;
+  color:var(--orange-light);
+}
+
+.file.open .chev{transform:rotate(180deg);}
+
+.file-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .45s ease;
+}
+
+.file-body-inner{
+  padding:6px 26px 28px;
+}
+
+.file.open .file-body{
+  max-height:1400px;
+}
+
+.service-list{
+  columns:2;
+  column-gap:30px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.service-list li{
+  break-inside:avoid;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:8px 0;
+  border-bottom:1px dotted var(--line);
+  font-size:14px;
+  line-height:1.4;
+}
+
+.service-list li::before{
+  content:"✓";
+  color:var(--orange-light);
+  font-size:12px;
+  margin-top:2px;
+  font-weight:700;
+  flex-shrink:0;
+}
+
+@media(max-width:640px){
+  .service-list{columns:1;}
+}
+
+/* BANDS */
+.band{
+  padding:56px 24px;
+}
+
+.band-inner{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.band-news{
+  background:rgba(0,0,0,.32);
+  border-top:1px solid var(--line);
+}
+
+.band-ai{
+  background:rgba(0,0,0,.42);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.band-contact{
+  background:rgba(0,0,0,.5);
+}
+
+.band-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:26px;
+}
+
+.band-head h2{
+  font-size:1.75rem;
+  font-weight:600;
+}
+
+.band-head .tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--orange-light);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.chip{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:9px 16px;
+  font-size:13px;
+  color:var(--white);
+  opacity:.92;
+  background:rgba(0,0,0,.25);
+}
+
+.ai-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.ai-card{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:20px;
+  background:rgba(255,122,26,.06);
+}
+
+.ai-card h3{
+  font-size:15px;
+  color:var(--orange-light);
+  font-weight:600;
+  margin-bottom:8px;
+  font-family:'Public Sans',sans-serif;
+}
+
+.ai-card p{
+  font-size:13px;
+  opacity:.8;
+  margin:0;
+  line-height:1.5;
+}
+
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.contact-card{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:20px;
+  background:rgba(0,0,0,.3);
+}
+
+.contact-card .label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--orange-light);
+  margin-bottom:8px;
+}
+
+.contact-card .value{
+  font-size:15px;
+  line-height:1.6;
+}
+
+.contact-card a{
+  text-decoration:none;
+  color:var(--white);
+}
+
+.contact-card a:hover{
+  color:var(--orange-light);
+}
+
+.social-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.social-pill{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:9px 18px;
+  font-size:13px;
+  background:rgba(255,122,26,.08);
+  text-decoration:none;
+  color:var(--white);
+  transition:.2s;
+}
+
+.social-pill:hover{
+  border-color:var(--orange-light);
+  color:var(--orange-light);
+}
+
+/* FOOTER */
+footer{
+  background:rgba(0,0,0,.65);
+  padding:50px 24px 28px;
+  border-top:1px solid var(--line);
+}
+
+.footer-inner{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:30px;
+  flex-wrap:wrap;
+  padding-bottom:30px;
+  border-bottom:1px solid var(--line);
+}
+
+.footer-cats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px 22px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  opacity:.75;
+}
+
+.footer-cats a{text-decoration:none;}
+
+.footer-bottom{
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size:11.5px;
+  opacity:.6;
+  font-family:'IBM Plex Mono',monospace;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+
+:focus-visible{
+  outline:2px solid var(--orange-light);
+  outline-offset:2px;
+}
 </style>
 </head>
+
 <body>
-<div class="contact-top">
-<div class="container">
-🌐 <a href="https://www.pro-maxacademie.com" target="_blank">www.pro-maxacademie.com</a> &nbsp;&nbsp; 📧 promaxacademie@gmail.com &nbsp;&nbsp; 📞 (407) 640-5166 | (516) 216-8494
-</div>
-</div>
+
 <header>
-<div class="container header-inner">
-<a href="#home" class="brand">
-<video class="brand-logo-video" autoplay muted loop playsinline poster="">
-<source src="pro-maxa-cademie-II.mp4" type="video/mp4">
-<source src="pro-maxa-cademie-ii.mp4" type="video/mp4">
-<source src="pro-max-academie.mp4" type="video/mp4">
-<source src="pro-max-cademie.mp4" type="video/mp4">
-</video>
-<div class="brand-text">
-<span class="brand-name">PRO-MAX ACADEMY</span>
-<span class="brand-slogan">LEARN • EVOLVE • SUCCEED</span>
+<div class="nav-wrap">
+
+<div class="brand">
+<div class="logo-mark">
+<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
+<div class="fallback">M</div>
 </div>
-</a>
-<nav class="desktop-nav">
-<a href="#home" class="nav-link" data-i18n="navHome">HOME</a>
-<a href="#courses" class="nav-link" data-i18n="navCourses">COURSE</a>
-<a href="#categories" class="nav-link" data-i18n="navCategories">CATEGORY</a>
-<a href="#ai" class="nav-link" data-i18n="navAi">AI TUTOR</a>
-<a href="#certificates" class="nav-link" data-i18n="navCert">CERTIFICATE</a>
-<a href="#login" class="nav-link" data-i18n="navLogin">LOGIN</a>
-<a href="#create" class="btn btn-primary" style="min-height:40px;padding:8px 16px;margin-left:6px">CREATE</a>
-<div class="language-switcher">
-<button class="language-button active" data-lang="en" onclick="setLang('en')">ENG</button>
-<button class="language-button" data-lang="ht" onclick="setLang('ht')">KRE</button>
-<button class="language-button" data-lang="fr" onclick="setLang('fr')">FRA</button>
+
+<div class="brand-name">
+MAXIMAX
+<span>MULTI SERVICES</span>
 </div>
-</nav>
-<button class="menu-button" id="menuButton" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
+
+<nav class="desktop-nav" id="desktopNav"></nav>
+
+<div style="display:flex;align-items:center;gap:10px;">
+
+<div class="lang-toggle" id="langToggle">
+<button class="lang-btn" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRAN</button>
+<button class="lang-btn" data-lang="kr">KRE</button>
+</div>
+
+<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+</div>
+</div>
+
+<div class="mobile-nav" id="mobileNav"></div>
 </header>
-<nav class="mobile-menu" id="mobileMenu">
-<a href="#home" class="nav-link" data-i18n="navHome">HOME</a>
-<a href="#courses" class="nav-link" data-i18n="navCourses">COURSE</a>
-<a href="#categories" class="nav-link" data-i18n="navCategories">CATEGORY</a>
-<a href="#ai" class="nav-link" data-i18n="navAi">AI TUTOR</a>
-<a href="#certificates" class="nav-link" data-i18n="navCert">CERTIFICATE</a>
-<a href="#login" class="nav-link" data-i18n="navLogin">LOGIN</a>
-<div class="language-switcher" style="margin-top:10px">
-<button class="language-button active" data-lang="en" onclick="setLang('en')">ENG</button>
-<button class="language-button" data-lang="ht" onclick="setLang('ht')">KRE</button>
-<button class="language-button" data-lang="fr" onclick="setLang('fr')">FRA</button>
-</div>
-</nav>
-<main>
-<section class="hero" id="home">
-<div class="container hero-grid">
+
+
+<section class="hero">
+
 <div>
-<div class="hero-badge" data-i18n="badge">DIGITAL EDUCATION PLATFORM</div>
-<h1 class="hero-title">PRO-MAX<span data-i18n="academy">ACADEMY</span></h1>
-<div class="hero-slogan" data-i18n="slogan">LEARN. EVOLVE. SUCCESSFUL.</div>
-<p class="hero-description" data-i18n="desc">A modern digital education platform to learn, develop skills, take courses, pass exams, use AI Tutor and receive certification.</p>
-<div class="hero-actions">
-<a href="#courses" class="btn btn-primary" data-i18n="explore">EXPLORE COURSES</a>
-<a href="#start" class="btn btn-secondary" data-i18n="start">START LEARNING</a>
-<a href="#login" class="btn btn-secondary" data-i18n="studentLogin">STUDENT LOGIN</a>
+<span class="eyebrow" id="heroEyebrow"></span>
+<h1 id="heroH1"></h1>
+<p class="lede" id="heroLede"></p>
+
+<p class="creole">
+Nou la pou ou · Nous sommes là pour vous · We are here for you
+</p>
+
+<div class="hero-cta">
+<a href="#immigration" class="btn btn-primary" id="ctaPrimary"></a>
+<a href="#community" class="btn btn-ghost" id="ctaGhost"></a>
 </div>
 </div>
-<div class="hero-visual">
-<div class="academy-video-wrap">
-<video class="academy-main-video" autoplay muted loop playsinline>
-<source src="pro-maxa-cademie-II.mp4" type="video/mp4">
-<source src="pro-maxa-cademie-ii.mp4" type="video/mp4">
-<source src="pro-max-academie.mp4" type="video/mp4">
-<source src="pro-max-cademie.mp4" type="video/mp4">
-</video>
+
+<div class="hero-seal seal">
+<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
 </div>
+
+</section>
+
+
+<div class="catmap">
+<div class="catmap-inner" id="catmap"></div>
 </div>
+
+
+<main id="fileContainer"></main>
+
+
+<section class="band band-news" id="news">
+
+<div class="band-inner">
+
+<div class="band-head">
+
+<div class="seal small">
+<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
+</div>
+
+<div>
+<div class="tag" id="newsTag"></div>
+<h2 id="newsTitle"></h2>
+</div>
+
+</div>
+
+<div class="chips" id="newsChips"></div>
+
 </div>
 </section>
-</main>
-<footer>
-<div class="container footer-main">
+
+
+<section class="band band-ai" id="ai">
+
+<div class="band-inner">
+
+<div class="band-head">
+
+<div class="seal small">
+<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
+</div>
+
 <div>
-<div class="footer-brand">
-<video autoplay muted loop playsinline style="width:58px;height:58px;object-fit:cover;border:2px solid #ff9a1f;border-radius:50%">
-<source src="pro-maxa-cademie-II.mp4" type="video/mp4">
-<source src="pro-max-academie.mp4" type="video/mp4">
-</video>
-<div class="footer-brand-text"><h3>PRO-MAX ACADEMY</h3><p>LEARN • EVOLVE • SUCCEED</p></div>
+<div class="tag" id="aiTag"></div>
+<h2 id="aiTitle"></h2>
 </div>
-<p class="footer-description" data-i18n="footerDesc">A digital education platform for training, AI learning, exams, progress and certifications.</p>
+
 </div>
-<div class="footer-column"><h4>QUICK LINKS</h4><div class="footer-links">
-<a href="#home" data-i18n="home">Home</a>
-<a href="#courses" data-i18n="courses">Courses</a>
-<a href="#certificates" data-i18n="certs">Certificates</a>
-<a href="#about" data-i18n="about">About</a>
-</div></div>
-<div class="footer-column"><h4>CONTACT</h4><div class="footer-links">
-<a href="https://www.pro-maxacademie.com" target="_blank">🌐 www.pro-maxacademie.com</a>
-<a href="mailto:promaxacademie@gmail.com">📧 promaxacademie@gmail.com</a>
-<a href="tel:+14076405166">📞 (407) 640-5166</a>
-<a href="tel:+15162168494">📞 (516) 216-8494</a>
-</div></div>
-<div class="footer-column"><h4>SOCIAL NETWORK</h4><div class="footer-links">
-<a href="#">TELEGRAM</a>
-<a href="#">FACEBOOK</a>
-<a href="#">WHATSAPP</a>
-<a href="#">TIKTOK</a>
-<a href="#">INSTAGRAM</a>
-<a href="#">T/TWITTER</a>
-<a href="#">TRUE SOCIAL</a>
-<a href="#">YOUTUBE</a>
-<a href="#">SPOTIFY</a>
-</div></div>
+
+<div class="ai-grid" id="aiGrid"></div>
+
 </div>
-<div class="container footer-bottom"><span>© <span id="year"></span> PRO-MAX ACADEMY</span><span>www.pro-maxacademie.com</span></div>
+</section>
+
+
+<section class="band band-contact" id="contact">
+
+<div class="band-inner">
+
+<div class="band-head">
+
+<div class="seal small">
+<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
+</div>
+
+<div>
+<div class="tag" id="contactTag"></div>
+<h2 id="contactTitle"></h2>
+</div>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<div class="label" id="phoneLabel"></div>
+<div class="value">
+<a href="tel:+19546405166">(954) 640-5166</a><br>
+<a href="tel:+15162168494">(516) 216-8494</a>
+</div>
+</div>
+
+<div class="contact-card">
+<div class="label" id="emailLabel"></div>
+<div class="value">
+<a href="mailto:maximaxmultiservices@gmail.com">
+maximaxmultiservices@gmail.com
+</a>
+</div>
+</div>
+
+<div class="contact-card">
+<div class="label" id="webLabel"></div>
+<div class="value">
+<a href="https://www.maximaxmultiservices.com" target="_blank" rel="noopener">
+www.maximaxmultiservices.com
+</a>
+</div>
+</div>
+
+</div>
+
+<div class="label" id="followLabel" style="margin-bottom:12px;"></div>
+
+<div class="social-row">
+<a class="social-pill" href="#">Facebook</a>
+<a class="social-pill" href="#">WhatsApp</a>
+<a class="social-pill" href="#">Instagram</a>
+<a class="social-pill" href="#">TikTok</a>
+<a class="social-pill" href="#">YouTube</a>
+<a class="social-pill" href="#">Spotify</a>
+<a class="social-pill" href="#">LinkedIn</a>
+<a class="social-pill" href="#">True Social</a>
+<a class="social-pill" href="#">X / Twitter</a>
+</div>
+
+</div>
+</section>
+
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-top">
+
+<div>
+
+<div class="brand" style="margin-bottom:10px;">
+
+<div class="logo-mark">
+<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
+<div class="fallback">M</div>
+</div>
+
+<div class="brand-name">
+MAXIMAX
+<span>MULTI SERVICES</span>
+</div>
+
+</div>
+
+<p id="footerDesc"
+style="max-width:340px;font-size:13px;opacity:.7;line-height:1.6;">
+</p>
+
+</div>
+
+<div class="footer-cats" id="footerCats"></div>
+
+</div>
+
+<div class="footer-bottom">
+<span>© 2026 Maximax Multi Services</span>
+<span>
+(954) 640-5166 · (516) 216-8494 · maximaxmultiservices@gmail.com
+</span>
+</div>
+
+</div>
 </footer>
+
+
 <script>
-const menuBtn=document.getElementById('menuButton');const mobileMenu=document.getElementById('mobileMenu');
-menuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('open');});
-const dict={
-en:{navHome:"HOME",navCourses:"COURSE",navCategories:"CATEGORY",navAi:"AI TUTOR",navCert:"CERTIFICATE",navLogin:"LOGIN",badge:"DIGITAL EDUCATION PLATFORM",academy:"ACADEMY",slogan:"LEARN. EVOLVE. SUCCESSFUL.",desc:"A modern digital education platform to learn, develop skills, take courses, pass exams, use AI Tutor and receive certification.",explore:"EXPLORE COURSES",start:"START LEARNING",studentLogin:"STUDENT LOGIN",footerDesc:"A digital education platform for training, AI learning, exams, progress and certifications.",home:"Home",courses:"Courses",certs:"Certificates",about:"About"},
-ht:{navHome:"AKÈY",navCourses:"KOU",navCategories:"KATEGORI",navAi:"AI TUTOR",navCert:"SÈTIFIKA",navLogin:"LOGIN",badge:"PLATFÒM EDİKASYON DIJITAL",academy:"ACADÉMIE",slogan:"APRANN. EVOLYE. REYISI.",desc:"Yon platfòm edikasyon dijital modèn pou aprann, devlope kapasite, suiv kou, pase egzamen, sèvi ak AI Tutor epi resevwa sètifikasyon.",explore:"EKSPLOR KOU",start:"KÒMANSE APRANN",studentLogin:"LOGIN ELÈV",footerDesc:"Yon platfòm edikasyon dijital pou fòmasyon, AI learning, egzamen ak sètifikasyon.",home:"Akèy",courses:"Kou",certs:"Sètifika",about:"Konsènan"},
-fr:{navHome:"ACCUEIL",navCourses:"COURS",navCategories:"CATÉGORIE",navAi:"AI TUTOR",navCert:"CERTIFICAT",navLogin:"CONNEXION",badge:"PLATEFORME ÉDUCATION NUMÉRIQUE",academy:"ACADÉMIE",slogan:"APPRENDRE. ÉVOLUER. RÉUSSIR.",desc:"Une plateforme éducative numérique moderne pour apprendre, développer des compétences, suivre des cours, passer des examens, utiliser AI Tutor et obtenir des certifications.",explore:"EXPLORER COURS",start:"COMMENCER",studentLogin:"CONNEXION ÉTUDIANT",footerDesc:"Une plateforme éducative numérique pour la formation, l'IA, les examens et les certifications.",home:"Accueil",courses:"Cours",certs:"Certificats",about:"À propos"}
-};
-function setLang(lang){
-localStorage.setItem('pma-lang',lang);
-document.querySelectorAll('.language-button').forEach(b=>{b.classList.toggle('active',b.dataset.lang===lang)});
-document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(dict[lang]&&dict[lang][k]){el.textContent=dict[lang][k];}});
+
+const UI = {
+nav:{
+immigration:{en:"Immigration",fr:"Immigration",kr:"Imigrasyon"},
+documents:{en:"Documents",fr:"Documents",kr:"Dokiman"},
+translation:{en:"Translation",fr:"Traduction",kr:"Tradiksyon"},
+housing:{en:"Housing",fr:"Logement",kr:"Lojman"},
+employment:{en:"Employment",fr:"Emploi",kr:"Travay"},
+business:{en:"Business",fr:"Entreprise",kr:"Biznis"},
+digital:{en:"Digital",fr:"Numérique",kr:"Dijital"},
+community:{en:"Community",fr:"Communauté",kr:"Kominote"},
+news:{en:"News",fr:"Actualités",kr:"Nouvèl"},
+ai:{en:"AI Assistance",fr:"Assistance IA",kr:"Asistans AI"},
+contact:{en:"Contact",fr:"Contact",kr:"Kontak"}
+},
+
+heroEyebrow:{
+en:"Case File No. 001 — Community Services Registry",
+fr:"Dossier n° 001 — Registre des services communautaires",
+kr:"Dosye No. 001 — Rejis Sèvis Kominotè"
+},
+
+heroH1:{
+en:"One office. <em>Every</em> document you need.",
+fr:"Un seul bureau. <em>Tous</em> les documents dont vous avez besoin.",
+kr:"Yon sèl biwo. <em>Tout</em> dokiman ou bezwen."
+},
+
+heroLede:{
+en:"Maximax Multi Services helps individuals, families, and small businesses navigate immigration paperwork, housing, employment, translation, and digital services — all under one roof.",
+fr:"Maximax Multi Services aide les particuliers, les familles et les petites entreprises à gérer les démarches d'immigration, le logement, l'emploi, la traduction et les services numériques — tout sous un même toit.",
+kr:"Maximax Multi Services ede endividi, fanmi, ak ti biznis jere papye imigrasyon, lojman, travay, tradiksyon, ak sèvis dijital — tout anba yon sèl twa."
+},
+
+ctaPrimary:{
+en:"Open Immigration Services",
+fr:"Ouvrir les services d'immigration",
+kr:"Ouvri Sèvis Imigrasyon"
+},
+
+ctaGhost:{
+en:"Browse All Resources",
+fr:"Parcourir toutes les ressources",
+kr:"Gade Tout Resous"
+},
+
+newsTag:{
+en:"Wire Feed",
+fr:"Fil d'actualité",
+kr:"Fil Nouvèl"
+},
+
+newsTitle:{
+en:"News & Information Center",
+fr:"Centre de nouvelles et d'information",
+kr:"Sant Nouvèl ak Enfòmasyon"
+},
+
+aiTag:{
+en:"Assisted Tools",
+fr:"Outils assistés",
+kr:"Zouti Asistans"
+},
+
+aiTitle:{
+en:"AI Assistance",
+fr:"Assistance IA",
+kr:"Asistans AI"
+},
+
+contactTag:{
+en:"Get In Touch",
+fr:"Nous contacter",
+kr:"Kontakte Nou"
+},
+
+contactTitle:{
+en:"Contact & Social",
+fr:"Contact et réseaux sociaux",
+kr:"Kontak ak Rezo Sosyal"
+},
+
+phoneLabel:{
+en:"Call Us",
+fr:"Appelez-nous",
+kr:"Rele Nou"
+},
+
+emailLabel:{
+en:"Email",
+fr:"Courriel",
+kr:"Imèl"
+},
+
+webLabel:{
+en:"Website",
+fr:"Site web",
+kr:"Sitwèb"
+},
+
+followLabel:{
+en:"Follow Us",
+fr:"Suivez-nous",
+kr:"Swiv Nou"
+},
+
+footerDesc:{
+en:"Immigration, document, translation, housing, employment, business, and digital services — all in one place.",
+fr:"Services d'immigration, de documents, de traduction, de logement, d'emploi, d'entreprise et de services numériques — tous au même endroit.",
+kr:"Sèvis Imigrasyon, Dokiman, Tradiksyon, Lojman, Travay, Biznis, ak Sèvis Dijital — tout nan yon sèl kote."
 }
-const saved=localStorage.getItem('pma-lang')||'en';setLang(saved);
-document.getElementById('year').textContent=new Date().getFullYear();
+};
+
+
+const CATS = [
+
+{
+id:"immigration",
+num:"01",
+title:{
+en:"Immigration Services",
+fr:"Services d'immigration",
+kr:"Sèvis Imigrasyon"
+},
+sub:{
+en:"USCIS · Case Support · TPS · Naturalization",
+fr:"USCIS · Suivi de dossier · TPS · Naturalisation",
+kr:"USCIS · Sipò Dosye · TPS · Natiralizasyon"
+},
+items:{
+en:[
+"Immigration consultation support",
+"Immigration document preparation",
+"Immigration form assistance",
+"USCIS case support",
+"Immigration OS",
+"Case tracking",
+"Immigration document checklist",
+"Appointment preparation",
+"Translation support for immigration documents",
+"TPS information and assistance",
+"Work Permit / EAD assistance",
+"Adjustment of Status support",
+"Family Petition support",
+"Citizenship / Naturalization assistance",
+"Green Card renewal support",
+"Travel Document assistance",
+"Affidavit and supporting-document preparation",
+"Immigration news and updates",
+"E-Verify information and support"
+],
+
+fr:[
+"Accompagnement en consultation d'immigration",
+"Préparation de documents d'immigration",
+"Aide au remplissage des formulaires d'immigration",
+"Suivi de dossier USCIS",
+"Immigration OS",
+"Suivi de dossier",
+"Liste de vérification des documents d'immigration",
+"Préparation aux rendez-vous",
+"Aide à la traduction des documents d'immigration",
+"Information et assistance TPS",
+"Aide pour le permis de travail / EAD",
+"Aide pour l'ajustement de statut",
+"Aide pour la pétition familiale",
+"Aide à la citoyenneté / naturalisation",
+"Aide au renouvellement de la carte verte",
+"Aide pour les documents de voyage",
+"Préparation d'affidavits et de documents justificatifs",
+"Actualités et mises à jour sur l'immigration",
+"Informations et assistance E-Verify"
+],
+
+kr:[
+"Sipò konsiltasyon imigrasyon",
+"Preparasyon dokiman imigrasyon",
+"Èd pou ranpli fòm imigrasyon",
+"Sipò pou dosye USCIS",
+"Immigration OS",
+"Swiv dosye",
+"Lis verifikasyon dokiman imigrasyon",
+"Preparasyon pou randevou",
+"Sipò tradiksyon pou dokiman imigrasyon",
+"Enfòmasyon ak asistans TPS",
+"Asistans Pèmi Travay / EAD",
+"Sipò pou Ajisteman Estati",
+"Sipò pou Petisyon Familyal",
+"Asistans Sitwayènte / Natiralizasyon",
+"Sipò pou renouvèlman Green Card",
+"Asistans pou Dokiman Vwayaj",
+"Preparasyon Afidavi ak dokiman sipò",
+"Nouvèl ak dènye enfòmasyon sou imigrasyon",
+"Enfòmasyon ak sipò pou E-Verify"
+]
+}
+},
+
+{
+id:"documents",
+num:"02",
+title:{
+en:"Document & Administrative Services",
+fr:"Services de documents et administratifs",
+kr:"Sèvis Dokiman ak Administratif"
+},
+sub:{
+en:"Letters · Forms · Filing",
+fr:"Lettres · Formulaires · Classement",
+kr:"Lèt · Fòm · Klasman"
+},
+items:{
+en:[
+"Document preparation",
+"Letter preparation",
+"Official letters",
+"Verification letters",
+"Affidavits",
+"Applications",
+"Forms",
+"PDF document preparation",
+"Scanning and document organization",
+"Printing support",
+"Digital file organization",
+"Resume preparation",
+"Cover letters",
+"Professional correspondence"
+],
+fr:[
+"Préparation de documents",
+"Préparation de lettres",
+"Lettres officielles",
+"Lettres de vérification",
+"Affidavits",
+"Demandes / Applications",
+"Formulaires",
+"Préparation de documents PDF",
+"Numérisation et organisation de documents",
+"Aide à l'impression",
+"Organisation de fichiers numériques",
+"Préparation de CV",
+"Lettres de motivation",
+"Correspondance professionnelle"
+],
+kr:[
+"Preparasyon dokiman",
+"Preparasyon lèt",
+"Lèt ofisyèl",
+"Lèt verifikasyon",
+"Afidavi",
+"Aplikasyon",
+"Fòm",
+"Preparasyon dokiman PDF",
+"Eskane ak òganize dokiman",
+"Sipò enprime",
+"Òganizasyon fichye dijital",
+"Preparasyon rezime (CV)",
+"Lèt Kouvèti",
+"Korespondans pwofesyonèl"
+]
+}
+},
+
+{
+id:"translation",
+num:"03",
+title:{
+en:"Translation Services",
+fr:"Services de traduction",
+kr:"Sèvis Tradiksyon"
+},
+sub:{
+en:"Haitian Creole · French · English",
+fr:"Créole haïtien · Français · Anglais",
+kr:"Kreyòl Ayisyen · Fransè · Anglè"
+},
+items:{
+en:[
+"Haitian Creole translation",
+"French translation",
+"English translation",
+"Document translation",
+"Letter translation",
+"Immigration-document translation",
+"Business correspondence translation"
+],
+fr:[
+"Traduction créole haïtien",
+"Traduction française",
+"Traduction anglaise",
+"Traduction de documents",
+"Traduction de lettres",
+"Traduction de documents d'immigration",
+"Traduction de correspondance commerciale"
+],
+kr:[
+"Tradiksyon Kreyòl Ayisyen",
+"Tradiksyon Fransè",
+"Tradiksyon Anglè",
+"Tradiksyon dokiman",
+"Tradiksyon lèt",
+"Tradiksyon dokiman imigrasyon",
+"Tradiksyon korespondans biznis"
+]
+}
+},
+
+{
+id:"housing",
+num:"04",
+title:{
+en:"Housing Services",
+fr:"Services de logement",
+kr:"Sèvis Lojman"
+},
+sub:{
+en:"Rentals · Section 8 · Affordable Housing",
+fr:"Locations · Section 8 · Logement abordable",
+kr:"Lokasyon · Seksyon 8 · Lojman Abòdab"
+},
+items:{
+en:[
+"Housing information",
+"Apartment search assistance",
+"House rental information",
+"Section 8 resources",
+"Low-Income Housing resources",
+"Affordable Housing information",
+"Housing application assistance",
+"Rental-document preparation"
+],
+fr:[
+"Informations sur le logement",
+"Aide à la recherche d'appartement",
+"Informations sur la location de maison",
+"Ressources Section 8",
+"Ressources pour logement à faible revenu",
+"Informations sur le logement abordable",
+"Aide pour la demande de logement",
+"Préparation de documents de location"
+],
+kr:[
+"Enfòmasyon sou lojman",
+"Asistans pou chèche apatman",
+"Enfòmasyon sou lokasyon kay",
+"Resous Seksyon 8",
+"Resous Lojman pou Ti Revni",
+"Enfòmasyon sou Lojman Abòdab",
+"Asistans pou aplikasyon lojman",
+"Preparasyon dokiman lokasyon"
+]
+}
+},
+
+{
+id:"employment",
+num:"05",
+title:{
+en:"Employment Services",
+fr:"Services d'emploi",
+kr:"Sèvis Travay"
+},
+sub:{
+en:"Resumes · Applications · Work Authorization",
+fr:"CV · Demandes · Autorisation de travail",
+kr:"Rezime · Aplikasyon · Otorizasyon Travay"
+},
+items:{
+en:[
+"Job-search assistance",
+"Resume support",
+"Employment applications",
+"Job-resource information",
+"E-Verify resources",
+"Employment-document assistance",
+"Work authorization information"
+],
+fr:[
+"Aide à la recherche d'emploi",
+"Aide à la rédaction de CV",
+"Demandes d'emploi",
+"Informations sur les ressources d'emploi",
+"Ressources E-Verify",
+"Aide aux documents d'emploi",
+"Informations sur l'autorisation de travail"
+],
+kr:[
+"Asistans pou chèche travay",
+"Sipò pou rezime",
+"Aplikasyon pou travay",
+"Enfòmasyon sou resous travay",
+"Resous E-Verify",
+"Asistans dokiman travay",
+"Enfòmasyon sou otorizasyon travay"
+]
+}
+},
+
+{
+id:"business",
+num:"06",
+title:{
+en:"Business Services",
+fr:"Services aux entreprises",
+kr:"Sèvis Biznis"
+},
+sub:{
+en:"Small Business · Branding · Admin Support",
+fr:"Petites entreprises · Image de marque · Soutien admin",
+kr:"Ti Biznis · Branding · Sipò Administratif"
+},
+items:{
+en:[
+"Business document preparation",
+"Small-business support",
+"Business letters",
+"Administrative assistance",
+"Digital business services",
+"Business information and resources",
+"Branding and business presentation support"
+],
+fr:[
+"Préparation de documents d'entreprise",
+"Soutien aux petites entreprises",
+"Lettres d'affaires",
+"Assistance administrative",
+"Services d'entreprise numériques",
+"Informations et ressources commerciales",
+"Soutien à l'image de marque et à la présentation"
+],
+kr:[
+"Preparasyon dokiman biznis",
+"Sipò pou ti biznis",
+"Lèt biznis",
+"Asistans administratif",
+"Sèvis biznis dijital",
+"Enfòmasyon ak resous biznis",
+"Sipò pou branding ak prezantasyon biznis"
+]
+}
+},
+
+{
+id:"digital",
+num:"07",
+title:{
+en:"Technology & Digital Services",
+fr:"Services technologiques et numériques",
+kr:"Sèvis Teknoloji ak Dijital"
+},
+sub:{
+en:"Online Forms · QR Codes · Digital Accounts",
+fr:"Formulaires en ligne · Codes QR · Comptes numériques",
+kr:"Fòm sou Entènèt · Kòd QR · Kont Dijital"
+},
+items:{
+en:[
+"Website assistance",
+"Digital forms",
+"Online applications",
+"AI-assisted document preparation",
+"Digital organization",
+"QR Code support",
+"Online resource navigation",
+"Digital account assistance",
+"Basic technology assistance"
+],
+fr:[
+"Assistance pour site web",
+"Formulaires numériques",
+"Demandes en ligne",
+"Préparation de documents assistée par IA",
+"Organisation numérique",
+"Support pour codes QR",
+"Navigation dans les ressources en ligne",
+"Aide pour les comptes numériques",
+"Assistance technologique de base"
+],
+kr:[
+"Asistans pou sitwèb",
+"Fòm dijital",
+"Aplikasyon sou entènèt",
+"Preparasyon dokiman ak èd AI",
+"Òganizasyon dijital",
+"Sipò pou Kòd QR",
+"Navigasyon nan resous sou entènèt",
+"Asistans kont dijital",
+"Asistans teknoloji debaz"
+]
+}
+},
+
+{
+id:"media",
+num:"—",
+title:{
+en:"Communication & Media Services",
+fr:"Services de communication et médias",
+kr:"Sèvis Kominikasyon ak Medya"
+},
+sub:{
+en:"Flyers · Social Media · Presentations",
+fr:"Prospectus · Réseaux sociaux · Présentations",
+kr:"Flaye · Rezo Sosyal · Prezantasyon"
+},
+items:{
+en:[
+"Flyers",
+"Announcements",
+"Social-media content",
+"Promotional materials",
+"Community notices",
+"Professional messages",
+"Video and script preparation",
+"Digital presentations"
+],
+fr:[
+"Prospectus",
+"Annonces",
+"Contenu pour les réseaux sociaux",
+"Matériel promotionnel",
+"Avis communautaires",
+"Messages professionnels",
+"Préparation de vidéos et de scripts",
+"Présentations numériques"
+],
+kr:[
+"Flaye",
+"Anons",
+"Kontni pou rezo sosyal",
+"Materyèl pwomosyonèl",
+"Avi kominotè",
+"Mesaj pwofesyonèl",
+"Preparasyon videyo ak eskript",
+"Prezantasyon dijital"
+]
+}
+},
+
+{
+id:"community",
+num:"08",
+title:{
+en:"Community Resource Services",
+fr:"Services de ressources communautaires",
+kr:"Sèvis Resous Kominotè"
+},
+sub:{
+en:"Referrals · Government Navigation",
+fr:"Références · Navigation gouvernementale",
+kr:"Referans · Navigasyon Gouvènman"
+},
+items:{
+en:[
+"Community information",
+"Immigration resources",
+"Housing resources",
+"Employment resources",
+"Government-service navigation",
+"Local assistance resources",
+"Referral information"
+],
+fr:[
+"Informations communautaires",
+"Ressources en immigration",
+"Ressources en logement",
+"Ressources en emploi",
+"Navigation dans les services gouvernementaux",
+"Ressources d'aide locale",
+"Informations de référence"
+],
+kr:[
+"Enfòmasyon kominotè",
+"Resous imigrasyon",
+"Resous lojman",
+"Resous travay",
+"Navigasyon nan sèvis gouvènman",
+"Resous asistans lokal",
+"Enfòmasyon referans"
+]
+}
+}
+
+];
+
+
+const NEWS_CHIPS = {
+en:[
+"Immigration news",
+"Community news",
+"CNN News module",
+"Miami Herald News module",
+"RFI News module",
+"Public-information updates"
+],
+fr:[
+"Actualités sur l'immigration",
+"Actualités communautaires",
+"Module CNN News",
+"Module Miami Herald News",
+"Module RFI News",
+"Mises à jour d'information publique"
+],
+kr:[
+"Nouvèl imigrasyon",
+"Nouvèl kominotè",
+"Modil Nouvèl CNN",
+"Modil Nouvèl Miami Herald",
+"Modil Nouvèl RFI",
+"Dènye enfòmasyon piblik"
+]
+};
+
+
+const AI_CARDS = [
+
+{
+title:{
+en:"AI Document Writer",
+fr:"Rédacteur de documents IA",
+kr:"AI Ekriven Dokiman"
+},
+desc:{
+en:"Draft clean, ready-to-use documents from your information.",
+fr:"Rédigez des documents clairs et prêts à l'emploi à partir de vos informations.",
+kr:"Kreye dokiman klè, pare pou itilize, apati enfòmasyon ou bay."
+}
+},
+
+{
+title:{
+en:"AI Translation Support",
+fr:"Assistance de traduction IA",
+kr:"AI Sipò Tradiksyon"
+},
+desc:{
+en:"Fast, accurate translation across Creole, French, and English.",
+fr:"Traduction rapide et précise entre créole, français et anglais.",
+kr:"Tradiksyon rapid e egzat ant Kreyòl, Fransè, ak Anglè."
+}
+},
+
+{
+title:{
+en:"AI Form Guidance",
+fr:"Guide de formulaires IA",
+kr:"AI Gid pou Fòm"
+},
+desc:{
+en:"Step-by-step help completing official forms correctly.",
+fr:"Aide étape par étape pour remplir correctement les formulaires officiels.",
+kr:"Èd etap pa etap pou ranpli fòm ofisyèl kòrèkteman."
+}
+},
+
+{
+title:{
+en:"AI Letter Preparation",
+fr:"Préparation de lettres IA",
+kr:"AI Preparasyon Lèt"
+},
+desc:{
+en:"Professional letters generated and refined in minutes.",
+fr:"Lettres professionnelles générées et peaufinées en quelques minutes.",
+kr:"Lèt pwofesyonèl kreye ak korije nan kèk minit."
+}
+},
+
+{
+title:{
+en:"AI Information Assistant",
+fr:"Assistant d'information IA",
+kr:"AI Asistan Enfòmasyon"
+},
+desc:{
+en:"Quick, reliable answers to everyday questions.",
+fr:"Réponses rapides et fiables aux questions courantes.",
+kr:"Repons rapid e fyab pou kesyon chak jou."
+}
+},
+
+{
+title:{
+en:"AI Research Assistance",
+fr:"Assistance de recherche IA",
+kr:"AI Sipò Rechèch"
+},
+desc:{
+en:"Background research to support your case or application.",
+fr:"Recherche de fond pour appuyer votre dossier ou votre demande.",
+kr:"Rechèch background pou soutni dosye oswa aplikasyon ou."
+}
+},
+
+{
+title:{
+en:"AI Multilingual Assistance",
+fr:"Assistance multilingue IA",
+kr:"AI Asistans Miltilenge"
+},
+desc:{
+en:"Support that meets you in the language you're comfortable in.",
+fr:"Un soutien dans la langue avec laquelle vous êtes à l'aise.",
+kr:"Sipò nan lang ou pi alèz avè l."
+}
+}
+
+];
+
+
+let currentLang="en";
+
+
+function renderNav(){
+
+const desktop=document.getElementById("desktopNav");
+const mobile=document.getElementById("mobileNav");
+
+const links=[
+["#immigration","immigration"],
+["#documents","documents"],
+["#translation","translation"],
+["#housing","housing"],
+["#employment","employment"],
+["#business","business"],
+["#digital","digital"],
+["#community","community"]
+];
+
+desktop.innerHTML=links.map(([href,key])=>
+`<a href="${href}">${UI.nav[key][currentLang]}</a>`
+).join("");
+
+const mobileLinks=links.concat([
+["#news","news"],
+["#ai","ai"],
+["#contact","contact"]
+]);
+
+mobile.innerHTML=mobileLinks.map(([href,key])=>
+`<a href="${href}">${UI.nav[key][currentLang]}</a>`
+).join("");
+
+mobile.querySelectorAll("a").forEach(a=>{
+a.addEventListener("click",()=>{
+mobile.classList.remove("open");
+});
+});
+
+}
+
+
+function renderCatmap(){
+
+document.getElementById("catmap").innerHTML=CATS.map(c=>
+`<a class="catmap-item" href="#${c.id}">
+<b>${c.num}</b>${c.title[currentLang]}
+</a>`
+).join("");
+
+}
+
+
+function renderFiles(){
+
+const container=document.getElementById("fileContainer");
+
+container.innerHTML=CATS.map((c,i)=>`
+
+<div class="file ${i===0?"open":""}" id="${c.id}">
+
+<div class="file-tab" onclick="toggleFile(this)">
+
+<div class="file-tab-left">
+
+<div class="file-num">${c.num}</div>
+
+<div>
+<h2>${c.title[currentLang]}</h2>
+<div class="sub">${c.sub[currentLang]}</div>
+</div>
+
+</div>
+
+<svg class="chev"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2">
+<path d="M6 9l6 6 6-6"/>
+</svg>
+
+</div>
+
+<div class="file-body">
+
+<div class="file-body-inner">
+
+<ul class="service-list">
+${c.items[currentLang].map(t=>`<li>${t}</li>`).join("")}
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+function renderNews(){
+
+document.getElementById("newsChips").innerHTML=
+NEWS_CHIPS[currentLang]
+.map(t=>`<span class="chip">${t}</span>`)
+.join("");
+
+}
+
+
+function renderAI(){
+
+document.getElementById("aiGrid").innerHTML=
+AI_CARDS.map(c=>`
+
+<div class="ai-card">
+<h3>${c.title[currentLang]}</h3>
+<p>${c.desc[currentLang]}</p>
+</div>
+
+`).join("");
+
+}
+
+
+function renderFooterCats(){
+
+const links=[
+["#immigration","immigration"],
+["#documents","documents"],
+["#translation","translation"],
+["#housing","housing"],
+["#employment","employment"],
+["#business","business"],
+["#digital","digital"],
+["#community","community"]
+];
+
+document.getElementById("footerCats").innerHTML=
+links.map(([href,key])=>
+`<a href="${href}">${UI.nav[key][currentLang]}</a>`
+).join("");
+
+}
+
+
+function applyStaticText(){
+
+document.getElementById("heroEyebrow").textContent=
+UI.heroEyebrow[currentLang];
+
+document.getElementById("heroH1").innerHTML=
+UI.heroH1[currentLang];
+
+document.getElementById("heroLede").textContent=
+UI.heroLede[currentLang];
+
+document.getElementById("ctaPrimary").textContent=
+UI.ctaPrimary[currentLang];
+
+document.getElementById("ctaGhost").textContent=
+UI.ctaGhost[currentLang];
+
+document.getElementById("newsTag").textContent=
+UI.newsTag[currentLang];
+
+document.getElementById("newsTitle").textContent=
+UI.newsTitle[currentLang];
+
+document.getElementById("aiTag").textContent=
+UI.aiTag[currentLang];
+
+document.getElementById("aiTitle").textContent=
+UI.aiTitle[currentLang];
+
+document.getElementById("contactTag").textContent=
+UI.contactTag[currentLang];
+
+document.getElementById("contactTitle").textContent=
+UI.contactTitle[currentLang];
+
+document.getElementById("phoneLabel").textContent=
+UI.phoneLabel[currentLang];
+
+document.getElementById("emailLabel").textContent=
+UI.emailLabel[currentLang];
+
+document.getElementById("webLabel").textContent=
+UI.webLabel[currentLang];
+
+document.getElementById("followLabel").textContent=
+UI.followLabel[currentLang];
+
+document.getElementById("footerDesc").textContent=
+UI.footerDesc[currentLang];
+
+}
+
+
+function renderAll(){
+
+applyStaticText();
+
+renderNav();
+
+renderCatmap();
+
+renderFiles();
+
+renderNews();
+
+renderAI();
+
+renderFooterCats();
+
+document.querySelectorAll(".lang-btn").forEach(b=>{
+b.classList.toggle(
+"active",
+b.dataset.lang===currentLang
+);
+});
+
+document.getElementById("htmlRoot").lang=
+currentLang==="kr"?"ht":currentLang;
+
+}
+
+
+function toggleFile(tabEl){
+tabEl.parentElement.classList.toggle("open");
+}
+
+
+document.getElementById("langToggle")
+.addEventListener("click",(e)=>{
+
+const btn=e.target.closest(".lang-btn");
+
+if(!btn)return;
+
+currentLang=btn.dataset.lang;
+
+renderAll();
+
+});
+
+
+document.getElementById("menuBtn")
+.addEventListener("click",()=>{
+
+document.getElementById("mobileNav")
+.classList.toggle("open");
+
+});
+
+
+renderAll();
+
 </script>
+
 </body>
 </html>
