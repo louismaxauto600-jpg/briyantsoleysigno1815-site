@@ -1,1907 +1,3193 @@
 <!DOCTYPE html>
-<html lang="en" id="htmlRoot">
+<html lang="ht">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maximax Multi Services</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>BSS1815 PRO-MAX DMP | Digital Management Platform</title>
+
+<meta name="description" content="BSS1815 PRO-MAX DMP — Yon sèl platfòm dijital pou kominote, PRO-MAX FM, Maximax Multi Services, PRO-MAX Académie, AI, medya, administrasyon ak inovasyon.">
+<meta name="theme-color" content="#000000">
+<meta name="author" content="BSS1815 PRO-MAX DMP">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.briyantsoleysigno1815.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BSS1815 PRO-MAX DMP">
+<meta property="og:description" content="DEVAN DEVAN NÈT™ — BATI POU JODI A. PARE POU DEMEN.">
+<meta property="og:url" content="https://www.briyantsoleysigno1815.com/">
+<meta property="og:image" content="assets/bss1815-pro-max-dmp.jpeg">
 
 <style>
 :root{
-  --black:#070502;
-  --black2:#150E07;
-  --orange:#FF7A1A;
-  --orange-light:#FFB066;
-  --orange-deep:#8A3400;
-  --white:#FFF7EE;
-  --line:rgba(255,176,102,0.28);
-  --panel:rgba(7,5,2,0.62);
-  --panel-solid:#0D0904;
+  --black:#000;
+  --black2:#070200;
+  --black3:#100500;
+  --orange:#ff7900;
+  --orange2:#ff8c1a;
+  --orange3:#ffad4d;
+  --text:#ffc589;
+  --border:rgba(255,121,0,.28);
+  --border2:rgba(255,121,0,.72);
+  --glow:0 0 18px rgba(255,121,0,.35);
+  --glow2:0 0 18px rgba(255,121,0,.68),0 0 48px rgba(255,121,0,.25)
 }
 
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
+html{
+  scroll-behavior:smooth
+}
 
 body{
-  margin:0;
-  color:var(--white);
-  font-family:'Public Sans',sans-serif;
-  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
   background:
-    radial-gradient(1100px 700px at 15% -10%,rgba(255,122,26,.35),transparent 60%),
-    radial-gradient(1000px 800px at 100% 30%,rgba(255,122,26,.22),transparent 55%),
-    linear-gradient(175deg,#030201 0%,#150E07 16%,#3A1A02 42%,#B34C00 62%,#FF7A1A 78%,#1A0E05 100%);
-  background-attachment:fixed;
-  background-size:cover;
+    radial-gradient(circle at 18% 15%,rgba(255,121,0,.16),transparent 33%),
+    radial-gradient(circle at 82% 72%,rgba(255,121,0,.09),transparent 38%),
+    linear-gradient(180deg,#000 0%,#0b0400 48%,#000 100%)
 }
 
-h1,h2,h3{
-  font-family:'Fraunces',serif;
-  margin:0;
-}
-
-.mono{
-  font-family:'IBM Plex Mono',monospace;
-  letter-spacing:.06em;
-}
-
-a{color:inherit;}
-video,img{max-width:100%;}
-button{font-family:inherit;}
-
-/* LOGO */
-.logo-mark{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  overflow:hidden;
-  border:2px solid var(--orange-light);
-  flex-shrink:0;
-  background:var(--black2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.logo-mark video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  position:absolute;
-  inset:0;
-}
-
-.logo-mark .fallback{
-  font-family:'Fraunces',serif;
-  font-weight:700;
-  color:var(--orange-light);
-  font-size:18px;
-  z-index:0;
-}
-
-.logo-mark video + .fallback{
-  display:none;
-}
-
-.seal{
-  position:relative;
-  width:112px;
-  height:112px;
-  border-radius:50%;
-  border:2px solid var(--orange-light);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  background:var(--black2);
-  overflow:hidden;
-}
-
-.seal video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:50%;
-}
-
-.seal::before{
+body::before{
   content:"";
-  position:absolute;
-  inset:8px;
-  border:1px dashed var(--orange-light);
-  border-radius:50%;
-  opacity:.6;
+  position:fixed;
+  inset:0;
+  z-index:-1;
   pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,121,0,.024) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,121,0,.024) 1px,transparent 1px);
+  background-size:44px 44px
 }
 
-.seal.small{
-  width:46px;
-  height:46px;
-  border-width:1.5px;
+a{
+  color:inherit;
+  text-decoration:none
 }
 
-/* HEADER */
+button{
+  font:inherit
+}
+
+img,video{
+  display:block;
+  max-width:100%
+}
+
+.container{
+  width:min(1220px,calc(100% - 28px));
+  margin:auto
+}
+
+.top-bar{
+  padding:9px 15px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,#913700,var(--orange),var(--orange3),var(--orange),#913700);
+  font-size:.68rem;
+  font-weight:1000;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+
 header{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(7,5,2,.82);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
+  z-index:1000;
+  background:rgba(0,0,0,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);
+  box-shadow:0 8px 28px rgba(0,0,0,.55)
 }
 
-.nav-wrap{
-  max-width:1180px;
-  margin:0 auto;
+.header-inner{
+  min-height:86px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 24px;
-  gap:16px;
+  gap:18px
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:12px
 }
 
-.brand-name{
-  font-family:'Fraunces',serif;
-  font-weight:600;
-  font-size:16px;
-  letter-spacing:.02em;
+.brand-video-wrap{
+  width:66px;
+  height:66px;
+  overflow:hidden;
+  flex-shrink:0;
+  border:2px solid var(--orange);
+  border-radius:17px;
+  background:#000;
+  box-shadow:var(--glow)
 }
 
-.brand-name span{
+.brand-video{
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+
+.brand-text strong{
   display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:9px;
-  letter-spacing:.16em;
-  color:var(--orange-light);
-  font-weight:400;
-  margin-top:2px;
+  color:var(--orange);
+  font-size:1rem;
+  font-weight:1000
 }
 
-nav.desktop-nav{
+.brand-text span{
+  display:block;
+  margin-top:5px;
+  color:var(--orange3);
+  font-size:.52rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+
+.header-right{
   display:flex;
-  gap:18px;
-  font-size:13px;
   align-items:center;
+  gap:9px
 }
 
-nav.desktop-nav a{
-  text-decoration:none;
-  color:var(--white);
-  opacity:.8;
-  padding:4px 0;
-  border-bottom:1px solid transparent;
-  transition:.2s;
-  white-space:nowrap;
-}
-
-nav.desktop-nav a:hover{
-  opacity:1;
-  border-color:var(--orange-light);
-}
-
-.lang-toggle{
+.nav{
   display:flex;
-  gap:4px;
-  border:1px solid var(--line);
-  border-radius:20px;
+  align-items:center;
+  gap:3px
+}
+
+.nav a{
+  padding:9px 11px;
+  border-radius:999px;
+  color:var(--orange3);
+  font-size:.61rem;
+  font-weight:1000;
+  text-transform:uppercase;
+  transition:.2s
+}
+
+.nav a:hover{
+  background:var(--orange);
+  color:#000
+}
+
+.lang-switch{
+  display:flex;
+  gap:3px;
   padding:3px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#000
 }
 
 .lang-btn{
-  background:none;
-  border:none;
-  color:var(--white);
-  opacity:.6;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:.06em;
-  padding:6px 11px;
-  border-radius:16px;
+  min-width:42px;
+  padding:8px 9px;
+  border:0;
+  border-radius:999px;
+  color:var(--orange3);
+  background:#000;
   cursor:pointer;
-  transition:.2s;
+  font-size:.61rem;
+  font-weight:1000
 }
 
 .lang-btn.active{
-  background:var(--orange);
-  color:#1A0E05;
-  opacity:1;
-  font-weight:600;
+  color:#000;
+  background:var(--orange)
 }
 
-.menu-btn{
+.menu-toggle{
   display:none;
-  background:none;
-  border:1px solid var(--line);
-  color:var(--white);
-  width:38px;
-  height:38px;
-  border-radius:6px;
+  width:44px;
+  height:42px;
+  border:1px solid var(--orange);
+  border-radius:11px;
+  color:var(--orange);
+  background:#000;
   cursor:pointer;
-  font-size:16px;
+  font-size:1.2rem
 }
 
-.mobile-nav{
-  display:none;
-  flex-direction:column;
-  padding:0 24px 18px;
-  gap:2px;
-}
-
-.mobile-nav a{
-  color:var(--white);
-  text-decoration:none;
-  padding:9px 6px;
-  font-size:14px;
-  border-bottom:1px solid var(--line);
-}
-
-.mobile-nav.open{display:flex;}
-
-@media(max-width:900px){
-  nav.desktop-nav{display:none;}
-  .menu-btn{display:block;}
-}
-
-/* HERO */
 .hero{
-  max-width:1180px;
-  margin:0 auto;
-  padding:72px 24px 60px;
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:40px;
+  min-height:calc(100vh - 115px);
+  display:flex;
   align-items:center;
+  padding:52px 0 76px;
+  text-align:center
 }
 
-.eyebrow{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11.5px;
-  letter-spacing:.2em;
-  color:var(--orange-light);
-  text-transform:uppercase;
-  margin-bottom:18px;
-  display:inline-block;
+.platform-label{
+  color:var(--orange);
+  font-size:.69rem;
+  font-weight:1000;
+  letter-spacing:.20em;
+  text-transform:uppercase
+}
+
+.hero-video-frame{
+  position:relative;
+  width:min(95vw,690px);
+  margin:30px auto 0;
+  overflow:hidden;
+  border:2px solid var(--orange);
+  border-radius:28px;
+  background:#000;
+  box-shadow:var(--glow2)
+}
+
+.hero-logo-video{
+  width:100%;
+  object-fit:contain;
+  background:#000
+}
+
+.hero-video-frame::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:26px;
+  box-shadow:inset 0 0 50px rgba(255,121,0,.12)
+}
+
+.sound-btn{
+  position:absolute;
+  right:14px;
+  bottom:14px;
+  z-index:10;
+  padding:10px 14px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:rgba(0,0,0,.90);
+  cursor:pointer;
+  font-size:.60rem;
+  font-weight:1000;
+  text-transform:uppercase
+}
+
+.sound-btn:hover{
+  background:var(--orange);
+  color:#000
 }
 
 .hero h1{
-  font-size:clamp(2.2rem,5.2vw,3.9rem);
-  font-weight:600;
-  line-height:1.06;
-  letter-spacing:-.01em;
-}
-
-.hero h1 em{
-  font-style:italic;
-  font-weight:500;
-  color:var(--orange-light);
-}
-
-.hero p.lede{
-  margin-top:20px;
-  max-width:560px;
-  font-size:16px;
-  line-height:1.65;
-  color:var(--white);
-  opacity:.88;
-}
-
-.hero .creole{
-  margin-top:10px;
-  font-style:italic;
-  color:var(--orange-light);
-  font-size:14px;
-  opacity:.9;
-}
-
-.hero-cta{
   margin-top:28px;
+  color:var(--orange);
+  font-size:clamp(2.6rem,8vw,6.2rem);
+  line-height:.88;
+  text-transform:uppercase
+}
+
+.hero h2{
+  margin-top:17px;
+  color:var(--orange3);
+  font-size:clamp(1rem,3vw,1.45rem);
+  text-transform:uppercase
+}
+
+.hero-description{
+  max-width:850px;
+  margin:19px auto 0;
+  line-height:1.75;
+  font-size:.96rem
+}
+
+.hero-actions{
   display:flex;
-  gap:14px;
+  justify-content:center;
   flex-wrap:wrap;
+  gap:12px;
+  margin-top:29px
 }
 
 .btn{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12.5px;
-  letter-spacing:.08em;
+  min-height:52px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 22px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  font-size:.68rem;
+  font-weight:1000;
   text-transform:uppercase;
-  padding:13px 22px;
-  border-radius:3px;
-  text-decoration:none;
-  display:inline-block;
-  transition:.2s;
-  cursor:pointer;
-  border:1px solid transparent;
+  transition:.25s
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--glow2)
 }
 
 .btn-primary{
-  background:var(--orange);
-  color:#1A0E05;
-  border-color:var(--orange);
+  color:#000;
+  background:var(--orange)
 }
 
-.btn-primary:hover{background:var(--orange-light);}
-
-.btn-ghost{
-  border:1px solid var(--line);
-  color:var(--white);
+.btn-outline{
+  color:var(--orange);
+  background:#000
 }
 
-.btn-ghost:hover{
-  border-color:var(--orange-light);
-  color:var(--orange-light);
-}
-
-@media(max-width:860px){
-  .hero{grid-template-columns:1fr;}
-  .hero-seal{display:none;}
-}
-
-/* CATEGORY MAP */
-.catmap{
-  background:rgba(0,0,0,.35);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:30px 24px;
-}
-
-.catmap-inner{
-  max-width:1180px;
-  margin:0 auto;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px 26px;
-  align-items:center;
-  justify-content:center;
-}
-
-.catmap-item{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  letter-spacing:.05em;
-  color:var(--orange-light);
-  opacity:.9;
-  cursor:pointer;
-  text-decoration:none;
-}
-
-.catmap-item b{
-  color:var(--white);
-  opacity:.55;
-  margin-right:6px;
-}
-
-/* SECTIONS */
-main{
-  max-width:1180px;
-  margin:0 auto;
-  padding:64px 24px;
-}
-
-.file{
-  background:var(--panel);
-  color:var(--white);
-  border:1px solid var(--line);
-  border-radius:6px;
-  margin-bottom:26px;
-  position:relative;
-  backdrop-filter:blur(6px);
-  overflow:hidden;
-}
-
-.file-tab{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:22px 26px;
-  cursor:pointer;
-  border-bottom:1px solid var(--line);
-}
-
-.file-tab-left{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.file-num{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  color:var(--orange-light);
-  border:1px solid var(--orange-light);
-  border-radius:50%;
-  width:34px;
-  height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-}
-
-.file-tab h2{
-  font-size:1.35rem;
-  font-weight:600;
-}
-
-.file-tab .sub{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--orange-light);
-  margin-top:3px;
-  opacity:.7;
-}
-
-.chev{
-  width:20px;
-  height:20px;
-  flex-shrink:0;
-  transition:transform .3s ease;
-  opacity:.7;
-  color:var(--orange-light);
-}
-
-.file.open .chev{transform:rotate(180deg);}
-
-.file-body{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .45s ease;
-}
-
-.file-body-inner{
-  padding:6px 26px 28px;
-}
-
-.file.open .file-body{
-  max-height:1400px;
-}
-
-.service-list{
-  columns:2;
-  column-gap:30px;
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-.service-list li{
-  break-inside:avoid;
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  padding:8px 0;
-  border-bottom:1px dotted var(--line);
-  font-size:14px;
-  line-height:1.4;
-}
-
-.service-list li::before{
-  content:"✓";
-  color:var(--orange-light);
-  font-size:12px;
-  margin-top:2px;
-  font-weight:700;
-  flex-shrink:0;
-}
-
-@media(max-width:640px){
-  .service-list{columns:1;}
-}
-
-/* BANDS */
-.band{
-  padding:56px 24px;
-}
-
-.band-inner{
-  max-width:1180px;
-  margin:0 auto;
-}
-
-.band-news{
-  background:rgba(0,0,0,.32);
-  border-top:1px solid var(--line);
-}
-
-.band-ai{
-  background:rgba(0,0,0,.42);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-
-.band-contact{
-  background:rgba(0,0,0,.5);
-}
-
-.band-head{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:26px;
-}
-
-.band-head h2{
-  font-size:1.75rem;
-  font-weight:600;
-}
-
-.band-head .tag{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  color:var(--orange-light);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.chip{
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:9px 16px;
-  font-size:13px;
-  color:var(--white);
-  opacity:.92;
-  background:rgba(0,0,0,.25);
-}
-
-.ai-grid{
+.stats-grid{
+  margin-top:48px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px
 }
 
-.ai-card{
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:20px;
-  background:rgba(255,122,26,.06);
+.stat-card{
+  min-height:125px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:radial-gradient(circle at top,rgba(255,121,0,.10),transparent 50%),#050200
 }
 
-.ai-card h3{
-  font-size:15px;
-  color:var(--orange-light);
-  font-weight:600;
-  margin-bottom:8px;
-  font-family:'Public Sans',sans-serif;
+.stat-card strong{
+  color:var(--orange);
+  font-size:1.55rem
 }
 
-.ai-card p{
-  font-size:13px;
-  opacity:.8;
-  margin:0;
-  line-height:1.5;
+.stat-card span{
+  margin-top:6px;
+  font-size:.63rem;
+  font-weight:900;
+  text-transform:uppercase
 }
 
-/* CONTACT */
+.section{
+  padding:88px 0;
+  border-top:1px solid rgba(255,121,0,.10)
+}
+
+.section-heading{
+  max-width:790px;
+  margin:0 auto 42px;
+  text-align:center
+}
+
+.eyebrow{
+  color:var(--orange);
+  font-size:.68rem;
+  font-weight:1000;
+  letter-spacing:.18em;
+  text-transform:uppercase
+}
+
+.section-title{
+  margin-top:11px;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4.2rem);
+  line-height:.93;
+  text-transform:uppercase
+}
+
+.section-desc{
+  margin-top:17px;
+  line-height:1.75
+}
+
+.ecosystem-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px
+}
+
+.ecosystem-card{
+  min-height:285px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 36%),
+    linear-gradient(145deg,#000,#0b0400);
+  transition:.3s
+}
+
+.ecosystem-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glow)
+}
+
+.eco-icon{
+  font-size:2rem
+}
+
+.ecosystem-card h3{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase
+}
+
+.ecosystem-card p{
+  margin-top:11px;
+  line-height:1.62;
+  font-size:.82rem
+}
+
+.card-link{
+  margin-top:auto;
+  padding-top:20px;
+  color:var(--orange);
+  font-size:.67rem;
+  font-weight:1000;
+  text-transform:uppercase
+}
+
+.modules-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px
+}
+
+.module-card{
+  min-height:215px;
+  display:flex;
+  flex-direction:column;
+  padding:21px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:linear-gradient(145deg,#050200,#000);
+  transition:.25s
+}
+
+.module-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:var(--glow)
+}
+
+.module-icon{
+  font-size:1.8rem
+}
+
+.module-card h3{
+  margin-top:14px;
+  color:var(--orange);
+  font-size:.90rem;
+  text-transform:uppercase
+}
+
+.module-card p{
+  margin-top:9px;
+  line-height:1.55;
+  font-size:.75rem
+}
+
+.module-open{
+  margin-top:auto;
+  padding-top:17px;
+  color:var(--orange);
+  font-size:.62rem;
+  font-weight:1000;
+  text-transform:uppercase
+}
+
+.project-box{
+  margin-top:25px;
+  padding:38px 28px;
+  border:1px solid var(--border2);
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 80% 25%,rgba(255,121,0,.17),transparent 34%),
+    linear-gradient(135deg,#000,#100500,#000);
+  box-shadow:var(--glow)
+}
+
+.project-box h2{
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  line-height:.94;
+  text-transform:uppercase
+}
+
+.project-box p{
+  max-width:780px;
+  margin:16px auto 0;
+  line-height:1.7;
+  text-align:center
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px
+}
+
+.news-card{
+  min-height:260px;
+  display:flex;
+  flex-direction:column;
+  padding:24px;
+  border:1px solid var(--border2);
+  border-radius:19px;
+  background:radial-gradient(circle at top,rgba(255,121,0,.11),transparent 43%),#050200
+}
+
+.news-label{
+  width:max-content;
+  padding:7px 11px;
+  border-radius:999px;
+  color:#000;
+  background:var(--orange);
+  font-size:.61rem;
+  font-weight:1000
+}
+
+.news-card h3{
+  margin-top:17px;
+  color:var(--orange);
+  font-size:1.08rem
+}
+
+.news-card p{
+  margin-top:10px;
+  flex:1;
+  line-height:1.6;
+  font-size:.80rem
+}
+
+.news-btn{
+  margin-top:19px;
+  padding:11px;
+  text-align:center;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  font-size:.65rem;
+  font-weight:1000
+}
+
+.news-btn:hover{
+  background:var(--orange);
+  color:#000
+}
+
+.ddn-box{
+  padding:50px 28px;
+  border:2px solid var(--orange);
+  border-radius:28px;
+  text-align:center;
+  background:radial-gradient(circle at center,rgba(255,121,0,.16),transparent 50%),#000;
+  box-shadow:var(--glow2)
+}
+
+.ddn-box h2{
+  color:var(--orange);
+  font-size:clamp(2.8rem,9vw,6.7rem);
+  line-height:.87
+}
+
+.ddn-box h3{
+  margin-top:18px;
+  color:var(--orange3);
+  font-size:clamp(.9rem,2.6vw,1.3rem);
+  text-transform:uppercase
+}
+
+.ddn-box p{
+  max-width:790px;
+  margin:19px auto 0;
+  line-height:1.72
+}
+
 .contact-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
-  margin-bottom:30px;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px
 }
 
 .contact-card{
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:20px;
-  background:rgba(0,0,0,.3);
+  min-height:155px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:22px;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#050200
 }
 
-.contact-card .label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10.5px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--orange-light);
-  margin-bottom:8px;
-}
-
-.contact-card .value{
-  font-size:15px;
-  line-height:1.6;
+.contact-card strong{
+  color:var(--orange);
+  font-size:.68rem;
+  text-transform:uppercase
 }
 
 .contact-card a{
-  text-decoration:none;
-  color:var(--white);
+  margin-top:9px;
+  line-height:1.5;
+  font-size:.78rem;
+  overflow-wrap:anywhere
 }
 
 .contact-card a:hover{
-  color:var(--orange-light);
+  color:var(--orange)
 }
 
-.social-row{
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+  margin-top:28px
+}
+
+.social-link{
+  min-height:78px;
   display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+  align-items:center;
+  gap:13px;
+  padding:14px 16px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:#030100;
+  transition:.25s
 }
 
-.social-pill{
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:9px 18px;
-  font-size:13px;
-  background:rgba(255,122,26,.08);
-  text-decoration:none;
-  color:var(--white);
-  transition:.2s;
+.social-link:hover{
+  transform:translateY(-3px);
+  border-color:var(--orange);
+  box-shadow:var(--glow)
 }
 
-.social-pill:hover{
-  border-color:var(--orange-light);
-  color:var(--orange-light);
+.social-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  border:1px solid var(--orange);
+  border-radius:50%;
+  color:var(--orange);
+  background:#000;
+  font-size:1rem;
+  font-weight:1000
 }
 
-/* FOOTER */
+.social-link strong{
+  display:block;
+  color:var(--orange);
+  font-size:.72rem;
+  text-transform:uppercase
+}
+
+.social-link span{
+  display:block;
+  margin-top:3px;
+  font-size:.57rem;
+  overflow-wrap:anywhere
+}
+
 footer{
-  background:rgba(0,0,0,.65);
-  padding:50px 24px 28px;
-  border-top:1px solid var(--line);
+  padding:45px 0;
+  text-align:center;
+  border-top:1px solid var(--border);
+  background:#000
 }
 
-.footer-inner{
-  max-width:1180px;
-  margin:0 auto;
+.footer-video{
+  width:105px;
+  height:105px;
+  margin:0 auto 17px;
+  overflow:hidden;
+  border:2px solid var(--orange);
+  border-radius:20px;
+  background:#000;
+  box-shadow:var(--glow)
 }
 
-.footer-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:30px;
-  flex-wrap:wrap;
-  padding-bottom:30px;
-  border-bottom:1px solid var(--line);
+.footer-video video{
+  width:100%;
+  height:100%;
+  object-fit:cover
 }
 
-.footer-cats{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px 22px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  opacity:.75;
+.footer-title{
+  color:var(--orange);
+  font-weight:1000
 }
 
-.footer-cats a{text-decoration:none;}
-
-.footer-bottom{
-  padding-top:20px;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:10px;
-  font-size:11.5px;
-  opacity:.6;
-  font-family:'IBM Plex Mono',monospace;
+.footer-info{
+  margin-top:9px;
+  line-height:1.75;
+  font-size:.70rem
 }
 
-@media(prefers-reduced-motion:reduce){
-  *{
-    animation:none!important;
-    transition:none!important;
+
+/* =====================================================
+BSS1815 COMMUNITY SLIDESHOW
+===================================================== */
+
+.bss-slideshow{
+  width:min(1100px,100%);
+  margin:24px auto 0
+}
+
+.bss-stage{
+  position:relative;
+  width:100%;
+  height:clamp(430px,62vw,680px);
+  overflow:hidden;
+  border:2px solid var(--orange);
+  border-radius:28px;
+  background:#000;
+  box-shadow:var(--glow2)
+}
+
+.bss-slide-image,
+.bss-slide-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000
+}
+
+.bss-slide-image.hidden,
+.bss-slide-video.hidden{
+  display:none!important
+}
+
+.bss-slide-badge{
+  position:absolute;
+  top:18px;
+  left:18px;
+  z-index:12;
+  padding:9px 14px;
+  border-radius:999px;
+  color:#000;
+  background:var(--orange);
+  font-size:.60rem;
+  font-weight:1000
+}
+
+.bss-slide-overlay{
+  position:absolute;
+  inset:0;
+  z-index:7;
+  pointer-events:none;
+  background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.93) 100%)
+}
+
+.bss-slide-caption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:10;
+  padding:70px 70px 28px;
+  text-align:left
+}
+
+.bss-slide-caption small{
+  color:var(--orange3);
+  font-size:.60rem;
+  font-weight:1000;
+  letter-spacing:.16em;
+  text-transform:uppercase
+}
+
+.bss-slide-caption h3{
+  margin-top:8px;
+  color:var(--orange);
+  font-size:clamp(1.6rem,5vw,3.2rem);
+  line-height:1;
+  text-transform:uppercase;
+  text-shadow:0 3px 14px #000
+}
+
+.bss-slide-caption p{
+  max-width:760px;
+  margin-top:10px;
+  color:var(--orange3);
+  font-size:.78rem;
+  line-height:1.6;
+  text-shadow:0 3px 12px #000
+}
+
+.bss-arrow{
+  position:absolute;
+  top:50%;
+  z-index:13;
+  transform:translateY(-50%);
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--orange);
+  border-radius:50%;
+  background:rgba(0,0,0,.82);
+  color:var(--orange);
+  font-size:2rem;
+  cursor:pointer
+}
+
+.bss-arrow:hover{
+  background:var(--orange);
+  color:#000
+}
+
+.bss-prev{
+  left:16px
+}
+
+.bss-next{
+  right:16px
+}
+
+.bss-controls{
+  display:grid;
+  grid-template-columns:auto auto 1fr;
+  align-items:center;
+  gap:14px;
+  margin-top:14px;
+  padding:13px 16px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#050200
+}
+
+.bss-counter{
+  min-width:88px;
+  color:var(--orange);
+  font-size:.72rem;
+  font-weight:1000;
+  text-align:center
+}
+
+.bss-play{
+  padding:8px 14px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:.60rem;
+  font-weight:1000
+}
+
+.bss-play:hover{
+  background:var(--orange);
+  color:#000
+}
+
+.bss-progress{
+  height:7px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,121,0,.14)
+}
+
+.bss-progress-bar{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#9d3c00,var(--orange),var(--orange3));
+  box-shadow:0 0 12px rgba(255,121,0,.55)
+}
+
+@media(max-width:1050px){
+
+  .nav{
+    position:absolute;
+    top:86px;
+    left:14px;
+    right:14px;
+    display:none;
+    flex-direction:column;
+    padding:14px;
+    border:1px solid var(--orange);
+    border-radius:15px;
+    background:#000;
+    box-shadow:0 20px 50px rgba(0,0,0,.7)
   }
+
+  .nav.open{
+    display:flex
+  }
+
+  .nav a{
+    width:100%;
+    text-align:center
+  }
+
+  .menu-toggle{
+    display:block
+  }
+
+  .ecosystem-grid,
+  .modules-grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+
 }
 
-:focus-visible{
-  outline:2px solid var(--orange-light);
-  outline-offset:2px;
+@media(max-width:780px){
+
+  .header-inner{
+    min-height:76px
+  }
+
+  .brand-video-wrap{
+    width:55px;
+    height:55px;
+    border-radius:14px
+  }
+
+  .brand-text strong{
+    font-size:.78rem
+  }
+
+  .brand-text span{
+    font-size:.44rem
+  }
+
+  .lang-btn{
+    min-width:35px;
+    padding:7px 6px
+  }
+
+  .hero{
+    min-height:auto;
+    padding-top:38px
+  }
+
+  .hero-video-frame{
+    width:min(97vw,640px);
+    border-radius:20px
+  }
+
+  .sound-btn{
+    right:8px;
+    bottom:8px;
+    padding:7px 9px;
+    font-size:.52rem
+  }
+
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .news-grid,
+  .contact-grid,
+  .social-grid{
+    grid-template-columns:1fr
+  }
+
+  .bss-stage{
+    height:520px
+  }
+
+  .bss-slide-caption{
+    padding:80px 56px 25px
+  }
+
+  .bss-arrow{
+    width:42px;
+    height:42px;
+    font-size:1.6rem
+  }
+
+  .bss-prev{
+    left:8px
+  }
+
+  .bss-next{
+    right:8px
+  }
+
+  .bss-controls{
+    grid-template-columns:auto auto
+  }
+
+  .bss-progress{
+    grid-column:1/-1
+  }
+
+}
+
+@media(max-width:570px){
+
+  .ecosystem-grid,
+  .modules-grid{
+    grid-template-columns:1fr
+  }
+
+  .hero-actions{
+    display:grid;
+    grid-template-columns:1fr
+  }
+
+  .btn{
+    width:100%
+  }
+
+  .bss-stage{
+    height:450px;
+    border-radius:20px
+  }
+
+  .bss-slide-badge{
+    top:10px;
+    left:10px;
+    font-size:.50rem
+  }
+
+  .bss-slide-caption{
+    padding:76px 46px 22px
+  }
+
 }
 </style>
 </head>
 
 <body>
 
+<div class="top-bar"
+data-ht="🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — BATI POU JODI A — PARE POU DEMEN 🔥"
+data-fr="🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — CONSTRUIT POUR AUJOURD’HUI — PRÊT POUR DEMAIN 🔥"
+data-en="🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — BUILT FOR TODAY — READY FOR TOMORROW 🔥">
+🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — BATI POU JODI A — PARE POU DEMEN 🔥
+</div>
+
 <header>
-<div class="nav-wrap">
 
-<div class="brand">
-<div class="logo-mark">
-<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
-<div class="fallback">M</div>
+<div class="container header-inner">
+
+<a href="#home" class="brand">
+
+<div class="brand-video-wrap">
+<video class="brand-video" autoplay muted loop playsinline preload="metadata">
+<source src="./bati-pou-jodi-a.mp4" type="video/mp4">
+</video>
 </div>
 
-<div class="brand-name">
-MAXIMAX
-<span>MULTI SERVICES</span>
+<div class="brand-text">
+<strong>BSS1815 PRO-MAX DMP</strong>
+<span
+data-ht="PLATFÒM JESYON DIJITAL"
+data-fr="PLATEFORME DE GESTION NUMÉRIQUE"
+data-en="DIGITAL MANAGEMENT PLATFORM">
+PLATFÒM JESYON DIJITAL
+</span>
+</div>
+
+</a>
+
+<div class="header-right">
+
+<nav class="nav" id="mainNav">
+
+<a href="#home"
+data-ht="AKÈY"
+data-fr="ACCUEIL"
+data-en="HOME">
+AKÈY
+</a>
+
+<a href="#ecosystem"
+data-ht="EKOSISTÈM"
+data-fr="ÉCOSYSTÈME"
+data-en="ECOSYSTEM">
+EKOSISTÈM
+</a>
+
+<a href="#modules"
+data-ht="MODIL"
+data-fr="MODULES"
+data-en="MODULES">
+MODIL
+</a>
+
+<a href="#ddn">
+DDN
+</a>
+
+<a href="#contact"
+data-ht="KONTAK"
+data-fr="CONTACT"
+data-en="CONTACT">
+KONTAK
+</a>
+
+</nav>
+
+<div class="lang-switch">
+
+<button type="button" class="lang-btn" data-lang="fr">
+FRA
+</button>
+
+<button type="button" class="lang-btn" data-lang="en">
+ENG
+</button>
+
+<button type="button" class="lang-btn active" data-lang="ht">
+KRE
+</button>
+
+</div>
+
+<button
+type="button"
+class="menu-toggle"
+id="menuToggle"
+aria-label="Menu"
+aria-expanded="false">
+☰
+</button>
+
 </div>
 </div>
 
-<nav class="desktop-nav" id="desktopNav"></nav>
-
-<div style="display:flex;align-items:center;gap:10px;">
-
-<div class="lang-toggle" id="langToggle">
-<button class="lang-btn" data-lang="en">ENG</button>
-<button class="lang-btn" data-lang="fr">FRAN</button>
-<button class="lang-btn" data-lang="kr">KRE</button>
-</div>
-
-<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
-
-</div>
-</div>
-
-<div class="mobile-nav" id="mobileNav"></div>
 </header>
 
+<main>
 
-<section class="hero">
 
-<div>
-<span class="eyebrow" id="heroEyebrow"></span>
-<h1 id="heroH1"></h1>
-<p class="lede" id="heroLede"></p>
+<!-- =====================================================
+HERO
+===================================================== -->
 
-<p class="creole">
-Nou la pou ou · Nous sommes là pour vous · We are here for you
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="platform-label">
+BRIYANT SOLÈY SIGNO 1815
+</div>
+
+<div class="hero-video-frame">
+
+<video
+class="hero-logo-video"
+id="heroLogoVideo"
+autoplay
+muted
+loop
+playsinline
+preload="auto">
+
+<source
+src="./bati-pou-jodi-a.mp4"
+type="video/mp4">
+
+</video>
+
+<button
+type="button"
+class="sound-btn"
+id="soundButton"
+data-ht="🔊 KOUTE SLOGAN AN"
+data-fr="🔊 ÉCOUTER LE SLOGAN"
+data-en="🔊 HEAR THE SLOGAN">
+🔊 KOUTE SLOGAN AN
+</button>
+
+</div>
+
+<h1>
+BSS1815
+<br>
+PRO-MAX DMP
+</h1>
+
+<h2
+data-ht="YON SÈL PLATFÒM • YON SÈL VIZYON"
+data-fr="UNE SEULE PLATEFORME • UNE SEULE VISION"
+data-en="ONE PLATFORM • ONE VISION">
+YON SÈL PLATFÒM • YON SÈL VIZYON
+</h2>
+
+<p class="hero-description"
+data-ht="BSS1815 PRO-MAX DMP se platfòm santral ki konekte kominote BSS1815, PRO-MAX FM, Maximax Multi Services, PRO-MAX Académie, administrasyon, teknoloji, medya ak entèlijans atifisyèl nan yon sèl ekosistèm."
+data-fr="BSS1815 PRO-MAX DMP est la plateforme centrale qui relie la communauté BSS1815, PRO-MAX FM, Maximax Multi Services, PRO-MAX Académie, l’administration, la technologie, les médias et l’intelligence artificielle dans un seul écosystème."
+data-en="BSS1815 PRO-MAX DMP is the central platform connecting the BSS1815 community, PRO-MAX FM, Maximax Multi Services, PRO-MAX Academy, administration, technology, media and artificial intelligence in one ecosystem.">
+BSS1815 PRO-MAX DMP se platfòm santral ki konekte tout ekosistèm nan.
 </p>
 
-<div class="hero-cta">
-<a href="#immigration" class="btn btn-primary" id="ctaPrimary"></a>
-<a href="#community" class="btn btn-ghost" id="ctaGhost"></a>
-</div>
-</div>
+<div class="hero-actions">
 
-<div class="hero-seal seal">
-<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
-</div>
-
-</section>
-
-
-<div class="catmap">
-<div class="catmap-inner" id="catmap"></div>
-</div>
-
-
-<main id="fileContainer"></main>
-
-
-<section class="band band-news" id="news">
-
-<div class="band-inner">
-
-<div class="band-head">
-
-<div class="seal small">
-<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
-</div>
-
-<div>
-<div class="tag" id="newsTag"></div>
-<h2 id="newsTitle"></h2>
-</div>
-
-</div>
-
-<div class="chips" id="newsChips"></div>
-
-</div>
-</section>
-
-
-<section class="band band-ai" id="ai">
-
-<div class="band-inner">
-
-<div class="band-head">
-
-<div class="seal small">
-<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
-</div>
-
-<div>
-<div class="tag" id="aiTag"></div>
-<h2 id="aiTitle"></h2>
-</div>
-
-</div>
-
-<div class="ai-grid" id="aiGrid"></div>
-
-</div>
-</section>
-
-
-<section class="band band-contact" id="contact">
-
-<div class="band-inner">
-
-<div class="band-head">
-
-<div class="seal small">
-<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
-</div>
-
-<div>
-<div class="tag" id="contactTag"></div>
-<h2 id="contactTitle"></h2>
-</div>
-
-</div>
-
-<div class="contact-grid">
-
-<div class="contact-card">
-<div class="label" id="phoneLabel"></div>
-<div class="value">
-<a href="tel:+19546405166">(954) 640-5166</a><br>
-<a href="tel:+15162168494">(516) 216-8494</a>
-</div>
-</div>
-
-<div class="contact-card">
-<div class="label" id="emailLabel"></div>
-<div class="value">
-<a href="mailto:maximaxmultiservices@gmail.com">
-maximaxmultiservices@gmail.com
+<a
+href="#ecosystem"
+class="btn btn-primary"
+data-ht="DEKOUVRI PLATFÒM NAN"
+data-fr="DÉCOUVRIR LA PLATEFORME"
+data-en="EXPLORE THE PLATFORM">
+DEKOUVRI PLATFÒM NAN
 </a>
-</div>
-</div>
 
-<div class="contact-card">
-<div class="label" id="webLabel"></div>
-<div class="value">
-<a href="https://www.maximaxmultiservices.com" target="_blank" rel="noopener">
-www.maximaxmultiservices.com
+<a
+href="./ddn/index.html"
+class="btn btn-outline">
+🌎 DEVAN DEVAN NÈT™
 </a>
-</div>
-</div>
 
 </div>
 
-<div class="label" id="followLabel" style="margin-bottom:12px;"></div>
+<div class="stats-grid">
 
-<div class="social-row">
-<a class="social-pill" href="#">Facebook</a>
-<a class="social-pill" href="#">WhatsApp</a>
-<a class="social-pill" href="#">Instagram</a>
-<a class="social-pill" href="#">TikTok</a>
-<a class="social-pill" href="#">YouTube</a>
-<a class="social-pill" href="#">Spotify</a>
-<a class="social-pill" href="#">LinkedIn</a>
-<a class="social-pill" href="#">True Social</a>
-<a class="social-pill" href="#">X / Twitter</a>
+<div class="stat-card">
+<strong>4</strong>
+<span
+data-ht="BRANCH PRENSIPAL"
+data-fr="BRANCHES PRINCIPALES"
+data-en="CORE BRANCHES">
+BRANCH PRENSIPAL
+</span>
 </div>
 
-</div>
-</section>
-
-
-<footer>
-
-<div class="footer-inner">
-
-<div class="footer-top">
-
-<div>
-
-<div class="brand" style="margin-bottom:10px;">
-
-<div class="logo-mark">
-<video autoplay muted loop playsinline src="maximax-best-multi.mp4"></video>
-<div class="fallback">M</div>
+<div class="stat-card">
+<strong>AI</strong>
+<span>SMART PLATFORM</span>
 </div>
 
-<div class="brand-name">
-MAXIMAX
-<span>MULTI SERVICES</span>
+<div class="stat-card">
+<strong>3</strong>
+<span
+data-ht="LANG"
+data-fr="LANGUES"
+data-en="LANGUAGES">
+LANG
+</span>
 </div>
 
-</div>
-
-<p id="footerDesc"
-style="max-width:340px;font-size:13px;opacity:.7;line-height:1.6;">
-</p>
-
-</div>
-
-<div class="footer-cats" id="footerCats"></div>
-
-</div>
-
-<div class="footer-bottom">
-<span>© 2026 Maximax Multi Services</span>
-<span>
-(954) 640-5166 · (516) 216-8494 · maximaxmultiservices@gmail.com
+<div class="stat-card">
+<strong>24/7</strong>
+<span
+data-ht="AKSÈ DIJITAL"
+data-fr="ACCÈS NUMÉRIQUE"
+data-en="DIGITAL ACCESS">
+AKSÈ DIJITAL
 </span>
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+ECOSYSTEM
+===================================================== -->
+
+<section class="section" id="ecosystem">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+BSS1815 PRO-MAX DMP
+</div>
+
+<h2
+class="section-title"
+data-ht="YON SÈL EKOSISTÈM"
+data-fr="UN SEUL ÉCOSYSTÈME"
+data-en="ONE ECOSYSTEM">
+YON SÈL EKOSISTÈM
+</h2>
+
+<p class="section-desc"
+data-ht="Nou pa kenbe de BSS1815. BSS1815 Community entegre dirèkteman nan BSS1815 PRO-MAX DMP ansanm ak PRO-MAX FM, Maximax Multi Services ak PRO-MAX Académie."
+data-fr="Nous ne maintenons pas deux BSS1815. La communauté BSS1815 est directement intégrée à BSS1815 PRO-MAX DMP avec PRO-MAX FM, Maximax Multi Services et PRO-MAX Académie."
+data-en="There are not two separate BSS1815 platforms. BSS1815 Community is integrated directly into BSS1815 PRO-MAX DMP together with PRO-MAX FM, Maximax Multi Services and PRO-MAX Academy.">
+Nou pa kenbe de BSS1815.
+</p>
+
+</div>
+
+
+<div class="ecosystem-grid">
+
+<a href="#community" class="ecosystem-card">
+
+<div class="eco-icon">
+🏛️
+</div>
+
+<h3>
+BSS1815 COMMUNITY
+</h3>
+
+<p
+data-ht="Manm, dirijan, mizisyen, fanatik, eritaj, aktivite ak lavi kominotè BSS1815."
+data-fr="Membres, dirigeants, musiciens, fans, patrimoine, activités et vie communautaire BSS1815."
+data-en="Members, leaders, musicians, fans, heritage, activities and BSS1815 community life.">
+Manm, dirijan, mizisyen, fanatik, eritaj ak kominote.
+</p>
+
+<div class="card-link">
+ENTER →
+</div>
+
+</a>
+
+
+<a href="#promaxfm" class="ecosystem-card">
+
+<div class="eco-icon">
+📻
+</div>
+
+<h3>
+PRO-MAX FM
+</h3>
+
+<p
+data-ht="Radyo dijital, live streaming, mizik, podcast, nouvèl, entèvyou ak pwodiksyon medya."
+data-fr="Radio numérique, streaming, musique, podcasts, actualités, interviews et production média."
+data-en="Digital radio, live streaming, music, podcasts, news, interviews and media production.">
+Radyo dijital ak pwodiksyon medya.
+</p>
+
+<div class="card-link">
+ENTER →
+</div>
+
+</a>
+
+
+<a href="#maximax" class="ecosystem-card">
+
+<div class="eco-icon">
+💼
+</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p
+data-ht="Imigrasyon, tradiksyon, sèvis administratif, dokiman ak asistans pwofesyonèl."
+data-fr="Immigration, traduction, services administratifs, documents et assistance professionnelle."
+data-en="Immigration, translation, administrative services, documents and professional assistance.">
+Imigrasyon, tradiksyon ak sèvis pwofesyonèl.
+</p>
+
+<div class="card-link">
+ENTER →
+</div>
+
+</a>
+
+
+<a href="#academy" class="ecosystem-card">
+
+<div class="eco-icon">
+🎓
+</div>
+
+<h3>
+PRO-MAX ACADÉMIE
+</h3>
+
+<p
+data-ht="AI, teknoloji, fòmasyon, inovasyon, evalyasyon, Student Portal ak sètifikasyon."
+data-fr="IA, technologie, formation, innovation, évaluations, portail étudiant et certification."
+data-en="AI, technology, training, innovation, assessments, Student Portal and certification.">
+AI, teknoloji, fòmasyon ak sètifikasyon.
+</p>
+
+<div class="card-link">
+ENTER →
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+MODULES
+===================================================== -->
+
+<section class="section" id="modules">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+DIGITAL MANAGEMENT PLATFORM
+</div>
+
+<h2
+class="section-title"
+data-ht="MODIL PRENSIPAL YO"
+data-fr="MODULES PRINCIPAUX"
+data-en="CORE MODULES">
+MODIL PRENSIPAL YO
+</h2>
+
+<p class="section-desc"
+data-ht="Modil yo konekte operasyon, administrasyon, kominote, dokiman, medya ak teknoloji BSS1815 PRO-MAX DMP."
+data-fr="Les modules relient les opérations, l’administration, la communauté, les documents, les médias et la technologie BSS1815 PRO-MAX DMP."
+data-en="The modules connect operations, administration, community, documents, media and technology across BSS1815 PRO-MAX DMP.">
+Tout modil yo travay anba menm platfòm santral la.
+</p>
+
+</div>
+
+
+<div class="modules-grid">
+
+<a href="./modules/ai-center/index.html" class="module-card">
+<div class="module-icon">🤖</div>
+<h3>AI CENTER</h3>
+<p>Assistant • Writer • Voice • Automation</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/crm/index.html" class="module-card">
+<div class="module-icon">👥</div>
+<h3>CRM SYSTEM</h3>
+<p>Members • Contacts • Relationships • Records</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/communication/index.html" class="module-card">
+<div class="module-icon">📢</div>
+<h3>COMMUNICATION CENTER</h3>
+<p>Announcements • Alerts • WhatsApp • Messages</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/flyer-studio/index.html" class="module-card">
+<div class="module-icon">🎨</div>
+<h3>FLYER STUDIO</h3>
+<p>Flyers • Notices • Graphics • Media</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/registry/index.html" class="module-card">
+<div class="module-icon">📋</div>
+<h3>DIGITAL REGISTRY</h3>
+<p>Members • Musicians • Fans • Merchants</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/events/index.html" class="module-card">
+<div class="module-icon">📅</div>
+<h3>EVENT MANAGEMENT</h3>
+<p>Calendar • Programs • Activities • Meetings</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/documents/index.html" class="module-card">
+<div class="module-icon">📄</div>
+<h3>DOCUMENT CENTER</h3>
+<p>Letters • Reports • Archives • Files</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/announcements/index.html" class="module-card">
+<div class="module-icon">📣</div>
+<h3>ANNOUNCEMENT CENTER</h3>
+<p>Official Notices • Community Updates • Alerts</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/donations/index.html" class="module-card">
+<div class="module-icon">🤝</div>
+<h3>DONATION CENTER</h3>
+<p>Contributions • Records • Donor Management</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/attendance/index.html" class="module-card">
+<div class="module-icon">✅</div>
+<h3>ATTENDANCE</h3>
+<p>Check-In • Meetings • Events • Participation</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/certificates/index.html" class="module-card">
+<div class="module-icon">🏆</div>
+<h3>CERTIFICATE CENTER</h3>
+<p>Certificates • Verification • Records</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/elections/index.html" class="module-card">
+<div class="module-icon">🗳️</div>
+<h3>ELECTION MANAGER</h3>
+<p>Voting • Candidates • Results • Records</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/volunteer/index.html" class="module-card">
+<div class="module-icon">🙋</div>
+<h3>VOLUNTEER CENTER</h3>
+<p>Volunteers • Assignments • Activities</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/finance/index.html" class="module-card">
+<div class="module-icon">💰</div>
+<h3>FINANCE / TREASURY</h3>
+<p>Payments • Donations • Treasury • Reports</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/media/index.html" class="module-card">
+<div class="module-icon">🎥</div>
+<h3>MEDIA GALLERY</h3>
+<p>Photos • Video • Audio • Archives</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/notifications/index.html" class="module-card">
+<div class="module-icon">🔔</div>
+<h3>NOTIFICATIONS</h3>
+<p>Alerts • Reminders • Updates • Messages</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/reports/index.html" class="module-card">
+<div class="module-icon">📊</div>
+<h3>REPORTS & ANALYTICS</h3>
+<p>Statistics • Performance • Reports</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/help-desk/index.html" class="module-card">
+<div class="module-icon">🎫</div>
+<h3>HELP DESK</h3>
+<p>Support • Requests • Cases • Assistance</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./modules/live-streaming/index.html" class="module-card">
+<div class="module-icon">📡</div>
+<h3>LIVE STREAMING</h3>
+<p>Radio • Video • Live Events • Broadcast</p>
+<div class="module-open">OPEN →</div>
+</a>
+
+<a href="./login.html" class="module-card">
+<div class="module-icon">🔐</div>
+<h3>ADMIN DASHBOARD</h3>
+<p>Roles • Permissions • Firebase • Security</p>
+<div class="module-open">LOGIN →</div>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+BSS1815 COMMUNITY SLIDESHOW
+===================================================== -->
+
+<section class="section" id="community">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+BRIYANT SOLÈY SIGNO 1815
+</div>
+
+<h2
+class="section-title"
+data-ht="BSS1815 COMMUNITY"
+data-fr="COMMUNAUTÉ BSS1815"
+data-en="BSS1815 COMMUNITY">
+BSS1815 COMMUNITY
+</h2>
+
+<p class="section-desc"
+data-ht="Kominote istorik BSS1815 la se yon pati dirèk nan PRO-MAX DMP: manm, dirijan, mizisyen, fanatik, eritaj, evènman ak achiv yo."
+data-fr="La communauté historique BSS1815 fait directement partie de PRO-MAX DMP : membres, dirigeants, musiciens, fans, patrimoine, événements et archives."
+data-en="The historic BSS1815 community is directly part of PRO-MAX DMP: members, leaders, musicians, fans, heritage, events and archives.">
+BSS1815 Community entegre dirèkteman nan sistèm nan.
+</p>
+
+</div>
+
+
+<div class="bss-slideshow">
+
+<div class="bss-stage" id="bssStage" tabindex="0">
+
+<div class="bss-slide-badge">
+BSS1815 COMMUNITY • 113 MEDIA
+</div>
+
+<img
+id="bssSlideImage"
+class="bss-slide-image"
+src="./assets/slideshow/tania2.jpg"
+alt="BSS1815 Community">
+
+<video
+id="bssSlideVideo"
+class="bss-slide-video hidden"
+muted
+playsinline
+preload="metadata">
+</video>
+
+<div class="bss-slide-overlay"></div>
+
+<div class="bss-slide-caption">
+
+<small
+data-ht="FANMI • ERITAJ • KOMINOTE"
+data-fr="FAMILLE • HÉRITAGE • COMMUNAUTÉ"
+data-en="FAMILY • HERITAGE • COMMUNITY">
+FANMI • ERITAJ • KOMINOTE
+</small>
+
+<h3 id="bssSlideTitle">
+TANIA2
+</h3>
+
+<p
+data-ht="MOUVMAN SA A SE POU NOU TOUT. Chak figi se yon pati nan istwa ak eritaj BSS1815."
+data-fr="CE MOUVEMENT EST POUR NOUS TOUS. Chaque visage fait partie de l’histoire et de l’héritage de BSS1815."
+data-en="THIS MOVEMENT IS FOR ALL OF US. Every face is part of the history and heritage of BSS1815.">
+MOUVMAN SA A SE POU NOU TOUT.
+</p>
+
+</div>
+
+<button
+type="button"
+class="bss-arrow bss-prev"
+id="bssPrev"
+aria-label="Previous">
+‹
+</button>
+
+<button
+type="button"
+class="bss-arrow bss-next"
+id="bssNext"
+aria-label="Next">
+›
+</button>
+
+</div>
+
+
+<div class="bss-controls">
+
+<div class="bss-counter" id="bssCounter">
+1 / 113
+</div>
+
+<button
+type="button"
+class="bss-play"
+id="bssPlayPause">
+⏸ PAUSE
+</button>
+
+<div class="bss-progress">
+<div class="bss-progress-bar" id="bssProgressBar"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PRO-MAX FM
+===================================================== -->
+
+<section class="section" id="promaxfm">
+
+<div class="container">
+
+<div class="project-box">
+
+<h2>
+📻 PRO-MAX FM
+</h2>
+
+<p
+data-ht="Branch radyo ak medya dijital BSS1815 PRO-MAX DMP pou live radio, nouvèl, podcast, entèvyou, mizik ak pwodiksyon medya."
+data-fr="La branche radio et média numérique de BSS1815 PRO-MAX DMP pour la radio en direct, les actualités, les podcasts, les interviews, la musique et la production média."
+data-en="The BSS1815 PRO-MAX DMP digital radio and media branch for live radio, news, podcasts, interviews, music and media production.">
+Branch radyo ak medya dijital platfòm nan.
+</p>
+
+<div class="hero-actions">
+
+<a
+href="./pro-max-fm/index.html"
+class="btn btn-primary">
+📻 ENTER PRO-MAX FM
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+MAXIMAX MULTI SERVICES
+===================================================== -->
+
+<section class="section" id="maximax">
+
+<div class="container">
+
+<div class="project-box">
+
+<h2>
+💼 MAXIMAX MULTI SERVICES
+</h2>
+
+<p
+data-ht="Sant sèvis pwofesyonèl pou imigrasyon, tradiksyon, dokiman, asistans administratif ak lòt sèvis kominotè."
+data-fr="Centre de services professionnels pour l’immigration, la traduction, les documents, l’assistance administrative et d’autres services communautaires."
+data-en="Professional services center for immigration, translation, documents, administrative assistance and other community services.">
+Sant sèvis pwofesyonèl BSS1815 PRO-MAX DMP.
+</p>
+
+<div class="hero-actions">
+
+<a
+href="./maximax/index.html"
+class="btn btn-primary">
+💼 ENTER MAXIMAX MULTI SERVICES
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PRO-MAX ACADEMIE
+===================================================== -->
+
+<section class="section" id="academy">
+
+<div class="container">
+
+<div class="project-box">
+
+<h2
+data-ht="🎓 PRO-MAX ACADÉMIE"
+data-fr="🎓 PRO-MAX ACADÉMIE"
+data-en="🎓 PRO-MAX ACADEMY">
+🎓 PRO-MAX ACADÉMIE
+</h2>
+
+<p
+data-ht="Sant fòmasyon pou entèlijans atifisyèl, teknoloji, inovasyon, lidèchip, Student Portal, evalyasyon ak sètifikasyon."
+data-fr="Centre de formation pour l’intelligence artificielle, la technologie, l’innovation, le leadership, le portail étudiant, les évaluations et la certification."
+data-en="Training center for artificial intelligence, technology, innovation, leadership, Student Portal, assessments and certification.">
+Sant fòmasyon AI ak teknoloji.
+</p>
+
+<div class="hero-actions">
+
+<a
+href="./academy/index.html"
+class="btn btn-primary">
+🎓 ENTER PRO-MAX ACADÉMIE
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+INTERNATIONAL NEWS
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+INTERNATIONAL NEWS
+</div>
+
+<h2
+class="section-title"
+data-ht="SOUS NOUVÈL"
+data-fr="SOURCES D’INFORMATION"
+data-en="NEWS SOURCES">
+SOUS NOUVÈL
+</h2>
+
+</div>
+
+
+<div class="news-grid">
+
+<article class="news-card">
+
+<div class="news-label">
+CNN
+</div>
+
+<h3>
+CNN International
+</h3>
+
+<p
+data-ht="Nouvèl entènasyonal, politik, ekonomi, teknoloji ak dènye devlopman mondyal."
+data-fr="Actualités internationales, politique, économie, technologie et développements mondiaux."
+data-en="International news, politics, economics, technology and global developments.">
+Nouvèl entènasyonal.
+</p>
+
+<a
+href="https://www.cnn.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="news-btn">
+OPEN CNN ↗
+</a>
+
+</article>
+
+
+<article class="news-card">
+
+<div class="news-label">
+MIAMI HERALD
+</div>
+
+<h3>
+Miami Herald
+</h3>
+
+<p
+data-ht="Miami, Florid, Ayiti, Karayib ak kominote entènasyonal."
+data-fr="Miami, Floride, Haïti, Caraïbes et communauté internationale."
+data-en="Miami, Florida, Haiti, the Caribbean and international community.">
+Miami, Florid, Ayiti ak Karayib.
+</p>
+
+<a
+href="https://www.miamiherald.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="news-btn">
+OPEN MIAMI HERALD ↗
+</a>
+
+</article>
+
+
+<article class="news-card">
+
+<div class="news-label">
+RFI
+</div>
+
+<h3>
+Radio France Internationale
+</h3>
+
+<p
+data-ht="Nouvèl mondyal, analiz, Lafrans, Lafrik, Karayib ak emisyon entènasyonal."
+data-fr="Actualités mondiales, analyses, France, Afrique, Caraïbes et émissions internationales."
+data-en="World news, analysis, France, Africa, Caribbean and international programming.">
+Nouvèl mondyal ak analiz.
+</p>
+
+<a
+href="https://www.rfi.fr/"
+target="_blank"
+rel="noopener noreferrer"
+class="news-btn">
+OPEN RFI ↗
+</a>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+DEVAN DEVAN NET
+===================================================== -->
+
+<section class="section" id="ddn">
+
+<div class="container">
+
+<div class="ddn-box">
+
+<h2>
+DEVAN DEVAN NÈT™
+</h2>
+
+<h3
+data-ht="BATI POU JODI A • PARE POU DEMEN"
+data-fr="CONSTRUIT POUR AUJOURD’HUI • PRÊT POUR DEMAIN"
+data-en="BUILT FOR TODAY • READY FOR TOMORROW">
+BATI POU JODI A • PARE POU DEMEN
+</h3>
+
+<p
+data-ht="DEVAN DEVAN NÈT™ se vizyon teknoloji ak entèlijans atifisyèl ki ankouraje nou aprann, òganize, kreye, inove epi toujou avanse."
+data-fr="DEVAN DEVAN NÈT™ est la vision technologique et d’intelligence artificielle qui nous encourage à apprendre, organiser, créer, innover et toujours progresser."
+data-en="DEVAN DEVAN NÈT™ is the technology and artificial intelligence vision encouraging us to learn, organize, create, innovate and always move forward.">
+DEVAN DEVAN NÈT™ se mouvman inovasyon ak AI platfòm nan.
+</p>
+
+<div class="hero-actions">
+
+<a
+href="./ddn/index.html"
+class="btn btn-primary">
+🌎 ENTER DEVAN DEVAN NÈT™
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+CONTACT & SOCIAL NETWORKS
+===================================================== -->
+
+<section class="section" id="contact">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+STAY CONNECTED
+</div>
+
+<h2
+class="section-title"
+data-ht="KONTAK & REZO SOSYAL"
+data-fr="CONTACT & RÉSEAUX SOCIAUX"
+data-en="CONTACT & SOCIAL NETWORKS">
+KONTAK & REZO SOSYAL
+</h2>
+
+</div>
+
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<strong>
+📞 TELEPHONE
+</strong>
+
+<a href="tel:+50943437488">
++509 43 43 7488
+</a>
+
+<a href="tel:+14076405166">
+(407) 640-5166
+</a>
+
+<a href="tel:+15162168494">
+(516) 216-8494
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<strong>
+📧 EMAIL
+</strong>
+
+<a href="mailto:briyantsoleysigno1815@gmail.com">
+briyantsoleysigno1815@gmail.com
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<strong>
+🌐 WEBSITE
+</strong>
+
+<a
+href="https://www.briyantsoleysigno1815.com"
+target="_blank"
+rel="noopener noreferrer">
+www.briyantsoleysigno1815.com
+</a>
+
+</div>
+
+</div>
+
+
+<div class="social-grid">
+
+<a
+href="https://wa.me/50943437488"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+☎
+</div>
+
+<div>
+<strong>WhatsApp</strong>
+<span>+509 43 43 7488</span>
+</div>
+
+</a>
+
+
+<a
+href="https://www.facebook.com/share/1By3KvYRrM/"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+f
+</div>
+
+<div>
+<strong>Facebook</strong>
+<span>BSS1815 PRO-MAX DMP</span>
+</div>
+
+</a>
+
+
+<a
+href="https://www.youtube.com/@BSS1815PROMAXDMP"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+▶
+</div>
+
+<div>
+<strong>YouTube</strong>
+<span>@BSS1815PROMAXDMP</span>
+</div>
+
+</a>
+
+
+<a
+href="https://www.instagram.com/lebaron072/"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+◎
+</div>
+
+<div>
+<strong>Instagram</strong>
+<span>@lebaron072</span>
+</div>
+
+</a>
+
+
+<a
+href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+♫
+</div>
+
+<div>
+<strong>Spotify</strong>
+<span>MAXIMAX</span>
+</div>
+
+</a>
+
+
+<a
+href="https://truthsocial.com/@briyant_soley_1815"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+T
+</div>
+
+<div>
+<strong>Truth Social</strong>
+<span>@briyant_soley_1815</span>
+</div>
+
+</a>
+
+
+<a
+href="https://www.linkedin.com/in/maximax-multi-services-075ba2314"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+in
+</div>
+
+<div>
+<strong>LinkedIn</strong>
+<span>Maximax Multi Services</span>
+</div>
+
+</a>
+
+
+<a
+href="https://www.tiktok.com/@maximax1960"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+♪
+</div>
+
+<div>
+<strong>TikTok</strong>
+<span>@maximax1960</span>
+</div>
+
+</a>
+
+
+<a
+href="https://x.com/w05g2m"
+target="_blank"
+rel="noopener noreferrer"
+class="social-link">
+
+<div class="social-icon">
+𝕏
+</div>
+
+<div>
+<strong>X / Twitter</strong>
+<span>@w05g2m</span>
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-video">
+
+<video
+autoplay
+muted
+loop
+playsinline
+preload="metadata">
+
+<source
+src="./bati-pou-jodi-a.mp4"
+type="video/mp4">
+
+</video>
+
+</div>
+
+<div class="footer-title">
+BSS1815 PRO-MAX DMP
+</div>
+
+<div class="footer-info">
+
+DEVAN DEVAN NÈT™
+
+<br>
+
+<span
+data-ht="BATI POU JODI A • PARE POU DEMEN"
+data-fr="CONSTRUIT POUR AUJOURD’HUI • PRÊT POUR DEMAIN"
+data-en="BUILT FOR TODAY • READY FOR TOMORROW">
+BATI POU JODI A • PARE POU DEMEN
+</span>
+
+<br><br>
+
+briyantsoleysigno1815@gmail.com
+
+<br>
+
++509 43 43 7488 • (407) 640-5166 • (516) 216-8494
+
+<br><br>
+
+© <span id="currentYear"></span> BSS1815 PRO-MAX DMP
+
+</div>
+
+</div>
+
 </footer>
 
 
 <script>
+(function(){
 
-const UI = {
-nav:{
-immigration:{en:"Immigration",fr:"Immigration",kr:"Imigrasyon"},
-documents:{en:"Documents",fr:"Documents",kr:"Dokiman"},
-translation:{en:"Translation",fr:"Traduction",kr:"Tradiksyon"},
-housing:{en:"Housing",fr:"Logement",kr:"Lojman"},
-employment:{en:"Employment",fr:"Emploi",kr:"Travay"},
-business:{en:"Business",fr:"Entreprise",kr:"Biznis"},
-digital:{en:"Digital",fr:"Numérique",kr:"Dijital"},
-community:{en:"Community",fr:"Communauté",kr:"Kominote"},
-news:{en:"News",fr:"Actualités",kr:"Nouvèl"},
-ai:{en:"AI Assistance",fr:"Assistance IA",kr:"Asistans AI"},
-contact:{en:"Contact",fr:"Contact",kr:"Kontak"}
-},
-
-heroEyebrow:{
-en:"Case File No. 001 — Community Services Registry",
-fr:"Dossier n° 001 — Registre des services communautaires",
-kr:"Dosye No. 001 — Rejis Sèvis Kominotè"
-},
-
-heroH1:{
-en:"One office. <em>Every</em> document you need.",
-fr:"Un seul bureau. <em>Tous</em> les documents dont vous avez besoin.",
-kr:"Yon sèl biwo. <em>Tout</em> dokiman ou bezwen."
-},
-
-heroLede:{
-en:"Maximax Multi Services helps individuals, families, and small businesses navigate immigration paperwork, housing, employment, translation, and digital services — all under one roof.",
-fr:"Maximax Multi Services aide les particuliers, les familles et les petites entreprises à gérer les démarches d'immigration, le logement, l'emploi, la traduction et les services numériques — tout sous un même toit.",
-kr:"Maximax Multi Services ede endividi, fanmi, ak ti biznis jere papye imigrasyon, lojman, travay, tradiksyon, ak sèvis dijital — tout anba yon sèl twa."
-},
-
-ctaPrimary:{
-en:"Open Immigration Services",
-fr:"Ouvrir les services d'immigration",
-kr:"Ouvri Sèvis Imigrasyon"
-},
-
-ctaGhost:{
-en:"Browse All Resources",
-fr:"Parcourir toutes les ressources",
-kr:"Gade Tout Resous"
-},
-
-newsTag:{
-en:"Wire Feed",
-fr:"Fil d'actualité",
-kr:"Fil Nouvèl"
-},
-
-newsTitle:{
-en:"News & Information Center",
-fr:"Centre de nouvelles et d'information",
-kr:"Sant Nouvèl ak Enfòmasyon"
-},
-
-aiTag:{
-en:"Assisted Tools",
-fr:"Outils assistés",
-kr:"Zouti Asistans"
-},
-
-aiTitle:{
-en:"AI Assistance",
-fr:"Assistance IA",
-kr:"Asistans AI"
-},
-
-contactTag:{
-en:"Get In Touch",
-fr:"Nous contacter",
-kr:"Kontakte Nou"
-},
-
-contactTitle:{
-en:"Contact & Social",
-fr:"Contact et réseaux sociaux",
-kr:"Kontak ak Rezo Sosyal"
-},
-
-phoneLabel:{
-en:"Call Us",
-fr:"Appelez-nous",
-kr:"Rele Nou"
-},
-
-emailLabel:{
-en:"Email",
-fr:"Courriel",
-kr:"Imèl"
-},
-
-webLabel:{
-en:"Website",
-fr:"Site web",
-kr:"Sitwèb"
-},
-
-followLabel:{
-en:"Follow Us",
-fr:"Suivez-nous",
-kr:"Swiv Nou"
-},
-
-footerDesc:{
-en:"Immigration, document, translation, housing, employment, business, and digital services — all in one place.",
-fr:"Services d'immigration, de documents, de traduction, de logement, d'emploi, d'entreprise et de services numériques — tous au même endroit.",
-kr:"Sèvis Imigrasyon, Dokiman, Tradiksyon, Lojman, Travay, Biznis, ak Sèvis Dijital — tout nan yon sèl kote."
-}
-};
+"use strict";
 
 
-const CATS = [
+/* =====================================================
+CURRENT YEAR
+===================================================== */
 
-{
-id:"immigration",
-num:"01",
-title:{
-en:"Immigration Services",
-fr:"Services d'immigration",
-kr:"Sèvis Imigrasyon"
-},
-sub:{
-en:"USCIS · Case Support · TPS · Naturalization",
-fr:"USCIS · Suivi de dossier · TPS · Naturalisation",
-kr:"USCIS · Sipò Dosye · TPS · Natiralizasyon"
-},
-items:{
-en:[
-"Immigration consultation support",
-"Immigration document preparation",
-"Immigration form assistance",
-"USCIS case support",
-"Immigration OS",
-"Case tracking",
-"Immigration document checklist",
-"Appointment preparation",
-"Translation support for immigration documents",
-"TPS information and assistance",
-"Work Permit / EAD assistance",
-"Adjustment of Status support",
-"Family Petition support",
-"Citizenship / Naturalization assistance",
-"Green Card renewal support",
-"Travel Document assistance",
-"Affidavit and supporting-document preparation",
-"Immigration news and updates",
-"E-Verify information and support"
-],
+var currentYear=
+document.getElementById("currentYear");
 
-fr:[
-"Accompagnement en consultation d'immigration",
-"Préparation de documents d'immigration",
-"Aide au remplissage des formulaires d'immigration",
-"Suivi de dossier USCIS",
-"Immigration OS",
-"Suivi de dossier",
-"Liste de vérification des documents d'immigration",
-"Préparation aux rendez-vous",
-"Aide à la traduction des documents d'immigration",
-"Information et assistance TPS",
-"Aide pour le permis de travail / EAD",
-"Aide pour l'ajustement de statut",
-"Aide pour la pétition familiale",
-"Aide à la citoyenneté / naturalisation",
-"Aide au renouvellement de la carte verte",
-"Aide pour les documents de voyage",
-"Préparation d'affidavits et de documents justificatifs",
-"Actualités et mises à jour sur l'immigration",
-"Informations et assistance E-Verify"
-],
-
-kr:[
-"Sipò konsiltasyon imigrasyon",
-"Preparasyon dokiman imigrasyon",
-"Èd pou ranpli fòm imigrasyon",
-"Sipò pou dosye USCIS",
-"Immigration OS",
-"Swiv dosye",
-"Lis verifikasyon dokiman imigrasyon",
-"Preparasyon pou randevou",
-"Sipò tradiksyon pou dokiman imigrasyon",
-"Enfòmasyon ak asistans TPS",
-"Asistans Pèmi Travay / EAD",
-"Sipò pou Ajisteman Estati",
-"Sipò pou Petisyon Familyal",
-"Asistans Sitwayènte / Natiralizasyon",
-"Sipò pou renouvèlman Green Card",
-"Asistans pou Dokiman Vwayaj",
-"Preparasyon Afidavi ak dokiman sipò",
-"Nouvèl ak dènye enfòmasyon sou imigrasyon",
-"Enfòmasyon ak sipò pou E-Verify"
-]
-}
-},
-
-{
-id:"documents",
-num:"02",
-title:{
-en:"Document & Administrative Services",
-fr:"Services de documents et administratifs",
-kr:"Sèvis Dokiman ak Administratif"
-},
-sub:{
-en:"Letters · Forms · Filing",
-fr:"Lettres · Formulaires · Classement",
-kr:"Lèt · Fòm · Klasman"
-},
-items:{
-en:[
-"Document preparation",
-"Letter preparation",
-"Official letters",
-"Verification letters",
-"Affidavits",
-"Applications",
-"Forms",
-"PDF document preparation",
-"Scanning and document organization",
-"Printing support",
-"Digital file organization",
-"Resume preparation",
-"Cover letters",
-"Professional correspondence"
-],
-fr:[
-"Préparation de documents",
-"Préparation de lettres",
-"Lettres officielles",
-"Lettres de vérification",
-"Affidavits",
-"Demandes / Applications",
-"Formulaires",
-"Préparation de documents PDF",
-"Numérisation et organisation de documents",
-"Aide à l'impression",
-"Organisation de fichiers numériques",
-"Préparation de CV",
-"Lettres de motivation",
-"Correspondance professionnelle"
-],
-kr:[
-"Preparasyon dokiman",
-"Preparasyon lèt",
-"Lèt ofisyèl",
-"Lèt verifikasyon",
-"Afidavi",
-"Aplikasyon",
-"Fòm",
-"Preparasyon dokiman PDF",
-"Eskane ak òganize dokiman",
-"Sipò enprime",
-"Òganizasyon fichye dijital",
-"Preparasyon rezime (CV)",
-"Lèt Kouvèti",
-"Korespondans pwofesyonèl"
-]
-}
-},
-
-{
-id:"translation",
-num:"03",
-title:{
-en:"Translation Services",
-fr:"Services de traduction",
-kr:"Sèvis Tradiksyon"
-},
-sub:{
-en:"Haitian Creole · French · English",
-fr:"Créole haïtien · Français · Anglais",
-kr:"Kreyòl Ayisyen · Fransè · Anglè"
-},
-items:{
-en:[
-"Haitian Creole translation",
-"French translation",
-"English translation",
-"Document translation",
-"Letter translation",
-"Immigration-document translation",
-"Business correspondence translation"
-],
-fr:[
-"Traduction créole haïtien",
-"Traduction française",
-"Traduction anglaise",
-"Traduction de documents",
-"Traduction de lettres",
-"Traduction de documents d'immigration",
-"Traduction de correspondance commerciale"
-],
-kr:[
-"Tradiksyon Kreyòl Ayisyen",
-"Tradiksyon Fransè",
-"Tradiksyon Anglè",
-"Tradiksyon dokiman",
-"Tradiksyon lèt",
-"Tradiksyon dokiman imigrasyon",
-"Tradiksyon korespondans biznis"
-]
-}
-},
-
-{
-id:"housing",
-num:"04",
-title:{
-en:"Housing Services",
-fr:"Services de logement",
-kr:"Sèvis Lojman"
-},
-sub:{
-en:"Rentals · Section 8 · Affordable Housing",
-fr:"Locations · Section 8 · Logement abordable",
-kr:"Lokasyon · Seksyon 8 · Lojman Abòdab"
-},
-items:{
-en:[
-"Housing information",
-"Apartment search assistance",
-"House rental information",
-"Section 8 resources",
-"Low-Income Housing resources",
-"Affordable Housing information",
-"Housing application assistance",
-"Rental-document preparation"
-],
-fr:[
-"Informations sur le logement",
-"Aide à la recherche d'appartement",
-"Informations sur la location de maison",
-"Ressources Section 8",
-"Ressources pour logement à faible revenu",
-"Informations sur le logement abordable",
-"Aide pour la demande de logement",
-"Préparation de documents de location"
-],
-kr:[
-"Enfòmasyon sou lojman",
-"Asistans pou chèche apatman",
-"Enfòmasyon sou lokasyon kay",
-"Resous Seksyon 8",
-"Resous Lojman pou Ti Revni",
-"Enfòmasyon sou Lojman Abòdab",
-"Asistans pou aplikasyon lojman",
-"Preparasyon dokiman lokasyon"
-]
-}
-},
-
-{
-id:"employment",
-num:"05",
-title:{
-en:"Employment Services",
-fr:"Services d'emploi",
-kr:"Sèvis Travay"
-},
-sub:{
-en:"Resumes · Applications · Work Authorization",
-fr:"CV · Demandes · Autorisation de travail",
-kr:"Rezime · Aplikasyon · Otorizasyon Travay"
-},
-items:{
-en:[
-"Job-search assistance",
-"Resume support",
-"Employment applications",
-"Job-resource information",
-"E-Verify resources",
-"Employment-document assistance",
-"Work authorization information"
-],
-fr:[
-"Aide à la recherche d'emploi",
-"Aide à la rédaction de CV",
-"Demandes d'emploi",
-"Informations sur les ressources d'emploi",
-"Ressources E-Verify",
-"Aide aux documents d'emploi",
-"Informations sur l'autorisation de travail"
-],
-kr:[
-"Asistans pou chèche travay",
-"Sipò pou rezime",
-"Aplikasyon pou travay",
-"Enfòmasyon sou resous travay",
-"Resous E-Verify",
-"Asistans dokiman travay",
-"Enfòmasyon sou otorizasyon travay"
-]
-}
-},
-
-{
-id:"business",
-num:"06",
-title:{
-en:"Business Services",
-fr:"Services aux entreprises",
-kr:"Sèvis Biznis"
-},
-sub:{
-en:"Small Business · Branding · Admin Support",
-fr:"Petites entreprises · Image de marque · Soutien admin",
-kr:"Ti Biznis · Branding · Sipò Administratif"
-},
-items:{
-en:[
-"Business document preparation",
-"Small-business support",
-"Business letters",
-"Administrative assistance",
-"Digital business services",
-"Business information and resources",
-"Branding and business presentation support"
-],
-fr:[
-"Préparation de documents d'entreprise",
-"Soutien aux petites entreprises",
-"Lettres d'affaires",
-"Assistance administrative",
-"Services d'entreprise numériques",
-"Informations et ressources commerciales",
-"Soutien à l'image de marque et à la présentation"
-],
-kr:[
-"Preparasyon dokiman biznis",
-"Sipò pou ti biznis",
-"Lèt biznis",
-"Asistans administratif",
-"Sèvis biznis dijital",
-"Enfòmasyon ak resous biznis",
-"Sipò pou branding ak prezantasyon biznis"
-]
-}
-},
-
-{
-id:"digital",
-num:"07",
-title:{
-en:"Technology & Digital Services",
-fr:"Services technologiques et numériques",
-kr:"Sèvis Teknoloji ak Dijital"
-},
-sub:{
-en:"Online Forms · QR Codes · Digital Accounts",
-fr:"Formulaires en ligne · Codes QR · Comptes numériques",
-kr:"Fòm sou Entènèt · Kòd QR · Kont Dijital"
-},
-items:{
-en:[
-"Website assistance",
-"Digital forms",
-"Online applications",
-"AI-assisted document preparation",
-"Digital organization",
-"QR Code support",
-"Online resource navigation",
-"Digital account assistance",
-"Basic technology assistance"
-],
-fr:[
-"Assistance pour site web",
-"Formulaires numériques",
-"Demandes en ligne",
-"Préparation de documents assistée par IA",
-"Organisation numérique",
-"Support pour codes QR",
-"Navigation dans les ressources en ligne",
-"Aide pour les comptes numériques",
-"Assistance technologique de base"
-],
-kr:[
-"Asistans pou sitwèb",
-"Fòm dijital",
-"Aplikasyon sou entènèt",
-"Preparasyon dokiman ak èd AI",
-"Òganizasyon dijital",
-"Sipò pou Kòd QR",
-"Navigasyon nan resous sou entènèt",
-"Asistans kont dijital",
-"Asistans teknoloji debaz"
-]
-}
-},
-
-{
-id:"media",
-num:"—",
-title:{
-en:"Communication & Media Services",
-fr:"Services de communication et médias",
-kr:"Sèvis Kominikasyon ak Medya"
-},
-sub:{
-en:"Flyers · Social Media · Presentations",
-fr:"Prospectus · Réseaux sociaux · Présentations",
-kr:"Flaye · Rezo Sosyal · Prezantasyon"
-},
-items:{
-en:[
-"Flyers",
-"Announcements",
-"Social-media content",
-"Promotional materials",
-"Community notices",
-"Professional messages",
-"Video and script preparation",
-"Digital presentations"
-],
-fr:[
-"Prospectus",
-"Annonces",
-"Contenu pour les réseaux sociaux",
-"Matériel promotionnel",
-"Avis communautaires",
-"Messages professionnels",
-"Préparation de vidéos et de scripts",
-"Présentations numériques"
-],
-kr:[
-"Flaye",
-"Anons",
-"Kontni pou rezo sosyal",
-"Materyèl pwomosyonèl",
-"Avi kominotè",
-"Mesaj pwofesyonèl",
-"Preparasyon videyo ak eskript",
-"Prezantasyon dijital"
-]
-}
-},
-
-{
-id:"community",
-num:"08",
-title:{
-en:"Community Resource Services",
-fr:"Services de ressources communautaires",
-kr:"Sèvis Resous Kominotè"
-},
-sub:{
-en:"Referrals · Government Navigation",
-fr:"Références · Navigation gouvernementale",
-kr:"Referans · Navigasyon Gouvènman"
-},
-items:{
-en:[
-"Community information",
-"Immigration resources",
-"Housing resources",
-"Employment resources",
-"Government-service navigation",
-"Local assistance resources",
-"Referral information"
-],
-fr:[
-"Informations communautaires",
-"Ressources en immigration",
-"Ressources en logement",
-"Ressources en emploi",
-"Navigation dans les services gouvernementaux",
-"Ressources d'aide locale",
-"Informations de référence"
-],
-kr:[
-"Enfòmasyon kominotè",
-"Resous imigrasyon",
-"Resous lojman",
-"Resous travay",
-"Navigasyon nan sèvis gouvènman",
-"Resous asistans lokal",
-"Enfòmasyon referans"
-]
-}
-}
-
-];
-
-
-const NEWS_CHIPS = {
-en:[
-"Immigration news",
-"Community news",
-"CNN News module",
-"Miami Herald News module",
-"RFI News module",
-"Public-information updates"
-],
-fr:[
-"Actualités sur l'immigration",
-"Actualités communautaires",
-"Module CNN News",
-"Module Miami Herald News",
-"Module RFI News",
-"Mises à jour d'information publique"
-],
-kr:[
-"Nouvèl imigrasyon",
-"Nouvèl kominotè",
-"Modil Nouvèl CNN",
-"Modil Nouvèl Miami Herald",
-"Modil Nouvèl RFI",
-"Dènye enfòmasyon piblik"
-]
-};
-
-
-const AI_CARDS = [
-
-{
-title:{
-en:"AI Document Writer",
-fr:"Rédacteur de documents IA",
-kr:"AI Ekriven Dokiman"
-},
-desc:{
-en:"Draft clean, ready-to-use documents from your information.",
-fr:"Rédigez des documents clairs et prêts à l'emploi à partir de vos informations.",
-kr:"Kreye dokiman klè, pare pou itilize, apati enfòmasyon ou bay."
-}
-},
-
-{
-title:{
-en:"AI Translation Support",
-fr:"Assistance de traduction IA",
-kr:"AI Sipò Tradiksyon"
-},
-desc:{
-en:"Fast, accurate translation across Creole, French, and English.",
-fr:"Traduction rapide et précise entre créole, français et anglais.",
-kr:"Tradiksyon rapid e egzat ant Kreyòl, Fransè, ak Anglè."
-}
-},
-
-{
-title:{
-en:"AI Form Guidance",
-fr:"Guide de formulaires IA",
-kr:"AI Gid pou Fòm"
-},
-desc:{
-en:"Step-by-step help completing official forms correctly.",
-fr:"Aide étape par étape pour remplir correctement les formulaires officiels.",
-kr:"Èd etap pa etap pou ranpli fòm ofisyèl kòrèkteman."
-}
-},
-
-{
-title:{
-en:"AI Letter Preparation",
-fr:"Préparation de lettres IA",
-kr:"AI Preparasyon Lèt"
-},
-desc:{
-en:"Professional letters generated and refined in minutes.",
-fr:"Lettres professionnelles générées et peaufinées en quelques minutes.",
-kr:"Lèt pwofesyonèl kreye ak korije nan kèk minit."
-}
-},
-
-{
-title:{
-en:"AI Information Assistant",
-fr:"Assistant d'information IA",
-kr:"AI Asistan Enfòmasyon"
-},
-desc:{
-en:"Quick, reliable answers to everyday questions.",
-fr:"Réponses rapides et fiables aux questions courantes.",
-kr:"Repons rapid e fyab pou kesyon chak jou."
-}
-},
-
-{
-title:{
-en:"AI Research Assistance",
-fr:"Assistance de recherche IA",
-kr:"AI Sipò Rechèch"
-},
-desc:{
-en:"Background research to support your case or application.",
-fr:"Recherche de fond pour appuyer votre dossier ou votre demande.",
-kr:"Rechèch background pou soutni dosye oswa aplikasyon ou."
-}
-},
-
-{
-title:{
-en:"AI Multilingual Assistance",
-fr:"Assistance multilingue IA",
-kr:"AI Asistans Miltilenge"
-},
-desc:{
-en:"Support that meets you in the language you're comfortable in.",
-fr:"Un soutien dans la langue avec laquelle vous êtes à l'aise.",
-kr:"Sipò nan lang ou pi alèz avè l."
-}
-}
-
-];
-
-
-let currentLang="en";
-
-
-function renderNav(){
-
-const desktop=document.getElementById("desktopNav");
-const mobile=document.getElementById("mobileNav");
-
-const links=[
-["#immigration","immigration"],
-["#documents","documents"],
-["#translation","translation"],
-["#housing","housing"],
-["#employment","employment"],
-["#business","business"],
-["#digital","digital"],
-["#community","community"]
-];
-
-desktop.innerHTML=links.map(([href,key])=>
-`<a href="${href}">${UI.nav[key][currentLang]}</a>`
-).join("");
-
-const mobileLinks=links.concat([
-["#news","news"],
-["#ai","ai"],
-["#contact","contact"]
-]);
-
-mobile.innerHTML=mobileLinks.map(([href,key])=>
-`<a href="${href}">${UI.nav[key][currentLang]}</a>`
-).join("");
-
-mobile.querySelectorAll("a").forEach(a=>{
-a.addEventListener("click",()=>{
-mobile.classList.remove("open");
-});
-});
-
+if(currentYear){
+currentYear.textContent=
+new Date().getFullYear();
 }
 
 
-function renderCatmap(){
+/* =====================================================
+MOBILE MENU
+===================================================== */
 
-document.getElementById("catmap").innerHTML=CATS.map(c=>
-`<a class="catmap-item" href="#${c.id}">
-<b>${c.num}</b>${c.title[currentLang]}
-</a>`
-).join("");
+var menuToggle=
+document.getElementById("menuToggle");
 
-}
+var mainNav=
+document.getElementById("mainNav");
 
+if(menuToggle&&mainNav){
 
-function renderFiles(){
+menuToggle.addEventListener(
+"click",
+function(){
 
-const container=document.getElementById("fileContainer");
+var open=
+mainNav.classList.toggle("open");
 
-container.innerHTML=CATS.map((c,i)=>`
+menuToggle.textContent=
+open?"✕":"☰";
 
-<div class="file ${i===0?"open":""}" id="${c.id}">
-
-<div class="file-tab" onclick="toggleFile(this)">
-
-<div class="file-tab-left">
-
-<div class="file-num">${c.num}</div>
-
-<div>
-<h2>${c.title[currentLang]}</h2>
-<div class="sub">${c.sub[currentLang]}</div>
-</div>
-
-</div>
-
-<svg class="chev"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2">
-<path d="M6 9l6 6 6-6"/>
-</svg>
-
-</div>
-
-<div class="file-body">
-
-<div class="file-body-inner">
-
-<ul class="service-list">
-${c.items[currentLang].map(t=>`<li>${t}</li>`).join("")}
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
-
-
-function renderNews(){
-
-document.getElementById("newsChips").innerHTML=
-NEWS_CHIPS[currentLang]
-.map(t=>`<span class="chip">${t}</span>`)
-.join("");
-
-}
-
-
-function renderAI(){
-
-document.getElementById("aiGrid").innerHTML=
-AI_CARDS.map(c=>`
-
-<div class="ai-card">
-<h3>${c.title[currentLang]}</h3>
-<p>${c.desc[currentLang]}</p>
-</div>
-
-`).join("");
-
-}
-
-
-function renderFooterCats(){
-
-const links=[
-["#immigration","immigration"],
-["#documents","documents"],
-["#translation","translation"],
-["#housing","housing"],
-["#employment","employment"],
-["#business","business"],
-["#digital","digital"],
-["#community","community"]
-];
-
-document.getElementById("footerCats").innerHTML=
-links.map(([href,key])=>
-`<a href="${href}">${UI.nav[key][currentLang]}</a>`
-).join("");
-
-}
-
-
-function applyStaticText(){
-
-document.getElementById("heroEyebrow").textContent=
-UI.heroEyebrow[currentLang];
-
-document.getElementById("heroH1").innerHTML=
-UI.heroH1[currentLang];
-
-document.getElementById("heroLede").textContent=
-UI.heroLede[currentLang];
-
-document.getElementById("ctaPrimary").textContent=
-UI.ctaPrimary[currentLang];
-
-document.getElementById("ctaGhost").textContent=
-UI.ctaGhost[currentLang];
-
-document.getElementById("newsTag").textContent=
-UI.newsTag[currentLang];
-
-document.getElementById("newsTitle").textContent=
-UI.newsTitle[currentLang];
-
-document.getElementById("aiTag").textContent=
-UI.aiTag[currentLang];
-
-document.getElementById("aiTitle").textContent=
-UI.aiTitle[currentLang];
-
-document.getElementById("contactTag").textContent=
-UI.contactTag[currentLang];
-
-document.getElementById("contactTitle").textContent=
-UI.contactTitle[currentLang];
-
-document.getElementById("phoneLabel").textContent=
-UI.phoneLabel[currentLang];
-
-document.getElementById("emailLabel").textContent=
-UI.emailLabel[currentLang];
-
-document.getElementById("webLabel").textContent=
-UI.webLabel[currentLang];
-
-document.getElementById("followLabel").textContent=
-UI.followLabel[currentLang];
-
-document.getElementById("footerDesc").textContent=
-UI.footerDesc[currentLang];
-
-}
-
-
-function renderAll(){
-
-applyStaticText();
-
-renderNav();
-
-renderCatmap();
-
-renderFiles();
-
-renderNews();
-
-renderAI();
-
-renderFooterCats();
-
-document.querySelectorAll(".lang-btn").forEach(b=>{
-b.classList.toggle(
-"active",
-b.dataset.lang===currentLang
+menuToggle.setAttribute(
+"aria-expanded",
+String(open)
 );
-});
 
-document.getElementById("htmlRoot").lang=
-currentLang==="kr"?"ht":currentLang;
+}
+);
+
+
+mainNav
+.querySelectorAll("a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+mainNav.classList.remove("open");
+
+menuToggle.textContent="☰";
+
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+);
+
+});
 
 }
 
 
-function toggleFile(tabEl){
-tabEl.parentElement.classList.toggle("open");
+/* =====================================================
+LANGUAGE
+===================================================== */
+
+var languageButtons=
+document.querySelectorAll(".lang-btn[data-lang]");
+
+var currentLanguage="ht";
+
+function applyLanguage(lang){
+
+if(
+["ht","fr","en"].indexOf(lang)===-1
+){
+lang="ht";
+}
+
+currentLanguage=lang;
+
+document.documentElement.lang=lang;
+
+document
+.querySelectorAll("[data-ht][data-fr][data-en]")
+.forEach(function(element){
+
+var translation=
+element.getAttribute("data-"+lang);
+
+if(translation!==null){
+element.textContent=translation;
+}
+
+});
+
+
+languageButtons.forEach(function(button){
+
+button.classList.toggle(
+"active",
+button.getAttribute("data-lang")===lang
+);
+
+});
+
+
+try{
+
+localStorage.setItem(
+"bss1815Language",
+lang
+);
+
+}catch(error){}
+
+
+updateSoundButton();
+
 }
 
 
-document.getElementById("langToggle")
-.addEventListener("click",(e)=>{
+languageButtons.forEach(function(button){
 
-const btn=e.target.closest(".lang-btn");
+button.addEventListener(
+"click",
+function(){
 
-if(!btn)return;
+applyLanguage(
+this.getAttribute("data-lang")
+);
 
-currentLang=btn.dataset.lang;
-
-renderAll();
-
-});
-
-
-document.getElementById("menuBtn")
-.addEventListener("click",()=>{
-
-document.getElementById("mobileNav")
-.classList.toggle("open");
+}
+);
 
 });
 
 
-renderAll();
+var savedLanguage="ht";
 
+try{
+
+savedLanguage=
+localStorage.getItem("bss1815Language")
+||"ht";
+
+}catch(error){}
+
+applyLanguage(savedLanguage);
+
+
+/* =====================================================
+VIDEO AUTOPLAY
+===================================================== */
+
+document
+.querySelectorAll("video")
+.forEach(function(video){
+
+video.muted=true;
+video.loop=true;
+video.playsInline=true;
+
+var promise=
+video.play();
+
+if(promise){
+
+promise.catch(function(){});
+
+}
+
+});
+
+
+/* =====================================================
+HERO SOUND
+===================================================== */
+
+var heroVideo=
+document.getElementById("heroLogoVideo");
+
+var soundButton=
+document.getElementById("soundButton");
+
+function updateSoundButton(){
+
+if(!soundButton){
+return;
+}
+
+if(
+heroVideo &&
+!heroVideo.muted
+){
+
+soundButton.textContent=
+"🔇 MUTE";
+
+return;
+
+}
+
+if(currentLanguage==="fr"){
+
+soundButton.textContent=
+"🔊 ÉCOUTER LE SLOGAN";
+
+}
+else if(currentLanguage==="en"){
+
+soundButton.textContent=
+"🔊 HEAR THE SLOGAN";
+
+}
+else{
+
+soundButton.textContent=
+"🔊 KOUTE SLOGAN AN";
+
+}
+
+}
+
+
+if(
+heroVideo &&
+soundButton
+){
+
+soundButton.addEventListener(
+"click",
+function(){
+
+if(heroVideo.muted){
+
+heroVideo.muted=false;
+heroVideo.currentTime=0;
+
+heroVideo
+.play()
+.catch(function(){});
+
+}
+else{
+
+heroVideo.muted=true;
+
+}
+
+updateSoundButton();
+
+}
+);
+
+}
+
+
+/* =====================================================
+BSS1815 COMMUNITY SLIDESHOW
+===================================================== */
+
+var bssFiles = [
+
+"tania2.jpg",
+"papouche.jpg",
+"heritage.jpg",
+"team-angrenay.jpg",
+"sfc-5-stars.jpg",
+"team-angrenaye.jpg",
+"team-san-presyon.jpg",
+"max-on-the-air.jpg",
+"montina.jpg",
+"kendy2.jpg",
+"perodin.jpg",
+"rorony.jpg",
+"maxl.jpg",
+"maxle.jpg",
+"doodly.jpg",
+"roro-8.jpg",
+"cols1.jpg",
+"bouboul.jpg",
+"sindy-b.jpg",
+"warrens-v.jpg",
+"ones-g.jpg",
+"dede.jpg",
+"jij-mayan-1.jpg",
+"paulema.jpg",
+"mass-vokal.jpg",
+"maximax-m-s.jpg",
+"max-the-man.jpg",
+"ti-fre.jpg",
+"the-change.jpg",
+"jij-mayan2.jpg",
+"montinat.jpg",
+"cange-d.jpg",
+"ti-la-france.jpg",
+"jij-mayan-3.jpg",
+"bss.jpg",
+"ti-marassa.jpg",
+"the-change-1.jpg",
+"the-plan.jpg",
+"max.jpg",
+"sonsonn.jpeg",
+"valery.jpg",
+"thin-khard.jpg",
+"maximax-2.jpg",
+"y-max.jpg",
+"roro-ny.jpg",
+"le-baron.jpg",
+"prez-tirat.jpg",
+"the-one.jpg",
+"andy.jpeg",
+"badin-s.jpg",
+"ti-rat.jpg",
+"roro-1lajan.jpg",
+"roro-p-p.jpg",
+"madina.jpg",
+"prez-papit.jpg",
+"may-1.jpg",
+"fanfan-d.jpg",
+"ti-renold.jpg",
+"asmide1.jpg",
+"jeff-c.jpg",
+"tania-f.jpg",
+"jude.jpg",
+"andre-a.jpg",
+"nadege.jpg",
+"macu-1.jpg",
+"prez-aly.jpg",
+"sonson-m.jpg",
+"brunel-t.jpg",
+"roro-lj.jpg",
+"ti-papouche.jpg",
+"michel-b.jpg",
+"michel.jpg",
+"tatane.jpg",
+"la-belle-yole.jpg",
+"tila-france.jpg",
+"ralph-p.jpg",
+"ti-marassa2.jpg",
+"landry.jpg",
+"vp-ernso.jpg",
+"fanfan2.jpg",
+"paulema2.jpg",
+"yguens.jpg",
+"tifre2.jpg",
+"tichery.jpg",
+"jij-mayan.jpg",
+"yguens2.jpg",
+"heuch-love.jpg",
+"cange-0.jpg",
+"prez-aly-2.jpg",
+"anpere-doudou.jpg",
+"rivelino.jpg",
+"tatane-vp.jpg",
+"montinat2.jpg",
+"prezidan-aly.jpg",
+"max-louis.jpg",
+"paulema21.jpg",
+"le-baron1.jpg",
+"devan-devan-net.jpg",
+"jq-max.jpg",
+"system-akayik.jpg",
+"montina-prof.jpg",
+"systeme-akayik.jpg",
+"derosier.jpg",
+"odeline-ademe.jpg",
+"nadia-lafortune.jpg",
+"nadou.jpg",
+"max-is-the-man.jpg",
+"nadou2.jpg",
+"pro-max-dmp.mp4",
+"pro-max.jpg",
+"pro-max-academie.mp4",
+"maxi-max.mp4",
+"bss1815-pro-max-dmp.jpg"
+
+];
+
+
+var bssImage=
+document.getElementById("bssSlideImage");
+
+var bssVideo=
+document.getElementById("bssSlideVideo");
+
+var bssTitle=
+document.getElementById("bssSlideTitle");
+
+var bssCounter=
+document.getElementById("bssCounter");
+
+var bssProgress=
+document.getElementById("bssProgressBar");
+
+var bssPrev=
+document.getElementById("bssPrev");
+
+var bssNext=
+document.getElementById("bssNext");
+
+var bssPlay=
+document.getElementById("bssPlayPause");
+
+var bssStage=
+document.getElementById("bssStage");
+
+
+var bssIndex=0;
+
+var bssPlaying=true;
+
+var bssElapsed=0;
+
+var bssTimer=null;
+
+var BSS_IMAGE_TIME=4000;
+
+var BSS_VIDEO_TIME=8000;
+
+var BSS_STEP=100;
+
+var BSS_PATH=
+"./assets/slideshow/";
+
+
+function bssIsVideo(file){
+
+return /\.mp4$/i.test(file);
+
+}
+
+
+function bssPretty(file){
+
+return file
+.replace(/\.[^.]+$/,"")
+.replace(/[-_]+/g," ")
+.replace(
+/\b\w/g,
+function(c){
+return c.toUpperCase();
+}
+);
+
+}
+
+
+function bssDuration(){
+
+return bssIsVideo(
+bssFiles[bssIndex]
+)
+?
+BSS_VIDEO_TIME
+:
+BSS_IMAGE_TIME;
+
+}
+
+
+function bssShow(index){
+
+if(index<0){
+
+index=
+bssFiles.length-1;
+
+}
+
+if(
+index>=bssFiles.length
+){
+
+index=0;
+
+}
+
+bssIndex=index;
+
+bssElapsed=0;
+
+
+var file=
+bssFiles[bssIndex];
+
+var src=
+BSS_PATH+file;
+
+
+if(bssCounter){
+
+bssCounter.textContent=
+(bssIndex+1)
++" / "+
+bssFiles.length;
+
+}
+
+
+if(bssTitle){
+
+bssTitle.textContent=
+bssPretty(file);
+
+}
+
+
+if(bssProgress){
+
+bssProgress.style.width=
+"0%";
+
+}
+
+
+if(bssIsVideo(file)){
+
+if(bssImage){
+
+bssImage
+.classList
+.add("hidden");
+
+}
+
+if(bssVideo){
+
+bssVideo.pause();
+
+bssVideo
+.classList
+.remove("hidden");
+
+bssVideo.src=
+src;
+
+bssVideo.currentTime=0;
+
+bssVideo.muted=true;
+
+if(bssPlaying){
+
+bssVideo
+.play()
+.catch(function(){});
+
+}
+
+}
+
+}
+else{
+
+if(bssVideo){
+
+bssVideo.pause();
+
+bssVideo
+.classList
+.add("hidden");
+
+}
+
+if(bssImage){
+
+bssImage
+.classList
+.remove("hidden");
+
+bssImage.src=
+src;
+
+bssImage.alt=
+bssPretty(file);
+
+}
+
+}
+
+}
+
+
+function bssGoNext(){
+
+bssShow(
+bssIndex+1
+);
+
+}
+
+
+function bssGoPrev(){
+
+bssShow(
+bssIndex-1
+);
+
+}
+
+
+if(bssNext){
+
+bssNext.addEventListener(
+"click",
+bssGoNext
+);
+
+}
+
+
+if(bssPrev){
+
+bssPrev.addEventListener(
+"click",
+bssGoPrev
+);
+
+}
+
+
+if(bssPlay){
+
+bssPlay.addEventListener(
+"click",
+function(){
+
+bssPlaying=
+!bssPlaying;
+
+bssPlay.textContent=
+bssPlaying
+?
+"⏸ PAUSE"
+:
+"▶ PLAY";
+
+
+if(
+bssIsVideo(
+bssFiles[bssIndex]
+)
+&&
+bssVideo
+){
+
+if(bssPlaying){
+
+bssVideo
+.play()
+.catch(function(){});
+
+}
+else{
+
+bssVideo.pause();
+
+}
+
+}
+
+}
+);
+
+}
+
+
+if(bssImage){
+
+bssImage.addEventListener(
+"error",
+bssGoNext
+);
+
+}
+
+
+if(bssVideo){
+
+bssVideo.addEventListener(
+"error",
+bssGoNext
+);
+
+}
+
+
+/* =====================================================
+SWIPE SUPPORT
+===================================================== */
+
+var touchStartX=0;
+
+if(bssStage){
+
+bssStage.addEventListener(
+"touchstart",
+function(e){
+
+touchStartX=
+e.changedTouches[0].screenX;
+
+},
+{passive:true}
+);
+
+
+bssStage.addEventListener(
+"touchend",
+function(e){
+
+var diff=
+touchStartX-
+e.changedTouches[0].screenX;
+
+if(diff>55){
+
+bssGoNext();
+
+}
+else if(diff<-55){
+
+bssGoPrev();
+
+}
+
+},
+{passive:true}
+);
+
+
+bssStage.addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="ArrowRight"){
+
+bssGoNext();
+
+}
+else if(e.key==="ArrowLeft"){
+
+bssGoPrev();
+
+}
+
+}
+);
+
+}
+
+
+/* =====================================================
+SLIDESHOW TIMER
+===================================================== */
+
+function bssStart(){
+
+clearInterval(
+bssTimer
+);
+
+bssTimer=
+setInterval(
+function(){
+
+if(
+!bssPlaying
+||
+document.hidden
+){
+
+return;
+
+}
+
+bssElapsed+=
+BSS_STEP;
+
+var pct=
+Math.min(
+100,
+(bssElapsed/bssDuration())*100
+);
+
+if(bssProgress){
+
+bssProgress.style.width=
+pct+"%";
+
+}
+
+if(
+bssElapsed>=
+bssDuration()
+){
+
+bssGoNext();
+
+}
+
+},
+BSS_STEP
+);
+
+}
+
+
+bssShow(0);
+
+bssStart();
+
+
+/* =====================================================
+RESPONSIVE MENU RESET
+===================================================== */
+
+window.addEventListener(
+"resize",
+function(){
+
+if(
+window.innerWidth>1050
+&&
+mainNav
+){
+
+mainNav
+.classList
+.remove("open");
+
+if(menuToggle){
+
+menuToggle.textContent=
+"☰";
+
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+
+}
+
+}
+);
+
+
+})();
 </script>
 
 </body>
 </html>
+``` [❶](code://python)
