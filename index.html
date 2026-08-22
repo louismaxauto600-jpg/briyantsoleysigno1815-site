@@ -2,3201 +2,1958 @@
 <html lang="ht">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BSS1815 PRO-MAX DMP | Digital Management Platform</title>
-
-<meta name="description" content="BSS1815 PRO-MAX DMP — Yon sèl platfòm dijital pou kominote, PRO-MAX FM, Maximax Multi Services, PRO-MAX Académie, AI, medya, administrasyon ak inovasyon.">
-<meta name="theme-color" content="#000000">
-<meta name="author" content="BSS1815 PRO-MAX DMP">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://www.briyantsoleysigno1815.com/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="BSS1815 PRO-MAX DMP">
-<meta property="og:description" content="DEVAN DEVAN NÈT™ — BATI POU JODI A. PARE POU DEMEN.">
-<meta property="og:url" content="https://www.briyantsoleysigno1815.com/">
-<meta property="og:image" content="assets/bss1815-pro-max-dmp.jpeg">
-
-<!-- SOCIAL NETWORK LOGOS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<title>Briyant Solèy Signo 1815</title>
 
 <style>
 :root{
-  --black:#000;
-  --black2:#070200;
-  --black3:#100500;
-  --orange:#ff7900;
-  --orange2:#ff8c1a;
-  --orange3:#ffad4d;
-  --text:#ffc589;
-  --border:rgba(255,121,0,.28);
-  --border2:rgba(255,121,0,.72);
-  --glow:0 0 18px rgba(255,121,0,.35);
-  --glow2:0 0 18px rgba(255,121,0,.68),0 0 48px rgba(255,121,0,.25)
+  --orange:#ff7a00;
+  --orange2:#ff9a32;
+  --orange3:#ffb766;
+  --black:#000000;
+  --dark:#0b0400;
+  --border:rgba(255,122,0,.35);
+  --glow:rgba(255,122,0,.28);
 }
 
 *{
   margin:0;
   padding:0;
-  box-sizing:border-box
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 html{
-  scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
-  min-height:100vh;
-  overflow-x:hidden;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
   background:
-    radial-gradient(circle at 18% 15%,rgba(255,121,0,.16),transparent 33%),
-    radial-gradient(circle at 82% 72%,rgba(255,121,0,.09),transparent 38%),
-    linear-gradient(180deg,#000 0%,#0b0400 48%,#000 100%)
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,121,0,.024) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,121,0,.024) 1px,transparent 1px);
-  background-size:44px 44px
+    radial-gradient(circle at 50% 0%,rgba(255,122,0,.14),transparent 34%),
+    linear-gradient(180deg,#000 0%,#0c0500 55%,#000 100%);
+  color:var(--orange2);
+  min-height:100vh;
 }
 
 a{
   color:inherit;
-  text-decoration:none
+  text-decoration:none;
 }
 
 button{
-  font:inherit
+  font-family:inherit;
 }
 
-img,video{
-  display:block;
-  max-width:100%
-}
-
-.container{
-  width:min(1220px,calc(100% - 28px));
-  margin:auto
-}
-
-.top-bar{
-  padding:9px 15px;
-  text-align:center;
-  color:#000;
-  background:linear-gradient(90deg,#913700,var(--orange),var(--orange3),var(--orange),#913700);
-  font-size:.68rem;
-  font-weight:1000;
-  letter-spacing:.08em;
-  text-transform:uppercase
-}
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(0,0,0,.97);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(14px);
-  box-shadow:0 8px 28px rgba(0,0,0,.55)
+  z-index:9999;
+  background:rgba(0,0,0,.96);
+  border-bottom:2px solid var(--orange);
+  backdrop-filter:blur(10px);
 }
 
 .header-inner{
-  min-height:86px;
+  max-width:1250px;
+  margin:auto;
+  min-height:76px;
+  padding:10px 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px
+  gap:20px;
 }
 
-.brand{
+.logo{
   display:flex;
   align-items:center;
-  gap:12px
+  gap:12px;
 }
 
-.brand-video-wrap{
-  width:66px;
-  height:66px;
-  overflow:hidden;
-  flex-shrink:0;
+.logo img{
+  width:54px;
+  height:54px;
+  object-fit:cover;
   border:2px solid var(--orange);
-  border-radius:17px;
+  border-radius:50%;
   background:#000;
-  box-shadow:var(--glow)
+  box-shadow:0 0 16px var(--glow);
 }
 
-.brand-video{
-  width:100%;
-  height:100%;
-  object-fit:cover
-}
-
-.brand-text strong{
+.logo strong{
   display:block;
   color:var(--orange);
-  font-size:1rem;
-  font-weight:1000
+  font-size:17px;
 }
 
-.brand-text span{
+.logo small{
   display:block;
-  margin-top:5px;
-  color:var(--orange3);
-  font-size:.52rem;
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase
+  color:var(--orange2);
+  margin-top:3px;
+  font-size:10px;
+  letter-spacing:.8px;
 }
 
 .header-right{
   display:flex;
   align-items:center;
-  gap:9px
+  gap:12px;
 }
 
-.nav{
+nav{
   display:flex;
   align-items:center;
-  gap:3px
+  gap:5px;
 }
 
-.nav a{
+nav a{
+  color:var(--orange2);
+  font-weight:bold;
+  font-size:13px;
   padding:9px 11px;
-  border-radius:999px;
-  color:var(--orange3);
-  font-size:.61rem;
-  font-weight:1000;
-  text-transform:uppercase;
-  transition:.2s
+  border-radius:8px;
+  transition:.25s;
 }
 
-.nav a:hover{
-  background:var(--orange);
-  color:#000
+nav a:hover{
+  color:var(--orange);
+  background:rgba(255,122,0,.10);
 }
 
-.lang-switch{
+.lang-switcher{
   display:flex;
-  gap:3px;
-  padding:3px;
   border:1px solid var(--border);
-  border-radius:999px;
-  background:#000
+  border-radius:25px;
+  overflow:hidden;
+  background:#000;
 }
 
 .lang-btn{
-  min-width:42px;
-  padding:8px 9px;
   border:0;
-  border-radius:999px;
-  color:var(--orange3);
   background:#000;
+  color:var(--orange);
+  padding:8px 10px;
   cursor:pointer;
-  font-size:.61rem;
-  font-weight:1000
+  font-weight:bold;
+  font-size:11px;
 }
 
 .lang-btn.active{
+  background:var(--orange);
   color:#000;
-  background:var(--orange)
 }
 
 .menu-toggle{
   display:none;
-  width:44px;
-  height:42px;
   border:1px solid var(--orange);
-  border-radius:11px;
-  color:var(--orange);
   background:#000;
+  color:var(--orange);
+  width:42px;
+  height:42px;
+  border-radius:9px;
+  font-size:20px;
   cursor:pointer;
-  font-size:1.2rem
 }
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-  min-height:calc(100vh - 115px);
-  display:flex;
-  align-items:center;
-  padding:52px 0 76px;
-  text-align:center
+  max-width:1100px;
+  margin:auto;
+  padding:85px 20px 65px;
+  text-align:center;
 }
 
-.platform-label{
-  color:var(--orange);
-  font-size:.69rem;
-  font-weight:1000;
-  letter-spacing:.20em;
-  text-transform:uppercase
-}
-
-.hero-video-frame{
-  position:relative;
-  width:min(95vw,690px);
-  margin:30px auto 0;
-  overflow:hidden;
-  border:2px solid var(--orange);
-  border-radius:28px;
-  background:#000;
-  box-shadow:var(--glow2)
-}
-
-.hero-logo-video{
-  width:100%;
+.hero img{
+  width:150px;
+  height:150px;
   object-fit:contain;
-  background:#000
+  border-radius:50%;
+  margin-bottom:25px;
+  filter:drop-shadow(0 0 20px rgba(255,122,0,.38));
 }
 
-.hero-video-frame::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  border-radius:26px;
-  box-shadow:inset 0 0 50px rgba(255,121,0,.12)
-}
-
-.sound-btn{
-  position:absolute;
-  right:14px;
-  bottom:14px;
-  z-index:10;
-  padding:10px 14px;
+.hero-label{
+  display:inline-block;
+  margin-bottom:18px;
   border:1px solid var(--orange);
-  border-radius:999px;
+  border-radius:30px;
+  padding:8px 14px;
   color:var(--orange);
-  background:rgba(0,0,0,.90);
-  cursor:pointer;
-  font-size:.60rem;
-  font-weight:1000;
-  text-transform:uppercase
-}
-
-.sound-btn:hover{
-  background:var(--orange);
-  color:#000
+  font-weight:bold;
+  font-size:12px;
 }
 
 .hero h1{
-  margin-top:28px;
   color:var(--orange);
-  font-size:clamp(2.6rem,8vw,6.2rem);
-  line-height:.88;
-  text-transform:uppercase
+  font-size:clamp(42px,7vw,76px);
+  line-height:1;
+  text-shadow:0 0 24px rgba(255,122,0,.24);
 }
 
 .hero h2{
-  margin-top:17px;
   color:var(--orange3);
-  font-size:clamp(1rem,3vw,1.45rem);
-  text-transform:uppercase
+  margin-top:18px;
+  font-size:clamp(18px,3vw,27px);
+  letter-spacing:2px;
 }
 
-.hero-description{
-  max-width:850px;
-  margin:19px auto 0;
-  line-height:1.75;
-  font-size:.96rem
+.hero p{
+  max-width:820px;
+  margin:20px auto 0;
+  line-height:1.8;
+  font-size:18px;
 }
 
-.hero-actions{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:29px
-}
-
-.btn{
-  min-height:52px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 22px;
-  border:2px solid var(--orange);
-  border-radius:999px;
-  font-size:.68rem;
-  font-weight:1000;
-  text-transform:uppercase;
-  transition:.25s
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:var(--glow2)
-}
-
-.btn-primary{
-  color:#000;
-  background:var(--orange)
-}
-
-.btn-outline{
+.hero-slogan{
+  margin-top:25px;
   color:var(--orange);
-  background:#000
-}
-
-.stats-grid{
-  margin-top:48px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px
-}
-
-.stat-card{
-  min-height:125px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:17px;
-  border:1px solid var(--border);
-  border-radius:17px;
-  background:radial-gradient(circle at top,rgba(255,121,0,.10),transparent 50%),#050200
-}
-
-.stat-card strong{
-  color:var(--orange);
-  font-size:1.55rem
-}
-
-.stat-card span{
-  margin-top:6px;
-  font-size:.63rem;
   font-weight:900;
-  text-transform:uppercase
+  letter-spacing:1px;
 }
 
-.section{
-  padding:88px 0;
-  border-top:1px solid rgba(255,121,0,.10)
+/* =========================================================
+   GENERIC SECTION
+========================================================= */
+
+section.content-section{
+  max-width:1200px;
+  margin:auto;
+  padding:70px 20px;
 }
 
 .section-heading{
-  max-width:790px;
-  margin:0 auto 42px;
-  text-align:center
+  text-align:center;
+  margin-bottom:38px;
 }
 
-.eyebrow{
+.section-heading h2{
   color:var(--orange);
-  font-size:.68rem;
-  font-weight:1000;
-  letter-spacing:.18em;
-  text-transform:uppercase
+  font-size:clamp(31px,5vw,48px);
+  margin-bottom:12px;
 }
 
-.section-title{
-  margin-top:11px;
-  color:var(--orange);
-  font-size:clamp(2rem,6vw,4.2rem);
-  line-height:.93;
-  text-transform:uppercase
-}
-
-.section-desc{
-  margin-top:17px;
-  line-height:1.75
-}
-
-.ecosystem-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px
-}
-
-.ecosystem-card{
-  min-height:285px;
-  display:flex;
-  flex-direction:column;
-  padding:25px;
-  border:1px solid var(--border);
-  border-radius:20px;
-  background:
-    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 36%),
-    linear-gradient(145deg,#000,#0b0400);
-  transition:.3s
-}
-
-.ecosystem-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--orange);
-  box-shadow:var(--glow)
-}
-
-.eco-icon{
-  font-size:2rem
-}
-
-.ecosystem-card h3{
-  margin-top:18px;
-  color:var(--orange);
-  font-size:1rem;
-  text-transform:uppercase
-}
-
-.ecosystem-card p{
-  margin-top:11px;
-  line-height:1.62;
-  font-size:.82rem
-}
-
-.card-link{
-  margin-top:auto;
-  padding-top:20px;
-  color:var(--orange);
-  font-size:.67rem;
-  font-weight:1000;
-  text-transform:uppercase
-}
-
-.modules-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px
-}
-
-.module-card{
-  min-height:215px;
-  display:flex;
-  flex-direction:column;
-  padding:21px;
-  border:1px solid var(--border);
-  border-radius:17px;
-  background:linear-gradient(145deg,#050200,#000);
-  transition:.25s
-}
-
-.module-card:hover{
-  transform:translateY(-4px);
-  border-color:var(--orange);
-  box-shadow:var(--glow)
-}
-
-.module-icon{
-  font-size:1.8rem
-}
-
-.module-card h3{
-  margin-top:14px;
-  color:var(--orange);
-  font-size:.90rem;
-  text-transform:uppercase
-}
-
-.module-card p{
-  margin-top:9px;
-  line-height:1.55;
-  font-size:.75rem
-}
-
-.module-open{
-  margin-top:auto;
-  padding-top:17px;
-  color:var(--orange);
-  font-size:.62rem;
-  font-weight:1000;
-  text-transform:uppercase
-}
-
-.project-box{
-  margin-top:25px;
-  padding:38px 28px;
-  border:1px solid var(--border2);
-  border-radius:25px;
-  background:
-    radial-gradient(circle at 80% 25%,rgba(255,121,0,.17),transparent 34%),
-    linear-gradient(135deg,#000,#100500,#000);
-  box-shadow:var(--glow)
-}
-
-.project-box h2{
-  color:var(--orange);
-  font-size:clamp(2rem,6vw,4rem);
-  line-height:.94;
-  text-transform:uppercase
-}
-
-.project-box p{
-  max-width:780px;
-  margin:16px auto 0;
+.section-heading p{
+  max-width:800px;
+  margin:auto;
   line-height:1.7;
-  text-align:center
 }
 
-.news-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:17px
+/* =========================================================
+   PERMANENT COMMUNITY SHOWCASE
+========================================================= */
+
+.showcase-shell{
+  max-width:1050px;
+  margin:auto;
 }
 
-.news-card{
-  min-height:260px;
-  display:flex;
-  flex-direction:column;
-  padding:24px;
-  border:1px solid var(--border2);
-  border-radius:19px;
-  background:radial-gradient(circle at top,rgba(255,121,0,.11),transparent 43%),#050200
-}
-
-.news-label{
-  width:max-content;
-  padding:7px 11px;
-  border-radius:999px;
-  color:#000;
-  background:var(--orange);
-  font-size:.61rem;
-  font-weight:1000
-}
-
-.news-card h3{
-  margin-top:17px;
-  color:var(--orange);
-  font-size:1.08rem
-}
-
-.news-card p{
-  margin-top:10px;
-  flex:1;
-  line-height:1.6;
-  font-size:.80rem
-}
-
-.news-btn{
-  margin-top:19px;
-  padding:11px;
-  text-align:center;
-  border:1px solid var(--orange);
-  border-radius:999px;
-  color:var(--orange);
-  font-size:.65rem;
-  font-weight:1000
-}
-
-.news-btn:hover{
-  background:var(--orange);
-  color:#000
-}
-
-.ddn-box{
-  padding:50px 28px;
-  border:2px solid var(--orange);
-  border-radius:28px;
-  text-align:center;
-  background:radial-gradient(circle at center,rgba(255,121,0,.16),transparent 50%),#000;
-  box-shadow:var(--glow2)
-}
-
-.ddn-box h2{
-  color:var(--orange);
-  font-size:clamp(2.8rem,9vw,6.7rem);
-  line-height:.87
-}
-
-.ddn-box h3{
-  margin-top:18px;
-  color:var(--orange3);
-  font-size:clamp(.9rem,2.6vw,1.3rem);
-  text-transform:uppercase
-}
-
-.ddn-box p{
-  max-width:790px;
-  margin:19px auto 0;
-  line-height:1.72
-}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px
-}
-
-.contact-card{
-  min-height:155px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:22px;
-  text-align:center;
-  border:1px solid var(--border);
-  border-radius:18px;
-  background:#050200
-}
-
-.contact-card strong{
-  color:var(--orange);
-  font-size:.68rem;
-  text-transform:uppercase
-}
-
-.contact-card a{
-  margin-top:9px;
-  line-height:1.5;
-  font-size:.78rem;
-  overflow-wrap:anywhere
-}
-
-.contact-card a:hover{
-  color:var(--orange)
-}
-
-.social-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:13px;
-  margin-top:28px
-}
-
-.social-link{
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:14px 16px;
-  border:1px solid var(--border);
-  border-radius:15px;
-  background:#030100;
-  transition:.25s
-}
-
-.social-link:hover{
-  transform:translateY(-3px);
-  border-color:var(--orange);
-  box-shadow:var(--glow)
-}
-
-.social-icon{
-  width:42px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  flex-shrink:0;
-  border:1px solid var(--orange);
-  border-radius:50%;
-  color:var(--orange);
-  background:#000;
-  font-size:1rem;
-  font-weight:1000
-}
-
-.social-icon i{
-  font-size:1.2rem
-}
-
-.social-link strong{
-  display:block;
-  color:var(--orange);
-  font-size:.72rem;
-  text-transform:uppercase
-}
-
-.social-link span{
-  display:block;
-  margin-top:3px;
-  font-size:.57rem;
-  overflow-wrap:anywhere
-}
-
-footer{
-  padding:45px 0;
-  text-align:center;
-  border-top:1px solid var(--border);
-  background:#000
-}
-
-.footer-video{
-  width:105px;
-  height:105px;
-  margin:0 auto 17px;
-  overflow:hidden;
-  border:2px solid var(--orange);
-  border-radius:20px;
-  background:#000;
-  box-shadow:var(--glow)
-}
-
-.footer-video video{
-  width:100%;
-  height:100%;
-  object-fit:cover
-}
-
-.footer-title{
-  color:var(--orange);
-  font-weight:1000
-}
-
-.footer-info{
-  margin-top:9px;
-  line-height:1.75;
-  font-size:.70rem
-}
-
-
-/* =====================================================
-BSS1815 COMMUNITY SLIDESHOW
-===================================================== */
-
-.bss-slideshow{
-  width:min(1100px,100%);
-  margin:24px auto 0
-}
-
-.bss-stage{
+.slideshow{
   position:relative;
   width:100%;
-  height:clamp(430px,62vw,680px);
-  overflow:hidden;
   border:2px solid var(--orange);
-  border-radius:28px;
+  border-radius:24px;
+  overflow:hidden;
   background:#000;
-  box-shadow:var(--glow2)
+  box-shadow:
+    0 0 35px rgba(255,122,0,.16),
+    0 20px 60px rgba(0,0,0,.5);
 }
 
-.bss-slide-image,
-.bss-slide-video{
+.slides{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  min-height:300px;
+  background:#000;
+}
+
+.slide{
   position:absolute;
   inset:0;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .65s ease, visibility .65s ease;
+  background:#000;
+}
+
+.slide.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.slide img,
+.slide video{
   width:100%;
   height:100%;
   object-fit:contain;
-  background:#000
+  display:block;
+  background:#000;
 }
 
-.bss-slide-image.hidden,
-.bss-slide-video.hidden{
-  display:none!important
+.slide img{
+  object-position:center;
 }
 
-.bss-slide-badge{
-  position:absolute;
-  top:18px;
-  left:18px;
-  z-index:12;
-  padding:9px 14px;
-  border-radius:999px;
-  color:#000;
-  background:var(--orange);
-  font-size:.60rem;
-  font-weight:1000
-}
-
-.bss-slide-overlay{
+.slide-overlay{
   position:absolute;
   inset:0;
-  z-index:7;
   pointer-events:none;
-  background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.93) 100%)
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.92) 0%,
+      rgba(0,0,0,.40) 26%,
+      transparent 58%
+    );
 }
 
-.bss-slide-caption{
+.slide-top-badge{
   position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:10;
-  padding:70px 70px 28px;
-  text-align:left
-}
-
-.bss-slide-caption small{
-  color:var(--orange3);
-  font-size:.60rem;
-  font-weight:1000;
-  letter-spacing:.16em;
-  text-transform:uppercase
-}
-
-.bss-slide-caption h3{
-  margin-top:8px;
+  top:16px;
+  left:16px;
+  z-index:4;
+  background:rgba(0,0,0,.82);
+  border:1px solid var(--orange);
   color:var(--orange);
-  font-size:clamp(1.6rem,5vw,3.2rem);
-  line-height:1;
-  text-transform:uppercase;
-  text-shadow:0 3px 14px #000
+  border-radius:25px;
+  padding:7px 12px;
+  font-size:11px;
+  font-weight:bold;
 }
 
-.bss-slide-caption p{
-  max-width:760px;
-  margin-top:10px;
+.slide-caption{
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:22px;
+  z-index:4;
   color:var(--orange3);
-  font-size:.78rem;
-  line-height:1.6;
-  text-shadow:0 3px 12px #000
+  text-align:left;
 }
 
-.bss-arrow{
+.slide-caption strong{
+  display:block;
+  color:var(--orange);
+  font-size:clamp(18px,3vw,28px);
+  margin-bottom:5px;
+}
+
+.slide-caption span{
+  font-size:13px;
+}
+
+.slide-arrow{
   position:absolute;
   top:50%;
-  z-index:13;
   transform:translateY(-50%);
-  width:50px;
-  height:50px;
+  z-index:10;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid var(--orange);
+  background:rgba(0,0,0,.78);
+  color:var(--orange);
+  font-size:25px;
+  font-weight:bold;
+  cursor:pointer;
   display:grid;
   place-items:center;
-  border:1px solid var(--orange);
-  border-radius:50%;
-  background:rgba(0,0,0,.82);
-  color:var(--orange);
-  font-size:2rem;
-  cursor:pointer
+  transition:.25s;
 }
 
-.bss-arrow:hover{
+.slide-arrow:hover{
   background:var(--orange);
-  color:#000
+  color:#000;
 }
 
-.bss-prev{
-  left:16px
+.slide-arrow.prev{
+  left:14px;
 }
 
-.bss-next{
-  right:16px
+.slide-arrow.next{
+  right:14px;
 }
 
-.bss-controls{
+/* =========================================================
+   SLIDESHOW CONTROLS
+========================================================= */
+
+.showcase-controls{
+  margin-top:17px;
   display:grid;
-  grid-template-columns:auto auto 1fr;
+  grid-template-columns:auto 1fr auto;
   align-items:center;
-  gap:14px;
-  margin-top:14px;
-  padding:13px 16px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  background:#050200
+  gap:12px;
 }
 
-.bss-counter{
-  min-width:88px;
-  color:var(--orange);
-  font-size:.72rem;
-  font-weight:1000;
-  text-align:center
-}
-
-.bss-play{
-  padding:8px 14px;
+.showcase-btn{
   border:1px solid var(--orange);
-  border-radius:999px;
-  color:var(--orange);
   background:#000;
+  color:var(--orange);
+  border-radius:9px;
+  padding:9px 13px;
   cursor:pointer;
-  font-size:.60rem;
-  font-weight:1000
+  font-weight:bold;
 }
 
-.bss-play:hover{
+.showcase-btn:hover{
   background:var(--orange);
-  color:#000
+  color:#000;
 }
 
-.bss-progress{
-  height:7px;
+.slide-counter{
+  text-align:center;
+  color:var(--orange3);
+  font-size:12px;
+  font-weight:bold;
+}
+
+.progress-track{
+  height:5px;
+  border-radius:20px;
+  background:rgba(255,122,0,.15);
   overflow:hidden;
-  border-radius:999px;
-  background:rgba(255,121,0,.14)
+  margin-top:15px;
 }
 
-.bss-progress-bar{
-  width:0%;
+.progress-fill{
+  width:0;
   height:100%;
-  background:linear-gradient(90deg,#9d3c00,var(--orange),var(--orange3));
-  box-shadow:0 0 12px rgba(255,121,0,.55)
+  background:var(--orange);
+  transition:width .35s linear;
 }
 
-@media(max-width:1050px){
+.slide-dots{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:7px;
+}
 
-  .nav{
+.slide-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#160900;
+  border:1px solid var(--orange);
+  cursor:pointer;
+  opacity:.65;
+}
+
+.slide-dot.active{
+  background:var(--orange);
+  opacity:1;
+  transform:scale(1.25);
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.card{
+  background:
+    linear-gradient(145deg,rgba(255,122,0,.07),rgba(0,0,0,.96));
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px;
+}
+
+.card h2{
+  color:var(--orange);
+  font-size:32px;
+  margin-bottom:17px;
+}
+
+.card p{
+  line-height:1.8;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.feature-box{
+  background:
+    radial-gradient(circle at top,rgba(255,122,0,.10),transparent 55%),
+    #050200;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:25px 20px;
+  transition:.3s;
+}
+
+.feature-box:hover{
+  border-color:var(--orange);
+  transform:translateY(-4px);
+}
+
+.feature-icon{
+  font-size:38px;
+  margin-bottom:14px;
+}
+
+.feature-box h3{
+  color:var(--orange);
+  margin-bottom:9px;
+}
+
+.feature-box p{
+  line-height:1.55;
+  font-size:14px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-card{
+  text-align:center;
+}
+
+.contact-card p{
+  max-width:800px;
+  margin:auto;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  background:#000;
+  border-top:2px solid var(--orange);
+  text-align:center;
+  padding:38px 20px;
+  line-height:1.8;
+}
+
+footer strong{
+  color:var(--orange);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:950px){
+
+  nav{
     position:absolute;
-    top:86px;
-    left:14px;
-    right:14px;
-    display:none;
-    flex-direction:column;
-    padding:14px;
-    border:1px solid var(--orange);
-    border-radius:15px;
+    top:76px;
+    left:0;
+    right:0;
     background:#000;
-    box-shadow:0 20px 50px rgba(0,0,0,.7)
+    border-bottom:1px solid var(--orange);
+    flex-direction:column;
+    padding:16px;
+    display:none;
   }
 
-  .nav.open{
-    display:flex
+  nav.open{
+    display:flex;
   }
 
-  .nav a{
+  nav a{
     width:100%;
-    text-align:center
+    text-align:center;
   }
 
   .menu-toggle{
-    display:block
-  }
-
-  .ecosystem-grid,
-  .modules-grid{
-    grid-template-columns:repeat(2,1fr)
+    display:block;
   }
 
 }
 
-@media(max-width:780px){
+@media(max-width:600px){
 
   .header-inner{
-    min-height:76px
+    padding:10px 12px;
   }
 
-  .brand-video-wrap{
-    width:55px;
-    height:55px;
-    border-radius:14px
+  .logo img{
+    width:46px;
+    height:46px;
   }
 
-  .brand-text strong{
-    font-size:.78rem
+  .logo strong{
+    font-size:14px;
   }
 
-  .brand-text span{
-    font-size:.44rem
-  }
-
-  .lang-btn{
-    min-width:35px;
-    padding:7px 6px
+  .logo small{
+    font-size:8px;
   }
 
   .hero{
-    min-height:auto;
-    padding-top:38px
+    padding-top:55px;
   }
 
-  .hero-video-frame{
-    width:min(97vw,640px);
-    border-radius:20px
+  .slides{
+    aspect-ratio:4 / 5;
+    min-height:420px;
   }
 
-  .sound-btn{
-    right:8px;
-    bottom:8px;
-    padding:7px 9px;
-    font-size:.52rem
+  .slide img,
+  .slide video{
+    object-fit:contain;
   }
 
-  .stats-grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-
-  .news-grid,
-  .contact-grid,
-  .social-grid{
-    grid-template-columns:1fr
-  }
-
-  .bss-stage{
-    height:520px
-  }
-
-  .bss-slide-caption{
-    padding:80px 56px 25px
-  }
-
-  .bss-arrow{
+  .slide-arrow{
     width:42px;
     height:42px;
-    font-size:1.6rem
   }
 
-  .bss-prev{
-    left:8px
+  .slide-caption{
+    left:16px;
+    right:16px;
+    bottom:16px;
   }
 
-  .bss-next{
-    right:8px
+  .showcase-controls{
+    grid-template-columns:auto auto;
   }
 
-  .bss-controls{
-    grid-template-columns:auto auto
-  }
-
-  .bss-progress{
-    grid-column:1/-1
-  }
-
-}
-
-@media(max-width:570px){
-
-  .ecosystem-grid,
-  .modules-grid{
-    grid-template-columns:1fr
-  }
-
-  .hero-actions{
-    display:grid;
-    grid-template-columns:1fr
-  }
-
-  .btn{
-    width:100%
-  }
-
-  .bss-stage{
-    height:450px;
-    border-radius:20px
-  }
-
-  .bss-slide-badge{
-    top:10px;
-    left:10px;
-    font-size:.50rem
-  }
-
-  .bss-slide-caption{
-    padding:76px 46px 22px
+  .slide-counter{
+    grid-column:1/-1;
+    grid-row:2;
   }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="top-bar"
-data-ht="🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — BATI POU JODI A — PARE POU DEMEN 🔥"
-data-fr="🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — CONSTRUIT POUR AUJOURD’HUI — PRÊT POUR DEMAIN 🔥"
-data-en="🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — BUILT FOR TODAY — READY FOR TOMORROW 🔥">
-🔥 BSS1815 PRO-MAX DMP — DEVAN DEVAN NÈT™ — BATI POU JODI A — PARE POU DEMEN 🔥
-</div>
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
 <header>
 
-<div class="container header-inner">
+  <div class="header-inner">
 
-<a href="#home" class="brand">
+    <a href="#home" class="logo">
 
-<div class="brand-video-wrap">
-<video class="brand-video" autoplay muted loop playsinline preload="metadata">
-<source src="./bati-pou-jodi-a.mp4" type="video/mp4">
-</video>
-</div>
+      <img
+        src="bss-logo.png"
+        alt="BSS1815 Logo"
+      >
 
-<div class="brand-text">
-<strong>BSS1815 PRO-MAX DMP</strong>
-<span
-data-ht="PLATFÒM JESYON DIJITAL"
-data-fr="PLATEFORME DE GESTION NUMÉRIQUE"
-data-en="DIGITAL MANAGEMENT PLATFORM">
-PLATFÒM JESYON DIJITAL
-</span>
-</div>
+      <div>
+        <strong>BRIYANT SOLÈY SIGNO 1815</strong>
+        <small>BSS1815 PRO-MAX DMP</small>
+      </div>
 
-</a>
+    </a>
 
-<div class="header-right">
 
-<nav class="nav" id="mainNav">
+    <div class="header-right">
 
-<a href="#home"
-data-ht="AKÈY"
-data-fr="ACCUEIL"
-data-en="HOME">
-AKÈY
-</a>
+      <nav id="mainNav">
 
-<a href="#ecosystem"
-data-ht="EKOSISTÈM"
-data-fr="ÉCOSYSTÈME"
-data-en="ECOSYSTEM">
-EKOSISTÈM
-</a>
+        <a href="#home" data-i18n="navHome">
+          AKÈY
+        </a>
 
-<a href="#modules"
-data-ht="MODIL"
-data-fr="MODULES"
-data-en="MODULES">
-MODIL
-</a>
+        <a href="#gallery" data-i18n="navGallery">
+          GALERI
+        </a>
 
-<a href="#ddn">
-DDN
-</a>
+        <a href="#about" data-i18n="navAbout">
+          SOU NOU
+        </a>
 
-<a href="#contact"
-data-ht="KONTAK"
-data-fr="CONTACT"
-data-en="CONTACT">
-KONTAK
-</a>
+        <a href="#features" data-i18n="navFeatures">
+          KOMINOTE
+        </a>
 
-</nav>
+        <a href="#contact" data-i18n="navContact">
+          KONTAK
+        </a>
 
-<div class="lang-switch">
+      </nav>
 
-<button type="button" class="lang-btn" data-lang="fr">
-FRA
-</button>
 
-<button type="button" class="lang-btn" data-lang="en">
-ENG
-</button>
+      <div class="lang-switcher">
 
-<button type="button" class="lang-btn active" data-lang="ht">
-KRE
-</button>
+        <button
+          class="lang-btn"
+          data-lang="fr">
+          FRA
+        </button>
 
-</div>
+        <button
+          class="lang-btn"
+          data-lang="en">
+          ENG
+        </button>
 
-<button
-type="button"
-class="menu-toggle"
-id="menuToggle"
-aria-label="Menu"
-aria-expanded="false">
-☰
-</button>
+        <button
+          class="lang-btn active"
+          data-lang="ht">
+          KRE
+        </button>
 
-</div>
-</div>
+      </div>
+
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Menu">
+        ☰
+      </button>
+
+    </div>
+
+  </div>
 
 </header>
 
-<main>
 
-
-<!-- =====================================================
-HERO
-===================================================== -->
+<!-- =======================================================
+     HERO
+======================================================= -->
 
 <section class="hero" id="home">
 
-<div class="container">
+  <div class="hero-label">
+    BSS1815 PRO-MAX DMP
+  </div>
 
-<div class="platform-label">
-BRIYANT SOLÈY SIGNO 1815
-</div>
+  <img
+    src="bss-logo.png"
+    alt="BSS1815"
+  >
 
-<div class="hero-video-frame">
+  <h1 data-i18n="heroTitle">
+    BRIYANT SOLÈY SIGNO 1815
+  </h1>
 
-<video
-class="hero-logo-video"
-id="heroLogoVideo"
-autoplay
-muted
-loop
-playsinline
-preload="auto">
+  <h2 data-i18n="heroSubtitle">
+    YON ERITAJ • YON KOMINOTE • YON VIZYON
+  </h2>
 
-<source
-src="./bati-pou-jodi-a.mp4"
-type="video/mp4">
+  <p data-i18n="heroText1">
+    Byenveni lakay ofisyèl Briyant Solèy Signo 1815 —
+    yon mouvman, yon fanmi, yon eritaj ak yon limyè
+    ki pap janm etenn.
+  </p>
 
-</video>
+  <p data-i18n="heroText2">
+    Nou kanpe pou inite, disiplin, kilti, memwa ak fyète.
+  </p>
 
-<button
-type="button"
-class="sound-btn"
-id="soundButton"
-data-ht="🔊 KOUTE SLOGAN AN"
-data-fr="🔊 ÉCOUTER LE SLOGAN"
-data-en="🔊 HEAR THE SLOGAN">
-🔊 KOUTE SLOGAN AN
-</button>
-
-</div>
-
-<h1>
-BSS1815
-<br>
-PRO-MAX DMP
-</h1>
-
-<h2
-data-ht="YON SÈL PLATFÒM • YON SÈL VIZYON"
-data-fr="UNE SEULE PLATEFORME • UNE SEULE VISION"
-data-en="ONE PLATFORM • ONE VISION">
-YON SÈL PLATFÒM • YON SÈL VIZYON
-</h2>
-
-<p class="hero-description"
-data-ht="BSS1815 PRO-MAX DMP se platfòm santral ki konekte kominote BSS1815, PRO-MAX FM, Maximax Multi Services, PRO-MAX Académie, administrasyon, teknoloji, medya ak entèlijans atifisyèl nan yon sèl ekosistèm."
-data-fr="BSS1815 PRO-MAX DMP est la plateforme centrale qui relie la communauté BSS1815, PRO-MAX FM, Maximax Multi Services, PRO-MAX Académie, l’administration, la technologie, les médias et l’intelligence artificielle dans un seul écosystème."
-data-en="BSS1815 PRO-MAX DMP is the central platform connecting the BSS1815 community, PRO-MAX FM, Maximax Multi Services, PRO-MAX Academy, administration, technology, media and artificial intelligence in one ecosystem.">
-BSS1815 PRO-MAX DMP se platfòm santral ki konekte tout ekosistèm nan.
-</p>
-
-<div class="hero-actions">
-
-<a
-href="#ecosystem"
-class="btn btn-primary"
-data-ht="DEKOUVRI PLATFÒM NAN"
-data-fr="DÉCOUVRIR LA PLATEFORME"
-data-en="EXPLORE THE PLATFORM">
-DEKOUVRI PLATFÒM NAN
-</a>
-
-<a
-href="./ddn/index.html"
-class="btn btn-outline">
-🌎 DEVAN DEVAN NÈT™
-</a>
-
-</div>
-
-<div class="stats-grid">
-
-<div class="stat-card">
-<strong>4</strong>
-<span
-data-ht="BRANCH PRENSIPAL"
-data-fr="BRANCHES PRINCIPALES"
-data-en="CORE BRANCHES">
-BRANCH PRENSIPAL
-</span>
-</div>
-
-<div class="stat-card">
-<strong>AI</strong>
-<span>SMART PLATFORM</span>
-</div>
-
-<div class="stat-card">
-<strong>3</strong>
-<span
-data-ht="LANG"
-data-fr="LANGUES"
-data-en="LANGUAGES">
-LANG
-</span>
-</div>
-
-<div class="stat-card">
-<strong>24/7</strong>
-<span
-data-ht="AKSÈ DIJITAL"
-data-fr="ACCÈS NUMÉRIQUE"
-data-en="DIGITAL ACCESS">
-AKSÈ DIJITAL
-</span>
-</div>
-
-</div>
-
-</div>
+  <div class="hero-slogan">
+    DEVAN DEVAN NÈT • BATI POU JODI A • PARE POU DEMEN
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-ECOSYSTEM
-===================================================== -->
+<!-- =======================================================
+     PERMANENT BSS1815 COMMUNITY SHOWCASE
+======================================================= -->
 
-<section class="section" id="ecosystem">
+<section
+  class="content-section"
+  id="gallery">
 
-<div class="container">
+  <div class="section-heading">
 
-<div class="section-heading">
+    <h2 data-i18n="galleryTitle">
+      GALERI KOMINOTE BSS1815
+    </h2>
 
-<div class="eyebrow">
-BSS1815 PRO-MAX DMP
-</div>
+    <p data-i18n="galleryText">
+      Manm, dirijan, mizisyen, fanatik, evènman,
+      memwa ak eritaj BSS1815 reyini nan yon sèl showcase.
+    </p>
 
-<h2
-class="section-title"
-data-ht="YON SÈL EKOSISTÈM"
-data-fr="UN SEUL ÉCOSYSTÈME"
-data-en="ONE ECOSYSTEM">
-YON SÈL EKOSISTÈM
-</h2>
-
-<p class="section-desc"
-data-ht="Nou pa kenbe de BSS1815. BSS1815 Community entegre dirèkteman nan BSS1815 PRO-MAX DMP ansanm ak PRO-MAX FM, Maximax Multi Services ak PRO-MAX Académie."
-data-fr="Nous ne maintenons pas deux BSS1815. La communauté BSS1815 est directement intégrée à BSS1815 PRO-MAX DMP avec PRO-MAX FM, Maximax Multi Services et PRO-MAX Académie."
-data-en="There are not two separate BSS1815 platforms. BSS1815 Community is integrated directly into BSS1815 PRO-MAX DMP together with PRO-MAX FM, Maximax Multi Services and PRO-MAX Academy.">
-Nou pa kenbe de BSS1815.
-</p>
-
-</div>
+  </div>
 
 
-<div class="ecosystem-grid">
+  <div class="showcase-shell">
 
-<a href="#community" class="ecosystem-card">
+    <div
+      class="slideshow"
+      id="slideshow">
 
-<div class="eco-icon">
-🏛️
-</div>
-
-<h3>
-BSS1815 COMMUNITY
-</h3>
-
-<p
-data-ht="Manm, dirijan, mizisyen, fanatik, eritaj, aktivite ak lavi kominotè BSS1815."
-data-fr="Membres, dirigeants, musiciens, fans, patrimoine, activités et vie communautaire BSS1815."
-data-en="Members, leaders, musicians, fans, heritage, activities and BSS1815 community life.">
-Manm, dirijan, mizisyen, fanatik, eritaj ak kominote.
-</p>
-
-<div class="card-link">
-ENTER →
-</div>
-
-</a>
+      <div
+        class="slides"
+        id="slides">
+      </div>
 
 
-<a href="#promaxfm" class="ecosystem-card">
+      <button
+        class="slide-arrow prev"
+        id="prevBtn"
+        aria-label="Previous slide">
+        &#10094;
+      </button>
 
-<div class="eco-icon">
-📻
-</div>
+      <button
+        class="slide-arrow next"
+        id="nextBtn"
+        aria-label="Next slide">
+        &#10095;
+      </button>
 
-<h3>
-PRO-MAX FM
-</h3>
-
-<p
-data-ht="Radyo dijital, live streaming, mizik, podcast, nouvèl, entèvyou ak pwodiksyon medya."
-data-fr="Radio numérique, streaming, musique, podcasts, actualités, interviews et production média."
-data-en="Digital radio, live streaming, music, podcasts, news, interviews and media production.">
-Radyo dijital ak pwodiksyon medya.
-</p>
-
-<div class="card-link">
-ENTER →
-</div>
-
-</a>
+    </div>
 
 
-<a href="#maximax" class="ecosystem-card">
+    <div class="showcase-controls">
 
-<div class="eco-icon">
-💼
-</div>
+      <button
+        class="showcase-btn"
+        id="playPauseBtn">
+        ⏸ PAUSE
+      </button>
 
-<h3>
-MAXIMAX MULTI SERVICES
-</h3>
+      <div
+        class="slide-counter"
+        id="slideCounter">
+        1 / 1
+      </div>
 
-<p
-data-ht="Imigrasyon, tradiksyon, sèvis administratif, dokiman ak asistans pwofesyonèl."
-data-fr="Immigration, traduction, services administratifs, documents et assistance professionnelle."
-data-en="Immigration, translation, administrative services, documents and professional assistance.">
-Imigrasyon, tradiksyon ak sèvis pwofesyonèl.
-</p>
+      <button
+        class="showcase-btn"
+        id="soundBtn">
+        🔇 VIDEO
+      </button>
 
-<div class="card-link">
-ENTER →
-</div>
-
-</a>
+    </div>
 
 
-<a href="#academy" class="ecosystem-card">
+    <div class="progress-track">
+      <div
+        class="progress-fill"
+        id="progressFill">
+      </div>
+    </div>
 
-<div class="eco-icon">
-🎓
-</div>
 
-<h3>
-PRO-MAX ACADÉMIE
-</h3>
+    <div
+      class="slide-dots"
+      id="slideDots">
+    </div>
 
-<p
-data-ht="AI, teknoloji, fòmasyon, inovasyon, evalyasyon, Student Portal ak sètifikasyon."
-data-fr="IA, technologie, formation, innovation, évaluations, portail étudiant et certification."
-data-en="AI, technology, training, innovation, assessments, Student Portal and certification.">
-AI, teknoloji, fòmasyon ak sètifikasyon.
-</p>
-
-<div class="card-link">
-ENTER →
-</div>
-
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-MODULES
-===================================================== -->
+<!-- =======================================================
+     ABOUT
+======================================================= -->
 
-<section class="section" id="modules">
+<section
+  class="content-section"
+  id="about">
 
-<div class="container">
+  <div class="card">
 
-<div class="section-heading">
+    <h2 data-i18n="aboutTitle">
+      SOU BSS1815
+    </h2>
 
-<div class="eyebrow">
-DIGITAL MANAGEMENT PLATFORM
-</div>
+    <p data-i18n="aboutText">
+      Briyant Solèy Signo 1815 se plis pase yon gwoup.
+      Se yon eritaj, yon mouvman kiltirèl ak yon fòs kominotè
+      ki pote memwa, talan, disiplin ak vizyon pèp Signo a.
+      Soti nan yon jenerasyon rive nan yon lòt,
+      flanm nan kontinye klere atravè lidèchip,
+      mizik, kilti ak pasyon kominote a.
+    </p>
 
-<h2
-class="section-title"
-data-ht="MODIL PRENSIPAL YO"
-data-fr="MODULES PRINCIPAUX"
-data-en="CORE MODULES">
-MODIL PRENSIPAL YO
-</h2>
-
-<p class="section-desc"
-data-ht="Modil yo konekte operasyon, administrasyon, kominote, dokiman, medya ak teknoloji BSS1815 PRO-MAX DMP."
-data-fr="Les modules relient les opérations, l’administration, la communauté, les documents, les médias et la technologie BSS1815 PRO-MAX DMP."
-data-en="The modules connect operations, administration, community, documents, media and technology across BSS1815 PRO-MAX DMP.">
-Tout modil yo travay anba menm platfòm santral la.
-</p>
-
-</div>
-
-
-<div class="modules-grid">
-
-<a href="./modules/ai-center/index.html" class="module-card">
-<div class="module-icon">🤖</div>
-<h3>AI CENTER</h3>
-<p>Assistant • Writer • Voice • Automation</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/crm/index.html" class="module-card">
-<div class="module-icon">👥</div>
-<h3>CRM SYSTEM</h3>
-<p>Members • Contacts • Relationships • Records</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/communication/index.html" class="module-card">
-<div class="module-icon">📢</div>
-<h3>COMMUNICATION CENTER</h3>
-<p>Announcements • Alerts • WhatsApp • Messages</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/flyer-studio/index.html" class="module-card">
-<div class="module-icon">🎨</div>
-<h3>FLYER STUDIO</h3>
-<p>Flyers • Notices • Graphics • Media</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/registry/index.html" class="module-card">
-<div class="module-icon">📋</div>
-<h3>DIGITAL REGISTRY</h3>
-<p>Members • Musicians • Fans • Merchants</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/events/index.html" class="module-card">
-<div class="module-icon">📅</div>
-<h3>EVENT MANAGEMENT</h3>
-<p>Calendar • Programs • Activities • Meetings</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/documents/index.html" class="module-card">
-<div class="module-icon">📄</div>
-<h3>DOCUMENT CENTER</h3>
-<p>Letters • Reports • Archives • Files</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/announcements/index.html" class="module-card">
-<div class="module-icon">📣</div>
-<h3>ANNOUNCEMENT CENTER</h3>
-<p>Official Notices • Community Updates • Alerts</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/donations/index.html" class="module-card">
-<div class="module-icon">🤝</div>
-<h3>DONATION CENTER</h3>
-<p>Contributions • Records • Donor Management</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/attendance/index.html" class="module-card">
-<div class="module-icon">✅</div>
-<h3>ATTENDANCE</h3>
-<p>Check-In • Meetings • Events • Participation</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/certificates/index.html" class="module-card">
-<div class="module-icon">🏆</div>
-<h3>CERTIFICATE CENTER</h3>
-<p>Certificates • Verification • Records</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/elections/index.html" class="module-card">
-<div class="module-icon">🗳️</div>
-<h3>ELECTION MANAGER</h3>
-<p>Voting • Candidates • Results • Records</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/volunteer/index.html" class="module-card">
-<div class="module-icon">🙋</div>
-<h3>VOLUNTEER CENTER</h3>
-<p>Volunteers • Assignments • Activities</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/finance/index.html" class="module-card">
-<div class="module-icon">💰</div>
-<h3>FINANCE / TREASURY</h3>
-<p>Payments • Donations • Treasury • Reports</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/media/index.html" class="module-card">
-<div class="module-icon">🎥</div>
-<h3>MEDIA GALLERY</h3>
-<p>Photos • Video • Audio • Archives</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/notifications/index.html" class="module-card">
-<div class="module-icon">🔔</div>
-<h3>NOTIFICATIONS</h3>
-<p>Alerts • Reminders • Updates • Messages</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/reports/index.html" class="module-card">
-<div class="module-icon">📊</div>
-<h3>REPORTS & ANALYTICS</h3>
-<p>Statistics • Performance • Reports</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/help-desk/index.html" class="module-card">
-<div class="module-icon">🎫</div>
-<h3>HELP DESK</h3>
-<p>Support • Requests • Cases • Assistance</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./modules/live-streaming/index.html" class="module-card">
-<div class="module-icon">📡</div>
-<h3>LIVE STREAMING</h3>
-<p>Radio • Video • Live Events • Broadcast</p>
-<div class="module-open">OPEN →</div>
-</a>
-
-<a href="./login.html" class="module-card">
-<div class="module-icon">🔐</div>
-<h3>ADMIN DASHBOARD</h3>
-<p>Roles • Permissions • Firebase • Security</p>
-<div class="module-open">LOGIN →</div>
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-BSS1815 COMMUNITY SLIDESHOW
-===================================================== -->
+<!-- =======================================================
+     COMMUNITY FEATURES
+======================================================= -->
 
-<section class="section" id="community">
+<section
+  class="content-section"
+  id="features">
 
-<div class="container">
+  <div class="section-heading">
 
-<div class="section-heading">
+    <h2 data-i18n="featuresTitle">
+      KOMINOTE BSS1815
+    </h2>
 
-<div class="eyebrow">
-BRIYANT SOLÈY SIGNO 1815
-</div>
-
-<h2
-class="section-title"
-data-ht="BSS1815 COMMUNITY"
-data-fr="COMMUNAUTÉ BSS1815"
-data-en="BSS1815 COMMUNITY">
-BSS1815 COMMUNITY
-</h2>
-
-<p class="section-desc"
-data-ht="Kominote istorik BSS1815 la se yon pati dirèk nan PRO-MAX DMP: manm, dirijan, mizisyen, fanatik, eritaj, evènman ak achiv yo."
-data-fr="La communauté historique BSS1815 fait directement partie de PRO-MAX DMP : membres, dirigeants, musiciens, fans, patrimoine, événements et archives."
-data-en="The historic BSS1815 community is directly part of PRO-MAX DMP: members, leaders, musicians, fans, heritage, events and archives.">
-BSS1815 Community entegre dirèkteman nan sistèm nan.
-</p>
-
-</div>
+  </div>
 
 
-<div class="bss-slideshow">
+  <div class="features-grid">
 
-<div class="bss-stage" id="bssStage" tabindex="0">
+    <div class="feature-box">
 
-<div class="bss-slide-badge">
-BSS1815 COMMUNITY • 113 MEDIA
-</div>
+      <div class="feature-icon">👑</div>
 
-<img
-id="bssSlideImage"
-class="bss-slide-image"
-src="./assets/slideshow/tania2.jpg"
-alt="BSS1815 Community">
+      <h3 data-i18n="feature1Title">
+        LIDÈCHIP
+      </h3>
 
-<video
-id="bssSlideVideo"
-class="bss-slide-video hidden"
-muted
-playsinline
-preload="metadata">
-</video>
+      <p data-i18n="feature1Text">
+        Mete an valè moun ki sèvi, dirije epi ede mouvman an avanse.
+      </p>
 
-<div class="bss-slide-overlay"></div>
-
-<div class="bss-slide-caption">
-
-<small
-data-ht="FANMI • ERITAJ • KOMINOTE"
-data-fr="FAMILLE • HÉRITAGE • COMMUNAUTÉ"
-data-en="FAMILY • HERITAGE • COMMUNITY">
-FANMI • ERITAJ • KOMINOTE
-</small>
-
-<h3 id="bssSlideTitle">
-TANIA2
-</h3>
-
-<p
-data-ht="MOUVMAN SA A SE POU NOU TOUT. Chak figi se yon pati nan istwa ak eritaj BSS1815."
-data-fr="CE MOUVEMENT EST POUR NOUS TOUS. Chaque visage fait partie de l’histoire et de l’héritage de BSS1815."
-data-en="THIS MOVEMENT IS FOR ALL OF US. Every face is part of the history and heritage of BSS1815.">
-MOUVMAN SA A SE POU NOU TOUT.
-</p>
-
-</div>
-
-<button
-type="button"
-class="bss-arrow bss-prev"
-id="bssPrev"
-aria-label="Previous">
-‹
-</button>
-
-<button
-type="button"
-class="bss-arrow bss-next"
-id="bssNext"
-aria-label="Next">
-›
-</button>
-
-</div>
+    </div>
 
 
-<div class="bss-controls">
+    <div class="feature-box">
 
-<div class="bss-counter" id="bssCounter">
-1 / 113
-</div>
+      <div class="feature-icon">🥁</div>
 
-<button
-type="button"
-class="bss-play"
-id="bssPlayPause">
-⏸ PAUSE
-</button>
+      <h3 data-i18n="feature2Title">
+        MIZISYEN
+      </h3>
 
-<div class="bss-progress">
-<div class="bss-progress-bar" id="bssProgressBar"></div>
-</div>
+      <p data-i18n="feature2Text">
+        Prezève mizik, son, talan ak tradisyon ki fòme idantite BSS1815.
+      </p>
 
-</div>
+    </div>
 
-</div>
 
-</div>
+    <div class="feature-box">
+
+      <div class="feature-icon">🤝</div>
+
+      <h3 data-i18n="feature3Title">
+        MANM & FANATIK
+      </h3>
+
+      <p data-i18n="feature3Text">
+        Chak moun gen plas li nan istwa, prezans ak lavi kominote a.
+      </p>
+
+    </div>
+
+
+    <div class="feature-box">
+
+      <div class="feature-icon">🏛️</div>
+
+      <h3 data-i18n="feature4Title">
+        ERITAJ
+      </h3>
+
+      <p data-i18n="feature4Text">
+        Prezève memwa, foto, dokiman, evènman ak jenerasyon BSS1815 yo.
+      </p>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-PRO-MAX FM
-===================================================== -->
+<!-- =======================================================
+     CONTACT
+======================================================= -->
 
-<section class="section" id="promaxfm">
+<section
+  class="content-section"
+  id="contact">
 
-<div class="container">
+  <div class="card contact-card">
 
-<div class="project-box">
+    <h2 data-i18n="contactTitle">
+      KONTAK
+    </h2>
 
-<h2>
-📻 PRO-MAX FM
-</h2>
+    <p data-i18n="contactText">
+      Pou enfòmasyon ofisyèl, mizajou, aktivite
+      ak kolaborasyon, rete konekte ak
+      Briyant Solèy Signo 1815.
+    </p>
 
-<p
-data-ht="Branch radyo ak medya dijital BSS1815 PRO-MAX DMP pou live radio, nouvèl, podcast, entèvyou, mizik ak pwodiksyon medya."
-data-fr="La branche radio et média numérique de BSS1815 PRO-MAX DMP pour la radio en direct, les actualités, les podcasts, les interviews, la musique et la production média."
-data-en="The BSS1815 PRO-MAX DMP digital radio and media branch for live radio, news, podcasts, interviews, music and media production.">
-Branch radyo ak medya dijital platfòm nan.
-</p>
-
-<div class="hero-actions">
-
-<a
-href="./pro-max-fm/index.html"
-class="btn btn-primary">
-📻 ENTER PRO-MAX FM
-</a>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-MAXIMAX MULTI SERVICES
-===================================================== -->
-
-<section class="section" id="maximax">
-
-<div class="container">
-
-<div class="project-box">
-
-<h2>
-💼 MAXIMAX MULTI SERVICES
-</h2>
-
-<p
-data-ht="Sant sèvis pwofesyonèl pou imigrasyon, tradiksyon, dokiman, asistans administratif ak lòt sèvis kominotè."
-data-fr="Centre de services professionnels pour l’immigration, la traduction, les documents, l’assistance administrative et d’autres services communautaires."
-data-en="Professional services center for immigration, translation, documents, administrative assistance and other community services.">
-Sant sèvis pwofesyonèl BSS1815 PRO-MAX DMP.
-</p>
-
-<div class="hero-actions">
-
-<a
-href="./maximax/index.html"
-class="btn btn-primary">
-💼 ENTER MAXIMAX MULTI SERVICES
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-PRO-MAX ACADEMIE
-===================================================== -->
-
-<section class="section" id="academy">
-
-<div class="container">
-
-<div class="project-box">
-
-<h2
-data-ht="🎓 PRO-MAX ACADÉMIE"
-data-fr="🎓 PRO-MAX ACADÉMIE"
-data-en="🎓 PRO-MAX ACADEMY">
-🎓 PRO-MAX ACADÉMIE
-</h2>
-
-<p
-data-ht="Sant fòmasyon pou entèlijans atifisyèl, teknoloji, inovasyon, lidèchip, Student Portal, evalyasyon ak sètifikasyon."
-data-fr="Centre de formation pour l’intelligence artificielle, la technologie, l’innovation, le leadership, le portail étudiant, les évaluations et la certification."
-data-en="Training center for artificial intelligence, technology, innovation, leadership, Student Portal, assessments and certification.">
-Sant fòmasyon AI ak teknoloji.
-</p>
-
-<div class="hero-actions">
-
-<a
-href="./academy/index.html"
-class="btn btn-primary">
-🎓 ENTER PRO-MAX ACADÉMIE
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-INTERNATIONAL NEWS
-===================================================== -->
-
-<section class="section">
-
-<div class="container">
-
-<div class="section-heading">
-
-<div class="eyebrow">
-INTERNATIONAL NEWS
-</div>
-
-<h2
-class="section-title"
-data-ht="SOUS NOUVÈL"
-data-fr="SOURCES D’INFORMATION"
-data-en="NEWS SOURCES">
-SOUS NOUVÈL
-</h2>
-
-</div>
-
-
-<div class="news-grid">
-
-<article class="news-card">
-
-<div class="news-label">
-CNN
-</div>
-
-<h3>
-CNN International
-</h3>
-
-<p
-data-ht="Nouvèl entènasyonal, politik, ekonomi, teknoloji ak dènye devlopman mondyal."
-data-fr="Actualités internationales, politique, économie, technologie et développements mondiaux."
-data-en="International news, politics, economics, technology and global developments.">
-Nouvèl entènasyonal.
-</p>
-
-<a
-href="https://www.cnn.com/"
-target="_blank"
-rel="noopener noreferrer"
-class="news-btn">
-OPEN CNN ↗
-</a>
-
-</article>
-
-
-<article class="news-card">
-
-<div class="news-label">
-MIAMI HERALD
-</div>
-
-<h3>
-Miami Herald
-</h3>
-
-<p
-data-ht="Miami, Florid, Ayiti, Karayib ak kominote entènasyonal."
-data-fr="Miami, Floride, Haïti, Caraïbes et communauté internationale."
-data-en="Miami, Florida, Haiti, the Caribbean and international community.">
-Miami, Florid, Ayiti ak Karayib.
-</p>
-
-<a
-href="https://www.miamiherald.com/"
-target="_blank"
-rel="noopener noreferrer"
-class="news-btn">
-OPEN MIAMI HERALD ↗
-</a>
-
-</article>
-
-
-<article class="news-card">
-
-<div class="news-label">
-RFI
-</div>
-
-<h3>
-Radio France Internationale
-</h3>
-
-<p
-data-ht="Nouvèl mondyal, analiz, Lafrans, Lafrik, Karayib ak emisyon entènasyonal."
-data-fr="Actualités mondiales, analyses, France, Afrique, Caraïbes et émissions internationales."
-data-en="World news, analysis, France, Africa, Caribbean and international programming.">
-Nouvèl mondyal ak analiz.
-</p>
-
-<a
-href="https://www.rfi.fr/"
-target="_blank"
-rel="noopener noreferrer"
-class="news-btn">
-OPEN RFI ↗
-</a>
-
-</article>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-DEVAN DEVAN NET
-===================================================== -->
-
-<section class="section" id="ddn">
-
-<div class="container">
-
-<div class="ddn-box">
-
-<h2>
-DEVAN DEVAN NÈT™
-</h2>
-
-<h3
-data-ht="BATI POU JODI A • PARE POU DEMEN"
-data-fr="CONSTRUIT POUR AUJOURD’HUI • PRÊT POUR DEMAIN"
-data-en="BUILT FOR TODAY • READY FOR TOMORROW">
-BATI POU JODI A • PARE POU DEMEN
-</h3>
-
-<p
-data-ht="DEVAN DEVAN NÈT™ se vizyon teknoloji ak entèlijans atifisyèl ki ankouraje nou aprann, òganize, kreye, inove epi toujou avanse."
-data-fr="DEVAN DEVAN NÈT™ est la vision technologique et d’intelligence artificielle qui nous encourage à apprendre, organiser, créer, innover et toujours progresser."
-data-en="DEVAN DEVAN NÈT™ is the technology and artificial intelligence vision encouraging us to learn, organize, create, innovate and always move forward.">
-DEVAN DEVAN NÈT™ se mouvman inovasyon ak AI platfòm nan.
-</p>
-
-<div class="hero-actions">
-
-<a
-href="./ddn/index.html"
-class="btn btn-primary">
-🌎 ENTER DEVAN DEVAN NÈT™
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-CONTACT & SOCIAL NETWORKS
-===================================================== -->
-
-<section class="section" id="contact">
-
-<div class="container">
-
-<div class="section-heading">
-
-<div class="eyebrow">
-STAY CONNECTED
-</div>
-
-<h2
-class="section-title"
-data-ht="KONTAK & REZO SOSYAL"
-data-fr="CONTACT & RÉSEAUX SOCIAUX"
-data-en="CONTACT & SOCIAL NETWORKS">
-KONTAK & REZO SOSYAL
-</h2>
-
-</div>
-
-
-<div class="contact-grid">
-
-<div class="contact-card">
-
-<strong>
-📞 TELEPHONE
-</strong>
-
-<a href="tel:+14076405166">
-(407) 640-5166
-</a>
-
-<a href="tel:+15162168494">
-(516) 216-8494
-</a>
-
-<a href="tel:+13175381150">
-(317) 538-1150
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<strong>
-📧 EMAIL
-</strong>
-
-<a href="mailto:bss1815pro-max-dmp@gmail.com">
-bss1815pro-max-dmp@gmail.com
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<strong>
-🌐 WEBSITE
-</strong>
-
-<a
-href="https://bss1815pro-max-dmp.com"
-target="_blank"
-rel="noopener noreferrer">
-bss1815pro-max-dmp.com
-</a>
-
-</div>
-
-</div>
-
-
-<div class="social-grid">
-
-<a
-href="https://wa.me/14076405166"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-whatsapp"></i>
-</div>
-
-<div>
-<strong>WhatsApp</strong>
-<span>(407) 640-5166</span>
-</div>
-
-</a>
-
-
-<a
-href="https://www.facebook.com/share/1By3KvYRrM/"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-facebook-f"></i>
-</div>
-
-<div>
-<strong>Facebook</strong>
-<span>BSS1815 PRO-MAX DMP</span>
-</div>
-
-</a>
-
-
-<a
-href="https://www.youtube.com/@BSS1815PROMAXDMP"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-youtube"></i>
-</div>
-
-<div>
-<strong>YouTube</strong>
-<span>@BSS1815PROMAXDMP</span>
-</div>
-
-</a>
-
-
-<a
-href="https://www.instagram.com/lebaron072/"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-instagram"></i>
-</div>
-
-<div>
-<strong>Instagram</strong>
-<span>@lebaron072</span>
-</div>
-
-</a>
-
-
-<a
-href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-spotify"></i>
-</div>
-
-<div>
-<strong>Spotify</strong>
-<span>MAXIMAX</span>
-</div>
-
-</a>
-
-
-<a
-href="https://truthsocial.com/@briyant_soley_1815"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-T
-</div>
-
-<div>
-<strong>Truth Social</strong>
-<span>@briyant_soley_1815</span>
-</div>
-
-</a>
-
-
-<a
-href="https://www.linkedin.com/in/maximax-multi-services-075ba2314"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-linkedin-in"></i>
-</div>
-
-<div>
-<strong>LinkedIn</strong>
-<span>Maximax Multi Services</span>
-</div>
-
-</a>
-
-
-<a
-href="https://www.tiktok.com/@maximax1960"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-tiktok"></i>
-</div>
-
-<div>
-<strong>TikTok</strong>
-<span>@maximax1960</span>
-</div>
-
-</a>
-
-
-<a
-href="https://x.com/w05g2m"
-target="_blank"
-rel="noopener noreferrer"
-class="social-link">
-
-<div class="social-icon">
-<i class="fa-brands fa-x-twitter"></i>
-</div>
-
-<div>
-<strong>X / Twitter</strong>
-<span>@w05g2m</span>
-</div>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- =====================================================
-FOOTER
-===================================================== -->
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
-<div class="container">
+  <p>
+    <strong>
+      BRIYANT SOLÈY SIGNO 1815
+    </strong>
+  </p>
 
-<div class="footer-video">
+  <p data-i18n="footerText">
+    © 2026 BSS1815 PRO-MAX DMP — Platfòm Ofisyèl
+  </p>
 
-<video
-autoplay
-muted
-loop
-playsinline
-preload="metadata">
-
-<source
-src="./bati-pou-jodi-a.mp4"
-type="video/mp4">
-
-</video>
-
-</div>
-
-<div class="footer-title">
-BSS1815 PRO-MAX DMP
-</div>
-
-<div class="footer-info">
-
-DEVAN DEVAN NÈT™
-
-<br>
-
-<span
-data-ht="BATI POU JODI A • PARE POU DEMEN"
-data-fr="CONSTRUIT POUR AUJOURD’HUI • PRÊT POUR DEMAIN"
-data-en="BUILT FOR TODAY • READY FOR TOMORROW">
-BATI POU JODI A • PARE POU DEMEN
-</span>
-
-<br><br>
-
-bss1815pro-max-dmp@gmail.com
-
-<br>
-
-(407) 640-5166 • (516) 216-8494 • (317) 538-1150
-
-<br>
-
-bss1815pro-max-dmp.com
-
-<br><br>
-
-© <span id="currentYear"></span> BSS1815 PRO-MAX DMP
-
-</div>
-
-</div>
+  <p>
+    <strong>
+      DEVAN DEVAN NÈT • BATI POU JODI A • PARE POU DEMEN
+    </strong>
+  </p>
 
 </footer>
 
 
 <script>
-(function(){
 
-"use strict";
+/* =========================================================
+   MEDIA LIST
+   ALL BSS1815 PHOTOS + VIDEOS
+========================================================= */
+
+const mediaFiles = [
+
+  "makout57.jpg",
+  "guypson.jpg",
+  "don-dodo.jpg",
+  "warrens.jpg",
+  "serette.jpg",
+  "reynold.jpg",
+  "perodin.jpg",
+  "paulema.jpg",
+  "macu-mv.jpg",
+  "doodly.jpg",
+  "desulme.jpg",
+  "t-leta.jpg",
+  "nadege.jpg",
+  "mario1.jpg",
+  "fanfan.jpg",
+  "cange1.jpg",
+  "caldos.jpg",
+  "asmide.jpg",
+  "yguens.jpg",
+  "tania.jpg",
+  "ralph.jpg",
+  "may-t.jpg",
+  "mario.jpg",
+  "macu2.jpg",
+  "emaze.jpg",
+  "badin.jpg",
+  "james.jpg",
+  "yole.jpg",
+  "roro.jpg",
+  "ones.jpg",
+
+  "only-u.jpeg",
+  "makout.jpeg",
+  "magaz.jpeg",
+  "landry.jpeg",
+  "jude.jpeg",
+  "elson.jpeg",
+  "doudou.jpeg",
+  "cange2.jpeg",
+  "caldos.jpeg",
+  "brunel.jpeg",
+  "asmide.jpeg",
+  "yole1.jpeg",
+  "tania.jpeg",
+  "sanba.jpeg",
+  "rooso.jpeg",
+  "nadia.jpeg",
+  "mario.jpeg",
+  "kendy.jpeg",
+  "flore.jpeg",
+  "cange.jpeg",
+  "baron.jpeg",
+  "badin.jpeg",
+  "andre.jpeg",
+  "zeze.jpeg",
+  "yole.jpeg",
+  "tsp2.jpeg",
+  "prez.jpeg",
+  "may2.jpeg",
+  "maxo.jpeg",
+  "macu.jpeg",
+  "cols.jpeg",
+  "ange.jpeg",
+  "andy.jpeg",
+
+  "the-change-is-commin.mp4",
+  "teamsanpresyon21.mp4",
+  "miami-on-the-move.mp4",
+  "koukou-return.mp4",
+  "store-front.mp4",
+  "boutique-bss.mp4",
+  "master-mind.mp4",
+  "ai-magazen.mp4",
+  "plan-2028.mp4",
+  "move-deba.mp4"
+
+];
 
 
-/* =====================================================
-CURRENT YEAR
-===================================================== */
+/* =========================================================
+   HELPERS
+========================================================= */
 
-var currentYear=
-document.getElementById("currentYear");
+function isVideo(file){
 
-if(currentYear){
-currentYear.textContent=
-new Date().getFullYear();
+  return /\.(mp4|webm|mov)$/i.test(file);
+
 }
 
 
-/* =====================================================
-MOBILE MENU
-===================================================== */
+function makeTitle(file){
 
-var menuToggle=
-document.getElementById("menuToggle");
+  return file
+    .replace(/\.(jpg|jpeg|png|webp|mp4|webm|mov)$/i,"")
+    .replace(/[-_]+/g," ")
+    .replace(/\b\w/g,char => char.toUpperCase());
 
-var mainNav=
-document.getElementById("mainNav");
+}
 
-if(menuToggle&&mainNav){
 
-menuToggle.addEventListener(
-"click",
-function(){
+/* =========================================================
+   CREATE SLIDES
+========================================================= */
 
-var open=
-mainNav.classList.toggle("open");
+const slidesContainer =
+document.getElementById("slides");
 
-menuToggle.textContent=
-open?"✕":"☰";
+const dotsContainer =
+document.getElementById("slideDots");
 
-menuToggle.setAttribute(
-"aria-expanded",
-String(open)
+const counter =
+document.getElementById("slideCounter");
+
+const progressFill =
+document.getElementById("progressFill");
+
+let slides = [];
+
+let dots = [];
+
+let currentSlide = 0;
+
+let timer = null;
+
+let playing = true;
+
+let videosMuted = true;
+
+const PHOTO_DURATION = 4500;
+
+
+/* =========================================================
+   BUILD MEDIA
+========================================================= */
+
+mediaFiles.forEach((file,index)=>{
+
+  const slide =
+    document.createElement("div");
+
+  slide.className =
+    "slide" + (index === 0 ? " active" : "");
+
+  slide.dataset.type =
+    isVideo(file) ? "video" : "image";
+
+
+  if(isVideo(file)){
+
+    const video =
+      document.createElement("video");
+
+    video.src = file;
+
+    video.preload = "metadata";
+
+    video.playsInline = true;
+
+    video.muted = true;
+
+    video.controls = false;
+
+    video.addEventListener("ended",()=>{
+
+      if(
+        playing &&
+        currentSlide === index
+      ){
+        nextSlide();
+      }
+
+    });
+
+    slide.appendChild(video);
+
+  }else{
+
+    const image =
+      document.createElement("img");
+
+    image.src = file;
+
+    image.alt =
+      makeTitle(file) + " — BSS1815";
+
+    image.loading =
+      index < 3 ? "eager" : "lazy";
+
+    image.onerror = ()=>{
+
+      console.warn(
+        "Media not found:",
+        file
+      );
+
+      slide.style.display="none";
+
+    };
+
+    slide.appendChild(image);
+
+  }
+
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.className =
+    "slide-overlay";
+
+  slide.appendChild(overlay);
+
+
+  const badge =
+    document.createElement("div");
+
+  badge.className =
+    "slide-top-badge";
+
+  badge.textContent =
+    isVideo(file)
+    ? "🎥 BSS1815 VIDEO"
+    : "📸 BSS1815 COMMUNITY";
+
+  slide.appendChild(badge);
+
+
+  const caption =
+    document.createElement("div");
+
+  caption.className =
+    "slide-caption";
+
+  caption.innerHTML = `
+    <strong>${makeTitle(file)}</strong>
+    <span>
+      BRIYANT SOLÈY SIGNO 1815 • PRO-MAX DMP
+    </span>
+  `;
+
+  slide.appendChild(caption);
+
+  slidesContainer.appendChild(slide);
+
+
+  const dot =
+    document.createElement("button");
+
+  dot.className =
+    "slide-dot" + (index===0 ? " active" : "");
+
+  dot.type = "button";
+
+  dot.title =
+    makeTitle(file);
+
+  dot.addEventListener("click",()=>{
+
+    goToSlide(index);
+
+  });
+
+  dotsContainer.appendChild(dot);
+
+});
+
+
+slides =
+Array.from(
+  document.querySelectorAll(".slide")
 );
 
+dots =
+Array.from(
+  document.querySelectorAll(".slide-dot")
+);
+
+
+/* =========================================================
+   SLIDESHOW LOGIC
+========================================================= */
+
+function stopAllVideos(){
+
+  slides.forEach(slide=>{
+
+    const video =
+      slide.querySelector("video");
+
+    if(video){
+
+      video.pause();
+
+      try{
+        video.currentTime = 0;
+      }catch(e){}
+
+    }
+
+  });
+
 }
+
+
+function updateCounter(){
+
+  counter.textContent =
+    `${currentSlide + 1} / ${slides.length}`;
+
+  progressFill.style.width =
+    `${((currentSlide + 1) / slides.length) * 100}%`;
+
+}
+
+
+function scheduleCurrent(){
+
+  clearTimeout(timer);
+
+  if(!playing){
+    return;
+  }
+
+  const activeSlide =
+    slides[currentSlide];
+
+  const type =
+    activeSlide.dataset.type;
+
+
+  if(type === "video"){
+
+    const video =
+      activeSlide.querySelector("video");
+
+    if(video){
+
+      video.muted =
+        videosMuted;
+
+      video.currentTime = 0;
+
+      const promise =
+        video.play();
+
+      if(promise){
+
+        promise.catch(()=>{
+
+          timer =
+            setTimeout(
+              nextSlide,
+              PHOTO_DURATION
+            );
+
+        });
+
+      }
+
+    }
+
+  }else{
+
+    timer =
+      setTimeout(
+        nextSlide,
+        PHOTO_DURATION
+      );
+
+  }
+
+}
+
+
+function goToSlide(index){
+
+  if(!slides.length){
+    return;
+  }
+
+  clearTimeout(timer);
+
+  stopAllVideos();
+
+
+  slides[currentSlide]
+    .classList
+    .remove("active");
+
+  dots[currentSlide]
+    .classList
+    .remove("active");
+
+
+  currentSlide =
+    (index + slides.length)
+    % slides.length;
+
+
+  slides[currentSlide]
+    .classList
+    .add("active");
+
+  dots[currentSlide]
+    .classList
+    .add("active");
+
+
+  updateCounter();
+
+  scheduleCurrent();
+
+}
+
+
+function nextSlide(){
+
+  goToSlide(
+    currentSlide + 1
+  );
+
+}
+
+
+function prevSlide(){
+
+  goToSlide(
+    currentSlide - 1
+  );
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+document
+.getElementById("nextBtn")
+.addEventListener(
+  "click",
+  nextSlide
+);
+
+
+document
+.getElementById("prevBtn")
+.addEventListener(
+  "click",
+  prevSlide
+);
+
+
+const playPauseBtn =
+document.getElementById("playPauseBtn");
+
+playPauseBtn.addEventListener("click",()=>{
+
+  playing =
+    !playing;
+
+  if(playing){
+
+    playPauseBtn.textContent =
+      "⏸ PAUSE";
+
+    scheduleCurrent();
+
+  }else{
+
+    playPauseBtn.textContent =
+      "▶ PLAY";
+
+    clearTimeout(timer);
+
+    const video =
+      slides[currentSlide]
+      ?.querySelector("video");
+
+    if(video){
+      video.pause();
+    }
+
+  }
+
+});
+
+
+const soundBtn =
+document.getElementById("soundBtn");
+
+soundBtn.addEventListener("click",()=>{
+
+  videosMuted =
+    !videosMuted;
+
+  soundBtn.textContent =
+    videosMuted
+    ? "🔇 VIDEO"
+    : "🔊 VIDEO";
+
+
+  slides.forEach(slide=>{
+
+    const video =
+      slide.querySelector("video");
+
+    if(video){
+      video.muted =
+        videosMuted;
+    }
+
+  });
+
+});
+
+
+/* =========================================================
+   SWIPE SUPPORT
+========================================================= */
+
+const slideshow =
+document.getElementById("slideshow");
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+slideshow.addEventListener(
+  "touchstart",
+  event=>{
+
+    touchStartX =
+      event.changedTouches[0].screenX;
+
+  },
+  {passive:true}
+);
+
+
+slideshow.addEventListener(
+  "touchend",
+  event=>{
+
+    touchEndX =
+      event.changedTouches[0].screenX;
+
+    const difference =
+      touchStartX - touchEndX;
+
+    if(
+      Math.abs(difference) < 50
+    ){
+      return;
+    }
+
+    if(difference > 0){
+      nextSlide();
+    }else{
+      prevSlide();
+    }
+
+  },
+  {passive:true}
+);
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(event.key === "ArrowRight"){
+      nextSlide();
+    }
+
+    if(event.key === "ArrowLeft"){
+      prevSlide();
+    }
+
+  }
+);
+
+
+/* =========================================================
+   LANGUAGE SYSTEM
+========================================================= */
+
+const translations = {
+
+ht:{
+
+  navHome:"AKÈY",
+  navGallery:"GALERI",
+  navAbout:"SOU NOU",
+  navFeatures:"KOMINOTE",
+  navContact:"KONTAK",
+
+  heroTitle:
+  "BRIYANT SOLÈY SIGNO 1815",
+
+  heroSubtitle:
+  "YON ERITAJ • YON KOMINOTE • YON VIZYON",
+
+  heroText1:
+  "Byenveni lakay ofisyèl Briyant Solèy Signo 1815 — yon mouvman, yon fanmi, yon eritaj ak yon limyè ki pap janm etenn.",
+
+  heroText2:
+  "Nou kanpe pou inite, disiplin, kilti, memwa ak fyète.",
+
+  galleryTitle:
+  "GALERI KOMINOTE BSS1815",
+
+  galleryText:
+  "Manm, dirijan, mizisyen, fanatik, evènman, memwa ak eritaj BSS1815 reyini nan yon sèl showcase.",
+
+  aboutTitle:
+  "SOU BSS1815",
+
+  aboutText:
+  "Briyant Solèy Signo 1815 se plis pase yon gwoup. Se yon eritaj, yon mouvman kiltirèl ak yon fòs kominotè ki pote memwa, talan, disiplin ak vizyon pèp Signo a. Soti nan yon jenerasyon rive nan yon lòt, flanm nan kontinye klere atravè lidèchip, mizik, kilti ak pasyon kominote a.",
+
+  featuresTitle:
+  "KOMINOTE BSS1815",
+
+  feature1Title:
+  "LIDÈCHIP",
+
+  feature1Text:
+  "Mete an valè moun ki sèvi, dirije epi ede mouvman an avanse.",
+
+  feature2Title:
+  "MIZISYEN",
+
+  feature2Text:
+  "Prezève mizik, son, talan ak tradisyon ki fòme idantite BSS1815.",
+
+  feature3Title:
+  "MANM & FANATIK",
+
+  feature3Text:
+  "Chak moun gen plas li nan istwa, prezans ak lavi kominote a.",
+
+  feature4Title:
+  "ERITAJ",
+
+  feature4Text:
+  "Prezève memwa, foto, dokiman, evènman ak jenerasyon BSS1815 yo.",
+
+  contactTitle:
+  "KONTAK",
+
+  contactText:
+  "Pou enfòmasyon ofisyèl, mizajou, aktivite ak kolaborasyon, rete konekte ak Briyant Solèy Signo 1815.",
+
+  footerText:
+  "© 2026 BSS1815 PRO-MAX DMP — Platfòm Ofisyèl"
+
+},
+
+
+fr:{
+
+  navHome:"ACCUEIL",
+  navGallery:"GALERIE",
+  navAbout:"À PROPOS",
+  navFeatures:"COMMUNAUTÉ",
+  navContact:"CONTACT",
+
+  heroTitle:
+  "BRIYANT SOLEIL SIGNO 1815",
+
+  heroSubtitle:
+  "UN HÉRITAGE • UNE COMMUNAUTÉ • UNE VISION",
+
+  heroText1:
+  "Bienvenue sur la plateforme officielle de Briyant Soleil Signo 1815 — un mouvement, une famille, un héritage et une lumière qui ne s’éteindra jamais.",
+
+  heroText2:
+  "Nous représentons l’unité, la discipline, la culture, la mémoire et la fierté.",
+
+  galleryTitle:
+  "GALERIE DE LA COMMUNAUTÉ BSS1815",
+
+  galleryText:
+  "Membres, dirigeants, musiciens, supporters, événements, mémoire et héritage BSS1815 réunis dans une seule présentation.",
+
+  aboutTitle:
+  "À PROPOS DE BSS1815",
+
+  aboutText:
+  "Briyant Soleil Signo 1815 est bien plus qu’un groupe. C’est un héritage, un mouvement culturel et une force communautaire qui porte la mémoire, le talent, la discipline et la vision du peuple de Signo. De génération en génération, la flamme continue de briller à travers le leadership, la musique, la culture et la passion de la communauté.",
+
+  featuresTitle:
+  "COMMUNAUTÉ BSS1815",
+
+  feature1Title:
+  "LEADERSHIP",
+
+  feature1Text:
+  "Mettre en valeur les personnes qui servent, dirigent et font avancer le mouvement.",
+
+  feature2Title:
+  "MUSICIENS",
+
+  feature2Text:
+  "Préserver la musique, les sons, les talents et les traditions qui définissent BSS1815.",
+
+  feature3Title:
+  "MEMBRES & SUPPORTERS",
+
+  feature3Text:
+  "Chaque personne a sa place dans l’histoire et la vie de la communauté.",
+
+  feature4Title:
+  "HÉRITAGE",
+
+  feature4Text:
+  "Préserver la mémoire, les photos, les documents, les événements et les générations BSS1815.",
+
+  contactTitle:
+  "CONTACT",
+
+  contactText:
+  "Pour les informations officielles, les mises à jour, les activités et les collaborations, restez connecté avec Briyant Soleil Signo 1815.",
+
+  footerText:
+  "© 2026 BSS1815 PRO-MAX DMP — Plateforme Officielle"
+
+},
+
+
+en:{
+
+  navHome:"HOME",
+  navGallery:"GALLERY",
+  navAbout:"ABOUT",
+  navFeatures:"COMMUNITY",
+  navContact:"CONTACT",
+
+  heroTitle:
+  "BRIYANT SOLEY SIGNO 1815",
+
+  heroSubtitle:
+  "ONE LEGACY • ONE COMMUNITY • ONE VISION",
+
+  heroText1:
+  "Welcome to the official home of Briyant Soley Signo 1815 — a movement, a family, a legacy and a light that will never fade.",
+
+  heroText2:
+  "We stand for unity, discipline, culture, memory and pride.",
+
+  galleryTitle:
+  "BSS1815 COMMUNITY GALLERY",
+
+  galleryText:
+  "Members, leaders, musicians, supporters, events, memories and BSS1815 heritage united in one community showcase.",
+
+  aboutTitle:
+  "ABOUT BSS1815",
+
+  aboutText:
+  "Briyant Soley Signo 1815 is more than a group. It is a legacy, a cultural movement and a community force carrying the memory, talent, discipline and vision of the people of Signo. From generation to generation, the flame continues to shine through leadership, music, culture and community passion.",
+
+  featuresTitle:
+  "BSS1815 COMMUNITY",
+
+  feature1Title:
+  "LEADERSHIP",
+
+  feature1Text:
+  "Recognizing those who serve, lead and help move the movement forward.",
+
+  feature2Title:
+  "MUSICIANS",
+
+  feature2Text:
+  "Preserving the music, sound, talent and traditions that define BSS1815.",
+
+  feature3Title:
+  "MEMBERS & SUPPORTERS",
+
+  feature3Text:
+  "Every person has a place in the history and life of the community.",
+
+  feature4Title:
+  "HERITAGE",
+
+  feature4Text:
+  "Preserving BSS1815 memories, photos, documents, events and generations.",
+
+  contactTitle:
+  "CONTACT",
+
+  contactText:
+  "For official information, updates, activities and collaboration, stay connected with Briyant Soley Signo 1815.",
+
+  footerText:
+  "© 2026 BSS1815 PRO-MAX DMP — Official Platform"
+
+}
+
+};
+
+
+function setLanguage(lang){
+
+  const dict =
+    translations[lang] ||
+    translations.ht;
+
+  document.documentElement.lang =
+    lang;
+
+  document
+  .querySelectorAll("[data-i18n]")
+  .forEach(element=>{
+
+    const key =
+      element.dataset.i18n;
+
+    if(dict[key]){
+      element.textContent =
+        dict[key];
+    }
+
+  });
+
+
+  document
+  .querySelectorAll("[data-lang]")
+  .forEach(button=>{
+
+    button.classList.toggle(
+      "active",
+      button.dataset.lang === lang
+    );
+
+  });
+
+
+  localStorage.setItem(
+    "bssLanguage",
+    lang
+  );
+
+}
+
+
+/* LANGUAGE BUTTONS */
+
+document
+.querySelectorAll("[data-lang]")
+.forEach(button=>{
+
+  button.addEventListener(
+    "click",
+    ()=>{
+
+      setLanguage(
+        button.dataset.lang
+      );
+
+    }
+  );
+
+});
+
+
+setLanguage(
+  localStorage.getItem("bssLanguage") || "ht"
+);
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const mainNav =
+document.getElementById("mainNav");
+
+menuToggle.addEventListener(
+  "click",
+  ()=>{
+
+    mainNav.classList.toggle("open");
+
+  }
 );
 
 
 mainNav
 .querySelectorAll("a")
-.forEach(function(link){
+.forEach(link=>{
 
-link.addEventListener(
-"click",
-function(){
+  link.addEventListener(
+    "click",
+    ()=>{
 
-mainNav.classList.remove("open");
+      mainNav.classList.remove("open");
 
-menuToggle.textContent="☰";
-
-menuToggle.setAttribute(
-"aria-expanded",
-"false"
-);
-
-}
-);
-
-});
-
-}
-
-
-/* =====================================================
-LANGUAGE
-===================================================== */
-
-var languageButtons=
-document.querySelectorAll(".lang-btn[data-lang]");
-
-var currentLanguage="ht";
-
-function applyLanguage(lang){
-
-if(
-["ht","fr","en"].indexOf(lang)===-1
-){
-lang="ht";
-}
-
-currentLanguage=lang;
-
-document.documentElement.lang=lang;
-
-document
-.querySelectorAll("[data-ht][data-fr][data-en]")
-.forEach(function(element){
-
-var translation=
-element.getAttribute("data-"+lang);
-
-if(translation!==null){
-element.textContent=translation;
-}
+    }
+  );
 
 });
 
 
-languageButtons.forEach(function(button){
+/* =========================================================
+   START SLIDESHOW
+========================================================= */
 
-button.classList.toggle(
-"active",
-button.getAttribute("data-lang")===lang
-);
+if(slides.length){
 
-});
+  updateCounter();
 
-
-try{
-
-localStorage.setItem(
-"bss1815Language",
-lang
-);
-
-}catch(error){}
-
-
-updateSoundButton();
+  scheduleCurrent();
 
 }
 
-
-languageButtons.forEach(function(button){
-
-button.addEventListener(
-"click",
-function(){
-
-applyLanguage(
-this.getAttribute("data-lang")
-);
-
-}
-);
-
-});
-
-
-var savedLanguage="ht";
-
-try{
-
-savedLanguage=
-localStorage.getItem("bss1815Language")
-||"ht";
-
-}catch(error){}
-
-applyLanguage(savedLanguage);
-
-
-/* =====================================================
-VIDEO AUTOPLAY
-===================================================== */
-
-document
-.querySelectorAll("video")
-.forEach(function(video){
-
-video.muted=true;
-video.loop=true;
-video.playsInline=true;
-
-var promise=
-video.play();
-
-if(promise){
-
-promise.catch(function(){});
-
-}
-
-});
-
-
-/* =====================================================
-HERO SOUND
-===================================================== */
-
-var heroVideo=
-document.getElementById("heroLogoVideo");
-
-var soundButton=
-document.getElementById("soundButton");
-
-function updateSoundButton(){
-
-if(!soundButton){
-return;
-}
-
-if(
-heroVideo &&
-!heroVideo.muted
-){
-
-soundButton.textContent=
-"🔇 MUTE";
-
-return;
-
-}
-
-if(currentLanguage==="fr"){
-
-soundButton.textContent=
-"🔊 ÉCOUTER LE SLOGAN";
-
-}
-else if(currentLanguage==="en"){
-
-soundButton.textContent=
-"🔊 HEAR THE SLOGAN";
-
-}
-else{
-
-soundButton.textContent=
-"🔊 KOUTE SLOGAN AN";
-
-}
-
-}
-
-
-if(
-heroVideo &&
-soundButton
-){
-
-soundButton.addEventListener(
-"click",
-function(){
-
-if(heroVideo.muted){
-
-heroVideo.muted=false;
-heroVideo.currentTime=0;
-
-heroVideo
-.play()
-.catch(function(){});
-
-}
-else{
-
-heroVideo.muted=true;
-
-}
-
-updateSoundButton();
-
-}
-);
-
-}
-
-
-/* =====================================================
-BSS1815 COMMUNITY SLIDESHOW
-===================================================== */
-
-var bssFiles = [
-
-"tania2.jpg",
-"papouche.jpg",
-"heritage.jpg",
-"team-angrenay.jpg",
-"sfc-5-stars.jpg",
-"team-angrenaye.jpg",
-"team-san-presyon.jpg",
-"max-on-the-air.jpg",
-"montina.jpg",
-"kendy2.jpg",
-"perodin.jpg",
-"rorony.jpg",
-"maxl.jpg",
-"maxle.jpg",
-"doodly.jpg",
-"roro-8.jpg",
-"cols1.jpg",
-"bouboul.jpg",
-"sindy-b.jpg",
-"warrens-v.jpg",
-"ones-g.jpg",
-"dede.jpg",
-"jij-mayan-1.jpg",
-"paulema.jpg",
-"mass-vokal.jpg",
-"maximax-m-s.jpg",
-"max-the-man.jpg",
-"ti-fre.jpg",
-"the-change.jpg",
-"jij-mayan2.jpg",
-"montinat.jpg",
-"cange-d.jpg",
-"ti-la-france.jpg",
-"jij-mayan-3.jpg",
-"bss.jpg",
-"ti-marassa.jpg",
-"the-change-1.jpg",
-"the-plan.jpg",
-"max.jpg",
-"sonsonn.jpeg",
-"valery.jpg",
-"thin-khard.jpg",
-"maximax-2.jpg",
-"y-max.jpg",
-"roro-ny.jpg",
-"le-baron.jpg",
-"prez-tirat.jpg",
-"the-one.jpg",
-"andy.jpeg",
-"badin-s.jpg",
-"ti-rat.jpg",
-"roro-1lajan.jpg",
-"roro-p-p.jpg",
-"madina.jpg",
-"prez-papit.jpg",
-"may-1.jpg",
-"fanfan-d.jpg",
-"ti-renold.jpg",
-"asmide1.jpg",
-"jeff-c.jpg",
-"tania-f.jpg",
-"jude.jpg",
-"andre-a.jpg",
-"nadege.jpg",
-"macu-1.jpg",
-"prez-aly.jpg",
-"sonson-m.jpg",
-"brunel-t.jpg",
-"roro-lj.jpg",
-"ti-papouche.jpg",
-"michel-b.jpg",
-"michel.jpg",
-"tatane.jpg",
-"la-belle-yole.jpg",
-"tila-france.jpg",
-"ralph-p.jpg",
-"ti-marassa2.jpg",
-"landry.jpg",
-"vp-ernso.jpg",
-"fanfan2.jpg",
-"paulema2.jpg",
-"yguens.jpg",
-"tifre2.jpg",
-"tichery.jpg",
-"jij-mayan.jpg",
-"yguens2.jpg",
-"heuch-love.jpg",
-"cange-0.jpg",
-"prez-aly-2.jpg",
-"anpere-doudou.jpg",
-"rivelino.jpg",
-"tatane-vp.jpg",
-"montinat2.jpg",
-"prezidan-aly.jpg",
-"max-louis.jpg",
-"paulema21.jpg",
-"le-baron1.jpg",
-"devan-devan-net.jpg",
-"jq-max.jpg",
-"system-akayik.jpg",
-"montina-prof.jpg",
-"systeme-akayik.jpg",
-"derosier.jpg",
-"odeline-ademe.jpg",
-"nadia-lafortune.jpg",
-"nadou.jpg",
-"max-is-the-man.jpg",
-"nadou2.jpg",
-"pro-max-dmp.mp4",
-"pro-max.jpg",
-"pro-max-academie.mp4",
-"maxi-max.mp4",
-"bss1815-pro-max-dmp.jpg"
-
-];
-
-
-var bssImage=
-document.getElementById("bssSlideImage");
-
-var bssVideo=
-document.getElementById("bssSlideVideo");
-
-var bssTitle=
-document.getElementById("bssSlideTitle");
-
-var bssCounter=
-document.getElementById("bssCounter");
-
-var bssProgress=
-document.getElementById("bssProgressBar");
-
-var bssPrev=
-document.getElementById("bssPrev");
-
-var bssNext=
-document.getElementById("bssNext");
-
-var bssPlay=
-document.getElementById("bssPlayPause");
-
-var bssStage=
-document.getElementById("bssStage");
-
-
-var bssIndex=0;
-
-var bssPlaying=true;
-
-var bssElapsed=0;
-
-var bssTimer=null;
-
-var BSS_IMAGE_TIME=4000;
-
-var BSS_VIDEO_TIME=8000;
-
-var BSS_STEP=100;
-
-var BSS_PATH=
-"./assets/slideshow/";
-
-
-function bssIsVideo(file){
-
-return /\.mp4$/i.test(file);
-
-}
-
-
-function bssPretty(file){
-
-return file
-.replace(/\.[^.]+$/,"")
-.replace(/[-_]+/g," ")
-.replace(
-/\b\w/g,
-function(c){
-return c.toUpperCase();
-}
-);
-
-}
-
-
-function bssDuration(){
-
-return bssIsVideo(
-bssFiles[bssIndex]
-)
-?
-BSS_VIDEO_TIME
-:
-BSS_IMAGE_TIME;
-
-}
-
-
-function bssShow(index){
-
-if(index<0){
-
-index=
-bssFiles.length-1;
-
-}
-
-if(
-index>=bssFiles.length
-){
-
-index=0;
-
-}
-
-bssIndex=index;
-
-bssElapsed=0;
-
-
-var file=
-bssFiles[bssIndex];
-
-var src=
-BSS_PATH+file;
-
-
-if(bssCounter){
-
-bssCounter.textContent=
-(bssIndex+1)
-+" / "+
-bssFiles.length;
-
-}
-
-
-if(bssTitle){
-
-bssTitle.textContent=
-bssPretty(file);
-
-}
-
-
-if(bssProgress){
-
-bssProgress.style.width=
-"0%";
-
-}
-
-
-if(bssIsVideo(file)){
-
-if(bssImage){
-
-bssImage
-.classList
-.add("hidden");
-
-}
-
-if(bssVideo){
-
-bssVideo.pause();
-
-bssVideo
-.classList
-.remove("hidden");
-
-bssVideo.src=
-src;
-
-bssVideo.currentTime=0;
-
-bssVideo.muted=true;
-
-if(bssPlaying){
-
-bssVideo
-.play()
-.catch(function(){});
-
-}
-
-}
-
-}
-else{
-
-if(bssVideo){
-
-bssVideo.pause();
-
-bssVideo
-.classList
-.add("hidden");
-
-}
-
-if(bssImage){
-
-bssImage
-.classList
-.remove("hidden");
-
-bssImage.src=
-src;
-
-bssImage.alt=
-bssPretty(file);
-
-}
-
-}
-
-}
-
-
-function bssGoNext(){
-
-bssShow(
-bssIndex+1
-);
-
-}
-
-
-function bssGoPrev(){
-
-bssShow(
-bssIndex-1
-);
-
-}
-
-
-if(bssNext){
-
-bssNext.addEventListener(
-"click",
-bssGoNext
-);
-
-}
-
-
-if(bssPrev){
-
-bssPrev.addEventListener(
-"click",
-bssGoPrev
-);
-
-}
-
-
-if(bssPlay){
-
-bssPlay.addEventListener(
-"click",
-function(){
-
-bssPlaying=
-!bssPlaying;
-
-bssPlay.textContent=
-bssPlaying
-?
-"⏸ PAUSE"
-:
-"▶ PLAY";
-
-
-if(
-bssIsVideo(
-bssFiles[bssIndex]
-)
-&&
-bssVideo
-){
-
-if(bssPlaying){
-
-bssVideo
-.play()
-.catch(function(){});
-
-}
-else{
-
-bssVideo.pause();
-
-}
-
-}
-
-}
-);
-
-}
-
-
-if(bssImage){
-
-bssImage.addEventListener(
-"error",
-bssGoNext
-);
-
-}
-
-
-if(bssVideo){
-
-bssVideo.addEventListener(
-"error",
-bssGoNext
-);
-
-}
-
-
-/* =====================================================
-SWIPE SUPPORT
-===================================================== */
-
-var touchStartX=0;
-
-if(bssStage){
-
-bssStage.addEventListener(
-"touchstart",
-function(e){
-
-touchStartX=
-e.changedTouches[0].screenX;
-
-},
-{passive:true}
-);
-
-
-bssStage.addEventListener(
-"touchend",
-function(e){
-
-var diff=
-touchStartX-
-e.changedTouches[0].screenX;
-
-if(diff>55){
-
-bssGoNext();
-
-}
-else if(diff<-55){
-
-bssGoPrev();
-
-}
-
-},
-{passive:true}
-);
-
-
-bssStage.addEventListener(
-"keydown",
-function(e){
-
-if(e.key==="ArrowRight"){
-
-bssGoNext();
-
-}
-else if(e.key==="ArrowLeft"){
-
-bssGoPrev();
-
-}
-
-}
-);
-
-}
-
-
-/* =====================================================
-SLIDESHOW TIMER
-===================================================== */
-
-function bssStart(){
-
-clearInterval(
-bssTimer
-);
-
-bssTimer=
-setInterval(
-function(){
-
-if(
-!bssPlaying
-||
-document.hidden
-){
-
-return;
-
-}
-
-bssElapsed+=
-BSS_STEP;
-
-var pct=
-Math.min(
-100,
-(bssElapsed/bssDuration())*100
-);
-
-if(bssProgress){
-
-bssProgress.style.width=
-pct+"%";
-
-}
-
-if(
-bssElapsed>=
-bssDuration()
-){
-
-bssGoNext();
-
-}
-
-},
-BSS_STEP
-);
-
-}
-
-
-bssShow(0);
-
-bssStart();
-
-
-/* =====================================================
-RESPONSIVE MENU RESET
-===================================================== */
-
-window.addEventListener(
-"resize",
-function(){
-
-if(
-window.innerWidth>1050
-&&
-mainNav
-){
-
-mainNav
-.classList
-.remove("open");
-
-if(menuToggle){
-
-menuToggle.textContent=
-"☰";
-
-menuToggle.setAttribute(
-"aria-expanded",
-"false"
-);
-
-}
-
-}
-
-}
-);
-
-
-})();
 </script>
 
 </body>
