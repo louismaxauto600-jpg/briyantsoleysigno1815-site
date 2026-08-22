@@ -639,28 +639,17 @@ footer strong{
 
 <body>
 
-<!-- =======================================================
-     HEADER
-======================================================= -->
-
 <header>
-
   <div class="header-inner">
 
     <a href="#home" class="logo">
-
-      <img
-        src="bss-logo.png"
-        alt="BSS1815 Logo"
-      >
+      <img src="bss-logo.png" alt="BSS1815 Logo">
 
       <div>
         <strong>BRIYANT SOLÈY SIGNO 1815</strong>
         <small>BSS1815 PRO-MAX DMP</small>
       </div>
-
     </a>
-
 
     <div class="header-right">
 
@@ -688,29 +677,21 @@ footer strong{
 
       </nav>
 
-
       <div class="lang-switcher">
 
-        <button
-          class="lang-btn"
-          data-lang="fr">
+        <button class="lang-btn" data-lang="fr">
           FRA
         </button>
 
-        <button
-          class="lang-btn"
-          data-lang="en">
+        <button class="lang-btn" data-lang="en">
           ENG
         </button>
 
-        <button
-          class="lang-btn active"
-          data-lang="ht">
+        <button class="lang-btn active" data-lang="ht">
           KRE
         </button>
 
       </div>
-
 
       <button
         class="menu-toggle"
@@ -722,13 +703,8 @@ footer strong{
     </div>
 
   </div>
-
 </header>
 
-
-<!-- =======================================================
-     HERO
-======================================================= -->
 
 <section class="hero" id="home">
 
@@ -738,8 +714,7 @@ footer strong{
 
   <img
     src="bss-logo.png"
-    alt="BSS1815"
-  >
+    alt="BSS1815">
 
   <h1 data-i18n="heroTitle">
     BRIYANT SOLÈY SIGNO 1815
@@ -766,10 +741,6 @@ footer strong{
 </section>
 
 
-<!-- =======================================================
-     PERMANENT BSS1815 COMMUNITY SHOWCASE
-======================================================= -->
-
 <section
   class="content-section"
   id="gallery">
@@ -787,7 +758,6 @@ footer strong{
 
   </div>
 
-
   <div class="showcase-shell">
 
     <div
@@ -798,7 +768,6 @@ footer strong{
         class="slides"
         id="slides">
       </div>
-
 
       <button
         class="slide-arrow prev"
@@ -815,7 +784,6 @@ footer strong{
       </button>
 
     </div>
-
 
     <div class="showcase-controls">
 
@@ -839,14 +807,12 @@ footer strong{
 
     </div>
 
-
     <div class="progress-track">
       <div
         class="progress-fill"
         id="progressFill">
       </div>
     </div>
-
 
     <div
       class="slide-dots"
@@ -857,10 +823,6 @@ footer strong{
 
 </section>
 
-
-<!-- =======================================================
-     ABOUT
-======================================================= -->
 
 <section
   class="content-section"
@@ -886,10 +848,6 @@ footer strong{
 </section>
 
 
-<!-- =======================================================
-     COMMUNITY FEATURES
-======================================================= -->
-
 <section
   class="content-section"
   id="features">
@@ -901,7 +859,6 @@ footer strong{
     </h2>
 
   </div>
-
 
   <div class="features-grid">
 
@@ -919,7 +876,6 @@ footer strong{
 
     </div>
 
-
     <div class="feature-box">
 
       <div class="feature-icon">🥁</div>
@@ -934,7 +890,6 @@ footer strong{
 
     </div>
 
-
     <div class="feature-box">
 
       <div class="feature-icon">🤝</div>
@@ -948,7 +903,6 @@ footer strong{
       </p>
 
     </div>
-
 
     <div class="feature-box">
 
@@ -968,10 +922,6 @@ footer strong{
 
 </section>
 
-
-<!-- =======================================================
-     CONTACT
-======================================================= -->
 
 <section
   class="content-section"
@@ -993,10 +943,6 @@ footer strong{
 
 </section>
 
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
 
 <footer>
 
@@ -1023,7 +969,6 @@ footer strong{
 
 /* =========================================================
    MEDIA LIST
-   ALL BSS1815 PHOTOS + VIDEOS
 ========================================================= */
 
 const mediaFiles = [
@@ -1112,202 +1057,297 @@ const mediaFiles = [
 ========================================================= */
 
 function isVideo(file){
-
   return /\.(mp4|webm|mov)$/i.test(file);
-
 }
 
-
 function makeTitle(file){
-
   return file
     .replace(/\.(jpg|jpeg|png|webp|mp4|webm|mov)$/i,"")
     .replace(/[-_]+/g," ")
     .replace(/\b\w/g,char => char.toUpperCase());
+}
+
+
+/* =========================================================
+   SLIDESHOW STATE
+========================================================= */
+
+const slidesContainer =
+  document.getElementById("slides");
+
+const dotsContainer =
+  document.getElementById("slideDots");
+
+const counter =
+  document.getElementById("slideCounter");
+
+const progressFill =
+  document.getElementById("progressFill");
+
+const playPauseBtn =
+  document.getElementById("playPauseBtn");
+
+const soundBtn =
+  document.getElementById("soundBtn");
+
+const slideshow =
+  document.getElementById("slideshow");
+
+let slides = [];
+let dots = [];
+let currentSlide = 0;
+let timer = null;
+let playing = true;
+let videosMuted = true;
+
+const PHOTO_DURATION = 4500;
+const VIDEO_FALLBACK_DURATION = 15000;
+
+
+/* =========================================================
+   BUILD SLIDES
+========================================================= */
+
+function buildSlides(){
+
+  mediaFiles.forEach((file,index)=>{
+
+    const slide =
+      document.createElement("div");
+
+    slide.className =
+      "slide" + (index === 0 ? " active" : "");
+
+    slide.dataset.type =
+      isVideo(file) ? "video" : "image";
+
+    slide.dataset.file = file;
+
+
+    if(isVideo(file)){
+
+      const video =
+        document.createElement("video");
+
+      video.src = file;
+      video.preload = "metadata";
+      video.playsInline = true;
+      video.muted = true;
+      video.controls = false;
+
+      video.addEventListener("ended",()=>{
+
+        if(
+          playing &&
+          slides[currentSlide] === slide
+        ){
+          nextSlide();
+        }
+
+      });
+
+      video.addEventListener("error",()=>{
+
+        console.warn(
+          "Video not found or failed:",
+          file
+        );
+
+        removeBrokenSlide(slide);
+
+      });
+
+      slide.appendChild(video);
+
+    }else{
+
+      const image =
+        document.createElement("img");
+
+      image.src = file;
+
+      image.alt =
+        makeTitle(file) + " — BSS1815";
+
+      image.loading =
+        index < 3 ? "eager" : "lazy";
+
+      image.addEventListener("error",()=>{
+
+        console.warn(
+          "Image not found:",
+          file
+        );
+
+        removeBrokenSlide(slide);
+
+      });
+
+      slide.appendChild(image);
+
+    }
+
+
+    const overlay =
+      document.createElement("div");
+
+    overlay.className =
+      "slide-overlay";
+
+    slide.appendChild(overlay);
+
+
+    const badge =
+      document.createElement("div");
+
+    badge.className =
+      "slide-top-badge";
+
+    badge.textContent =
+      isVideo(file)
+      ? "🎥 BSS1815 VIDEO"
+      : "📸 BSS1815 COMMUNITY";
+
+    slide.appendChild(badge);
+
+
+    const caption =
+      document.createElement("div");
+
+    caption.className =
+      "slide-caption";
+
+    caption.innerHTML = `
+      <strong>${makeTitle(file)}</strong>
+      <span>
+        BRIYANT SOLÈY SIGNO 1815 • PRO-MAX DMP
+      </span>
+    `;
+
+    slide.appendChild(caption);
+
+    slidesContainer.appendChild(slide);
+
+
+    const dot =
+      document.createElement("button");
+
+    dot.className =
+      "slide-dot" + (index === 0 ? " active" : "");
+
+    dot.type = "button";
+
+    dot.title =
+      makeTitle(file);
+
+    dot.addEventListener("click",()=>{
+
+      const currentIndex =
+        slides.indexOf(slide);
+
+      if(currentIndex !== -1){
+        goToSlide(currentIndex);
+      }
+
+    });
+
+    dotsContainer.appendChild(dot);
+
+  });
+
+
+  refreshCollections();
 
 }
 
 
 /* =========================================================
-   CREATE SLIDES
+   REFRESH ARRAYS
 ========================================================= */
 
-const slidesContainer =
-document.getElementById("slides");
+function refreshCollections(){
 
-const dotsContainer =
-document.getElementById("slideDots");
+  slides =
+    Array.from(
+      slidesContainer.querySelectorAll(".slide")
+    );
 
-const counter =
-document.getElementById("slideCounter");
+  dots =
+    Array.from(
+      dotsContainer.querySelectorAll(".slide-dot")
+    );
 
-const progressFill =
-document.getElementById("progressFill");
-
-let slides = [];
-
-let dots = [];
-
-let currentSlide = 0;
-
-let timer = null;
-
-let playing = true;
-
-let videosMuted = true;
-
-const PHOTO_DURATION = 4500;
-
-
-/* =========================================================
-   BUILD MEDIA
-========================================================= */
-
-mediaFiles.forEach((file,index)=>{
-
-  const slide =
-    document.createElement("div");
-
-  slide.className =
-    "slide" + (index === 0 ? " active" : "");
-
-  slide.dataset.type =
-    isVideo(file) ? "video" : "image";
-
-
-  if(isVideo(file)){
-
-    const video =
-      document.createElement("video");
-
-    video.src = file;
-
-    video.preload = "metadata";
-
-    video.playsInline = true;
-
-    video.muted = true;
-
-    video.controls = false;
-
-    video.addEventListener("ended",()=>{
-
-      if(
-        playing &&
-        currentSlide === index
-      ){
-        nextSlide();
-      }
-
-    });
-
-    slide.appendChild(video);
-
-  }else{
-
-    const image =
-      document.createElement("img");
-
-    image.src = file;
-
-    image.alt =
-      makeTitle(file) + " — BSS1815";
-
-    image.loading =
-      index < 3 ? "eager" : "lazy";
-
-    image.onerror = ()=>{
-
-      console.warn(
-        "Media not found:",
-        file
-      );
-
-      slide.style.display="none";
-
-    };
-
-    slide.appendChild(image);
-
+  if(currentSlide >= slides.length){
+    currentSlide = Math.max(0,slides.length - 1);
   }
 
+  updateCounter();
 
-  const overlay =
-    document.createElement("div");
-
-  overlay.className =
-    "slide-overlay";
-
-  slide.appendChild(overlay);
-
-
-  const badge =
-    document.createElement("div");
-
-  badge.className =
-    "slide-top-badge";
-
-  badge.textContent =
-    isVideo(file)
-    ? "🎥 BSS1815 VIDEO"
-    : "📸 BSS1815 COMMUNITY";
-
-  slide.appendChild(badge);
-
-
-  const caption =
-    document.createElement("div");
-
-  caption.className =
-    "slide-caption";
-
-  caption.innerHTML = `
-    <strong>${makeTitle(file)}</strong>
-    <span>
-      BRIYANT SOLÈY SIGNO 1815 • PRO-MAX DMP
-    </span>
-  `;
-
-  slide.appendChild(caption);
-
-  slidesContainer.appendChild(slide);
-
-
-  const dot =
-    document.createElement("button");
-
-  dot.className =
-    "slide-dot" + (index===0 ? " active" : "");
-
-  dot.type = "button";
-
-  dot.title =
-    makeTitle(file);
-
-  dot.addEventListener("click",()=>{
-
-    goToSlide(index);
-
-  });
-
-  dotsContainer.appendChild(dot);
-
-});
-
-
-slides =
-Array.from(
-  document.querySelectorAll(".slide")
-);
-
-dots =
-Array.from(
-  document.querySelectorAll(".slide-dot")
-);
+}
 
 
 /* =========================================================
-   SLIDESHOW LOGIC
+   REMOVE BROKEN MEDIA
+========================================================= */
+
+function removeBrokenSlide(slide){
+
+  const index =
+    slides.indexOf(slide);
+
+  if(index === -1){
+    slide.remove();
+    refreshCollections();
+    return;
+  }
+
+  const wasCurrent =
+    index === currentSlide;
+
+  slide.remove();
+
+  if(dots[index]){
+    dots[index].remove();
+  }
+
+  refreshCollections();
+
+  if(!slides.length){
+    clearTimeout(timer);
+    counter.textContent = "0 / 0";
+    progressFill.style.width = "0%";
+    return;
+  }
+
+  slides.forEach(s =>
+    s.classList.remove("active")
+  );
+
+  dots.forEach(d =>
+    d.classList.remove("active")
+  );
+
+  if(currentSlide >= slides.length){
+    currentSlide = 0;
+  }
+
+  slides[currentSlide]
+    .classList.add("active");
+
+  dots[currentSlide]
+    ?.classList.add("active");
+
+  updateCounter();
+
+  if(wasCurrent){
+    scheduleCurrent();
+  }
+
+}
+
+
+/* =========================================================
+   STOP VIDEOS
 ========================================================= */
 
 function stopAllVideos(){
@@ -1332,7 +1372,23 @@ function stopAllVideos(){
 }
 
 
+/* =========================================================
+   COUNTER
+========================================================= */
+
 function updateCounter(){
+
+  if(!slides.length){
+
+    counter.textContent =
+      "0 / 0";
+
+    progressFill.style.width =
+      "0%";
+
+    return;
+
+  }
 
   counter.textContent =
     `${currentSlide + 1} / ${slides.length}`;
@@ -1343,16 +1399,27 @@ function updateCounter(){
 }
 
 
+/* =========================================================
+   SCHEDULE
+========================================================= */
+
 function scheduleCurrent(){
 
   clearTimeout(timer);
 
-  if(!playing){
+  if(
+    !playing ||
+    !slides.length
+  ){
     return;
   }
 
   const activeSlide =
     slides[currentSlide];
+
+  if(!activeSlide){
+    return;
+  }
 
   const type =
     activeSlide.dataset.type;
@@ -1363,31 +1430,56 @@ function scheduleCurrent(){
     const video =
       activeSlide.querySelector("video");
 
-    if(video){
+    if(!video){
 
-      video.muted =
-        videosMuted;
+      timer =
+        setTimeout(
+          nextSlide,
+          PHOTO_DURATION
+        );
 
+      return;
+    }
+
+    video.muted =
+      videosMuted;
+
+    try{
       video.currentTime = 0;
+    }catch(e){}
 
-      const promise =
-        video.play();
+    const playPromise =
+      video.play();
 
-      if(promise){
+    if(
+      playPromise &&
+      typeof playPromise.catch === "function"
+    ){
 
-        promise.catch(()=>{
+      playPromise.catch(()=>{
 
-          timer =
-            setTimeout(
-              nextSlide,
-              PHOTO_DURATION
-            );
+        timer =
+          setTimeout(
+            nextSlide,
+            PHOTO_DURATION
+          );
 
-        });
-
-      }
+      });
 
     }
+
+
+    timer =
+      setTimeout(()=>{
+
+        if(
+          playing &&
+          slides[currentSlide] === activeSlide
+        ){
+          nextSlide();
+        }
+
+      },VIDEO_FALLBACK_DURATION);
 
   }else{
 
@@ -1402,6 +1494,10 @@ function scheduleCurrent(){
 }
 
 
+/* =========================================================
+   CHANGE SLIDE
+========================================================= */
+
 function goToSlide(index){
 
   if(!slides.length){
@@ -1412,13 +1508,12 @@ function goToSlide(index){
 
   stopAllVideos();
 
-
   slides[currentSlide]
-    .classList
+    ?.classList
     .remove("active");
 
   dots[currentSlide]
-    .classList
+    ?.classList
     .remove("active");
 
 
@@ -1428,11 +1523,11 @@ function goToSlide(index){
 
 
   slides[currentSlide]
-    .classList
+    ?.classList
     .add("active");
 
   dots[currentSlide]
-    .classList
+    ?.classList
     .add("active");
 
 
@@ -1445,6 +1540,10 @@ function goToSlide(index){
 
 function nextSlide(){
 
+  if(!slides.length){
+    return;
+  }
+
   goToSlide(
     currentSlide + 1
   );
@@ -1454,6 +1553,10 @@ function nextSlide(){
 
 function prevSlide(){
 
+  if(!slides.length){
+    return;
+  }
+
   goToSlide(
     currentSlide - 1
   );
@@ -1462,7 +1565,7 @@ function prevSlide(){
 
 
 /* =========================================================
-   BUTTONS
+   SLIDESHOW BUTTONS
 ========================================================= */
 
 document
@@ -1480,9 +1583,6 @@ document
   prevSlide
 );
 
-
-const playPauseBtn =
-document.getElementById("playPauseBtn");
 
 playPauseBtn.addEventListener("click",()=>{
 
@@ -1516,9 +1616,6 @@ playPauseBtn.addEventListener("click",()=>{
 });
 
 
-const soundBtn =
-document.getElementById("soundBtn");
-
 soundBtn.addEventListener("click",()=>{
 
   videosMuted =
@@ -1529,15 +1626,13 @@ soundBtn.addEventListener("click",()=>{
     ? "🔇 VIDEO"
     : "🔊 VIDEO";
 
-
   slides.forEach(slide=>{
 
     const video =
       slide.querySelector("video");
 
     if(video){
-      video.muted =
-        videosMuted;
+      video.muted = videosMuted;
     }
 
   });
@@ -1546,16 +1641,11 @@ soundBtn.addEventListener("click",()=>{
 
 
 /* =========================================================
-   SWIPE SUPPORT
+   SWIPE
 ========================================================= */
 
-const slideshow =
-document.getElementById("slideshow");
-
 let touchStartX = 0;
-
 let touchEndX = 0;
-
 
 slideshow.addEventListener(
   "touchstart",
@@ -1567,7 +1657,6 @@ slideshow.addEventListener(
   },
   {passive:true}
 );
-
 
 slideshow.addEventListener(
   "touchend",
@@ -1860,7 +1949,6 @@ function setLanguage(lang){
 
   });
 
-
   document
   .querySelectorAll("[data-lang]")
   .forEach(button=>{
@@ -1872,7 +1960,6 @@ function setLanguage(lang){
 
   });
 
-
   localStorage.setItem(
     "bssLanguage",
     lang
@@ -1881,7 +1968,9 @@ function setLanguage(lang){
 }
 
 
-/* LANGUAGE BUTTONS */
+/* =========================================================
+   LANGUAGE BUTTONS
+========================================================= */
 
 document
 .querySelectorAll("[data-lang]")
@@ -1911,10 +2000,10 @@ setLanguage(
 ========================================================= */
 
 const menuToggle =
-document.getElementById("menuToggle");
+  document.getElementById("menuToggle");
 
 const mainNav =
-document.getElementById("mainNav");
+  document.getElementById("mainNav");
 
 menuToggle.addEventListener(
   "click",
@@ -1924,7 +2013,6 @@ menuToggle.addEventListener(
 
   }
 );
-
 
 mainNav
 .querySelectorAll("a")
@@ -1945,6 +2033,8 @@ mainNav
 /* =========================================================
    START SLIDESHOW
 ========================================================= */
+
+buildSlides();
 
 if(slides.length){
 
