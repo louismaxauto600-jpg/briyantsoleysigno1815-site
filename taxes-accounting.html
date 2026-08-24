@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Taxes & Accounting | Maximax Multi Services</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+:root{
+--orange:#ff6a00;
+--light:#ffa347;
+--text:#ffc98a;
+--line:rgba(255,163,71,.38);
+--panel:rgba(0,0,0,.76)
+}
+
+*{
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth;
+background:
+linear-gradient(
+150deg,
+#000 0%,
+#000 12%,
+#7a2e00 45%,
+#ff6a00 68%,
+#000 100%
+);
+background-attachment:fixed
+}
+
+body{
+margin:0;
+min-height:100vh;
+color:var(--text);
+font-family:'Public Sans',sans-serif
+}
+
+a{
+color:inherit;
+text-decoration:none
+}
+
+img{
+max-width:100%;
+display:block
+}
+
+button,
+input,
+select,
+textarea{
+font:inherit
+}
+
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(0,0,0,.95);
+border-bottom:1px solid var(--line)
+}
+
+.nav{
+max-width:1100px;
+margin:auto;
+padding:12px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font:700 18px 'Fraunces',serif
+}
+
+.brand img{
+width:54px;
+height:54px;
+border-radius:50%;
+object-fit:cover
+}
+
+.actions{
+display:flex;
+align-items:center;
+gap:9px
+}
+
+.back,
+.lang{
+border:1px solid var(--line);
+background:#000;
+color:var(--light);
+padding:9px 10px;
+font:600 9px 'IBM Plex Mono',monospace
+}
+
+.back{
+border-radius:7px
+}
+
+.languages{
+display:flex
+}
+
+.lang{
+border-radius:0;
+border-right:0;
+cursor:pointer
+}
+
+.lang:first-child{
+border-radius:7px 0 0 7px
+}
+
+.lang:last-child{
+border-right:1px solid var(--line);
+border-radius:0 7px 7px 0
+}
+
+.lang.active{
+background:var(--orange);
+color:#000
+}
+
+
+/* HERO */
+
+.hero,
+.content{
+max-width:1100px;
+margin:auto;
+padding:55px 20px
+}
+
+.hero{
+display:grid;
+grid-template-columns:240px 1fr;
+align-items:center;
+gap:40px
+}
+
+.hero-logo{
+width:100%;
+border-radius:50%;
+filter:drop-shadow(0 18px 28px rgba(0,0,0,.7))
+}
+
+.eyebrow{
+font:10px 'IBM Plex Mono',monospace;
+letter-spacing:.18em;
+color:var(--light)
+}
+
+h1,
+h2,
+h3{
+font-family:'Fraunces',serif
+}
+
+.hero h1{
+font-size:clamp(2.2rem,6vw,4.5rem);
+line-height:1;
+margin:14px 0
+}
+
+.hero p{
+line-height:1.75;
+max-width:680px
+}
+
+.quick{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:22px
+}
+
+.cta{
+display:inline-flex;
+align-items:center;
+gap:8px;
+border-radius:6px;
+padding:13px 17px;
+background:var(--orange);
+color:#000;
+font:600 10px 'IBM Plex Mono',monospace
+}
+
+.cta.secondary{
+background:#000;
+color:var(--light);
+border:1px solid var(--line)
+}
+
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-bottom:45px
+}
+
+.card,
+.form-panel{
+background:var(--panel);
+border:1px solid var(--line);
+border-radius:12px;
+padding:20px
+}
+
+.card i{
+font-size:25px;
+color:var(--light);
+margin-bottom:13px
+}
+
+.card h3{
+margin:0 0 8px
+}
+
+.card p{
+font-size:13px;
+line-height:1.6;
+margin:0
+}
+
+
+/* FORM */
+
+.form-panel{
+max-width:850px;
+margin:auto;
+scroll-margin-top:100px
+}
+
+.form-panel h2{
+font-size:2rem;
+margin:0 0 8px
+}
+
+.notice{
+font-size:12px;
+line-height:1.6;
+color:var(--light);
+margin-bottom:22px
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
+}
+
+.field{
+display:flex;
+flex-direction:column;
+gap:7px
+}
+
+.field.full{
+grid-column:1/-1
+}
+
+label{
+font:600 10px 'IBM Plex Mono',monospace;
+color:var(--light)
+}
+
+input,
+select,
+textarea{
+width:100%;
+background:#050505;
+color:var(--text);
+border:1px solid var(--line);
+border-radius:7px;
+padding:12px
+}
+
+textarea{
+min-height:120px;
+resize:vertical
+}
+
+.submit{
+border:0;
+border-radius:7px;
+background:var(--orange);
+color:#000;
+padding:14px 18px;
+font:700 11px 'IBM Plex Mono',monospace;
+cursor:pointer
+}
+
+.legal{
+font-size:11px;
+line-height:1.6;
+opacity:.82
+}
+
+
+/* FOOTER */
+
+footer{
+text-align:center;
+background:#000;
+border-top:1px solid var(--line);
+padding:25px 15px;
+font:9px 'IBM Plex Mono',monospace;
+color:var(--light)
+}
+
+
+/* MOBILE */
+
+@media(max-width:760px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center
+}
+
+.hero-logo{
+max-width:230px;
+margin:auto
+}
+
+.quick{
+justify-content:center
+}
+
+.services{
+grid-template-columns:1fr 1fr
+}
+
+.brand span,
+.back{
+display:none
+}
+
+}
+
+@media(max-width:520px){
+
+.nav{
+padding:10px
+}
+
+.brand img{
+width:46px;
+height:46px
+}
+
+.hero{
+padding-top:35px
+}
+
+.services,
+.form-grid{
+grid-template-columns:1fr
+}
+
+.field.full{
+grid-column:auto
+}
+
+.lang{
+padding:8px 6px;
+font-size:8px
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a class="brand" href="./index.html">
+
+<img
+src="./taxes-accounting.png"
+alt="Maximax Taxes"
+>
+
+<span>MAXIMAX MULTI SERVICES</span>
+
+</a>
+
+<div class="actions">
+
+<a class="back" href="./index.html">
+← HOME
+</a>
+
+<div class="languages">
+
+<button class="lang" data-lang="kre" type="button">
+KRE
+</button>
+
+<button class="lang active" data-lang="eng" type="button">
+ENG
+</button>
+
+<button class="lang" data-lang="esp" type="button">
+ESP
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<img
+class="hero-logo"
+src="./taxes-accounting.png"
+alt="Taxes and Accounting"
+>
+
+<div>
+
+<span class="eyebrow" data-translate="eyebrow">
+MODULE 02 • MAXIMAX MULTI SERVICES
+</span>
+
+<h1 data-translate="title">
+Taxes & Accounting
+</h1>
+
+<p data-translate="intro">
+Personal and business tax preparation, ITIN assistance,
+bookkeeping, payroll and IRS document support.
+</p>
+
+<div class="quick">
+
+<a class="cta" href="#request" data-translate="start">
+START TAX REQUEST
+</a>
+
+<a
+class="cta secondary"
+href="https://wa.me/50943437488"
+target="_blank"
+rel="noopener noreferrer"
+>
+<i class="fab fa-whatsapp"></i>
+WHATSAPP
+</a>
+
+<a class="cta secondary" href="tel:+14076405166">
+<i class="fa-solid fa-phone"></i>
+<span data-translate="call">CALL NOW</span>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TAX SERVICES -->
+
+<main class="content">
+
+<div class="services">
+
+
+<article class="card">
+
+<i class="fa-solid fa-user"></i>
+
+<h3 data-translate="service1">
+Personal Taxes
+</h3>
+
+<p data-translate="description1">
+Federal and state individual income tax preparation,
+including Form 1040.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<i class="fa-solid fa-building"></i>
+
+<h3 data-translate="service2">
+Business Taxes
+</h3>
+
+<p data-translate="description2">
+Tax preparation assistance for LLCs, sole proprietors,
+S corporations and C corporations.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<i class="fa-solid fa-id-card"></i>
+
+<h3 data-translate="service3">
+ITIN / Form W-7
+</h3>
+
+<p data-translate="description3">
+Assistance organizing ITIN applications,
+renewals and supporting documents.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<i class="fa-solid fa-book"></i>
+
+<h3 data-translate="service4">
+Bookkeeping
+</h3>
+
+<p data-translate="description4">
+Organized income, expense and transaction records
+for small businesses.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<i class="fa-solid fa-money-check-dollar"></i>
+
+<h3 data-translate="service5">
+Payroll Support
+</h3>
+
+<p data-translate="description5">
+Administrative payroll organization and
+employee payment record assistance.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<i class="fa-solid fa-envelope-open-text"></i>
+
+<h3 data-translate="service6">
+IRS Letter Assistance
+</h3>
+
+<p data-translate="description6">
+Help reviewing, organizing and responding to
+IRS correspondence and notices.
+</p>
+
+</article>
+
+</div>
+
+
+<!-- NETLIFY TAX FORM -->
+
+<section class="form-panel" id="request">
+
+<h2 data-translate="formTitle">
+Request Tax or Accounting Service
+</h2>
+
+<p class="notice" data-translate="formIntro">
+Complete this secure request form.
+Maximax will contact you before beginning any service.
+</p>
+
+<form
+name="taxes-accounting-request"
+method="POST"
+data-netlify="true"
+netlify-honeypot="bot-field"
+enctype="multipart/form-data"
+>
+
+<input
+type="hidden"
+name="form-name"
+value="taxes-accounting-request"
+>
+
+<p hidden>
+
+<label>
+Do not fill this out:
+<input name="bot-field">
+</label>
+
+</p>
+
+<div class="form-grid">
+
+
+<div class="field">
+
+<label for="fullName" data-translate="name">
+FULL NAME *
+</label>
+
+<input
+id="fullName"
+name="full-name"
+type="text"
+required
+autocomplete="name"
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="phone" data-translate="phone">
+PHONE NUMBER *
+</label>
+
+<input
+id="phone"
+name="phone"
+type="tel"
+required
+autocomplete="tel"
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="email" data-translate="email">
+EMAIL *
+</label>
+
+<input
+id="email"
+name="email"
+type="email"
+required
+autocomplete="email"
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="preferredLanguage" data-translate="language">
+PREFERRED LANGUAGE
+</label>
+
+<select
+id="preferredLanguage"
+name="preferred-language"
+>
+
+<option>Kreyòl</option>
+<option>English</option>
+<option>Español</option>
+<option>Français</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label for="service" data-translate="service">
+SERVICE NEEDED *
+</label>
+
+<select
+id="service"
+name="service"
+required
+>
+
+<option value="" data-translate="choose">
+Choose a service
+</option>
+
+<option>Personal Taxes — Form 1040</option>
+<option>Business Taxes</option>
+<option>ITIN / Form W-7</option>
+<option>Bookkeeping</option>
+<option>Payroll Support</option>
+<option>IRS Letter Assistance</option>
+<option>Tax Amendment — Form 1040-X</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label for="taxYear" data-translate="year">
+TAX YEAR
+</label>
+
+<select
+id="taxYear"
+name="tax-year"
+>
+
+<option>2026</option>
+<option>2025</option>
+<option>2024</option>
+<option>2023</option>
+<option>Prior year</option>
+
+</select>
+
+</div>
+
+
+<div class="field full">
+
+<label for="document" data-translate="upload">
+UPLOAD DOCUMENT — PDF, JPG OR PNG
+</label>
+
+<input
+id="document"
+name="tax-document"
+type="file"
+accept=".pdf,.jpg,.jpeg,.png"
+>
+
+</div>
+
+
+<div class="field full">
+
+<label for="details" data-translate="details">
+REQUEST DETAILS *
+</label>
+
+<textarea
+id="details"
+name="details"
+required
+></textarea>
+
+</div>
+
+
+<div class="field full">
+
+<button
+class="submit"
+type="submit"
+data-translate="submit"
+>
+SUBMIT TAX REQUEST
+</button>
+
+</div>
+
+</div>
+
+<p class="legal" data-translate="legal">
+Do not include Social Security numbers, ITIN numbers,
+bank account numbers or passwords in the message field.
+Maximax will provide secure instructions if sensitive
+documents are required.
+</p>
+
+</form>
+
+</section>
+
+</main>
+
+
+<footer>
+MAXIMAX MULTI SERVICES • TAXES & ACCOUNTING •
+(407) 640-5166
+</footer>
+
+
+<script>
+const translations={
+
+eng:{
+eyebrow:"MODULE 02 • MAXIMAX MULTI SERVICES",
+title:"Taxes & Accounting",
+intro:"Personal and business tax preparation, ITIN assistance, bookkeeping, payroll and IRS document support.",
+start:"START TAX REQUEST",
+call:"CALL NOW",
+service1:"Personal Taxes",
+description1:"Federal and state individual income tax preparation, including Form 1040.",
+service2:"Business Taxes",
+description2:"Tax preparation assistance for LLCs, sole proprietors, S corporations and C corporations.",
+service3:"ITIN / Form W-7",
+description3:"Assistance organizing ITIN applications, renewals and supporting documents.",
+service4:"Bookkeeping",
+description4:"Organized income, expense and transaction records for small businesses.",
+service5:"Payroll Support",
+description5:"Administrative payroll organization and employee payment record assistance.",
+service6:"IRS Letter Assistance",
+description6:"Help reviewing, organizing and responding to IRS correspondence and notices.",
+formTitle:"Request Tax or Accounting Service",
+formIntro:"Complete this secure request form. Maximax will contact you before beginning any service.",
+name:"FULL NAME *",
+phone:"PHONE NUMBER *",
+email:"EMAIL *",
+language:"PREFERRED LANGUAGE",
+service:"SERVICE NEEDED *",
+choose:"Choose a service",
+year:"TAX YEAR",
+upload:"UPLOAD DOCUMENT — PDF, JPG OR PNG",
+details:"REQUEST DETAILS *",
+submit:"SUBMIT TAX REQUEST",
+legal:"Do not include Social Security numbers, ITIN numbers, bank account numbers or passwords in the message field. Maximax will provide secure instructions if sensitive documents are required."
+},
+
+kre:{
+eyebrow:"MODIL 02 • MAXIMAX MULTI SERVICES",
+title:"Taks ak Kontablite",
+intro:"Preparasyon taks pèsonèl ak biznis, asistans ITIN, kontablite, pewòl ak sipò pou dokiman IRS.",
+start:"KÒMANSE DEMANN TAKS",
+call:"RELE KOUNYE A",
+service1:"Taks Pèsonèl",
+description1:"Preparasyon taks federal ak taks leta pou moun, ansanm ak Fòm 1040.",
+service2:"Taks Biznis",
+description2:"Asistans taks pou LLC, antrepriz endividyèl, S-Corp ak C-Corp.",
+service3:"ITIN / Fòm W-7",
+description3:"Asistans pou òganize aplikasyon ITIN, renouvèlman ak dokiman sipò.",
+service4:"Kontablite",
+description4:"Òganizasyon revni, depans ak tranzaksyon pou ti biznis.",
+service5:"Sipò Pewòl",
+description5:"Asistans administratif pou òganize pewòl ak dosye peman anplwaye.",
+service6:"Asistans Lèt IRS",
+description6:"Èd pou revize, òganize epi reponn lèt ak avi IRS.",
+formTitle:"Mande Sèvis Taks oswa Kontablite",
+formIntro:"Ranpli fòm sekirize sa a. Maximax ap kontakte w anvan nou kòmanse sèvis la.",
+name:"NON KONPLÈ *",
+phone:"NIMEWO TELEFÒN *",
+email:"IMÈL *",
+language:"LANG OU PREFERE",
+service:"SÈVIS OU BEZWEN *",
+choose:"Chwazi yon sèvis",
+year:"ANE TAKS LA",
+upload:"VOYE DOKIMAN — PDF, JPG OSWA PNG",
+details:"DETAY DEMANN LAN *",
+submit:"VOYE DEMANN TAKS LA",
+legal:"Pa mete nimewo Sekirite Sosyal, nimewo ITIN, nimewo kont labank oswa modpas nan mesaj la. Maximax ap ba w enstriksyon sekirize si nou bezwen dokiman sansib."
+},
+
+esp:{
+eyebrow:"MÓDULO 02 • MAXIMAX MULTI SERVICES",
+title:"Impuestos y Contabilidad",
+intro:"Preparación de impuestos personales y comerciales, asistencia con ITIN, contabilidad, nómina y documentos del IRS.",
+start:"INICIAR SOLICITUD",
+call:"LLAMAR AHORA",
+service1:"Impuestos Personales",
+description1:"Preparación de impuestos federales y estatales, incluido el Formulario 1040.",
+service2:"Impuestos Comerciales",
+description2:"Asistencia tributaria para LLC, propietarios únicos, corporaciones S y corporaciones C.",
+service3:"ITIN / Formulario W-7",
+description3:"Asistencia para organizar solicitudes, renovaciones y documentos de ITIN.",
+service4:"Contabilidad",
+description4:"Organización de ingresos, gastos y transacciones para pequeñas empresas.",
+service5:"Soporte de Nómina",
+description5:"Asistencia administrativa con nómina y registros de empleados.",
+service6:"Cartas del IRS",
+description6:"Ayuda para revisar, organizar y responder avisos del IRS.",
+formTitle:"Solicitar Servicio de Impuestos o Contabilidad",
+formIntro:"Complete este formulario seguro. Maximax le contactará antes de comenzar el servicio.",
+name:"NOMBRE COMPLETO *",
+phone:"NÚMERO DE TELÉFONO *",
+email:"CORREO ELECTRÓNICO *",
+language:"IDIOMA PREFERIDO",
+service:"SERVICIO NECESARIO *",
+choose:"Seleccione un servicio",
+year:"AÑO FISCAL",
+upload:"SUBIR DOCUMENTO — PDF, JPG O PNG",
+details:"DETALLES DE LA SOLICITUD *",
+submit:"ENVIAR SOLICITUD",
+legal:"No incluya números de Seguro Social, ITIN, cuentas bancarias ni contraseñas en el mensaje. Maximax proporcionará instrucciones seguras si se requieren documentos confidenciales."
+}
+
+};
+
+
+function setLanguage(language){
+
+const text =
+translations[language] ||
+translations.eng;
+
+document.documentElement.lang =
+language === "kre"
+? "ht"
+: language === "esp"
+? "es"
+: "en";
+
+document
+.querySelectorAll("[data-translate]")
+.forEach(function(element){
+
+const translation =
+text[element.dataset.translate];
+
+if(translation){
+element.textContent=translation;
+}
+
+});
+
+document
+.querySelectorAll(".lang")
+.forEach(function(button){
+
+button.classList.toggle(
+"active",
+button.dataset.lang === language
+);
+
+});
+
+localStorage.setItem(
+"maximaxLanguage",
+language
+);
+
+}
+
+
+document
+.querySelectorAll(".lang")
+.forEach(function(button){
+
+button.addEventListener(
+"click",
+function(){
+
+setLanguage(
+this.dataset.lang
+);
+
+}
+);
+
+});
+
+
+setLanguage(
+localStorage.getItem("maximaxLanguage") ||
+"eng"
+);
+</script>
+
+</body>
+</html>
