@@ -1,1375 +1,1171 @@
-Worked for 10s
-
 <!DOCTYPE html>
-<html lang="en" id="htmlRoot">
+<html lang="ht" translate="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Maximax Multi Services - Services & AI Center</title>
+<title>Briyant Solèy Signo 1815</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="google" content="notranslate">
+<meta
+  name="description"
+  content="Briyant Solèy Signo 1815 — Platfòm ofisyèl kominote BSS1815."
+>
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
 
 <style>
 :root{
---black:#000;
---orange:#ff6a00;
---light:#ffa347;
---text:#ffc98a;
---line:rgba(255,163,71,.35);
---panel:rgba(0,0,0,.72)
+  --orange:#ff7300;
+  --orange2:#ff9028;
+  --apricot:#ffb36b;
+  --black:#000000;
+  --dark:#090400;
+  --panel:#0b0500;
+  --border:rgba(255,115,0,.40);
+  --soft:rgba(255,115,0,.12);
+  --glow:rgba(255,115,0,.26);
 }
 
-*{box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 html{
-scroll-behavior:smooth;
-min-height:100%;
-background:linear-gradient(150deg,#000 0%,#000 14%,#7a2e00 46%,#ff6a00 68%,#000 100%);
-background-attachment:fixed
+  scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-min-height:100vh;
-background:transparent;
-color:var(--text);
-font-family:'Public Sans',sans-serif
-}
-
-h1,h2,h3{
-font-family:'Fraunces',serif;
-margin:0
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,115,0,.14),transparent 34%),
+    linear-gradient(180deg,#000 0%,#110700 48%,#000 100%);
+  color:var(--apricot);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
 a{
-color:inherit;
-text-decoration:none
+  color:inherit;
+  text-decoration:none;
 }
 
-img,video{
-max-width:100%;
-display:block
+button{
+  font:inherit;
+  cursor:pointer;
 }
 
-button,input{
-font:inherit
+img,
+video{
+  display:block;
+  max-width:100%;
 }
 
-
-/* HEADER */
-
-header{
-position:sticky;
-top:0;
-z-index:100;
-background:rgba(0,0,0,.94);
-border-bottom:1px solid var(--line)
+.container{
+  width:min(94%,1250px);
+  margin:auto;
 }
 
-.nav-wrap{
-max-width:1180px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:12px 24px;
-gap:16px
+.section{
+  padding:78px 0;
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:12px
+.section-dark{
+  background:
+    radial-gradient(circle at top,rgba(255,115,0,.08),transparent 42%),
+    #000;
 }
 
-.logo-mark{
-width:54px;
-height:54px;
-border-radius:50%;
-overflow:hidden;
-border:2px solid var(--light);
-background:#000;
-flex:none
+.section-heading{
+  text-align:center;
+  margin-bottom:38px;
 }
 
-.logo-mark video{
-width:100%;
-height:100%;
-object-fit:cover
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 15px;
+  margin-bottom:14px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-.brand-name{
-font-family:'Fraunces',serif;
-font-size:20px;
-font-weight:700
+.section-heading h2{
+  color:var(--orange);
+  font-size:clamp(30px,5vw,50px);
+  line-height:1.05;
+  margin-bottom:14px;
 }
 
-.brand-name span{
-display:block;
-font:9px 'IBM Plex Mono',monospace;
-letter-spacing:.2em;
-color:var(--light);
-margin-top:3px
-}
-
-.desktop-nav{
-display:flex;
-gap:15px;
-font-size:12px
-}
-
-.desktop-nav a:hover{
-color:var(--light)
-}
-
-.header-actions{
-display:flex;
-align-items:center;
-gap:10px
-}
-
-.language-toggle{
-display:flex;
-border:1px solid var(--line);
-border-radius:7px;
-overflow:hidden;
-background:#000
-}
-
-.lang-btn{
-border:0;
-border-right:1px solid var(--line);
-background:#000;
-color:var(--light);
-padding:9px 8px;
-font:600 9px 'IBM Plex Mono',monospace;
-cursor:pointer
-}
-
-.lang-btn:last-child{
-border-right:0
-}
-
-.lang-btn.active{
-background:var(--orange);
-color:#000
-}
-
-.menu-btn{
-display:none;
-width:42px;
-height:42px;
-border:1px solid var(--line);
-background:#000;
-color:var(--light);
-border-radius:7px;
-font-size:20px
-}
-
-.mobile-nav{
-display:none;
-flex-direction:column;
-padding:0 20px 18px
-}
-
-.mobile-nav a{
-padding:11px 4px;
-border-bottom:1px solid var(--line)
-}
-
-.mobile-nav.open{
-display:flex
-}
-
-
-/* HERO */
-
-.hero{
-max-width:1180px;
-margin:auto;
-padding:70px 24px 55px;
-display:grid;
-grid-template-columns:1fr auto;
-align-items:center;
-gap:45px
-}
-
-.eyebrow{
-font:10px 'IBM Plex Mono',monospace;
-letter-spacing:.2em;
-color:var(--light);
-text-transform:uppercase
-}
-
-.hero h1{
-font-size:clamp(2.2rem,5vw,4rem);
-line-height:1.06;
-margin-top:18px
-}
-
-.hero h1 em{
-color:var(--light)
-}
-
-.lede{
-max-width:650px;
-font-size:16px;
-line-height:1.7
-}
-
-.creole{
-color:var(--light);
-font-style:italic
-}
-
-.hero-cta{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-margin-top:26px
+.section-heading p{
+  max-width:850px;
+  margin:auto;
+  line-height:1.7;
 }
 
 .btn{
-padding:13px 20px;
-font:11px 'IBM Plex Mono',monospace;
-letter-spacing:.08em;
-border-radius:4px
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:48px;
+  padding:12px 21px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  font-weight:900;
+  transition:.25s;
 }
 
 .btn-primary{
-background:var(--orange);
-color:#000
+  background:var(--orange);
+  color:#000;
 }
 
-.btn-ghost{
-border:1px solid var(--line)
+.btn-outline{
+  background:#000;
+  color:var(--orange);
 }
 
-.hero-seal video{
-width:135px;
-height:135px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid var(--light)
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 20px var(--glow);
 }
 
+/* =========================================================
+   HEADER
+========================================================= */
 
-/* MAIN LOGO */
-
-.maximax-logo-showcase{
-max-width:1180px;
-margin:auto;
-padding:0 24px 55px
+header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  background:rgba(0,0,0,.97);
+  border-bottom:1px solid var(--orange);
+  backdrop-filter:blur(10px);
 }
 
-.maximax-logo-stage{
-max-width:760px;
-margin:auto;
-padding:16px;
-border:1px solid var(--light);
-border-radius:20px;
-background:#000
-}
-
-.maximax-logo-title{
-text-align:center;
-font:10px 'IBM Plex Mono',monospace;
-letter-spacing:.2em;
-color:var(--light);
-padding:4px 0 15px
-}
-
-.maximax-logo-video{
-width:100%;
-border-radius:12px
-}
-
-
-/* 15 OFFICIAL BUTTONS */
-
-.module-logo-section{
-max-width:1180px;
-margin:auto;
-padding:55px 24px 70px
-}
-
-.module-heading{
-text-align:center;
-margin-bottom:30px
-}
-
-.module-heading small{
-font:10px 'IBM Plex Mono',monospace;
-letter-spacing:.22em;
-color:var(--light)
-}
-
-.module-heading h2{
-font-size:clamp(2rem,5vw,3.4rem);
-color:var(--light);
-margin-top:10px
-}
-
-.module-heading p{
-line-height:1.7
-}
-
-.module-seals-grid{
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
-gap:30px
-}
-
-.service-seal{
-display:block;
-width:100%;
-aspect-ratio:1/1;
-border-radius:50%;
-overflow:hidden;
-transition:.25s;
-filter:drop-shadow(0 18px 24px rgba(0,0,0,.65))
-}
-
-.service-seal:hover{
-transform:translateY(-6px) scale(1.02);
-filter:drop-shadow(0 0 18px rgba(255,106,0,.65))
-}
-
-.service-seal img{
-width:100%;
-height:100%;
-object-fit:cover;
-border-radius:50%
-}
-
-
-/* CATEGORY MAP */
-
-.catmap{
-padding:22px 24px;
-background:rgba(0,0,0,.5);
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line)
-}
-
-.catmap-inner{
-max-width:1180px;
-margin:auto;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px 18px
-}
-
-.catmap-item{
-font:10px 'IBM Plex Mono',monospace;
-color:var(--light)
-}
-
-
-/* SERVICES */
-
-main{
-max-width:1180px;
-margin:auto;
-padding:45px 20px
-}
-
-.file{
-display:none;
-background:var(--panel);
-border:1px solid var(--line);
-border-radius:9px;
-margin-bottom:18px;
-overflow:hidden;
-scroll-margin-top:100px
-}
-
-.file.active{
-display:block
-}
-
-.file-tab{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:19px 20px;
-cursor:pointer
-}
-
-.file-tab-left{
-display:flex;
-align-items:center;
-gap:13px
-}
-
-.file-num{
-width:34px;
-height:34px;
-border-radius:50%;
-border:1px solid var(--light);
-display:grid;
-place-items:center;
-font-size:11px;
-color:var(--light)
-}
-
-.file-tab h2{
-font-size:1.25rem
-}
-
-.sub{
-font:9px 'IBM Plex Mono',monospace;
-letter-spacing:.1em;
-color:var(--light);
-margin-top:4px
-}
-
-.chev{
-color:var(--light);
-transition:.3s
-}
-
-.file.open .chev{
-transform:rotate(180deg)
-}
-
-.file-body{
-display:none;
-padding:0 20px 20px
-}
-
-.file.open .file-body{
-display:block
-}
-
-.service-list{
-columns:2;
-column-gap:25px;
-list-style:none;
-margin:0;
-padding:0
-}
-
-.service-list li{
-break-inside:avoid;
-padding:7px 0;
-border-bottom:1px dotted var(--line);
-font-size:13px
-}
-
-.service-list li::before{
-content:'✓ ';
-color:var(--light);
-font-weight:700
-}
-
-
-/* AI CENTER */
-
-.ai-center{
-padding:60px 24px;
-background:rgba(0,0,0,.58);
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line)
-}
-
-.ai-inner{
-max-width:1180px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px
-}
-
-.ai-badge{
-font:10px 'IBM Plex Mono',monospace;
-color:var(--light);
-border:1px solid var(--line);
-padding:7px 12px;
-border-radius:20px
-}
-
-.ai-center h2{
-font-size:2rem;
-margin:14px 0
-}
-
-.ai-features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-top:20px
-}
-
-.ai-feat,
-.contact-card{
-border:1px solid var(--line);
-border-radius:8px;
-padding:15px;
-background:rgba(0,0,0,.5)
-}
-
-.ai-feat b{
-display:block;
-color:var(--light);
-margin-bottom:6px
-}
-
-.myaccess-btn{
-display:inline-block;
-background:var(--orange);
-color:#000;
-padding:12px 20px;
-border-radius:4px;
-font:600 11px 'IBM Plex Mono',monospace;
-margin-top:20px
-}
-
-
-/* CONTACT */
-
-.band{
-padding:50px 24px
-}
-
-.band-inner{
-max-width:1180px;
-margin:auto
-}
-
-.contact-grid,
-.social-row{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:14px;
-margin:20px 0
-}
-
-.label{
-font:10px 'IBM Plex Mono',monospace;
-color:var(--light);
-margin-bottom:7px
-}
-
-.value{
-line-height:1.7;
-font-size:14px
-}
-
-.social-pill{
-border:1px solid var(--line);
-border-radius:10px;
-padding:11px;
-display:flex;
-align-items:center;
-gap:10px;
-background:rgba(0,0,0,.55)
-}
-
-.social-icon{
-width:34px;
-height:34px;
-border-radius:50%;
-border:1px solid var(--light);
-display:grid;
-place-items:center;
-color:var(--light)
-}
-
-
-/* FOOTER */
-
-footer{
-background:#000;
-padding:28px 20px;
-border-top:1px solid var(--line)
-}
-
-.footer-cats{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:9px 18px;
-font:9px 'IBM Plex Mono',monospace;
-color:var(--light)
-}
-
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.desktop-nav{
-display:none
-}
-
-.menu-btn{
-display:block
-}
-
-.module-seals-grid{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:16px
-}
-
-}
-
-@media(max-width:800px){
-
-.hero,
-.ai-inner{
-grid-template-columns:1fr
-}
-
-.hero-seal{
-display:none
-}
-
-}
-
-@media(max-width:600px){
-
-.nav-wrap{
-padding:10px 14px;
-gap:8px
+.header-inner{
+  min-height:78px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:15px;
 }
 
 .brand{
-gap:8px
+  display:flex;
+  align-items:center;
+  gap:11px;
 }
 
-.logo-mark{
-width:46px;
-height:46px
+.logo{
+  width:58px;
+  height:58px;
+  flex-shrink:0;
+  overflow:hidden;
+  border:2px solid var(--orange);
+  border-radius:50%;
+  background:#000;
+  box-shadow:0 0 18px var(--glow);
 }
 
-.brand-name{
-font-size:17px
+.logo video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.brand-name span{
-font-size:7px
+.brand strong{
+  display:block;
+  color:var(--orange);
+  font-size:15px;
 }
 
-.header-actions{
-gap:6px
+.brand small{
+  display:block;
+  color:var(--apricot);
+  margin-top:4px;
+  font-size:9px;
+  letter-spacing:1px;
 }
 
-.lang-btn{
-padding:8px 6px;
-font-size:8px
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:3px;
 }
 
-.service-list{
-columns:1
+nav a{
+  padding:9px;
+  border-radius:8px;
+  color:var(--apricot);
+  font-size:11px;
+  font-weight:900;
 }
 
-.module-logo-section{
-padding-left:15px;
-padding-right:15px
+nav a:hover,
+nav a.active{
+  color:var(--orange);
+  background:var(--soft);
 }
 
-.module-seals-grid{
-gap:12px
+.header-tools{
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
+.langs{
+  display:flex;
+  overflow:hidden;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  background:#000;
+}
+
+.lang{
+  border:0;
+  background:#000;
+  color:var(--orange);
+  padding:8px 10px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.lang.active{
+  background:var(--orange);
+  color:#000;
+}
+
+.menu{
+  display:none;
+  width:43px;
+  height:43px;
+  border:1px solid var(--orange);
+  border-radius:10px;
+  background:#000;
+  color:var(--orange);
+  font-size:22px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  min-height:730px;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 40%,rgba(255,115,0,.18),transparent 32%),
+    radial-gradient(circle at 80% 30%,rgba(255,115,0,.10),transparent 28%);
+  pointer-events:none;
+}
+
+.hero-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:36px;
+}
+
+.hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(46px,7vw,82px);
+  line-height:.96;
+}
+
+.hero h2{
+  margin-top:18px;
+  color:var(--apricot);
+  font-size:clamp(18px,2.5vw,27px);
+  letter-spacing:2px;
+}
+
+.hero p{
+  max-width:680px;
+  margin-top:20px;
+  font-size:17px;
+  line-height:1.8;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.slogan{
+  margin-top:28px;
+  padding-left:17px;
+  border-left:4px solid var(--orange);
+  color:var(--orange);
+  font-weight:900;
+  line-height:1.7;
+}
+
+.hero-video{
+  height:590px;
+  overflow:hidden;
+  border:1px solid var(--orange);
+  border-radius:28px;
+  background:#000;
+  box-shadow:0 0 45px rgba(255,115,0,.15);
+}
+
+.hero-video video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* =========================================================
+   ABOUT / LEGACY
+========================================================= */
+
+.info-grid,
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.info-card,
+.feature-card{
+  padding:23px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,115,0,.10),transparent 48%),
+    #050200;
+}
+
+.info-card h3,
+.feature-card h3{
+  color:var(--orange);
+  margin-bottom:10px;
+}
+
+.info-card p,
+.feature-card p{
+  line-height:1.65;
+}
+
+.feature-icon{
+  margin-bottom:13px;
+  font-size:35px;
+}
+
+/* =========================================================
+   SLIDESHOW
+========================================================= */
+
+.showcase{
+  max-width:1080px;
+  margin:auto;
+}
+
+.slideshow{
+  position:relative;
+  overflow:hidden;
+  border:2px solid var(--orange);
+  border-radius:24px;
+  background:#000;
+  box-shadow:0 0 35px rgba(255,115,0,.16);
+}
+
+.stage{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  min-height:420px;
+  background:#000;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  visibility:hidden;
+  background:#000;
+  transition:opacity .6s ease;
+}
+
+.slide.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.slide img,
+.slide video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#000;
+}
+
+.slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(to top,rgba(0,0,0,.92),transparent 55%);
+}
+
+.media-badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  z-index:4;
+  padding:7px 11px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  background:#000;
+  color:var(--orange);
+  font-size:10px;
+  font-weight:900;
+}
+
+.slide-caption{
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:20px;
+  z-index:4;
+}
+
+.slide-caption strong{
+  display:block;
+  color:var(--orange);
+  font-size:clamp(20px,3vw,29px);
+}
+
+.slide-caption span{
+  font-size:11px;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  z-index:10;
+  width:49px;
+  height:49px;
+  transform:translateY(-50%);
+  border:1px solid var(--orange);
+  border-radius:50%;
+  background:#000;
+  color:var(--orange);
+  font-size:26px;
+}
+
+.arrow:hover{
+  background:var(--orange);
+  color:#000;
+}
+
+.prev{
+  left:13px;
+}
+
+.next{
+  right:13px;
+}
+
+.controls{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:12px;
+  margin-top:15px;
+}
+
+.control{
+  padding:10px 15px;
+  border:1px solid var(--orange);
+  border-radius:10px;
+  background:#000;
+  color:var(--orange);
+  font-weight:900;
+}
+
+.counter{
+  text-align:center;
+  font-weight:900;
+}
+
+.progress{
+  height:5px;
+  margin-top:13px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,115,0,.15);
+}
+
+.progress span{
+  display:block;
+  width:0;
+  height:100%;
+  background:var(--orange);
+}
+
+.dots{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:5px;
+  max-height:40px;
+  margin-top:14px;
+  overflow:hidden;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  padding:0;
+  border:1px solid var(--orange);
+  border-radius:50%;
+  background:#170900;
+}
+
+.dot.active{
+  background:var(--orange);
+  transform:scale(1.2);
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.gallery-card{
+  position:relative;
+  min-height:320px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#000;
+}
+
+.gallery-card img{
+  width:100%;
+  height:100%;
+  min-height:320px;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.gallery-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.90),transparent 60%);
+}
+
+.gallery-caption{
+  position:absolute;
+  left:15px;
+  right:15px;
+  bottom:14px;
+  z-index:3;
+}
+
+.gallery-caption strong{
+  color:var(--orange);
+}
+
+/* =========================================================
+   MEDIA CENTER
+========================================================= */
+
+.media-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.media-card{
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#000;
+}
+
+.media-card video{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  background:#000;
+}
+
+.media-text{
+  padding:17px;
+}
+
+.media-text h3{
+  color:var(--orange);
+  margin-bottom:7px;
+}
+
+/* =========================================================
+   SOCIAL NETWORKS
+========================================================= */
+
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.social{
+  min-height:145px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:19px;
+  background:#000;
+  text-align:center;
+  transition:.25s;
+}
+
+.social:hover{
+  transform:translateY(-3px);
+  border-color:var(--orange);
+  box-shadow:0 0 18px var(--glow);
+}
+
+.social-icon{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--orange);
+  border-radius:50%;
+  color:var(--orange);
+  font-size:22px;
+}
+
+.social strong{
+  color:var(--orange);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.contact-card{
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#050200;
+}
+
+.contact-card h3{
+  margin-bottom:12px;
+  color:var(--orange);
+}
+
+.contact-card a{
+  display:block;
+  margin:8px 0;
+  color:var(--apricot);
+}
+
+.contact-card a:hover{
+  color:var(--orange);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  padding:42px 0 26px;
+  border-top:1px solid var(--orange);
+  background:#000;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr .7fr .7fr;
+  gap:28px;
+}
+
+footer h3{
+  margin-bottom:12px;
+  color:var(--orange);
+}
+
+footer ul{
+  list-style:none;
+}
+
+footer li{
+  margin:8px 0;
+}
+
+.copyright{
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+  nav{
+    position:fixed;
+    top:78px;
+    left:0;
+    right:0;
+    display:none;
+    flex-direction:column;
+    padding:18px;
+    background:#000;
+    border-bottom:1px solid var(--orange);
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .info-grid,
+  .features,
+  .gallery-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .social-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:700px){
+
+  .header-inner{
+    grid-template-columns:1fr auto;
+  }
+
+  .brand strong{
+    font-size:12px;
+  }
+
+  .logo{
+    width:49px;
+    height:49px;
+  }
+
+  .lang{
+    padding:7px 8px;
+    font-size:9px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:55px 0;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .hero-video{
+    height:440px;
+  }
+
+  .info-grid,
+  .features,
+  .gallery-grid,
+  .media-grid,
+  .social-grid,
+  .contact-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stage{
+    aspect-ratio:4/5;
+    min-height:520px;
+  }
+
+  .gallery-card,
+  .gallery-card img{
+    min-height:390px;
+  }
+
+  .controls{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .counter{
+    grid-column:1/-1;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header>
 
-<div class="nav-wrap">
+<div class="container header-inner">
 
-<div class="brand">
+<a href="#home" class="brand">
 
-<div class="logo-mark">
+<div class="logo">
 <video autoplay muted loop playsinline>
-<source src="./maximax-best-multi.mp4" type="video/mp4">
+<source src="devan-devan-nèt.mp4" type="video/mp4">
 </video>
 </div>
 
-<div class="brand-name">
-MAXIMAX
-<span>MULTI SERVICES • EST 2020</span>
+<div>
+<strong>BRIYANT SOLÈY SIGNO 1815</strong>
+<small data-i18n="official">PLATFÒM OFISYÈL</small>
 </div>
 
-</div>
+</a>
 
-<nav class="desktop-nav">
-<a href="#hero" data-nav="home">HOME</a>
-<a href="#modules" data-nav="modules">MODULES</a>
-<a href="#services" data-nav="services">SERVICES</a>
-<a href="#ai-center" data-nav="ai">AI CENTER</a>
-<a href="#contact" data-nav="contact">CONTACT</a>
+
+<nav id="nav">
+
+<a href="#home" data-i18n="home">AKÈY</a>
+<a href="#about" data-i18n="about">SOU NOU</a>
+<a href="#community" data-i18n="community">KOMINOTE</a>
+<a href="#gallery" data-i18n="gallery">GALERI</a>
+<a href="#media" data-i18n="media">MEDIA</a>
+<a href="#legacy" data-i18n="legacy">ERITAJ</a>
+<a href="#social" data-i18n="social">SOCIAL</a>
+<a href="#contact" data-i18n="contact">KONTAK</a>
+
 </nav>
 
-<div class="header-actions">
 
-<div class="language-toggle" aria-label="Language selector">
+<div class="header-tools">
+
+<div class="langs notranslate" translate="no">
 
 <button
-class="lang-btn"
-type="button"
-data-lang="kre"
->
-KRE
+  class="lang"
+  data-lang="en"
+  type="button"
+  translate="no">
+  ENG
 </button>
 
 <button
-class="lang-btn active"
-type="button"
-data-lang="eng"
->
-ENG
+  class="lang"
+  data-lang="es"
+  type="button"
+  translate="no">
+  ESP
 </button>
 
 <button
-class="lang-btn"
-type="button"
-data-lang="esp"
->
-ESP
-</button>
-
-</div>
-
-<button
-class="menu-btn"
-id="menuBtn"
-type="button"
-aria-label="Open menu"
->
-☰
+  class="lang active"
+  data-lang="ht"
+  type="button"
+  translate="no">
+  KRE
 </button>
 
 </div>
 
+<button
+  class="menu"
+  id="menu"
+  type="button"
+  aria-label="Menu">
+  ☰
+</button>
+
 </div>
 
-<div class="mobile-nav" id="mobileNav">
-<a href="#hero" data-nav="home">HOME</a>
-<a href="#modules" data-nav="modules">MODULES</a>
-<a href="#services" data-nav="services">SERVICES</a>
-<a href="#ai-center" data-nav="ai">AI CENTER</a>
-<a href="#contact" data-nav="contact">CONTACT</a>
 </div>
 
 </header>
 
 
-<!-- HERO -->
+<main>
 
-<section class="hero" id="hero">
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
 
 <div>
 
-<span class="eyebrow">
-Pine Hills, Orlando • Indianapolis • New York
-</span>
+<div class="badge">
+BSS1815 • SIGNO • LÉOGÂNE
+</div>
 
-<h1>
-Your Trusted Partner for
-<em>Life in the USA</em>
+<h1 data-i18n="heroTitle">
+BRIYANT SOLÈY SIGNO 1815
 </h1>
 
-<p class="lede">
-Maximax Multi Services — Notary, Taxes, Immigration,
-EOIR+BIA, Insurance, Real Estate, Business Formation
-& more. All the services you need under one roof.
+<h2 data-i18n="heroSubtitle">
+YON ERITAJ • YON KOMINOTE • YON VIZYON
+</h2>
+
+<p data-i18n="heroText">
+Briyant Solèy Signo 1815 se yon kominote,
+yon fanmi, yon eritaj ak yon mouvman
+ki kontinye mete moun, kilti,
+mizik ak memwa Signo an valè.
 </p>
 
-<p class="creole">
-We speak Kreyòl, English and Español.
-</p>
+<div class="hero-buttons">
 
-<div class="hero-cta">
-
-<a href="#contact" class="btn btn-primary">
-Book Appointment
+<a
+  href="#community"
+  class="btn btn-primary"
+  data-i18n="enterCommunity">
+  ANTRE NAN KOMINOTE A
 </a>
 
-<a href="#modules" class="btn btn-ghost">
-Explore Services
+<a
+  href="#gallery"
+  class="btn btn-outline"
+  data-i18n="viewGallery">
+  WÈ GALERI A
 </a>
 
 </div>
 
+<div class="slogan">
+DEVAN DEVAN NÈT.<br>
+BATI POU JODI A.<br>
+PARE POU DEMEN.
 </div>
 
-<div class="hero-seal">
+</div>
+
+
+<div class="hero-video">
 
 <video autoplay muted loop playsinline>
-<source src="./maximax-best-multi.mp4" type="video/mp4">
+<source src="devan-devan-nèt.mp4" type="video/mp4">
 </video>
 
 </div>
 
-</section>
-
-
-<!-- MAIN VIDEO LOGO -->
-
-<section class="maximax-logo-showcase">
-
-<div class="maximax-logo-stage">
-
-<div class="maximax-logo-title">
-MAXIMAX MULTI SERVICES
-</div>
-
-<video
-class="maximax-logo-video"
-autoplay
-muted
-loop
-playsinline
->
-<source src="./maxima-xbest.mp4" type="video/mp4">
-</video>
-
 </div>
 
 </section>
 
 
-<!-- 15 OFFICIAL BUTTONS -->
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-<section class="module-logo-section" id="modules">
+<section class="section section-dark" id="about">
 
-<div class="module-heading">
+<div class="container">
 
-<small>MAXIMAX MULTI SERVICES</small>
+<div class="section-heading">
 
-<h2>15 OFFICIAL MODULES</h2>
+<div class="badge">
+BSS1815
+</div>
 
-<p>
-Professional services • Administrative assistance •
-Artificial intelligence • Digital support
+<h2 data-i18n="aboutTitle">
+SOU BSS1815
+</h2>
+
+<p data-i18n="aboutText">
+Yon espas pou prezève istwa,
+kilti, manm, mizisyen,
+dirijan ak fanatik
+Briyant Solèy Signo 1815.
 </p>
 
 </div>
 
-<div class="module-seals-grid">
 
-<a href="#mod1" class="service-seal">
-<img src="./notary-translation.png" alt="Notary & Translation">
-</a>
+<div class="info-grid">
 
-<a href="#mod2" class="service-seal">
-<img src="./taxes-accounting.png" alt="Taxes & Accounting">
-</a>
+<div class="info-card">
+<h3 data-i18n="vision">VIZYON</h3>
+<p data-i18n="visionText">
+Konekte jenerasyon pase, prezan ak lavni.
+</p>
+</div>
 
-<a href="#mod3" class="service-seal">
-<img src="./immigration-services.png" alt="Immigration Services">
-</a>
+<div class="info-card">
+<h3 data-i18n="mission">MISYON</h3>
+<p data-i18n="missionText">
+Prezève ak mete eritaj kominote a an valè.
+</p>
+</div>
 
-<a href="#mod4" class="service-seal">
-<img src="./eoir-bia.png" alt="EOIR & BIA">
-</a>
+<div class="info-card">
+<h3 data-i18n="culture">KILTI</h3>
+<p data-i18n="cultureText">
+Mizik, memwa, tradisyon ak fyète.
+</p>
+</div>
 
-<a href="#mod5" class="service-seal">
-<img src="./insurance.png" alt="Insurance">
-</a>
+<div class="info-card">
+<h3 data-i18n="future">LAVNI</h3>
+<p data-i18n="futureText">
+Bati pou jodi a. Pare pou demen.
+</p>
+</div>
 
-<a href="#mod6" class="service-seal">
-<img src="./real-estate.png" alt="Real Estate">
-</a>
-
-<a href="#mod7" class="service-seal">
-<img src="./business-formation.png" alt="Business Formation">
-</a>
-
-<a href="#mod8" class="service-seal">
-<img src="./apostille-legalization.png" alt="Apostille & Legalization">
-</a>
-
-<a href="#mod9" class="service-seal">
-<img src="./travel-dmv.png" alt="Travel & DMV Services">
-</a>
-
-<a href="#ai-center" class="service-seal">
-<img src="./maximax-ai-center.png" alt="Maximax AI Center">
-</a>
-
-<a href="#form-helper" class="service-seal">
-<img src="./form-helper.png" alt="Form Helper">
-</a>
-
-<a href="#career-tracker" class="service-seal">
-<img src="./career-tracker.png" alt="Career Tracker">
-</a>
-
-<a href="#translation-ai" class="service-seal">
-<img src="./tradiksyon-ai.png" alt="Tradiksyon AI">
-</a>
-
-<a href="#chat247" class="service-seal">
-<img src="./chat-24-7.png" alt="Chat 24/7">
-</a>
-
-<a href="#try-ai" class="service-seal">
-<img src="./try-ai-center.png" alt="Try AI Center">
-</a>
+</div>
 
 </div>
 
 </section>
 
 
-<!-- CATEGORY MAP -->
+<!-- =========================================================
+     COMMUNITY SLIDESHOW
+========================================================= -->
 
-<div class="catmap">
+<section class="section" id="community">
 
-<div class="catmap-inner">
+<div class="container">
 
-<a class="catmap-item" href="#mod1">01 NOTARY</a>
-<a class="catmap-item" href="#mod2">02 TAXES</a>
-<a class="catmap-item" href="#mod3">03 IMMIGRATION</a>
-<a class="catmap-item" href="#mod4">04 EOIR+BIA</a>
-<a class="catmap-item" href="#mod5">05 INSURANCE</a>
-<a class="catmap-item" href="#mod6">06 REAL ESTATE</a>
-<a class="catmap-item" href="#mod7">07 BUSINESS</a>
-<a class="catmap-item" href="#mod8">08 APOSTILLE</a>
-<a class="catmap-item" href="#mod9">09 TRAVEL+DMV</a>
-<a class="catmap-item" href="#ai-center">10 AI CENTER</a>
-<a class="catmap-item" href="#form-helper">11 FORM HELPER</a>
-<a class="catmap-item" href="#career-tracker">12 CAREER TRACKER</a>
-<a class="catmap-item" href="#translation-ai">13 TRADIKSYON AI</a>
-<a class="catmap-item" href="#chat247">14 CHAT 24/7</a>
-<a class="catmap-item" href="#try-ai">15 TRY AI</a>
+<div class="section-heading">
 
+<div class="badge">
+BSS1815 COMMUNITY SHOWCASE
 </div>
 
-</div>
-
-
-<!-- SERVICES -->
-
-<main id="services">
-
-
-<div class="file" id="mod1">
-
-<div class="file-tab" onclick="toggleFile('mod1')">
-
-<div class="file-tab-left">
-
-<div class="file-num">01</div>
-
-<div>
-<h2>Notary & Translation</h2>
-<div class="sub">Certified • Fast • All 50 States</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>Notary Public - All 50 States</li>
-<li>Mobile Notary - We come to you</li>
-<li>Power of Attorney</li>
-<li>Affidavit & Legal Letters</li>
-<li>Certified Translation</li>
-<li>Travel Consent for Minors</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod2">
-
-<div class="file-tab" onclick="toggleFile('mod2')">
-
-<div class="file-tab-left">
-
-<div class="file-num">02</div>
-
-<div>
-<h2>Taxes & Accounting</h2>
-<div class="sub">Tax Preparation • ITIN • Accounting</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>Personal Taxes - Form 1040</li>
-<li>Business Taxes - LLC, S-Corp, C-Corp</li>
-<li>ITIN Application & Renewal - W7</li>
-<li>Bookkeeping & Payroll</li>
-<li>IRS Letter Assistance</li>
-<li>Tax Amendment - 1040X</li>
-</ul>
-
-<a class="myaccess-btn" href="#contact">
-File My Taxes Now
-</a>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod3">
-
-<div class="file-tab" onclick="toggleFile('mod3')">
-
-<div class="file-tab-left">
-
-<div class="file-num">03</div>
-
-<div>
-<h2>Immigration Services</h2>
-<div class="sub">TPS • Asylum • Family Petition</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>TPS Application & Renewal</li>
-<li>Asylum & Work Permit</li>
-<li>Family Petition I-130</li>
-<li>Green Card Assistance</li>
-<li>Citizenship N-400</li>
-<li>USCIS Form Preparation</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod4">
-
-<div class="file-tab" onclick="toggleFile('mod4')">
-
-<div class="file-tab-left">
-
-<div class="file-num">04</div>
-
-<div>
-<h2>EOIR & BIA</h2>
-<div class="sub">
-Immigration Court • Board of Immigration Appeals
-</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>EOIR Case Information</li>
-<li>BIA Case Information</li>
-<li>Court Date Check</li>
-<li>Change of Venue Form Assistance</li>
-<li>Document Organization</li>
-<li>Case Status Assistance</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod5">
-
-<div class="file-tab" onclick="toggleFile('mod5')">
-
-<div class="file-tab-left">
-
-<div class="file-num">05</div>
-
-<div>
-<h2>Insurance</h2>
-<div class="sub">Auto • Home • Life • Health</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>Auto Insurance</li>
-<li>Homeowners Insurance</li>
-<li>Renters Insurance</li>
-<li>Life Insurance</li>
-<li>Health Insurance</li>
-<li>Business Insurance</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod6">
-
-<div class="file-tab" onclick="toggleFile('mod6')">
-
-<div class="file-tab-left">
-
-<div class="file-num">06</div>
-
-<div>
-<h2>Real Estate</h2>
-<div class="sub">Buy • Sell • Rent</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>First-Time Home Buyer Assistance</li>
-<li>Home Search Assistance</li>
-<li>Rental Assistance</li>
-<li>Property Referral</li>
-<li>Housing Resources</li>
-<li>Mortgage Referral</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod7">
-
-<div class="file-tab" onclick="toggleFile('mod7')">
-
-<div class="file-tab-left">
-
-<div class="file-num">07</div>
-
-<div>
-<h2>Business Formation</h2>
-<div class="sub">LLC • Corporation • EIN</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>LLC Formation</li>
-<li>Corporation Formation</li>
-<li>EIN Assistance</li>
-<li>Business Registration</li>
-<li>Business Plan Assistance</li>
-<li>Administrative Support</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod8">
-
-<div class="file-tab" onclick="toggleFile('mod8')">
-
-<div class="file-tab-left">
-
-<div class="file-num">08</div>
-
-<div>
-<h2>Apostille & Legalization</h2>
-<div class="sub">State • Federal • Embassy</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>Document Apostille</li>
-<li>Federal Document Authentication</li>
-<li>Diploma Apostille</li>
-<li>Power of Attorney</li>
-<li>Document Legalization</li>
-<li>Embassy Requirements Assistance</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="file" id="mod9">
-
-<div class="file-tab" onclick="toggleFile('mod9')">
-
-<div class="file-tab-left">
-
-<div class="file-num">09</div>
-
-<div>
-<h2>Travel & DMV Services</h2>
-<div class="sub">Passport • Travel • DMV</div>
-</div>
-
-</div>
-
-<span class="chev">▼</span>
-
-</div>
-
-<div class="file-body">
-
-<ul class="service-list">
-<li>Plane Ticket Assistance</li>
-<li>Passport Assistance</li>
-<li>Passport Renewal Assistance</li>
-<li>DMV Information</li>
-<li>Vehicle Registration Assistance</li>
-<li>Travel Resources</li>
-</ul>
-
-</div>
-
-</div>
-
-</main>
-
-
-<!-- AI CENTER -->
-
-<section class="ai-center" id="ai-center">
-
-<div class="ai-inner">
-
-<div>
-
-<span class="ai-badge">
-🤖 MAXIMAX AI CENTER
-</span>
-
-<h2>Maximax AI Assistant Center</h2>
-
-<p>
-Smart digital tools designed to help organize forms,
-track information, translate documents and answer
-general service questions 24/7.
+<h2 data-i18n="communityTitle">
+KOMINOTE BSS1815
+</h2>
+
+<p data-i18n="communityText">
+Manm, fanatik, mizisyen,
+dirijan, foto, videyo,
+memwa ak eritaj BSS1815.
 </p>
 
-<div class="ai-features">
-
-<div class="ai-feat" id="form-helper">
-<b>📋 FORM HELPER</b>
-<span>Digital form organization and assistance</span>
 </div>
 
-<div class="ai-feat" id="career-tracker">
-<b>📈 CAREER TRACKER</b>
-<span>Career organization, applications and progress tools</span>
+
+<div class="showcase">
+
+<div class="slideshow" id="slideshow">
+
+<div
+  class="stage"
+  id="stage">
 </div>
-
-<div class="ai-feat" id="translation-ai">
-<b>🌐 TRADIKSYON AI</b>
-<span>Kreyòl • English • Français • Español</span>
-</div>
-
-<div class="ai-feat" id="chat247">
-<b>💬 CHAT 24/7</b>
-<span>Digital assistance anytime</span>
-</div>
-
-</div>
-
-<a class="myaccess-btn" id="try-ai" href="#ai-chat">
-Try AI Center
-</a>
-
-</div>
-
-<div id="ai-chat" class="contact-card">
-
-<div class="label">AI CHAT PREVIEW</div>
-
-<p>👤 How can Maximax help me?</p>
-
-<p>🤖 Choose a service or ask a general question.</p>
-
-<div style="display:flex;gap:8px">
-
-<input
-type="text"
-placeholder="Ask a question..."
-style="
-flex:1;
-min-width:0;
-padding:11px;
-background:#000;
-border:1px solid var(--line);
-border-radius:6px;
-color:var(--text)
-"
->
 
 <button
-type="button"
-style="
-background:var(--orange);
-border:0;
-border-radius:6px;
-padding:10px 16px;
-font-weight:700
-"
->
-SEND
+  class="arrow prev"
+  id="prev"
+  type="button"
+  aria-label="Previous">
+  &#10094;
+</button>
+
+<button
+  class="arrow next"
+  id="next"
+  type="button"
+  aria-label="Next">
+  &#10095;
 </button>
 
 </div>
 
+
+<div class="controls">
+
+<button
+  class="control"
+  id="playPause"
+  type="button">
+  ⏸ PAUSE
+</button>
+
+<div
+  class="counter"
+  id="counter">
+  0 / 0
+</div>
+
+<button
+  class="control"
+  id="sound"
+  type="button">
+  🔇 VIDEO
+</button>
+
+</div>
+
+
+<div class="progress">
+<span id="progress"></span>
+</div>
+
+<div
+  class="dots"
+  id="dots">
+</div>
+
 </div>
 
 </div>
@@ -1377,109 +1173,438 @@ SEND
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================================================
+     GALLERY
+========================================================= -->
 
-<section class="band" id="contact">
+<section class="section section-dark" id="gallery">
 
-<div class="band-inner">
+<div class="container">
 
-<h2>Contact - 9 Rezo Sosyal</h2>
+<div class="section-heading">
+
+<div class="badge">
+BSS1815 GALLERY
+</div>
+
+<h2 data-i18n="galleryTitle">
+GALERI
+</h2>
+
+<p data-i18n="galleryText">
+Foto kominote, manm,
+fanatik, dirijan
+ak mizisyen BSS1815.
+</p>
+
+</div>
+
+<div
+  class="gallery-grid"
+  id="galleryGrid">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     MEDIA CENTER
+========================================================= -->
+
+<section class="section" id="media">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="badge">
+BSS1815 MEDIA CENTER
+</div>
+
+<h2 data-i18n="mediaTitle">
+MEDIA CENTER
+</h2>
+
+<p data-i18n="mediaText">
+Videyo, pwojè,
+aktivite ak prezantasyon BSS1815.
+</p>
+
+</div>
+
+<div
+  class="media-grid"
+  id="mediaGrid">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     LEGACY
+========================================================= -->
+
+<section class="section section-dark" id="legacy">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="badge">
+BSS1815 FAMILY
+</div>
+
+<h2 data-i18n="legacyTitle">
+FANATIK & ERITAJ
+</h2>
+
+<p data-i18n="legacyText">
+Chak manm, mizisyen,
+dirijan ak fanatik
+gen yon plas nan istwa BSS1815.
+</p>
+
+</div>
+
+
+<div class="features">
+
+<div class="feature-card">
+<div class="feature-icon">👑</div>
+<h3 data-i18n="leaders">DIRIJAN</h3>
+<p data-i18n="leadersText">
+Moun ki sèvi, dirije epi ede mouvman an avanse.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🥁</div>
+<h3 data-i18n="musicians">MIZISYEN</h3>
+<p data-i18n="musiciansText">
+Son, ritm, tradisyon ak talan BSS1815.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🤝</div>
+<h3 data-i18n="supporters">FANATIK</h3>
+<p data-i18n="supportersText">
+Fanatik yo se fòs, chalè ak lavi mouvman an.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🏛️</div>
+<h3 data-i18n="heritage">ERITAJ</h3>
+<p data-i18n="heritageText">
+Foto, moun, memwa ak jenerasyon nou dwe prezève.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SOCIAL NETWORKS
+========================================================= -->
+
+<section class="section" id="social">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="badge">
+BSS1815 SOCIAL NETWORKS
+</div>
+
+<h2 data-i18n="socialTitle">
+REZO SOSYAL
+</h2>
+
+<p data-i18n="socialText">
+Swiv Briyant Solèy Signo 1815
+sou rezo sosyal yo.
+</p>
+
+</div>
+
+
+<div class="social-grid">
+
+<a
+  class="social"
+  href="https://wa.me/50943437488"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-whatsapp"></i>
+</div>
+
+<strong>WhatsApp</strong>
+<span>+509 4343-7488</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://www.facebook.com/share/1By3KvYRrM/"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-facebook-f"></i>
+</div>
+
+<strong>Facebook</strong>
+<span>BSS1815</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://www.youtube.com/@BSS1815PROMAXDMP"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-youtube"></i>
+</div>
+
+<strong>YouTube</strong>
+<span>BSS1815</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://www.instagram.com/lebaron072/"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-instagram"></i>
+</div>
+
+<strong>Instagram</strong>
+<span>@lebaron072</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://www.tiktok.com/@maximax1960"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-tiktok"></i>
+</div>
+
+<strong>TikTok</strong>
+<span>@maximax1960</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://x.com/w05g2m"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</div>
+
+<strong>X / Twitter</strong>
+<span>BSS1815</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://t.me/bss1815dmp"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-telegram"></i>
+</div>
+
+<strong>Telegram</strong>
+<span>@bss1815dmp</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://www.linkedin.com/in/maximax-multi-services-075ba2314"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</div>
+
+<strong>LinkedIn</strong>
+<span>Maximax Multi Services</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+<i class="fa-brands fa-spotify"></i>
+</div>
+
+<strong>Spotify</strong>
+<span>BSS1815</span>
+
+</a>
+
+
+<a
+  class="social"
+  href="https://truthsocial.com/@briyant_soley_1815"
+  target="_blank"
+  rel="noopener noreferrer">
+
+<div class="social-icon">
+TS
+</div>
+
+<strong>Truth Social</strong>
+<span>@briyant_soley_1815</span>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="section section-dark" id="contact">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="badge">
+CONTACT BSS1815
+</div>
+
+<h2 data-i18n="contactTitle">
+KONTAK
+</h2>
+
+<p data-i18n="contactText">
+Kontakte Briyant Solèy Signo 1815
+pou enfòmasyon,
+aktivite ak kolaborasyon.
+</p>
+
+</div>
+
 
 <div class="contact-grid">
 
 <div class="contact-card">
 
-<div class="label">Telephone</div>
+<h3>
+📞 UNITED STATES
+</h3>
 
-<div class="value">
-<a href="tel:+14076405166">(407) 640-5166</a>
-<br>
-<a href="tel:+15162168494">(516) 216-8494</a>
-<br>
-<a href="tel:+13175381150">(317) 538-1150</a>
-<br>
-<a href="tel:+50943437488">+509 43 43 7488</a>
+<a href="tel:+14076405166">
+(407) 640-5166
+</a>
+
+<a href="tel:+15162168494">
+(516) 216-8494
+</a>
+
+<a href="tel:+13175381150">
+(317) 538-1150
+</a>
+
 </div>
 
-</div>
 
 <div class="contact-card">
 
-<div class="label">Email</div>
+<h3>
+🇭🇹 HAITI
+</h3>
 
-<div class="value">
-<a href="mailto:maximaxmultiservices@gmail.com">
-maximaxmultiservices@gmail.com
+<a href="tel:+50943437488">
++509 4343-7488
 </a>
-</div>
 
 </div>
+
 
 <div class="contact-card">
 
-<div class="label">Service Areas</div>
+<h3>
+<i class="fa-brands fa-whatsapp"></i>
+WHATSAPP
+</h3>
 
-<div class="value">
-Pine Hills Orlando FL
-<br>
-Indianapolis IN
-<br>
-Hempstead NY 11550
+<a
+  href="https://wa.me/50943437488"
+  target="_blank"
+  rel="noopener noreferrer">
+
++509 4343-7488
+
+</a>
+
 </div>
 
+
+<div class="contact-card">
+
+<h3>
+<i class="fa-brands fa-telegram"></i>
+TELEGRAM
+</h3>
+
+<a
+  href="https://t.me/bss1815dmp"
+  target="_blank"
+  rel="noopener noreferrer">
+
+@bss1815dmp
+
+</a>
+
 </div>
-
-</div>
-
-
-<!-- SOCIAL NETWORKS -->
-
-<div class="social-row">
-
-<a class="social-pill" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-whatsapp"></i></span>
-WhatsApp
-</a>
-
-<a class="social-pill" href="https://www.facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-Facebook
-</a>
-
-<a class="social-pill" href="https://www.instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-instagram"></i></span>
-Instagram
-</a>
-
-<a class="social-pill" href="https://www.tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-tiktok"></i></span>
-TikTok
-</a>
-
-<a class="social-pill" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-x-twitter"></i></span>
-X / Twitter
-</a>
-
-<a class="social-pill" href="https://www.youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-youtube"></i></span>
-YouTube
-</a>
-
-<a class="social-pill" href="https://www.linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
-LinkedIn
-</a>
-
-<a class="social-pill" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer">
-<span class="social-icon"><i class="fab fa-spotify"></i></span>
-Spotify
-</a>
-
-<a class="social-pill" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer">
-<span class="social-icon">T</span>
-Truth Social
-</a>
 
 </div>
 
@@ -1487,28 +1612,92 @@ Truth Social
 
 </section>
 
+</main>
 
-<!-- FOOTER -->
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-<div class="footer-cats">
+<div class="container footer-grid">
 
-<span>NOTARY & TRANSLATION</span>
-<span>TAXES & ACCOUNTING</span>
-<span>IMMIGRATION</span>
-<span>EOIR+BIA</span>
-<span>INSURANCE</span>
-<span>REAL ESTATE</span>
-<span>BUSINESS FORMATION</span>
-<span>APOSTILLE</span>
-<span>TRAVEL & DMV</span>
-<span>MAXIMAX AI CENTER</span>
-<span>FORM HELPER</span>
-<span>CAREER TRACKER</span>
-<span>TRADIKSYON AI</span>
-<span>CHAT 24/7</span>
-<span>TRY AI CENTER</span>
+<div>
+
+<a href="#home" class="brand">
+
+<div class="logo">
+
+<video autoplay muted loop playsinline>
+<source src="devan-devan-nèt.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<div>
+<strong>BRIYANT SOLÈY SIGNO 1815</strong>
+<small>BSS1815</small>
+</div>
+
+</a>
+
+<p
+  style="margin-top:15px;line-height:1.7"
+  data-i18n="footerText">
+
+Platfòm ofisyèl Briyant Solèy Signo 1815
+pou kominote, kilti, medya,
+fanatik ak eritaj.
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3 data-i18n="navigation">
+NAVIGASYON
+</h3>
+
+<ul>
+<li><a href="#home">Akèy</a></li>
+<li><a href="#about">Sou Nou</a></li>
+<li><a href="#community">Kominote</a></li>
+<li><a href="#gallery">Galeri</a></li>
+</ul>
+
+</div>
+
+
+<div>
+
+<h3 data-i18n="connect">
+KONEKTE
+</h3>
+
+<ul>
+<li><a href="#media">Media</a></li>
+<li><a href="#social">Social</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="container copyright">
+
+© <span id="year"></span>
+BRIYANT SOLÈY SIGNO 1815
+
+<br>
+
+DEVAN DEVAN NÈT •
+BATI POU JODI A •
+PARE POU DEMEN
 
 </div>
 
@@ -1517,282 +1706,1953 @@ Truth Social
 
 <script>
 
-/* SHOW ONLY THE SELECTED SERVICE MODULE */
+/* =========================================================
+   BSS1815 COMPLETE MEDIA DATABASE
+========================================================= */
 
-function showOnlyFile(id){
+const suppliedMedia = [
 
-document
-.querySelectorAll(".file")
-.forEach(function(file){
+  /* =======================================================
+     ORIGINAL JPG
+  ======================================================= */
 
-const selected =
-file.id === id;
+  "makout57.jpg",
+  "guypson.jpg",
+  "don-dodo.jpg",
+  "warrens.jpg",
+  "serette.jpg",
+  "reynold.jpg",
+  "perodin.jpg",
+  "paulema.jpg",
+  "macu-mv.jpg",
+  "doodly.jpg",
+  "desulme.jpg",
+  "t-leta.jpg",
+  "nadege.jpg",
+  "mario1.jpg",
+  "fanfan.jpg",
+  "cange1.jpg",
+  "caldos.jpg",
+  "asmide.jpg",
+  "yguens.jpg",
+  "tania.jpg",
+  "ralph.jpg",
+  "may-t.jpg",
+  "mario.jpg",
+  "macu2.jpg",
+  "emaze.jpg",
+  "badin.jpg",
+  "james.jpg",
+  "yole.jpg",
+  "roro.jpg",
+  "ones.jpg",
 
-file.classList.toggle(
-"active",
-selected
-);
+  /* =======================================================
+     ORIGINAL JPEG
+  ======================================================= */
 
-file.classList.toggle(
-"open",
-selected
-);
+  "only-u.jpeg",
+  "makout.jpeg",
+  "magaz.jpeg",
+  "landry.jpeg",
+  "jude.jpeg",
+  "elson.jpeg",
+  "doudou.jpeg",
+  "cange2.jpeg",
+  "caldos.jpeg",
+  "brunel.jpeg",
+  "asmide.jpeg",
+  "yole1.jpeg",
+  "tania.jpeg",
+  "sanba.jpeg",
+  "rooso.jpeg",
+  "nadia.jpeg",
+  "mario.jpeg",
+  "kendy.jpeg",
+  "flore.jpeg",
+  "cange.jpeg",
+  "baron.jpeg",
+  "badin.jpeg",
+  "andre.jpeg",
+  "zeze.jpeg",
+  "yole.jpeg",
+  "tsp2.jpeg",
+  "prez.jpeg",
+  "may2.jpeg",
+  "maxo.jpeg",
+  "macu.jpeg",
+  "cols.jpeg",
+  "ange.jpeg",
+  "andy.jpeg",
+
+  /* =======================================================
+     ADDITIONAL PHOTOS
+  ======================================================= */
+
+  "roro23.jpeg",
+  "roro-lajan.jpeg",
+  "leog.jpg",
+  "valery2.jpeg",
+  "michel-briyant.jpeg",
+  "maximax-multi-services.jpeg",
+  "michelbriyantII.jpeg",
+
+  /* =======================================================
+     FINAL REMAINING PHOTOS
+     FIRST NAME CORRECTED:
+     jijm-mayan.jpg
+  ======================================================= */
+
+  "jijm-mayan.jpg",
+  "majis-mauc.jpeg",
+  "majis-junior.jpeg",
+  "synthia-jn-baptiste.jpeg",
+  "vice-prez-ernso.jpg",
+  "vice-prezidan-yguens.jpeg",
+  "ti-marasa.jpeg",
+  "andre-asouman.jpg",
+  "slogan.jpg",
+  "guypson1.jpg",
+  "tsp.jpg",
+  "ange.jpg",
+
+  /* =======================================================
+     MORE KNOWN BSS1815 PHOTOS
+  ======================================================= */
+
+  "adan-signo.jpeg",
+  "blackson.jpeg",
+  "nadia-lafortune.jpg",
+  "macu1.jpg",
+  "pdg-ti-fre.jpg",
+  "mambo-fifi.jpg",
+  "roro-lajan.jpg",
+  "jeff-colin.jpg",
+  "may.jpg",
+  "sonsonn1.jpg",
+  "maximax-multi-serv.jpg",
+  "queen-naylove.jpg",
+  "anpere-ti-rat.jpg",
+  "maximax1.jpg",
+  "sinndy.jpg",
+  "one-love.jpg",
+  "ygens.jpg",
+  "prodin.jpeg",
+  "slogan1.jpg",
+  "odelinne.jpg",
+  "jij-mayan.jpg",
+  "ti-marasa-yo.jpg",
+  "baron-plenn-lan.jpeg",
+  "bouboul.jpeg",
+  "bawon-an!.jpeg",
+  "don-dodo.jpeg",
+  "doodly23.jpeg",
+  "elson2.jpeg",
+  "guypson.jpeg",
+  "karl-henry.jpeg",
+  "kriye-pou-fanm.jpeg",
+  "majis-junior.jpeg",
+  "mambo_fifi.jpeg",
+  "max-louis.jpeg",
+  "montinat.jpeg",
+  "michel-briyant.jpeg",
+  "nadege-b.jpeg",
+  "nnaylove.jpeg",
+  "ones-1.jpeg",
+  "paulema.jpeg",
+  "pdg-ti-rat.jpeg",
+  "prez-aly.jpeg",
+  "prez-papit.jpeg",
+  "roro-lajan.jpeg",
+  "synthia-jn-baptiste.jpeg",
+  "the-only-1.jpeg",
+  "ti-chery.jpeg",
+  "ti-reynold.jpeg",
+  "ti_la_france.jpeg",
+  "ti_marasa.jpeg",
+  "ti_papouche.jpeg",
+  "toto-senkant.jpeg",
+  "flore.jpeg",
+  "jij_mayan.jpeg",
+  "adia.jpeg",
+  "nnadia.png",
+  "roro-lajan2.jpeg",
+  "odeline.jpeg",
+  "dede.png",
+
+  /* =======================================================
+     VIDEOS
+  ======================================================= */
+
+  "the-change-is-commin.mp4",
+  "teamsanpresyon21.mp4",
+  "miami-on-the-move.mp4",
+  "koukou-return.mp4",
+  "store-front.mp4",
+  "boutique-bss.mp4",
+  "master-mind.mp4",
+  "ai-magazen.mp4",
+  "plan-2028.mp4",
+  "move-deba.mp4",
+
+  /* =======================================================
+     ADDITIONAL VIDEOS
+  ======================================================= */
+
+  "bssluxury-store.mp4",
+  "koukou-fly-stay.mp4",
+  "bss-luxury-store.mp4",
+  "dirijan-vizyone.mp4"
+
+];
+
+
+/* =========================================================
+   REMOVE EXACT DUPLICATES
+========================================================= */
+
+const mediaFiles = [
+  ...new Set(suppliedMedia)
+];
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function isVideo(file){
+
+  return /\.(mp4|webm|mov)$/i.test(file);
+
+}
+
+
+function pretty(file){
+
+  return file
+    .replace(/\.(jpg|jpeg|png|webp|mp4|webm|mov)$/i,"")
+    .replace(/[-_]+/g," ")
+    .replace(/\b\w/g,char=>char.toUpperCase());
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menu =
+document.getElementById("menu");
+
+const nav =
+document.getElementById("nav");
+
+
+menu.addEventListener("click",()=>{
+
+  nav.classList.toggle("open");
 
 });
 
-}
 
-
-/* OPEN OR CLOSE THE SELECTED MODULE */
-
-function toggleFile(id){
-
-const file =
-document.getElementById(id);
-
-if(file){
-file.classList.toggle("open");
-}
-
-}
-
-
-/* KEEP ALL SERVICE MODULES HIDDEN WHEN PAGE LOADS */
-
-document
-.querySelectorAll(".file")
-.forEach(function(file){
-
-file.classList.remove(
-"active",
-"open"
-);
-
-});
-
-
-/* SERVICE LOGOS AND CATEGORY LINKS */
-
-document
-.querySelectorAll(
-'.service-seal[href^="#mod"], .catmap-item[href^="#mod"]'
-)
-.forEach(function(button){
-
-button.addEventListener(
-"click",
-function(event){
-
-event.preventDefault();
-
-const targetId =
-this
-.getAttribute("href")
-.slice(1);
-
-const selectedFile =
-document.getElementById(targetId);
-
-if(selectedFile){
-
-showOnlyFile(targetId);
-
-selectedFile.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-}
-
-}
-);
-
-});
-
-
-/* MOBILE MENU */
-
-const menuBtn =
-document.getElementById("menuBtn");
-
-const mobileNav =
-document.getElementById("mobileNav");
-
-if(menuBtn && mobileNav){
-
-menuBtn.addEventListener(
-"click",
-function(){
-
-mobileNav.classList.toggle("open");
-
-}
-);
-
-mobileNav
+nav
 .querySelectorAll("a")
-.forEach(function(link){
+.forEach(link=>{
 
-link.addEventListener(
-"click",
-function(){
+  link.addEventListener("click",()=>{
 
-mobileNav.classList.remove("open");
+    nav.classList.remove("open");
 
-}
-);
+  });
 
 });
 
+
+/* =========================================================
+   SLIDESHOW ELEMENTS
+========================================================= */
+
+const stage =
+document.getElementById("stage");
+
+const dotsEl =
+document.getElementById("dots");
+
+const counter =
+document.getElementById("counter");
+
+const progress =
+document.getElementById("progress");
+
+const playPauseButton =
+document.getElementById("playPause");
+
+const soundButton =
+document.getElementById("sound");
+
+
+let slides = [];
+let dots = [];
+
+let current = 0;
+
+let timer = null;
+
+let autoplay = true;
+
+let muted = true;
+
+const PHOTO_TIME = 5000;
+
+const VIDEO_FALLBACK = 30000;
+
+
+/* =========================================================
+   REFRESH SLIDE REFERENCES
+========================================================= */
+
+function refreshSlides(){
+
+  slides =
+  Array.from(
+    stage.querySelectorAll(".slide")
+  );
+
+  dots =
+  Array.from(
+    dotsEl.querySelectorAll(".dot")
+  );
+
 }
 
 
-/* LANGUAGE TRANSLATIONS */
+/* =========================================================
+   REMOVE BROKEN MEDIA
+========================================================= */
 
-const translations={
+function removeBrokenSlide(slide){
 
-eng:{
-home:"HOME",
-modules:"MODULES",
-services:"SERVICES",
-ai:"AI CENTER",
-contact:"CONTACT",
-eyebrow:"Pine Hills, Orlando • Indianapolis • New York",
-title:'Your Trusted Partner for <em>Life in the USA</em>',
-lede:"Maximax Multi Services — Notary, Taxes, Immigration, EOIR+BIA, Insurance, Real Estate, Business Formation & more. All the services you need under one roof.",
-creole:"We speak Kreyòl, English and Español.",
-book:"Book Appointment",
-explore:"Explore Services",
-official:"15 OFFICIAL MODULES",
-description:"Professional services • Administrative assistance • Artificial intelligence • Digital support"
+  const slideId =
+  slide.dataset.id;
+
+
+  const dot =
+  dotsEl.querySelector(
+    `[data-for="${slideId}"]`
+  );
+
+
+  slide.remove();
+
+
+  if(dot){
+
+    dot.remove();
+
+  }
+
+
+  refreshSlides();
+
+
+  if(!slides.length){
+
+    counter.textContent =
+    "0 / 0";
+
+    progress.style.width =
+    "0%";
+
+    return;
+
+  }
+
+
+  if(current >= slides.length){
+
+    current = 0;
+
+  }
+
+
+  slides.forEach((item,index)=>{
+
+    item.classList.toggle(
+      "active",
+      index === current
+    );
+
+  });
+
+
+  dots.forEach((item,index)=>{
+
+    item.classList.toggle(
+      "active",
+      index === current
+    );
+
+  });
+
+
+  updateStatus();
+
+}
+
+
+/* =========================================================
+   BUILD SLIDES
+========================================================= */
+
+mediaFiles.forEach((file,index)=>{
+
+  const id =
+  "bss-media-" + index;
+
+
+  const slide =
+  document.createElement("div");
+
+
+  slide.className =
+  "slide" +
+  (index === 0 ? " active" : "");
+
+
+  slide.dataset.type =
+  isVideo(file)
+  ? "video"
+  : "image";
+
+
+  slide.dataset.id =
+  id;
+
+
+  if(isVideo(file)){
+
+    const video =
+    document.createElement("video");
+
+
+    video.src =
+    file;
+
+
+    video.preload =
+    "metadata";
+
+
+    video.playsInline =
+    true;
+
+
+    video.muted =
+    true;
+
+
+    video.controls =
+    false;
+
+
+    video.addEventListener(
+      "error",
+      ()=>{
+
+        removeBrokenSlide(
+          slide
+        );
+
+      }
+    );
+
+
+    video.addEventListener(
+      "ended",
+      ()=>{
+
+        if(autoplay){
+
+          nextSlide();
+
+        }
+
+      }
+    );
+
+
+    slide.appendChild(
+      video
+    );
+
+  }else{
+
+    const image =
+    document.createElement("img");
+
+
+    image.src =
+    file;
+
+
+    image.alt =
+    pretty(file) +
+    " — Briyant Solèy Signo 1815";
+
+
+    image.loading =
+    index < 6
+    ? "eager"
+    : "lazy";
+
+
+    image.addEventListener(
+      "error",
+      ()=>{
+
+        removeBrokenSlide(
+          slide
+        );
+
+      }
+    );
+
+
+    slide.appendChild(
+      image
+    );
+
+  }
+
+
+  const badge =
+  document.createElement("div");
+
+
+  badge.className =
+  "media-badge";
+
+
+  badge.textContent =
+  isVideo(file)
+  ? "🎥 BSS1815 VIDEO"
+  : "📸 BSS1815 COMMUNITY";
+
+
+  slide.appendChild(
+    badge
+  );
+
+
+  const caption =
+  document.createElement("div");
+
+
+  caption.className =
+  "slide-caption";
+
+
+  caption.innerHTML = `
+    <strong>${pretty(file)}</strong>
+    <span>BRIYANT SOLÈY SIGNO 1815</span>
+  `;
+
+
+  slide.appendChild(
+    caption
+  );
+
+
+  stage.appendChild(
+    slide
+  );
+
+
+  const dot =
+  document.createElement("button");
+
+
+  dot.className =
+  "dot" +
+  (index === 0 ? " active" : "");
+
+
+  dot.type =
+  "button";
+
+
+  dot.dataset.for =
+  id;
+
+
+  dot.title =
+  pretty(file);
+
+
+  dot.addEventListener(
+    "click",
+    ()=>{
+
+      refreshSlides();
+
+
+      const target =
+      stage.querySelector(
+        `[data-id="${id}"]`
+      );
+
+
+      const targetIndex =
+      slides.indexOf(
+        target
+      );
+
+
+      if(targetIndex >= 0){
+
+        goTo(
+          targetIndex
+        );
+
+      }
+
+    }
+  );
+
+
+  dotsEl.appendChild(
+    dot
+  );
+
+});
+
+
+refreshSlides();
+
+
+/* =========================================================
+   STOP ALL SLIDESHOW VIDEOS
+========================================================= */
+
+function stopVideos(){
+
+  slides.forEach(slide=>{
+
+    const video =
+    slide.querySelector("video");
+
+
+    if(video){
+
+      video.pause();
+
+
+      try{
+
+        video.currentTime =
+        0;
+
+      }catch(error){}
+
+    }
+
+  });
+
+}
+
+
+/* =========================================================
+   UPDATE COUNTER
+========================================================= */
+
+function updateStatus(){
+
+  refreshSlides();
+
+
+  if(!slides.length){
+
+    counter.textContent =
+    "0 / 0";
+
+
+    progress.style.width =
+    "0%";
+
+
+    return;
+
+  }
+
+
+  counter.textContent =
+  `${current + 1} / ${slides.length}`;
+
+
+  progress.style.width =
+  `${
+    (
+      (current + 1)
+      /
+      slides.length
+    )
+    *
+    100
+  }%`;
+
+}
+
+
+/* =========================================================
+   AUTOPLAY
+========================================================= */
+
+function schedule(){
+
+  clearTimeout(
+    timer
+  );
+
+
+  if(
+    !autoplay
+    ||
+    !slides.length
+  ){
+
+    return;
+
+  }
+
+
+  const slide =
+  slides[current];
+
+
+  if(!slide){
+
+    return;
+
+  }
+
+
+  if(
+    slide.dataset.type ===
+    "video"
+  ){
+
+    const video =
+    slide.querySelector("video");
+
+
+    if(!video){
+
+      timer =
+      setTimeout(
+        nextSlide,
+        PHOTO_TIME
+      );
+
+      return;
+
+    }
+
+
+    video.muted =
+    muted;
+
+
+    try{
+
+      video.currentTime =
+      0;
+
+    }catch(error){}
+
+
+    const playPromise =
+    video.play();
+
+
+    if(playPromise){
+
+      playPromise.catch(()=>{
+
+        timer =
+        setTimeout(
+          nextSlide,
+          PHOTO_TIME
+        );
+
+      });
+
+    }
+
+
+    timer =
+    setTimeout(
+      nextSlide,
+      VIDEO_FALLBACK
+    );
+
+  }else{
+
+    timer =
+    setTimeout(
+      nextSlide,
+      PHOTO_TIME
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   GO TO SLIDE
+========================================================= */
+
+function goTo(index){
+
+  refreshSlides();
+
+
+  if(!slides.length){
+
+    return;
+
+  }
+
+
+  clearTimeout(
+    timer
+  );
+
+
+  stopVideos();
+
+
+  slides[current]
+  ?.classList.remove(
+    "active"
+  );
+
+
+  dots[current]
+  ?.classList.remove(
+    "active"
+  );
+
+
+  current =
+  (
+    index
+    +
+    slides.length
+  )
+  %
+  slides.length;
+
+
+  slides[current]
+  ?.classList.add(
+    "active"
+  );
+
+
+  dots[current]
+  ?.classList.add(
+    "active"
+  );
+
+
+  updateStatus();
+
+  schedule();
+
+}
+
+
+function nextSlide(){
+
+  goTo(
+    current + 1
+  );
+
+}
+
+
+function prevSlide(){
+
+  goTo(
+    current - 1
+  );
+
+}
+
+
+document
+.getElementById("next")
+.addEventListener(
+  "click",
+  nextSlide
+);
+
+
+document
+.getElementById("prev")
+.addEventListener(
+  "click",
+  prevSlide
+);
+
+
+/* =========================================================
+   PLAY / PAUSE
+========================================================= */
+
+playPauseButton
+.addEventListener(
+  "click",
+  ()=>{
+
+    autoplay =
+    !autoplay;
+
+
+    if(autoplay){
+
+      playPauseButton.textContent =
+      "⏸ PAUSE";
+
+
+      schedule();
+
+    }else{
+
+      playPauseButton.textContent =
+      "▶ PLAY";
+
+
+      clearTimeout(
+        timer
+      );
+
+
+      slides[current]
+      ?.querySelector("video")
+      ?.pause();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   SOUND
+========================================================= */
+
+soundButton
+.addEventListener(
+  "click",
+  ()=>{
+
+    muted =
+    !muted;
+
+
+    soundButton.textContent =
+    muted
+    ? "🔇 VIDEO"
+    : "🔊 VIDEO";
+
+
+    slides.forEach(slide=>{
+
+      const video =
+      slide.querySelector("video");
+
+
+      if(video){
+
+        video.muted =
+        muted;
+
+      }
+
+    });
+
+  }
+);
+
+
+/* =========================================================
+   SWIPE
+========================================================= */
+
+const slideshow =
+document.getElementById("slideshow");
+
+let touchStartX =
+0;
+
+
+slideshow.addEventListener(
+  "touchstart",
+  event=>{
+
+    touchStartX =
+    event.changedTouches[0]
+    .clientX;
+
+  },
+  {
+    passive:true
+  }
+);
+
+
+slideshow.addEventListener(
+  "touchend",
+  event=>{
+
+    const touchEndX =
+    event.changedTouches[0]
+    .clientX;
+
+
+    const difference =
+    touchStartX -
+    touchEndX;
+
+
+    if(
+      Math.abs(
+        difference
+      )
+      <
+      50
+    ){
+
+      return;
+
+    }
+
+
+    if(
+      difference > 0
+    ){
+
+      nextSlide();
+
+    }else{
+
+      prevSlide();
+
+    }
+
+  },
+  {
+    passive:true
+  }
+);
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      event.key ===
+      "ArrowRight"
+    ){
+
+      nextSlide();
+
+    }
+
+
+    if(
+      event.key ===
+      "ArrowLeft"
+    ){
+
+      prevSlide();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateStatus();
+
+schedule();
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+const galleryGrid =
+document.getElementById(
+  "galleryGrid"
+);
+
+
+mediaFiles
+.filter(
+  file =>
+  !isVideo(file)
+)
+.forEach(file=>{
+
+  const card =
+  document.createElement(
+    "div"
+  );
+
+
+  card.className =
+  "gallery-card";
+
+
+  const image =
+  document.createElement(
+    "img"
+  );
+
+
+  image.src =
+  file;
+
+
+  image.alt =
+  pretty(file);
+
+
+  image.loading =
+  "lazy";
+
+
+  image.addEventListener(
+    "error",
+    ()=>{
+
+      card.remove();
+
+    }
+  );
+
+
+  const caption =
+  document.createElement(
+    "div"
+  );
+
+
+  caption.className =
+  "gallery-caption";
+
+
+  caption.innerHTML =
+  `<strong>${pretty(file)}</strong>`;
+
+
+  card.appendChild(
+    image
+  );
+
+
+  card.appendChild(
+    caption
+  );
+
+
+  galleryGrid.appendChild(
+    card
+  );
+
+});
+
+
+/* =========================================================
+   MEDIA CENTER
+========================================================= */
+
+const mediaGrid =
+document.getElementById(
+  "mediaGrid"
+);
+
+
+const mediaCenterVideos = [
+
+  "bssluxury-store.mp4",
+  "bss-luxury-store.mp4",
+  "koukou-fly-stay.mp4",
+  "miami-on-the-move.mp4",
+  "dirijan-vizyone.mp4",
+  "plan-2028.mp4",
+  "the-change-is-commin.mp4",
+  "teamsanpresyon21.mp4",
+  "koukou-return.mp4",
+  "store-front.mp4",
+  "boutique-bss.mp4",
+  "master-mind.mp4",
+  "ai-magazen.mp4",
+  "move-deba.mp4"
+
+];
+
+
+[
+  ...new Set(
+    mediaCenterVideos
+  )
+]
+.forEach(file=>{
+
+  const card =
+  document.createElement(
+    "div"
+  );
+
+
+  card.className =
+  "media-card";
+
+
+  const video =
+  document.createElement(
+    "video"
+  );
+
+
+  video.controls =
+  true;
+
+
+  video.playsInline =
+  true;
+
+
+  video.preload =
+  "metadata";
+
+
+  video.src =
+  file;
+
+
+  video.addEventListener(
+    "error",
+    ()=>{
+
+      card.remove();
+
+    }
+  );
+
+
+  const text =
+  document.createElement(
+    "div"
+  );
+
+
+  text.className =
+  "media-text";
+
+
+  text.innerHTML = `
+    <h3>${pretty(file)}</h3>
+    <p>BSS1815 Media</p>
+  `;
+
+
+  card.appendChild(
+    video
+  );
+
+
+  card.appendChild(
+    text
+  );
+
+
+  mediaGrid.appendChild(
+    card
+  );
+
+});
+
+
+/* =========================================================
+   TRANSLATIONS
+========================================================= */
+
+const translations = {
+
+ht:{
+
+official:
+"PLATFÒM OFISYÈL",
+
+home:
+"AKÈY",
+
+about:
+"SOU NOU",
+
+community:
+"KOMINOTE",
+
+gallery:
+"GALERI",
+
+media:
+"MEDIA",
+
+legacy:
+"ERITAJ",
+
+social:
+"SOCIAL",
+
+contact:
+"KONTAK",
+
+heroTitle:
+"BRIYANT SOLÈY SIGNO 1815",
+
+heroSubtitle:
+"YON ERITAJ • YON KOMINOTE • YON VIZYON",
+
+heroText:
+"Briyant Solèy Signo 1815 se yon kominote, yon fanmi, yon eritaj ak yon mouvman ki kontinye mete moun, kilti, mizik ak memwa Signo an valè.",
+
+enterCommunity:
+"ANTRE NAN KOMINOTE A",
+
+viewGallery:
+"WÈ GALERI A",
+
+aboutTitle:
+"SOU BSS1815",
+
+aboutText:
+"Yon espas pou prezève istwa, kilti, manm, mizisyen, dirijan ak fanatik Briyant Solèy Signo 1815.",
+
+vision:
+"VIZYON",
+
+visionText:
+"Konekte jenerasyon pase, prezan ak lavni.",
+
+mission:
+"MISYON",
+
+missionText:
+"Prezève ak mete eritaj kominote a an valè.",
+
+culture:
+"KILTI",
+
+cultureText:
+"Mizik, memwa, tradisyon ak fyète.",
+
+future:
+"LAVNI",
+
+futureText:
+"Bati pou jodi a. Pare pou demen.",
+
+communityTitle:
+"KOMINOTE BSS1815",
+
+communityText:
+"Manm, fanatik, mizisyen, dirijan, foto, videyo, memwa ak eritaj BSS1815.",
+
+galleryTitle:
+"GALERI",
+
+galleryText:
+"Foto kominote, manm, fanatik, dirijan ak mizisyen BSS1815.",
+
+mediaTitle:
+"MEDIA CENTER",
+
+mediaText:
+"Videyo, pwojè, aktivite ak prezantasyon BSS1815.",
+
+legacyTitle:
+"FANATIK & ERITAJ",
+
+legacyText:
+"Chak manm, mizisyen, dirijan ak fanatik gen yon plas nan istwa BSS1815.",
+
+leaders:
+"DIRIJAN",
+
+leadersText:
+"Moun ki sèvi, dirije epi ede mouvman an avanse.",
+
+musicians:
+"MIZISYEN",
+
+musiciansText:
+"Son, ritm, tradisyon ak talan BSS1815.",
+
+supporters:
+"FANATIK",
+
+supportersText:
+"Fanatik yo se fòs, chalè ak lavi mouvman an.",
+
+heritage:
+"ERITAJ",
+
+heritageText:
+"Foto, moun, memwa ak jenerasyon nou dwe prezève.",
+
+socialTitle:
+"REZO SOSYAL",
+
+socialText:
+"Swiv Briyant Solèy Signo 1815 sou rezo sosyal yo.",
+
+contactTitle:
+"KONTAK",
+
+contactText:
+"Kontakte Briyant Solèy Signo 1815 pou enfòmasyon, aktivite ak kolaborasyon.",
+
+footerText:
+"Platfòm ofisyèl Briyant Solèy Signo 1815 pou kominote, kilti, medya, fanatik ak eritaj.",
+
+navigation:
+"NAVIGASYON",
+
+connect:
+"KONEKTE"
+
 },
 
-kre:{
-home:"AKÈY",
-modules:"MODIL YO",
-services:"SÈVIS YO",
-ai:"SANT AI",
-contact:"KONTAK",
-eyebrow:"Pine Hills, Orlando • Indianapolis • New York",
-title:'Patnè ou ka fè konfyans pou <em>lavi Ozetazini</em>',
-lede:"Maximax Multi Services — Notè, Taks, Imigrasyon, EOIR+BIA, Asirans, Imobilye, Kreyasyon Biznis ak plis ankò. Tout sèvis ou bezwen anba yon sèl do-kay.",
-creole:"Nou pale Kreyòl, English ak Español.",
-book:"Pran Randevou",
-explore:"Gade Sèvis Yo",
-official:"15 MODIL OFISYÈL",
-description:"Sèvis pwofesyonèl • Asistans administratif • Entèlijans atifisyèl • Sipò dijital"
+
+en:{
+
+official:
+"OFFICIAL PLATFORM",
+
+home:
+"HOME",
+
+about:
+"ABOUT",
+
+community:
+"COMMUNITY",
+
+gallery:
+"GALLERY",
+
+media:
+"MEDIA",
+
+legacy:
+"LEGACY",
+
+social:
+"SOCIAL",
+
+contact:
+"CONTACT",
+
+heroTitle:
+"BRIYANT SOLEY SIGNO 1815",
+
+heroSubtitle:
+"ONE LEGACY • ONE COMMUNITY • ONE VISION",
+
+heroText:
+"Briyant Soley Signo 1815 is a community, a family, a legacy and a movement that continues to celebrate the people, culture, music and memory of Signo.",
+
+enterCommunity:
+"ENTER THE COMMUNITY",
+
+viewGallery:
+"VIEW GALLERY",
+
+aboutTitle:
+"ABOUT BSS1815",
+
+aboutText:
+"A space dedicated to preserving the history, culture, members, musicians, leaders and supporters of Briyant Soley Signo 1815.",
+
+vision:
+"VISION",
+
+visionText:
+"Connect past, present and future generations.",
+
+mission:
+"MISSION",
+
+missionText:
+"Preserve and highlight the community legacy.",
+
+culture:
+"CULTURE",
+
+cultureText:
+"Music, memory, traditions and pride.",
+
+future:
+"FUTURE",
+
+futureText:
+"Built for today. Ready for tomorrow.",
+
+communityTitle:
+"BSS1815 COMMUNITY",
+
+communityText:
+"Members, supporters, musicians, leaders, photos, videos, memories and BSS1815 heritage.",
+
+galleryTitle:
+"GALLERY",
+
+galleryText:
+"Photos of the BSS1815 community, members, supporters, leaders and musicians.",
+
+mediaTitle:
+"MEDIA CENTER",
+
+mediaText:
+"BSS1815 videos, projects, activities and presentations.",
+
+legacyTitle:
+"SUPPORTERS & LEGACY",
+
+legacyText:
+"Every member, musician, leader and supporter has a place in the BSS1815 story.",
+
+leaders:
+"LEADERS",
+
+leadersText:
+"People who serve, lead and help move the movement forward.",
+
+musicians:
+"MUSICIANS",
+
+musiciansText:
+"Sound, rhythm, traditions and BSS1815 talent.",
+
+supporters:
+"SUPPORTERS",
+
+supportersText:
+"Supporters are the strength, warmth and life of the movement.",
+
+heritage:
+"LEGACY",
+
+heritageText:
+"Photos, people, memories and generations to preserve.",
+
+socialTitle:
+"SOCIAL NETWORKS",
+
+socialText:
+"Follow Briyant Soley Signo 1815 across social networks.",
+
+contactTitle:
+"CONTACT",
+
+contactText:
+"Contact Briyant Soley Signo 1815 for information, activities and collaboration.",
+
+footerText:
+"The official Briyant Soley Signo 1815 platform for community, culture, media, supporters and legacy.",
+
+navigation:
+"NAVIGATION",
+
+connect:
+"CONNECT"
+
 },
 
-esp:{
-home:"INICIO",
-modules:"MÓDULOS",
-services:"SERVICIOS",
-ai:"CENTRO IA",
-contact:"CONTACTO",
-eyebrow:"Pine Hills, Orlando • Indianápolis • Nueva York",
-title:'Su socio de confianza para <em>la vida en Estados Unidos</em>',
-lede:"Maximax Multi Services — Notaría, Impuestos, Inmigración, EOIR+BIA, Seguros, Bienes Raíces, Formación de Empresas y más. Todos los servicios que necesita bajo un mismo techo.",
-creole:"Hablamos Kreyòl, English y Español.",
-book:"Reservar Cita",
-explore:"Explorar Servicios",
-official:"15 MÓDULOS OFICIALES",
-description:"Servicios profesionales • Asistencia administrativa • Inteligencia artificial • Soporte digital"
+
+es:{
+
+official:
+"PLATAFORMA OFICIAL",
+
+home:
+"INICIO",
+
+about:
+"NOSOTROS",
+
+community:
+"COMUNIDAD",
+
+gallery:
+"GALERÍA",
+
+media:
+"MEDIOS",
+
+legacy:
+"LEGADO",
+
+social:
+"REDES",
+
+contact:
+"CONTACTO",
+
+heroTitle:
+"BRIYANT SOLEY SIGNO 1815",
+
+heroSubtitle:
+"UN LEGADO • UNA COMUNIDAD • UNA VISIÓN",
+
+heroText:
+"Briyant Soley Signo 1815 es una comunidad, una familia, un legado y un movimiento que continúa valorizando a las personas, la cultura, la música y la memoria de Signo.",
+
+enterCommunity:
+"ENTRAR EN LA COMUNIDAD",
+
+viewGallery:
+"VER GALERÍA",
+
+aboutTitle:
+"SOBRE BSS1815",
+
+aboutText:
+"Un espacio dedicado a preservar la historia, la cultura, los miembros, los músicos, los dirigentes y los seguidores de Briyant Soley Signo 1815.",
+
+vision:
+"VISIÓN",
+
+visionText:
+"Conectar las generaciones pasadas, presentes y futuras.",
+
+mission:
+"MISIÓN",
+
+missionText:
+"Preservar y destacar el legado de la comunidad.",
+
+culture:
+"CULTURA",
+
+cultureText:
+"Música, memoria, tradiciones y orgullo.",
+
+future:
+"FUTURO",
+
+futureText:
+"Construido para hoy. Preparado para mañana.",
+
+communityTitle:
+"COMUNIDAD BSS1815",
+
+communityText:
+"Miembros, seguidores, músicos, dirigentes, fotos, videos, recuerdos y legado BSS1815.",
+
+galleryTitle:
+"GALERÍA",
+
+galleryText:
+"Fotos de la comunidad, los miembros, los seguidores, los dirigentes y los músicos BSS1815.",
+
+mediaTitle:
+"CENTRO DE MEDIOS",
+
+mediaText:
+"Videos, proyectos, actividades y presentaciones BSS1815.",
+
+legacyTitle:
+"SEGUIDORES & LEGADO",
+
+legacyText:
+"Cada miembro, músico, dirigente y seguidor tiene un lugar en la historia de BSS1815.",
+
+leaders:
+"DIRIGENTES",
+
+leadersText:
+"Personas que sirven, dirigen y ayudan al movimiento a avanzar.",
+
+musicians:
+"MÚSICOS",
+
+musiciansText:
+"Sonido, ritmo, tradiciones y talento BSS1815.",
+
+supporters:
+"SEGUIDORES",
+
+supportersText:
+"Los seguidores son la fuerza, el calor y la vida del movimiento.",
+
+heritage:
+"LEGADO",
+
+heritageText:
+"Fotos, personas, recuerdos y generaciones que debemos preservar.",
+
+socialTitle:
+"REDES SOCIALES",
+
+socialText:
+"Sigue a Briyant Soley Signo 1815 en las redes sociales.",
+
+contactTitle:
+"CONTACTO",
+
+contactText:
+"Contacta a Briyant Soley Signo 1815 para información, actividades y colaboraciones.",
+
+footerText:
+"Plataforma oficial de Briyant Soley Signo 1815 para la comunidad, la cultura, los medios, los seguidores y el legado.",
+
+navigation:
+"NAVEGACIÓN",
+
+connect:
+"CONECTAR"
+
 }
 
 };
 
 
-/* APPLY SELECTED LANGUAGE */
+/* =========================================================
+   LANGUAGE SYSTEM — ENG / ESP / KRE
+========================================================= */
 
 function setLanguage(lang){
 
-const translation =
-translations[lang] || translations.eng;
+  const dictionary =
+  translations[lang]
+  ||
+  translations.ht;
 
-document.documentElement.lang =
-lang === "kre"
-? "ht"
-: lang === "esp"
-? "es"
-: "en";
 
-document
-.querySelectorAll("[data-nav]")
-.forEach(function(link){
+  document.documentElement.lang =
+  lang;
 
-link.textContent =
-translation[link.dataset.nav];
 
-});
+  document
+  .querySelectorAll(
+    "[data-i18n]"
+  )
+  .forEach(element=>{
 
-document.querySelector(".eyebrow").textContent =
-translation.eyebrow;
+    const key =
+    element.dataset.i18n;
 
-document.querySelector(".hero h1").innerHTML =
-translation.title;
 
-document.querySelector(".lede").textContent =
-translation.lede;
+    if(
+      Object.prototype.hasOwnProperty.call(
+        dictionary,
+        key
+      )
+    ){
 
-document.querySelector(".creole").textContent =
-translation.creole;
+      element.textContent =
+      dictionary[key];
 
-document.querySelector(".btn-primary").textContent =
-translation.book;
+    }
 
-document.querySelector(".btn-ghost").textContent =
-translation.explore;
+  });
 
-document.querySelector(".module-heading h2").textContent =
-translation.official;
 
-document.querySelector(".module-heading p").textContent =
-translation.description;
+  document
+  .querySelectorAll(
+    ".lang"
+  )
+  .forEach(button=>{
 
-document
-.querySelectorAll(".lang-btn")
-.forEach(function(button){
+    button.classList.toggle(
+      "active",
+      button.dataset.lang === lang
+    );
 
-button.classList.toggle(
-"active",
-button.dataset.lang === lang
-);
+  });
 
-});
 
-localStorage.setItem(
-"maximaxLanguage",
-lang
-);
+  /* KEEP LABELS EXACTLY AS REQUESTED */
+
+  const englishButton =
+  document.querySelector(
+    '[data-lang="en"]'
+  );
+
+
+  const spanishButton =
+  document.querySelector(
+    '[data-lang="es"]'
+  );
+
+
+  const creoleButton =
+  document.querySelector(
+    '[data-lang="ht"]'
+  );
+
+
+  if(englishButton){
+
+    englishButton.textContent =
+    "ENG";
+
+  }
+
+
+  if(spanishButton){
+
+    spanishButton.textContent =
+    "ESP";
+
+  }
+
+
+  if(creoleButton){
+
+    creoleButton.textContent =
+    "KRE";
+
+  }
+
+
+  localStorage.setItem(
+    "bssLanguage",
+    lang
+  );
 
 }
 
 
-/* LANGUAGE BUTTON EVENTS */
+/* =========================================================
+   LANGUAGE BUTTONS
+========================================================= */
 
 document
-.querySelectorAll(".lang-btn")
-.forEach(function(button){
+.querySelectorAll(
+  ".lang"
+)
+.forEach(button=>{
 
-button.addEventListener(
-"click",
-function(){
+  button.addEventListener(
+    "click",
+    ()=>{
 
-setLanguage(
-this.dataset.lang
-);
+      setLanguage(
+        button.dataset.lang
+      );
 
-}
-);
+    }
+  );
 
 });
 
 
-/* RESTORE SAVED LANGUAGE */
-
 setLanguage(
-localStorage.getItem("maximaxLanguage") || "eng"
+  localStorage.getItem(
+    "bssLanguage"
+  )
+  ||
+  "ht"
 );
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const pageSections =
+document.querySelectorAll(
+  "main section[id]"
+);
+
+
+const navLinks =
+document.querySelectorAll(
+  "nav a"
+);
+
+
+window.addEventListener(
+  "scroll",
+  ()=>{
+
+    let currentSection =
+    "home";
+
+
+    pageSections.forEach(section=>{
+
+      if(
+        window.scrollY
+        >=
+        section.offsetTop
+        -
+        160
+      ){
+
+        currentSection =
+        section.id;
+
+      }
+
+    });
+
+
+    navLinks.forEach(link=>{
+
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href")
+        ===
+        "#"
+        +
+        currentSection
+      );
+
+    });
+
+  },
+  {
+    passive:true
+  }
+);
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document
+.getElementById("year")
+.textContent =
+new Date().getFullYear();
 
 </script>
 
