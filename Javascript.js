@@ -2,7 +2,7 @@
 // Firebase BSS 1815 OFFICIAL CONFIG
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, Timestamp, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, Timestamp, collection, addDoc, query, where, getDocs, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, signOut, updateEmail, updatePassword, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
@@ -128,4 +128,59 @@ export async function ajouteAdmin(uid, role, whatsapp) {
 // 3. Dezaktive notifikasyon yon admin (pa resevwa anko)
 export async function dezaktiveAdmin(uid) {
   await updateDoc(doc(db, "admins", uid), { active: false });
-  }
+}
+
+// ---------- WHATSAPP INCOMING - TWILIO SANDBOX +14155238886 ----------
+// Koleksyon: "whatsapp_messages" (tout mesaj k ap antre soti nan Twilio webhook)
+
+// 4. Li tout mesaj WhatsApp ki save nan Firestore (pou dashboard admin)
+export async function getWhatsAppMessages(lim = 50) {
+  const q = query(
+    collection(db, "whatsapp_messages"),
+    orderBy("createdAt", "desc"),
+    limit(lim)
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+}
+
+// 5. Koute mesaj WhatsApp an dirèk (real-time pou dashboard)
+export function listenWhatsAppMessages(callback, lim = 50) {
+  const q = query(
+    collection(db, "whatsapp_messages"),
+    orderBy("createdAt", "desc"),
+    limit(lim)
+  );
+  return onSnapshot(q, (snap) => {
+    const msgs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    callback(msgs);
+  });
+}
+
+// 6. Save yon mesaj WhatsApp manyèlman (pou tès san webhook)
+export async function saveIncomingWhatsApp({ from, body, medias = [] }) {
+  const messageSid = "MANUAL-" + Date.now();
+  await setDoc(doc(db, "whatsapp_messages", messageSid), {
+    messageSid: messageSid,
+    from: from || "",
+    body: body || "",
+    medias: medias,
+    numMedia: medias.length,
+    hasMedia: medias.length > 0,
+    source: "manual",
+    createdAt: Timestamp.now()
+  });
+  return messageSid;
+}
+
+// 7. Voye yon mesaj WhatsApp via ke (pou Cloud Function voye li ak Twilio)
+export async function queueWhatsAppMessage(to, message) {
+  const ref = await addDoc(collection(db, "wa_queue"), {
+    to: to,
+    message: message,
+    channel: "whatsapp",
+    status: "pending",
+    createdAt: Timestamp.now()
+  });
+  return ref.id;
+}
