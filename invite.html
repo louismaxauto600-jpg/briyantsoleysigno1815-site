@@ -48,7 +48,7 @@ async function init(){
 
   if(!code){
     loader.style.display='none';
-    msg.textContent='Kod envitasyon manke.';
+    msg.textContent='Kòd envitasyon manke.';
     result.classList.remove('hidden');
     result.innerHTML='<div class="error">Link sa a pa valid. Mande yon nouvo link.</div>';
     return;
@@ -60,13 +60,13 @@ async function init(){
     msg.textContent='Envitasyon aksepte!';
     result.classList.remove('hidden');
     const dest = SITE_PAGES[data.site] || '/index.html';
-    result.innerHTML = '<div class="success">Byenveni! Ou gen akse <b>' + data.site + '</b> kom animate (6 edtan).<br><a class="btn" href="' + dest + '">Antre kounye a</a></div>';
-    setTimeout(function(){ window.location.href = dest; }, 2500);
+    result.innerHTML = `<div class="success">Byenveni! Ou gen aksè <b>${data.site}</b> kòm animatè (6 èdtan).<br><a class="btn" href="${dest}">Antre kounye a</a></div>`;
+    setTimeout(()=>{ window.location.href = dest; }, 2500);
   }catch(e){
     loader.style.display='none';
     msg.textContent='Envitasyon echwe.';
     result.classList.remove('hidden');
-    result.innerHTML = '<div class="error">' + e.message + '</div>';
+    result.innerHTML = `<div class="error">${e.message}</div>`;
   }
 }
 init();
