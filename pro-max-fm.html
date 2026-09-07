@@ -1,143 +1,46 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BSS1815 PRO-MAX-DMP</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX FM</title>
+<style>
+  body{font-family:Arial,sans-serif;background:#000;color:#ffb36b;text-align:center;padding:40px;margin:0}
+  h1{color:#ff7300;font-size:42px}
+  .player{background:#0b0500;border:2px solid #ff7300;border-radius:20px;padding:35px;max-width:500px;margin:30px auto}
+  .play-btn{width:90px;height:90px;border-radius:50%;background:#ff7300;color:#000;border:0;font-size:36px;cursor:pointer;margin:15px}
+  .play-btn:hover{transform:scale(1.05)}
+  .live{display:inline-block;background:#c00;color:#fff;padding:5px 15px;border-radius:999px;font-weight:900;font-size:13px;margin-bottom:10px}
+  audio{width:100%;margin-top:15px}
+  a{color:#ff7300}
+  .back{margin-top:25px;display:block}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 </head>
-<a href="latest-news.html" class="btn">Latest News</a>
 <body>
-
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">BSS1815 PRO-MAX-DMP</div>
-
-      <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#modules">Modules</a></li>
-        <li><a href="#fm">PRO-MAX FM</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <div class="lang">
-        <button>KRE</button>
-        <button>ENG</button>
-        <button>FRA</button>
-      </div>
-    </nav>
-<a href="latest-news.html">Latest News</a>
-    <section id="home" class="hero-content">
-      <h1>BSS1815 PRO-MAX-DMP</h1>
-      <h2>DEVAN DEVAN NÈT. PARE POU DEMEN.</h2>
-      <p>
-        Platfòm dijital modèn pou jesyon kominotè, kominikasyon,
-        evènman, dokiman, AI, CRM, ak medya ofisyèl PRO-MAX-DMP FM.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#modules" class="btn">Explore Modules</a>
-        <a href="#fm" class="btn btn-dark">Listen Live</a>
-      </div>
-    </section>
-  </header>
-
-  <main>
-
-    <section id="modules" class="section">
-      <h2>8 MODIL OFISYÈL YO</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>AI CENTER</h3>
-          <p>AI Assistant, AI Voice, AI Content Generator.</p>
-        </div>
-
-        <div class="card">
-          <h3>CRM SYSTEM</h3>
-          <p>Jesyon manm, fanatik, mizisyen, patnè ak kontak.</p>
-        </div>
-
-        <div class="card">
-          <h3>COMMUNICATION CENTER</h3>
-          <p>Anons lanmò, birthday, alèt, nòt ofisyèl ak mesaj kominotè.</p>
-        </div>
-
-        <div class="card">
-          <h3>FLYER STUDIO</h3>
-          <p>Kreye afich, bannè, flyers, sètifika ak medya vizyèl.</p>
-        </div>
-
-        <div class="card">
-          <h3>DIGITAL REGISTRY</h3>
-          <p>Dosye manm, mizisyen, fanatik, ti machann ak kominote.</p>
-        </div>
-
-        <div class="card">
-          <h3>EVENT MANAGEMENT</h3>
-          <p>Kalandriye, evènman, reyinyon, rara, tikè ak planning.</p>
-        </div>
-
-        <div class="card">
-          <h3>DOCUMENT CENTER</h3>
-          <p>PDF, kontra, achiv, dokiman ofisyèl ak fichye administrasyon.</p>
-        </div>
-
-        <div class="card highlight">
-          <h3>PRO-MAX-DMP FM</h3>
-          <p>Live Radio, Podcast, Entèvyou, Replay, AI Radio Studio.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="fm" class="section fm-section">
-      <h2>PRO-MAX-DMP FM</h2>
-      <h3>Vwa Dijital Kominote a</h3>
-
-      <p>
-        PRO-MAX-DMP FM se modil medya ofisyèl ki entegre andedan
-        BSS1815 PRO-MAX-DMP pou live radio, podcast, anons kominotè,
-        entèvyou, emisyon, ak difizyon evènman.
-      </p>
-
-      <div class="fm-box">
-        <h3>LIVE RADIO STATUS</h3>
-        <p class="onair">ON AIR / OFF AIR</p>
-
-        <audio controls>
-          <source src="#" type="audio/mpeg">
-          Your browser does not support the audio player.
-        </audio>
-
-        <br><br>
-        <a href="#" class="btn">Listen Live</a>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <h2>ABOUT THE PLATFORM</h2>
-      <p>
-        BSS1815 PRO-MAX-DMP se yon ekosistèm dijital ki fèt pou ede
-        kominote a jere enfòmasyon, kominikasyon, dokiman, evènman,
-        medya, ak sèvis administratif nan yon sèl platfòm modèn.
-      </p>
-    </section>
-
-    <section id="contact" class="section contact">
-      <h2>CONTACT</h2>
-      <p>Email: your-email@example.com</p>
-      <p>WhatsApp: Your WhatsApp Number</p>
-      <p>Website: Your Website Link</p>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>
-      © 2026 BSS1815 PRO-MAX-DMP | DEVAN DEVAN NÈT. PARE POU DEMEN.
-    </p>
-  </footer>
-
+<h1>📻 PRO-MAX FM</h1>
+<div class="player">
+  <span class="live">● LIVE</span>
+  <h2 style="color:#ff7300">BSS1815 Radio</h2>
+  <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+  <p id="status">Peze pou koute</p>
+  <audio id="radioPlayer" preload="none">
+    <source src="https://ice1.somafm.com/groovesalad-128-mp3" type="audio/mpeg">
+  </audio>
+</div>
+<a class="back" href="index.html#promax">← Tounen</a>
+<script src="app.js"></script>
+<script>
+guardPage();
+const player = document.getElementById('radioPlayer');
+const btn = document.getElementById('playBtn');
+const status = document.getElementById('status');
+function togglePlay(){
+  if(player.paused){ player.play(); btn.textContent = '⏸'; status.textContent = 'Ap jwe... 🎶'; }
+  else{ player.pause(); btn.textContent = '▶'; status.textContent = 'Peze pou koute'; }
+}
+player.onerror = function(){ status.textContent = '⚠️ Stream lan pa disponib pou kounye a'; };
+</script>
 </body>
 </html>
