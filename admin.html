@@ -3,263 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSS1815 ADMIN DASHBOARD</title>
-
+<title>ADMIN — BSS1815</title>
 <style>
-:root{
-  --orange:#ff7a00;
-  --black:#000;
-  --dark:#111;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#000;
-  color:#fff;
-}
-
-.sidebar{
-  position:fixed;
-  left:0;
-  top:0;
-  width:260px;
-  height:100vh;
-  background:#050505;
-  border-right:2px solid var(--orange);
-  padding:20px;
-  overflow:auto;
-}
-
-.logo{
-  width:180px;
-  display:block;
-  margin:0 auto 25px;
-}
-
-.menu{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.menu a,
-.menu button{
-  background:#111;
-  border:1px solid var(--orange);
-  color:#fff;
-  text-decoration:none;
-  padding:14px;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
-  text-align:left;
-}
-
-.menu a:hover,
-.menu button:hover{
-  background:var(--orange);
-  color:#000;
-}
-
-.main{
-  margin-left:260px;
-  padding:30px;
-}
-
-.banner{
-  background:linear-gradient(135deg,#000,#1a1a1a,#ff7a00);
-  border:2px solid var(--orange);
-  border-radius:16px;
-  padding:30px;
-  margin-bottom:30px;
-}
-
-.banner h1{
-  color:var(--orange);
-  margin-bottom:10px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:#111;
-  border:1px solid var(--orange);
-  border-radius:12px;
-  padding:20px;
-}
-
-.card h2{
-  color:var(--orange);
-  margin-bottom:10px;
-}
-
-.card p{
-  line-height:1.6;
-  margin-bottom:15px;
-}
-
-.card a{
-  display:inline-block;
-  padding:12px 18px;
-  background:var(--orange);
-  color:#000;
-  font-weight:bold;
-  border-radius:8px;
-  text-decoration:none;
-}
-
-.card a:hover{
-  opacity:.9;
-}
-
-.footer{
-  margin-top:40px;
-  text-align:center;
-  color:#ccc;
-  font-size:14px;
-}
-
-@media(max-width:900px){
-
-  .sidebar{
-    position:relative;
-    width:100%;
-    height:auto;
-  }
-
-  .main{
-    margin-left:0;
-    padding:20px;
-  }
-}
+  body{font-family:Arial,sans-serif;background:#000;color:#ffb36b;margin:0;padding:20px}
+  .wrap{max-width:920px;margin:auto}
+  .topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  h1{color:#ff7300;margin:10px 0}
+  .panel{background:#0b0500;border:1px solid #ff7300;border-radius:16px;padding:20px;margin:16px 0}
+  .panel h3{color:#ff7300;margin-top:0}
+  input,button{padding:12px;margin:6px 4px;border-radius:8px;font-size:15px}
+  input{background:#000;color:#ffb36b;border:1px solid #ff7300;width:min(100%,280px)}
+  button{background:#ff7300;color:#000;border:0;font-weight:900;cursor:pointer}
+  button.danger{background:#a33;color:#fff}
+  button.ghost{background:#000;color:#ff7300;border:1px solid #ff7300}
+  table{width:100%;border-collapse:collapse;margin-top:10px}
+  th,td{border:1px solid rgba(255,115,0,.4);padding:9px;text-align:left;font-size:13px;word-break:break-word}
+  th{color:#ff7300}
+  .ok{color:#7CFC00;font-weight:900}
+  .bad{color:#ff7777;font-weight:900}
+  #msg{min-height:22px;margin-top:8px}
+  .note{font-size:13px;opacity:.85;line-height:1.6}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 </head>
-
 <body>
-
-<div class="sidebar">
-
-  <img src="assets/bss-logo-ofisyel.jpeg" class="logo">
-
-  <div class="menu">
-
-    <a href="index.html">🏠 Homepage</a>
-
-    <a href="broadcast.html">📡 Broadcast Center</a>
-
-    <a href="media.html">🎬 Media Library</a>
-
-    <a href="videos.html">🎥 Video Center</a>
-
-    <a href="store.html">🛒 Store</a>
-
-    <a href="upload.html">📤 Upload Center</a>
-
-    <a href="dirijan.html">👑 Dirijan</a>
-
-    <a href="mizisyen.html">🎵 Mizisyen</a>
-
-    <button onclick="logoutAdmin()">🚪 Logout</button>
-
+<div class="wrap">
+  <div class="topbar">
+    <h1>🛠 ADMIN</h1>
+    <div>
+      <button class="ghost" onclick="window.location.href='index.html#promax'">← Sit la</button>
+      <button class="danger" onclick="adminLogout()">Logout</button>
+    </div>
   </div>
-
+  <div class="panel">
+    <h3>➕ Kreye kòd itilizatè</h3>
+    <p class="note">Admin ka kreye <strong>sèlman</strong> kòd itilizatè (pwojè PRO-MAX).</p>
+    <input id="newCode" placeholder="Kòd (kite vid pou jenere otomatik)" autocomplete="off">
+    <button onclick="createCode()">Kreye kòd</button>
+    <p id="msg"></p>
+  </div>
+  <div class="panel">
+    <h3>📋 Lis kòd yo (lekti sèlman)</h3>
+    <button class="ghost" onclick="loadCodes()">🔄 Rechaje lis la</button>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Kòd</th><th>Wòl</th><th>Aktif</th><th>Ekspire</th></tr></thead>
+      <tbody id="codeRows"><tr><td colspan="4">Ap chaje...</td></tr></tbody>
+    </table>
+    </div>
+  </div>
 </div>
-
-<div class="main">
-
-  <div class="banner">
-    <h1>BSS1815 ADMIN DASHBOARD</h1>
-
-    <p>
-      Sant jesyon ofisyèl BSS1815 la.
-      Admin yo kapab jere Broadcast,
-      Media Library, Store, Uploads,
-      Flyers, ak lòt sistèm yo.
-    </p>
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-      <h2>📡 Broadcast System</h2>
-
-      <p>
-        Voye mesaj WhatsApp ofisyèl
-        bay fanatik ak admin yo.
-      </p>
-
-      <a href="broadcast.html">
-        Ouvri Broadcast
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>🎬 Media Library</h2>
-
-      <p>
-        Jere foto ak videyo
-        sistèm BSS1815 la.
-      </p>
-
-      <a href="media.html">
-        Ouvri Media
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>🛒 Store System</h2>
-
-      <p>
-        Boutik ofisyèl BSS1815
-        pou pwodwi ak promosyon.
-      </p>
-
-      <a href="store.html">
-        Ouvri Store
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>📤 Upload Center</h2>
-
-      <p>
-        Upload nouvo flyers,
-        foto, videyo, ak dokiman.
-      </p>
-
-      <a href="upload.html">
-        Ouvri Upload
-      </a>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    © BSS1815 ADMIN SYSTEM • ORANGE + BLACK ONLY
-  </div>
-
-</div>
-
 <script>
-if(!localStorage.getItem("bss_admin_logged")){
-  window.location.href="login.html";
+const firebaseConfig = {
+  apiKey: "AIzaSyDenkzhQh5rHMoZYDXrM8zSSCCoX4gBcYY",
+  authDomain: "briyant-soley-signo-1815.firebaseapp.com",
+  projectId: "briyant-soley-signo-1815"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+if (localStorage.getItem('promax_role') !== 'admin' || !localStorage.getItem('promax_code')) {
+  alert('Aksè ADMIN sèlman.');
+  window.location.href = 'index.html#promax';
 }
-
-function logoutAdmin(){
-  localStorage.removeItem("bss_admin_logged");
-  window.location.href="login.html";
+function fmtTs(ts){ if(!ts) return '—'; return new Date(ts).toLocaleString(); }
+async function createCode(){
+  const msg = document.getElementById('msg');
+  let code = document.getElementById('newCode').value.trim();
+  if(!code){ code = 'BSS-' + Math.random().toString(36).slice(2,8).toUpperCase(); }
+  msg.style.color = '#ffb36b'; msg.textContent = 'Ap kreye...';
+  try{
+    await db.collection('accessCodes').doc(code).set({ active:true, role:'user', createdAt:Date.now() });
+    msg.style.color = '#7CFC00'; msg.textContent = 'Kòd itilizatè kreye: ' + code;
+    document.getElementById('newCode').value = ''; loadCodes();
+  }catch(e){ msg.style.color = '#ff7777'; msg.textContent = 'Erè: ' + e.message; }
 }
+async function loadCodes(){
+  const tbody = document.getElementById('codeRows');
+  tbody.innerHTML = '<tr><td colspan="4">Ap chaje...</td></tr>';
+  try{
+    const snap = await db.collection('accessCodes').get();
+    if(snap.empty){ tbody.innerHTML = '<tr><td colspan="4">Okenn kòd pou kounye a.</td></tr>'; return; }
+    let html = '';
+    snap.forEach(function(doc){
+      const d = doc.data(); const active = d.active !== false;
+      html += '<tr><td><strong>' + doc.id + '</strong></td>'
+        + '<td>' + (d.role || 'user') + '</td>'
+        + '<td class="' + (active ? 'ok' : 'bad') + '">' + (active ? 'WI' : 'NON') + '</td>'
+        + '<td>' + fmtTs(d.expiresAt) + '</td></tr>';
+    });
+    tbody.innerHTML = html;
+  }catch(e){ tbody.innerHTML = '<tr><td colspan="4">Erè: ' + e.message + '</td></tr>'; }
+}
+function adminLogout(){
+  localStorage.removeItem('promax_code'); localStorage.removeItem('promax_expires'); localStorage.removeItem('promax_role');
+  window.location.href = 'index.html#promax';
+}
+loadCodes();
 </script>
-.
 </body>
 </html>
