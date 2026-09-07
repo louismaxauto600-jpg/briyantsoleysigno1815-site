@@ -3,84 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSS SUPER ADMIN</title>
-
+<title>SUPER ADMIN — BSS1815</title>
 <style>
-body {
-    margin: 0;
-    background: black;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-/* CENTER */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* BOX */
-.box {
-    border: 2px solid #FF7A00;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 0 25px rgba(255,122,0,0.7);
-}
-
-h1 {
-    color: #FF7A00;
-}
-
-/* BUTTON */
-button {
-    display: block;
-    width: 220px;
-    margin: 10px auto;
-    padding: 12px;
-    background: #FF7A00;
-    color: black;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.logout {
-    background: red;
-    color: white;
-}
+  body{font-family:Arial,sans-serif;background:#000;color:#ffb36b;margin:0;padding:20px}
+  .wrap{max-width:920px;margin:auto}
+  .topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  h1{color:#ff7300;margin:10px 0}
+  .panel{background:#0b0500;border:1px solid #ff7300;border-radius:16px;padding:20px;margin:16px 0}
+  .panel h3{color:#ff7300;margin-top:0}
+  input,select,button{padding:12px;margin:6px 4px;border-radius:8px;font-size:15px}
+  input,select{background:#000;color:#ffb36b;border:1px solid #ff7300}
+  input{width:min(100%,280px)}
+  button{background:#ff7300;color:#000;border:0;font-weight:900;cursor:pointer}
+  button.danger{background:#a33;color:#fff}
+  button.small{padding:7px 10px;font-size:12px;margin:2px}
+  button.ghost{background:#000;color:#ff7300;border:1px solid #ff7300}
+  table{width:100%;border-collapse:collapse;margin-top:10px}
+  th,td{border:1px solid rgba(255,115,0,.4);padding:9px;text-align:left;font-size:13px;word-break:break-word}
+  th{color:#ff7300}
+  .ok{color:#7CFC00;font-weight:900}
+  .bad{color:#ff7777;font-weight:900}
+  #msg{min-height:22px;margin-top:8px}
+  a{color:#ff7300}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 </head>
-
 <body>
-
-<div class="container">
-    <div class="box">
-        <h1>SUPER ADMIN PANEL</h1>
-        <p>Ou konekte kòm SUPER ADMIN</p>
-
-        <button>Manage Admins</button>
-        <button>Full Access Dashboard</button>
-        <button>System Control</button>
-
-        <button class="logout" onclick="logout()">LOGOUT</button>
+<div class="wrap">
+  <div class="topbar">
+    <h1>⚡ SUPER ADMIN</h1>
+    <div>
+      <button class="ghost" onclick="window.location.href='index.html#promax'">← Sit la</button>
+      <button class="danger" onclick="adminLogout()">Logout</button>
     </div>
+  </div>
+  <div class="panel">
+    <h3>➕ Kreye nouvo kòd aksè</h3>
+    <input id="newCode" placeholder="Kòd (kite vid pou jenere otomatik)" autocomplete="off">
+    <select id="newRole">
+      <option value="user">Itilizatè (pwojè PRO-MAX)</option>
+      <option value="admin">Admin</option>
+      <option value="super-admin">Super Admin</option>
+    </select>
+    <button onclick="createCode()">Kreye kòd</button>
+    <p id="msg"></p>
+  </div>
+  <div class="panel">
+    <h3>📋 Tout kòd yo</h3>
+    <button class="ghost" onclick="loadCodes()">🔄 Rechaje lis la</button>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Kòd</th><th>Wòl</th><th>Aktif</th><th>Ekspire</th><th>Aksyon</th></tr></thead>
+      <tbody id="codeRows"><tr><td colspan="5">Ap chaje...</td></tr></tbody>
+    </table>
+    </div>
+  </div>
 </div>
-
 <script>
-/* 🔐 SECURITY CHECK */
-if (!localStorage.getItem("bss_admin_logged")) {
-    window.location.href = "login.html";
+const firebaseConfig = {
+  apiKey: "AIzaSyDenkzhQh5rHMoZYDXrM8zSSCCoX4gBcYY",
+  authDomain: "briyant-soley-signo-1815.firebaseapp.com",
+  projectId: "briyant-soley-signo-1815"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+if (localStorage.getItem('promax_role') !== 'super-admin' || !localStorage.getItem('promax_code')) {
+  alert('Aksè SUPER ADMIN sèlman.');
+  window.location.href = 'index.html#promax';
 }
-
-/* 🚪 LOGOUT */
-function logout() {
-    localStorage.removeItem("bss_admin_logged");
-    window.location.href = "login.html";
+function fmtTs(ts){ if(!ts) return '—'; return new Date(ts).toLocaleString(); }
+async function createCode(){
+  const msg = document.getElementById('msg');
+  let code = document.getElementById('newCode').value.trim();
+  const role = document.getElementById('newRole').value;
+  if(!code){ code = 'BSS-' + Math.random().toString(36).slice(2,8).toUpperCase(); }
+  msg.style.color = '#ffb36b'; msg.textContent = 'Ap kreye...';
+  try{
+    await db.collection('accessCodes').doc(code).set({ active:true, role:role, createdAt:Date.now() });
+    msg.style.color = '#7CFC00'; msg.textContent = 'Kòd kreye: ' + code + '  (' + role + ')';
+    document.getElementById('newCode').value = ''; loadCodes();
+  }catch(e){ msg.style.color = '#ff7777'; msg.textContent = 'Erè: ' + e.message; }
 }
+async function loadCodes(){
+  const tbody = document.getElementById('codeRows');
+  tbody.innerHTML = '<tr><td colspan="5">Ap chaje...</td></tr>';
+  try{
+    const snap = await db.collection('accessCodes').get();
+    if(snap.empty){ tbody.innerHTML = '<tr><td colspan="5">Okenn kòd pou kounye a.</td></tr>'; return; }
+    let html = '';
+    snap.forEach(function(doc){
+      const d = doc.data(); const active = d.active !== false;
+      const safeId = doc.id.replace(/'/g, "\\'");
+      html += '<tr><td><strong>' + doc.id + '</strong></td>'
+        + '<td>' + (d.role || 'user') + '</td>'
+        + '<td class="' + (active ? 'ok' : 'bad') + '">' + (active ? 'WI' : 'NON') + '</td>'
+        + '<td>' + fmtTs(d.expiresAt) + '</td><td>'
+        + (active ? '<button class="small danger" onclick="revokeCode(\'' + safeId + '\')">Bloke</button>' : '')
+        + '<button class="small danger" onclick="deleteCode(\'' + safeId + '\')">Efase</button></td></tr>';
+    });
+    tbody.innerHTML = html;
+  }catch(e){ tbody.innerHTML = '<tr><td colspan="5">Erè: ' + e.message + '</td></tr>'; }
+}
+async function revokeCode(code){
+  if(!confirm('Bloke kòd "' + code + '" ?')) return;
+  try{ await db.collection('accessCodes').doc(code).update({ active:false }); loadCodes(); }
+  catch(e){ alert('Erè: ' + e.message); }
+}
+async function deleteCode(code){
+  if(!confirm('Efase kòd "' + code + '" nèt ?')) return;
+  try{ await db.collection('accessCodes').doc(code).delete(); loadCodes(); }
+  catch(e){ alert('Erè: ' + e.message); }
+}
+function adminLogout(){
+  localStorage.removeItem('promax_code'); localStorage.removeItem('promax_expires'); localStorage.removeItem('promax_role');
+  window.location.href = 'index.html#promax';
+}
+loadCodes();
 </script>
-
 </body>
 </html>
