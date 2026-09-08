@@ -1,0 +1,110 @@
+// FILE: login.js
+// Konekte fòm Super Admin / Admin ak Firebase Authentication,
+// epi verifye wòl itilizatè a nan Firestore (koleksyon "admins").
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// ⚠️ RANPLASE VALÈ SA YO AK VRÈ CONFIG FIREBASE OU (nan firebase-config/ nan repo ou)
+const firebaseConfig = {
+  apiKey: "VOTRE_API_KEY",
+  authDomain: "VOTRE_PROJET.firebaseapp.com",
+  projectId: "VOTRE_PROJET",
+  storageBucket: "VOTRE_PROJET.appspot.com",
+  messagingSenderId: "VOTRE_SENDER_ID",
+  appId: "VOTRE_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const errorMsg = document.getElementById("errorMsg");
+
+// ---------- Chanjman ant Super Admin / Admin ----------
+const btnSuper = document.getElementById("btnSuper");
+const btnAdmin = document.getElementById("btnAdmin");
+const panelSuper = document.getElementById("panelSuper");
+const panelAdmin = document.getElementById("panelAdmin");
+
+btnSuper.addEventListener("click", () => {
+  btnSuper.classList.add("active");
+  btnAdmin.classList.remove("active");
+  panelSuper.classList.add("active");
+  panelAdmin.classList.remove("active");
+  errorMsg.textContent = "";
+});
+
+btnAdmin.addEventListener("click", () => {
+  btnAdmin.classList.add("active");
+  btnSuper.classList.remove("active");
+  panelAdmin.classList.add("active");
+  panelSuper.classList.remove("active");
+  errorMsg.textContent = "";
+});
+
+// ---------- Fonksyon jenerik pou konekte ----------
+async function tryLogin(email, password, requiredRole) {
+  errorMsg.textContent = "";
+  try {
+    // 1. Konekte ak Firebase Authentication
+    const cred = await signInWithEmailAndPassword(auth, email, password);
+    const uid = cred.user.uid;
+
+    // 2. Chèche wòl itilizatè a nan Firestore
+    //    Estrikti sipoze: koleksyon "admins", dokiman id = uid, chan "role"
+    const snap = await getDoc(doc(db, "admins", uid));
+
+    if (!snap.exists()) {
+      errorMsg.textContent = "Kont sa a pa gen aksè administratif.";
+      await auth.signOut();
+      return;
+    }
+
+    const role = snap.data().role; // "superadmin" oswa "admin"
+
+    if (role !== requiredRole) {
+      errorMsg.textContent =
+        requiredRole === "superadmin"
+          ? "Kont sa a se yon Admin — pa Super Admin. Klike bouton ADMIN an."
+          : "Kont sa a se yon Super Admin — pa Admin. Klike bouton SUPER ADMIN an.";
+      await auth.signOut();
+      return;
+    }
+
+    // 3. Siksè — redireksyone sou dashboard apwopriye a
+    if (role === "superadmin") {
+      window.location.href = "super-admin-dashboard.html";
+    } else {
+      window.location.href = "admin-dashboard-panel.html";
+    }
+
+  } catch (err) {
+    console.error(err);
+    errorMsg.textContent = "Imèl oswa modpas pa kòrèk.";
+  }
+}
+
+// ---------- Fòm Super Admin ----------
+document.getElementById("superAdminForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("superEmail").value.trim();
+  const password = document.getElementById("superPassword").value;
+  tryLogin(email, password, "superadmin");
+});
+
+// ---------- Fòm Admin ----------
+document.getElementById("adminForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("adminEmail").value.trim();
+  const password = document.getElementById("adminPassword").value;
+  tryLogin(email, password, "admin");
+});
