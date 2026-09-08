@@ -1,0 +1,207 @@
+<!-- FILE: admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Admin Dashboard | BSS1815 PRO-MAX DMP</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+background:radial-gradient(circle at center,#1a0d00,#000000);
+color:#ffffff;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.wrap{
+width:100%;
+max-width:440px;
+}
+
+.brand{
+text-align:center;
+margin-bottom:25px;
+}
+
+.brand .eyebrow{
+color:#ffb366;
+letter-spacing:2px;
+font-size:13px;
+}
+
+.brand h1{
+color:#ff9500;
+font-size:38px;
+text-shadow:0 0 15px rgba(255,149,0,.6);
+margin-top:5px;
+}
+
+.role-switch{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.role-btn{
+flex:1;
+padding:14px;
+background:#1a1a1a;
+border:2px solid #ff7a00;
+color:#ffb366;
+font-weight:bold;
+font-size:14px;
+letter-spacing:1px;
+border-radius:10px;
+cursor:pointer;
+transition:.2s;
+}
+
+.role-btn.active{
+background:linear-gradient(180deg,#ff9500,#ff6a00);
+color:#000;
+box-shadow:0 0 15px rgba(255,149,0,.5);
+}
+
+.login-card{
+background:#111;
+border:2px solid #ff7a00;
+border-radius:16px;
+padding:30px 25px;
+box-shadow:0 0 25px rgba(255,122,0,.25);
+}
+
+.login-card h2{
+text-align:center;
+color:#ff9500;
+font-size:20px;
+letter-spacing:1px;
+margin-bottom:20px;
+}
+
+form label{
+display:block;
+font-size:12px;
+color:#ffb366;
+letter-spacing:1px;
+margin-top:15px;
+margin-bottom:6px;
+}
+
+form input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ff7a00;
+background:#000;
+color:#fff;
+font-size:15px;
+}
+
+form input:focus{
+outline:none;
+border-color:#ffb366;
+box-shadow:0 0 8px rgba(255,149,0,.4);
+}
+
+.btn-primary{
+width:100%;
+margin-top:22px;
+padding:14px;
+background:linear-gradient(180deg,#ff9500,#ff6a00);
+color:#000;
+font-weight:bold;
+font-size:15px;
+letter-spacing:1px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.btn-primary:active{
+transform:scale(.98);
+}
+
+.error-msg{
+color:#ff5c5c;
+font-size:13px;
+margin-top:12px;
+min-height:16px;
+text-align:center;
+}
+
+.form-panel{
+display:none;
+}
+
+.form-panel.active{
+display:block;
+}
+
+footer{
+text-align:center;
+color:#8a6a4a;
+font-size:11px;
+margin-top:20px;
+letter-spacing:1px;
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand">
+    <div class="eyebrow">BRIYANT SOLÈY SIGNO · BSS 1815</div>
+    <h1>BSS ADMIN</h1>
+  </div>
+
+  <div class="role-switch">
+    <button type="button" class="role-btn active" id="btnSuper">SUPER ADMIN</button>
+    <button type="button" class="role-btn" id="btnAdmin">ADMIN</button>
+  </div>
+
+  <div class="login-card">
+
+    <!-- SUPER ADMIN FORM -->
+    <div class="form-panel active" id="panelSuper">
+      <h2>SUPER ADMIN LOGIN</h2>
+      <form id="superAdminForm">
+        <label for="superEmail">Imèl</label>
+        <input type="email" id="superEmail" required autocomplete="username">
+
+        <label for="superPassword">Modpas</label>
+        <input type="password" id="superPassword" required autocomplete="current-password">
+
+        <button type="submit" class="btn-primary">LOGIN</button>
+      </form>
+    </div>
+
+    <!-- ADMIN FORM -->
+    <div class="form-panel" id="panelAdmin">
+      <h2>ADMIN LOGIN</h2>
+      <form id="adminForm">
+        <label for="adminEmail">Imèl</label>
+        <input type="email" id="adminEmail" required autocomplete="username">
+
+        <label for="adminPassword">Modpas</label>
+        <input type="password" id="adminPassword" required autocomplete="current-password">
+
+        <button type="submit" class="btn-primary">LOGIN</button>
+      </form>
+    </div>
+
+    <div class="error-msg" id="errorMsg"></div>
+  </div>
+
+  <footer>© BSS1815 PRO-MAX DMP — ADMIN SYSTEM</footer>
+</div>
+
+<script type="module" src="login.js"></script>
+</body>
+</html>
+
