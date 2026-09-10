@@ -1,110 +1,95 @@
-// FILE: login.js
-// Konekte fòm Super Admin / Admin ak Firebase Authentication,
-// epi verifye wòl itilizatè a nan Firestore (koleksyon "admins").
+// ============================================
+// LOGIN.JS - VERSION SENP FINAL
+// Sèl règ: si Firebase Authentication aksepte imèl + modpas la, aksè bay. PWEN.
+// Pa gen okenn lòt lis, okenn lòt verifikasyon, okenn dezyèm baryè.
+// ============================================
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-  getAuth,
-  signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {
-  getFirestore,
-  doc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-// ⚠️ RANPLASE VALÈ SA YO AK VRÈ CONFIG FIREBASE OU (nan firebase-config/ nan repo ou)
 const firebaseConfig = {
-  apiKey: "VOTRE_API_KEY",
-  authDomain: "VOTRE_PROJET.firebaseapp.com",
-  projectId: "VOTRE_PROJET",
-  storageBucket: "VOTRE_PROJET.appspot.com",
-  messagingSenderId: "VOTRE_SENDER_ID",
-  appId: "VOTRE_APP_ID"
+  apiKey: "AIzaSyB24Sbq_ud2qSFtdHwRhiKelokeIjCtDuY",
+  authDomain: "briyant-soley-signo-1815.firebaseapp.com",
+  projectId: "briyant-soley-signo-1815",
+  storageBucket: "briyant-soley-signo-1815.firebasestorage.app",
+  messagingSenderId: "873317957685",
+  appId: "1:873317957685:web:1bb4bb30831a058399717c"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-const errorMsg = document.getElementById("errorMsg");
+const loginForm = document.getElementById('loginForm');
+const imelInput = document.getElementById('imel');
+const modpasInput = document.getElementById('modpas');
+const toggleModpas = document.getElementById('toggleModpas');
+const forgotPassword = document.getElementById('forgotPassword');
+const errorMsg = document.getElementById('errorMsg');
 
-// ---------- Chanjman ant Super Admin / Admin ----------
-const btnSuper = document.getElementById("btnSuper");
-const btnAdmin = document.getElementById("btnAdmin");
-const panelSuper = document.getElementById("panelSuper");
-const panelAdmin = document.getElementById("panelAdmin");
+loginForm.addEventListener('submit', async function (e) {
+  e.preventDefault();
 
-btnSuper.addEventListener("click", () => {
-  btnSuper.classList.add("active");
-  btnAdmin.classList.remove("active");
-  panelSuper.classList.add("active");
-  panelAdmin.classList.remove("active");
-  errorMsg.textContent = "";
-});
+  const email = imelInput.value.trim();
+  const password = modpasInput.value;
 
-btnAdmin.addEventListener("click", () => {
-  btnAdmin.classList.add("active");
-  btnSuper.classList.remove("active");
-  panelAdmin.classList.add("active");
-  panelSuper.classList.remove("active");
-  errorMsg.textContent = "";
-});
+  if (!email || !password) {
+    showError('Tanpri ranpli tout chan yo.');
+    return;
+  }
 
-// ---------- Fonksyon jenerik pou konekte ----------
-async function tryLogin(email, password, requiredRole) {
-  errorMsg.textContent = "";
   try {
-    // 1. Konekte ak Firebase Authentication
-    const cred = await signInWithEmailAndPassword(auth, email, password);
-    const uid = cred.user.uid;
+    // SÈL VERIFIKASYON: Firebase Authentication
+    await auth.signInWithEmailAndPassword(email, password);
 
-    // 2. Chèche wòl itilizatè a nan Firestore
-    //    Estrikti sipoze: koleksyon "admins", dokiman id = uid, chan "role"
-    const snap = await getDoc(doc(db, "admins", uid));
+    // Login reyisi = aksè bay, san kondisyon
+    window.location.href = 'super-admin-dashboard.html';
 
-    if (!snap.exists()) {
-      errorMsg.textContent = "Kont sa a pa gen aksè administratif.";
-      await auth.signOut();
-      return;
+  } catch (error) {
+    switch (error.code) {
+      case 'auth/invalid-credential':
+      case 'auth/wrong-password':
+      case 'auth/user-not-found':
+        showError('Imèl oswa modpas la pa kòrèk.');
+        break;
+      case 'auth/invalid-email':
+        showError('Fòma imèl la pa valid.');
+        break;
+      case 'auth/too-many-requests':
+        showError('Twòp tantativ. Tanpri eseye ankò pita.');
+        break;
+      default:
+        showError('Erè: ' + error.message);
     }
+  }
+});
 
-    const role = snap.data().role; // "superadmin" oswa "admin"
-
-    if (role !== requiredRole) {
-      errorMsg.textContent =
-        requiredRole === "superadmin"
-          ? "Kont sa a se yon Admin — pa Super Admin. Klike bouton ADMIN an."
-          : "Kont sa a se yon Super Admin — pa Admin. Klike bouton SUPER ADMIN an.";
-      await auth.signOut();
-      return;
-    }
-
-    // 3. Siksè — redireksyone sou dashboard apwopriye a
-    if (role === "superadmin") {
-      window.location.href = "super-admin-dashboard.html";
-    } else {
-      window.location.href = "admin-dashboard-panel.html";
-    }
-
-  } catch (err) {
-    console.error(err);
-    errorMsg.textContent = "Imèl oswa modpas pa kòrèk.";
+function showError(message) {
+  if (errorMsg) {
+    errorMsg.textContent = message;
+    errorMsg.style.display = 'block';
+  } else {
+    alert(message);
   }
 }
 
-// ---------- Fòm Super Admin ----------
-document.getElementById("superAdminForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("superEmail").value.trim();
-  const password = document.getElementById("superPassword").value;
-  tryLogin(email, password, "superadmin");
-});
+if (forgotPassword) {
+  forgotPassword.addEventListener('click', async function (e) {
+    e.preventDefault();
+    const email = imelInput.value.trim();
+    if (!email) {
+      showError('Tanpri mete imèl ou anvan.');
+      return;
+    }
+    try {
+      await auth.sendPasswordResetEmail(email);
+      alert('Yon lyen reset modpas voye nan: ' + email);
+    } catch (error) {
+      showError('Erè: ' + error.message);
+    }
+  });
+}
 
-// ---------- Fòm Admin ----------
-document.getElementById("adminForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("adminEmail").value.trim();
-  const password = document.getElementById("adminPassword").value;
-  tryLogin(email, password, "admin");
-});
+if (toggleModpas) {
+  toggleModpas.addEventListener('click', function () {
+    const isHidden = modpasInput.type === 'password';
+    modpasInput.type = isHidden ? 'text' : 'password';
+    this.textContent = isHidden ? '🙈' : '👁️';
+  });
+}
