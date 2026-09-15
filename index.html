@@ -161,6 +161,26 @@ footer li{margin:8px 0}
 #promax-widget button{border:1px solid var(--orange);background:var(--orange);color:#000;border-radius:999px;padding:7px 14px;font-weight:900;font-size:11px;cursor:pointer}
 a.feature-card{display:block;transition:.25s}
 a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 0 18px rgba(255,115,0,.25)}
+
+/* ===== CUSTOMER SERVICE AI (ajoute — pa retire anyen nan orijinal la) ===== */
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
+.cs-video-card{padding:14px;border:2px solid var(--orange);border-radius:22px;background:radial-gradient(circle at top,rgba(255,115,0,.16),transparent 42%),#000;box-shadow:0 0 26px rgba(255,115,0,.22);display:flex;flex-direction:column}
+.cs-video-label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;color:var(--orange);font-size:11px;font-weight:900;letter-spacing:.06em}
+.cs-video{width:100%;flex:1;min-height:280px;display:block;border:1px solid var(--border);border-radius:16px;object-fit:cover;background:#000}
+.cs-video-note{margin-top:10px;color:var(--apricot);text-align:center;font-size:11px;line-height:1.6}
+.cs-chat{display:flex;flex-direction:column;gap:14px;padding:20px;border:1px solid var(--border);border-radius:20px;background:#050200}
+.cs-messages{flex:1;min-height:280px;max-height:420px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}
+.cs-messages .cs-bot,.cs-messages .cs-user{padding:12px 14px;border-radius:14px;font-size:13px;line-height:1.55;max-width:90%}
+.cs-messages .cs-bot{align-self:flex-start;background:#1a0d00;border:1px solid var(--border);color:#f0d9b8}
+.cs-messages .cs-user{align-self:flex-end;background:var(--orange);color:#000;font-weight:700}
+#csForm{display:flex;gap:10px}
+#csForm input{flex:1;padding:13px 14px;border:1px solid var(--border);border-radius:12px;background:#000;color:var(--apricot);font-size:14px}
+#csForm input:focus{outline:none;border-color:var(--orange)}
+#csForm button{padding:13px 18px}
+@media(max-width:980px){
+  .cs-grid{grid-template-columns:1fr}
+  .cs-video{min-height:240px}
+}
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
@@ -193,6 +213,7 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 <nav id="nav">
 <a href="#home" data-i18n="home">AKÈY</a>
 <a href="#about" data-i18n="about">SOU NOU</a>
+<a href="#customerservice">SÈVIS KLIYAN AI</a>
 <a href="#community" data-i18n="community">KOMINOTE</a>
 <a href="#gallery" data-i18n="gallery">GALERI</a>
 <a href="#media" data-i18n="media">MEDIA</a>
@@ -247,6 +268,62 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 </div>
 </div>
 </section>
+
+<!-- ===== CUSTOMER SERVICE AI (ajoute — pa retire anyen nan orijinal la) ===== -->
+<section class="section" id="customerservice">
+<div class="container">
+<div class="section-heading">
+<div class="badge">SÈVIS KLIYAN • AI</div>
+<h2>SÈVIS KLIYAN AI BSS1815</h2>
+<p>Gen yon kesyon sou platfòm BSS1815 la, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, oswa DDN? Poze Sèvis Kliyan AI a — li la pou gide w.</p>
+</div>
+<div class="cs-grid">
+
+  <div class="cs-video-card">
+    <div class="cs-video-label">
+      <span>🎧 BSS1815 SÈVIS KLIYAN</span>
+      <span>AI</span>
+    </div>
+    <video
+      id="csVideo"
+      class="cs-video"
+      controls
+      playsinline
+      preload="metadata"
+    >
+      <source src="pro-max-beat-maker-ai-school.mp4" type="video/mp4">
+      Browser ou a pa sipòte videyo MP4.
+    </video>
+    <p class="cs-video-note">
+      Videyo prezantasyon Sèvis Kliyan AI a. Yon avatar videyo an dirèk
+      (HeyGen) ap ranplase l pita.
+    </p>
+  </div>
+
+  <div class="cs-chat">
+    <div class="cs-messages" id="csMessages">
+      <div class="cs-bot">
+        👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m nenpòt
+        kesyon sou platfòm nan — PRO-MAX FM, MaxiMax Multi Services,
+        PRO-MAX Académie, Beat Lab, DDN, oswa aksè PRO-MAX la.
+      </div>
+    </div>
+
+    <form id="csForm">
+      <input
+        id="csQuestion"
+        autocomplete="off"
+        placeholder="Ekri kesyon ou..."
+        required
+      >
+      <button class="btn btn-primary" type="submit">VOYE</button>
+    </form>
+  </div>
+
+</div>
+</div>
+</section>
+
 <section class="section" id="community">
 <div class="container">
 <div class="section-heading">
@@ -711,6 +788,64 @@ window.addEventListener("scroll", function(){
   });
 }, {passive:true});
 document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ===== CUSTOMER SERVICE AI CHAT LOGIC (ajoute — pa retire anyen nan orijinal la) =====
+   Kounye a, sa a reponn ak yon seri repons prensipal sou platfòm nan pandan n ap
+   tann konsyon Gemini a. Pou konekte l ak Gemini toutbon, ranplase fonksyon
+   getCustomerServiceReply(question) pi ba a ak yon rele (fetch) sou menm
+   backend/Cloud Function ki deja jere pwofesè AI Beat Maker la. */
+
+const csMessages = document.getElementById("csMessages");
+const csForm = document.getElementById("csForm");
+const csQuestion = document.getElementById("csQuestion");
+
+function csAddMessage(text, from){
+  const bubble = document.createElement("div");
+  bubble.className = from === "user" ? "cs-user" : "cs-bot";
+  bubble.textContent = text;
+  csMessages.appendChild(bubble);
+  csMessages.scrollTop = csMessages.scrollHeight;
+}
+
+function getCustomerServiceReply(question){
+  const q = question.toLowerCase();
+
+  if(q.includes("fm") || q.includes("radyo")){
+    return "🎙️ PRO-MAX FM se radyo kominote BSS1815 la — mizik, nouvèl ak pwogram. Ou ka jwenn li nan seksyon PRO-MAX la, epi kounye a li mande yon kòd aksè valid 3 zèd tan.";
+  }
+  if(q.includes("maximax") || q.includes("imigrasyon") || q.includes("taks") || q.includes("notary") || q.includes("nota")){
+    return "🧳 MaxiMax Multi Services okipe imigrasyon, taks, biznis ak sèvis notarial. Pou yon demann espesifik, kontakte nou nan seksyon KONTAK an ba paj la.";
+  }
+  if(q.includes("academie") || q.includes("académie") || q.includes("kou") || q.includes("real estate") || q.includes("insurance") || q.includes("asirans")){
+    return "🎓 PRO-MAX Académie ofri fòmasyon tankou Real Estate School ak Insurance School. Ou ka antre nan yo nan seksyon PRO-MAX la ak yon kòd aksè.";
+  }
+  if(q.includes("beat") || q.includes("mizik") || q.includes("prodwi")){
+    return "🎧 PRO-MAX Beat Lab se kote pou kreye, pwodwi ak pataje mizik ak zouti AI. Li tou nan seksyon PRO-MAX la.";
+  }
+  if(q.includes("kòd") || q.includes("kod") || q.includes("aksè") || q.includes("acces") || q.includes("login")){
+    return "🔑 Pou aksè nan pwojè PRO-MAX yo (FM, Académie, Real Estate, Insurance), peze bouton \"ANTRE AK KÒD AKSÈ\" nan seksyon PRO-MAX la epi antre kòd ou. Kòd la valid pou 3 zèd tan.";
+  }
+  if(q.includes("kontak") || q.includes("telefòn") || q.includes("whatsapp") || q.includes("appele")){
+    return "📞 Ou ka kontakte nou nan seksyon KONTAK anba paj la — telefòn Ozetazini ak Ayiti, WhatsApp ak Telegram disponib.";
+  }
+
+  return "Mèsi pou kesyon ou! Pou kounye a mwen ka gide w sou PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, ak kòman pou jwenn aksè PRO-MAX. Ou ka tou kontakte yon moun dirèkteman nan seksyon KONTAK anba paj la.";
+}
+
+if(csForm){
+  csForm.addEventListener("submit", function(event){
+    event.preventDefault();
+    const question = csQuestion.value.trim();
+    if(!question){return;}
+    csAddMessage(question, "user");
+    csQuestion.value = "";
+
+    window.setTimeout(function(){
+      const reply = getCustomerServiceReply(question);
+      csAddMessage(reply, "bot");
+    }, 400);
+  });
+}
 </script>
 </body>
 </html>
