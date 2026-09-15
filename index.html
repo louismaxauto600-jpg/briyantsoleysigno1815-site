@@ -224,9 +224,9 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 </nav>
 <div class="header-tools">
 <div class="langs notranslate" translate="no">
-<button class="lang" data-lang="en" type="button" translate="no">ENG</button>
-<button class="lang" data-lang="fr" type="button" translate="no">FRA</button>
-<button class="lang active" data-lang="ht" type="button" translate="no">KRE</button>
+<button class="lang" data-lang="en" type="button" translate="no">🇺🇸 ENG</button>
+<button class="lang" data-lang="fr" type="button" translate="no">🇫🇷 FRA</button>
+<button class="lang active" data-lang="ht" type="button" translate="no">🇭🇹 KRE</button>
 </div>
 <button class="menu" id="menu" type="button" aria-label="Menu">☰</button>
 </div>
@@ -799,9 +799,9 @@ function setLanguage(lang){
   const englishButton = document.querySelector('[data-lang="en"]');
   const frenchButton = document.querySelector('[data-lang="fr"]');
   const creoleButton = document.querySelector('[data-lang="ht"]');
-  if(englishButton){englishButton.textContent = "ENG";}
-  if(frenchButton){frenchButton.textContent = "FRA";}
-  if(creoleButton){creoleButton.textContent = "KRE";}
+  if(englishButton){englishButton.textContent = "🇺🇸 ENG";}
+  if(frenchButton){frenchButton.textContent = "🇫🇷 FRA";}
+  if(creoleButton){creoleButton.textContent = "🇭🇹 KRE";}
   localStorage.setItem("bssLanguage", lang);
 }
 document.querySelectorAll(".lang").forEach(function(button){
