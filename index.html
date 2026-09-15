@@ -213,7 +213,7 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 <nav id="nav">
 <a href="#home" data-i18n="home">AKÈY</a>
 <a href="#about" data-i18n="about">SOU NOU</a>
-<a href="#customerservice">SÈVIS KLIYAN AI</a>
+<a href="#customerservice" data-i18n="csNav">SÈVIS KLIYAN AI</a>
 <a href="#community" data-i18n="community">KOMINOTE</a>
 <a href="#gallery" data-i18n="gallery">GALERI</a>
 <a href="#media" data-i18n="media">MEDIA</a>
@@ -273,15 +273,15 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 <section class="section" id="customerservice">
 <div class="container">
 <div class="section-heading">
-<div class="badge">SÈVIS KLIYAN • AI</div>
-<h2>SÈVIS KLIYAN AI BSS1815</h2>
-<p>Gen yon kesyon sou platfòm BSS1815 la, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, oswa DDN? Poze Sèvis Kliyan AI a — li la pou gide w.</p>
+<div class="badge" data-i18n="csBadge">SÈVIS KLIYAN • AI</div>
+<h2 data-i18n="csTitle">SÈVIS KLIYAN AI BSS1815</h2>
+<p data-i18n="csText">Gen yon kesyon sou platfòm BSS1815 la, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, oswa DDN? Poze Sèvis Kliyan AI a — li la pou gide w.</p>
 </div>
 <div class="cs-grid">
 
   <div class="cs-video-card">
     <div class="cs-video-label">
-      <span>🎧 BSS1815 SÈVIS KLIYAN</span>
+      <span data-i18n="csVideoLabel">🎧 BSS1815 SÈVIS KLIYAN</span>
       <span>AI</span>
     </div>
     <video
@@ -294,7 +294,7 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
       <source src="pro-max-beat-maker-ai-school.mp4" type="video/mp4">
       Browser ou a pa sipòte videyo MP4.
     </video>
-    <p class="cs-video-note">
+    <p class="cs-video-note" data-i18n="csVideoNote">
       Videyo prezantasyon Sèvis Kliyan AI a. Yon avatar videyo an dirèk
       (HeyGen) ap ranplase l pita.
     </p>
@@ -302,7 +302,7 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 
   <div class="cs-chat">
     <div class="cs-messages" id="csMessages">
-      <div class="cs-bot">
+      <div class="cs-bot" id="csWelcomeMsg" data-i18n="csWelcome">
         👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m nenpòt
         kesyon sou platfòm nan — PRO-MAX FM, MaxiMax Multi Services,
         PRO-MAX Académie, Beat Lab, DDN, oswa aksè PRO-MAX la.
@@ -313,10 +313,11 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
       <input
         id="csQuestion"
         autocomplete="off"
+        data-i18n-placeholder="csPlaceholder"
         placeholder="Ekri kesyon ou..."
         required
       >
-      <button class="btn btn-primary" type="submit">VOYE</button>
+      <button class="btn btn-primary" type="submit" data-i18n="csSend">VOYE</button>
     </form>
   </div>
 
@@ -705,7 +706,16 @@ heritage:"ERITAJ",heritageText:"Foto, moun, memwa ak jenerasyon nou dwe prezève
 socialTitle:"REZO SOSYAL",socialText:"Swiv Briyant Solèy Signo 1815 sou rezo sosyal yo.",
 contactTitle:"KONTAK",contactText:"Kontakte Briyant Solèy Signo 1815 pou enfòmasyon, aktivite ak kolaborasyon.",
 footerText:"Platfòm ofisyèl Briyant Solèy Signo 1815 pou kominote, kilti, medya, fanatik ak eritaj.",
-navigation:"NAVIGASYON",connect:"KONEKTE"
+navigation:"NAVIGASYON",connect:"KONEKTE",
+csNav:"SÈVIS KLIYAN AI",
+csBadge:"SÈVIS KLIYAN • AI",
+csTitle:"SÈVIS KLIYAN AI BSS1815",
+csText:"Gen yon kesyon sou platfòm BSS1815 la, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, oswa DDN? Poze Sèvis Kliyan AI a — li la pou gide w.",
+csVideoLabel:"🎧 BSS1815 SÈVIS KLIYAN",
+csVideoNote:"Videyo prezantasyon Sèvis Kliyan AI a. Yon avatar videyo an dirèk (HeyGen) ap ranplase l pita.",
+csWelcome:"👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m nenpòt kesyon sou platfòm nan — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, oswa aksè PRO-MAX la.",
+csPlaceholder:"Ekri kesyon ou...",
+csSend:"VOYE"
 },
 en:{
 official:"OFFICIAL PLATFORM",home:"HOME",about:"ABOUT",community:"COMMUNITY",gallery:"GALLERY",media:"MEDIA",legacy:"LEGACY",social:"SOCIAL",contact:"CONTACT",
@@ -728,7 +738,16 @@ heritage:"LEGACY",heritageText:"Photos, people, memories and generations to pres
 socialTitle:"SOCIAL NETWORKS",socialText:"Follow Briyant Soley Signo 1815 across social networks.",
 contactTitle:"CONTACT",contactText:"Contact Briyant Soley Signo 1815 for information, activities and collaboration.",
 footerText:"The official Briyant Soley Signo 1815 platform for community, culture, media, supporters and legacy.",
-navigation:"NAVIGATION",connect:"CONNECT"
+navigation:"NAVIGATION",connect:"CONNECT",
+csNav:"CUSTOMER SERVICE AI",
+csBadge:"CUSTOMER SERVICE • AI",
+csTitle:"BSS1815 AI CUSTOMER SERVICE",
+csText:"Have a question about the BSS1815 platform, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, or DDN? Ask the AI Customer Service — it's here to guide you.",
+csVideoLabel:"🎧 BSS1815 CUSTOMER SERVICE",
+csVideoNote:"Presentation video for AI Customer Service. A live video avatar (HeyGen) will replace it later.",
+csWelcome:"👋 Hello! I'm the BSS1815 AI Customer Service. Ask me anything about the platform — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, or PRO-MAX access.",
+csPlaceholder:"Type your question...",
+csSend:"SEND"
 },
 es:{
 official:"PLATAFORMA OFICIAL",home:"INICIO",about:"NOSOTROS",community:"COMUNIDAD",gallery:"GALERÍA",media:"MEDIOS",legacy:"LEGADO",social:"REDES",contact:"CONTACTO",
@@ -751,7 +770,16 @@ heritage:"LEGADO",heritageText:"Fotos, personas, recuerdos y generaciones que de
 socialTitle:"REDES SOCIALES",socialText:"Sigue a Briyant Soley Signo 1815 en las redes sociales.",
 contactTitle:"CONTACTO",contactText:"Contacta a Briyant Soley Signo 1815 para información, actividades y colaboraciones.",
 footerText:"Plataforma oficial de Briyant Soley Signo 1815 para la comunidad, la cultura, los medios, los seguidores y el legado.",
-navigation:"NAVEGACIÓN",connect:"CONECTAR"
+navigation:"NAVEGACIÓN",connect:"CONECTAR",
+csNav:"SERVICIO AL CLIENTE AI",
+csBadge:"SERVICIO AL CLIENTE • AI",
+csTitle:"SERVICIO AL CLIENTE AI BSS1815",
+csText:"¿Tienes una pregunta sobre la plataforma BSS1815, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab o DDN? Pregúntale al Servicio al Cliente AI — está aquí para guiarte.",
+csVideoLabel:"🎧 BSS1815 SERVICIO AL CLIENTE",
+csVideoNote:"Video de presentación del Servicio al Cliente AI. Un avatar de video en vivo (HeyGen) lo reemplazará más adelante.",
+csWelcome:"👋 ¡Hola! Soy el Servicio al Cliente AI de BSS1815. Pregúntame lo que quieras sobre la plataforma — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, o el acceso PRO-MAX.",
+csPlaceholder:"Escribe tu pregunta...",
+csSend:"ENVIAR"
 }
 };
 function setLanguage(lang){
@@ -760,6 +788,10 @@ function setLanguage(lang){
   document.querySelectorAll("[data-i18n]").forEach(function(element){
     const key = element.dataset.i18n;
     if(Object.prototype.hasOwnProperty.call(dictionary, key)){element.textContent = dictionary[key];}
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(function(element){
+    const key = element.dataset.i18nPlaceholder;
+    if(Object.prototype.hasOwnProperty.call(dictionary, key)){element.setAttribute("placeholder", dictionary[key]);}
   });
   document.querySelectorAll(".lang").forEach(function(button){
     button.classList.toggle("active", button.dataset.lang === lang);
