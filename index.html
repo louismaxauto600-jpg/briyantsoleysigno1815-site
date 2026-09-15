@@ -489,14 +489,41 @@ PARE POU DEMEN
 <script src="promax-access.js"></script>
 <script>
 /* BSS1815 MEDIA DATABASE */
+/* Lis la klase alfabetikman, dwoublon egzat retire (yo te la 2 fwa avan).
+   ATANSYON: gwoup tankou "mario.jpg"/"mario1.jpg"/"mario.jpeg" oswa
+   "roro-lajan.jpg"/"roro-lajan.jpeg"/"roro-lajan2.jpeg" se non ki sanble —
+   verifye sou GitHub si se menm foto a de fwa oswa 2 foto diferan menm moun.
+   Si yon foto "skip" nan slideshow/galeri a san w pa konnen poukisa, louvri
+   Chrome DevTools (Inspect > Console) — non fichye ki pa chaje yo ap parèt
+   la kòm "BSS1815 media pa chaje". */
 const suppliedMedia = [
-  "makout57.jpg","guypson.jpg","don-dodo.jpg","warrens.jpg","serette.jpg","reynold.jpg","perodin.jpg","paulema.jpg","macu-mv.jpg","doodly.jpg","desulme.jpg","t-leta.jpg","nadege.jpg","mario1.jpg","fanfan.jpg","cange1.jpg","caldos.jpg","asmide.jpg","yguens.jpg","tania.jpg","ralph.jpg","may-t.jpg","mario.jpg","macu2.jpg","emaze.jpg","badin.jpg","james.jpg","yole.jpg","roro.jpg","ones.jpg",
-  "only-u.jpeg","makout.jpeg","magaz.jpeg","landry.jpeg","jude.jpeg","elson.jpeg","doudou.jpeg","cange2.jpeg","caldos.jpeg","brunel.jpeg","asmide.jpeg","yole1.jpeg","tania.jpeg","sanba.jpeg","rooso.jpeg","nadia.jpeg","mario.jpeg","kendy.jpeg","flore.jpeg","cange.jpeg","baron.jpeg","badin.jpeg","andre.jpeg","zeze.jpeg","yole.jpeg","tsp2.jpeg","prez.jpeg","may2.jpeg","maxo.jpeg","macu.jpeg","cols.jpeg","ange.jpeg","andy.jpeg",
-  "roro23.jpeg","roro-lajan.jpeg","leog.jpg","valery2.jpeg","michel-briyant.jpeg","maximax-multi-services.jpeg","michelbriyantII.jpeg",
-  "jijm-mayan.jpg","majis-mauc.jpeg","majis-junior.jpeg","synthia-jn-baptiste.jpeg","vice-prez-ernso.jpg","vice-prezidan-yguens.jpeg","ti-marasa.jpeg","andre-asouman.jpg","slogan.jpg","guypson1.jpg","tsp.jpg","ange.jpg",
-  "adan-signo.jpeg","blackson.jpeg","nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg","roro-lajan.jpg","jeff-colin.jpg","may.jpg","sonsonn1.jpg","maximax-multi-serv.jpg","queen-naylove.jpg","anpere-ti-rat.jpg","maximax1.jpg","sinndy.jpg","one-love.jpg","ygens.jpg","prodin.jpeg","slogan1.jpg","odelinne.jpg","jij-mayan.jpg","ti-marasa-yo.jpg","baron-plenn-lan.jpeg","bouboul.jpeg","bawon-an!.jpeg","don-dodo.jpeg","doodly23.jpeg","elson2.jpeg","guypson.jpeg","karl-henry.jpeg","kriye-pou-fanm.jpeg","majis-junior.jpeg","mambo_fifi.jpeg","max-louis.jpeg","montinat.jpeg","michel-briyant.jpeg","nadege-b.jpeg","nnaylove.jpeg","ones-1.jpeg","paulema.jpeg","pdg-ti-rat.jpeg","prez-aly.jpeg","prez-papit.jpeg","roro-lajan.jpeg","synthia-jn-baptiste.jpeg","the-only-1.jpeg","ti-chery.jpeg","ti-reynold.jpeg","ti_la_france.jpeg","ti_marasa.jpeg","ti_papouche.jpeg","toto-senkant.jpeg","flore.jpeg","jij_mayan.jpeg","adia.jpeg","nnadia.png","roro-lajan2.jpeg","odeline.jpeg","dede.png",
-  "the-change-is-commin.mp4","teamsanpresyon21.mp4","miami-on-the-move.mp4","koukou-return.mp4","store-front.mp4","boutique-bss.mp4","master-mind.mp4","ai-magazen.mp4","plan-2028.mp4","move-deba.mp4",
-  "bssluxury-store.mp4","koukou-fly-stay.mp4","bss-luxury-store.mp4","dirijan-vizyone.mp4"
+  "adan-signo.jpeg","adia.jpeg","aguiy-guitolio.png","andre-asouman.jpg","andre.jpeg","andrew.jpeg","andy.jpeg","angel.jpeg","ange.jpeg",
+  "ange.jpg","anpere-ti-rat.jpg","asmide.jpeg","asmide.jpg","badin.jpeg","badin.jpg",
+  "baron-plenn-lan.jpeg","baron.jpeg","bawon-an!.jpeg","blackson.jpeg","bouboul.jpeg","brunel.jpeg",
+  "caldos.jpeg","caldos.jpg","cange.jpeg","cange1.jpg","cange2.jpeg","cols.jpeg",
+  "dede.png","desulme.jpg","don-dodo.jpeg","don-dodo.jpg","doodly.jpg","doodly23.jpeg",
+  "doudou.jpeg","elson.jpeg","elson2.jpeg","emaze.jpg","fanfan.jpg","flore.jpeg",
+  "guypson.jpeg","guypson.jpg","guypson1.jpg","james.jpg","jeff-colin.jpg","jij-mayan.jpg",
+  "jij_mayan.jpeg","jijm-mayan.jpg","jude.jpeg","karl-henry.jpeg","kendy.jpeg","kriye-pou-fanm.jpeg",
+  "landry.jpeg","leog.jpg","macu-mv.jpg","macu.jpeg","macu1.jpg","macu2.jpg",
+  "magaz.jpeg","majis-junior.jpeg","majis-mauc.jpeg","makout.jpeg","makout57.jpg","mambo-fifi.jpg",
+  "mambo_fifi.jpeg","mario.jpeg","mario.jpg","mario1.jpg","max-louis-vintage-office-office.png","max-louis.jpeg","maximax-multi-serv.jpg",
+  "maximax-multi-services.jpeg","maximax1.jpg","maxo.jpeg","may-t.jpg","may.jpg","may2.jpeg",
+  "michel-briyant.jpeg","michelbriyantII.jpeg","montinat.jpeg","nadege-b.jpeg","nadege.jpg","nadia-lafortune.jpg",
+  "nadia.jpeg","nnadia.png","nnaylove.jpeg","odeline.jpeg","odelinne.jpg","one-love.jpg",
+  "ones-1.jpeg","ones.jpg","only-u.jpeg","paulema.jpeg","paulema.jpg","pdg-ti-fre.jpg",
+  "pdg-ti-rat.jpeg","perodin.jpg","prez-aly.jpeg","prez-papit.jpeg","prez.jpeg","prodin.jpeg",
+  "queen-naylove.jpg","ralph.jpg","reynold.jpg","roberson.png","rooso.jpeg","roro-lajan.jpeg","roro-lajan.jpg","roro-lajan.png",
+  "roro-lajan2.jpeg","roro.jpg","roro23.jpeg","sanba.jpeg","serette.jpg","sinndy.jpg",
+  "slogan.jpg","slogan1.jpg","sonsonn1.jpg","synthia-jn-baptiste.jpeg","t-leta.jpg","tania.jpeg",
+  "tania.jpg","team-angrenay.png","team-backup.png","the-future.png","the-good-1.png","the-only-1.jpeg","ti-chery.jpeg","ti-marasa-yo.jpg","ti-marasa.jpeg","ti-reynold.jpeg",
+  "ti_la_france.jpeg","ti_marasa.jpeg","ti_papouche.jpeg","toto-senkant.jpeg","tsp.jpg","tsp2.jpeg",
+  "valery2.jpeg","vice-prez-ernso.jpg","vice-prezidan-yguens.jpeg","warrens.jpg","we-know.png","ygens.jpg","yguens.jpg",
+  "yole.jpeg","yole.jpg","yole1.jpeg","zeze.jpeg",
+
+  "ai-magazen.mp4","boutique-bss.mp4","bss-luxury-store.mp4","bssluxury-store.mp4","dirijan-vizyone.mp4","koukou-fly-stay.mp4",
+  "koukou-return.mp4","master-mind.mp4","miami-on-the-move.mp4","move-deba.mp4","plan-2028.mp4","store-front.mp4",
+  "teamsanpresyon21.mp4","the-change-is-commin.mp4"
 ];
 const mediaFiles = [...new Set(suppliedMedia)];
 function isVideo(file){return /\.(mp4|webm|mov)$/i.test(file);}
@@ -545,7 +572,7 @@ mediaFiles.forEach(function(file,index){
     video.playsInline = true;
     video.muted = true;
     video.controls = false;
-    video.addEventListener("error",function(){removeBrokenSlide(slide);});
+    video.addEventListener("error",function(){console.warn("BSS1815 media pa chaje (slideshow):", file);removeBrokenSlide(slide);});
     video.addEventListener("ended",function(){if(autoplay){nextSlide();}});
     slide.appendChild(video);
   }else{
@@ -553,7 +580,7 @@ mediaFiles.forEach(function(file,index){
     image.src = file;
     image.alt = pretty(file) + " — Briyant Solèy Signo 1815";
     image.loading = index < 6? "eager" : "lazy";
-    image.addEventListener("error",function(){removeBrokenSlide(slide);});
+    image.addEventListener("error",function(){console.warn("BSS1815 media pa chaje (slideshow):", file);removeBrokenSlide(slide);});
     slide.appendChild(image);
   }
   const badge = document.createElement("div");
@@ -658,7 +685,7 @@ mediaFiles.filter(function(file){return!isVideo(file);}).forEach(function(file){
   image.src = file;
   image.alt = pretty(file);
   image.loading = "lazy";
-  image.addEventListener("error", function(){card.remove();});
+  image.addEventListener("error", function(){console.warn("BSS1815 media pa chaje (galeri):", file);card.remove();});
   const caption = document.createElement("div");
   caption.className = "gallery-caption";
   caption.innerHTML = "<strong>"+pretty(file)+"</strong>";
@@ -676,7 +703,7 @@ const mediaCenterVideos = ["bssluxury-store.mp4","bss-luxury-store.mp4","koukou-
   video.playsInline = true;
   video.preload = "metadata";
   video.src = file;
-  video.addEventListener("error", function(){card.remove();});
+  video.addEventListener("error", function(){console.warn("BSS1815 media pa chaje (media center):", file);card.remove();});
   const text = document.createElement("div");
   text.className = "media-text";
   text.innerHTML = "<h3>"+pretty(file)+"</h3><p>BSS1815 Media</p>";
