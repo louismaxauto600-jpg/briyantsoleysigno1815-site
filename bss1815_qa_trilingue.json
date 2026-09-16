@@ -218,5 +218,226 @@
     "fra": "👋 Bonjour ! Je suis le Service Client AI de BSS1815. Posez-moi toute question sur PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, Beat Maker AI School, DDN, ou l'accès PRO-MAX.",
     "eng": "👋 Hello! I am the BSS1815 AI Customer Service. Ask me anything about PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, Beat Maker AI School, DDN, or PRO-MAX access."
   }
+][
+  {
+    "id": "bss1815_cest_quoi",
+    "keywords": [
+      "bss1815",
+      "briant",
+      "soley",
+      "signo",
+      "ki sa",
+      "what is",
+      "c'est quoi"
+    ],
+    "kre": "BSS1815 (Briyant Solèy Signo 1815) se yon kominote ak yon eritaj ki gen 5 gwo branch anba non PRO-MAX: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, PRO-MAX Beat Lab / Beat Maker AI School, ak DDN.",
+    "fra": "BSS1815 (Briyant Solèy Signo 1815) est une communauté et un héritage avec 5 grandes branches sous le nom PRO-MAX : PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, PRO-MAX Beat Lab / Beat Maker AI School, et DDN.",
+    "eng": "BSS1815 (Briyant Solèy Signo 1815) is a community and legacy with 5 major branches under PRO-MAX: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, PRO-MAX Beat Lab / Beat Maker AI School, and DDN."
+  },
+  {
+    "id": "promax_fm",
+    "keywords": [
+      "fm",
+      "radyo",
+      "radio",
+      "mizik",
+      "musique",
+      "music",
+      "nouvèl"
+    ],
+    "kre": "PRO-MAX FM se radyo kominote a: mizik, nouvèl, ak pwogram kilti pou kominote a.",
+    "fra": "PRO-MAX FM est la radio communautaire : musique, actualités et programmes culturels pour la communauté.",
+    "eng": "PRO-MAX FM is the community radio: music, news, and cultural programs for the community."
+  },
+  {
+    "id": "maximax_services",
+    "keywords": [
+      "maximax",
+      "multi services",
+      "imigrasyon",
+      "immigration",
+      "taks",
+      "tax",
+      "biznis",
+      "business",
+      "notarial",
+      "notaire",
+      "notary"
+    ],
+    "kre": "MaxiMax Multi Services ede ou ak imigrasyon, taks, biznis, ak sèvis notarial. Di nou ki sèvis ou bezwen, n ap gide ou.",
+    "fra": "MaxiMax Multi Services vous aide avec immigration, taxes, business et services notariaux. Dites-nous quel service vous voulez.",
+    "eng": "MaxiMax Multi Services helps with immigration, taxes, business, and notary services. Tell us which service you need."
+  },
+  {
+    "id": "academie",
+    "keywords": [
+      "academie",
+      "academy",
+      "fòmasyon",
+      "formation",
+      "training",
+      "sètifikasyon",
+      "certification"
+    ],
+    "kre": "PRO-MAX Académie ofri fòmasyon ak sètifikasyon, ki gen ladan Real Estate School ak Insurance School.",
+    "fra": "PRO-MAX Académie offre des formations et certifications, incluant Real Estate School et Insurance School.",
+    "eng": "PRO-MAX Académie offers training and certification, including Real Estate School and Insurance School."
+  },
+  {
+    "id": "real_estate",
+    "keywords": [
+      "real estate",
+      "imobilye",
+      "immobilier"
+    ],
+    "kre": "Real Estate School nan PRO-MAX Académie fòme ou pou vin ajan imobilye sètifye.",
+    "fra": "La Real Estate School de PRO-MAX Académie vous forme pour devenir agent immobilier certifié.",
+    "eng": "The Real Estate School in PRO-MAX Académie trains you to become a certified real estate agent."
+  },
+  {
+    "id": "insurance",
+    "keywords": [
+      "insurance",
+      "asirans",
+      "assurance"
+    ],
+    "kre": "Insurance School nan PRO-MAX Académie fòme ou pou vin ajan asirans sètifye.",
+    "fra": "L'Insurance School de PRO-MAX Académie vous forme pour devenir agent d'assurance certifié.",
+    "eng": "The Insurance School in PRO-MAX Académie trains you to become a certified insurance agent."
+  },
+  {
+    "id": "beat_lab",
+    "keywords": [
+      "beat lab",
+      "beatlab",
+      "studio",
+      "prodiksyon",
+      "production"
+    ],
+    "kre": "PRO-MAX Beat Lab se estidyo kreyatif la pou pwodiksyon mizik ak beat.",
+    "fra": "PRO-MAX Beat Lab est le studio créatif pour la production musicale et les beats.",
+    "eng": "PRO-MAX Beat Lab is the creative studio for music and beat production."
+  },
+  {
+    "id": "beat_maker_school",
+    "keywords": [
+      "beat maker",
+      "beatmaker",
+      "ai school",
+      "kou",
+      "cours",
+      "course"
+    ],
+    "kre": "Beat Maker AI School gen 10 kou konplè, yon Pwofesè AI, ak yon sètifika pou moun ki fini egzamen yo.",
+    "fra": "La Beat Maker AI School propose 10 cours complets, un Professeur AI, et un certificat pour ceux qui réussissent les examens.",
+    "eng": "Beat Maker AI School has 10 complete courses, an AI Professor, and a certificate for those who pass the exams."
+  },
+  {
+    "id": "ddn",
+    "keywords": [
+      "ddn"
+    ],
+    "kre": "DDN se youn nan branch mouvman BSS1815 la — ekri nou pou plis detay sou kijan pou patisipe.",
+    "fra": "DDN est l'une des branches du mouvement BSS1815 — écrivez-nous pour plus de détails sur la participation.",
+    "eng": "DDN is one of the branches of the BSS1815 movement — contact us for more details on how to join."
+  },
+  {
+    "id": "acces_promax",
+    "keywords": [
+      "aksè",
+      "acces",
+      "access",
+      "promax",
+      "pro-max",
+      "rantre",
+      "rejoindre",
+      "join"
+    ],
+    "kre": "Pou jwenn aksè PRO-MAX, enskri sou platfòm ofisyèl la epi chwazi branch ou vle rantre a. Ekri nou isit la, n ap voye link enskripsyon an ba ou.",
+    "fra": "Pour obtenir l'accès PRO-MAX, inscrivez-vous sur la plateforme officielle et choisissez la branche. Écrivez-nous ici, on vous enverra le lien.",
+    "eng": "To get PRO-MAX access, register on the official platform and choose your branch. Message us here and we'll send you the registration link."
+  },
+  {
+    "id": "prix",
+    "keywords": [
+      "pri",
+      "prix",
+      "price",
+      "konbyen",
+      "combien",
+      "how much",
+      "kòb"
+    ],
+    "kre": "Pri yo varye selon sèvis la. Di nou egzakteman ki sèvis ou vle (taks, imigrasyon, fòmasyon, beat), n ap ba ou pri a.",
+    "fra": "Les prix varient selon le service. Dites-nous exactement quel service vous voulez (taxes, immigration, formation, beat), on vous donnera le prix.",
+    "eng": "Prices vary by service. Tell us exactly which service you want (taxes, immigration, training, beats), and we'll give you the price."
+  },
+  {
+    "id": "contact_humain",
+    "keywords": [
+      "moun",
+      "humain",
+      "human",
+      "ajan",
+      "agent",
+      "pale",
+      "parler",
+      "talk",
+      "telefòn",
+      "telephone",
+      "phone"
+    ],
+    "kre": "Ou vle pale ak yon moun? Ekri \"AJAN\" isit la, epi yon manm ekip Max Louis Multi Services ap reponn ou.",
+    "fra": "Vous voulez parler à un humain ? Écrivez \"AGENT\" ici, un membre de l'équipe vous répondra.",
+    "eng": "Want to talk to a human? Type \"AGENT\" here and a team member will reply."
+  },
+  {
+    "id": "langue",
+    "keywords": [
+      "lang",
+      "kreyòl",
+      "creole",
+      "français",
+      "franse",
+      "english",
+      "angle"
+    ],
+    "kre": "Mwen pale Kreyòl, Fransè, ak Anglè. Chwazi lang ou pi renmen an anlè paj la: KRE / FRA / ENG.",
+    "fra": "Je parle créole, français et anglais. Choisissez votre langue en haut de la page : KRE / FRA / ENG.",
+    "eng": "I speak Creole, French, and English. Choose your language at the top: KRE / FRA / ENG."
+  },
+  {
+    "id": "horaire",
+    "keywords": [
+      "lè",
+      "heure",
+      "hour",
+      "ouvè",
+      "ouvert",
+      "open",
+      "fèmen",
+      "fermé",
+      "closed",
+      "orè"
+    ],
+    "kre": "Sèvis kliyan AI a disponib 24/7. Pou sèvis ak moun, ekri nou pou pran randevou.",
+    "fra": "Le service client AI est disponible 24/7. Pour un service humain, écrivez-nous pour prendre rendez-vous.",
+    "eng": "The AI customer service is available 24/7. For human service, message us to book an appointment."
+  },
+  {
+    "id": "bonjour",
+    "keywords": [
+      "bonjou",
+      "bonjour",
+      "hello",
+      "hi",
+      "salut",
+      "alo"
+    ],
+    "kre": "👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m tout kesyon sou PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, Beat Maker AI School, DDN, oswa aksè PRO-MAX.",
+    "fra": "👋 Bonjour ! Je suis le Service Client AI de BSS1815. Posez-moi toute question sur PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, Beat Maker AI School, DDN, ou l'accès PRO-MAX.",
+    "eng": "👋 Hello! I am the BSS1815 AI Customer Service. Ask me anything about PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, Beat Maker AI School, DDN, or PRO-MAX access."
+  }
 ]
+
 
