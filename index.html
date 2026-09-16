@@ -160,9 +160,7 @@ footer li{margin:8px 0}
 #promax-widget.show{display:flex}
 #promax-widget button{border:1px solid var(--orange);background:var(--orange);color:#000;border-radius:999px;padding:7px 14px;font-weight:900;font-size:11px;cursor:pointer}
 a.feature-card{display:block;transition:.25s}
-a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 0 18px rgba(255,115,0,.25)}
-
-/* ===== CUSTOMER SERVICE AI (ajoute — pa retire anyen nan orijinal la) ===== */
+a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 0 18px rgba(255,115,0,.25)}  /* ===== CUSTOMER SERVICE AI (ajoute — pa retire anyen nan orijinal la) ===== */
 .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
 .cs-video-card{padding:14px;border:2px solid var(--orange);border-radius:22px;background:radial-gradient(circle at top,rgba(255,115,0,.16),transparent 42%),#000;box-shadow:0 0 26px rgba(255,115,0,.22);display:flex;flex-direction:column}
 .cs-video-label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;color:var(--orange);font-size:11px;font-weight:900;letter-spacing:.06em}
@@ -182,13 +180,24 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 #csForm input:focus{outline:none;border-color:var(--orange)}
 #csForm button{padding:13px 18px}
 @media(max-width:980px){
-  .cs-grid{grid-template-columns:1fr}
-  .cs-video{min-height:240px}
+.cs-grid{grid-template-columns:1fr}
+.cs-video{min-height:240px}
 }
+/* ===== AI CENTER (ajoute — pa retire anyen nan orijinal la) ===== */
+.ai-center-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ai-card{position:relative;padding:26px;border:1px solid var(--border);border-radius:22px;background:radial-gradient(circle at top right,rgba(255,115,0,.12),transparent 50%),#050200;display:flex;flex-direction:column;gap:10px;transition:.25s}
+.ai-card:hover{transform:translateY(-4px);border-color:var(--orange);box-shadow:0 0 22px rgba(255,115,0,.25)}
+.ai-card .ai-icon{font-size:34px}
+.ai-card h3{color:var(--orange)}
+.ai-card p{line-height:1.65;flex:1}
+.ai-tag{align-self:flex-start;padding:5px 11px;border:1px solid var(--orange);border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.05em;color:var(--orange)}
+.ai-tag.soon{color:var(--apricot);border-color:var(--border)}
+.ai-card .btn{align-self:flex-start;margin-top:6px}
+@media(max-width:1050px){.ai-center-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.ai-center-grid{grid-template-columns:1fr}}
 </style>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-</head>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>  </head>
 <body>
 <!-- PRO-MAX ACCESS GATE (ajoute — pa retire anyen nan orijinal la) -->
 <div id="promax-gate" translate="no">
@@ -218,6 +227,7 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 <a href="#home" data-i18n="home">AKÈY</a>
 <a href="#about" data-i18n="about">SOU NOU</a>
 <a href="#customerservice" data-i18n="csNav">SÈVIS KLIYAN AI</a>
+<a href="#aicenter" data-i18n="aicenterNav">AI CENTER</a>
 <a href="#community" data-i18n="community">KOMINOTE</a>
 <a href="#gallery" data-i18n="gallery">GALERI</a>
 <a href="#media" data-i18n="media">MEDIA</a>
@@ -271,19 +281,14 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
 <div class="info-card"><h3 data-i18n="future">LAVNI</h3><p data-i18n="futureText">Bati pou jodi a. Pare pou demen.</p></div>
 </div>
 </div>
-</section>
-
-<!-- ===== CUSTOMER SERVICE AI (ajoute — pa retire anyen nan orijinal la) ===== -->
-<section class="section" id="customerservice">
+</section>  <!-- ===== CUSTOMER SERVICE AI (ajoute — pa retire anyen nan orijinal la) ===== -->  <section class="section" id="customerservice">
 <div class="container">
 <div class="section-heading">
 <div class="badge" data-i18n="csBadge">SÈVIS KLIYAN • AI</div>
 <h2 data-i18n="csTitle">SÈVIS KLIYAN AI BSS1815</h2>
 <p data-i18n="csText">Gen yon kesyon sou platfòm BSS1815 la, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, oswa DDN? Poze Sèvis Kliyan AI a — li la pou gide w.</p>
 </div>
-<div class="cs-grid">
-
-  <div class="cs-video-card">
+<div class="cs-grid">    <div class="cs-video-card">
     <div class="cs-video-label">
       <span data-i18n="csVideoLabel">🎧 BSS1815 SÈVIS KLIYAN</span>
       <span>AI</span>
@@ -315,33 +320,57 @@ a.feature-card:hover{transform:translateY(-3px);border-color:var(--orange);box-s
       <p>Nenpòt kesyon ou genyen — ekri l nan chat anba a, e m ap reponn ou touswit.</p>
       <p><strong>DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.</strong> 🌞</p>
     </div>
-  </div>
-
-  <div class="cs-chat">
+  </div>    <div class="cs-chat">
     <div class="cs-messages" id="csMessages">
       <div class="cs-bot" id="csWelcomeMsg" data-i18n="csWelcome">
         👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m nenpòt
         kesyon sou platfòm nan — PRO-MAX FM, MaxiMax Multi Services,
         PRO-MAX Académie, Beat Lab, DDN, oswa aksè PRO-MAX la.
       </div>
-    </div>
+    </div>  <form id="csForm">
+  <input
+    id="csQuestion"
+    autocomplete="off"
+    data-i18n-placeholder="csPlaceholder"
+    placeholder="Ekri kesyon ou..."
+    required
+  >
+  <button class="btn btn-primary" type="submit" data-i18n="csSend">VOYE</button>
+</form>
 
-    <form id="csForm">
-      <input
-        id="csQuestion"
-        autocomplete="off"
-        data-i18n-placeholder="csPlaceholder"
-        placeholder="Ekri kesyon ou..."
-        required
-      >
-      <button class="btn btn-primary" type="submit" data-i18n="csSend">VOYE</button>
-    </form>
-  </div>
-
+  </div>  </div>
+</div>
+</section>  <!-- ===== AI CENTER (ajoute — pa retire anyen nan orijinal la) ===== -->  <section class="section section-dark" id="aicenter">
+<div class="container">
+<div class="section-heading">
+<div class="badge" data-i18n="aicenterBadge">BSS1815 • AI CENTER</div>
+<h2 data-i18n="aicenterTitle">AI CENTER</h2>
+<p data-i18n="aicenterText">Tout zouti Entèlijans Atifisyèl BSS1815 sanble nan yon sèl kote — sèvis kliyan, fòmasyon, ak plis toujou k ap vini.</p>
+</div>
+<div class="ai-center-grid">
+<div class="ai-card">
+<div class="ai-icon">🎧</div>
+<span class="ai-tag" data-i18n="aiTagLive">DISPONIB</span>
+<h3 data-i18n="aiCard1Title">SÈVIS KLIYAN AI</h3>
+<p data-i18n="aiCard1Text">Poze nenpòt kesyon sou BSS1815 an antye — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN oswa kòd aksè PRO-MAX la — e jwenn repons touswit.</p>
+<a href="#customerservice" class="btn btn-primary" data-i18n="aiCard1Btn">POZE YON KESYON</a>
+</div>
+<div class="ai-card">
+<div class="ai-icon">🥁</div>
+<span class="ai-tag" data-i18n="aiTagLive">DISPONIB</span>
+<h3 data-i18n="aiCard2Title">PWOFESÈ AI BEAT MAKER</h3>
+<p data-i18n="aiCard2Text">Anndan Beat Maker AI School, yon Pwofesè AI reponn kesyon sou beat making, BPM, konpa, rara, mixing ak mastering pandan w ap swiv 10 kou yo.</p>
+<a href="#customerservice" class="btn btn-outline" data-i18n="aiCard2Btn">APRANN PLIS</a>
+</div>
+<div class="ai-card">
+<div class="ai-icon">✨</div>
+<span class="ai-tag soon" data-i18n="aiTagSoon">K AP VINI</span>
+<h3 data-i18n="aiCard3Title">AVATAR AI AN DIRÈK</h3>
+<p data-i18n="aiCard3Text">Yon avatar videyo an dirèk (HeyGen) ki pral ranplase videyo prezantasyon an, pou yon eksperyans Sèvis Kliyan AI ki pi vivan toujou.</p>
+</div>
 </div>
 </div>
 </section>
-
 <section class="section" id="community">
 <div class="container">
 <div class="section-heading">
@@ -539,15 +568,13 @@ const suppliedMedia = [
   "makout57.jpg","mambo_fifi.jpeg","mario.jpg","may2.jpeg","ones.jpg","paulema.jpg",
   "roro-lajan.jpg","roro23.jpeg","tania.jpg","ti_marasa.jpeg","tsp2.jpeg","yole.jpg",
   "cange2.jpeg","guypson1.jpg","macu2.jpg","mario1.jpg","roro-lajan.png","yole1.jpeg",
-  "roro-lajan2.jpeg",
-
-  "ai-magazen.mp4","boutique-bss.mp4","bss-luxury-store.mp4","bssluxury-store.mp4","dirijan-vizyone.mp4","koukou-fly-stay.mp4",
-  "koukou-return.mp4","master-mind.mp4","miami-on-the-move.mp4","move-deba.mp4","plan-2028.mp4","store-front.mp4",
-  "teamsanpresyon21.mp4","the-change-is-commin.mp4"
+  "roro-lajan2.jpeg",  "ai-magazen.mp4","boutique-bss.mp4","bss-luxury-store.mp4","bssluxury-store.mp4","dirijan-vizyone.mp4","koukou-fly-stay.mp4",
+"koukou-return.mp4","master-mind.mp4","miami-on-the-move.mp4","move-deba.mp4","plan-2028.mp4","store-front.mp4",
+"teamsanpresyon21.mp4","the-change-is-commin.mp4"
 ];
 const mediaFiles = [...new Set(suppliedMedia)];
-function isVideo(file){return /\.(mp4|webm|mov)$/i.test(file);}
-function pretty(file){return file.replace(/\.(jpg|jpeg|png|webp|mp4|webm|mov)$/i,"").replace(/[-_]+/g," ").replace(/\b\w/g,function(c){return c.toUpperCase();});}
+function isVideo(file){return /.(mp4|webm|mov)$/i.test(file);}
+function pretty(file){return file.replace(/.(jpg|jpeg|png|webp|mp4|webm|mov)$/i,"").replace(/[-_]+/g," ").replace(/\b\w/g,function(c){return c.toUpperCase();});}
 const menu = document.getElementById("menu");
 const nav = document.getElementById("nav");
 menu.addEventListener("click",function(){nav.classList.toggle("open");});
@@ -568,168 +595,168 @@ const PHOTO_TIME = 5000;
 const VIDEO_FALLBACK = 30000;
 function refreshSlides(){slides = Array.from(stage.querySelectorAll(".slide"));dots = Array.from(dotsEl.querySelectorAll(".dot"));}
 function removeBrokenSlide(slide){
-  const slideId = slide.dataset.id;
-  const dot = dotsEl.querySelector('[data-for="'+slideId+'"]');
-  slide.remove();
-  if(dot){dot.remove();}
-  refreshSlides();
-  if(!slides.length){counter.textContent = "0 / 0";progress.style.width = "0%";return;}
-  if(current >= slides.length){current = 0;}
-  slides.forEach(function(item,index){item.classList.toggle("active",index === current);});
-  dots.forEach(function(item,index){item.classList.toggle("active",index === current);});
-  updateStatus();
+const slideId = slide.dataset.id;
+const dot = dotsEl.querySelector('[data-for="'+slideId+'"]');
+slide.remove();
+if(dot){dot.remove();}
+refreshSlides();
+if(!slides.length){counter.textContent = "0 / 0";progress.style.width = "0%";return;}
+if(current >= slides.length){current = 0;}
+slides.forEach(function(item,index){item.classList.toggle("active",index === current);});
+dots.forEach(function(item,index){item.classList.toggle("active",index === current);});
+updateStatus();
 }
 mediaFiles.forEach(function(file,index){
-  const id = "bss-media-" + index;
-  const slide = document.createElement("div");
-  slide.className = "slide" + (index === 0? " active" : "");
-  slide.dataset.type = isVideo(file)? "video" : "image";
-  slide.dataset.id = id;
-  if(isVideo(file)){
-    const video = document.createElement("video");
-    video.src = file;
-    video.preload = "metadata";
-    video.playsInline = true;
-    video.muted = true;
-    video.controls = false;
-    video.addEventListener("error",function(){console.warn("BSS1815 media pa chaje (slideshow):", file);removeBrokenSlide(slide);});
-    video.addEventListener("ended",function(){if(autoplay){nextSlide();}});
-    slide.appendChild(video);
-  }else{
-    const image = document.createElement("img");
-    image.src = file;
-    image.alt = pretty(file) + " — Briyant Solèy Signo 1815";
-    image.loading = index < 6? "eager" : "lazy";
-    image.addEventListener("error",function(){console.warn("BSS1815 media pa chaje (slideshow):", file);removeBrokenSlide(slide);});
-    slide.appendChild(image);
-  }
-  const badge = document.createElement("div");
-  badge.className = "media-badge";
-  badge.textContent = isVideo(file)? "🎥 BSS1815 VIDEO" : "📸 BSS1815 COMMUNITY";
-  slide.appendChild(badge);
-  const caption = document.createElement("div");
-  caption.className = "slide-caption";
-  caption.innerHTML = "<strong>"+pretty(file)+"</strong><span>BRIYANT SOLÈY SIGNO 1815</span>";
-  slide.appendChild(caption);
-  stage.appendChild(slide);
-  const dot = document.createElement("button");
-  dot.className = "dot" + (index === 0? " active" : "");
-  dot.type = "button";
-  dot.dataset.for = id;
-  dot.title = pretty(file);
-  dot.addEventListener("click",function(){
-    refreshSlides();
-    const target = stage.querySelector('[data-id="'+id+'"]');
-    const targetIndex = slides.indexOf(target);
-    if(targetIndex >= 0){goTo(targetIndex);}
-  });
-  dotsEl.appendChild(dot);
+const id = "bss-media-" + index;
+const slide = document.createElement("div");
+slide.className = "slide" + (index === 0? " active" : "");
+slide.dataset.type = isVideo(file)? "video" : "image";
+slide.dataset.id = id;
+if(isVideo(file)){
+const video = document.createElement("video");
+video.src = file;
+video.preload = "metadata";
+video.playsInline = true;
+video.muted = true;
+video.controls = false;
+video.addEventListener("error",function(){console.warn("BSS1815 media pa chaje (slideshow):", file);removeBrokenSlide(slide);});
+video.addEventListener("ended",function(){if(autoplay){nextSlide();}});
+slide.appendChild(video);
+}else{
+const image = document.createElement("img");
+image.src = file;
+image.alt = pretty(file) + " — Briyant Solèy Signo 1815";
+image.loading = index < 6? "eager" : "lazy";
+image.addEventListener("error",function(){console.warn("BSS1815 media pa chaje (slideshow):", file);removeBrokenSlide(slide);});
+slide.appendChild(image);
+}
+const badge = document.createElement("div");
+badge.className = "media-badge";
+badge.textContent = isVideo(file)? "🎥 BSS1815 VIDEO" : "📸 BSS1815 COMMUNITY";
+slide.appendChild(badge);
+const caption = document.createElement("div");
+caption.className = "slide-caption";
+caption.innerHTML = "<strong>"+pretty(file)+"</strong><span>BRIYANT SOLÈY SIGNO 1815</span>";
+slide.appendChild(caption);
+stage.appendChild(slide);
+const dot = document.createElement("button");
+dot.className = "dot" + (index === 0? " active" : "");
+dot.type = "button";
+dot.dataset.for = id;
+dot.title = pretty(file);
+dot.addEventListener("click",function(){
+refreshSlides();
+const target = stage.querySelector('[data-id="'+id+'"]');
+const targetIndex = slides.indexOf(target);
+if(targetIndex >= 0){goTo(targetIndex);}
+});
+dotsEl.appendChild(dot);
 });
 refreshSlides();
 function stopVideos(){
-  slides.forEach(function(slide){
-    const video = slide.querySelector("video");
-    if(video){video.pause();try{video.currentTime = 0;}catch(error){}}
-  });
+slides.forEach(function(slide){
+const video = slide.querySelector("video");
+if(video){video.pause();try{video.currentTime = 0;}catch(error){}}
+});
 }
 function updateStatus(){
-  refreshSlides();
-  if(!slides.length){counter.textContent = "0 / 0";progress.style.width = "0%";return;}
-  counter.textContent = (current + 1) + " / " + slides.length;
-  progress.style.width = (((current + 1) / slides.length) * 100) + "%";
+refreshSlides();
+if(!slides.length){counter.textContent = "0 / 0";progress.style.width = "0%";return;}
+counter.textContent = (current + 1) + " / " + slides.length;
+progress.style.width = (((current + 1) / slides.length) * 100) + "%";
 }
 function schedule(){
-  clearTimeout(timer);
-  if(!autoplay ||!slides.length){return;}
-  const slide = slides[current];
-  if(!slide){return;}
-  if(slide.dataset.type === "video"){
-    const video = slide.querySelector("video");
-    if(!video){timer = setTimeout(nextSlide, PHOTO_TIME);return;}
-    video.muted = muted;
-    try{video.currentTime = 0;}catch(error){}
-    const playPromise = video.play();
-    if(playPromise){playPromise.catch(function(){timer = setTimeout(nextSlide, PHOTO_TIME);});}
-    timer = setTimeout(nextSlide, VIDEO_FALLBACK);
-  }else{
-    timer = setTimeout(nextSlide, PHOTO_TIME);
-  }
+clearTimeout(timer);
+if(!autoplay ||!slides.length){return;}
+const slide = slides[current];
+if(!slide){return;}
+if(slide.dataset.type === "video"){
+const video = slide.querySelector("video");
+if(!video){timer = setTimeout(nextSlide, PHOTO_TIME);return;}
+video.muted = muted;
+try{video.currentTime = 0;}catch(error){}
+const playPromise = video.play();
+if(playPromise){playPromise.catch(function(){timer = setTimeout(nextSlide, PHOTO_TIME);});}
+timer = setTimeout(nextSlide, VIDEO_FALLBACK);
+}else{
+timer = setTimeout(nextSlide, PHOTO_TIME);
+}
 }
 function goTo(index){
-  refreshSlides();
-  if(!slides.length){return;}
-  clearTimeout(timer);
-  stopVideos();
-  if(slides[current]){slides[current].classList.remove("active");}
-  if(dots[current]){dots[current].classList.remove("active");}
-  current = (index + slides.length) % slides.length;
-  if(slides[current]){slides[current].classList.add("active");}
-  if(dots[current]){dots[current].classList.add("active");}
-  updateStatus();
-  schedule();
+refreshSlides();
+if(!slides.length){return;}
+clearTimeout(timer);
+stopVideos();
+if(slides[current]){slides[current].classList.remove("active");}
+if(dots[current]){dots[current].classList.remove("active");}
+current = (index + slides.length) % slides.length;
+if(slides[current]){slides[current].classList.add("active");}
+if(dots[current]){dots[current].classList.add("active");}
+updateStatus();
+schedule();
 }
 function nextSlide(){goTo(current + 1);}
 function prevSlide(){goTo(current - 1);}
 document.getElementById("next").addEventListener("click", nextSlide);
 document.getElementById("prev").addEventListener("click", prevSlide);
 playPauseButton.addEventListener("click", function(){
-  autoplay =!autoplay;
-  if(autoplay){playPauseButton.textContent = "⏸ PAUSE";schedule();}
-  else{playPauseButton.textContent = "▶ PLAY";clearTimeout(timer);const v = slides[current]? slides[current].querySelector("video") : null;if(v){v.pause();}}
+autoplay =!autoplay;
+if(autoplay){playPauseButton.textContent = "⏸ PAUSE";schedule();}
+else{playPauseButton.textContent = "▶ PLAY";clearTimeout(timer);const v = slides[current]? slides[current].querySelector("video") : null;if(v){v.pause();}}
 });
 soundButton.addEventListener("click", function(){
-  muted =!muted;
-  soundButton.textContent = muted? "🔇 VIDEO" : "🔊 VIDEO";
-  slides.forEach(function(slide){const video = slide.querySelector("video");if(video){video.muted = muted;}});
+muted =!muted;
+soundButton.textContent = muted? "🔇 VIDEO" : "🔊 VIDEO";
+slides.forEach(function(slide){const video = slide.querySelector("video");if(video){video.muted = muted;}});
 });
 const slideshow = document.getElementById("slideshow");
 let touchStartX = 0;
 slideshow.addEventListener("touchstart", function(event){touchStartX = event.changedTouches[0].clientX;}, {passive:true});
 slideshow.addEventListener("touchend", function(event){
-  const touchEndX = event.changedTouches[0].clientX;
-  const difference = touchStartX - touchEndX;
-  if(Math.abs(difference) < 50){return;}
-  if(difference > 0){nextSlide();}else{prevSlide();}
+const touchEndX = event.changedTouches[0].clientX;
+const difference = touchStartX - touchEndX;
+if(Math.abs(difference) < 50){return;}
+if(difference > 0){nextSlide();}else{prevSlide();}
 }, {passive:true});
 document.addEventListener("keydown", function(event){
-  if(event.key === "ArrowRight"){nextSlide();}
-  if(event.key === "ArrowLeft"){prevSlide();}
+if(event.key === "ArrowRight"){nextSlide();}
+if(event.key === "ArrowLeft"){prevSlide();}
 });
 updateStatus();
 schedule();
 const galleryGrid = document.getElementById("galleryGrid");
 mediaFiles.filter(function(file){return!isVideo(file);}).forEach(function(file){
-  const card = document.createElement("div");
-  card.className = "gallery-card";
-  const image = document.createElement("img");
-  image.src = file;
-  image.alt = pretty(file);
-  image.loading = "lazy";
-  image.addEventListener("error", function(){console.warn("BSS1815 media pa chaje (galeri):", file);card.remove();});
-  const caption = document.createElement("div");
-  caption.className = "gallery-caption";
-  caption.innerHTML = "<strong>"+pretty(file)+"</strong>";
-  card.appendChild(image);
-  card.appendChild(caption);
-  galleryGrid.appendChild(card);
+const card = document.createElement("div");
+card.className = "gallery-card";
+const image = document.createElement("img");
+image.src = file;
+image.alt = pretty(file);
+image.loading = "lazy";
+image.addEventListener("error", function(){console.warn("BSS1815 media pa chaje (galeri):", file);card.remove();});
+const caption = document.createElement("div");
+caption.className = "gallery-caption";
+caption.innerHTML = "<strong>"+pretty(file)+"</strong>";
+card.appendChild(image);
+card.appendChild(caption);
+galleryGrid.appendChild(card);
 });
 const mediaGrid = document.getElementById("mediaGrid");
 const mediaCenterVideos = ["bssluxury-store.mp4","bss-luxury-store.mp4","koukou-fly-stay.mp4","miami-on-the-move.mp4","dirijan-vizyone.mp4","plan-2028.mp4","the-change-is-commin.mp4","teamsanpresyon21.mp4","koukou-return.mp4","store-front.mp4","boutique-bss.mp4","master-mind.mp4","ai-magazen.mp4","move-deba.mp4"];
 [...new Set(mediaCenterVideos)].forEach(function(file){
-  const card = document.createElement("div");
-  card.className = "media-card";
-  const video = document.createElement("video");
-  video.controls = true;
-  video.playsInline = true;
-  video.preload = "metadata";
-  video.src = file;
-  video.addEventListener("error", function(){console.warn("BSS1815 media pa chaje (media center):", file);card.remove();});
-  const text = document.createElement("div");
-  text.className = "media-text";
-  text.innerHTML = "<h3>"+pretty(file)+"</h3><p>BSS1815 Media</p>";
-  card.appendChild(video);
-  card.appendChild(text);
-  mediaGrid.appendChild(card);
+const card = document.createElement("div");
+card.className = "media-card";
+const video = document.createElement("video");
+video.controls = true;
+video.playsInline = true;
+video.preload = "metadata";
+video.src = file;
+video.addEventListener("error", function(){console.warn("BSS1815 media pa chaje (media center):", file);card.remove();});
+const text = document.createElement("div");
+text.className = "media-text";
+text.innerHTML = "<h3>"+pretty(file)+"</h3><p>BSS1815 Media</p>";
+card.appendChild(video);
+card.appendChild(text);
+mediaGrid.appendChild(card);
 });
 const translations = {
 ht:{
@@ -762,7 +789,21 @@ csVideoLabel:"🎧 BSS1815 SÈVIS KLIYAN",
 csVideoNote:"Videyo prezantasyon Sèvis Kliyan AI a. Yon avatar videyo an dirèk (HeyGen) ap ranplase l pita.",
 csWelcome:"👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m nenpòt kesyon sou tout sistèm nan — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, DDN, oswa aksè PRO-MAX la.",
 csPlaceholder:"Ekri kesyon ou...",
-csSend:"VOYE"
+csSend:"VOYE",
+aicenterNav:"AI CENTER",
+aicenterBadge:"BSS1815 • AI CENTER",
+aicenterTitle:"AI CENTER",
+aicenterText:"Tout zouti Entèlijans Atifisyèl BSS1815 sanble nan yon sèl kote — sèvis kliyan, fòmasyon, ak plis toujou k ap vini.",
+aiTagLive:"DISPONIB",
+aiTagSoon:"K AP VINI",
+aiCard1Title:"SÈVIS KLIYAN AI",
+aiCard1Text:"Poze nenpòt kesyon sou BSS1815 an antye — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN oswa kòd aksè PRO-MAX la — e jwenn repons touswit.",
+aiCard1Btn:"POZE YON KESYON",
+aiCard2Title:"PWOFESÈ AI BEAT MAKER",
+aiCard2Text:"Anndan Beat Maker AI School, yon Pwofesè AI reponn kesyon sou beat making, BPM, konpa, rara, mixing ak mastering pandan w ap swiv 10 kou yo.",
+aiCard2Btn:"APRANN PLIS",
+aiCard3Title:"AVATAR AI AN DIRÈK",
+aiCard3Text:"Yon avatar videyo an dirèk (HeyGen) ki pral ranplase videyo prezantasyon an, pou yon eksperyans Sèvis Kliyan AI ki pi vivan toujou."
 },
 en:{
 official:"OFFICIAL PLATFORM",home:"HOME",about:"ABOUT",community:"COMMUNITY",gallery:"GALLERY",media:"MEDIA",legacy:"LEGACY",social:"SOCIAL",contact:"CONTACT",
@@ -794,7 +835,21 @@ csVideoLabel:"🎧 BSS1815 CUSTOMER SERVICE",
 csVideoNote:"Presentation video for AI Customer Service. A live video avatar (HeyGen) will replace it later.",
 csWelcome:"👋 Hello! I'm the BSS1815 AI Customer Service. Ask me anything about the whole system — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, DDN, or PRO-MAX access.",
 csPlaceholder:"Type your question...",
-csSend:"SEND"
+csSend:"SEND",
+aicenterNav:"AI CENTER",
+aicenterBadge:"BSS1815 • AI CENTER",
+aicenterTitle:"AI CENTER",
+aicenterText:"All of BSS1815's AI-powered tools in one place — customer service, training, and more on the way.",
+aiTagLive:"AVAILABLE",
+aiTagSoon:"COMING SOON",
+aiCard1Title:"AI CUSTOMER SERVICE",
+aiCard1Text:"Ask anything about all of BSS1815 — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN or PRO-MAX access codes — and get an instant answer.",
+aiCard1Btn:"ASK A QUESTION",
+aiCard2Title:"AI BEAT MAKER PROFESSOR",
+aiCard2Text:"Inside Beat Maker AI School, an AI Professor answers questions about beat making, BPM, konpa, rara, mixing and mastering as you work through the 10 courses.",
+aiCard2Btn:"LEARN MORE",
+aiCard3Title:"LIVE AI AVATAR",
+aiCard3Text:"A live video avatar (HeyGen) will soon replace the presentation video, for an even more lifelike AI Customer Service experience."
 },
 fr:{
 official:"PLATEFORME OFFICIELLE",home:"ACCUEIL",about:"À PROPOS",community:"COMMUNAUTÉ",gallery:"GALERIE",media:"MÉDIAS",legacy:"HÉRITAGE",social:"RÉSEAUX",contact:"CONTACT",
@@ -826,162 +881,183 @@ csVideoLabel:"🎧 BSS1815 SERVICE CLIENT",
 csVideoNote:"Vidéo de présentation du Service Client AI. Un avatar vidéo en direct (HeyGen) le remplacera plus tard.",
 csWelcome:"👋 Bonjour ! Je suis le Service Client AI de BSS1815. Posez-moi toute question sur l'ensemble du système — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, DDN, ou l'accès PRO-MAX.",
 csPlaceholder:"Écrivez votre question...",
-csSend:"ENVOYER"
+csSend:"ENVOYER",
+aicenterNav:"AI CENTER",
+aicenterBadge:"BSS1815 • AI CENTER",
+aicenterTitle:"AI CENTER",
+aicenterText:"Tous les outils d'intelligence artificielle de BSS1815 réunis au même endroit — service client, formation, et bien plus à venir.",
+aiTagLive:"DISPONIBLE",
+aiTagSoon:"BIENTÔT",
+aiCard1Title:"SERVICE CLIENT AI",
+aiCard1Text:"Posez n'importe quelle question sur tout BSS1815 — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN ou les codes d'accès PRO-MAX — et obtenez une réponse instantanée.",
+aiCard1Btn:"POSER UNE QUESTION",
+aiCard2Title:"PROFESSEUR AI BEAT MAKER",
+aiCard2Text:"Dans Beat Maker AI School, un Professeur AI répond aux questions sur le beat making, le BPM, le konpa, le rara, le mixing et le mastering pendant vos 10 cours.",
+aiCard2Btn:"EN SAVOIR PLUS",
+aiCard3Title:"AVATAR AI EN DIRECT",
+aiCard3Text:"Un avatar vidéo en direct (HeyGen) remplacera bientôt la vidéo de présentation, pour une expérience de Service Client AI encore plus vivante."
 }
 };
 function setLanguage(lang){
-  const dictionary = translations[lang] || translations.ht;
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(function(element){
-    const key = element.dataset.i18n;
-    if(Object.prototype.hasOwnProperty.call(dictionary, key)){element.textContent = dictionary[key];}
-  });
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(function(element){
-    const key = element.dataset.i18nPlaceholder;
-    if(Object.prototype.hasOwnProperty.call(dictionary, key)){element.setAttribute("placeholder", dictionary[key]);}
-  });
-  document.querySelectorAll(".lang").forEach(function(button){
-    button.classList.toggle("active", button.dataset.lang === lang);
-  });
-  const englishButton = document.querySelector('[data-lang="en"]');
-  const frenchButton = document.querySelector('[data-lang="fr"]');
-  const creoleButton = document.querySelector('[data-lang="ht"]');
-  if(englishButton){englishButton.textContent = "🇺🇸 ENG";}
-  if(frenchButton){frenchButton.textContent = "🇫🇷 FRA";}
-  if(creoleButton){creoleButton.textContent = "🇭🇹 KRE";}
-  localStorage.setItem("bssLanguage", lang);
+const dictionary = translations[lang] || translations.ht;
+document.documentElement.lang = lang;
+document.querySelectorAll("[data-i18n]").forEach(function(element){
+const key = element.dataset.i18n;
+if(Object.prototype.hasOwnProperty.call(dictionary, key)){element.textContent = dictionary[key];}
+});
+document.querySelectorAll("[data-i18n-placeholder]").forEach(function(element){
+const key = element.dataset.i18nPlaceholder;
+if(Object.prototype.hasOwnProperty.call(dictionary, key)){element.setAttribute("placeholder", dictionary[key]);}
+});
+document.querySelectorAll(".lang").forEach(function(button){
+button.classList.toggle("active", button.dataset.lang === lang);
+});
+const englishButton = document.querySelector('[data-lang="en"]');
+const frenchButton = document.querySelector('[data-lang="fr"]');
+const creoleButton = document.querySelector('[data-lang="ht"]');
+if(englishButton){englishButton.textContent = "🇺🇸 ENG";}
+if(frenchButton){frenchButton.textContent = "🇫🇷 FRA";}
+if(creoleButton){creoleButton.textContent = "🇭🇹 KRE";}
+localStorage.setItem("bssLanguage", lang);
 }
 document.querySelectorAll(".lang").forEach(function(button){
-  button.addEventListener("click", function(){setLanguage(button.dataset.lang);});
+button.addEventListener("click", function(){setLanguage(button.dataset.lang);});
 });
 setLanguage(localStorage.getItem("bssLanguage") || "ht");
 const pageSections = document.querySelectorAll("main section[id]");
 const navLinks = document.querySelectorAll("nav a");
 window.addEventListener("scroll", function(){
-  let currentSection = "home";
-  pageSections.forEach(function(section){
-    if(window.scrollY >= section.offsetTop - 160){currentSection = section.id;}
-  });
-  navLinks.forEach(function(link){
-    link.classList.toggle("active", link.getAttribute("href") === "#" + currentSection);
-  });
+let currentSection = "home";
+pageSections.forEach(function(section){
+if(window.scrollY >= section.offsetTop - 160){currentSection = section.id;}
+});
+navLinks.forEach(function(link){
+link.classList.toggle("active", link.getAttribute("href") === "#" + currentSection);
+});
 }, {passive:true});
 document.getElementById("year").textContent = new Date().getFullYear();
 
 /* ===== CUSTOMER SERVICE AI CHAT LOGIC (ajoute — pa retire anyen nan orijinal la) =====
-   Kounye a, sa a reponn ak yon seri repons prensipal sou platfòm nan pandan n ap
-   tann konsyon Gemini a. Pou konekte l ak Gemini toutbon, ranplase fonksyon
-   getCustomerServiceReply(question) pi ba a ak yon rele (fetch) sou menm
-   backend/Cloud Function ki deja jere pwofesè AI Beat Maker la. */
+Kounye a, sa a reponn ak yon seri repons prensipal sou platfòm nan pandan n ap
+tann konsyon Gemini a. Pou konekte l ak Gemini toutbon, ranplase fonksyon
+getCustomerServiceReply(question) pi ba a ak yon rele (fetch) sou menm
+backend/Cloud Function ki deja jere pwofesè AI Beat Maker la. */
 
 const csMessages = document.getElementById("csMessages");
 const csForm = document.getElementById("csForm");
 const csQuestion = document.getElementById("csQuestion");
 
 function csAddMessage(text, from){
-  const bubble = document.createElement("div");
-  bubble.className = from === "user" ? "cs-user" : "cs-bot";
-  bubble.textContent = text;
-  csMessages.appendChild(bubble);
-  csMessages.scrollTop = csMessages.scrollHeight;
+const bubble = document.createElement("div");
+bubble.className = from === "user" ? "cs-user" : "cs-bot";
+bubble.textContent = text;
+csMessages.appendChild(bubble);
+csMessages.scrollTop = csMessages.scrollHeight;
 }
 
 function getCustomerServiceReply(question){
-  const q = question.toLowerCase();
+const q = question.toLowerCase();
 
-  /* ---- BSS1815 jeneral: kisa/misyon/vizyon/eritaj ---- */
-  if(q.includes("kisa") && (q.includes("bss") || q.includes("briyant") || q.includes("solèy") || q.includes("signo"))){
-    return "🌞 BRIYANT SOLÈY SIGNO 1815 (BSS1815) se yon kominote, yon fanmi ak yon mouvman ki prezève istwa, kilti, mizik ak eritaj Signo. Se anba plafòm sa a 5 pwojè PRO-MAX yo ye: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, PRO-MAX Beat Lab, ak DDN.";
-  }
-  if(q.includes("misyon") || q.includes("vizyon") || (q.includes("eritaj") && !q.includes("insurance"))){
-    return "🎯 Misyon BSS1815 se prezève ak mete eritaj kominote a an valè, konekte jenerasyon pase, prezan ak lavni — DEVAN DEVAN NÈT, BATI POU JODI A, PARE POU DEMEN.";
-  }
+/* ---- BSS1815 jeneral: kisa/misyon/vizyon/eritaj ---- */
+if(q.includes("kisa") && (q.includes("bss") || q.includes("briyant") || q.includes("solèy") || q.includes("signo"))){
+return "🌞 BRIYANT SOLÈY SIGNO 1815 (BSS1815) se yon kominote, yon fanmi ak yon mouvman ki prezève istwa, kilti, mizik ak eritaj Signo. Se anba plafòm sa a 5 pwojè PRO-MAX yo ye: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, PRO-MAX Beat Lab, ak DDN.";
+}
+if(q.includes("misyon") || q.includes("vizyon") || (q.includes("eritaj") && !q.includes("insurance"))){
+return "🎯 Misyon BSS1815 se prezève ak mete eritaj kominote a an valè, konekte jenerasyon pase, prezan ak lavni — DEVAN DEVAN NÈT, BATI POU JODI A, PARE POU DEMEN.";
+}
 
-  /* ---- PRO-MAX FM ---- */
-  if(q.includes("fm") || q.includes("radyo") || q.includes("radio")){
-    return "🎙️ PRO-MAX FM se radyo kominote BSS1815 la — mizik, nouvèl ak pwogram, \"la voix de notre people\". Ou jwenn li nan seksyon PRO-MAX la; li mande yon kòd aksè valid 3 zèd tan.";
-  }
+/* ---- PRO-MAX FM ---- */
+if(q.includes("fm") || q.includes("radyo") || q.includes("radio")){
+return "🎙️ PRO-MAX FM se radyo kominote BSS1815 la — mizik, nouvèl ak pwogram, \"la voix de notre people\". Ou jwenn li nan seksyon PRO-MAX la; li mande yon kòd aksè valid 3 zèd tan.";
+}
 
-  /* ---- MaxiMax Multi Services ---- */
-  if(q.includes("maximax") || q.includes("imigrasyon") || q.includes("taks") || q.includes("notary") || q.includes("nota") || q.includes("biznis") || q.includes("business")){
-    return "🧳 MaxiMax Multi Services okipe imigrasyon, taks, biznis ak sèvis notarial — \"your solutions, our priority\". Pou yon demann espesifik, kontakte nou nan seksyon KONTAK an ba paj la.";
-  }
+/* ---- MaxiMax Multi Services ---- */
+if(q.includes("maximax") || q.includes("imigrasyon") || q.includes("taks") || q.includes("notary") || q.includes("nota") || q.includes("biznis") || q.includes("business")){
+return "🧳 MaxiMax Multi Services okipe imigrasyon, taks, biznis ak sèvis notarial — \"your solutions, our priority\". Pou yon demann espesifik, kontakte nou nan seksyon KONTAK an ba paj la.";
+}
 
-  /* ---- PRO-MAX Académie / Real Estate / Insurance ---- */
-  if(q.includes("academie") || q.includes("académie")){
-    return "🎓 PRO-MAX Académie ofri fòmasyon an liy ak sètifikasyon — pou kounye a Real Estate School ak Insurance School. Ou antre ladan yo nan seksyon PRO-MAX la ak yon kòd aksè.";
-  }
-  if(q.includes("real estate") || q.includes("imobilye") || q.includes("byen")){
-    return "🏠 Real Estate School aprann ou byen imobilye etap pa etap, anba PRO-MAX Académie. Antre nan seksyon PRO-MAX la ak yon kòd aksè.";
-  }
-  if(q.includes("insurance") || q.includes("asirans")){
-    return "🛡️ Insurance School ede w konprann asirans ak pwoteksyon, anba PRO-MAX Académie. Antre nan seksyon PRO-MAX la ak yon kòd aksè.";
-  }
+/* ---- PRO-MAX Académie / Real Estate / Insurance ---- */
+if(q.includes("academie") || q.includes("académie")){
+return "🎓 PRO-MAX Académie ofri fòmasyon an liy ak sètifikasyon — pou kounye a Real Estate School ak Insurance School. Ou antre ladan yo nan seksyon PRO-MAX la ak yon kòd aksè.";
+}
+if(q.includes("real estate") || q.includes("imobilye") || q.includes("byen")){
+return "🏠 Real Estate School aprann ou byen imobilye etap pa etap, anba PRO-MAX Académie. Antre nan seksyon PRO-MAX la ak yon kòd aksè.";
+}
+if(q.includes("insurance") || q.includes("asirans")){
+return "🛡️ Insurance School ede w konprann asirans ak pwoteksyon, anba PRO-MAX Académie. Antre nan seksyon PRO-MAX la ak yon kòd aksè.";
+}
 
-  /* ---- PRO-MAX Beat Lab (zouti anndan BSS1815) ---- */
-  if(q.includes("beat lab")){
-    return "🎧 PRO-MAX Beat Lab se zouti pou kreye, pwodwi ak pataje mizik ak AI — \"music has no limits\". Li nan seksyon PRO-MAX la.";
-  }
+/* ---- PRO-MAX Beat Lab (zouti anndan BSS1815) ---- */
+if(q.includes("beat lab")){
+return "🎧 PRO-MAX Beat Lab se zouti pou kreye, pwodwi ak pataje mizik ak AI — \"music has no limits\". Li nan seksyon PRO-MAX la.";
+}
 
-  /* ---- Beat Maker AI School (lòt sitwèb, ak 10 kou + pwofesè AI) ---- */
-  if(q.includes("beat maker") || q.includes("beat making") || (q.includes("kou") && (q.includes("mizik") || q.includes("prodiksyon") || q.includes("bpm") || q.includes("mixing") || q.includes("mastering")))){
-    return "🥁 PRO-MAX Beat Maker AI School se yon lekòl AI apa ki gen 10 kou: Beat Making Fundamentals, BPM/Tempo & Rhythm, Drums & Percussion, Chords/Melody & Bass, Song Arrangement, Sampling & Sound Design, Mixing & EQ, Recording & Mastering, Haitian Music Production, ak AI Music Workflow — plis yon Pwofesè AI ak yon Egzamen ki bay Sètifika.";
-  }
-  if(q.includes("pwofesè") || q.includes("professor") || q.includes("prof ai")){
-    return "🎓 Gen 2 asistan AI nan platfòm nou an: Sèvis Kliyan AI la (isit la, gide sou tout sistèm nan) ak Pwofesè AI Beat Maker la (nan Beat Maker AI School) ki reponn kesyon sou beat making, BPM, konpa, rara ak mixing/mastering.";
-  }
-  if(q.includes("sètifika") || q.includes("certificat") || q.includes("egzamen")){
-    return "📜 Nan Beat Maker AI School, apre w fini 10 kou yo epi pase egzamen an (80% pou pase), ou ka mande sètifika ou. Peman aksepte ak MonCash oswa NatCash.";
-  }
+/* ---- Beat Maker AI School (lòt sitwèb, ak 10 kou + pwofesè AI) ---- */
+if(q.includes("beat maker") || q.includes("beat making") || (q.includes("kou") && (q.includes("mizik") || q.includes("prodiksyon") || q.includes("bpm") || q.includes("mixing") || q.includes("mastering")))){
+return "🥁 PRO-MAX Beat Maker AI School se yon lekòl AI apa ki gen 10 kou: Beat Making Fundamentals, BPM/Tempo & Rhythm, Drums & Percussion, Chords/Melody & Bass, Song Arrangement, Sampling & Sound Design, Mixing & EQ, Recording & Mastering, Haitian Music Production, ak AI Music Workflow — plis yon Pwofesè AI ak yon Egzamen ki bay Sètifika.";
+}
+if(q.includes("pwofesè") || q.includes("professor") || q.includes("prof ai")){
+return "🎓 Gen 2 asistan AI nan platfòm nou an: Sèvis Kliyan AI la (isit la, gide sou tout sistèm nan) ak Pwofesè AI Beat Maker la (nan Beat Maker AI School) ki reponn kesyon sou beat making, BPM, konpa, rara ak mixing/mastering.";
+}
+if(q.includes("sètifika") || q.includes("certificat") || q.includes("egzamen")){
+return "📜 Nan Beat Maker AI School, apre w fini 10 kou yo epi pase egzamen an (80% pou pase), ou ka mande sètifika ou. Peman aksepte ak MonCash oswa NatCash.";
+}
 
-  /* ---- DDN ---- */
-  if(q.includes("ddn") || q.includes("devan devan")){
-    return "🏃 DDN (Devan Devan Nèt) se mouvman/pwojè kominotè ki reprezante \"mouvman, chanjman, réyalité\" nan platfòm BSS1815 la.";
-  }
+/* ---- DDN ---- */
+if(q.includes("ddn") || q.includes("devan devan")){
+return "🏃 DDN (Devan Devan Nèt) se mouvman/pwojè kominotè ki reprezante \"mouvman, chanjman, réyalité\" nan platfòm BSS1815 la.";
+}
 
-  /* ---- Kòd aksè PRO-MAX ---- */
-  if(q.includes("kòd") || q.includes("kod") || q.includes("aksè") || q.includes("acces") || q.includes("login") || q.includes("konekte")){
-    return "🔑 Pou aksè nan pwojè PRO-MAX yo (FM, Académie, Real Estate, Insurance), peze bouton \"ANTRE AK KÒD AKSÈ\" nan seksyon PRO-MAX la epi antre kòd ou. Kòd la valid pou 3 zèd tan, epi li bloke depi ou fè logout.";
-  }
+/* ---- AI Center ---- */
+if(q.includes("ai center") || q.includes("aicenter") || (q.includes("ai") && (q.includes("zouti") || q.includes("sistèm")))){
+return "🤖 AI CENTER se kote tout zouti AI BSS1815 yo sanble: Sèvis Kliyan AI (isit la), Pwofesè AI Beat Maker nan Beat Maker AI School, ak yon avatar AI an dirèk (HeyGen) k ap vini pita.";
+}
 
-  /* ---- Kontak ---- */
-  if(q.includes("kontak") || q.includes("telefòn") || q.includes("appele") || q.includes("nimewo")){
-    return "📞 Ou ka kontakte nou nan seksyon KONTAK anba paj la — telefòn Ozetazini ((407) 640-5166, (516) 216-8494, (317) 538-1150) ak Ayiti (+509 4343-7488), WhatsApp ak Telegram (@bss1815dmp) disponib.";
-  }
-  if(q.includes("whatsapp")){
-    return "💬 WhatsApp nou se +509 4343-7488 — ou ka peze sou lyen an nan seksyon KONTAK oswa SOCIAL anba paj la.";
-  }
+/* ---- Kòd aksè PRO-MAX ---- */
+if(q.includes("kòd") || q.includes("kod") || q.includes("aksè") || q.includes("acces") || q.includes("login") || q.includes("konekte")){
+return "🔑 Pou aksè nan pwojè PRO-MAX yo (FM, Académie, Real Estate, Insurance), peze bouton \"ANTRE AK KÒD AKSÈ\" nan seksyon PRO-MAX la epi antre kòd ou. Kòd la valid pou 3 zèd tan, epi li bloke depi ou fè logout.";
+}
 
-  /* ---- Rezo sosyal ---- */
-  if(q.includes("facebook") || q.includes("instagram") || q.includes("tiktok") || q.includes("youtube") || q.includes("spotify") || q.includes("telegram") || q.includes("linkedin") || q.includes("twitter") || q.includes("truth social") || q.includes("rezo sosyal") || q.includes("social")){
-    return "🌐 Swiv nou sou Facebook, Instagram (@lebaron072), TikTok (@maximax1960), YouTube, Spotify, LinkedIn, Telegram (@bss1815dmp), X/Twitter ak Truth Social — tout lyen yo nan seksyon SOCIAL anba paj la.";
-  }
+/* ---- Kontak ---- */
+if(q.includes("kontak") || q.includes("telefòn") || q.includes("appele") || q.includes("nimewo")){
+return "📞 Ou ka kontakte nou nan seksyon KONTAK anba paj la — telefòn Ozetazini ((407) 640-5166, (516) 216-8494, (317) 538-1150) ak Ayiti (+509 4343-7488), WhatsApp ak Telegram (@bss1815dmp) disponib.";
+}
+if(q.includes("whatsapp")){
+return "💬 WhatsApp nou se +509 4343-7488 — ou ka peze sou lyen an nan seksyon KONTAK oswa SOCIAL anba paj la.";
+}
 
-  /* ---- Kominote / Galri / Media ---- */
-  if(q.includes("galri") || q.includes("galeri") || q.includes("foto") || q.includes("kominote") || q.includes("membre") || q.includes("manm")){
-    return "📸 Seksyon KOMINOTE ak GALERI montre manm, fanatik, mizisyen ak dirijan BSS1815 — foto ak videyo memwa kominote a. Ale gade yo nan menu an.";
-  }
-  if(q.includes("media") || q.includes("videyo")){
-    return "🎬 MEDIA CENTER gen videyo, pwojè, aktivite ak prezantasyon BSS1815 — ou jwenn yo nan seksyon MEDIA an ba paj la.";
-  }
+/* ---- Rezo sosyal ---- */
+if(q.includes("facebook") || q.includes("instagram") || q.includes("tiktok") || q.includes("youtube") || q.includes("spotify") || q.includes("telegram") || q.includes("linkedin") || q.includes("twitter") || q.includes("truth social") || q.includes("rezo sosyal") || q.includes("social")){
+return "🌐 Swiv nou sou Facebook, Instagram (@lebaron072), TikTok (@maximax1960), YouTube, Spotify, LinkedIn, Telegram (@bss1815dmp), X/Twitter ak Truth Social — tout lyen yo nan seksyon SOCIAL anba paj la.";
+}
 
-  return "Mèsi pou kesyon ou! Mwen ka gide w sou BSS1815 an antye: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance School), PRO-MAX Beat Lab, Beat Maker AI School (10 kou + Pwofesè AI + Sètifika), DDN, kòd aksè PRO-MAX, kominote/galri/media, oswa kontak ak rezo sosyal nou yo. Poze m yon kesyon pi presi, oswa kontakte yon moun dirèkteman nan seksyon KONTAK anba paj la.";
+/* ---- Kominote / Galri / Media ---- */
+if(q.includes("galri") || q.includes("galeri") || q.includes("foto") || q.includes("kominote") || q.includes("membre") || q.includes("manm")){
+return "📸 Seksyon KOMINOTE ak GALERI montre manm, fanatik, mizisyen ak dirijan BSS1815 — foto ak videyo memwa kominote a. Ale gade yo nan menu an.";
+}
+if(q.includes("media") || q.includes("videyo")){
+return "🎬 MEDIA CENTER gen videyo, pwojè, aktivite ak prezantasyon BSS1815 — ou jwenn yo nan seksyon MEDIA an ba paj la.";
+}
+
+return "Mèsi pou kesyon ou! Mwen ka gide w sou BSS1815 an antye: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance School), PRO-MAX Beat Lab, Beat Maker AI School (10 kou + Pwofesè AI + Sètifika), DDN, AI Center, kòd aksè PRO-MAX, kominote/galri/media, oswa kontak ak rezo sosyal nou yo. Poze m yon kesyon pi presi, oswa kontakte yon moun dirèkteman nan seksyon KONTAK anba paj la.";
 }
 
 if(csForm){
-  csForm.addEventListener("submit", function(event){
-    event.preventDefault();
-    const question = csQuestion.value.trim();
-    if(!question){return;}
-    csAddMessage(question, "user");
-    csQuestion.value = "";
+csForm.addEventListener("submit", function(event){
+event.preventDefault();
+const question = csQuestion.value.trim();
+if(!question){return;}
+csAddMessage(question, "user");
+csQuestion.value = "";
 
-    window.setTimeout(function(){
-      const reply = getCustomerServiceReply(question);
-      csAddMessage(reply, "bot");
-    }, 400);
-  });
+window.setTimeout(function(){
+  const reply = getCustomerServiceReply(question);
+  csAddMessage(reply, "bot");
+}, 400);
+
+});
 }
 </script>
+
 </body>
 </html>
