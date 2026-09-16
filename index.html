@@ -740,10 +740,10 @@ navigation:"NAVIGASYON",connect:"KONEKTE",
 csNav:"SÈVIS KLIYAN AI",
 csBadge:"SÈVIS KLIYAN • AI",
 csTitle:"SÈVIS KLIYAN AI BSS1815",
-csText:"Gen yon kesyon sou platfòm BSS1815 la, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, oswa DDN? Poze Sèvis Kliyan AI a — li la pou gide w.",
+csText:"Gen yon kesyon sou BSS1815 an antye — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, oswa DDN? Poze Sèvis Kliyan AI a — li la pou gide w sou tout sistèm nan.",
 csVideoLabel:"🎧 BSS1815 SÈVIS KLIYAN",
 csVideoNote:"Videyo prezantasyon Sèvis Kliyan AI a. Yon avatar videyo an dirèk (HeyGen) ap ranplase l pita.",
-csWelcome:"👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m nenpòt kesyon sou platfòm nan — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, oswa aksè PRO-MAX la.",
+csWelcome:"👋 Bonjou! Mwen se Sèvis Kliyan AI BSS1815. Poze m nenpòt kesyon sou tout sistèm nan — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, DDN, oswa aksè PRO-MAX la.",
 csPlaceholder:"Ekri kesyon ou...",
 csSend:"VOYE"
 },
@@ -772,10 +772,10 @@ navigation:"NAVIGATION",connect:"CONNECT",
 csNav:"CUSTOMER SERVICE AI",
 csBadge:"CUSTOMER SERVICE • AI",
 csTitle:"BSS1815 AI CUSTOMER SERVICE",
-csText:"Have a question about the BSS1815 platform, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, or DDN? Ask the AI Customer Service — it's here to guide you.",
+csText:"Have a question about all of BSS1815 — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, or DDN? Ask the AI Customer Service — it's here to guide you through the whole system.",
 csVideoLabel:"🎧 BSS1815 CUSTOMER SERVICE",
 csVideoNote:"Presentation video for AI Customer Service. A live video avatar (HeyGen) will replace it later.",
-csWelcome:"👋 Hello! I'm the BSS1815 AI Customer Service. Ask me anything about the platform — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, or PRO-MAX access.",
+csWelcome:"👋 Hello! I'm the BSS1815 AI Customer Service. Ask me anything about the whole system — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, DDN, or PRO-MAX access.",
 csPlaceholder:"Type your question...",
 csSend:"SEND"
 },
@@ -804,10 +804,10 @@ navigation:"NAVIGATION",connect:"CONNEXION",
 csNav:"SERVICE CLIENT AI",
 csBadge:"SERVICE CLIENT • AI",
 csTitle:"SERVICE CLIENT AI BSS1815",
-csText:"Une question sur la plateforme BSS1815, PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab ou DDN ? Demandez au Service Client AI — il est là pour vous guider.",
+csText:"Une question sur tout BSS1815 — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, ou DDN ? Demandez au Service Client AI — il est là pour vous guider sur tout le système.",
 csVideoLabel:"🎧 BSS1815 SERVICE CLIENT",
 csVideoNote:"Vidéo de présentation du Service Client AI. Un avatar vidéo en direct (HeyGen) le remplacera plus tard.",
-csWelcome:"👋 Bonjour ! Je suis le Service Client AI de BSS1815. Posez-moi toute question sur la plateforme — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, ou l'accès PRO-MAX.",
+csWelcome:"👋 Bonjour ! Je suis le Service Client AI de BSS1815. Posez-moi toute question sur l'ensemble du système — PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance), Beat Lab, Beat Maker AI School, DDN, ou l'accès PRO-MAX.",
 csPlaceholder:"Écrivez votre question...",
 csSend:"ENVOYER"
 }
@@ -872,26 +872,83 @@ function csAddMessage(text, from){
 function getCustomerServiceReply(question){
   const q = question.toLowerCase();
 
-  if(q.includes("fm") || q.includes("radyo")){
-    return "🎙️ PRO-MAX FM se radyo kominote BSS1815 la — mizik, nouvèl ak pwogram. Ou ka jwenn li nan seksyon PRO-MAX la, epi kounye a li mande yon kòd aksè valid 3 zèd tan.";
+  /* ---- BSS1815 jeneral: kisa/misyon/vizyon/eritaj ---- */
+  if(q.includes("kisa") && (q.includes("bss") || q.includes("briyant") || q.includes("solèy") || q.includes("signo"))){
+    return "🌞 BRIYANT SOLÈY SIGNO 1815 (BSS1815) se yon kominote, yon fanmi ak yon mouvman ki prezève istwa, kilti, mizik ak eritaj Signo. Se anba plafòm sa a 5 pwojè PRO-MAX yo ye: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, PRO-MAX Beat Lab, ak DDN.";
   }
-  if(q.includes("maximax") || q.includes("imigrasyon") || q.includes("taks") || q.includes("notary") || q.includes("nota")){
-    return "🧳 MaxiMax Multi Services okipe imigrasyon, taks, biznis ak sèvis notarial. Pou yon demann espesifik, kontakte nou nan seksyon KONTAK an ba paj la.";
-  }
-  if(q.includes("academie") || q.includes("académie") || q.includes("kou") || q.includes("real estate") || q.includes("insurance") || q.includes("asirans")){
-    return "🎓 PRO-MAX Académie ofri fòmasyon tankou Real Estate School ak Insurance School. Ou ka antre nan yo nan seksyon PRO-MAX la ak yon kòd aksè.";
-  }
-  if(q.includes("beat") || q.includes("mizik") || q.includes("prodwi")){
-    return "🎧 PRO-MAX Beat Lab se kote pou kreye, pwodwi ak pataje mizik ak zouti AI. Li tou nan seksyon PRO-MAX la.";
-  }
-  if(q.includes("kòd") || q.includes("kod") || q.includes("aksè") || q.includes("acces") || q.includes("login")){
-    return "🔑 Pou aksè nan pwojè PRO-MAX yo (FM, Académie, Real Estate, Insurance), peze bouton \"ANTRE AK KÒD AKSÈ\" nan seksyon PRO-MAX la epi antre kòd ou. Kòd la valid pou 3 zèd tan.";
-  }
-  if(q.includes("kontak") || q.includes("telefòn") || q.includes("whatsapp") || q.includes("appele")){
-    return "📞 Ou ka kontakte nou nan seksyon KONTAK anba paj la — telefòn Ozetazini ak Ayiti, WhatsApp ak Telegram disponib.";
+  if(q.includes("misyon") || q.includes("vizyon") || (q.includes("eritaj") && !q.includes("insurance"))){
+    return "🎯 Misyon BSS1815 se prezève ak mete eritaj kominote a an valè, konekte jenerasyon pase, prezan ak lavni — DEVAN DEVAN NÈT, BATI POU JODI A, PARE POU DEMEN.";
   }
 
-  return "Mèsi pou kesyon ou! Pou kounye a mwen ka gide w sou PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie, Beat Lab, DDN, ak kòman pou jwenn aksè PRO-MAX. Ou ka tou kontakte yon moun dirèkteman nan seksyon KONTAK anba paj la.";
+  /* ---- PRO-MAX FM ---- */
+  if(q.includes("fm") || q.includes("radyo") || q.includes("radio")){
+    return "🎙️ PRO-MAX FM se radyo kominote BSS1815 la — mizik, nouvèl ak pwogram, \"la voix de notre people\". Ou jwenn li nan seksyon PRO-MAX la; li mande yon kòd aksè valid 3 zèd tan.";
+  }
+
+  /* ---- MaxiMax Multi Services ---- */
+  if(q.includes("maximax") || q.includes("imigrasyon") || q.includes("taks") || q.includes("notary") || q.includes("nota") || q.includes("biznis") || q.includes("business")){
+    return "🧳 MaxiMax Multi Services okipe imigrasyon, taks, biznis ak sèvis notarial — \"your solutions, our priority\". Pou yon demann espesifik, kontakte nou nan seksyon KONTAK an ba paj la.";
+  }
+
+  /* ---- PRO-MAX Académie / Real Estate / Insurance ---- */
+  if(q.includes("academie") || q.includes("académie")){
+    return "🎓 PRO-MAX Académie ofri fòmasyon an liy ak sètifikasyon — pou kounye a Real Estate School ak Insurance School. Ou antre ladan yo nan seksyon PRO-MAX la ak yon kòd aksè.";
+  }
+  if(q.includes("real estate") || q.includes("imobilye") || q.includes("byen")){
+    return "🏠 Real Estate School aprann ou byen imobilye etap pa etap, anba PRO-MAX Académie. Antre nan seksyon PRO-MAX la ak yon kòd aksè.";
+  }
+  if(q.includes("insurance") || q.includes("asirans")){
+    return "🛡️ Insurance School ede w konprann asirans ak pwoteksyon, anba PRO-MAX Académie. Antre nan seksyon PRO-MAX la ak yon kòd aksè.";
+  }
+
+  /* ---- PRO-MAX Beat Lab (zouti anndan BSS1815) ---- */
+  if(q.includes("beat lab")){
+    return "🎧 PRO-MAX Beat Lab se zouti pou kreye, pwodwi ak pataje mizik ak AI — \"music has no limits\". Li nan seksyon PRO-MAX la.";
+  }
+
+  /* ---- Beat Maker AI School (lòt sitwèb, ak 10 kou + pwofesè AI) ---- */
+  if(q.includes("beat maker") || q.includes("beat making") || (q.includes("kou") && (q.includes("mizik") || q.includes("prodiksyon") || q.includes("bpm") || q.includes("mixing") || q.includes("mastering")))){
+    return "🥁 PRO-MAX Beat Maker AI School se yon lekòl AI apa ki gen 10 kou: Beat Making Fundamentals, BPM/Tempo & Rhythm, Drums & Percussion, Chords/Melody & Bass, Song Arrangement, Sampling & Sound Design, Mixing & EQ, Recording & Mastering, Haitian Music Production, ak AI Music Workflow — plis yon Pwofesè AI ak yon Egzamen ki bay Sètifika.";
+  }
+  if(q.includes("pwofesè") || q.includes("professor") || q.includes("prof ai")){
+    return "🎓 Gen 2 asistan AI nan platfòm nou an: Sèvis Kliyan AI la (isit la, gide sou tout sistèm nan) ak Pwofesè AI Beat Maker la (nan Beat Maker AI School) ki reponn kesyon sou beat making, BPM, konpa, rara ak mixing/mastering.";
+  }
+  if(q.includes("sètifika") || q.includes("certificat") || q.includes("egzamen")){
+    return "📜 Nan Beat Maker AI School, apre w fini 10 kou yo epi pase egzamen an (80% pou pase), ou ka mande sètifika ou. Peman aksepte ak MonCash oswa NatCash.";
+  }
+
+  /* ---- DDN ---- */
+  if(q.includes("ddn") || q.includes("devan devan")){
+    return "🏃 DDN (Devan Devan Nèt) se mouvman/pwojè kominotè ki reprezante \"mouvman, chanjman, réyalité\" nan platfòm BSS1815 la.";
+  }
+
+  /* ---- Kòd aksè PRO-MAX ---- */
+  if(q.includes("kòd") || q.includes("kod") || q.includes("aksè") || q.includes("acces") || q.includes("login") || q.includes("konekte")){
+    return "🔑 Pou aksè nan pwojè PRO-MAX yo (FM, Académie, Real Estate, Insurance), peze bouton \"ANTRE AK KÒD AKSÈ\" nan seksyon PRO-MAX la epi antre kòd ou. Kòd la valid pou 3 zèd tan, epi li bloke depi ou fè logout.";
+  }
+
+  /* ---- Kontak ---- */
+  if(q.includes("kontak") || q.includes("telefòn") || q.includes("appele") || q.includes("nimewo")){
+    return "📞 Ou ka kontakte nou nan seksyon KONTAK anba paj la — telefòn Ozetazini ((407) 640-5166, (516) 216-8494, (317) 538-1150) ak Ayiti (+509 4343-7488), WhatsApp ak Telegram (@bss1815dmp) disponib.";
+  }
+  if(q.includes("whatsapp")){
+    return "💬 WhatsApp nou se +509 4343-7488 — ou ka peze sou lyen an nan seksyon KONTAK oswa SOCIAL anba paj la.";
+  }
+
+  /* ---- Rezo sosyal ---- */
+  if(q.includes("facebook") || q.includes("instagram") || q.includes("tiktok") || q.includes("youtube") || q.includes("spotify") || q.includes("telegram") || q.includes("linkedin") || q.includes("twitter") || q.includes("truth social") || q.includes("rezo sosyal") || q.includes("social")){
+    return "🌐 Swiv nou sou Facebook, Instagram (@lebaron072), TikTok (@maximax1960), YouTube, Spotify, LinkedIn, Telegram (@bss1815dmp), X/Twitter ak Truth Social — tout lyen yo nan seksyon SOCIAL anba paj la.";
+  }
+
+  /* ---- Kominote / Galri / Media ---- */
+  if(q.includes("galri") || q.includes("galeri") || q.includes("foto") || q.includes("kominote") || q.includes("membre") || q.includes("manm")){
+    return "📸 Seksyon KOMINOTE ak GALERI montre manm, fanatik, mizisyen ak dirijan BSS1815 — foto ak videyo memwa kominote a. Ale gade yo nan menu an.";
+  }
+  if(q.includes("media") || q.includes("videyo")){
+    return "🎬 MEDIA CENTER gen videyo, pwojè, aktivite ak prezantasyon BSS1815 — ou jwenn yo nan seksyon MEDIA an ba paj la.";
+  }
+
+  return "Mèsi pou kesyon ou! Mwen ka gide w sou BSS1815 an antye: PRO-MAX FM, MaxiMax Multi Services, PRO-MAX Académie (Real Estate & Insurance School), PRO-MAX Beat Lab, Beat Maker AI School (10 kou + Pwofesè AI + Sètifika), DDN, kòd aksè PRO-MAX, kominote/galri/media, oswa kontak ak rezo sosyal nou yo. Poze m yon kesyon pi presi, oswa kontakte yon moun dirèkteman nan seksyon KONTAK anba paj la.";
 }
 
 if(csForm){
