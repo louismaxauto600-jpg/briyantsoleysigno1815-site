@@ -117,6 +117,7 @@ export const BSS1815_QA = [
   { id: "horaire", keys: ["ore","horaire","hours"], kre: "Sevis kliyan AI a disponib 24/7.", fra: "Service client AI disponible 24/7.", eng: "AI customer service available 24/7." },
   { id: "langue", keys: ["lang","kreyol","franse"], kre: "Mwen pale Kreyol, Franse, ak Angle. Chwazi KRE / FRA / ENG.", fra: "Je parle creole, francais et anglais.", eng: "I speak Creole, French and English." },
   { id: "crm", keys: ["crm"], kre: "CRM se sistem jesyon relasyon kliyan. Sou BSS1815, li ede swiv kontak, tranzaksyon ak kominikasyon.", fra: "Le CRM est le systeme de gestion de la relation client.", eng: "CRM is the Customer Relationship Management system." },
+  { id: "aicenter", keys: ["ai center","aicenter","sant ai"], kre: "AI CENTER se sant entèlijans atifisyèl BSS1815 la: fòmasyon AI, zouti AI, ak asistans AI pou tout branch PRO-MAX yo.", fra: "AI CENTER est le centre d'intelligence artificielle de BSS1815: formation IA, outils IA et assistance IA pour toutes les branches PRO-MAX.", eng: "AI CENTER is the BSS1815 artificial intelligence hub: AI training, AI tools, and AI assistance for all PRO-MAX branches." },
   { id: "agent", keys: ["ajan","agent","moun","humain","human"], kre: "Ekri AJAN pou pale ak yon moun.", fra: "Ecrivez AGENT pour un humain.", eng: "Type AGENT for a human." },
   { id: "bonjour", keys: ["bonjou","bonjour","hello"], kre: "Bonjou! Mwen se Sevis Kliyan AI BSS1815. Poze m kesyon.", fra: "Bonjour! Je suis le Service Client AI BSS1815.", eng: "Hello! I am BSS1815 AI Customer Service." }
 ];
@@ -127,9 +128,9 @@ export function getBSS1815Answer(question){
   for(const item of BSS1815_QA){
     if(item.keys.some(k=>q.includes(k))) return item[currentLangQA] || item.kre;
   }
-  if(currentLangQA==="fra") return "Je ne comprends pas. Ecrivez AGENT pour un humain, ou posez une question sur PRO-MAX FM, MaxiMax, Academie, Beat Lab, DDN.";
-  if(currentLangQA==="eng") return "I don't understand. Type AGENT for a human, or ask about PRO-MAX FM, MaxiMax, Academie, Beat Lab, DDN.";
-  return "Mwen pa konprann. Ekri AJAN pou yon moun, oswa poze yon kesyon sou PRO-MAX FM, MaxiMax, Academie, Beat Lab, DDN.";
+  if(currentLangQA==="fra") return "Je ne comprends pas. Ecrivez AGENT pour un humain, ou posez une question sur PRO-MAX FM, MaxiMax, Academie, Beat Lab, AI CENTER, DDN.";
+  if(currentLangQA==="eng") return "I don't understand. Type AGENT for a human, or ask about PRO-MAX FM, MaxiMax, Academie, Beat Lab, AI CENTER, DDN.";
+  return "Mwen pa konprann. Ekri AJAN pou yon moun, oswa poze yon kesyon sou PRO-MAX FM, MaxiMax, Academie, Beat Lab, AI CENTER, DDN.";
 }
 
 // Konekte bwat chat ENVOYER ak Q&A - ajoute san kraze
