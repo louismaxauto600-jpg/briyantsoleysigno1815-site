@@ -1,1812 +1,3042 @@
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BSS1815 Official Store</title>
-  <style>
-    :root{
-      --orange:#ff7a00;
-      --black:#000000;
-      --soft:#111111;
-      --soft2:#1b1b1b;
-    }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
 
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--black);
-      color:var(--orange);
-      overflow-x:hidden;
-    }
-
-    img,video{
-      max-width:100%;
-      display:block;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    button{
-      font-family:inherit;
-      cursor:pointer;
-      border:none;
-    }
-
-    .container{
-      width:min(94%, 1400px);
-      margin:0 auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(0,0,0,.96);
-      border-bottom:1px solid var(--orange);
-      backdrop-filter:blur(8px);
-    }
-
-    .topbar-inner{
-      display:grid;
-      grid-template-columns:auto 1fr auto;
-      align-items:center;
-      gap:16px;
-      padding:12px 0;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:max-content;
-    }
-
-    .brand img{
-      width:56px;
-      height:56px;
-      object-fit:cover;
-      border-radius:50%;
-      border:2px solid var(--orange);
-      background:var(--black);
-    }
-
-    .brand-text h1{
-      font-size:18px;
-      text-transform:uppercase;
-      line-height:1;
-      color:var(--orange);
-    }
-
-    .brand-text p{
-      font-size:11px;
-      margin-top:4px;
-      text-transform:uppercase;
-      letter-spacing:.8px;
-      color:var(--orange);
-    }
-
-    .lang-switch{
-      display:flex;
-      justify-content:center;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    .lang-switch button,
-    .nav a,
-    .hero-buttons a,
-    .q-btn,
-    .shop-btn{
-      border:1px solid var(--orange);
-      background:var(--black);
-      color:var(--orange);
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:700;
-      transition:.25s ease;
-      display:inline-block;
-    }
-
-    .lang-switch button.active,
-    .lang-switch button:hover,
-    .nav a.active,
-    .nav a:hover,
-    .hero-buttons a.primary,
-    .q-btn:hover,
-    .shop-btn.primary,
-    .shop-btn:hover{
-      background:var(--orange);
-      color:var(--black);
-    }
-
-    .nav{
-      display:flex;
-      justify-content:flex-end;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .hero{
-      padding:22px 0 26px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:18px;
-    }
-
-    .hero-slider{
-      position:relative;
-      min-height:620px;
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:26px;
-      overflow:hidden;
-      background:var(--black);
-    }
-
-    .slide{
-      position:absolute;
-      inset:0;
-      opacity:0;
-      transition:opacity 1s ease-in-out;
-    }
-
-    .slide.active{
-      opacity:1;
-    }
-
-    .slide img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center top;
-      filter:brightness(.68);
-      background:var(--black);
-    }
-
-    .slide-overlay{
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.18)),
-        radial-gradient(circle at center, rgba(255,122,0,.12), transparent 46%);
-      z-index:2;
-    }
-
-    .slide-text{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      z-index:3;
-      padding:22px 22px 20px;
-      background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.12));
-    }
-
-    .slide-text h2{
-      font-size:clamp(24px,4vw,44px);
-      text-transform:uppercase;
-      line-height:1.02;
-      margin-bottom:10px;
-      color:var(--orange);
-    }
-
-    .slide-text p{
-      font-size:clamp(13px,1.7vw,17px);
-      line-height:1.55;
-      max-width:680px;
-      color:var(--orange);
-    }
-
-    .slide-counter{
-      position:absolute;
-      top:16px;
-      right:16px;
-      z-index:4;
-      border:1px solid var(--orange);
-      background:rgba(0,0,0,.85);
-      color:var(--orange);
-      border-radius:999px;
-      padding:8px 12px;
-      font-weight:700;
-    }
-
-    .progress-wrap{
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:100%;
-      height:4px;
-      z-index:4;
-      background:rgba(255,122,0,.15);
-    }
-
-    .progress-bar{
-      width:0%;
-      height:100%;
-      background:var(--orange);
-      transition:width 8s linear;
-    }
-
-    .hero-card{
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:26px;
-      padding:28px;
-      background:linear-gradient(180deg, rgba(255,122,0,.08), rgba(0,0,0,.96));
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:18px;
-      min-height:620px;
-    }
-
-    .hero-card img{
-      width:92px;
-      height:92px;
-      object-fit:cover;
-      border-radius:50%;
-      border:2px solid var(--orange);
-      background:var(--black);
-    }
-
-    .eyebrow{
-      display:inline-block;
-      border:1px solid var(--orange);
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:12px;
-      font-weight:700;
-      text-transform:uppercase;
-      color:var(--orange);
-      width:max-content;
-    }
-
-    .hero-card h3{
-      font-size:clamp(24px,4vw,42px);
-      text-transform:uppercase;
-      line-height:1.05;
-      color:var(--orange);
-    }
-
-    .hero-card p{
-      font-size:16px;
-      line-height:1.7;
-      color:var(--orange);
-    }
-
-    .hero-buttons{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:6px;
-    }
-
-    .quote-box{
-      margin-top:8px;
-      padding:18px;
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:18px;
-      background:rgba(0,0,0,.72);
-    }
-
-    .quote-box .quote{
-      font-size:18px;
-      line-height:1.65;
-      margin-bottom:10px;
-    }
-
-    .quote-box .name{
-      font-size:18px;
-      font-weight:900;
-      text-transform:uppercase;
-    }
-
-    .quote-box .role{
-      font-size:14px;
-      margin-top:4px;
-    }
-
-    .section{
-      padding:34px 0 24px;
-    }
-
-    .section-header{
-      text-align:center;
-      margin-bottom:24px;
-    }
-
-    .section-header h2{
-      font-size:clamp(26px,4vw,40px);
-      text-transform:uppercase;
-      margin-bottom:10px;
-      color:var(--orange);
-    }
-
-    .section-header p{
-      max-width:950px;
-      margin:0 auto;
-      line-height:1.75;
-      color:var(--orange);
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:16px;
-    }
-
-    .card{
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:20px;
-      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
-      padding:22px;
-    }
-
-    .card h3{
-      margin-bottom:10px;
-      font-size:20px;
-      text-transform:uppercase;
-      color:var(--orange);
-    }
-
-    .card p{
-      line-height:1.65;
-      color:var(--orange);
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-      gap:14px;
-    }
-
-    .gallery-item{
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:18px;
-      overflow:hidden;
-      background:var(--black);
-    }
-
-    .gallery-item img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      object-position:center top;
-      background:var(--black);
-    }
-
-    .gallery-item p{
-      padding:12px;
-      text-align:center;
-      text-transform:uppercase;
-      font-size:14px;
-      font-weight:700;
-      border-top:1px solid rgba(255,122,0,.22);
-      color:var(--orange);
-    }
-
-    .store-hero{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-bottom:18px;
-    }
-
-    .store-banner,
-    .store-media{
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:22px;
-      overflow:hidden;
-      background:var(--black);
-      position:relative;
-      min-height:420px;
-    }
-
-    .store-banner img,
-    .store-media .store-slide img,
-    .store-media .store-slide video{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      background:var(--black);
-    }
-
-    .store-banner-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.16));
-      display:flex;
-      align-items:flex-end;
-      padding:24px;
-    }
-
-    .store-banner-text h3{
-      font-size:clamp(26px,4vw,42px);
-      text-transform:uppercase;
-      margin-bottom:10px;
-      color:var(--orange);
-    }
-
-    .store-banner-text p{
-      line-height:1.7;
-      color:var(--orange);
-      max-width:620px;
-    }
-
-    .store-media{
-      overflow:hidden;
-    }
-
-    .store-slide{
-      position:absolute;
-      inset:0;
-      opacity:0;
-      transition:opacity .9s ease-in-out;
-    }
-
-    .store-slide.active{
-      opacity:1;
-    }
-
-    .store-counter{
-      position:absolute;
-      right:14px;
-      top:14px;
-      z-index:5;
-      border:1px solid var(--orange);
-      background:rgba(0,0,0,.82);
-      color:var(--orange);
-      border-radius:999px;
-      padding:7px 11px;
-      font-weight:700;
-    }
-
-    .category-grid,
-    .collections-grid,
-    .products-grid,
-    .testimonial-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
-    }
-
-    .category-card,
-    .collection-card,
-    .product-card,
-    .testimonial-card{
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:20px;
-      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
-      overflow:hidden;
-    }
-
-    .category-card .inner,
-    .collection-card .inner,
-    .testimonial-card .inner{
-      padding:22px;
-    }
-
-    .category-card h3,
-    .collection-card h3,
-    .testimonial-card h3{
-      margin-bottom:10px;
-      text-transform:uppercase;
-      color:var(--orange);
-    }
-
-    .category-card p,
-    .collection-card p,
-    .testimonial-card p{
-      line-height:1.65;
-      color:var(--orange);
-    }
-
-    .product-card img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      object-position:center;
-      background:var(--black);
-      border-bottom:1px solid rgba(255,122,0,.22);
-    }
-
-    .product-info{
-      padding:18px;
-    }
-
-    .product-info h3{
-      font-size:19px;
-      margin-bottom:8px;
-      text-transform:uppercase;
-      color:var(--orange);
-    }
-
-    .price{
-      font-size:20px;
-      font-weight:900;
-      margin-bottom:8px;
-      color:var(--orange);
-    }
-
-    .sizes{
-      font-size:14px;
-      line-height:1.55;
-      margin-bottom:14px;
-      color:var(--orange);
-    }
-
-    .product-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .upload-panel,
-    .admin-panel,
-    .media-db{
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
-      padding:22px;
-    }
-
-    .upload-panel pre,
-    .admin-panel pre,
-    .media-db pre{
-      white-space:pre-wrap;
-      word-break:break-word;
-      color:var(--orange);
-      line-height:1.6;
-      font-size:14px;
-      font-family:Consolas, monospace;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:16px;
-    }
-
-    .contact-box{
-      border:1px solid rgba(255,122,0,.35);
-      border-radius:20px;
-      padding:22px;
-      background:linear-gradient(180deg, rgba(255,122,0,.06), rgba(0,0,0,.98));
-    }
-
-    .contact-box h3{
-      margin-bottom:10px;
-      font-size:18px;
-      text-transform:uppercase;
-      color:var(--orange);
-    }
-
-    .contact-box p{
-      line-height:1.7;
-      word-break:break-word;
-      color:var(--orange);
-    }
-
-    .contact-box a.link{
-      display:inline-block;
-      margin-top:12px;
-      border:1px solid var(--orange);
-      border-radius:999px;
-      padding:10px 14px;
-      font-weight:700;
-      color:var(--orange);
-    }
-
-    .contact-box a.link:hover{
-      background:var(--orange);
-      color:var(--black);
-    }
-
-    .quick-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      justify-content:center;
-      margin-top:18px;
-    }
-
-    footer{
-      margin-top:36px;
-      border-top:1px solid rgba(255,122,0,.25);
-      padding:22px 0 30px;
-      text-align:center;
-      color:var(--orange);
-    }
-
-    @media (max-width:1024px){
-      .topbar-inner{
-        grid-template-columns:1fr;
-        justify-items:center;
-      }
-
-      .nav{
-        justify-content:center;
-      }
-
-      .hero-grid,
-      .store-hero{
-        grid-template-columns:1fr;
-      }
-
-      .hero-slider,
-      .hero-card{
-        min-height:unset;
-      }
-
-      .hero-slider{
-        min-height:460px;
-      }
-    }
-
-    @media (max-width:680px){
-      .hero-slider{
-        min-height:360px;
-      }
-
-      .slide-text{
-        padding:18px 16px 16px;
-      }
-
-      .hero-card,
-      .upload-panel,
-      .admin-panel,
-      .media-db{
-        padding:22px 16px;
-      }
-
-      .hero-buttons a,
-      .q-btn,
-      .shop-btn{
-        width:100%;
-        text-align:center;
-      }
-
-      .gallery-item img,
-      .product-card img{
-        height:220px;
-      }
-
-      .store-banner,
-      .store-media{
-        min-height:320px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<header class="topbar">
-  <div class="container topbar-inner">
-
-    <div class="brand">
-      <img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
-
-      <div class="brand-text">
-        <h1>BSS 1815</h1>
-        <p id="brandSub">Platfòm ofisyèl la</p>
-      </div>
-    </div>
-
-    <div class="lang-switch">
-      <button class="active" id="kreBtn" type="button">KRE</button>
-      <button id="franBtn" type="button">FRAN</button>
-      <button id="engBtn" type="button">ENG</button>
-    </div>
-
-    <nav class="nav">
-      <a href="#home" id="homeBtn" class="active">AKÈY</a>
-      <a href="#about" id="aboutBtn">SOU NOU</a>
-      <a href="#services" id="servicesBtn">SÈVIS</a>
-      <a href="#gallery" id="galleryBtn">GALERI</a>
-      <a href="#store" id="storeBtn">STORE</a>
-      <a href="#contact" id="contactBtn">KONTAK</a>
-    </nav>
-
-  </div>
-</header>
-
-<main id="home">
-
-<section class="hero">
-<div class="container hero-grid">
-
-<div class="hero-slider">
-  <div id="slidesContainer"></div>
-  <div class="slide-overlay"></div>
-
-  <div class="slide-text">
-    <h2 id="heroTitle">BRIYANT SOLÈY SIGNO 1815</h2>
-
-    <p id="heroText">
-      BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn.
-      Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm,
-      fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.
-    </p>
-  </div>
-
-  <div class="slide-counter" id="slideCounter">1 / 1</div>
-
-  <div class="progress-wrap">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-</div>
-
-<aside class="hero-card">
-
-<img src="bss-logo-ofisyel.jpeg" alt="BSS Logo">
-
-<span class="eyebrow" id="eyebrowText">BSS OFFISYÈL</span>
-
-<h3 id="sideTitle">
-Yon vrè platfòm pou BSS 1815
-</h3>
-
-<p id="sideText">
-Nou mete imaj, fanbase, sèvis, ak kontak yo ansanm sou yon sèl sit ki pwòp,
-fò, epi fasil pou moun navige ladan li.
-</p>
-
-<div class="hero-buttons">
-<a href="#gallery" class="primary" id="heroGalleryBtn">Antre nan galeri a</a>
-<a href="#contact" id="heroContactBtn">Kontakte nou</a>
-</div>
-
-<div class="quote-box">
-<div class="quote" id="quoteText">
-BSS 1815 se plis pase yon non. Se yon direksyon, yon respè,
-ak yon prezans ki make lespri moun.
-</div>
-
-<div class="name" id="quoteName">BSS WAY</div>
-<div class="role" id="quoteRole">Orange ak nwa sèlman</div>
-</div>
-
-</aside>
-</div>
-</section>
-
-<section class="section" id="about">
-<div class="container">
-
-<div class="section-header">
-<h2 id="aboutTitle">SOU NOU</h2>
-
-<p id="aboutLead">
-Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, disiplin ak fyète.
-Nou reprezante yon vizyon solid ki mete moun yo an valè epi ki kenbe memwa bann lan vivan.
-</p>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3 id="aboutCard1Title">Vizyon</h3>
-<p id="aboutCard1Text">
-Nou bati yon espas ki montre eritaj, prezans, ak fòs BSS 1815 nan yon fason klè,
-modèn, ak pwofesyonèl.
-</p>
-</div>
-
-<div class="card">
-<h3 id="aboutCard2Title">Misyon</h3>
-<p id="aboutCard2Text">
-Misyon nou se pote tout kontni, fanatik, ak sèvis yo ansanm sou yon platfòm ofisyèl
-ki fasil pou itilize.
-</p>
-</div>
-
-<div class="card">
-<h3 id="aboutCard3Title">Valè</h3>
-<p id="aboutCard3Text">
-Respè, disiplin, inite, vizyon, ak limyè se baz ki soutni non Briyant Solèy Signo 1815 la.
-</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<section class="section" id="services">
-<div class="container">
-
-<div class="section-header">
-<h2 id="servicesTitle">SÈVIS</h2>
-<p id="servicesLead">
-Men kèk nan sèvis ak fonksyon nou vle mete an avan sou platfòm la pou rann li itil,
-aktif, epi pwofesyonèl.
-</p>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3 id="service1Title">Pwomosyon</h3>
-<p id="service1Text">
-Pwomosyon pou imaj, atis, ak aktivite ki gen rapò ak BSS 1815.
-</p>
-</div>
-
-<div class="card">
-<h3 id="service2Title">Galeri</h3>
-<p id="service2Text">
-Prezante fanatik, manm, ak moman espesyal yo ak bon jan vizibilite.
-</p>
-</div>
-
-<div class="card">
-<h3 id="service3Title">Kontak</h3>
-<p id="service3Text">
-Pèmèt moun ak patnè jwenn enfòmasyon ofisyèl fasilman.
-</p>
-</div>
-
-<div class="card">
-<h3 id="service4Title">Platfòm ofisyèl</h3>
-<p id="service4Text">
-Rasanble tout eleman enpòtan yo sou yon sèl sit ki stab epi pwòp.
-</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<section class="section" id="gallery">
-<div class="container">
-
-<div class="section-header">
-<h2 id="galleryTitle">GALERI</h2>
-<p id="galleryLead">
-Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè
-Briyant Solèy Signo 1815 briye toujou.
-</p>
-</div>
-
-<div class="gallery-grid" id="galleryGrid"></div>
-
-</div>
-</section>
-
-<section class="section" id="store">
-<div class="container">
-
-<div class="section-header">
-<h2 id="storeTitle">BSS1815 OFFICIAL STORE</h2>
-
-<p id="storeLead">
-Bryant Soley Signo 1815 — Official Merchandise & Media Platform.
-Platfòm ofisyèl pou pwodwi, medya, ak kontni ki soti nan kominote BSS1815 la.
-</p>
-</div>
-
-<div class="store-hero">
-
-<div class="store-banner">
-<img src="magazen.jpg" alt="BSS Store Banner">
-
-<div class="store-banner-overlay">
-<div class="store-banner-text">
-
-<h3 id="storeBannerTitle">
-Shop Now • View Products
-</h3>
-
-<p id="storeBannerText">
-BSS1815 Official Store fèt pou bay fanatik yo, manm ekip la, ak dirijan yo
-yon eksperyans pwofesyonèl, modèn, ak totalman òganize.
-</p>
-
-</div>
-</div>
-</div>
-
-<div class="store-media">
-<div id="storeSlidesContainer"></div>
-<div class="store-counter" id="storeCounter">1 / 1</div>
-</div>
-
-</div>
-
-<div class="section-header">
-<h2 id="missionTitle">Misyon</h2>
-
-<p id="missionText">
-Misyon nou se kreye yon espas ki mete disiplin ak eritaj BSS1815 an valè,
-fasilite aksè a pwodwi ofisyèl yo, pèmèt fanatik yo pataje moman yo,
-epi bay dirijan yo yon zouti pwofesyonèl pou jere medya yo.
-</p>
-</div>
-
-<div class="category-grid">
-
-<div class="category-card">
-<div class="inner">
-<h3>T-Shirts</h3>
-<p>Pwodwi debaz fanatik yo ak style ofisyèl BSS1815.</p>
-</div>
-</div>
-
-<div class="category-card">
-<div class="inner">
-<h3>Hoodies</h3>
-<p>Abiman cho ak idantite mak la anwo nivo.</p>
-</div>
-</div>
-
-<div class="category-card">
-<div class="inner">
-<h3>Caps</h3>
-<p>Kèpi ofisyèl pou fanatik ak manm ekip la.</p>
-</div>
-</div>
-
-<div class="category-card">
-<div class="inner">
-<h3>Tcha</h3>
-<p>Akseswa espesyal nan koleksyon BSS1815 yo.</p>
-</div>
-</div>
-
-<div class="category-card">
-<div class="inner">
-<h3>Bracelets</h3>
-<p>Braslè fan essentials pou reprezante mak la chak jou.</p>
-</div>
-</div>
-
-<div class="category-card">
-<div class="inner">
-<h3>Gode</h3>
-<p>Gode / mugs pou koleksyon fanatik yo ak medya ofisyèl la.</p>
-</div>
-</div>
-
-</div>
-
-<div class="section-header" style="margin-top:30px;">
-<h2 id="productsTitle">Products Grid</h2>
-<p id="productsLead">
-Chak pwodwi vini ak foto, pri, opsyon, ak bouton kòmande dirèk sou WhatsApp.
-</p>
-</div>
-
-<div class="products-grid">
-
-<div class="product-card">
-<img src="store.jpg" alt="T-Shirt">
-
-<div class="product-info">
-<h3>T-Shirt BSS1815</h3>
-<div class="price">$25</div>
-<div class="sizes">Gwosè: S • M • L • XL • XXL • XXXL</div>
-
-<div class="product-actions">
-<a class="shop-btn primary"
-href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20T-Shirt%20BSS1815%20la"
-target="_blank">Buy Now</a>
-
-<a class="shop-btn"
-href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20T-Shirt%20BSS1815%20la%20nan%20cart"
-target="_blank">Add to Cart</a>
-</div>
-
-</div>
-</div>
-
-<div class="product-card">
-<img src="store2.jpeg" alt="Hoodie">
-
-<div class="product-info">
-<h3>Hoodie BSS1815</h3>
-<div class="price">$30</div>
-<div class="sizes">Gwosè: S • M • L • XL • XXL • XXXL</div>
-
-<div class="product-actions">
-<a class="shop-btn primary"
-href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Hoodie%20BSS1815%20la"
-target="_blank">Buy Now</a>
-
-<a class="shop-btn"
-href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Hoodie%20BSS1815%20la%20nan%20cart"
-target="_blank">Add to Cart</a>
-</div>
-
-</div>
-</div>
-
-<div class="product-card">
-<img src="magazen.jpg" alt="Caps">
-
-<div class="product-info">
-<h3>Cap / Kèpi</h3>
-<div class="price">$15</div>
-<div class="sizes">Opsyon: One Size Fits All</div>
-
-<div class="product-actions">
-<a class="shop-btn primary"
-href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20K%C3%A8pi%20BSS1815%20la"
-target="_blank">Buy Now</a>
-
-<a class="shop-btn"
-href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20K%C3%A8pi%20BSS1815%20la%20nan%20cart"
-target="_blank">Add to Cart</a>
-</div>
-
-</div>
-</div>
-
-<div class="product-card">
-<img src="store.jpg" alt="Bracelet">
-
-<div class="product-info">
-<h3>Bracelet</h3>
-<div class="price">$10</div>
-<div class="sizes">Opsyon: Fan Essentials</div>
-
-<div class="product-actions">
-<a class="shop-btn primary"
-href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Bracelet%20BSS1815%20la"
-target="_blank">Buy Now</a>
-
-<a class="shop-btn"
-href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Bracelet%20BSS1815%20la%20nan%20cart"
-target="_blank">Add to Cart</a>
-</div>
-
-</div>
-</div>
-
-<div class="product-card">
-<img src="store2.jpeg" alt="Gode">
-
-<div class="product-info">
-<h3>Gode / Mug</h3>
-<div class="price">$10</div>
-<div class="sizes">Opsyon: Classic Collection</div>
-
-<div class="product-actions">
-<a class="shop-btn primary"
-href="https://wa.me/15162168494?text=Mwen%20vle%20k%C3%B2mande%20Gode%20BSS1815%20la"
-target="_blank">Buy Now</a>
-
-<a class="shop-btn"
-href="https://wa.me/15162168494?text=Mwen%20vle%20mete%20Gode%20BSS1815%20la%20nan%20cart"
-target="_blank">Add to Cart</a>
-</div>
-
-</div>
-</div>
-
-</div>
-
-<div class="section-header" style="margin-top:30px;">
-<h2 id="collectionsTitle">Collections</h2>
-<p id="collectionsLead">Fire Edition • Classic Collection • Fan Essentials</p>
-</div>
-
-<div class="collections-grid">
-
-<div class="collection-card">
-<div class="inner">
-<h3>Fire Edition</h3>
-<p>Koleksyon dife a pou fanatik ki renmen style fò, koulè vivan, ak imaj mak la.</p>
-</div>
-</div>
-
-<div class="collection-card">
-<div class="inner">
-<h3>Classic Collection</h3>
-<p>Yon liy pwòp, elegant, ak ofisyèl pou reprezante eritaj BSS1815 la.</p>
-</div>
-</div>
-
-<div class="collection-card">
-<div class="inner">
-<h3>Fan Essentials</h3>
-<p>Pwodwi debaz fanatik yo bezwen pou montre sipò yo chak jou.</p>
-</div>
-</div>
-
-</div>
-
-<div class="section-header" style="margin-top:30px;">
-<h2 id="fanUploadTitle">Fan Upload Center</h2>
-
-<p id="fanUploadLead">
-Seksiyon piblik kote fanatik yo ka upload foto, videyo, ekri deskripsyon,
-epi pataje moman yo ak BSS1815.
-</p>
-</div>
-
-<div class="upload-panel">
-<pre>{
-  "fan_uploads": [
-    "upload foto",
-    "upload videyo",
-    "ekri yon deskripsyon",
-    "pataje moman ak BSS1815"
-  ]
-}</pre>
-</div>
-
-<div class="section-header" style="margin-top:30px;">
-<h2 id="leadersPanelTitle">Leaders Control Panel</h2>
-
-<p id="leadersPanelLead">
-Seksiyon prive pou SUPER ADMIN ak ADMIN pou upload bannè, medya ofisyèl,
-foto pwodwi, epi sove tout bagay nan Media Library.
-</p>
-</div>
-
-<div class="admin-panel">
-<pre>LEADERS CONTROL PANEL
-- SUPER ADMIN
-- ADMIN
-- Upload foto/videyo ofisyèl
-- Upload bannè
-- Upload foto pwodwi
-- Chwazi kategori medya yo
-- Sove nan Media Library</pre>
-</div>
-
-<div class="section-header" style="margin-top:30px;">
-<h2 id="storeAboutTitle">About BSS1815 Store</h2>
-
-<p id="storeAboutLead">
-Koulè ofisyèl yo se Abriko & Nwa. Platfòm nan pote istwa, misyon, logo,
-ak valè mak BSS1815 la ansanm nan yon eksperyans modèn.
-</p>
-</div>
-
-<div class="testimonial-grid">
-
-<div class="testimonial-card">
-<div class="inner">
-<h3>Fanclub</h3>
-<p>Temwayaj kout, foto, non, ak tit pou mete valè fanatik yo an avan.</p>
-</div>
-</div>
-
-<div class="testimonial-card">
-<div class="inner">
-<h3>Media Platform</h3>
-<p>Yon espas ki pwofesyonèl pou kolekte pwodwi, medya, ak memwa kominote a.</p>
-</div>
-</div>
-
-<div class="testimonial-card">
-<div class="inner">
-<h3>Official Image</h3>
-<p>BSS1815 OFFICIAL STORE mete disiplin, imaj mak, ak òganizasyon nan menm liy lan.</p>
-</div>
-</div>
-
-</div>
-
-<div class="section-header" style="margin-top:30px;">
-<h2 id="mediaDbTitle">Media Library / Database</h2>
-</div>
-
-<div class="media-db">
-<pre>{
-  "fan_uploads": []
-}</pre>
-</div>
-
-</div>
-</section>
-
-<section class="section" id="contact">
-<div class="container">
-
-<div class="section-header">
-<h2 id="contactTitle">KONTAK</h2>
-
-<p id="contactLead">
-Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.
-</p>
-</div>
-
-<div class="contact-grid">
-
-<div class="contact-box">
-<h3 id="contactBox1Title">Email</h3>
-<p id="contactEmail">briyantsoleysigno1815@gmail.com</p>
-</div>
-
-<div class="contact-box">
-<h3 id="contactBox2Title">Telefòn</h3>
-<p id="contactPhone">+509 4343-7488</p>
-</div>
-
-<div class="contact-box">
-<h3 id="contactBox3Title">WhatsApp</h3>
-<p id="contactWhatsText">Klike anba a pou voye mesaj dirèk.</p>
-
-<a class="link"
-href="https://wa.me/15162168494"
-target="_blank"
-rel="noopener"
-id="whatsBtn">
-VOYE MESAJ
-</a>
-</div>
-
-</div>
-
-<div class="quick-buttons">
-<a href="https://wa.me/15162168494" target="_blank" class="q-btn">WHATSAPP</a>
-<a href="mailto:briyantsoleysigno1815@gmail.com" class="q-btn">EMAIL</a>
-<a href="tel:+50943437488" class="q-btn">TELEFÒN</a>
-<a href="https://www.briyantsoleysigno1815.com" target="_blank" class="q-btn">WEBSITE</a>
-</div>
-
-</div>
-</section>
-
-</main>
-
-<footer>
-<div class="container" id="footerText">
-© BSS 1815 — Platfòm ofisyèl
-</div>
-</footer>
-
-<script>
-
-const translations = {
-
-kre:{
-brandSub:"Platfòm ofisyèl la",
-home:"AKÈY",
-about:"SOU NOU",
-services:"SÈVIS",
-gallery:"GALERI",
-store:"STORE",
-contact:"KONTAK",
-heroTitle:"BRIYANT SOLÈY SIGNO 1815",
-heroText:"BSS 1815 se yon fòs, yon vizyon, yon limyè ki pap janm etenn. Se yon espas fyète, enèji, disiplin, ak memwa vivan pou tout manm, fanatik, ak tout moun ki pote koulè jon abrikot ak nwa yo ak diyite.",
-eyebrowText:"BSS OFFISYÈL",
-sideTitle:"Yon vrè platfòm pou BSS 1815",
-sideText:"Nou mete imaj, fanbase, sèvis, ak kontak yo ansanm sou yon sèl sit ki pwòp, fò, epi fasil pou moun navige ladan li.",
-heroGalleryBtn:"Antre nan galeri a",
-heroContactBtn:"Kontakte nou",
-quoteText:"BSS 1815 se plis pase yon non. Se yon direksyon, yon respè, ak yon prezans ki make lespri moun.",
-quoteName:"BSS WAY",
-quoteRole:"Orange ak nwa sèlman",
-aboutTitle:"SOU NOU",
-aboutLead:"Briyant Solèy Signo 1815 se yon òganizasyon ki pote limyè, enèji, disiplin ak fyète. Nou reprezante yon vizyon solid ki mete moun yo an valè epi ki kenbe memwa bann lan vivan.",
-aboutCard1Title:"Vizyon",
-aboutCard1Text:"Nou bati yon espas ki montre eritaj, prezans, ak fòs BSS 1815 nan yon fason klè, modèn, ak pwofesyonèl.",
-aboutCard2Title:"Misyon",
-aboutCard2Text:"Misyon nou se pote tout kontni, fanatik, ak sèvis yo ansanm sou yon platfòm ofisyèl ki fasil pou itilize.",
-aboutCard3Title:"Valè",
-aboutCard3Text:"Respè, disiplin, inite, vizyon, ak limyè se baz ki soutni non Briyant Solèy Signo 1815 la.",
-servicesTitle:"SÈVIS",
-servicesLead:"Men kèk nan sèvis ak fonksyon nou vle mete an avan sou platfòm la pou rann li itil, aktif, epi pwofesyonèl.",
-service1Title:"Pwomosyon",
-service1Text:"Pwomosyon pou imaj, atis, ak aktivite ki gen rapò ak BSS 1815.",
-service2Title:"Galeri",
-service2Text:"Prezante fanatik, manm, ak moman espesyal yo ak bon jan vizibilite.",
-service3Title:"Kontak",
-service3Text:"Pèmèt moun ak patnè jwenn enfòmasyon ofisyèl fasilman.",
-service4Title:"Platfòm ofisyèl",
-service4Text:"Rasanble tout eleman enpòtan yo sou yon sèl sit ki stab epi pwòp.",
-galleryTitle:"GALERI",
-galleryLead:"Men kèk nan bèl imaj fanatik, manm, ak moman espesyal ki fè Briyant Solèy Signo 1815 briye toujou.",
-storeTitle:"BSS1815 OFFICIAL STORE",
-storeLead:"Bryant Soley Signo 1815 — Official Merchandise & Media Platform. Platfòm ofisyèl pou pwodwi, medya, ak kontni ki soti nan kominote BSS1815 la.",
-missionTitle:"Misyon",
-missionText:"Misyon nou se kreye yon espas ki mete disiplin ak eritaj BSS1815 an valè, fasilite aksè a pwodwi ofisyèl yo, pèmèt fanatik yo pataje moman yo, epi bay dirijan yo yon zouti pwofesyonèl pou jere medya yo.",
-productsTitle:"Products Grid",
-productsLead:"Chak pwodwi vini ak foto, pri, opsyon, ak bouton kòmande dirèk sou WhatsApp.",
-collectionsTitle:"Collections",
-collectionsLead:"Fire Edition • Classic Collection • Fan Essentials",
-fanUploadTitle:"Fan Upload Center",
-fanUploadLead:"Seksiyon piblik kote fanatik yo ka upload foto, videyo, ekri deskripsyon, epi pataje moman yo ak BSS1815.",
-leadersPanelTitle:"Leaders Control Panel",
-leadersPanelLead:"Seksiyon prive pou SUPER ADMIN ak ADMIN pou upload bannè, medya ofisyèl, foto pwodwi, epi sove tout bagay nan Media Library.",
-storeAboutTitle:"About BSS1815 Store",
-storeAboutLead:"Koulè ofisyèl yo se Abriko & Nwa. Platfòm nan pote istwa, misyon, logo, ak valè mak BSS1815 la ansanm nan yon eksperyans modèn.",
-mediaDbTitle:"Media Library / Database",
-contactTitle:"KONTAK",
-contactLead:"Kontakte nou pou enfòmasyon, kolaborasyon, oubyen kestyon sou platfòm la ak aktivite yo.",
-contactBox1Title:"Email",
-contactBox2Title:"Telefòn",
-contactBox3Title:"WhatsApp",
-contactWhatsText:"Klike anba a pou voye mesaj dirèk.",
-whatsBtn:"VOYE MESAJ",
-footerText:"© BSS 1815 — Platfòm ofisyèl"
-},
-
-fran:{
-brandSub:"Plateforme officielle",
-home:"ACCUEIL",
-about:"À PROPOS",
-services:"SERVICES",
-gallery:"GALERIE",
-store:"BOUTIQUE",
-contact:"CONTACT",
-heroTitle:"BRIYANT SOLÈY SIGNO 1815",
-heroText:"BSS 1815 est une force, une vision, une lumière qui ne s’éteindra jamais. C’est un espace de fierté, d’énergie, de discipline et de mémoire vivante pour tous les membres, les fans et tous ceux qui portent les couleurs orange abricot et noir avec dignité.",
-eyebrowText:"BSS OFFICIEL",
-sideTitle:"Une vraie plateforme pour BSS 1815",
-sideText:"Nous réunissons l’image, la fanbase, les services et les contacts sur un seul site propre, fort et facile à parcourir.",
-heroGalleryBtn:"Entrer dans la galerie",
-heroContactBtn:"Nous contacter",
-quoteText:"BSS 1815 est plus qu’un nom. C’est une direction, un respect et une présence qui marquent les esprits.",
-quoteName:"BSS WAY",
-quoteRole:"Orange et noir uniquement",
-aboutTitle:"À PROPOS",
-aboutLead:"Briyant Solèy Signo 1815 est une organisation qui apporte lumière, énergie, discipline et fierté. Nous représentons une vision forte qui met les personnes en valeur et garde la mémoire du groupe vivante.",
-aboutCard1Title:"Vision",
-aboutCard1Text:"Nous construisons un espace qui montre l’héritage, la présence et la force de BSS 1815 de manière claire, moderne et professionnelle.",
-aboutCard2Title:"Mission",
-aboutCard2Text:"Notre mission est de réunir tous les contenus, les fans et les services sur une plateforme officielle facile à utiliser.",
-aboutCard3Title:"Valeurs",
-aboutCard3Text:"Respect, discipline, unité, vision et lumière sont les bases qui soutiennent le nom de Briyant Solèy Signo 1815.",
-servicesTitle:"SERVICES",
-servicesLead:"Voici quelques services et fonctions que nous mettons en avant sur la plateforme afin de la rendre utile, active et professionnelle.",
-service1Title:"Promotion",
-service1Text:"Promotion pour l’image, les artistes et les activités liées à BSS 1815.",
-service2Title:"Galerie",
-service2Text:"Présenter les fans, les membres et les moments spéciaux avec une belle visibilité.",
-service3Title:"Contact",
-service3Text:"Permettre au public et aux partenaires d’obtenir facilement des informations officielles.",
-service4Title:"Plateforme officielle",
-service4Text:"Réunir tous les éléments importants sur un seul site stable et propre.",
-galleryTitle:"GALERIE",
-galleryLead:"Voici quelques belles images de fans, de membres et de moments spéciaux qui font toujours briller Briyant Solèy Signo 1815.",
-storeTitle:"BSS1815 OFFICIAL STORE",
-storeLead:"Bryant Soley Signo 1815 — Plateforme officielle de produits dérivés et de médias.",
-missionTitle:"Mission",
-missionText:"Notre mission est de créer un espace qui valorise la discipline et l’héritage de BSS1815, facilite l’accès aux produits officiels, permet aux fans de partager leurs moments et donne aux dirigeants un outil professionnel pour gérer les médias.",
-productsTitle:"Produits",
-productsLead:"Chaque produit comprend une photo, un prix, des options et des boutons de commande directe sur WhatsApp.",
-collectionsTitle:"Collections",
-collectionsLead:"Fire Edition • Classic Collection • Fan Essentials",
-fanUploadTitle:"Centre d’upload des fans",
-fanUploadLead:"Section publique où les fans peuvent envoyer des photos, des vidéos, écrire une description et partager leurs moments avec BSS1815.",
-leadersPanelTitle:"Panneau de contrôle des dirigeants",
-leadersPanelLead:"Section privée pour SUPER ADMIN et ADMIN afin d’envoyer des bannières, des médias officiels, des photos de produits et de sauvegarder le tout dans la médiathèque.",
-storeAboutTitle:"À propos de la boutique BSS1815",
-storeAboutLead:"Les couleurs officielles sont Abricot & Noir. La plateforme rassemble histoire, mission, logo et valeurs de la marque BSS1815 dans une expérience moderne.",
-mediaDbTitle:"Médiathèque / Base de données",
-contactTitle:"CONTACT",
-contactLead:"Contactez-nous pour des informations, des collaborations ou des questions sur la plateforme et les activités.",
-contactBox1Title:"Email",
-contactBox2Title:"Téléphone",
-contactBox3Title:"WhatsApp",
-contactWhatsText:"Cliquez ci-dessous pour envoyer un message direct.",
-whatsBtn:"ENVOYER UN MESSAGE",
-footerText:"© BSS 1815 — Plateforme officielle"
-},
-
-eng:{
-brandSub:"Official platform",
-home:"HOME",
-about:"ABOUT",
-services:"SERVICES",
-gallery:"GALLERY",
-store:"STORE",
-contact:"CONTACT",
-heroTitle:"BRIYANT SOLÈY SIGNO 1815",
-heroText:"BSS 1815 is a force, a vision, a light that will never go out. It is a space of pride, energy, discipline, and living memory for all members, fans, and everyone who wears apricot orange and black with dignity.",
-eyebrowText:"BSS OFFICIAL",
-sideTitle:"A real platform for BSS 1815",
-sideText:"We bring image, fanbase, services, and contact together on one clean, strong, and easy-to-navigate website.",
-heroGalleryBtn:"Enter the gallery",
-heroContactBtn:"Contact us",
-quoteText:"BSS 1815 is more than a name. It is direction, respect, and a presence that leaves a mark.",
-quoteName:"BSS WAY",
-quoteRole:"Orange and black only",
-aboutTitle:"ABOUT",
-aboutLead:"Briyant Solèy Signo 1815 is an organization that brings light, energy, discipline, and pride. We represent a strong vision that highlights people and keeps the memory of the band alive.",
-aboutCard1Title:"Vision",
-aboutCard1Text:"We are building a space that presents the legacy, presence, and strength of BSS 1815 in a clear, modern, and professional way.",
-aboutCard2Title:"Mission",
-aboutCard2Text:"Our mission is to bring all content, fans, and services together on one official platform that is easy to use.",
-aboutCard3Title:"Values",
-aboutCard3Text:"Respect, discipline, unity, vision, and light are the foundations that support the name Briyant Solèy Signo 1815.",
-servicesTitle:"SERVICES",
-servicesLead:"Here are some of the services and features we want to highlight on the platform to make it useful, active, and professional.",
-service1Title:"Promotion",
-service1Text:"Promotion for image, artists, and activities related to BSS 1815.",
-service2Title:"Gallery",
-service2Text:"Showcasing fans, members, and special moments with strong visibility.",
-service3Title:"Contact",
-service3Text:"Allowing the public and partners to get official information easily.",
-service4Title:"Official platform",
-service4Text:"Bringing all important elements together on one stable and clean website.",
-galleryTitle:"GALLERY",
-galleryLead:"Here are some beautiful images of fans, members, and special moments that keep Briyant Solèy Signo 1815 shining.",
-storeTitle:"BSS1815 OFFICIAL STORE",
-storeLead:"Bryant Soley Signo 1815 — Official Merchandise & Media Platform.",
-missionTitle:"Mission",
-missionText:"Our mission is to create a space that highlights the discipline and heritage of BSS1815, gives easy access to official products, lets fans share their moments, and gives leaders a professional tool to manage media.",
-productsTitle:"Products Grid",
-productsLead:"Each product includes a photo, price, options, and direct WhatsApp ordering buttons.",
-collectionsTitle:"Collections",
-collectionsLead:"Fire Edition • Classic Collection • Fan Essentials",
-fanUploadTitle:"Fan Upload Center",
-fanUploadLead:"Public section where fans can upload photos, videos, write a short description, and share their moments with BSS1815.",
-leadersPanelTitle:"Leaders Control Panel",
-leadersPanelLead:"Private section for SUPER ADMIN and ADMIN to upload banners, official media, product photos, and save everything to the Media Library.",
-storeAboutTitle:"About BSS1815 Store",
-storeAboutLead:"The official colors are Apricot & Black. The platform brings together the history, mission, logo, and brand values of BSS1815 in one modern experience.",
-mediaDbTitle:"Media Library / Database",
-contactTitle:"CONTACT",
-contactLead:"Contact us for information, collaborations, or questions about the platform and activities.",
-contactBox1Title:"Email",
-contactBox2Title:"Phone",
-contactBox3Title:"WhatsApp",
-contactWhatsText:"Click below to send a direct message.",
-whatsBtn:"SEND MESSAGE",
-footerText:"© BSS 1815 — Official platform"
+<!DOCTYPE html>  <html lang="fr">    <head>    
+<meta charset="UTF-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1">    
+<meta name="theme-color" content="#080808">    
+<title>PRO-MAX FM | LA FORCE DU SON</title>  <style>    
+:root{    
+ --orange:#ff8c00;    
+ --apricot:#ffb347;    
+ --black:#080808;    
+ --panel:#17100a;    
+}    
+*{box-sizing:border-box}    
+html{scroll-behavior:smooth}    
+body{    
+ margin:0;    
+ font-family:Arial,sans-serif;    
+ background:linear-gradient(135deg,#000,#211207,#000);    
+ color:var(--apricot);    
+}    
+a{color:inherit}    
+button,input{font:inherit}    
+button{cursor:pointer}    
+header{    
+ text-align:center;    
+ padding:30px 15px;    
+ background:radial-gradient(ellipse,#482105,#080808 75%);    
+ border-bottom:3px solid var(--orange);    
+}    
+.official-logo{    
+ display:block;    
+ width:min(280px,80vw);    
+ margin:0 auto 15px;    
+ border-radius:50%;    
+ border:3px solid var(--orange);    
+}    
+.brand-name{    
+ font-size:clamp(28px,5vw,44px);    
+ font-weight:900;    
+ color:var(--orange);    
+}    
+header h1{color:var(--orange)}    
+.languages button,.filters button{    
+ background:#160c04;    
+ border:1px solid var(--orange);    
+ color:var(--orange);    
+ padding:10px 14px;    
+ margin:4px;    
+ border-radius:8px;    
+ font-weight:bold;    
+}    
+.languages button.active,.filters button.active{    
+ background:var(--orange);    
+ color:#000;    
+}    
+nav{    
+ display:flex;    
+ justify-content:center;    
+ flex-wrap:wrap;    
+ gap:8px;    
+ padding:15px;    
+ background:#100a05;    
+ border-bottom:1px solid var(--orange);    
+}    
+nav a{    
+ color:var(--orange);    
+ text-decoration:none;    
+ font-weight:bold;    
+ padding:9px;    
+}    
+.hero{    
+ text-align:center;    
+ padding:48px 20px;    
+ background:radial-gradient(circle,#432000,#080808 75%);    
+}    
+.hero h2{color:var(--orange)}    
+.hero p{    
+ max-width:760px;    
+ margin:auto;    
+ line-height:1.8;    
+}    
+.container{    
+ max-width:1250px;    
+ margin:auto;    
+ padding:25px 18px;    
+}    
+.section-title{    
+ color:var(--orange);    
+ text-align:center;    
+ font-size:27px;    
+ margin:32px 0 20px;    
+}    
+.section-description{    
+ text-align:center;    
+ line-height:1.7;    
+ max-width:850px;    
+ margin:0 auto 25px;    
+}    
+.search-box{text-align:center;margin:25px 0}    
+.search-box input,.audio-search{    
+ width:min(100%,650px);    
+ padding:15px;    
+ background:#130c07;    
+ border:2px solid var(--orange);    
+ border-radius:10px;    
+ color:var(--apricot);    
+}    
+.filters{text-align:center;margin:22px 0}    
+.source-count{text-align:center;margin:20px}    
+.grid,.audio-grid{    
+ display:grid;    
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));    
+ gap:18px;    
+}    
+.card,.audio-item{    
+ background:linear-gradient(145deg,#201207,#080808);    
+ border:1px solid #a95700;    
+ border-radius:16px;    
+ padding:20px;    
+}    
+.card h3,.audio-item h3{color:var(--orange)}    
+.media-heading{    
+ display:flex;    
+ align-items:center;    
+ gap:14px;    
+}    
+.media-mark{    
+ width:76px;    
+ height:76px;    
+ flex-shrink:0;    
+ display:grid;    
+ place-items:center;    
+ background:#170e08;    
+ border:1px solid var(--orange);    
+ border-radius:12px;    
+ color:var(--orange);    
+ font-weight:900;    
+ overflow:hidden;    
+}    
+.media-mark img{    
+ width:100%;    
+ height:100%;    
+ object-fit:contain;    
+}    
+.category{font-size:12px}    
+.media-actions{    
+ display:flex;    
+ flex-wrap:wrap;    
+ gap:8px;    
+ margin-top:15px;    
+}    
+.media-link,.main-link{    
+ display:inline-block;    
+ padding:10px 13px;    
+ border:1px solid var(--orange);    
+ border-radius:9px;    
+ color:var(--orange);    
+ text-decoration:none;    
+ font-weight:bold;    
+}    
+.main-link{    
+ background:var(--orange);    
+ color:#000;    
+}    
+.media-contact{    
+ margin-top:12px;    
+ font-size:14px;    
+ line-height:1.7;    
+}    
+.info-panel{    
+ background:linear-gradient(120deg,#251307,#090909);    
+ border-left:5px solid var(--orange);    
+ padding:25px;    
+ margin:35px 0;    
+ border-radius:10px;    
+ line-height:1.8;    
+}    
+.live-shell,.audio-section{    
+ background:radial-gradient(ellipse at top,#3b1c06,#080808 75%);    
+ border:2px solid var(--orange);    
+ border-radius:20px;    
+ padding:25px;    
+ margin:35px 0;    
+ text-align:center;    
+}    
+.live-orb{    
+ width:130px;    
+ height:130px;    
+ border:3px solid var(--orange);    
+ border-radius:50%;    
+ margin:10px auto;    
+ display:grid;    
+ place-items:center;    
+ overflow:hidden;    
+ font-size:36px;    
+ font-weight:900;    
+ color:var(--orange);    
+}    
+.live-orb img{    
+ width:100%;    
+ height:100%;    
+ object-fit:cover;    
+}    
+.live-status,.audio-status{    
+ color:var(--apricot);    
+ font-weight:bold;    
+ margin:15px 0;    
+}    
+audio{    
+ display:block;    
+ width:100%;    
+ margin:18px auto;    
+ accent-color:var(--orange);    
+}    
+.action-button,.audio-item button{    
+ background:var(--orange);    
+ color:#000;    
+ border:0;    
+ border-radius:9px;    
+ padding:12px 18px;    
+ font-weight:bold;    
+ margin:5px;    
+}    
+button:disabled{    
+ opacity:.5;    
+ cursor:not-allowed;    
+}    
+.audio-filters{    
+ display:flex;    
+ justify-content:center;    
+ flex-wrap:wrap;    
+ gap:8px;    
+ margin:22px 0;    
+}    
+.audio-filters button{    
+ background:#160c04;    
+ color:var(--orange);    
+ border:1px solid var(--orange);    
+ border-radius:9px;    
+ padding:10px 13px;    
+ font-weight:bold;    
+}    
+.audio-filters button.active{    
+ background:var(--orange);    
+ color:#000;    
+}    
+.audio-search{    
+ display:block;    
+ margin:20px auto;    
+}    
+.audio-item{text-align:left}    
+.audio-item p{line-height:1.6}    
+.genre-card{    
+ border:1px solid #a95700;    
+ border-radius:13px;    
+ padding:22px;    
+ background:linear-gradient(145deg,#301806,#080808);    
+ text-align:center;    
+}    
+.genre-card h3{color:var(--orange)}    
+.genre-card p{font-size:13px}    /* SHOWS — AJOUTE SAN RETIRE ANYEN */
+.shows-section{
+background:radial-gradient(ellipse at top,#402008,#080808 78%);
+border:2px solid var(--orange);
+border-radius:20px;
+padding:28px 18px;
+margin:35px 0;
+text-align:center;
+}
+.shows-section h2{
+color:var(--orange);
+font-size:clamp(25px,4vw,34px);
+}
+.shows-intro{
+max-width:850px;
+margin:0 auto 24px;
+line-height:1.8;
+}
+.shows-filters{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:9px;
+margin:25px 0;
+}
+.shows-filters button{
+background:#160c04;
+color:var(--orange);
+border:1px solid var(--orange);
+border-radius:9px;
+padding:11px 15px;
+font-weight:bold;
+}
+.shows-filters button.active{
+background:var(--orange);
+color:#000;
+}
+.shows-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+.show-card{
+background:linear-gradient(145deg,#301806,#080808);
+border:1px solid #a95700;
+border-radius:16px;
+padding:23px;
+text-align:left;
+}
+.show-card h3{
+color:var(--orange);
+font-size:23px;
+}
+.show-icon{
+width:75px;
+height:75px;
+display:grid;
+place-items:center;
+font-size:37px;
+border:2px solid var(--orange);
+border-radius:14px;
+background:#170e08;
+}
+.show-time{
+display:inline-block;
+border:1px solid var(--orange);
+border-radius:9px;
+padding:10px 13px;
+color:var(--orange);
+font-weight:bold;
+margin:10px 0;
+}
+.show-card p{line-height:1.7}
+.show-status{
+margin-top:15px;
+padding:12px;
+border-left:4px solid var(--orange);
+background:#160c04;
+border-radius:6px;
+font-size:13px;
+}
+.shows-table-wrapper{
+width:100%;
+overflow-x:auto;
+margin-top:30px;
+}
+.shows-table{
+width:100%;
+border-collapse:collapse;
+background:#130c07;
+text-align:left;
+}
+.shows-table th,.shows-table td{
+border:1px solid #a95700;
+padding:15px;
+line-height:1.6;
+}
+.shows-table th{
+color:var(--orange);
+background:#301806;
+}
+.shows-notice{
+margin:25px auto 0;
+max-width:850px;
+border-left:4px solid var(--orange);
+background:#180d05;
+border-radius:9px;
+padding:16px;
+text-align:left;
+line-height:1.7;
 }
 
+/* SOCIAL — KONEKTE 10 REZO */
+.social-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+gap:14px;
+}
+.social-item{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+min-height:155px;
+text-align:center;
+border:1px solid #a95700;
+background:#130c07;
+padding:18px 8px;
+border-radius:12px;
+text-decoration:none;
+transition:transform .2s,border-color .2s;
+}
+.social-item:hover,
+.social-item:focus-visible{
+transform:translateY(-4px);
+border-color:var(--orange);
+outline:2px solid var(--orange);
+outline-offset:2px;
+}
+.social-icon{
+font-size:34px;
+font-weight:900;
+margin-bottom:10px;
+}
+.social-item strong,
+.social-item small{display:block}
+.social-item small{
+font-size:11px;
+margin-top:8px;
+color:var(--apricot);
+}
+.social-item svg{
+width:36px;
+height:36px;
+fill:currentColor;
+}
+.social-item .social-icon{
+display:grid;
+place-items:center;
+min-height:40px;
+}
+.contacts{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+.contact-card{
+background:var(--panel);
+border:1px solid var(--orange);
+border-radius:14px;
+padding:23px;
+}
+.contact-card h3{color:var(--orange)}
+.contact-card a{
+display:block;
+color:var(--apricot);
+text-decoration:none;
+margin:13px 0;
+}
+.platform{text-align:center}
+footer{
+background:#080808;
+border-top:2px solid var(--orange);
+text-align:center;
+padding:30px 15px;
+margin-top:40px;
+color:var(--orange);
+}
+
+/* ARTISTS — KONSÈVE */
+.artists-section{
+background:radial-gradient(ellipse at top,#402008,#080808 78%);
+border:2px solid var(--orange);
+border-radius:20px;
+padding:28px 18px;
+margin:35px 0;
+text-align:center;
+}
+.artists-section h2{
+color:var(--orange);
+font-size:clamp(25px,4vw,34px);
+margin:8px 0 18px;
+}
+.artists-intro{
+max-width:800px;
+margin:0 auto 22px;
+line-height:1.8;
+}
+.artists-search{
+display:block;
+width:min(100%,650px);
+margin:22px auto;
+padding:15px;
+background:#130c07;
+color:var(--apricot);
+border:2px solid var(--orange);
+border-radius:10px;
+}
+.artists-filters{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:9px;
+margin:24px 0;
+}
+.artists-filters button{
+background:#160c04;
+color:var(--orange);
+border:1px solid var(--orange);
+padding:10px 13px;
+border-radius:9px;
+font-weight:bold;
+}
+.artists-filters button.active{
+background:var(--orange);
+color:#000;
+}
+.artists-count{
+color:var(--apricot);
+margin:18px 0;
+font-weight:bold;
+}
+.artists-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+.artist-card{
+background:linear-gradient(145deg,#301806,#080808);
+border:1px solid #a95700;
+border-radius:16px;
+padding:20px;
+text-align:center;
+overflow:hidden;
+}
+.artist-photo{
+width:145px;
+height:145px;
+border:3px solid var(--orange);
+border-radius:50%;
+background:radial-gradient(circle,#542807,#090909);
+margin:0 auto 17px;
+display:grid;
+place-items:center;
+overflow:hidden;
+font-size:46px;
+font-weight:900;
+color:var(--orange);
+}
+.artist-photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.artist-card h3{
+color:var(--orange);
+margin:12px 0;
+}
+.artist-card p{
+line-height:1.6;
+font-size:14px;
+}
+.artist-links{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:9px;
+margin-top:17px;
+}
+.artist-links a{
+border:1px solid var(--orange);
+border-radius:8px;
+padding:10px 12px;
+color:var(--orange);
+text-decoration:none;
+font-size:13px;
+font-weight:bold;
+}
+.artist-placeholder{
+border:1px dashed #a95700;
+border-radius:15px;
+background:linear-gradient(145deg,#251307,#080808);
+padding:24px 15px;
+text-align:center;
+}
+.artist-placeholder .artist-photo{
+width:110px;
+height:110px;
+font-size:36px;
+}
+.artist-placeholder h3{color:var(--orange)}
+.artist-placeholder p{
+font-size:13px;
+line-height:1.6;
+}
+.artists-notice{
+margin:25px auto 0;
+max-width:850px;
+border-left:4px solid var(--orange);
+background:#180d05;
+border-radius:9px;
+padding:16px;
+text-align:left;
+line-height:1.7;
+}
+
+/* VIDEO — KONSÈVE */
+.video-section{
+background:radial-gradient(ellipse at top,#3b1b06,#080808 78%);
+border:2px solid var(--orange);
+border-radius:20px;
+padding:28px 18px;
+margin:35px 0;
+text-align:center;
+}
+.video-section h2{
+color:var(--orange);
+font-size:clamp(25px,4vw,34px);
+margin:8px 0 18px;
+}
+.video-intro{
+max-width:850px;
+margin:0 auto 22px;
+line-height:1.8;
+}
+.video-search{
+display:block;
+width:min(100%,650px);
+margin:22px auto;
+padding:15px;
+background:#130c07;
+color:var(--apricot);
+border:2px solid var(--orange);
+border-radius:10px;
+}
+.video-filters{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:9px;
+margin:24px 0;
+}
+.video-filters button{
+background:#160c04;
+color:var(--orange);
+border:1px solid var(--orange);
+padding:10px 13px;
+border-radius:9px;
+font-weight:bold;
+}
+.video-filters button.active{
+background:var(--orange);
+color:#000;
+}
+.video-count{
+margin:18px 0;
+font-weight:bold;
+}
+.video-player-shell{
+max-width:900px;
+margin:20px auto 28px;
+padding:18px;
+border:1px solid #a95700;
+border-radius:16px;
+background:linear-gradient(145deg,#261306,#080808);
+}
+.video-player-shell video{
+display:block;
+width:100%;
+max-height:520px;
+background:#000;
+border:1px solid var(--orange);
+border-radius:12px;
+}
+.video-status{
+margin:14px 0;
+font-weight:bold;
+}
+.video-player-actions{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+.video-player-actions button{
+padding:11px 17px;
+border:1px solid var(--orange);
+border-radius:9px;
+background:var(--orange);
+color:#000;
+font-weight:bold;
+}
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+.video-card{
+background:linear-gradient(145deg,#301806,#080808);
+border:1px solid #a95700;
+border-radius:16px;
+padding:18px;
+text-align:left;
+overflow:hidden;
+}
+.video-card h3{
+color:var(--orange);
+margin:15px 0 10px;
+}
+.video-card p{
+font-size:14px;
+line-height:1.6;
+}
+.video-thumbnail{
+width:100%;
+aspect-ratio:16/9;
+display:grid;
+place-items:center;
+background:radial-gradient(circle,#482105,#080808);
+border:1px solid var(--orange);
+border-radius:12px;
+color:var(--orange);
+font-size:48px;
+font-weight:900;
+overflow:hidden;
+}
+.video-thumbnail img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.video-card-actions{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+margin-top:16px;
+}
+.video-card-actions button,
+.video-card-actions a{
+display:inline-block;
+background:var(--orange);
+color:#000;
+border:1px solid var(--orange);
+border-radius:9px;
+padding:10px 13px;
+font-size:13px;
+font-weight:bold;
+text-decoration:none;
+cursor:pointer;
+}
+.video-placeholder{
+background:linear-gradient(145deg,#251307,#080808);
+border:1px dashed #a95700;
+border-radius:15px;
+padding:18px;
+text-align:center;
+}
+.video-placeholder h3{color:var(--orange)}
+.video-placeholder p{
+font-size:13px;
+line-height:1.6;
+}
+.video-notice{
+margin:25px auto 0;
+max-width:850px;
+border-left:4px solid var(--orange);
+background:#180d05;
+border-radius:9px;
+padding:16px;
+text-align:left;
+line-height:1.7;
+}
+
+/* EVENTS — KONSÈVE */
+.events-section{
+background:radial-gradient(ellipse at top,#402008,#080808 78%);
+border:2px solid var(--orange);
+border-radius:20px;
+padding:28px 18px;
+margin:35px 0;
+text-align:center;
+}
+.events-section h2{
+color:var(--orange);
+font-size:clamp(25px,4vw,34px);
+margin:8px 0 18px;
+}
+.events-intro{
+max-width:850px;
+margin:0 auto 22px;
+line-height:1.8;
+}
+.events-search{
+display:block;
+width:min(100%,650px);
+margin:22px auto;
+padding:15px;
+background:#130c07;
+color:var(--apricot);
+border:2px solid var(--orange);
+border-radius:10px;
+}
+.events-filters{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:9px;
+margin:24px 0;
+}
+.events-filters button{
+background:#160c04;
+color:var(--orange);
+border:1px solid var(--orange);
+padding:10px 13px;
+border-radius:9px;
+font-weight:bold;
+}
+.events-filters button.active{
+background:var(--orange);
+color:#000;
+}
+.events-count{
+margin:18px 0;
+font-weight:bold;
+}
+.events-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+.event-card{
+background:linear-gradient(145deg,#301806,#080808);
+border:1px solid #a95700;
+border-radius:16px;
+padding:18px;
+text-align:left;
+overflow:hidden;
+}
+.event-card h3{
+color:var(--orange);
+margin:15px 0 10px;
+}
+.event-card p{
+font-size:14px;
+line-height:1.7;
+}
+.event-poster{
+width:100%;
+aspect-ratio:16/9;
+display:grid;
+place-items:center;
+background:radial-gradient(circle,#482105,#080808);
+border:1px solid var(--orange);
+border-radius:12px;
+color:var(--orange);
+font-size:46px;
+font-weight:900;
+overflow:hidden;
+}
+.event-poster img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.event-date{
+display:inline-block;
+padding:9px 12px;
+border-radius:8px;
+background:#180d05;
+border:1px solid var(--orange);
+color:var(--orange);
+font-weight:bold;
+margin-top:14px;
+}
+.event-card-actions{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+margin-top:16px;
+}
+.event-card-actions a{
+display:inline-block;
+background:var(--orange);
+color:#000;
+border:1px solid var(--orange);
+border-radius:9px;
+padding:10px 13px;
+font-size:13px;
+font-weight:bold;
+text-decoration:none;
+}
+.event-placeholder{
+background:linear-gradient(145deg,#251307,#080808);
+border:1px dashed #a95700;
+border-radius:15px;
+padding:20px;
+text-align:center;
+}
+.event-placeholder h3{color:var(--orange)}
+.event-placeholder p{
+font-size:13px;
+line-height:1.6;
+}
+.events-notice{
+margin:25px auto 0;
+max-width:850px;
+border-left:4px solid var(--orange);
+background:#180d05;
+border-radius:9px;
+padding:16px;
+text-align:left;
+line-height:1.7;
+}
+@media(max-width:600px){
+.container{padding:15px}
+.grid,.audio-grid,.artists-grid,
+.video-grid,.events-grid,.shows-grid{
+grid-template-columns:1fr;
+}
+.live-shell,.audio-section,
+.artists-section,.video-section,
+.events-section,.shows-section{
+padding:18px 12px;
+}
+.video-player-shell{padding:12px}
+.shows-table th,.shows-table td{
+padding:10px;
+font-size:13px;
+}
+}
+</style>  </head>  <body>  <header>
+<img src="pro-max-fm.jpg"    
+alt="PRO-MAX FM"    
+class="official-logo">
+
+ <div class="brand-name">PRO-MAX FM</div>    
+ <h1>NEWS CENTER</h1>    
+ <p>LA FORCE DU SON</p>    
+ <div class="languages">    
+  <button id="frBtn" onclick="setLanguage('fr')">FR</button>    
+  <button id="enBtn" onclick="setLanguage('en')">ENG</button>    
+  <button id="htBtn" onclick="setLanguage('ht')">KRE</button>    
+ </div>    
+</header>  <nav>    
+ <a href="index.html" id="homeLink">ACCUEIL</a>    
+ <a href="#live">LIVE</a>    
+ <a href="#news">NEWS</a>    
+ <a href="#shows">SHOWS</a>    
+ <a href="#podcasts">PODCASTS</a>    
+ <a href="#music">MUSIC</a>    
+ <a href="#artists">ARTISTS</a>    
+ <a href="#video">VIDEO</a>    
+ <a href="#events">EVENTS</a>    
+ <a href="#contact">CONTACT</a>    
+</nav>  <section class="hero">    
+ <h2 id="heroTitle">ACTUALITÉS DU MONDE</h2>    
+ <p id="heroDescription">    
+  Retrouvez les médias haïtiens,    
+  internationaux et communautaires    
+  sur PRO-MAX FM.    
+ </p>    
+</section>  <main class="container">  <!-- LIVE — KONSÈVE -->  <section id="live">    
+ <h2 class="section-title" id="liveTitle">    
+  PRO-MAX FM — EN DIRECT    
+ </h2>    
+ <p class="section-description"    
+    id="liveDescription">LA FORCE DU SON</p>    
+ <div class="live-shell">    
+  <div class="live-orb">    
+   <img src="pro-max-fm.jpg" alt="PRO-MAX FM">    
+  </div>    
+  <h2>PRO-MAX FM</h2>    
+  <p>LA FORCE DU SON</p>    
+  <div class="live-status" id="liveStatus">    
+   STREAMING NON CONFIGURÉ    
+  </div>    
+  <audio id="radioPlayer"    
+         controls preload="none"></audio>    
+  <button class="action-button"    
+          id="playLive"    
+          onclick="playRadio()">▶ ÉCOUTER</button>    
+  <button class="action-button"    
+          id="stopLive"    
+          onclick="stopRadio()">■ ARRÊTER</button>    
+  <p id="liveNotice">    
+   Ajoutez votre URL RadioKing    
+   pour activer la diffusion.    
+  </p>    
+ </div>    
+</section>  <!-- NEWS — KONSÈVE -->  <section id="news">    
+ <h2 class="section-title" id="sourcesTitle">    
+  NOS SOURCES D'INFORMATION    
+ </h2>    
+ <p class="section-description"    
+    id="sourcesDescription">    
+  Médias haïtiens, internationaux    
+  et communautaires.    
+ </p>    
+ <div class="search-box">    
+  <input id="searchInput"    
+   type="search"    
+   placeholder="Rechercher un média..."    
+   oninput="renderSources()">    
+ </div>    
+ <div class="filters" id="filters"></div>    
+ <p class="source-count" id="sourceCount"></p>    
+ <div class="grid" id="newsGrid"></div>    
+</section>  <div class="info-panel">    
+ <h2 id="flashTitle">    
+  🎙️ PRO-MAX FM FLASH INFO    
+ </h2>    
+ <p id="flashDescription">    
+  Les informations doivent être vérifiées    
+  avant toute diffusion.    
+ </p>    
+</div>  <!-- SHOWS — NOUVO BLOK ENTEGRE -->  <section id="shows" class="shows-section">    
+ <h2 id="showsTitle">    
+  PRO-MAX FM — SHOWS & PROGRAMMATION    
+ </h2>   <p class="shows-intro" id="showsIntro">    
+  Découvrez les émissions et la programmation    
+  hebdomadaire de PRO-MAX FM.    
+ </p>   <p id="showsTimezone">    
+  Horaires de Floride — Heure de l'Est.    
+ </p>   <div class="shows-filters" id="showsFilters"></div>    
+ <div class="shows-grid" id="showsGrid"></div>   <h2 id="showsScheduleTitle">    
+  PROGRAMMATION HEBDOMADAIRE    
+ </h2>   <div class="shows-table-wrapper">    
+  <table class="shows-table">    
+   <thead>    
+    <tr>    
+     <th id="showsTableName">ÉMISSION</th>    
+     <th id="showsTableDays">JOURS</th>    
+     <th id="showsTableTime">HORAIRES</th>    
+    </tr>    
+   </thead>    
+   <tbody id="showsScheduleBody"></tbody>    
+  </table>    
+ </div>   <div class="shows-notice">    
+  <strong id="showsNoticeTitle">    
+   INFORMATIONS SUR LA DIFFUSION    
+  </strong>    
+  <p id="showsNoticeText">    
+   Programmation prévue. La diffusion musicale    
+   attend les fichiers audio.    
+  </p>    
+ </div>    
+</section>  <!-- PODCASTS — KONSÈVE -->  <section id="podcasts" class="audio-section">    
+ <h2>PRO-MAX FM — PODCASTS & REPLAYS</h2>    
+ <p id="podcastsIntro">    
+  Émissions enregistrées, entretiens    
+  et archives audio.    
+ </p>    
+ <div class="audio-status" id="podcastStatus">    
+  AUCUN ÉPISODE SÉLECTIONNÉ    
+ </div>    
+ <audio id="podcastPlayer"    
+        controls preload="none"></audio>    
+ <input class="audio-search"    
+        id="podcastSearch"    
+        type="search"    
+        placeholder="Rechercher un podcast..."    
+        oninput="renderPodcasts()">    
+ <div class="audio-filters"    
+      id="podcastFilters"></div>    
+ <p id="podcastCount"></p>    
+ <div class="audio-grid"    
+      id="podcastGrid"></div>    
+</section>  <!-- MUSIC — KONSÈVE -->  <section id="music" class="audio-section">    
+ <h2>PRO-MAX FM — MUSIC</h2>    
+ <p id="musicIntro">    
+  Kompa • Reggae • Rap Kreyòl •    
+  Rabòday • Rara • Kompa Love •    
+  Hip-Hop • Reggaeton •    
+  Reggae for Lovers • Ansyèn Mizik •    
+  Tropicana • Septen • Racine    
+ </p>    
+ <div class="audio-status" id="musicStatus">    
+  AUCUNE MUSIQUE SÉLECTIONNÉE    
+ </div>    
+ <audio id="musicPlayer"    
+        controls preload="none"></audio>    
+ <input class="audio-search"    
+        id="musicSearch"    
+        type="search"    
+        placeholder="Rechercher une musique ou un artiste..."    
+        oninput="renderMusic()">    
+ <div class="audio-filters"    
+      id="musicFilters"></div>    
+ <p id="musicCount"></p>    
+ <div class="audio-grid"    
+      id="musicGrid"></div>    
+</section>  <!-- ARTISTS — KONSÈVE -->  <section id="artists" class="artists-section">    
+ <h2 id="artistsTitle">    
+  PRO-MAX FM — ARTISTS    
+ </h2>    
+ <p class="artists-intro" id="artistsIntro">    
+  Découvrez les artistes, les groupes    
+  et les talents musicaux d'Haïti,    
+  de la Caraïbe et de la diaspora.    
+ </p>    
+ <input    
+  id="artistsSearch"    
+  class="artists-search"    
+  type="search"    
+  placeholder="Rechercher un artiste ou un groupe..."    
+  oninput="renderArtists()">    
+ <div id="artistsFilters"    
+      class="artists-filters"></div>    
+ <p id="artistsCount"    
+    class="artists-count"></p>    
+ <div id="artistsGrid"    
+      class="artists-grid"></div>    
+ <div class="artists-notice">    
+  <strong id="artistsNoticeTitle">    
+   PRO-MAX FM — ARTIST DIRECTORY    
+  </strong>    
+  <p id="artistsNoticeText">    
+   Les profils officiels seront ajoutés    
+   avec les photos, biographies,    
+   styles musicaux et liens vérifiés.    
+  </p>    
+ </div>    
+</section>  <!-- VIDEO — KONSÈVE -->  <section id="video" class="video-section">    
+ <h2 id="videoTitle">    
+  PRO-MAX FM — VIDEO    
+ </h2>   <p class="video-intro" id="videoIntro">    
+  Découvrez les vidéos, les interviews,    
+  les émissions, les reportages    
+  et les productions de PRO-MAX FM.    
+ </p>   <div class="video-player-shell">    
+  <div class="video-status" id="videoStatus">    
+   AUCUNE VIDÉO SÉLECTIONNÉE    
+  </div>  <video    
+id="videoPlayer"    
+controls    
+playsinline    
+preload="none">  
+</video>    <div class="video-player-actions">    
+   <button id="stopVideoButton"    
+           type="button"    
+           onclick="stopVideo()">    
+    ■ ARRÊTER    
+   </button>    
+  </div>    
+ </div>  <input    
+id="videoSearch"    
+class="video-search"    
+type="search"    
+placeholder="Rechercher une vidéo..."    
+oninput="renderVideos()">   <div id="videoFilters"    
+      class="video-filters"></div>   <p id="videoCount"    
+    class="video-count"></p>   <div id="videoGrid"    
+      class="video-grid"></div>   <div class="video-notice">    
+  <strong id="videoNoticeTitle">    
+   PRO-MAX FM — VIDÉOTHÈQUE    
+  </strong>    
+  <p id="videoNoticeText">    
+   Les vidéos officielles seront ajoutées    
+   avec leurs titres, descriptions,    
+   catégories et liens vérifiés.    
+  </p>    
+ </div>    
+</section>  <!-- EVENTS — KONSÈVE -->  <section id="events" class="events-section">    
+ <h2 id="eventsTitle">    
+  PRO-MAX FM — EVENTS    
+ </h2>   <p class="events-intro" id="eventsIntro">    
+  Découvrez les concerts, festivals,    
+  événements communautaires,    
+  émissions spéciales et activités    
+  de PRO-MAX FM.    
+ </p>  <input    
+id="eventsSearch"    
+class="events-search"    
+type="search"    
+placeholder="Rechercher un événement..."    
+oninput="renderEvents()">   <div id="eventsFilters"    
+      class="events-filters"></div>   <p id="eventsCount"    
+    class="events-count"></p>   <div id="eventsGrid"    
+      class="events-grid"></div>   <div class="events-notice">    
+  <strong id="eventsNoticeTitle">    
+   PRO-MAX FM — AGENDA DES ÉVÉNEMENTS    
+  </strong>    
+  <p id="eventsNoticeText">    
+   Les événements officiels seront publiés    
+   avec les dates, lieux, affiches,    
+   organisateurs et liens de réservation    
+   ou d'inscription vérifiés.    
+  </p>    
+ </div>    
+</section>  <!-- SOCIAL — 10 REZO KONEKTE -->  <section id="social">    
+ <h2 class="section-title" id="socialTitle">    
+  RÉSEAUX SOCIAUX    
+ </h2>    
+ <div class="social-grid" id="socialGrid"></div>    
+</section>  <!-- CONTACT — KONSÈVE -->  <section id="contact">    
+ <h2 class="section-title" id="contactTitle">    
+  CONTACT    
+ </h2>    
+ <div class="contacts">    
+  <div class="contact-card">    
+   <h3>🇺🇸 USA — FLORIDA</h3>    
+   <a href="tel:+14076405166">    
+    ☎ (407) 640-5166    
+   </a>    
+   <a href="tel:+13175381150">    
+    ☎ (317) 538-1150    
+   </a>    
+  </div>    
+  <div class="contact-card">    
+   <h3>🇭🇹 HAITI</h3>    
+   <a href="tel:+50942544447">    
+    ☎ +509 4254 4447    
+   </a>    
+   <a href="tel:+50944829869">    
+    ☎ +509 4482 9869    
+   </a>    
+   <a href="tel:+50943437488">    
+    ☎ +509 4343 7488    
+   </a>    
+  </div>    
+ </div>    
+</section>  <div class="info-panel platform">    
+ <h2>BSS1815 PRO-MAX DMP</h2>    
+ <p>DIGITAL MANAGEMENT PLATFORM</p>    
+ <a class="main-link"    
+    id="platformLink"    
+    href="https://bss1815promaxdmp.com"    
+    target="_blank"    
+    rel="noopener noreferrer">    
+  VISITER NOTRE PLATEFORME    
+ </a>    
+</div>  </main>  <footer>    
+ <h2>PRO-MAX FM</h2>    
+ <p>LA FORCE DU SON</p>    
+ <p id="footerText">    
+  La radio de tous, partout et toujours.    
+ </p>    
+ <p>© 2026 PRO-MAX FM</p>    
+</footer>  <script>    /* NEWS CENTER — 23 SOUS MEDYA */
+const sources=[
+{name:"Radio Télé Éclair",category:"haiti",url:"https://www.radioteleclair.com",domain:"radioteleclair.com",mark:"RTÉ",phone:"+509 44 54 8812"},
+{name:"Radio Télévision Caraïbes",category:"haiti",url:"https://www.radiotelevisioncaraibes.com",domain:"radiotelevisioncaraibes.com",mark:"RTVC"},
+{name:"Radio Vision 2000",category:"haiti",logo:"media-logos/radio-vision-2000.png",mark:"V2000",phone:"+509 2813 1875",email:"info@radiovision2000haiti.net"},
+{name:"Le Nouvelliste",category:"haiti",url:"https://lenouvelliste.com",domain:"lenouvelliste.com",mark:"LN"},
+{name:"Radio Télé 6 Univers",category:"haiti",logo:"media-logos/radio-tele-6-univers.png",mark:"6U"},
+{name:"ZOOM HAITI TV",category:"digital",logo:"media-logos/zoom-haiti-tv.png",mark:"ZH"},
+{name:"Tripotay Bò Lakay",category:"digital",logo:"media-logos/tripotay-bo-lakay.png",mark:"TBL"},
+{name:"EnfoFyab TV",category:"digital",logo:"media-logos/enfofyab-tv.png",mark:"EF"},
+{name:"Info Media / MRJEAN",category:"digital",logo:"media-logos/info-media-mrjean.png",mark:"IM"},
+{name:"CNN",category:"world",url:"https://www.cnn.com",domain:"cnn.com",mark:"CNN"},
+{name:"BBC News",category:"world",url:"https://www.bbc.com/news",domain:"bbc.com",mark:"BBC"},
+{name:"France 24",category:"world",url:"https://www.france24.com",domain:"france24.com",mark:"F24"},
+{name:"RFI",category:"world",url:"https://www.rfi.fr",domain:"rfi.fr",mark:"RFI"},
+{name:"Reuters",category:"world",url:"https://www.reuters.com",domain:"reuters.com",mark:"R"},
+{name:"Associated Press",category:"world",url:"https://apnews.com",domain:"apnews.com",mark:"AP"},
+{name:"Axios",category:"world",url:"https://www.axios.com",domain:"axios.com",mark:"AX"},
+{name:"Miami Herald",category:"diaspora",url:"https://www.miamiherald.com",domain:"miamiherald.com",mark:"MH"},
+{name:"The Haitian Times",category:"diaspora",url:"https://haitiantimes.com",domain:"haitiantimes.com",mark:"HT"},
+{name:"PAP Times",category:"diaspora",logo:"media-logos/pap-times.png",mark:"PAP"},
+{name:"AyiboPost",category:"independent",url:"https://ayibopost.com",domain:"ayibopost.com",mark:"AY"},
+{name:"Loop Haiti",category:"independent",logo:"media-logos/loop-haiti.png",mark:"LOOP"},
+{name:"Tabou Network",category:"independent",logo:"media-logos/tabou-network.png",mark:"TN"},
+{name:"LÉOGÂNE INFO",category:"community",logo:"pro-max-fm.jpg",mark:"LI"}
+];
+
+/* TRADIKSYON — FR / ENG / KRE */
+const translations={
+fr:{
+home:"ACCUEIL",hero:"ACTUALITÉS DU MONDE",
+description:"Retrouvez les médias haïtiens, internationaux et communautaires sur PRO-MAX FM.",
+sources:"NOS SOURCES D'INFORMATION",
+sourcesDescription:"Identité visuelle, sites internet, réseaux sociaux et coordonnées disponibles pour chaque média.",
+search:"Rechercher un média...",
+all:"TOUS",haiti:"RADIOS & MÉDIAS HAÏTIENS",
+digital:"MÉDIAS DIGITAUX",world:"INTERNATIONAL",
+diaspora:"FLORIDE & DIASPORA",
+independent:"INDÉPENDANTS",community:"COMMUNAUTÉ",
+visit:"🌐 SITE WEB",pending:"PROFIL À CONNECTER",
+empty:"Aucun média trouvé.",count:"médias",
+flash:"🎙️ PRO-MAX FM FLASH INFO",
+flashText:"Notre centre d'information rassemble différentes sources médiatiques. Les informations doivent être vérifiées avant toute diffusion.",
+social:"RÉSEAUX SOCIAUX",contact:"CONTACT",
+platform:"VISITER NOTRE PLATEFORME",
+footer:"La radio de tous, partout et toujours.",
+liveTitle:"PRO-MAX FM — EN DIRECT",
+liveDescription:"LA FORCE DU SON • La radio de tous, partout et toujours.",
+liveOffline:"STREAMING NON CONFIGURÉ",
+liveReady:"PRÊT À ÉCOUTER",
+livePlaying:"DIFFUSION EN COURS",
+liveError:"IMPOSSIBLE DE LIRE LE FLUX",
+livePlay:"▶ ÉCOUTER",liveStop:"■ ARRÊTER",
+liveNotice:"Ajoutez l'URL directe RadioKing dans STREAM_URL pour activer la diffusion.",
+podcastIntro:"Émissions enregistrées, entretiens et archives audio.",
+musicIntro:"Découvrez les catégories musicales de PRO-MAX FM.",
+podcastSearch:"Rechercher un podcast...",
+musicSearch:"Rechercher une musique ou un artiste...",
+noEpisodes:"Aucun épisode disponible pour le moment.",
+noTracks:"Aucun fichier MP3 disponible pour le moment.",
+episodes:"épisodes disponibles",
+tracks:"morceaux disponibles",
+listen:"▶ ÉCOUTER",
+error:"LECTURE IMPOSSIBLE",
+podcastNone:"AUCUN ÉPISODE SÉLECTIONNÉ",
+musicNone:"AUCUNE MUSIQUE SÉLECTIONNÉE",
+genrePending:"Fichiers MP3 à ajouter",
+
+showsTitle:"PRO-MAX FM — SHOWS & PROGRAMMATION",
+showsIntro:"Découvrez les émissions et la programmation hebdomadaire de PRO-MAX FM.",
+showsTimezone:"Horaires de Floride — Heure de l'Est.",
+showsWeekday:"LUNDI — VENDREDI",
+showsWeekend:"WEEK-END",
+showsScheduleTitle:"PROGRAMMATION HEBDOMADAIRE",
+showsTableName:"ÉMISSION",
+showsTableDays:"JOURS",
+showsTableTime:"HORAIRES",
+showsPending:"HORAIRE À CONFIRMER",
+showsPlanned:"PROGRAMMATION PRÉVUE",
+showsNoticeTitle:"INFORMATIONS SUR LA DIFFUSION",
+showsNoticeText:"Cette grille présente la programmation prévue. Le lancement de la diffusion musicale attend les fichiers audio. Les horaires peuvent être ajustés avant le lancement officiel.",
+
+artistsTitle:"PRO-MAX FM — ARTISTS",
+artistsIntro:"Découvrez les artistes, les groupes et les talents musicaux d'Haïti, de la Caraïbe et de la diaspora.",
+artistsSearch:"Rechercher un artiste ou un groupe...",
+artistsCount:"artistes enregistrés",
+artistsPending:"Profils d'artistes à ajouter",
+artistsNoticeTitle:"PRO-MAX FM — RÉPERTOIRE DES ARTISTES",
+artistsNoticeText:"Les profils officiels seront ajoutés avec les photos, biographies, styles musicaux et liens vérifiés.",
+artistProfile:"VOIR LE PROFIL",
+artistWebsite:"SITE OFFICIEL",
+artistYoutube:"YOUTUBE",
+artistSpotify:"SPOTIFY",
+artistInstagram:"INSTAGRAM",
+
+videoTitle:"PRO-MAX FM — VIDEO",
+videoIntro:"Découvrez les vidéos, interviews, émissions, reportages et productions de PRO-MAX FM.",
+videoSearch:"Rechercher une vidéo...",
+videoCount:"vidéos disponibles",
+videoNone:"AUCUNE VIDÉO SÉLECTIONNÉE",
+videoReady:"VIDÉO PRÊTE",
+videoPlaying:"LECTURE VIDÉO EN COURS",
+videoError:"LECTURE VIDÉO IMPOSSIBLE",
+videoPending:"Vidéos à ajouter",
+videoPlay:"▶ REGARDER",
+videoStop:"■ ARRÊTER",
+videoExternal:"OUVRIR LA VIDÉO",
+videoNoticeTitle:"PRO-MAX FM — VIDÉOTHÈQUE",
+videoNoticeText:"Les vidéos officielles seront ajoutées avec leurs titres, descriptions, catégories et liens vérifiés.",
+
+eventsTitle:"PRO-MAX FM — EVENTS",
+eventsIntro:"Découvrez les concerts, festivals, événements communautaires, émissions spéciales et activités de PRO-MAX FM.",
+eventsSearch:"Rechercher un événement...",
+eventsCount:"événements disponibles",
+eventsPending:"Événements à annoncer",
+eventsDate:"DATE",
+eventsTime:"HEURE",
+eventsLocation:"LIEU",
+eventsOrganizer:"ORGANISATEUR",
+eventsDetails:"DÉTAILS",
+eventsRegister:"RÉSERVER / S'INSCRIRE",
+eventsNoticeTitle:"PRO-MAX FM — AGENDA DES ÉVÉNEMENTS",
+eventsNoticeText:"Les événements officiels seront publiés avec les dates, lieux, affiches, organisateurs et liens de réservation ou d'inscription vérifiés.",
+
+socialVisit:"OUVRIR LE PROFIL"
+},
+en:{
+home:"HOME",hero:"WORLD NEWS",
+description:"Explore Haitian, international and community news sources on PRO-MAX FM.",
+sources:"OUR MEDIA & INFORMATION SOURCES",
+sourcesDescription:"Visual identity, websites, social media and contact information available for each outlet.",
+search:"Search for a media outlet...",
+all:"ALL",haiti:"HAITIAN RADIO & MEDIA",
+digital:"DIGITAL MEDIA",world:"INTERNATIONAL",
+diaspora:"FLORIDA & DIASPORA",
+independent:"INDEPENDENT",community:"COMMUNITY",
+visit:"🌐 WEBSITE",pending:"PROFILE NOT CONNECTED",
+empty:"No media sources found.",count:"media",
+flash:"🎙️ PRO-MAX FM NEWS FLASH",
+flashText:"Our news center brings together different media sources. Information must be verified before broadcasting.",
+social:"SOCIAL NETWORKS",contact:"CONTACT",
+platform:"VISIT OUR MAIN PLATFORM",
+footer:"The radio for everyone, everywhere, always.",
+liveTitle:"PRO-MAX FM — LIVE",
+liveDescription:"LA FORCE DU SON • The radio for everyone, everywhere, always.",
+liveOffline:"STREAM NOT CONFIGURED",
+liveReady:"READY TO LISTEN",
+livePlaying:"STREAM PLAYING",
+liveError:"UNABLE TO PLAY STREAM",
+livePlay:"▶ LISTEN",liveStop:"■ STOP",
+liveNotice:"Add the direct RadioKing streaming URL to STREAM_URL.",
+podcastIntro:"Recorded shows, interviews and audio archives.",
+musicIntro:"Explore the music genres of PRO-MAX FM.",
+podcastSearch:"Search podcasts...",
+musicSearch:"Search music or artists...",
+noEpisodes:"No episodes available yet.",
+noTracks:"No MP3 files available yet.",
+episodes:"available episodes",
+tracks:"available tracks",
+listen:"▶ LISTEN",
+error:"PLAYBACK FAILED",
+podcastNone:"NO EPISODE SELECTED",
+musicNone:"NO MUSIC SELECTED",
+genrePending:"MP3 files to be added",
+
+showsTitle:"PRO-MAX FM — SHOWS & PROGRAMMING",
+showsIntro:"Explore PRO-MAX FM shows and weekly programming.",
+showsTimezone:"Florida schedule — Eastern Time.",
+showsWeekday:"MONDAY — FRIDAY",
+showsWeekend:"WEEKEND",
+showsScheduleTitle:"WEEKLY PROGRAMMING",
+showsTableName:"SHOW",
+showsTableDays:"DAYS",
+showsTableTime:"TIME",
+showsPending:"TIME TO BE CONFIRMED",
+showsPlanned:"PLANNED PROGRAMMING",
+showsNoticeTitle:"BROADCAST INFORMATION",
+showsNoticeText:"This schedule shows the planned programming. The music broadcast launch is awaiting the audio files. Times may be adjusted before the official launch.",
+
+artistsTitle:"PRO-MAX FM — ARTISTS",
+artistsIntro:"Discover artists, bands and musical talent from Haiti, the Caribbean and the diaspora.",
+artistsSearch:"Search for an artist or band...",
+artistsCount:"registered artists",
+artistsPending:"Artist profiles to be added",
+artistsNoticeTitle:"PRO-MAX FM — ARTIST DIRECTORY",
+artistsNoticeText:"Official profiles will include photos, biographies, music genres and verified links.",
+artistProfile:"VIEW PROFILE",
+artistWebsite:"OFFICIAL WEBSITE",
+artistYoutube:"YOUTUBE",
+artistSpotify:"SPOTIFY",
+artistInstagram:"INSTAGRAM",
+
+videoTitle:"PRO-MAX FM — VIDEO",
+videoIntro:"Explore videos, interviews, shows, reports and productions from PRO-MAX FM.",
+videoSearch:"Search videos...",
+videoCount:"available videos",
+videoNone:"NO VIDEO SELECTED",
+videoReady:"VIDEO READY",
+videoPlaying:"VIDEO PLAYING",
+videoError:"UNABLE TO PLAY VIDEO",
+videoPending:"Videos to be added",
+videoPlay:"▶ WATCH",
+videoStop:"■ STOP",
+videoExternal:"OPEN VIDEO",
+videoNoticeTitle:"PRO-MAX FM — VIDEO LIBRARY",
+videoNoticeText:"Official videos will be added with titles, descriptions, categories and verified links.",
+
+eventsTitle:"PRO-MAX FM — EVENTS",
+eventsIntro:"Discover concerts, festivals, community events, special broadcasts and PRO-MAX FM activities.",
+eventsSearch:"Search events...",
+eventsCount:"available events",
+eventsPending:"Events to be announced",
+eventsDate:"DATE",
+eventsTime:"TIME",
+eventsLocation:"LOCATION",
+eventsOrganizer:"ORGANIZER",
+eventsDetails:"DETAILS",
+eventsRegister:"BOOK / REGISTER",
+eventsNoticeTitle:"PRO-MAX FM — EVENTS CALENDAR",
+eventsNoticeText:"Official events will be published with dates, locations, posters, organizers and verified booking or registration links.",
+
+socialVisit:"OPEN PROFILE"
+},
+ht:{
+home:"AKÈY",hero:"NOUVÈL MONDYAL",
+description:"Dekouvri sous nouvèl ayisyen, entènasyonal ak kominotè sou PRO-MAX FM.",
+sources:"SOUS MEDYA AK ENFÒMASYON NOU YO",
+sourcesDescription:"Idantite vizyèl, sit entènèt, rezo sosyal ak enfòmasyon kontak pou chak medya.",
+search:"Chèche yon medya...",
+all:"TOUT",haiti:"RADYO AK MEDYA AYISYEN",
+digital:"MEDYA DIJITAL",world:"ENTÈNASYONAL",
+diaspora:"FLORIDA & DYASPORA",
+independent:"ENDEPANDAN",community:"KOMINOTE",
+visit:"🌐 SIT ENTÈNÈT",pending:"PWOFIL POKO KONEKTE",
+empty:"Nou pa jwenn okenn medya.",count:"medya",
+flash:"🎙️ PRO-MAX FM FLASH INFO",
+flashText:"Sant nouvèl nou an rasanble plizyè sous medya. Nou dwe verifye enfòmasyon yo anvan nou difize yo.",
+social:"REZO SOSYAL",contact:"KONTAK",
+platform:"VIZITE PLATFÒM NOU AN",
+footer:"Radyo pou tout moun, tout kote, tout tan.",
+liveTitle:"PRO-MAX FM — AN DIRÈK",
+liveDescription:"LA FORCE DU SON • Radyo pou tout moun, tout kote, tout tan.",
+liveOffline:"STREAMING POKO KONFIGIRE",
+liveReady:"PARE POU KOUTE",
+livePlaying:"RADYO A AP JWE",
+liveError:"PA KA JWE STREAM LAN",
+livePlay:"▶ KOUTE",liveStop:"■ KANPE",
+liveNotice:"Mete lyen streaming RadioKing la nan STREAM_URL.",
+podcastIntro:"Emisyon anrejistre, entèvyou ak achiv odyo.",
+musicIntro:"Dekouvri tout kategori mizik PRO-MAX FM yo.",
+podcastSearch:"Chèche podcast...",
+musicSearch:"Chèche mizik oswa atis...",
+noEpisodes:"Poko gen epizòd.",
+noTracks:"Poko gen fichye MP3.",
+episodes:"epizòd disponib",
+tracks:"mizik disponib",
+listen:"▶ KOUTE",
+error:"PA KA JWE",
+podcastNone:"OKEN EPIZÒD PA CHWAZI",
+musicNone:"OKEN MIZIK PA CHWAZI",
+genrePending:"Fichye MP3 pou ajoute",
+
+showsTitle:"PRO-MAX FM — SHOWS & PWOGRAMASYON",
+showsIntro:"Dekouvri emisyon ak pwogramasyon PRO-MAX FM chak semèn.",
+showsTimezone:"Orè Florid — Lè lès Etazini.",
+showsWeekday:"LENDI — VANDREDI",
+showsWeekend:"WIKENN",
+showsScheduleTitle:"PWOGRAMASYON CHAK SEMÈN",
+showsTableName:"EMISYON",
+showsTableDays:"JOU",
+showsTableTime:"LÈ",
+showsPending:"LÈ POU KONFIME",
+showsPlanned:"PWOGRAMASYON KI PREVWA",
+showsNoticeTitle:"ENFÒMASYON SOU DIFIZYON",
+showsNoticeText:"Tablo sa a montre pwogramasyon ki prevwa. N ap tann fichye mizik yo pou lanse difizyon mizikal la. Orè yo ka ajiste anvan lansman ofisyèl la.",
+
+artistsTitle:"PRO-MAX FM — ATIS",
+artistsIntro:"Dekouvri atis, gwoup mizikal ak talan Ayiti, Karayib la ak dyaspora a.",
+artistsSearch:"Chèche yon atis oswa yon gwoup...",
+artistsCount:"atis anrejistre",
+artistsPending:"Pwofil atis pou ajoute",
+artistsNoticeTitle:"PRO-MAX FM — REPÈTWA ATIS",
+artistsNoticeText:"N ap ajoute pwofil ofisyèl yo ak foto, biyografi, kategori mizik ak lyen ki verifye.",
+artistProfile:"WÈ PWOFIL",
+artistWebsite:"SIT OFISYÈL",
+artistYoutube:"YOUTUBE",
+artistSpotify:"SPOTIFY",
+artistInstagram:"INSTAGRAM",
+
+videoTitle:"PRO-MAX FM — VIDEO",
+videoIntro:"Dekouvri videyo, entèvyou, emisyon, repòtaj ak pwodiksyon PRO-MAX FM yo.",
+videoSearch:"Chèche yon videyo...",
+videoCount:"videyo disponib",
+videoNone:"OKEN VIDEYO PA CHWAZI",
+videoReady:"VIDEYO A PARE",
+videoPlaying:"VIDEYO A AP JWE",
+videoError:"PA KA JWE VIDEYO A",
+videoPending:"Videyo pou ajoute",
+videoPlay:"▶ GADE",
+videoStop:"■ KANPE",
+videoExternal:"OUVRI VIDEYO A",
+videoNoticeTitle:"PRO-MAX FM — BIBLIYOTÈK VIDEYO",
+videoNoticeText:"N ap ajoute videyo ofisyèl yo ak tit, deskripsyon, kategori ak lyen ki verifye.",
+
+eventsTitle:"PRO-MAX FM — EVÈNMAN",
+eventsIntro:"Dekouvri konsè, festival, aktivite kominotè, emisyon espesyal ak evènman PRO-MAX FM yo.",
+eventsSearch:"Chèche yon evènman...",
+eventsCount:"evènman disponib",
+eventsPending:"Evènman pou anonse",
+eventsDate:"DAT",
+eventsTime:"LÈ",
+eventsLocation:"KOTE",
+eventsOrganizer:"ÒGANIZATÈ",
+eventsDetails:"DETAY",
+eventsRegister:"REZÈVE / ENSKRI",
+eventsNoticeTitle:"PRO-MAX FM — KALANDRIYE EVÈNMAN",
+eventsNoticeText:"N ap pibliye evènman ofisyèl yo ak dat, kote, afich, òganizatè ak lyen rezèvasyon oswa enskripsyon ki verifye.",
+
+socialVisit:"OUVRI PWOFIL LA"
+}
 };
 
-const allImages = [
-"only-u.jpeg","ange.jpeg","adan-signo.jpeg","andy.jpeg","badin.jpeg","blackson.jpeg",
-"nadia-lafortune.jpg","macu1.jpg","pdg-ti-fre.jpg","mambo-fifi.jpg","roro-lajan.jpg",
-"jeff-colin.jpg","fanfan.jpg","may.jpg","sonson1.jpg","warrens.jpg","majis-mauc.jpg",
-"emaze.jpg","la-belle-yole.jpg","maximax-multi-serv.jpeg","queen-naylove.jpeg","macu-mv.jpg",
-"ti-leta.jpg","anpere-ti-rat.jpg","mario.jpg","perodin.jpg","cange1.jpg","maximax1.jpg",
-"nadege.jpg","sinndy.jpg","asmide.jpg","andre-asouman.jpg","one-love.jpg","slogan.jpg",
-"ygens.jpg","prodin.jpeg","cange.jpg","ralph.jpg","slogan1.jpg","odelinne.jpg","jij-mayan.jpg",
-"ti-marasa-yo.jpg","baron-plenn-lan.jpeg","bouboul.jpeg","bawon-an!.jpeg","brunel.jpeg",
-"caldos.jpeg","cange2.jpeg","cols.jpeg","don-dodo.jpeg","doodly23.jpeg","doudou.jpeg",
-"elson2.jpeg","guypson.jpeg","karl-henry.jpeg","kendy.jpeg","kriye-pou-fanm.jpeg","landry.jpeg",
-"macu.jpeg","majis-junior.jpeg","mambo_fifi.jpeg","max-louis.jpeg","montinat.jpeg",
-"michel-briyant.jpeg","nadege-b.jpeg","nnaylove.jpeg","ones-1.jpeg","paulema.jpeg",
-"pdg-ti-rat.jpeg","prez-aly.jpeg","prez-papit.jpeg","rooso.jpeg","roro-lajan.jpeg",
-"roro23.jpeg","synthia-jn-baptiste.jpeg","tania.jpeg","the-only-1.jpeg","ti-chery.jpeg",
-"ti-reynold.jpeg","ti_la_france.jpeg","ti_marasa.jpeg","ti_papouche.jpeg","toto-senkant.jpeg",
-"valery2.jpeg","flore.jpeg","jij_mayan.jpeg","adia.jpeg","nnadia.png","roro-lajan2.jpeg",
-"odeline.jpeg","dede.png"
+/* NEWS CENTER — KONSÈVE */
+const categories=[
+"all","haiti","digital","world",
+"diaspora","independent","community"
 ];
 
-const storeMedia = [
-{type:"image",src:"magazen.jpg"},
-{type:"image",src:"store2.jpeg"},
-{type:"video",src:"bss-video.mp4"},
-{type:"video",src:"store-video.mp4"},
-{type:"image",src:"store.jpg"},
-{type:"video",src:"bss-boutique.mp4"}
-];
+let currentLanguage="fr";
+let currentCategory="all";
 
-const slidesContainer=document.getElementById("slidesContainer");
-const galleryGrid=document.getElementById("galleryGrid");
-const slideCounter=document.getElementById("slideCounter");
-const progressBar=document.getElementById("progressBar");
-const storeSlidesContainer=document.getElementById("storeSlidesContainer");
-const storeCounter=document.getElementById("storeCounter");
+function renderFilters(){
+const box=document.getElementById("filters");
+box.replaceChildren();
 
-const kreBtn=document.getElementById("kreBtn");
-const franBtn=document.getElementById("franBtn");
-const engBtn=document.getElementById("engBtn");
+categories.forEach(category=>{
+const button=document.createElement("button");
+button.textContent=
+translations[currentLanguage][category];
 
-function prettyName(file){
+button.classList.toggle(
+"active",currentCategory===category
+);
 
-let name=file
-.replace(".jpeg","")
-.replace(".jpg","")
-.replace(".png","")
-.replace(".mp4","")
-.replace(/[-_]/g," ");
+button.onclick=()=>{
+currentCategory=category;
+renderFilters();
+renderSources();
+};
 
-return name.replace(/\b\w/g,l=>l.toUpperCase());
-
+box.append(button);
+});
 }
 
-allImages.forEach((file)=>{
+function renderSources(){
+const grid=document.getElementById("newsGrid");
+const t=translations[currentLanguage];
+const q=document.getElementById("searchInput")
+.value.toLowerCase();
 
-const name=prettyName(file);
+const filtered=sources.filter(s=>
+(currentCategory==="all"||
+s.category===currentCategory)&&
+s.name.toLowerCase().includes(q)
+);
 
-const slide=document.createElement("div");
+document.getElementById("sourceCount").textContent=
+filtered.length+" "+t.count;
 
-slide.className="slide";
-slide.innerHTML=`<img src="${file}" alt="${name}">`;
+grid.replaceChildren();
 
-slidesContainer.appendChild(slide);
+if(!filtered.length){
+const p=document.createElement("p");
+p.textContent=t.empty;
+grid.append(p);
+return;
+}
 
-const item=document.createElement("div");
+filtered.forEach(s=>{
+const card=document.createElement("article");
+card.className="card";
 
-item.className="gallery-item";
+const heading=document.createElement("div");
+heading.className="media-heading";
 
-item.innerHTML=`
-<img src="${file}" alt="${name}">
-<p>${name}</p>
-`;
+const mark=document.createElement("div");
+mark.className="media-mark";
+mark.textContent=s.mark;
 
-galleryGrid.appendChild(item);
+const logo=s.logo||
+(s.domain
+?"https://www.google.com/s2/favicons?domain="+
+encodeURIComponent(s.domain)+"&sz=128"
+:null);
 
+if(logo){
+const img=document.createElement("img");
+img.src=logo;
+img.alt=s.name;
+img.onerror=()=>img.remove();
+mark.append(img);
+}
+
+const details=document.createElement("div");
+const title=document.createElement("h3");
+title.textContent=s.name;
+
+const category=document.createElement("small");
+category.textContent=t[s.category];
+
+details.append(title,category);
+heading.append(mark,details);
+card.append(heading);
+
+if(s.url){
+const actions=document.createElement("div");
+actions.className="media-actions";
+
+const a=document.createElement("a");
+a.href=s.url;
+a.target="_blank";
+a.rel="noopener noreferrer";
+a.className="media-link";
+a.textContent=t.visit;
+
+actions.append(a);
+card.append(actions);
+}
+
+if(s.phone||s.email){
+const contact=document.createElement("div");
+contact.className="media-contact";
+
+if(s.phone){
+const p=document.createElement("p");
+p.textContent="TEL.: "+s.phone;
+contact.append(p);
+}
+
+if(s.email){
+const a=document.createElement("a");
+a.href="mailto:"+s.email;
+a.textContent=s.email;
+contact.append(a);
+}
+
+card.append(contact);
+}
+
+grid.append(card);
+});
+}
+
+/* ==================================================
+SOCIAL — 10 URL REZO SOSYAL
+================================================== */
+
+const socialNetworks=[
+{
+name:"Facebook",
+color:"#1877f2",
+symbol:"f",
+url:"https://www.facebook.com/share/1By3KvYRrM/"
+},
+{
+name:"WhatsApp",
+color:"#25d366",
+symbol:"◉",
+url:"https://wa.me/50943437488"
+},
+{
+name:"TikTok",
+color:"#fe2c55",
+symbol:"♪",
+url:"https://www.tiktok.com/@maximax1960"
+},
+{
+name:"Instagram",
+color:"#e4405f",
+symbol:"◎",
+url:"https://www.instagram.com/lebaron072/"
+},
+{
+name:"Telegram",
+color:"#229ed9",
+symbol:"➤",
+url:"https://t.me/bss1815dmp"
+},
+{
+name:"YouTube",
+color:"#ff0033",
+symbol:"▶",
+url:"https://www.youtube.com/@BSS1815PROMAXDMP"
+},
+{
+name:"Spotify",
+color:"#1db954",
+symbol:"≋",
+url:"https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+},
+{
+name:"X / Twitter",
+color:"#bcbcbc",
+symbol:"𝕏",
+url:"https://x.com/w05g2m"
+},
+{
+name:"Truth Social",
+color:"#448aff",
+symbol:"T",
+url:"https://truthsocial.com/@briyant_soley_1815"
+},
+{
+name:"LinkedIn",
+color:"#0a66c2",
+symbol:"in",
+url:"https://www.linkedin.com/in/maximax-multi-services-075ba2314"
+}
+];
+
+function renderSocial(){
+const grid=document.getElementById("socialGrid");
+grid.replaceChildren();
+
+socialNetworks.forEach(s=>{
+const card=document.createElement("a");
+card.className="social-item";
+
+card.href=s.url;
+card.target="_blank";
+card.rel="noopener noreferrer";
+card.setAttribute(
+"aria-label",
+s.name+" — PRO-MAX FM"
+);
+
+const icon=document.createElement("div");
+icon.className="social-icon";
+icon.style.color=s.color;
+icon.textContent=s.symbol;
+
+const name=document.createElement("strong");
+name.textContent=s.name;
+
+const status=document.createElement("small");
+status.textContent=
+translations[currentLanguage].socialVisit;
+
+card.append(icon,name,status);
+grid.append(card);
+});
+}
+
+/* LIVE — KONSÈVE */
+const STREAM_URL="";
+const radioPlayer=document.getElementById("radioPlayer");
+const podcastPlayer=document.getElementById("podcastPlayer");
+const musicPlayer=document.getElementById("musicPlayer");
+
+function refreshLive(){
+const t=translations[currentLanguage];
+
+document.getElementById("liveTitle").textContent=
+t.liveTitle;
+document.getElementById("liveDescription").textContent=
+t.liveDescription;
+document.getElementById("playLive").textContent=
+t.livePlay;
+document.getElementById("stopLive").textContent=
+t.liveStop;
+document.getElementById("liveNotice").textContent=
+t.liveNotice;
+
+document.getElementById("playLive").disabled=
+!STREAM_URL;
+
+document.getElementById("liveStatus").textContent=
+!STREAM_URL?t.liveOffline:
+radioPlayer.paused?t.liveReady:t.livePlaying;
+}
+
+async function playRadio(){
+if(!STREAM_URL)return;
+
+podcastPlayer.pause();
+musicPlayer.pause();
+radioPlayer.src=STREAM_URL;
+
+try{
+await radioPlayer.play();
+refreshLive();
+}catch(e){
+document.getElementById("liveStatus").textContent=
+translations[currentLanguage].liveError;
+}
+}
+
+function stopRadio(){
+radioPlayer.pause();
+radioPlayer.removeAttribute("src");
+radioPlayer.load();
+refreshLive();
+}
+
+/* SHOWS — PWOGRAMASYON ENTEGRE */
+const showsPrograms=[
+{
+title:"MATIN FORCE",
+icon:"☀️",
+day:"weekday",
+start:"06:00",
+end:"10:00",
+descriptions:{
+fr:"Une programmation matinale pour commencer la journée avec énergie, musique et bonne humeur.",
+en:"Morning programming to start your day with energy, music and a positive atmosphere.",
+ht:"Yon pwogram maten pou kòmanse jounen an ak enèji, mizik ak bon anbyans."
+}
+},
+{
+title:"HIT NON STOP",
+icon:"🎵",
+day:"weekday",
+start:"10:00",
+end:"15:00",
+descriptions:{
+fr:"Une sélection musicale continue avec les rythmes d'Haïti, de la Caraïbe et du monde.",
+en:"Continuous music selections featuring rhythms from Haiti, the Caribbean and around the world.",
+ht:"Yon seleksyon mizik san rete ak ritm Ayiti, Karayib la ak lòt peyi."
+}
+},
+{
+title:"DRIVE TIME",
+icon:"🚗",
+day:"weekday",
+start:"15:00",
+end:"19:00",
+descriptions:{
+fr:"Une ambiance musicale dynamique pour accompagner vos déplacements et votre fin de journée.",
+en:"Dynamic music programming for your commute and the end of your day.",
+ht:"Yon bèl anbyans mizikal pou akonpaye w sou wout ak nan fen jounen an."
+}
+},
+{
+title:"PARTY MIX",
+icon:"🎉",
+day:"weekend",
+start:"",
+end:"",
+descriptions:{
+fr:"Une programmation festive pour le week-end : Kompa, Rabòday, Reggae, Rara, Hip-Hop et plus encore.",
+en:"Weekend party programming featuring Kompa, Rabòday, Reggae, Rara, Hip-Hop and more.",
+ht:"Yon pwogram fèt pou wikenn nan ak Kompa, Rabòday, Reggae, Rara, Hip-Hop ak plis ankò."
+}
+}
+];
+
+let selectedShowsFilter="all";
+
+function formatShowsTime(value){
+if(!value)return "";
+const [hour,minute]=value.split(":").map(Number);
+const period=hour>=12?"PM":"AM";
+const displayHour=hour%12||12;
+return displayHour+
+(minute?":"+String(minute).padStart(2,"0"):"")+
+" "+period;
+}
+
+function getShowsTime(program){
+const t=translations[currentLanguage];
+if(!program.start||!program.end){
+return t.showsPending;
+}
+return formatShowsTime(program.start)+
+" – "+formatShowsTime(program.end);
+}
+
+function renderShows(){
+const t=translations[currentLanguage];
+const filters=document.getElementById("showsFilters");
+const grid=document.getElementById("showsGrid");
+const body=document.getElementById("showsScheduleBody");
+
+filters.replaceChildren();
+grid.replaceChildren();
+body.replaceChildren();
+
+["all","weekday","weekend"].forEach(filter=>{
+const button=document.createElement("button");
+button.type="button";
+button.textContent=
+filter==="all"?t.all:
+filter==="weekday"?t.showsWeekday:
+t.showsWeekend;
+
+button.classList.toggle(
+"active",selectedShowsFilter===filter
+);
+button.setAttribute(
+"aria-pressed",
+String(selectedShowsFilter===filter)
+);
+
+button.onclick=()=>{
+selectedShowsFilter=filter;
+renderShows();
+};
+
+filters.append(button);
 });
 
-storeMedia.forEach((media,index)=>{
+showsPrograms.filter(program=>
+selectedShowsFilter==="all"||
+program.day===selectedShowsFilter
+).forEach(program=>{
+const card=document.createElement("article");
+card.className="show-card";
 
-const wrap=document.createElement("div");
+const icon=document.createElement("div");
+icon.className="show-icon";
+icon.textContent=program.icon;
 
-wrap.className="store-slide";
+const title=document.createElement("h3");
+title.textContent=program.title;
 
-if(index===0){
-wrap.classList.add("active");
+const day=document.createElement("p");
+day.textContent=
+program.day==="weekday"?
+t.showsWeekday:t.showsWeekend;
+
+const time=document.createElement("div");
+time.className="show-time";
+time.textContent=getShowsTime(program);
+
+const description=document.createElement("p");
+description.textContent=
+program.descriptions[currentLanguage];
+
+const status=document.createElement("div");
+status.className="show-status";
+status.textContent=t.showsPlanned;
+
+card.append(
+icon,title,day,time,description,status
+);
+grid.append(card);
+});
+
+showsPrograms.forEach(program=>{
+const row=document.createElement("tr");
+const name=document.createElement("td");
+const days=document.createElement("td");
+const time=document.createElement("td");
+
+name.textContent=program.title;
+days.textContent=
+program.day==="weekday"?
+t.showsWeekday:t.showsWeekend;
+time.textContent=getShowsTime(program);
+
+row.append(name,days,time);
+body.append(row);
+});
 }
 
-if(media.type==="video"){
+function refreshShowsLanguage(){
+const t=translations[currentLanguage];
 
-wrap.innerHTML=
-`<video src="${media.src}" autoplay muted loop playsinline></video>`;
+[
+["showsTitle","showsTitle"],
+["showsIntro","showsIntro"],
+["showsTimezone","showsTimezone"],
+["showsScheduleTitle","showsScheduleTitle"],
+["showsTableName","showsTableName"],
+["showsTableDays","showsTableDays"],
+["showsTableTime","showsTableTime"],
+["showsNoticeTitle","showsNoticeTitle"],
+["showsNoticeText","showsNoticeText"]
+].forEach(([id,key])=>{
+document.getElementById(id).textContent=t[key];
+});
 
+renderShows();
+}
+
+/* PODCASTS — KONSÈVE */
+const podcastEpisodes=[];
+
+const podcastGenres=[
+"TOUS","NEWS","INTERVIEWS","CULTURE",
+"COMMUNITY","SHOWS","ARCHIVES"
+];
+
+let selectedPodcastGenre="TOUS";
+
+function renderPodcasts(){
+const t=translations[currentLanguage];
+const filters=document.getElementById("podcastFilters");
+const grid=document.getElementById("podcastGrid");
+
+filters.replaceChildren();
+
+podcastGenres.forEach(genre=>{
+const button=document.createElement("button");
+button.textContent=genre==="TOUS"?t.all:genre;
+button.classList.toggle(
+"active",genre===selectedPodcastGenre
+);
+
+button.onclick=()=>{
+selectedPodcastGenre=genre;
+renderPodcasts();
+};
+
+filters.append(button);
+});
+
+const q=document.getElementById("podcastSearch")
+.value.toLowerCase();
+
+const entries=podcastEpisodes.filter(x=>
+(selectedPodcastGenre==="TOUS"||
+(x.category||"").toUpperCase()===
+selectedPodcastGenre)&&
+(x.title+" "+(x.description||""))
+.toLowerCase().includes(q)
+);
+
+grid.replaceChildren();
+
+document.getElementById("podcastCount").textContent=
+entries.filter(x=>x.audio).length+
+" "+t.episodes;
+
+if(!entries.length){
+const p=document.createElement("p");
+p.textContent=t.noEpisodes;
+grid.append(p);
+}
+
+entries.forEach(x=>{
+const card=document.createElement("article");
+card.className="audio-item";
+
+const h=document.createElement("h3");
+h.textContent=x.title;
+
+const p=document.createElement("p");
+p.textContent=x.description||"";
+
+const b=document.createElement("button");
+b.textContent=t.listen;
+b.disabled=!x.audio;
+
+b.onclick=async()=>{
+radioPlayer.pause();
+musicPlayer.pause();
+podcastPlayer.src=x.audio;
+
+try{
+await podcastPlayer.play();
+document.getElementById("podcastStatus")
+.textContent=x.title;
+}catch(e){
+document.getElementById("podcastStatus")
+.textContent=t.error;
+}
+};
+
+card.append(h,p,b);
+grid.append(card);
+});
+}
+
+/* MUSIC — KONSÈVE */
+const musicTracks=[];
+
+const musicGenres=[
+"KOMPA",
+"REGGAE",
+"RAP KREYÒL",
+"RABÒDAY",
+"RARA",
+"KOMPA LOVE",
+"HIP-HOP",
+"REGGAETON",
+"REGGAE FOR LOVERS",
+"ANSYÈN MIZIK",
+"TROPICANA",
+"SEPTEN",
+"RACINE"
+];
+
+let selectedMusicGenre="TOUS";
+
+function renderMusic(){
+const t=translations[currentLanguage];
+const filters=document.getElementById("musicFilters");
+const grid=document.getElementById("musicGrid");
+
+filters.replaceChildren();
+
+["TOUS",...musicGenres].forEach(genre=>{
+const button=document.createElement("button");
+button.textContent=genre==="TOUS"?t.all:genre;
+button.classList.toggle(
+"active",genre===selectedMusicGenre
+);
+
+button.onclick=()=>{
+selectedMusicGenre=genre;
+renderMusic();
+};
+
+filters.append(button);
+});
+
+const q=document.getElementById("musicSearch")
+.value.toLowerCase();
+
+const tracks=musicTracks.filter(x=>
+(selectedMusicGenre==="TOUS"||
+(x.genre||"").toUpperCase()===
+selectedMusicGenre)&&
+(x.title+" "+(x.artist||""))
+.toLowerCase().includes(q)
+);
+
+document.getElementById("musicCount").textContent=
+tracks.filter(x=>x.audio).length+
+" "+t.tracks;
+
+grid.replaceChildren();
+
+if(!tracks.length){
+const visibleGenres=
+selectedMusicGenre==="TOUS"
+?musicGenres
+:[selectedMusicGenre];
+
+visibleGenres.forEach(genre=>{
+const card=document.createElement("article");
+card.className="genre-card";
+
+const h=document.createElement("h3");
+h.textContent="🎵 "+genre;
+
+const p=document.createElement("p");
+p.textContent=t.genrePending;
+
+card.append(h,p);
+grid.append(card);
+});
+
+return;
+}
+
+tracks.forEach(x=>{
+const card=document.createElement("article");
+card.className="audio-item";
+
+const h=document.createElement("h3");
+h.textContent=x.title;
+
+const p=document.createElement("p");
+p.textContent=
+(x.artist||"")+" • "+(x.genre||"");
+
+const button=document.createElement("button");
+button.textContent=t.listen;
+button.disabled=!x.audio;
+
+button.onclick=async()=>{
+radioPlayer.pause();
+podcastPlayer.pause();
+musicPlayer.src=x.audio;
+
+try{
+await musicPlayer.play();
+document.getElementById("musicStatus")
+.textContent=
+x.title+" — "+(x.artist||"");
+}catch(e){
+document.getElementById("musicStatus")
+.textContent=t.error;
+}
+};
+
+card.append(h,p,button);
+grid.append(card);
+});
+}
+
+/* ARTISTS — KONSÈVE */
+const artists=[];
+
+const artistGenres=[
+"TOUS",
+...musicGenres
+];
+
+let selectedArtistGenre="TOUS";
+
+function safeArtistLink(url){
+if(typeof url!=="string"||!url.trim()){
+return null;
+}
+
+try{
+const parsed=new URL(
+url,
+window.location.href
+);
+
+if(
+parsed.protocol==="https:"||
+parsed.protocol==="http:"
+){
+return parsed.href;
+}
+}catch(e){}
+
+return null;
+}
+
+function createArtistLink(label,url){
+const safeUrl=safeArtistLink(url);
+if(!safeUrl)return null;
+
+const link=document.createElement("a");
+link.href=safeUrl;
+link.target="_blank";
+link.rel="noopener noreferrer";
+link.textContent=label;
+
+return link;
+}
+
+function renderArtists(){
+const t=translations[currentLanguage];
+const filters=document.getElementById("artistsFilters");
+const grid=document.getElementById("artistsGrid");
+const search=document.getElementById("artistsSearch")
+.value.toLocaleLowerCase().trim();
+
+filters.replaceChildren();
+
+artistGenres.forEach(genre=>{
+const button=document.createElement("button");
+button.type="button";
+button.textContent=
+genre==="TOUS"?t.all:genre;
+
+button.classList.toggle(
+"active",
+genre===selectedArtistGenre
+);
+
+button.onclick=()=>{
+selectedArtistGenre=genre;
+renderArtists();
+};
+
+filters.append(button);
+});
+
+const filtered=artists.filter(artist=>{
+const matchesGenre=
+selectedArtistGenre==="TOUS"||
+(artist.genre||"").toUpperCase()===
+selectedArtistGenre;
+
+const searchable=[
+artist.name,
+artist.genre,
+artist.country,
+artist.bio
+].filter(Boolean).join(" ")
+.toLocaleLowerCase();
+
+return matchesGenre&&
+searchable.includes(search);
+});
+
+document.getElementById("artistsCount")
+.textContent=
+filtered.length+" "+t.artistsCount;
+
+grid.replaceChildren();
+
+if(!filtered.length){
+const visibleGenres=
+selectedArtistGenre==="TOUS"
+?musicGenres
+:[selectedArtistGenre];
+
+visibleGenres.forEach(genre=>{
+const card=document.createElement("article");
+card.className="artist-placeholder";
+
+const photo=document.createElement("div");
+photo.className="artist-photo";
+photo.textContent="♫";
+
+const title=document.createElement("h3");
+title.textContent=genre;
+
+const description=document.createElement("p");
+description.textContent=t.artistsPending;
+
+card.append(photo,title,description);
+grid.append(card);
+});
+
+return;
+}
+
+filtered.forEach(artist=>{
+const card=document.createElement("article");
+card.className="artist-card";
+
+const photo=document.createElement("div");
+photo.className="artist-photo";
+photo.textContent="♫";
+
+if(artist.photo){
+const image=document.createElement("img");
+image.src=artist.photo;
+image.alt=artist.name||"Artist";
+image.loading="lazy";
+
+image.onerror=()=>{
+image.remove();
+};
+
+photo.append(image);
+}
+
+const name=document.createElement("h3");
+name.textContent=artist.name||"ARTIST";
+
+const genre=document.createElement("p");
+genre.textContent=artist.genre||"";
+
+const country=document.createElement("p");
+country.textContent=artist.country||"";
+
+const bio=document.createElement("p");
+bio.textContent=artist.bio||"";
+
+const links=document.createElement("div");
+links.className="artist-links";
+
+const options=[
+[t.artistWebsite,artist.website],
+[t.artistYoutube,artist.youtube],
+[t.artistSpotify,artist.spotify],
+[t.artistInstagram,artist.instagram]
+];
+
+options.forEach(([label,url])=>{
+const link=createArtistLink(label,url);
+if(link)links.append(link);
+});
+
+card.append(
+photo,name,genre,country,bio,links
+);
+
+grid.append(card);
+});
+}
+
+function refreshArtistsLanguage(){
+const t=translations[currentLanguage];
+
+document.getElementById("artistsTitle")
+.textContent=t.artistsTitle;
+
+document.getElementById("artistsIntro")
+.textContent=t.artistsIntro;
+
+document.getElementById("artistsSearch")
+.placeholder=t.artistsSearch;
+
+document.getElementById("artistsNoticeTitle")
+.textContent=t.artistsNoticeTitle;
+
+document.getElementById("artistsNoticeText")
+.textContent=t.artistsNoticeText;
+
+renderArtists();
+}
+
+/* VIDEO — KONSÈVE
+
+MP4 lokal:
+{
+id:"video-001",
+title:"Tit videyo",
+category:"SHOWS",
+description:"Deskripsyon",
+video:"videos/non-video.mp4",
+thumbnail:"videos/afich.jpg",
+url:""
+}
+
+YouTube oswa lòt paj ofisyèl:
+{
+id:"video-002",
+title:"Tit videyo",
+category:"INTERVIEWS",
+description:"Deskripsyon",
+video:"",
+thumbnail:"",
+url:"https://..."
+}
+
+Pa mete URL paj YouTube kòm MP4.
+*/
+
+const videoLibrary=[];
+
+const videoCategories=[
+"TOUS",
+"SHOWS",
+"INTERVIEWS",
+"NEWS",
+"REPORTAGES",
+"MUSIC VIDEOS",
+"DOCUMENTARIES",
+"EVENTS",
+"COMMUNITY",
+"ARCHIVES"
+];
+
+let selectedVideoCategory="TOUS";
+let activeVideoId=null;
+let videoPlaybackError=false;
+
+const videoPlayer=document.getElementById("videoPlayer");
+
+function safeVideoUrl(url){
+if(typeof url!=="string"||!url.trim()){
+return null;
+}
+
+try{
+const parsed=new URL(
+url,
+window.location.href
+);
+
+if(
+parsed.protocol==="http:"||
+parsed.protocol==="https:"
+){
+return parsed.href;
+}
+}catch(e){}
+
+return null;
+}
+
+function refreshVideoStatus(){
+const t=translations[currentLanguage];
+const item=videoLibrary.find(
+x=>x.id===activeVideoId
+);
+
+document.getElementById("stopVideoButton")
+.textContent=t.videoStop;
+
+const status=document.getElementById("videoStatus");
+
+if(videoPlaybackError){
+status.textContent=t.videoError;
+return;
+}
+
+if(!item){
+status.textContent=t.videoNone;
+return;
+}
+
+if(!videoPlayer.paused){
+status.textContent=
+t.videoPlaying+" — "+item.title;
 }else{
-
-wrap.innerHTML=
-`<img src="${media.src}" alt="${prettyName(media.src)}">`;
-
+status.textContent=
+t.videoReady+" — "+item.title;
+}
 }
 
-storeSlidesContainer.appendChild(wrap);
+function renderVideos(){
+const t=translations[currentLanguage];
+const filters=document.getElementById("videoFilters");
+const grid=document.getElementById("videoGrid");
 
+filters.replaceChildren();
+
+videoCategories.forEach(category=>{
+const button=document.createElement("button");
+button.type="button";
+button.textContent=
+category==="TOUS"?t.all:category;
+
+button.classList.toggle(
+"active",
+category===selectedVideoCategory
+);
+
+button.onclick=()=>{
+selectedVideoCategory=category;
+renderVideos();
+};
+
+filters.append(button);
 });
 
-const slides=document.querySelectorAll(".slide");
-const storeSlides=document.querySelectorAll(".store-slide");
+const q=document.getElementById("videoSearch")
+.value.toLocaleLowerCase().trim();
 
-let currentSlide=0;
-let currentStoreSlide=0;
+const filtered=videoLibrary.filter(item=>{
+const matchesCategory=
+selectedVideoCategory==="TOUS"||
+(item.category||"").toUpperCase()===
+selectedVideoCategory;
 
-const slideDuration=8000;
-const storeDuration=6000;
+const searchable=[
+item.title,
+item.description,
+item.category
+].filter(Boolean).join(" ")
+.toLocaleLowerCase();
 
-let slideInterval=null;
-let storeInterval=null;
+return matchesCategory&&searchable.includes(q);
+});
 
-function updateCounter(){
+document.getElementById("videoCount")
+.textContent=
+filtered.length+" "+t.videoCount;
 
-slideCounter.textContent=
-`${currentSlide+1} / ${slides.length}`;
+grid.replaceChildren();
 
-}
+if(!filtered.length){
+const visibleCategories=
+selectedVideoCategory==="TOUS"
+?videoCategories.filter(x=>x!=="TOUS")
+:[selectedVideoCategory];
 
-function resetProgressBar(){
+visibleCategories.forEach(category=>{
+const card=document.createElement("article");
+card.className="video-placeholder";
 
-progressBar.style.transition="none";
-progressBar.style.width="0%";
+const thumbnail=document.createElement("div");
+thumbnail.className="video-thumbnail";
+thumbnail.textContent="▶";
 
-setTimeout(()=>{
+const heading=document.createElement("h3");
+heading.textContent=category;
 
-progressBar.style.transition=
-`width ${slideDuration}ms linear`;
+const p=document.createElement("p");
+p.textContent=t.videoPending;
 
-progressBar.style.width="100%";
+card.append(thumbnail,heading,p);
+grid.append(card);
+});
 
-},60);
-
-}
-
-function showSlide(index){
-
-slides.forEach((slide,i)=>
-slide.classList.toggle(
-"active",
-i===index
-)
-);
-
-currentSlide=index;
-
-updateCounter();
-resetProgressBar();
-
-}
-
-function nextSlide(){
-
-let next=currentSlide+1;
-
-if(next>=slides.length){
-next=0;
-}
-
-showSlide(next);
-
-}
-
-function startSlideshow(){
-
-if(!slides.length){
 return;
 }
 
-showSlide(0);
+filtered.forEach(item=>{
+const card=document.createElement("article");
+card.className="video-card";
 
-if(slideInterval){
-clearInterval(slideInterval);
+const thumbnail=document.createElement("div");
+thumbnail.className="video-thumbnail";
+thumbnail.textContent="▶";
+
+if(item.thumbnail){
+const image=document.createElement("img");
+image.src=item.thumbnail;
+image.alt=item.title||"Video";
+image.loading="lazy";
+image.onerror=()=>image.remove();
+thumbnail.append(image);
 }
 
-slideInterval=
-setInterval(
-nextSlide,
-slideDuration
+const heading=document.createElement("h3");
+heading.textContent=item.title||"VIDEO";
+
+const category=document.createElement("p");
+category.textContent=item.category||"";
+
+const description=document.createElement("p");
+description.textContent=item.description||"";
+
+const actions=document.createElement("div");
+actions.className="video-card-actions";
+
+if(item.video){
+const play=document.createElement("button");
+play.type="button";
+play.textContent=t.videoPlay;
+play.onclick=()=>playVideo(item.id);
+actions.append(play);
+}
+
+if(item.url){
+const safeUrl=safeVideoUrl(item.url);
+
+if(safeUrl){
+const link=document.createElement("a");
+link.href=safeUrl;
+link.target="_blank";
+link.rel="noopener noreferrer";
+link.textContent=t.videoExternal;
+actions.append(link);
+}
+}
+
+card.append(
+thumbnail,
+heading,
+category,
+description,
+actions
 );
 
+grid.append(card);
+});
 }
 
-function showStoreSlide(index){
+async function playVideo(id){
+const item=videoLibrary.find(
+x=>x.id===id
+);
 
-storeSlides.forEach((slide,i)=>
-slide.classList.toggle(
+if(!item||!item.video)return;
+
+const safeUrl=safeVideoUrl(item.video);
+if(!safeUrl)return;
+
+radioPlayer.pause();
+podcastPlayer.pause();
+musicPlayer.pause();
+
+videoPlayer.pause();
+videoPlayer.src=safeUrl;
+videoPlayer.load();
+
+activeVideoId=id;
+videoPlaybackError=false;
+
+refreshVideoStatus();
+
+document.getElementById("video")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+try{
+await videoPlayer.play();
+refreshVideoStatus();
+}catch(e){
+videoPlaybackError=true;
+refreshVideoStatus();
+}
+}
+
+function stopVideo(){
+videoPlayer.pause();
+videoPlayer.removeAttribute("src");
+videoPlayer.load();
+
+activeVideoId=null;
+videoPlaybackError=false;
+refreshVideoStatus();
+}
+
+videoPlayer.addEventListener(
+"play",refreshVideoStatus
+);
+
+videoPlayer.addEventListener(
+"pause",refreshVideoStatus
+);
+
+videoPlayer.addEventListener("error",()=>{
+if(activeVideoId!==null){
+videoPlaybackError=true;
+refreshVideoStatus();
+}
+});
+
+function refreshVideoLanguage(){
+const t=translations[currentLanguage];
+
+document.getElementById("videoTitle")
+.textContent=t.videoTitle;
+
+document.getElementById("videoIntro")
+.textContent=t.videoIntro;
+
+document.getElementById("videoSearch")
+.placeholder=t.videoSearch;
+
+document.getElementById("videoNoticeTitle")
+.textContent=t.videoNoticeTitle;
+
+document.getElementById("videoNoticeText")
+.textContent=t.videoNoticeText;
+
+renderVideos();
+refreshVideoStatus();
+}
+
+/* EVENTS — KONSÈVE
+
+Ajoute evènman reyèl nan tablo sa a:
+
+{
+id:"event-001",
+title:"Non evènman an",
+category:"CONCERTS",
+date:"2026-12-20",
+time:"19:00",
+location:"Orlando, Florida",
+organizer:"PRO-MAX FM",
+description:"Deskripsyon evènman an",
+poster:"events/afich.jpg",
+url:"https://...",
+registration:"https://..."
+}
+
+Dat, lokal ak lyen yo dwe reyèl.
+*/
+
+const eventsLibrary=[];
+
+const eventCategories=[
+"TOUS",
+"CONCERTS",
+"FESTIVALS",
+"COMMUNITY",
+"LIVE SHOWS",
+"CULTURE",
+"EDUCATION",
+"SPECIAL EVENTS",
+"ARCHIVES"
+];
+
+let selectedEventCategory="TOUS";
+
+function renderEvents(){
+const t=translations[currentLanguage];
+const filters=document.getElementById("eventsFilters");
+const grid=document.getElementById("eventsGrid");
+
+filters.replaceChildren();
+
+eventCategories.forEach(category=>{
+const button=document.createElement("button");
+button.type="button";
+button.textContent=
+category==="TOUS"?t.all:category;
+
+button.classList.toggle(
 "active",
-i===index
-)
+category===selectedEventCategory
 );
 
-currentStoreSlide=index;
+button.onclick=()=>{
+selectedEventCategory=category;
+renderEvents();
+};
 
-storeCounter.textContent=
-`${currentStoreSlide+1} / ${storeSlides.length}`;
+filters.append(button);
+});
 
-}
+const q=document.getElementById("eventsSearch")
+.value.toLocaleLowerCase().trim();
 
-function nextStoreSlide(){
+const filtered=eventsLibrary.filter(item=>{
+const matchesCategory=
+selectedEventCategory==="TOUS"||
+(item.category||"").toUpperCase()===
+selectedEventCategory;
 
-let next=currentStoreSlide+1;
+const searchable=[
+item.title,
+item.category,
+item.location,
+item.organizer,
+item.description,
+item.date
+].filter(Boolean).join(" ")
+.toLocaleLowerCase();
 
-if(next>=storeSlides.length){
-next=0;
-}
+return matchesCategory&&searchable.includes(q);
+});
 
-showStoreSlide(next);
+document.getElementById("eventsCount")
+.textContent=
+filtered.length+" "+t.eventsCount;
 
-}
+grid.replaceChildren();
 
-function startStoreSlideshow(){
+if(!filtered.length){
+const visibleCategories=
+selectedEventCategory==="TOUS"
+?eventCategories.filter(x=>x!=="TOUS")
+:[selectedEventCategory];
 
-if(!storeSlides.length){
+visibleCategories.forEach(category=>{
+const card=document.createElement("article");
+card.className="event-placeholder";
+
+const poster=document.createElement("div");
+poster.className="event-poster";
+poster.textContent="📅";
+
+const heading=document.createElement("h3");
+heading.textContent=category;
+
+const p=document.createElement("p");
+p.textContent=t.eventsPending;
+
+card.append(poster,heading,p);
+grid.append(card);
+});
+
 return;
 }
 
-showStoreSlide(0);
+filtered.forEach(item=>{
+const card=document.createElement("article");
+card.className="event-card";
 
-if(storeInterval){
-clearInterval(storeInterval);
+const poster=document.createElement("div");
+poster.className="event-poster";
+poster.textContent="📅";
+
+if(item.poster){
+const image=document.createElement("img");
+image.src=item.poster;
+image.alt=item.title||"Event";
+image.loading="lazy";
+image.onerror=()=>image.remove();
+poster.append(image);
 }
 
-storeInterval=
-setInterval(
-nextStoreSlide,
-storeDuration
+const heading=document.createElement("h3");
+heading.textContent=item.title||"EVENT";
+
+const category=document.createElement("p");
+category.textContent=item.category||"";
+
+const date=document.createElement("div");
+date.className="event-date";
+date.textContent=
+t.eventsDate+": "+(item.date||"—");
+
+const details=document.createElement("div");
+
+[
+[t.eventsTime,item.time],
+[t.eventsLocation,item.location],
+[t.eventsOrganizer,item.organizer]
+].forEach(([label,value])=>{
+if(!value)return;
+
+const p=document.createElement("p");
+p.textContent=label+": "+value;
+details.append(p);
+});
+
+const description=document.createElement("p");
+description.textContent=item.description||"";
+
+const actions=document.createElement("div");
+actions.className="event-card-actions";
+
+[
+[t.eventsDetails,item.url],
+[t.eventsRegister,item.registration]
+].forEach(([label,url])=>{
+const safeUrl=safeVideoUrl(url);
+if(!safeUrl)return;
+
+const link=document.createElement("a");
+link.href=safeUrl;
+link.target="_blank";
+link.rel="noopener noreferrer";
+link.textContent=label;
+actions.append(link);
+});
+
+card.append(
+poster,
+heading,
+category,
+date,
+details,
+description,
+actions
 );
 
+grid.append(card);
+});
 }
 
+function refreshEventsLanguage(){
+const t=translations[currentLanguage];
+
+document.getElementById("eventsTitle")
+.textContent=t.eventsTitle;
+
+document.getElementById("eventsIntro")
+.textContent=t.eventsIntro;
+
+document.getElementById("eventsSearch")
+.placeholder=t.eventsSearch;
+
+document.getElementById("eventsNoticeTitle")
+.textContent=t.eventsNoticeTitle;
+
+document.getElementById("eventsNoticeText")
+.textContent=t.eventsNoticeText;
+
+renderEvents();
+}
+
+/* LANGUAGES — TOUT MODIL YO */
 function setLanguage(lang){
+if(!translations[lang])return;
 
+currentLanguage=lang;
 const t=translations[lang];
+document.documentElement.lang=lang;
 
-document.getElementById("brandSub").textContent=t.brandSub;
-document.getElementById("homeBtn").textContent=t.home;
-document.getElementById("aboutBtn").textContent=t.about;
-document.getElementById("servicesBtn").textContent=t.services;
-document.getElementById("galleryBtn").textContent=t.gallery;
-document.getElementById("storeBtn").textContent=t.store;
-document.getElementById("contactBtn").textContent=t.contact;
-document.getElementById("heroTitle").textContent=t.heroTitle;
-document.getElementById("heroText").textContent=t.heroText;
-document.getElementById("eyebrowText").textContent=t.eyebrowText;
-document.getElementById("sideTitle").textContent=t.sideTitle;
-document.getElementById("sideText").textContent=t.sideText;
-document.getElementById("heroGalleryBtn").textContent=t.heroGalleryBtn;
-document.getElementById("heroContactBtn").textContent=t.heroContactBtn;
-document.getElementById("quoteText").textContent=t.quoteText;
-document.getElementById("quoteName").textContent=t.quoteName;
-document.getElementById("quoteRole").textContent=t.quoteRole;
+const fields=[
+["homeLink","home"],
+["heroTitle","hero"],
+["heroDescription","description"],
+["sourcesTitle","sources"],
+["sourcesDescription","sourcesDescription"],
+["flashTitle","flash"],
+["flashDescription","flashText"],
+["socialTitle","social"],
+["contactTitle","contact"],
+["platformLink","platform"],
+["footerText","footer"],
+["podcastsIntro","podcastIntro"],
+["musicIntro","musicIntro"]
+];
 
-document.getElementById("aboutTitle").textContent=t.aboutTitle;
-document.getElementById("aboutLead").textContent=t.aboutLead;
-document.getElementById("aboutCard1Title").textContent=t.aboutCard1Title;
-document.getElementById("aboutCard1Text").textContent=t.aboutCard1Text;
-document.getElementById("aboutCard2Title").textContent=t.aboutCard2Title;
-document.getElementById("aboutCard2Text").textContent=t.aboutCard2Text;
-document.getElementById("aboutCard3Title").textContent=t.aboutCard3Title;
-document.getElementById("aboutCard3Text").textContent=t.aboutCard3Text;
+fields.forEach(([id,key])=>{
+document.getElementById(id)
+.textContent=t[key];
+});
 
-document.getElementById("servicesTitle").textContent=t.servicesTitle;
-document.getElementById("servicesLead").textContent=t.servicesLead;
-document.getElementById("service1Title").textContent=t.service1Title;
-document.getElementById("service1Text").textContent=t.service1Text;
-document.getElementById("service2Title").textContent=t.service2Title;
-document.getElementById("service2Text").textContent=t.service2Text;
-document.getElementById("service3Title").textContent=t.service3Title;
-document.getElementById("service3Text").textContent=t.service3Text;
-document.getElementById("service4Title").textContent=t.service4Title;
-document.getElementById("service4Text").textContent=t.service4Text;
+document.getElementById("searchInput")
+.placeholder=t.search;
 
-document.getElementById("galleryTitle").textContent=t.galleryTitle;
-document.getElementById("galleryLead").textContent=t.galleryLead;
+document.getElementById("podcastSearch")
+.placeholder=t.podcastSearch;
 
-document.getElementById("storeTitle").textContent=t.storeTitle;
-document.getElementById("storeLead").textContent=t.storeLead;
-document.getElementById("missionTitle").textContent=t.missionTitle;
-document.getElementById("missionText").textContent=t.missionText;
-document.getElementById("productsTitle").textContent=t.productsTitle;
-document.getElementById("productsLead").textContent=t.productsLead;
-document.getElementById("collectionsTitle").textContent=t.collectionsTitle;
-document.getElementById("collectionsLead").textContent=t.collectionsLead;
-document.getElementById("fanUploadTitle").textContent=t.fanUploadTitle;
-document.getElementById("fanUploadLead").textContent=t.fanUploadLead;
-document.getElementById("leadersPanelTitle").textContent=t.leadersPanelTitle;
-document.getElementById("leadersPanelLead").textContent=t.leadersPanelLead;
-document.getElementById("storeAboutTitle").textContent=t.storeAboutTitle;
-document.getElementById("storeAboutLead").textContent=t.storeAboutLead;
-document.getElementById("mediaDbTitle").textContent=t.mediaDbTitle;
+document.getElementById("musicSearch")
+.placeholder=t.musicSearch;
 
-document.getElementById("contactTitle").textContent=t.contactTitle;
-document.getElementById("contactLead").textContent=t.contactLead;
-document.getElementById("contactBox1Title").textContent=t.contactBox1Title;
-document.getElementById("contactBox2Title").textContent=t.contactBox2Title;
-document.getElementById("contactBox3Title").textContent=t.contactBox3Title;
-document.getElementById("contactWhatsText").textContent=t.contactWhatsText;
-document.getElementById("whatsBtn").textContent=t.whatsBtn;
+document.querySelectorAll(
+".languages button"
+).forEach(button=>{
+button.classList.remove("active");
+});
 
-document.getElementById("footerText").textContent=t.footerText;
+document.getElementById(
+{fr:"frBtn",en:"enBtn",ht:"htBtn"}[lang]
+).classList.add("active");
 
-kreBtn.classList.remove("active");
-franBtn.classList.remove("active");
-engBtn.classList.remove("active");
-
-if(lang==="kre"){
-kreBtn.classList.add("active");
+if(!podcastPlayer.getAttribute("src")){
+document.getElementById("podcastStatus")
+.textContent=t.podcastNone;
 }
 
-if(lang==="fran"){
-franBtn.classList.add("active");
+if(!musicPlayer.getAttribute("src")){
+document.getElementById("musicStatus")
+.textContent=t.musicNone;
 }
 
-if(lang==="eng"){
-engBtn.classList.add("active");
+renderFilters();
+renderSources();
+
+/* SOCIAL — 10 LYEN KONEKTE */
+renderSocial();
+
+refreshLive();
+renderPodcasts();
+renderMusic();
+
+/* SHOWS — AJOUTE */
+refreshShowsLanguage();
+
+/* ARTISTS — KONSÈVE */
+refreshArtistsLanguage();
+
+/* VIDEO — KONSÈVE */
+refreshVideoLanguage();
+
+/* EVENTS — KONSÈVE */
+refreshEventsLanguage();
 }
 
-}
+/* INITIALISATION */
+setLanguage("fr");
 
-kreBtn.addEventListener(
-"click",
-()=>setLanguage("kre")
-);
+</script>  </body>
 
-franBtn.addEventListener(
-"click",
-()=>setLanguage("fran")
-);
-
-engBtn.addEventListener(
-"click",
-()=>setLanguage("eng")
-);
-
-startSlideshow();
-startStoreSlideshow();
-setLanguage("kre");
-
-</script>
-
-</body>
-</html>
+</html>    
+MEN INDEX.HTML LA KONPLÈ & FINAL JIS AJOUTE BLOCK LA PA MANYEN L PA RETIRE ANYEN LADANN 
