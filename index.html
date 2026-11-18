@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ht" translate="no">
 <head>
@@ -239,7 +238,7 @@ footer{
  <div class="container header-content">
   <a class="brand" href="#home">
    <img class="official-logo"
-        src="./briyant-soley-signo-1815.jpg"
+        src="briyant-soley-signo-1815.jpg"
         alt="Logo Briyant Solèy Signo 1815">
    <div>
     <strong>BRIYANT SOLÈY SIGNO 1815</strong>
@@ -269,7 +268,7 @@ footer{
 <section class="hero" id="home">
  <div class="container">
   <img class="hero-logo official-logo"
-       src="./briyant-soley-signo-1815.jpg"
+       src="briyant-soley-signo-1815.jpg"
        alt="BRIYANT SOLÈY SIGNO 1815">
 
   <h1>BRIYANT SOLÈY<br>SIGNO 1815</h1>
@@ -367,9 +366,9 @@ footer{
            controls
            playsinline
            preload="metadata"
-           poster="./briyant-soley-signo-1815.jpg">
+           poster="briyant-soley-signo-1815.jpg">
      <source
-       src="./briyant-soley-signo-1815.mp4"
+       src="briyant-soley-signo-1815.mp4"
        type="video/mp4">
      Your browser does not support video.
     </video>
@@ -478,71 +477,15 @@ footer{
 <script>
 "use strict";
 
-/* ==================================================
-   OFFICIAL LOGO AND PROF AVATAR
-   Filenames supplied by the project owner.
-================================================== */
-
-const OFFICIAL_LOGO="briyant-soley-signo-1815.jpg";
-const OFFICIAL_AVATAR="briyant-soley-signo-1815.mp4";
-
-const LOGO_PATHS=[
- "./"+OFFICIAL_LOGO,
- "./assets/"+OFFICIAL_LOGO,
- "./images/"+OFFICIAL_LOGO,
- "./assets/images/"+OFFICIAL_LOGO,
- "./media/"+OFFICIAL_LOGO
-];
-
-const AVATAR_PATHS=[
- "./"+OFFICIAL_AVATAR,
- "./assets/"+OFFICIAL_AVATAR,
- "./videos/"+OFFICIAL_AVATAR,
- "./media/"+OFFICIAL_AVATAR,
- "./assets/videos/"+OFFICIAL_AVATAR
-];
-
-function loadImageWithFallback(img,paths){
- let index=0;
- function tryNext(){
-  if(index>=paths.length){
-   console.error("Logo not found in checked paths:",paths);
-   return;
-  }
-  img.src=paths[index++];
- }
- img.addEventListener("error",tryNext);
- tryNext();
-}
-
-document.querySelectorAll(".official-logo").forEach(img=>{
- loadImageWithFallback(img,LOGO_PATHS);
-});
-
+/* OFFICIAL LOGO AND PROF AVATAR - RASIN GitHub sèlman */
 const profAvatar=document.getElementById("profAvatar");
 const avatarStatus=document.getElementById("avatarStatus");
-let avatarPathIndex=0;
 
-function loadAvatar(){
- if(avatarPathIndex>=AVATAR_PATHS.length){
-  avatarStatus.textContent=
-   "Video avatar file not found. Verify its location in GitHub.";
-  return;
- }
- const source=profAvatar.querySelector("source");
- source.src=AVATAR_PATHS[avatarPathIndex++];
- profAvatar.load();
+if(profAvatar){
+ profAvatar.addEventListener("loadedmetadata",()=>{
+  if(avatarStatus) avatarStatus.textContent="";
+ });
 }
-
-profAvatar.addEventListener("error",()=>{
- loadAvatar();
-},true);
-
-profAvatar.addEventListener("loadedmetadata",()=>{
- avatarStatus.textContent="";
-});
-
-loadAvatar();
 
 /* ==================================================
    LANGUAGE TRANSLATIONS
@@ -714,7 +657,7 @@ function renderModules(){
   link.href=target||"#modules";
 
   const symbol=document.createElement("div");
-  symbol.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+
+  symbol.innerHTML=[STRIPPED 46 bytes]+
    ICONS[icon]+'</svg>';
 
   const title=document.createElement("strong");
@@ -744,7 +687,7 @@ const SLIDESHOW_FILES=[
  // Confirmed slideshow filenames go here.
 ];
 
-const SLIDESHOW_FOLDER="./";
+const SLIDESHOW_FOLDER="";
 const SLIDES=SLIDESHOW_FILES.filter(
  name=>typeof name==="string" &&
  /\.(jpg|jpeg|png|webp|gif|mp4|webm)$/i.test(name)
@@ -807,7 +750,7 @@ function showSlide(failures=0){
   media.alt="BSS1815 slideshow "+(slideIndex+1);
  }
 
- media.src=SLIDESHOW_FOLDER+name.replace(/^\.\//,"");
+ media.src=SLIDESHOW_FOLDER+name;
  screen.replaceChildren(media);
  updateSlideControls();
 
@@ -917,7 +860,7 @@ document.getElementById("clearAI").addEventListener("click",()=>{
 ================================================== */
 
 const SOCIALS=[
- {name:"Facebook",color:"#1877f2",url:"https://facebook.com/share/1By3KvYRrM/",symbol:"f"},
+ {name:"【entity-Facebook¦canonical_name=Facebook】",color:"#1877f2",url:"https://facebook.com/share/1By3KvYRrM/",symbol:"f"},
  {name:"WhatsApp",color:"#25d366",url:"https://wa.me/50943437488",symbol:"☎"},
  {name:"TikTok",color:"#25f4ee",url:"https://tiktok.com/@maximax1960",symbol:"♪"},
  {name:"Instagram",color:"#e4405f",url:"https://instagram.com/lebaron072/",symbol:"◎"},
