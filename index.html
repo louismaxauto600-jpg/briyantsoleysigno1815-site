@@ -3,1183 +3,1089 @@
 <html lang="ht">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080300">
-<meta name="description" content="Briyant Solèy Signo 1815 — Kominote, kilti, istwa, AI Center, sèvis ak BSS1815 PRO-MAX DMP.">
-<title>BRIYANT SOLÈY SIGNO 1815 | OFFICIAL HOMEPAGE</title>
+<meta name="description" content="BRIYANT SOLÈY SIGNO 1815 — BSS1815 PRO-MAX DMP">
+<title>BRIYANT SOLÈY SIGNO 1815</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 :root{
-  --black:#050200;
-  --deep:#130700;
   --orange:#ff7900;
-  --orange2:#ff9c36;
   --apricot:#ffbf80;
-  --muted:#cf9665;
-  --border:rgba(255,121,0,.48);
-  --glass:rgba(8,3,0,.88);
+  --bright:#ffa347;
+  --black:#000;
+  --deep:#150800;
+  --line:rgba(255,121,0,.5);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:125px}
+html{scroll-behavior:smooth;scroll-padding-top:115px}
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:
-    radial-gradient(ellipse at 80% 2%,#572200 0%,transparent 28%),
-    radial-gradient(ellipse at 3% 47%,#351300 0%,transparent 35%),
-    linear-gradient(145deg,#000,#200b00 50%,#000);
-  background-attachment:fixed;
   color:var(--apricot);
+  background:
+    radial-gradient(ellipse at 80% 5%,#4a1b00,transparent 35%),
+    radial-gradient(ellipse at 5% 55%,#301100,transparent 48%),
+    linear-gradient(145deg,#000,#180900 50%,#000);
+  background-attachment:fixed;
   line-height:1.65;
 }
 [hidden]{display:none!important}
 a{color:var(--apricot)}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-button:focus-visible,a:focus-visible,input:focus-visible,
-textarea:focus-visible,select:focus-visible{
-  outline:3px solid var(--orange2);
+button:focus-visible,a:focus-visible,
+input:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--bright);
   outline-offset:3px;
 }
-h1,h2,h3,p{margin-top:0}
-h1,h2,h3{line-height:1.2}
-h2{font-size:clamp(27px,4vw,41px);color:var(--apricot)}
-h3{color:var(--orange2)}
+.container{width:min(1200px,calc(100% - 32px));margin:auto}
+section{padding:65px 0;scroll-margin-top:115px}
+h1,h2,h3{line-height:1.15}
+h2{font-size:clamp(28px,4vw,43px);margin:5px 0 20px}
+h3{color:var(--orange)}
 p{overflow-wrap:anywhere}
-section{scroll-margin-top:130px}
-.container{max-width:1200px;margin:auto;padding:0 22px}
 .eyebrow{
   color:var(--orange);
-  text-transform:uppercase;
   letter-spacing:2px;
-  font-weight:900;
   font-size:12px;
+  font-weight:900;
 }
-.section{padding:66px 0}
-.section-heading{max-width:800px;margin-bottom:27px}
-.muted{color:var(--muted)}
-.accent{color:var(--orange)}
-.divider{height:1px;background:var(--border);margin:20px 0}
 .card{
-  background:linear-gradient(150deg,rgba(36,13,0,.94),rgba(4,2,0,.96));
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:23px;
-  box-shadow:0 12px 32px rgba(0,0,0,.3);
+  background:linear-gradient(145deg,#251000,#030100);
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:24px;
+  box-shadow:0 10px 30px #0008;
 }
-.card h3{margin-bottom:8px}
-.grid{display:grid;gap:18px}
-.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.grid-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.grid{display:grid;gap:16px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid5{grid-template-columns:repeat(5,minmax(0,1fr))}
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:8px;
-  padding:12px 19px;
   border:1px solid var(--orange);
-  border-radius:12px;
   background:var(--orange);
   color:#000;
-  text-decoration:none;
+  padding:12px 18px;
+  border-radius:11px;
   font-weight:900;
-  transition:transform .2s,background .2s;
+  text-decoration:none;
 }
-.btn:hover{background:var(--orange2);transform:translateY(-2px)}
-.btn-outline{background:#080300;color:var(--apricot)}
-.btn-outline:hover{background:#351400;color:var(--apricot)}
-.btn-small{font-size:13px;padding:9px 13px}
-.button-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.kicker{
-  display:inline-block;
-  padding:7px 14px;
-  border:1px solid var(--orange);
-  border-radius:50px;
-  color:var(--orange2);
-  font-weight:800;
-  font-size:12px;
-  letter-spacing:1px;
-  margin-bottom:18px;
+.btn:hover{background:var(--bright)}
+.btn2{
+  background:#000;
+  color:var(--apricot);
 }
+.btn2:hover{background:#2c1000;color:var(--apricot)}
+.buttons{display:flex;flex-wrap:wrap;gap:10px;margin:17px 0}
+.muted{color:#d89a62}
+.status{color:var(--bright);font-size:13px;overflow-wrap:anywhere}
+.small{font-size:13px}
+.center{text-align:center}
 
 /* HEADER */
-.site-header{
+header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(3,1,0,.97);
+  background:#030100;
   border-bottom:2px solid var(--orange);
   box-shadow:0 8px 28px #000;
 }
-.header-inner{
+.topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
-  min-height:86px;
+  gap:16px;
+  min-height:88px;
+  flex-wrap:wrap;
+  padding:10px 0;
 }
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  min-width:0;
-}
-.brand-image,.logo-fallback{
-  width:64px;height:64px;
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{
+  width:62px;height:62px;
+  object-fit:contain;
   border:2px solid var(--orange);
   border-radius:50%;
-  object-fit:contain;
   background:#000;
-  flex-shrink:0;
 }
-.logo-fallback{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+.logoFallback{
+  width:62px;height:62px;
+  border:2px solid var(--orange);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
   color:var(--orange);
-  font-size:15px;
+  background:#000;
   font-weight:900;
+  text-align:center;
   line-height:1.1;
 }
-.brand-name{
-  font-size:17px;
-  font-weight:900;
+.brand strong{font-size:16px;line-height:1.15;color:var(--apricot)}
+.brand small{font-size:10px;color:var(--orange)}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:900;font-size:12px}
+nav a:hover{color:var(--orange)}
+.langs{display:flex;gap:6px}
+.langs button{
+  background:#000;
   color:var(--apricot);
-  line-height:1.2;
-}
-.brand-sub{font-size:10px;letter-spacing:1px;color:var(--orange)}
-.main-nav{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:16px;
-  flex-wrap:wrap;
-}
-.main-nav a{
-  font-weight:800;
-  font-size:12px;
-  text-decoration:none;
-  transition:color .2s;
-}
-.main-nav a:hover{color:var(--orange)}
-.language-switch{display:flex;gap:5px}
-.language-switch button{
   border:1px solid var(--orange);
-  color:var(--apricot);
-  background:#090300;
   border-radius:9px;
+  padding:8px;
   font-size:12px;
   font-weight:900;
-  padding:8px;
 }
-.language-switch button.active{
-  background:var(--orange);
-  color:#000;
-}
+.langs button.active{background:var(--orange);color:#000}
 
 /* HERO */
-.hero{position:relative;overflow:hidden;padding:76px 0 49px}
-.hero-grid{
+.hero{padding:75px 0 45px}
+.heroGrid{
   display:grid;
-  grid-template-columns:1.15fr .85fr;
+  grid-template-columns:1.12fr .88fr;
+  gap:35px;
   align-items:center;
-  gap:45px;
 }
 .hero h1{
-  font-size:clamp(48px,7vw,92px);
-  font-weight:900;
-  letter-spacing:-3px;
-  line-height:1.01;
-  margin-bottom:22px;
+  font-size:clamp(51px,7.5vw,94px);
+  line-height:.97;
+  letter-spacing:-2px;
 }
 .hero h1 span{display:block}
-.hero .lead{font-size:20px;font-weight:700}
-.hero-art{
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:410px;
-}
-.sun-ring{
+.orange{color:var(--orange)}
+.heroLogo{
   width:min(100%,390px);
   aspect-ratio:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  margin:auto;
+  display:grid;
+  place-items:center;
+  padding:34px;
   border:3px solid var(--orange);
   border-radius:50%;
-  background:radial-gradient(circle,#512000,#120600 60%,#000 85%);
-  box-shadow:0 0 32px #ff790052,inset 0 0 50px #ff790025;
-  padding:35px;
+  background:radial-gradient(circle,#4d1c00,#000 75%);
+  box-shadow:0 0 38px #ff790055;
 }
-.sun-ring img{width:100%;height:100%;object-fit:contain;border-radius:50%}
-.sun-ring .logo-fallback{width:100%;height:100%;font-size:43px}
-.hero-art:before,.hero-art:after{
-  content:"";
-  position:absolute;
-  width:94%;
-  max-width:450px;
-  aspect-ratio:1;
-  border:1px dashed #ff790078;
-  border-radius:50%;
-  pointer-events:none;
-}
-.hero-art:after{
-  width:100%;
-  max-width:500px;
-  border-style:solid;
-  opacity:.35;
-}
-.hero-banner{
-  text-align:center;
-  color:var(--orange);
-  font-weight:900;
-  letter-spacing:2px;
-  padding:20px;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-}
+.heroLogo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.heroLogo .logoFallback{width:100%;height:100%;font-size:39px}
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  padding-top:30px;
+  gap:13px;
+  margin-top:35px;
 }
 .stat{
+  padding:17px 10px;
+  background:#090300;
+  border:1px solid var(--line);
+  border-radius:15px;
   text-align:center;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:18px 10px;
-  background:#080300;
 }
-.stat strong{font-size:32px;color:var(--orange);display:block}
-.stat span{font-size:12px;font-weight:700}
-
-/* ECOSYSTEM */
-.project-card{min-height:200px}
-.project-number{
-  font-size:29px;
+.stat strong{display:block;color:var(--orange);font-size:33px}
+.stat span{font-size:12px;font-weight:900}
+.slogan{
+  text-align:center;
   font-weight:900;
   color:var(--orange);
-  display:block;
-  margin-bottom:15px;
+  letter-spacing:2px;
+  padding:18px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
-.project-card h3{font-size:17px}
-.project-card p{font-size:13px;color:var(--muted)}
+
+/* PROJECTS */
+.projectNum{font-size:32px;font-weight:900;color:var(--orange)}
+.project h3{font-size:17px}
+.project p{font-size:13px}
 
 /* SLIDESHOW */
-.media-frame{
+.mediaFrame{
   position:relative;
-  min-height:300px;
-  background:#000;
-  border:2px solid var(--orange);
-  border-radius:19px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-.media-frame img,.media-frame video{
-  display:block;
-  width:100%;
-  height:min(62vw,580px);
-  min-height:250px;
-  object-fit:contain;
-  background:#000;
-}
-.media-empty{text-align:center;padding:35px;max-width:700px}
-.media-empty strong{font-size:24px;color:var(--orange)}
-.media-controls{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:10px;
-  padding:18px 0 8px;
-}
-.media-controls .button-row{margin:0}
-#slideCounter{
-  font-weight:900;
-  color:var(--orange);
-  font-size:22px;
-}
-#slideStatus{color:var(--muted);font-size:13px;overflow-wrap:anywhere}
-.progress{
-  height:5px;
-  background:#170800;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:12px;
-}
-.progress span{
-  display:block;
-  height:100%;
-  background:var(--orange);
-  width:0;
-  transition:width .4s;
-}
-
-/* AI CENTER */
-.ai-tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
-.ai-tab{
-  background:#080300;
-  color:var(--apricot);
-  border:1px solid var(--orange);
-  padding:11px 15px;
-  border-radius:11px;
-  font-weight:800;
-}
-.ai-tab.active{background:var(--orange);color:#000}
-.ai-panel{border:1px solid var(--border);background:#070300;border-radius:18px;padding:24px}
-.ai-panel h3{font-size:23px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.field{margin:14px 0}
-.field label{display:block;font-weight:800;margin-bottom:7px}
-input,textarea,select{
-  display:block;
-  width:100%;
-  background:#080300;
-  color:var(--apricot);
-  border:1px solid var(--orange);
-  padding:13px 14px;
-  border-radius:11px;
-  outline-offset:2px;
-}
-option{background:#080300;color:var(--apricot)}
-textarea{min-height:104px;resize:vertical}
-input::placeholder,textarea::placeholder{color:#af7243}
-.output{
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  background:#170900;
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:18px;
-  min-height:90px;
-  margin-top:18px;
-}
-.chat-history{
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:#030100;
-  padding:15px;
-  min-height:170px;
-  max-height:380px;
-  overflow-y:auto;
-}
-.chat-msg{
-  padding:11px 14px;
-  border-radius:11px;
-  margin-bottom:12px;
-  max-width:94%;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-}
-.chat-msg.user{
-  background:#482000;
-  border:1px solid var(--orange);
-  margin-left:auto;
-}
-.chat-msg.assistant{
-  background:#160800;
-  border:1px solid var(--border);
-  margin-right:auto;
-}
-.quick-questions{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}
-.quick-questions button{
-  background:#1b0b00;
-  border:1px solid var(--border);
-  color:var(--apricot);
-  padding:9px 12px;
-  border-radius:25px;
-}
-
-/* CUSTOMER SERVICE */
-.customer-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-  align-items:center;
-}
-.avatar-video{
-  width:100%;
-  max-height:510px;
+  place-items:center;
   background:#000;
   border:2px solid var(--orange);
   border-radius:18px;
+  min-height:310px;
+  overflow:hidden;
 }
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.phone-link{
+.mediaFrame img,.mediaFrame video{
+  width:100%;
+  height:min(62vw,580px);
+  min-height:260px;
+  object-fit:contain;
+  background:#000;
+}
+.mediaEmpty{text-align:center;padding:30px}
+.mediaEmpty strong{font-size:24px;color:var(--orange)}
+.mediaBar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:13px;
+  flex-wrap:wrap;
+  margin-top:17px;
+}
+#counter{font-size:23px;font-weight:900;color:var(--orange)}
+.track{height:5px;background:#301100;border-radius:20px;overflow:hidden}
+.track span{display:block;height:100%;background:var(--orange);width:0}
+
+/* AI CENTER */
+.aiHero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:25px;
+  margin-bottom:24px;
+}
+.aiHero video,.avatarVideo{
+  width:100%;
+  max-height:480px;
+  object-fit:contain;
+  border:2px solid var(--orange);
+  border-radius:18px;
+  background:#000;
+}
+.modules{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin:24px 0;
+}
+.module{
+  border:1px solid var(--orange);
+  border-radius:14px;
+  padding:18px 10px;
+  background:#090300;
+  color:var(--apricot);
+  font-weight:900;
+  text-align:center;
+  min-height:103px;
+}
+.module i{display:block;font-size:24px;color:var(--orange);margin-bottom:9px}
+.module.active,.module:hover{background:var(--orange);color:#000}
+.module.active i,.module:hover i{color:#000}
+.module span{font-size:13px}
+.toolBox{
+  background:#070200;
+  border:1px solid var(--orange);
+  border-radius:17px;
+  padding:24px;
+}
+.toolBox label{display:block;font-weight:900;margin:13px 0 6px}
+input,textarea,select{
   display:block;
-  color:var(--orange2);
+  width:100%;
+  padding:13px;
+  color:var(--apricot);
+  background:#070300;
+  border:1px solid var(--orange);
+  border-radius:11px;
+}
+textarea{min-height:110px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#b78252}
+.output{
+  min-height:80px;
+  padding:17px;
+  margin:16px 0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#190900;
+  color:var(--apricot);
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.notice{
+  background:#180900;
+  border-left:3px solid var(--orange);
+  padding:12px;
+  font-size:13px;
+}
+.contactPhones a{
+  display:block;
   font-size:21px;
   font-weight:900;
+  color:var(--bright);
+  margin:9px 0;
   text-decoration:none;
-  margin:8px 0;
 }
-.phone-link:hover{text-decoration:underline}
 
-/* SOCIAL NETWORKS */
-.social-grid{
+/* SOCIAL LOGOS */
+.socialGrid{
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:12px;
 }
-.social-link{
+.social{
   display:flex;
   align-items:center;
   gap:9px;
-  text-decoration:none;
-  background:#070300;
+  background:#080300;
   border:1px solid var(--orange);
-  border-radius:14px;
-  padding:12px 10px;
-  font-weight:800;
-  font-size:13px;
-  transition:transform .2s,background .2s;
-}
-.social-link:hover{background:#301100;transform:translateY(-2px)}
-.social-icon{
-  width:39px;
-  height:39px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  border-radius:10px;
-  background:var(--orange);
-  color:#000;
+  padding:12px 9px;
+  border-radius:13px;
+  text-decoration:none;
   font-weight:900;
-  font-size:17px;
+  font-size:13px;
 }
+.social:hover{background:#321300}
+.socialIcon{
+  display:grid;
+  place-items:center;
+  min-width:39px;
+  height:39px;
+  border-radius:10px;
+  font-size:20px;
+  color:#000;
+  background:var(--orange);
+}
+.facebook .socialIcon{background:#1877f2;color:#fff}
+.whatsapp .socialIcon{background:#25d366;color:#000}
+.tiktok .socialIcon{background:#000;color:#ff0050}
+.instagram .socialIcon{background:#e1306c;color:#fff}
+.telegram .socialIcon{background:#229ed9;color:#fff}
+.youtube .socialIcon{background:#ff0000;color:#fff}
+.spotify .socialIcon{background:#1db954;color:#000}
+.twitter .socialIcon{background:#000;color:#fff}
+.truth .socialIcon{background:#ff5500;color:#fff}
+.linkedin .socialIcon{background:#0a66c2;color:#fff}
 footer{
   text-align:center;
   border-top:2px solid var(--orange);
-  padding:35px 15px;
   background:#020100;
+  padding:36px 15px;
 }
 footer strong{color:var(--orange)}
-.footer-tag{font-size:12px;letter-spacing:1px}
-.notice{
-  color:var(--orange2);
-  border-left:3px solid var(--orange);
-  padding:9px 14px;
-  background:#190900;
-  font-size:13px;
+
+@media(max-width:1100px){
+  nav{order:3;width:100%}
+  .grid5,.socialGrid{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:1090px){
-  .header-inner{flex-wrap:wrap;padding-top:10px;padding-bottom:12px}
-  .main-nav{order:3;width:100%;justify-content:flex-start}
-  .grid-5{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .social-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media(max-width:700px){
-  .hero{padding-top:48px}
-  .hero-grid,.customer-grid,.contact-grid,.grid-2,.grid-3,.form-grid{
-    grid-template-columns:1fr;
-  }
-  .hero-art{min-height:290px}
-  .sun-ring{max-width:260px}
-  .hero-art:before{max-width:300px}
-  .hero-art:after{max-width:325px}
+@media(max-width:750px){
+  .heroGrid,.aiHero,.grid2,.grid3{grid-template-columns:1fr}
+  .grid5,.socialGrid{grid-template-columns:repeat(2,1fr)}
+  .modules{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(2,1fr)}
-  .grid-5{grid-template-columns:1fr 1fr}
-  .social-grid{grid-template-columns:1fr 1fr}
-  .header-inner{gap:10px}
-  .brand-name{font-size:14px}
-  .brand-image,.brand .logo-fallback{width:49px;height:49px}
-  .main-nav{gap:10px 14px}
-  .section{padding:42px 0}
-  .ai-panel{padding:16px}
+  .hero{padding-top:42px}
+  .heroLogo{max-width:280px}
+  section{padding:43px 0}
 }
-@media(max-width:390px){
-  .grid-5,.social-grid{grid-template-columns:1fr}
-  .container{padding-left:15px;padding-right:15px}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*:before,*:after{transition:none!important;animation:none!important}
+@media(max-width:400px){
+  .grid5,.socialGrid{grid-template-columns:1fr}
+  .brand strong{font-size:13px}
+  .container{width:calc(100% - 24px)}
 }
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="#home" aria-label="Briyant Solèy Signo 1815">
-      <img class="brand-image" src="./briyant-soley-signo-1815.jpg" alt="Logo BSS1815">
-      <span class="logo-fallback" hidden>BSS<br>1815</span>
-      <span>
-        <span class="brand-name">BRIYANT SOLÈY<br>SIGNO 1815</span><br>
-        <span class="brand-sub">BSS1815 PRO-MAX DMP</span>
-      </span>
-    </a>
+<header>
+<div class="container topbar">
 
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#about" data-t="navAbout">ISTWA</a>
-      <a href="#projects" data-t="navProjects">PWOJÈ</a>
-      <a href="#community" data-t="navCommunity">KOMINOTE</a>
-      <a href="#ai" data-t="navAI">AI CENTER</a>
-      <a href="#service" data-t="navService">SÈVIS</a>
-      <a href="#fm">PRO-MAX FM 106.5 FM</a>
-      <a href="#contact" data-t="navContact">KONTAK</a>
-    </nav>
+<a href="#home" class="brand">
+<img data-logo src="./briyant-soley-signo-1815.jpg" alt="BRIYANT SOLÈY SIGNO 1815">
+<span class="logoFallback" hidden>BSS<br>1815</span>
+<span>
+<strong>BRIYANT SOLÈY<br>SIGNO 1815</strong><br>
+<small>BSS1815 PRO-MAX DMP</small>
+</span>
+</a>
 
-    <div class="language-switch" aria-label="Language">
-      <button type="button" data-lang="en">ENG</button>
-      <button type="button" data-lang="ht" class="active">KRE</button>
-      <button type="button" data-lang="fr">FRAN</button>
-    </div>
-  </div>
+<nav>
+<a href="#about" data-t="about">ISTWA</a>
+<a href="#projects" data-t="projects">PWOJÈ</a>
+<a href="#community" data-t="community">KOMINOTE</a>
+<a href="#ai">AI CENTER</a>
+<a href="#customer">CUSTOMER SERVICE</a>
+<a href="#fm">PRO-MAX FM 106.5 FM</a>
+<a href="#contact" data-t="contact">KONTAK</a>
+</nav>
+
+<div class="langs">
+<button data-lang="ht" class="active">KRE</button>
+<button data-lang="en">ENG</button>
+<button data-lang="fr">FRAN</button>
+</div>
+
+</div>
 </header>
 
 <main id="home">
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
+
 <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <span class="kicker" data-t="heroTag">
-          PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI
-        </span>
-        <h1>
-          <span>BRIYANT</span>
-          <span class="accent">SOLÈY</span>
-          <span>SIGNO</span>
-          <span class="accent">1815</span>
-        </h1>
-        <p class="lead" data-t="heroLead">YON VIZYON. YON VWA. YON KOMINOTE.</p>
-        <p data-t="heroText">
-          Yon espas pou eritaj, solidarite, inovasyon ak avansman kominote a.
-        </p>
-        <div class="button-row">
-          <a class="btn" href="#community" data-t="heroGallery">DEKOUVRI KOMINOTE A</a>
-          <a class="btn btn-outline" href="#ai">AI CENTER</a>
-          <a class="btn btn-outline" href="#service">CUSTOMER SERVICE</a>
-        </div>
-      </div>
-      <div class="hero-art">
-        <div class="sun-ring">
-          <img class="brand-image" src="./briyant-soley-signo-1815.jpg" alt="Briyant Solèy Signo 1815 official logo">
-          <span class="logo-fallback" hidden>BSS<br>1815</span>
-        </div>
-      </div>
-    </div>
+<div class="container">
+<div class="heroGrid">
 
-    <div class="stats">
-      <div class="stat"><strong>1815</strong><span data-t="statHeritage">ERITAJ</span></div>
-      <div class="stat"><strong>05</strong><span data-t="statProjects">GWO PWOJÈ</span></div>
-      <div class="stat"><strong>212</strong><span data-t="statMedia">MEDYA NAN LIS LA</span></div>
-      <div class="stat"><strong>10</strong><span data-t="statSocial">REZO SOSYAL</span></div>
-    </div>
-  </div>
+<div>
+<div class="eyebrow" data-t="official">
+PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI
+</div>
+
+<h1>
+<span>BRIYANT</span>
+<span class="orange">SOLÈY</span>
+<span>SIGNO</span>
+<span class="orange">1815</span>
+</h1>
+
+<h3 data-t="vision">YON VIZYON. YON VWA. YON KOMINOTE.</h3>
+
+<p data-t="heroText">
+Yon platfòm ki konekte kominote, istwa, kilti, sèvis,
+edikasyon, teknoloji ak medya.
+</p>
+
+<div class="buttons">
+<a href="#community" class="btn" data-t="explore">DEKOUVRI KOMINOTE A</a>
+<a href="#ai" class="btn btn2">AI CENTER</a>
+<a href="#customer" class="btn btn2">CUSTOMER SERVICE</a>
+</div>
+</div>
+
+<div class="heroLogo">
+<img data-logo src="./briyant-soley-signo-1815.jpg" alt="Logo BSS1815">
+<span class="logoFallback" hidden>BSS<br>1815</span>
+</div>
+
+</div>
+
+<div class="stats">
+<div class="stat"><strong>1815</strong><span data-t="heritage">ERITAJ</span></div>
+<div class="stat"><strong>05</strong><span data-t="majorProjects">GWO PWOJÈ</span></div>
+<div class="stat"><strong id="mediaCount">212</strong><span data-t="photosVideos">FOTO & VIDEYO</span></div>
+<div class="stat"><strong>12</strong><span>AI MODULES</span></div>
+</div>
+</div>
 </section>
 
-<div class="hero-banner">DEVAN DEVAN NÈT • BATI POU JODI A, PARE POU DEMEN</div>
+<div class="slogan">
+DEVAN DEVAN NÈT • BATI POU JODI A, PARE POU DEMEN
+</div>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">BRIYANT SOLÈY SIGNO 1815</div>
-      <h2 data-t="aboutTitle">ERITAJ NOU. IDANTITE NOU. AVNI NOU.</h2>
-    </div>
-    <div class="grid grid-2">
-      <article class="card">
-        <h3 data-t="aboutH1">KIYÈS NOU YE?</h3>
-        <p data-t="aboutP1">
-          Briyant Solèy Signo 1815 se yon kominote ki gen rasin li nan Signo,
-          Léogâne, Ayiti. Nou mete kilti, istwa, inite ak solidarite an valè.
-        </p>
-      </article>
-      <article class="card">
-        <h3 data-t="aboutH2">VIZYON NOU</h3>
-        <p data-t="aboutP2">
-          Rasanble talan ak kapasite kominote a pou bati yon avni miyò,
-          gras ak teknoloji, kominikasyon, edikasyon ak sèvis.
-        </p>
-      </article>
-    </div>
-  </div>
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+<div class="container">
+<div class="eyebrow">BRIYANT SOLÈY SIGNO 1815</div>
+<h2 data-t="aboutTitle">ERITAJ NOU. IDANTITE NOU. AVNI NOU.</h2>
+
+<div class="grid grid2">
+<div class="card">
+<h3 data-t="who">KIYÈS NOU YE?</h3>
+<p data-t="whoText">
+Briyant Solèy Signo 1815 se yon kominote ki gen rasin li nan Signo,
+Léogâne, Ayiti. Nou valorize kilti, istwa, inite ak solidarite.
+</p>
+</div>
+
+<div class="card">
+<h3 data-t="ourVision">VIZYON NOU</h3>
+<p data-t="ourVisionText">
+Rasanble talan ak kapasite kominote a pou bati yon avni miyò
+atravè teknoloji, kominikasyon, edikasyon ak sèvis.
+</p>
+</div>
+</div>
+</div>
 </section>
 
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">BSS1815 PRO-MAX DMP</div>
-      <h2 data-t="projectsTitle">YON SÈL PLATFÒM. SENK GWO PWOJÈ.</h2>
-      <p data-t="projectsIntro">Yon ekosistèm dijital ki konekte kominote, medya, sèvis, edikasyon ak inovasyon.</p>
-    </div>
-    <div class="grid grid-5">
-      <article class="card project-card">
-        <span class="project-number">01</span>
-        <h3>BSS1815 COMMUNITY</h3>
-        <p data-t="projectBSS">Istwa, solidarite, kilti ak lavi kominote a.</p>
-      </article>
-      <article class="card project-card">
-        <span class="project-number">02</span>
-        <h3>PRO-MAX FM 106.5 FM</h3>
-        <p data-t="projectFM">Radyo, mizik, nouvèl ak pwogram kominotè.</p>
-      </article>
-      <article class="card project-card">
-        <span class="project-number">03</span>
-        <h3>MAXIMAX MULTI SERVICES</h3>
-        <p data-t="projectMaximax">Sèvis pwofesyonèl ak asistans dijital.</p>
-      </article>
-      <article class="card project-card">
-        <span class="project-number">04</span>
-        <h3>PRO-MAX ACADÉMIE</h3>
-        <p data-t="projectAcademy">Fòmasyon, konesans ak devlopman konpetans.</p>
-      </article>
-      <article class="card project-card">
-        <span class="project-number">05</span>
-        <h3>DDN • AI CENTER</h3>
-        <p data-t="projectDDN">Teknoloji, entèlijans ak inovasyon.</p>
-      </article>
-    </div>
-  </div>
+<!-- ================= FIVE PROJECTS ================= -->
+
+<section id="projects">
+<div class="container">
+<div class="eyebrow">BSS1815 PRO-MAX DMP</div>
+<h2 data-t="onePlatform">YON SÈL PLATFÒM • YON SÈL VIZYON</h2>
+
+<div class="grid grid5">
+
+<div class="card project">
+<div class="projectNum">01</div>
+<h3>BSS1815 COMMUNITY</h3>
+<p data-t="p1">Istwa, kilti, eritaj ak lavi kominote a.</p>
+</div>
+
+<div class="card project">
+<div class="projectNum">02</div>
+<h3>PRO-MAX FM 106.5 FM</h3>
+<p data-t="p2">Radyo, mizik, nouvèl ak pwogram kominotè.</p>
+</div>
+
+<div class="card project">
+<div class="projectNum">03</div>
+<h3>MAXIMAX MULTI SERVICES</h3>
+<p data-t="p3">Sèvis pwofesyonèl ak asistans dijital.</p>
+</div>
+
+<div class="card project">
+<div class="projectNum">04</div>
+<h3>PRO-MAX ACADÉMIE</h3>
+<p data-t="p4">Edikasyon, fòmasyon ak devlopman konpetans.</p>
+</div>
+
+<div class="card project">
+<div class="projectNum">05</div>
+<h3>DDN • AI CENTER</h3>
+<p data-t="p5">Teknoloji, entèlijans ak inovasyon.</p>
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- COMMUNITY SLIDESHOW -->
-<section class="section" id="community">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">BSS1815 COMMUNITY GALLERY</div>
-      <h2 data-t="galleryTitle">KOMINOTE A AN FOTO AK VIDEYO</h2>
-      <p data-t="galleryDesc">
-        Yon koleksyon imaj ak videyo ki reprezante moun, talan ak pwojè Briyant Solèy Signo 1815.
-      </p>
-    </div>
+<!-- ================= COMMUNITY SLIDESHOW ================= -->
 
-    <div class="card">
-      <div class="media-frame">
-        <img id="slideImage" alt="BSS1815 Community slideshow" hidden>
-        <video id="slideVideo" controls playsinline muted preload="metadata" hidden></video>
-        <div class="media-empty" id="slideEmpty">
-          <strong>BRIYANT SOLÈY SIGNO 1815</strong>
-          <p data-t="galleryLoading">Slideshow kominote a ap prepare.</p>
-        </div>
-      </div>
+<section id="community">
+<div class="container">
 
-      <div class="media-controls">
-        <div>
-          <div id="slideCounter">1 / 212</div>
-          <div id="slideStatus" role="status" aria-live="polite">BSS1815 GALLERY</div>
-        </div>
-        <div class="button-row">
-          <button class="btn btn-outline btn-small" id="prevSlide" type="button" data-t="previous">◀ ANVAN</button>
-          <button class="btn btn-small" id="pauseSlide" type="button" data-t="pause">⏸ POZ</button>
-          <button class="btn btn-outline btn-small" id="nextSlide" type="button" data-t="next">APRE ▶</button>
-          <button class="btn btn-outline btn-small" id="soundSlide" type="button" data-t="soundOn">AKTIVE SON</button>
-        </div>
-      </div>
+<div class="eyebrow">BSS1815 COMMUNITY</div>
+<h2 data-t="galleryTitle">KOMINOTE A AN FOTO AK VIDEYO</h2>
 
-      <div class="progress"><span id="galleryProgress"></span></div>
-      <p class="muted" data-t="galleryHelp">
-        Slideshow la itilize fichye ki nan lis la. Li chèche yo nan dosye prensipal la ak dosye medya yo.
-      </p>
-    </div>
-  </div>
+<p data-t="galleryText">
+Yon koleksyon foto ak videyo moun, manm ak pwojè Briyant Solèy Signo 1815.
+</p>
+
+<div class="card">
+
+<div class="mediaFrame">
+<img id="slideImage" alt="BSS1815 Slideshow" hidden>
+<video id="slideVideo" controls playsinline muted preload="metadata" hidden></video>
+
+<div id="slideEmpty" class="mediaEmpty">
+<strong>BRIYANT SOLÈY SIGNO 1815</strong>
+<p data-t="loading">Slideshow ap chèche medya kominote a...</p>
+</div>
+</div>
+
+<div class="mediaBar">
+
+<div>
+<div id="counter">1 / 212</div>
+<div id="galleryStatus" class="status" role="status">BSS1815 GALLERY</div>
+</div>
+
+<div class="buttons">
+<button class="btn btn2" id="previous" data-t="previous">◀ ANVAN</button>
+<button class="btn" id="pause" data-t="pause">⏸ POZ</button>
+<button class="btn btn2" id="next" data-t="next">APRE ▶</button>
+<button class="btn btn2" id="sound" data-t="sound">AKTIVE SON</button>
+</div>
+
+</div>
+
+<div class="track"><span id="progress"></span></div>
+
+<p class="muted small" data-t="galleryNote">
+Slideshow la chèche fichye ki nan lis la. Non ak kote fichye yo dwe koresponn ak sa ki sou GitHub.
+</p>
+
+</div>
+</div>
 </section>
 
-<!-- AI CENTER -->
-<section class="section" id="ai">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">BSS1815 PRO-MAX DMP • TECHNOLOGY</div>
-      <h2>AI CENTER</h2>
-      <p data-t="aiIntro">
-        Sant zouti dijital pou enfòmasyon, redaksyon, tradiksyon, vwa, script radyo ak planifikasyon.
-      </p>
-    </div>
+<!-- ================= AI CENTER ================= -->
 
-    <div class="card">
-      <div class="ai-tabs" role="tablist" aria-label="AI Center tools">
-        <button class="ai-tab active" type="button" data-panel="assistant" role="tab" aria-selected="true" data-t="tabAssistant">ASISTAN</button>
-        <button class="ai-tab" type="button" data-panel="writer" role="tab" aria-selected="false" data-t="tabWriter">EKRIVEN</button>
-        <button class="ai-tab" type="button" data-panel="translator" role="tab" aria-selected="false" data-t="tabTranslator">TRADIKSYON</button>
-        <button class="ai-tab" type="button" data-panel="voice" role="tab" aria-selected="false" data-t="tabVoice">VWA</button>
-        <button class="ai-tab" type="button" data-panel="radio" role="tab" aria-selected="false" data-t="tabRadio">SCRIPT FM</button>
-        <button class="ai-tab" type="button" data-panel="planner" role="tab" aria-selected="false" data-t="tabPlanner">PLANIFIKASYON</button>
-      </div>
+<section id="ai">
+<div class="container">
 
-      <!-- ASSISTANT -->
-      <div class="ai-panel" id="panel-assistant" role="tabpanel">
-        <h3 data-t="assistantTitle">ASISTAN KOMINOTE BSS1815</h3>
-        <p class="muted" data-t="assistantDesc">Jwenn enfòmasyon lokal sou kominote a ak sèvis ki sou platfòm nan.</p>
-        <div class="chat-history" id="chatHistory" aria-live="polite"></div>
-        <div class="quick-questions">
-          <button type="button" data-question="contact" data-t="quickContact">KONTAK</button>
-          <button type="button" data-question="radio" data-t="quickRadio">RADYO</button>
-          <button type="button" data-question="academy" data-t="quickAcademy">AKADÉMIE</button>
-          <button type="button" data-question="community" data-t="quickCommunity">KOMINOTE</button>
-        </div>
-        <textarea id="chatInput" data-ph="askPlaceholder" placeholder="Ekri kesyon ou la..." aria-label="Assistant question"></textarea>
-        <div class="button-row">
-          <button class="btn" type="button" id="sendChat" data-t="send">VOYE</button>
-          <button class="btn btn-outline" type="button" id="readReply" data-t="readReply">LI REPONS LAN</button>
-          <button class="btn btn-outline" type="button" id="clearChat" data-t="clear">EFASÈ</button>
-        </div>
-      </div>
+<div class="eyebrow">BSS1815 PRO-MAX DMP</div>
+<h2>AI CENTER — 12 MODULES</h2>
 
-      <!-- WRITER -->
-      <div class="ai-panel" id="panel-writer" role="tabpanel" hidden>
-        <h3 data-t="writerTitle">SANT REDAKSYON</h3>
-        <p class="muted" data-t="writerDesc">Prepare modèl lèt, anons, flyer ak mesaj kominotè.</p>
-        <div class="field">
-          <label for="writerKind" data-t="documentType">TIP DOKIMAN</label>
-          <select id="writerKind">
-            <option value="letter" data-t="letter">LÈT</option>
-            <option value="announcement" data-t="announcement">ANONS</option>
-            <option value="flyer">FLYER</option>
-            <option value="message" data-t="message">MESAJ</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="writerTopic" data-t="topic">SIJÈ</label>
-          <textarea id="writerTopic" data-ph="topicPlaceholder" placeholder="Ekri sijè ou vle prepare a..."></textarea>
-        </div>
-        <button class="btn" type="button" id="generateWriter" data-t="generate">PREPARE DOKIMAN</button>
-        <div class="output" id="writerOutput" aria-live="polite"></div>
-        <button class="btn btn-outline btn-small" type="button" data-copy="writerOutput" data-t="copy">KOPYE</button>
-      </div>
+<div class="aiHero">
 
-      <!-- TRANSLATOR -->
-      <div class="ai-panel" id="panel-translator" role="tabpanel" hidden>
-        <h3 data-t="translatorTitle">SANT TRADIKSYON</h3>
-        <p class="muted" data-t="translatorDesc">Tradiksyon lokal pou fraz kominotè ki nan diksyonè a.</p>
-        <div class="field">
-          <label for="translatePair" data-t="languages">LANG</label>
-          <select id="translatePair">
-            <option value="ht-fr">KRE → FRAN</option>
-            <option value="ht-en">KRE → ENG</option>
-            <option value="fr-ht">FRAN → KRE</option>
-            <option value="en-ht">ENG → KRE</option>
-          </select>
-        </div>
-        <textarea id="translateInput" data-ph="translatePlaceholder" placeholder="Ekri yon fraz..." aria-label="Text to translate"></textarea>
-        <div class="button-row">
-          <button class="btn" type="button" id="translateButton" data-t="translate">TRADWI</button>
-          <button class="btn btn-outline btn-small" type="button" data-copy="translateOutput" data-t="copy">KOPYE</button>
-        </div>
-        <div class="output" id="translateOutput" aria-live="polite"></div>
-      </div>
+<div class="card">
+<h3>AI AVATAR SANTRAL</h3>
+<p data-t="aiVideoIntro">
+Videyo prezantasyon AI Center BSS1815 la.
+</p>
 
-      <!-- VOICE -->
-      <div class="ai-panel" id="panel-voice" role="tabpanel" hidden>
-        <h3 data-t="voiceTitle">SANT VWA</h3>
-        <p class="muted" data-t="voiceDesc">Koute yon tèks ak sentèz vwa ki disponib nan navigatè ou a.</p>
-        <textarea id="voiceText" data-ph="voicePlaceholder" placeholder="Ekri tèks pou li..." aria-label="Voice text"></textarea>
-        <div class="button-row">
-          <button class="btn" type="button" id="startVoice" data-t="playVoice">▶ JWE VWA</button>
-          <button class="btn btn-outline" type="button" id="stopVoice" data-t="stopVoice">■ SISPANN</button>
-        </div>
-        <p class="muted" id="voiceStatus" aria-live="polite"></p>
-      </div>
+<video id="aiVideo" controls playsinline preload="metadata"
+poster="./briyant-soley-signo-1815.jpg"></video>
 
-      <!-- RADIO SCRIPTS -->
-      <div class="ai-panel" id="panel-radio" role="tabpanel" hidden>
-        <h3>PRO-MAX FM 106.5 FM — SCRIPT STUDIO</h3>
-        <p class="muted" data-t="radioDesc">Prepare modèl script pou anons, bilten nouvèl ak idantifikasyon radyo.</p>
-        <div class="field">
-          <label for="radioKind" data-t="radioType">TIP SCRIPT</label>
-          <select id="radioKind">
-            <option value="announcement" data-t="announcement">ANONS</option>
-            <option value="news" data-t="news">NOUVÈL</option>
-            <option value="station">STATION ID</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="radioTopic" data-t="topic">SIJÈ</label>
-          <input id="radioTopic" data-ph="radioPlaceholder" placeholder="Sijè emisyon an">
-        </div>
-        <button class="btn" type="button" id="generateRadio" data-t="generateScript">PREPARE SCRIPT</button>
-        <div class="output" id="radioOutput" aria-live="polite"></div>
-        <button class="btn btn-outline btn-small" type="button" data-copy="radioOutput" data-t="copy">KOPYE</button>
-      </div>
+<p id="aiVideoStatus" class="status"></p>
 
-      <!-- PLANNING -->
-      <div class="ai-panel" id="panel-planner" role="tabpanel" hidden>
-        <h3 data-t="plannerTitle">SANT PLANIFIKASYON</h3>
-        <p class="muted" data-t="plannerDesc">Prepare yon modèl rapèl pou aktivite, reyinyon oswa evènman.</p>
-        <div class="field">
-          <label for="planTopic" data-t="activity">AKTIVITE</label>
-          <input id="planTopic" data-ph="activityPlaceholder" placeholder="Non aktivite a">
-        </div>
-        <div class="form-grid">
-          <div class="field">
-            <label for="planDate" data-t="date">DAT</label>
-            <input type="date" id="planDate">
-          </div>
-          <div class="field">
-            <label for="planTime" data-t="time">LÈ</label>
-            <input type="time" id="planTime">
-          </div>
-        </div>
-        <button class="btn" type="button" id="generatePlan" data-t="prepareReminder">PREPARE RAPÈL</button>
-        <div class="output" id="planOutput" aria-live="polite"></div>
-        <button class="btn btn-outline btn-small" type="button" data-copy="planOutput" data-t="copy">KOPYE</button>
-      </div>
+<button id="playAI" class="btn">
+<i class="fa-solid fa-play"></i> PLAY AI AVATAR
+</button>
+</div>
 
-      <p class="notice" data-t="aiNotice">
-        Zouti sa yo fonksyone lokalman ak modèl/diksyonè. Pou repons AI jeneratif ak tradiksyon lib sou nenpòt tèks, yon backend AI sekirize nesesè.
-      </p>
-      <p id="copyStatus" class="muted" role="status" aria-live="polite"></p>
-    </div>
-  </div>
+<div class="card">
+<div class="eyebrow">DIGITAL INTELLIGENCE CENTER</div>
+<h2>12 AI MODULES</h2>
+<p data-t="aiCenterDesc">
+Sant zouti dijital pou kominote, kominikasyon,
+dokiman, tradiksyon, vwa, radyo, medya ak planifikasyon.
+</p>
+
+<p class="notice" data-t="aiNotice">
+Modil sa yo gen fonksyon lokal ak modèl dokiman.
+Yon koneksyon backend AI sekirize nesesè pou AI jeneratif konplè.
+</p>
+</div>
+
+</div>
+
+<div class="modules" id="moduleGrid">
+
+<button class="module active" data-mode="assistant">
+<i class="fa-solid fa-robot"></i><span>01 • AI ASSISTANT</span>
+</button>
+
+<button class="module" data-mode="writer">
+<i class="fa-solid fa-pen-nib"></i><span>02 • WRITER AI</span>
+</button>
+
+<button class="module" data-mode="translator">
+<i class="fa-solid fa-language"></i><span>03 • TRANSLATION AI</span>
+</button>
+
+<button class="module" data-mode="voice">
+<i class="fa-solid fa-microphone"></i><span>04 • VOICE AI</span>
+</button>
+
+<button class="module" data-mode="radio">
+<i class="fa-solid fa-radio"></i><span>05 • RADIO SCRIPT AI</span>
+</button>
+
+<button class="module" data-mode="planner">
+<i class="fa-solid fa-calendar-days"></i><span>06 • PLANNER AI</span>
+</button>
+
+<button class="module" data-mode="communication">
+<i class="fa-solid fa-comments"></i><span>07 • COMMUNICATION AI</span>
+</button>
+
+<button class="module" data-mode="documents">
+<i class="fa-solid fa-file-lines"></i><span>08 • DOCUMENT AI</span>
+</button>
+
+<button class="module" data-mode="media">
+<i class="fa-solid fa-photo-film"></i><span>09 • MEDIA AI</span>
+</button>
+
+<button class="module" data-mode="archive">
+<i class="fa-solid fa-box-archive"></i><span>10 • ARCHIVE AI</span>
+</button>
+
+<button class="module" data-mode="events">
+<i class="fa-solid fa-calendar-check"></i><span>11 • EVENT AI</span>
+</button>
+
+<button class="module" data-mode="community">
+<i class="fa-solid fa-users"></i><span>12 • COMMUNITY AI</span>
+</button>
+
+</div>
+
+<div class="toolBox">
+
+<div class="eyebrow">BSS1815 • ACTIVE MODULE</div>
+<h3 id="toolTitle">AI ASSISTANT</h3>
+<p id="toolDescription" class="muted"></p>
+
+<div id="toolArea">
+
+<label for="toolTopic" data-t="topic">SIJÈ / KESYON</label>
+<input id="toolTopic" placeholder="Ekri sijè ou la...">
+
+<div id="extraFields">
+<label for="toolDetails" data-t="details">DETAY</label>
+<textarea id="toolDetails" placeholder="Ajoute plis enfòmasyon..."></textarea>
+</div>
+
+<div id="dateFields" class="grid grid2" hidden>
+<div>
+<label for="toolDate" data-t="date">DAT</label>
+<input id="toolDate" type="date">
+</div>
+<div>
+<label for="toolTime" data-t="time">LÈ</label>
+<input id="toolTime" type="time">
+</div>
+</div>
+
+<div id="translationFields" hidden>
+<label for="translationPair" data-t="languages">LANG</label>
+<select id="translationPair">
+<option value="ht-fr">KRE → FRAN</option>
+<option value="ht-en">KRE → ENG</option>
+<option value="fr-ht">FRAN → KRE</option>
+<option value="en-ht">ENG → KRE</option>
+</select>
+</div>
+
+<div class="buttons">
+<button id="runTool" class="btn" data-t="generate">JENERE / REPONN</button>
+<button id="speakTool" class="btn btn2" data-t="read">LI AK VWA</button>
+<button id="stopSpeech" class="btn btn2" data-t="stop">SISPANN VWA</button>
+<button id="copyTool" class="btn btn2" data-t="copy">KOPYE</button>
+</div>
+
+<div id="toolOutput" class="output" aria-live="polite"></div>
+<p id="toolStatus" class="status" role="status"></p>
+
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- CUSTOMER SERVICE -->
-<section class="section" id="service">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">CUSTOMER SERVICE CENTER</div>
-      <h2 data-t="serviceTitle">SANT ASISTANS KLIYAN</h2>
-      <p data-t="serviceDesc">Yon espas akèy, oryantasyon ak kontak pou tout vizitè platfòm nan.</p>
-    </div>
-    <div class="customer-grid">
-      <div class="card">
-        <video
-          class="avatar-video"
-          id="avatarVideo"
-          controls
-          playsinline
-          preload="metadata"
-          poster="./briyant-soley-signo-1815.jpg"
-          aria-label="Customer service avatar video">
-        </video>
-        <p id="avatarStatus" class="muted" role="status" aria-live="polite"></p>
-        <button class="btn" type="button" id="playAvatar" data-t="playAvatar">▶ JWE VIDEYO AVATAR</button>
-      </div>
-      <div>
-        <div class="kicker">BSS1815 PRO-MAX DMP</div>
-        <h2>PROF AVATAR</h2>
-        <p data-t="serviceBody">
-          Customer Service Center la pèmèt vizitè yo dekouvri sèvis platfòm nan epi jwenn ekip BSS1815 la pi fasil.
-        </p>
-        <div class="button-row">
-          <a class="btn" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer">WHATSAPP SUPPORT</a>
-          <a class="btn btn-outline" href="mailto:bss1815promaxdmp@gmail.com">EMAIL SUPPORT</a>
-          <a class="btn btn-outline" href="#contact" data-t="contactUs">KONTAKTE NOU</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ================= CUSTOMER SERVICE ================= -->
+
+<section id="customer">
+<div class="container">
+
+<div class="eyebrow">CUSTOMER ASSISTANCE CENTER</div>
+<h2 data-t="serviceTitle">PROF AVATAR — SÈVIS KLIYAN</h2>
+
+<div class="grid grid2">
+
+<div class="card">
+<video id="customerVideo" class="avatarVideo" controls playsinline
+preload="metadata" poster="./briyant-soley-signo-1815.jpg"></video>
+
+<p id="customerVideoStatus" class="status" role="status"></p>
+
+<div class="buttons">
+<button class="btn" id="playCustomer">▶ JWE VIDEYO</button>
+<button class="btn btn2" id="restartCustomer">↻ REKÒMANSE</button>
+</div>
+</div>
+
+<div class="card">
+<div class="eyebrow">BSS1815 PRO-MAX DMP</div>
+<h2>PROF AVATAR</h2>
+
+<p data-t="serviceText">
+Sant asistans pou oryante vizitè yo sou pwojè,
+modil, sèvis ak enfòmasyon kominote BSS1815 la.
+</p>
+
+<div class="buttons">
+<a class="btn" href="https://wa.me/50943437488"
+target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-whatsapp"></i> WHATSAPP SUPPORT
+</a>
+
+<a class="btn btn2" href="mailto:bss1815promaxdmp@gmail.com">
+EMAIL SUPPORT
+</a>
+
+<a class="btn btn2" href="#contact" data-t="contactUs">
+KONTAKTE NOU
+</a>
+</div>
+
+</div>
+</div>
+</div>
 </section>
 
-<!-- RADIO -->
-<section class="section" id="fm">
-  <div class="container">
-    <div class="card">
-      <div class="eyebrow">LA FORCE DU SON</div>
-      <h2>PRO-MAX FM 106.5 FM</h2>
-      <p data-t="fmDesc">Radyo kominote a — mizik, enfòmasyon, kilti, amizman ak yon vwa ki rasanble nou.</p>
-      <a class="btn" href="./pro-max-fm/index.html" data-t="enterFM">ANTRE NAN RADYO A</a>
-    </div>
-  </div>
+<!-- ================= RADIO ================= -->
+
+<section id="fm">
+<div class="container">
+<div class="card">
+
+<div class="eyebrow">LA FORCE DU SON</div>
+<h2>PRO-MAX FM 106.5 FM</h2>
+
+<p data-t="radioText">
+Radyo kominote a — mizik, nouvèl, kilti, amizman ak yon vwa ki rasanble nou.
+</p>
+
+<a id="fmLink" class="btn" href="#fm" hidden>
+<i class="fa-solid fa-radio"></i> ENTER PRO-MAX FM 106.5 FM
+</a>
+
+<p id="fmStatus" class="status">
+Ap verifye paj radyo a...
+</p>
+
+</div>
+</div>
 </section>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">BSS1815 • CONTACT CENTER</div>
-      <h2 data-t="contactTitle">KONTAK & REZO SOSYAL</h2>
-      <p data-t="contactDesc">Rete konekte ak kominote Briyant Solèy Signo 1815 la.</p>
-    </div>
+<!-- ================= CONTACT ================= -->
 
-    <div class="contact-grid">
-      <div class="card">
-        <h3>UNITED STATES</h3>
-        <a class="phone-link" href="tel:+14076405166">(407) 640-5166</a>
-        <a class="phone-link" href="tel:+13175381150">(317) 538-1150</a>
-      </div>
-      <div class="card">
-        <h3>HAITI</h3>
-        <a class="phone-link" href="tel:+50942544447">+509 4254 4447</a>
-        <a class="phone-link" href="tel:+50943437488">+509 4343 7488</a>
-      </div>
-    </div>
+<section id="contact">
+<div class="container">
 
-    <div class="card" style="margin-top:18px">
-      <h3>EMAIL & WEBSITE</h3>
-      <p><a href="mailto:bss1815promaxdmp@gmail.com">bss1815promaxdmp@gmail.com</a></p>
-      <p><a href="https://bss1815promaxdmp.com" target="_blank" rel="noopener noreferrer">bss1815promaxdmp.com</a></p>
-    </div>
+<div class="eyebrow">BSS1815 • CONTACT CENTER</div>
+<h2 data-t="contactTitle">KONTAK & REZO SOSYAL</h2>
 
-    <h2 style="margin-top:45px" data-t="socialTitle">10 REZO SOSYAL OFISYÈL</h2>
-    <div class="social-grid">
-      <a class="social-link" href="https://facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer"><span class="social-icon">f</span>Facebook</a>
-      <a class="social-link" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer"><span class="social-icon">WA</span>WhatsApp</a>
-      <a class="social-link" href="https://tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer"><span class="social-icon">♪</span>TikTok</a>
-      <a class="social-link" href="https://instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer"><span class="social-icon">◎</span>Instagram</a>
-      <a class="social-link" href="https://t.me/bss1815dmp" target="_blank" rel="noopener noreferrer"><span class="social-icon">✈</span>Telegram</a>
-      <a class="social-link" href="https://youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer"><span class="social-icon">▶</span>YouTube</a>
-      <a class="social-link" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer"><span class="social-icon">♫</span>Spotify</a>
-      <a class="social-link" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer"><span class="social-icon">𝕏</span>X / Twitter</a>
-      <a class="social-link" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer"><span class="social-icon">T</span>Truth Social</a>
-      <a class="social-link" href="https://linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer"><span class="social-icon">in</span>LinkedIn</a>
-    </div>
-  </div>
+<div class="grid grid2">
+
+<div class="card contactPhones">
+<h3>UNITED STATES</h3>
+<a href="tel:+14076405166">(407) 640-5166</a>
+<a href="tel:+13175381150">(317) 538-1150</a>
+</div>
+
+<div class="card contactPhones">
+<h3>HAITI</h3>
+<a href="tel:+50942544447">+509 4254 4447</a>
+<a href="tel:+50943437488">+509 4343 7488</a>
+</div>
+
+</div>
+
+<div class="card" style="margin-top:18px">
+<h3>EMAIL & WEBSITE</h3>
+<p>
+<a href="mailto:bss1815promaxdmp@gmail.com">
+bss1815promaxdmp@gmail.com
+</a>
+</p>
+<p>
+<a href="https://bss1815pro-maxdmp.com" target="_blank" rel="noopener noreferrer">
+bss1815pro-maxdmp.com
+</a>
+</p>
+</div>
+
+<h2 style="margin-top:45px" data-t="socialTitle">
+10 REZO SOSYAL
+</h2>
+
+<div class="socialGrid">
+
+<a class="social facebook" href="https://facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-facebook-f"></i></span>
+Facebook
+</a>
+
+<a class="social whatsapp" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-whatsapp"></i></span>
+WhatsApp
+</a>
+
+<a class="social tiktok" href="https://tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-tiktok"></i></span>
+TikTok
+</a>
+
+<a class="social instagram" href="https://instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-instagram"></i></span>
+Instagram
+</a>
+
+<a class="social telegram" href="https://t.me/bss1815dmp" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-telegram"></i></span>
+Telegram
+</a>
+
+<a class="social youtube" href="https://youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-youtube"></i></span>
+YouTube
+</a>
+
+<a class="social spotify" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-spotify"></i></span>
+Spotify
+</a>
+
+<a class="social twitter" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-x-twitter"></i></span>
+X / Twitter
+</a>
+
+<a class="social truth" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon">T</span>
+Truth Social
+</a>
+
+<a class="social linkedin" href="https://linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer">
+<span class="socialIcon"><i class="fa-brands fa-linkedin-in"></i></span>
+LinkedIn
+</a>
+
+</div>
+
+</div>
 </section>
 
 </main>
 
 <footer>
-  <strong>BRIYANT SOLÈY SIGNO 1815</strong>
-  <p>DEVAN DEVAN NÈT • BATI POU JODI A, PARE POU DEMEN</p>
-  <div class="footer-tag">© 2026 BSS1815 PRO-MAX DMP • ALL RIGHTS RESERVED</div>
-  <p><a href="mailto:bss1815promaxdmp@gmail.com">bss1815promaxdmp@gmail.com</a></p>
+<strong>BRIYANT SOLÈY SIGNO 1815</strong>
+<p>DEVAN DEVAN NÈT • BATI POU JODI A, PARE POU DEMEN</p>
+<p>© 2026 BSS1815 PRO-MAX DMP</p>
+<a href="mailto:bss1815promaxdmp@gmail.com">bss1815promaxdmp@gmail.com</a>
 </footer>
 
 <script>
 "use strict";
 
-/* =========================================================
-   BSS1815 — MULTILINGUAL HOMEPAGE
-   ========================================================= */
+const $=id=>document.getElementById(id);
 
-const $ = selector => document.querySelector(selector);
+/* ================= LANGUAGES ================= */
 
-const TEXT = {
+let LANG="ht";
+
+const WORDS={
 ht:{
- navAbout:"ISTWA",navProjects:"PWOJÈ",navCommunity:"KOMINOTE",
- navAI:"AI CENTER",navService:"SÈVIS",navContact:"KONTAK",
- heroTag:"PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI",
- heroLead:"YON VIZYON. YON VWA. YON KOMINOTE.",
- heroText:"Yon espas pou eritaj, solidarite, inovasyon ak avansman kominote a.",
- heroGallery:"DEKOUVRI KOMINOTE A",
- statHeritage:"ERITAJ",statProjects:"GWO PWOJÈ",
- statMedia:"MEDYA NAN LIS LA",statSocial:"REZO SOSYAL",
- aboutTitle:"ERITAJ NOU. IDANTITE NOU. AVNI NOU.",
- aboutH1:"KIYÈS NOU YE?",
- aboutP1:"Briyant Solèy Signo 1815 se yon kominote ki gen rasin li nan Signo, Léogâne, Ayiti. Nou mete kilti, istwa, inite ak solidarite an valè.",
- aboutH2:"VIZYON NOU",
- aboutP2:"Rasanble talan ak kapasite kominote a pou bati yon avni miyò, gras ak teknoloji, kominikasyon, edikasyon ak sèvis.",
- projectsTitle:"YON SÈL PLATFÒM. SENK GWO PWOJÈ.",
- projectsIntro:"Yon ekosistèm dijital ki konekte kominote, medya, sèvis, edikasyon ak inovasyon.",
- projectBSS:"Istwa, solidarite, kilti ak lavi kominote a.",
- projectFM:"Radyo, mizik, nouvèl ak pwogram kominotè.",
- projectMaximax:"Sèvis pwofesyonèl ak asistans dijital.",
- projectAcademy:"Fòmasyon, konesans ak devlopman konpetans.",
- projectDDN:"Teknoloji, entèlijans ak inovasyon.",
- galleryTitle:"KOMINOTE A AN FOTO AK VIDEYO",
- galleryDesc:"Yon koleksyon imaj ak videyo ki reprezante moun, talan ak pwojè Briyant Solèy Signo 1815.",
- galleryLoading:"Slideshow kominote a ap prepare.",
- galleryHelp:"Slideshow la itilize fichye ki nan lis la. Li chèche yo nan dosye prensipal la ak dosye medya yo.",
- previous:"◀ ANVAN",pause:"⏸ POZ",resume:"▶ REPRANN",
- next:"APRE ▶",soundOn:"AKTIVE SON",soundOff:"FÈMEN SON",
- aiIntro:"Sant zouti dijital pou enfòmasyon, redaksyon, tradiksyon, vwa, script radyo ak planifikasyon.",
- tabAssistant:"ASISTAN",tabWriter:"EKRIVEN",tabTranslator:"TRADIKSYON",
- tabVoice:"VWA",tabRadio:"SCRIPT FM",tabPlanner:"PLANIFIKASYON",
- assistantTitle:"ASISTAN KOMINOTE BSS1815",
- assistantDesc:"Jwenn enfòmasyon lokal sou kominote a ak sèvis ki sou platfòm nan.",
- quickContact:"KONTAK",quickRadio:"RADYO",quickAcademy:"AKADÉMIE",
- quickCommunity:"KOMINOTE",askPlaceholder:"Ekri kesyon ou la...",
- send:"VOYE",readReply:"LI REPONS LAN",clear:"EFASÈ",
- writerTitle:"SANT REDAKSYON",
- writerDesc:"Prepare modèl lèt, anons, flyer ak mesaj kominotè.",
- documentType:"TIP DOKIMAN",letter:"LÈT",announcement:"ANONS",
- message:"MESAJ",topic:"SIJÈ",topicPlaceholder:"Ekri sijè ou vle prepare a...",
- generate:"PREPARE DOKIMAN",copy:"KOPYE",
- translatorTitle:"SANT TRADIKSYON",
- translatorDesc:"Tradiksyon lokal pou fraz kominotè ki nan diksyonè a.",
- languages:"LANG",translatePlaceholder:"Ekri yon fraz...",translate:"TRADWI",
- voiceTitle:"SANT VWA",
- voiceDesc:"Koute yon tèks ak sentèz vwa ki disponib nan navigatè ou a.",
- voicePlaceholder:"Ekri tèks pou li...",playVoice:"▶ JWE VWA",
- stopVoice:"■ SISPANN",
- radioDesc:"Prepare modèl script pou anons, bilten nouvèl ak idantifikasyon radyo.",
- radioType:"TIP SCRIPT",news:"NOUVÈL",
- radioPlaceholder:"Sijè emisyon an",generateScript:"PREPARE SCRIPT",
- plannerTitle:"SANT PLANIFIKASYON",
- plannerDesc:"Prepare yon modèl rapèl pou aktivite, reyinyon oswa evènman.",
- activity:"AKTIVITE",activityPlaceholder:"Non aktivite a",
- date:"DAT",time:"LÈ",prepareReminder:"PREPARE RAPÈL",
- aiNotice:"Zouti sa yo fonksyone lokalman ak modèl/diksyonè. Pou repons AI jeneratif ak tradiksyon lib sou nenpòt tèks, yon backend AI sekirize nesesè.",
- serviceTitle:"SANT ASISTANS KLIYAN",
- serviceDesc:"Yon espas akèy, oryantasyon ak kontak pou tout vizitè platfòm nan.",
- serviceBody:"Customer Service Center la pèmèt vizitè yo dekouvri sèvis platfòm nan epi jwenn ekip BSS1815 la pi fasil.",
- playAvatar:"▶ JWE VIDEYO AVATAR",contactUs:"KONTAKTE NOU",
- fmDesc:"Radyo kominote a — mizik, enfòmasyon, kilti, amizman ak yon vwa ki rasanble nou.",
- enterFM:"ANTRE NAN RADYO A",
- contactTitle:"KONTAK & REZO SOSYAL",
- contactDesc:"Rete konekte ak kominote Briyant Solèy Signo 1815 la.",
- socialTitle:"10 REZO SOSYAL"
+about:"ISTWA",projects:"PWOJÈ",community:"KOMINOTE",
+contact:"KONTAK",
+official:"PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI",
+vision:"YON VIZYON. YON VWA. YON KOMINOTE.",
+heroText:"Yon platfòm ki konekte kominote, istwa, kilti, sèvis, edikasyon, teknoloji ak medya.",
+explore:"DEKOUVRI KOMINOTE A",
+heritage:"ERITAJ",majorProjects:"GWO PWOJÈ",
+photosVideos:"FOTO & VIDEYO",
+aboutTitle:"ERITAJ NOU. IDANTITE NOU. AVNI NOU.",
+who:"KIYÈS NOU YE?",
+whoText:"Briyant Solèy Signo 1815 se yon kominote ki gen rasin li nan Signo, Léogâne, Ayiti. Nou valorize kilti, istwa, inite ak solidarite.",
+ourVision:"VIZYON NOU",
+ourVisionText:"Rasanble talan ak kapasite kominote a pou bati yon avni miyò atravè teknoloji, kominikasyon, edikasyon ak sèvis.",
+onePlatform:"YON SÈL PLATFÒM • YON SÈL VIZYON",
+p1:"Istwa, kilti, eritaj ak lavi kominote a.",
+p2:"Radyo, mizik, nouvèl ak pwogram kominotè.",
+p3:"Sèvis pwofesyonèl ak asistans dijital.",
+p4:"Edikasyon, fòmasyon ak devlopman konpetans.",
+p5:"Teknoloji, entèlijans ak inovasyon.",
+galleryTitle:"KOMINOTE A AN FOTO AK VIDEYO",
+galleryText:"Yon koleksyon foto ak videyo moun, manm ak pwojè Briyant Solèy Signo 1815.",
+loading:"Slideshow ap chèche medya kominote a...",
+previous:"◀ ANVAN",pause:"⏸ POZ",resume:"▶ REPRANN",
+next:"APRE ▶",sound:"AKTIVE SON",mute:"FÈMEN SON",
+galleryNote:"Slideshow la chèche fichye ki nan lis la. Non ak kote fichye yo dwe koresponn ak sa ki sou GitHub.",
+aiVideoIntro:"Videyo prezantasyon AI Center BSS1815 la.",
+aiCenterDesc:"Sant zouti dijital pou kominote, kominikasyon, dokiman, tradiksyon, vwa, radyo, medya ak planifikasyon.",
+aiNotice:"Modil sa yo gen fonksyon lokal ak modèl dokiman. Yon koneksyon backend AI sekirize nesesè pou AI jeneratif konplè.",
+topic:"SIJÈ / KESYON",details:"DETAY",date:"DAT",
+time:"LÈ",languages:"LANG",generate:"JENERE / REPONN",
+read:"LI AK VWA",stop:"SISPANN VWA",copy:"KOPYE",
+serviceTitle:"PROF AVATAR — SÈVIS KLIYAN",
+serviceText:"Sant asistans pou oryante vizitè yo sou pwojè, modil, sèvis ak enfòmasyon kominote BSS1815 la.",
+contactUs:"KONTAKTE NOU",
+radioText:"Radyo kominote a — mizik, nouvèl, kilti, amizman ak yon vwa ki rasanble nou.",
+contactTitle:"KONTAK & REZO SOSYAL",
+socialTitle:"10 REZO SOSYAL"
 },
 en:{
- navAbout:"HISTORY",navProjects:"PROJECTS",navCommunity:"COMMUNITY",
- navAI:"AI CENTER",navService:"SERVICES",navContact:"CONTACT",
- heroTag:"OFFICIAL PLATFORM • SIGNO • LÉOGÂNE • HAITI",
- heroLead:"ONE VISION. ONE VOICE. ONE COMMUNITY.",
- heroText:"A home for heritage, solidarity, innovation and community progress.",
- heroGallery:"EXPLORE THE COMMUNITY",
- statHeritage:"HERITAGE",statProjects:"MAJOR PROJECTS",
- statMedia:"MEDIA IN THE LIST",statSocial:"SOCIAL NETWORKS",
- aboutTitle:"OUR HERITAGE. OUR IDENTITY. OUR FUTURE.",
- aboutH1:"WHO ARE WE?",
- aboutP1:"Briyant Solèy Signo 1815 is a community rooted in Signo, Léogâne, Haiti. We celebrate culture, history, unity and solidarity.",
- aboutH2:"OUR VISION",
- aboutP2:"Bring together community talent and resources to build a better future through technology, communication, education and services.",
- projectsTitle:"ONE PLATFORM. FIVE MAJOR PROJECTS.",
- projectsIntro:"A digital ecosystem connecting community, media, services, education and innovation.",
- projectBSS:"History, solidarity, culture and community life.",
- projectFM:"Radio, music, news and community programs.",
- projectMaximax:"Professional services and digital assistance.",
- projectAcademy:"Education, knowledge and skills development.",
- projectDDN:"Technology, intelligence and innovation.",
- galleryTitle:"OUR COMMUNITY IN PHOTOS AND VIDEOS",
- galleryDesc:"A collection of photos and videos celebrating the people, talents and projects of Briyant Solèy Signo 1815.",
- galleryLoading:"Preparing the community slideshow.",
- galleryHelp:"The slideshow uses the listed media files and searches the main folder and media folders.",
- previous:"◀ PREVIOUS",pause:"⏸ PAUSE",resume:"▶ RESUME",
- next:"NEXT ▶",soundOn:"ENABLE SOUND",soundOff:"MUTE",
- aiIntro:"Digital tools for information, writing, translation, voice, radio scripts and planning.",
- tabAssistant:"ASSISTANT",tabWriter:"WRITER",tabTranslator:"TRANSLATION",
- tabVoice:"VOICE",tabRadio:"FM SCRIPTS",tabPlanner:"PLANNING",
- assistantTitle:"BSS1815 COMMUNITY ASSISTANT",
- assistantDesc:"Find local information about the community and its platform services.",
- quickContact:"CONTACT",quickRadio:"RADIO",quickAcademy:"ACADEMY",
- quickCommunity:"COMMUNITY",askPlaceholder:"Type your question...",
- send:"SEND",readReply:"READ RESPONSE",clear:"CLEAR",
- writerTitle:"WRITING CENTER",
- writerDesc:"Prepare letter, announcement, flyer and community message templates.",
- documentType:"DOCUMENT TYPE",letter:"LETTER",announcement:"ANNOUNCEMENT",
- message:"MESSAGE",topic:"TOPIC",topicPlaceholder:"Enter your subject...",
- generate:"PREPARE DOCUMENT",copy:"COPY",
- translatorTitle:"TRANSLATION CENTER",
- translatorDesc:"Local translation of community phrases available in the dictionary.",
- languages:"LANGUAGES",translatePlaceholder:"Enter a sentence...",translate:"TRANSLATE",
- voiceTitle:"VOICE CENTER",
- voiceDesc:"Listen to text using speech synthesis available in your browser.",
- voicePlaceholder:"Enter text to read...",playVoice:"▶ PLAY VOICE",
- stopVoice:"■ STOP",
- radioDesc:"Prepare radio announcement, news bulletin and station identification templates.",
- radioType:"SCRIPT TYPE",news:"NEWS",
- radioPlaceholder:"Broadcast topic",generateScript:"PREPARE SCRIPT",
- plannerTitle:"PLANNING CENTER",
- plannerDesc:"Prepare reminder templates for activities, meetings and events.",
- activity:"ACTIVITY",activityPlaceholder:"Activity name",
- date:"DATE",time:"TIME",prepareReminder:"PREPARE REMINDER",
- aiNotice:"These tools use local templates and dictionaries. Open-ended generative AI and unrestricted translation require a secure AI backend.",
- serviceTitle:"CUSTOMER SERVICE CENTER",
- serviceDesc:"A welcome, guidance and contact center for platform visitors.",
- serviceBody:"The Customer Service Center helps visitors discover platform services and connect with the BSS1815 team.",
- playAvatar:"▶ PLAY AVATAR VIDEO",contactUs:"CONTACT US",
- fmDesc:"Community radio — music, information, culture, entertainment and a voice that brings us together.",
- enterFM:"ENTER THE RADIO",
- contactTitle:"CONTACT & SOCIAL MEDIA",
- contactDesc:"Stay connected with the Briyant Solèy Signo 1815 community.",
- socialTitle:"10 SOCIAL NETWORKS"
+about:"HISTORY",projects:"PROJECTS",community:"COMMUNITY",
+contact:"CONTACT",
+official:"OFFICIAL PLATFORM • SIGNO • LÉOGÂNE • HAITI",
+vision:"ONE VISION. ONE VOICE. ONE COMMUNITY.",
+heroText:"One platform connecting community, history, culture, services, education, technology and media.",
+explore:"EXPLORE THE COMMUNITY",
+heritage:"HERITAGE",majorProjects:"MAJOR PROJECTS",
+photosVideos:"PHOTOS & VIDEOS",
+aboutTitle:"OUR HERITAGE. OUR IDENTITY. OUR FUTURE.",
+who:"WHO ARE WE?",
+whoText:"Briyant Solèy Signo 1815 is a community rooted in Signo, Léogâne, Haiti. We celebrate culture, history, unity and solidarity.",
+ourVision:"OUR VISION",
+ourVisionText:"Bring together the talents and capabilities of our community to build a better future through technology, communication, education and services.",
+onePlatform:"ONE PLATFORM • ONE VISION",
+p1:"History, culture, heritage and community life.",
+p2:"Radio, music, news and community programs.",
+p3:"Professional services and digital assistance.",
+p4:"Education, training and skills development.",
+p5:"Technology, intelligence and innovation.",
+galleryTitle:"OUR COMMUNITY IN PHOTOS AND VIDEOS",
+galleryText:"A collection of photos and videos of the people, members and projects of Briyant Solèy Signo 1815.",
+loading:"Searching for community media...",
+previous:"◀ PREVIOUS",pause:"⏸ PAUSE",resume:"▶ RESUME",
+next:"NEXT ▶",sound:"ENABLE SOUND",mute:"MUTE",
+galleryNote:"The slideshow searches the listed files. File names and locations must match the GitHub repository.",
+aiVideoIntro:"BSS1815 AI Center presentation video.",
+aiCenterDesc:"Digital tools for community, communication, documents, translation, voice, radio, media and planning.",
+aiNotice:"These modules provide local tools and document templates. Full generative AI requires a secure AI backend.",
+topic:"TOPIC / QUESTION",details:"DETAILS",date:"DATE",
+time:"TIME",languages:"LANGUAGES",generate:"GENERATE / ANSWER",
+read:"READ ALOUD",stop:"STOP VOICE",copy:"COPY",
+serviceTitle:"PROF AVATAR — CUSTOMER SERVICE",
+serviceText:"A customer assistance center to guide visitors through BSS1815 projects, modules, services and information.",
+contactUs:"CONTACT US",
+radioText:"Community radio — music, news, culture, entertainment and a voice that brings us together.",
+contactTitle:"CONTACT & SOCIAL MEDIA",
+socialTitle:"10 SOCIAL NETWORKS"
 },
 fr:{
- navAbout:"HISTOIRE",navProjects:"PROJETS",navCommunity:"COMMUNAUTÉ",
- navAI:"AI CENTER",navService:"SERVICES",navContact:"CONTACT",
- heroTag:"PLATEFORME OFFICIELLE • SIGNO • LÉOGÂNE • HAÏTI",
- heroLead:"UNE VISION. UNE VOIX. UNE COMMUNAUTÉ.",
- heroText:"Un espace consacré à notre héritage, à la solidarité, à l'innovation et au progrès communautaire.",
- heroGallery:"DÉCOUVRIR LA COMMUNAUTÉ",
- statHeritage:"HÉRITAGE",statProjects:"GRANDS PROJETS",
- statMedia:"MÉDIAS DANS LA LISTE",statSocial:"RÉSEAUX SOCIAUX",
- aboutTitle:"NOTRE HÉRITAGE. NOTRE IDENTITÉ. NOTRE AVENIR.",
- aboutH1:"QUI SOMMES-NOUS ?",
- aboutP1:"Briyant Solèy Signo 1815 est une communauté enracinée à Signo, Léogâne, Haïti. Nous valorisons la culture, l'histoire, l'unité et la solidarité.",
- aboutH2:"NOTRE VISION",
- aboutP2:"Réunir les talents et les ressources de la communauté pour construire un avenir meilleur grâce à la technologie, à la communication, à l'éducation et aux services.",
- projectsTitle:"UNE PLATEFORME. CINQ GRANDS PROJETS.",
- projectsIntro:"Un écosystème numérique qui relie la communauté, les médias, les services, l'éducation et l'innovation.",
- projectBSS:"Histoire, solidarité, culture et vie communautaire.",
- projectFM:"Radio, musique, actualités et émissions communautaires.",
- projectMaximax:"Services professionnels et assistance numérique.",
- projectAcademy:"Éducation, connaissances et développement des compétences.",
- projectDDN:"Technologie, intelligence et innovation.",
- galleryTitle:"NOTRE COMMUNAUTÉ EN PHOTOS ET VIDÉOS",
- galleryDesc:"Une collection de photos et vidéos mettant en valeur les personnes, les talents et les projets de Briyant Solèy Signo 1815.",
- galleryLoading:"Préparation du diaporama communautaire.",
- galleryHelp:"Le diaporama utilise les médias de la liste et les recherche dans le dossier principal et les dossiers médias.",
- previous:"◀ PRÉCÉDENT",pause:"⏸ PAUSE",resume:"▶ REPRENDRE",
- next:"SUIVANT ▶",soundOn:"ACTIVER LE SON",soundOff:"COUPER LE SON",
- aiIntro:"Des outils numériques pour l'information, la rédaction, la traduction, la voix, les scripts radio et la planification.",
- tabAssistant:"ASSISTANT",tabWriter:"RÉDACTION",tabTranslator:"TRADUCTION",
- tabVoice:"VOIX",tabRadio:"SCRIPTS FM",tabPlanner:"PLANIFICATION",
- assistantTitle:"ASSISTANT COMMUNAUTAIRE BSS1815",
- assistantDesc:"Retrouvez des informations locales sur la communauté et les services de la plateforme.",
- quickContact:"CONTACT",quickRadio:"RADIO",quickAcademy:"ACADÉMIE",
- quickCommunity:"COMMUNAUTÉ",askPlaceholder:"Écrivez votre question...",
- send:"ENVOYER",readReply:"LIRE LA RÉPONSE",clear:"EFFACER",
- writerTitle:"CENTRE DE RÉDACTION",
- writerDesc:"Préparez des modèles de lettres, annonces, flyers et messages communautaires.",
- documentType:"TYPE DE DOCUMENT",letter:"LETTRE",announcement:"ANNONCE",
- message:"MESSAGE",topic:"SUJET",topicPlaceholder:"Indiquez votre sujet...",
- generate:"PRÉPARER LE DOCUMENT",copy:"COPIER",
- translatorTitle:"CENTRE DE TRADUCTION",
- translatorDesc:"Traduction locale des expressions communautaires présentes dans le dictionnaire.",
- languages:"LANGUES",translatePlaceholder:"Écrivez une phrase...",translate:"TRADUIRE",
- voiceTitle:"CENTRE VOCAL",
- voiceDesc:"Écoutez un texte grâce à la synthèse vocale disponible dans votre navigateur.",
- voicePlaceholder:"Écrivez un texte à lire...",playVoice:"▶ LIRE LE TEXTE",
- stopVoice:"■ ARRÊTER",
- radioDesc:"Préparez des modèles d'annonces, de bulletins d'information et d'identification de station.",
- radioType:"TYPE DE SCRIPT",news:"ACTUALITÉS",
- radioPlaceholder:"Sujet de l'émission",generateScript:"PRÉPARER LE SCRIPT",
- plannerTitle:"CENTRE DE PLANIFICATION",
- plannerDesc:"Préparez des modèles de rappels pour activités, réunions et événements.",
- activity:"ACTIVITÉ",activityPlaceholder:"Nom de l'activité",
- date:"DATE",time:"HEURE",prepareReminder:"PRÉPARER LE RAPPEL",
- aiNotice:"Ces outils utilisent des modèles et dictionnaires locaux. Une IA générative ouverte et une traduction illimitée nécessitent un backend IA sécurisé.",
- serviceTitle:"CENTRE DE SERVICE CLIENT",
- serviceDesc:"Un espace d'accueil, d'orientation et de contact pour les visiteurs.",
- serviceBody:"Le centre de service client permet aux visiteurs de découvrir les services de la plateforme et de contacter l'équipe BSS1815.",
- playAvatar:"▶ LIRE LA VIDÉO AVATAR",contactUs:"NOUS CONTACTER",
- fmDesc:"La radio de la communauté — musique, information, culture, divertissement et une voix qui nous rassemble.",
- enterFM:"ACCÉDER À LA RADIO",
- contactTitle:"CONTACT & RÉSEAUX SOCIAUX",
- contactDesc:"Restez en contact avec la communauté Briyant Solèy Signo 1815.",
- socialTitle:"10 RÉSEAUX SOCIAUX"
+about:"HISTOIRE",projects:"PROJETS",community:"COMMUNAUTÉ",
+contact:"CONTACT",
+official:"PLATEFORME OFFICIELLE • SIGNO • LÉOGÂNE • HAÏTI",
+vision:"UNE VISION. UNE VOIX. UNE COMMUNAUTÉ.",
+heroText:"Une plateforme réunissant communauté, histoire, culture, services, éducation, technologie et médias.",
+explore:"DÉCOUVRIR LA COMMUNAUTÉ",
+heritage:"HÉRITAGE",majorProjects:"GRANDS PROJETS",
+photosVideos:"PHOTOS & VIDÉOS",
+aboutTitle:"NOTRE HÉRITAGE. NOTRE IDENTITÉ. NOTRE AVENIR.",
+who:"QUI SOMMES-NOUS ?",
+whoText:"Briyant Solèy Signo 1815 est une communauté enracinée à Signo, Léogâne, Haïti. Nous valorisons la culture, l'histoire, l'unité et la solidarité.",
+ourVision:"NOTRE VISION",
+ourVisionText:"Réunir les talents et les capacités de la communauté pour construire un avenir meilleur par la technologie, la communication, l'éducation et les services.",
+onePlatform:"UNE PLATEFORME • UNE VISION",
+p1:"Histoire, culture, héritage et vie communautaire.",
+p2:"Radio, musique, actualités et programmes communautaires.",
+p3:"Services professionnels et assistance numérique.",
+p4:"Éducation, formation et développement des compétences.",
+p5:"Technologie, intelligence et innovation.",
+galleryTitle:"NOTRE COMMUNAUTÉ EN PHOTOS ET VIDÉOS",
+galleryText:"Une collection de photos et vidéos des personnes, membres et projets de Briyant Solèy Signo 1815.",
+loading:"Recherche des médias communautaires...",
+previous:"◀ PRÉCÉDENT",pause:"⏸ PAUSE",resume:"▶ REPRENDRE",
+next:"SUIVANT ▶",sound:"ACTIVER LE SON",mute:"COUPER LE SON",
+galleryNote:"Le diaporama recherche les fichiers répertoriés. Les noms et emplacements doivent correspondre au dépôt GitHub.",
+aiVideoIntro:"Vidéo de présentation du centre IA BSS1815.",
+aiCenterDesc:"Des outils numériques pour la communauté, la communication, les documents, la traduction, la voix, la radio, les médias et la planification.",
+aiNotice:"Ces modules proposent des outils locaux et des modèles de documents. Une IA générative complète nécessite un backend sécurisé.",
+topic:"SUJET / QUESTION",details:"DÉTAILS",date:"DATE",
+time:"HEURE",languages:"LANGUES",generate:"GÉNÉRER / RÉPONDRE",
+read:"LIRE À VOIX HAUTE",stop:"ARRÊTER LA VOIX",copy:"COPIER",
+serviceTitle:"PROF AVATAR — SERVICE CLIENT",
+serviceText:"Un centre d'assistance pour guider les visiteurs parmi les projets, modules, services et informations BSS1815.",
+contactUs:"NOUS CONTACTER",
+radioText:"La radio communautaire — musique, actualités, culture, divertissement et une voix qui nous rassemble.",
+contactTitle:"CONTACT & RÉSEAUX SOCIAUX",
+socialTitle:"10 RÉSEAUX SOCIAUX"
 }
 };
 
-let lang="ht";
-let lastReply="";
-let lastMediaName="";
+function txt(ht,en,fr){
+return {ht,en,fr}[LANG];
+}
 
-function tr(key){
-  return TEXT[lang]?.[key] || TEXT.ht[key] || key;
+function setLang(lang){
+if(!WORDS[lang])return;
+LANG=lang;
+document.documentElement.lang=lang;
+document.querySelectorAll("[data-t]").forEach(el=>{
+const key=el.dataset.t;
+if(WORDS[lang][key])el.textContent=WORDS[lang][key];
+});
+document.querySelectorAll("[data-lang]").forEach(b=>{
+b.classList.toggle("active",b.dataset.lang===lang);
+});
+updateGalleryButtons();
+selectModule(activeModule);
 }
-function messageByLang(ht,en,fr){
-  return {ht,en,fr}[lang];
-}
-function setLang(nextLang){
-  if(!TEXT[nextLang])return;
-  lang=nextLang;
-  document.documentElement.lang=nextLang;
-  document.querySelectorAll("[data-t]").forEach(el=>{
-    el.textContent=tr(el.dataset.t);
-  });
-  document.querySelectorAll("[data-ph]").forEach(el=>{
-    el.placeholder=tr(el.dataset.ph);
-  });
-  document.querySelectorAll("[data-lang]").forEach(btn=>{
-    const selected=btn.dataset.lang===lang;
-    btn.classList.toggle("active",selected);
-    btn.setAttribute("aria-pressed",String(selected));
-  });
-  updateGalleryButtons();
-}
+
 document.querySelectorAll("[data-lang]").forEach(btn=>{
-  btn.addEventListener("click",()=>setLang(btn.dataset.lang));
+btn.addEventListener("click",()=>setLang(btn.dataset.lang));
 });
 
-/* =========================================================
-   ORIGINAL COMMUNITY GALLERY — FILE NAMES PRESERVED
-   ========================================================= */
+/* ================= LOGO ================= */
+
+document.querySelectorAll("[data-logo]").forEach(img=>{
+function fallback(){
+img.hidden=true;
+const next=img.nextElementSibling;
+if(next&&next.classList.contains("logoFallback"))next.hidden=false;
+}
+img.addEventListener("error",fallback);
+if(img.complete&&!img.naturalWidth)fallback();
+});
+
+/* ================= SLIDESHOW MEDIA ================= */
 
 const GALLERY=[
 "bss.jpg","maa.jpg","max.jpg","alèt.jpg","andy.jpg","dèdè.jpg",
@@ -1258,7 +1164,7 @@ const GALLERY=[
 "leader.mp4","bss1815pro-max-ap-bati.mp4"
 ];
 
-const BASES=[
+const FOLDERS=[
 "./",
 "./assets/slideshow/",
 "./assets/",
@@ -1267,612 +1173,630 @@ const BASES=[
 "./photos/"
 ];
 
+const slideImage=$("slideImage");
+const slideVideo=$("slideVideo");
+const slideEmpty=$("slideEmpty");
+
 let slideIndex=0;
-let slideDirection=1;
-let autoplay=true;
+let galleryPlaying=true;
 let galleryMuted=true;
-let galleryTimer=null;
-let loadToken=0;
-let consecutiveMissing=0;
+let slideTimer=null;
+let slideRequest=0;
+let missingCount=0;
+let direction=1;
 
-const slideImage=$("#slideImage");
-const slideVideo=$("#slideVideo");
-const slideEmpty=$("#slideEmpty");
+$("mediaCount").textContent=GALLERY.length;
 
-function videoFile(name){
-  return /\.(mp4|webm|mov)$/i.test(name);
+function isVideo(name){
+return /\.(mp4|webm|mov)$/i.test(name);
 }
-function galleryMessage(text){
-  $("#slideStatus").textContent=text;
+
+function stopSlideTimer(){
+clearTimeout(slideTimer);
+slideTimer=null;
 }
-function galleryCounter(){
-  $("#slideCounter").textContent=
-    `${slideIndex+1} / ${GALLERY.length}`;
-  $("#galleryProgress").style.width=
-    `${(slideIndex+1)/GALLERY.length*100}%`;
+
+function galleryStatus(text){
+$("galleryStatus").textContent=text;
 }
+
 function updateGalleryButtons(){
-  $("#pauseSlide").textContent=autoplay?tr("pause"):tr("resume");
-  $("#soundSlide").textContent=galleryMuted?tr("soundOn"):tr("soundOff");
-  $("#pauseSlide").setAttribute("aria-pressed",String(!autoplay));
-  $("#soundSlide").setAttribute("aria-pressed",String(!galleryMuted));
-}
-function clearGalleryTimer(){
-  if(galleryTimer!==null){
-    clearTimeout(galleryTimer);
-    galleryTimer=null;
-  }
-}
-function scheduleNext(){
-  clearGalleryTimer();
-  if(autoplay){
-    galleryTimer=setTimeout(()=>showSlide(slideIndex+1,false),8500);
-  }
-}
-function displayGalleryEmpty(text){
-  slideImage.hidden=true;
-  slideVideo.pause();
-  slideVideo.hidden=true;
-  slideEmpty.hidden=false;
-  slideEmpty.textContent=text;
-  galleryMessage(text);
-}
-function showSlide(i,resetMissing=true){
-  if(!GALLERY.length)return;
-  clearGalleryTimer();
-  slideVideo.pause();
-  loadToken++;
-  if(resetMissing)consecutiveMissing=0;
-  slideIndex=(i%GALLERY.length+GALLERY.length)%GALLERY.length;
-  galleryCounter();
-
-  const name=GALLERY[slideIndex];
-  lastMediaName=name;
-  galleryMessage(messageByLang(
-    "Ap chèche: ","Loading: ","Chargement : "
-  )+name);
-
-  loadGalleryCandidate(name,0,loadToken);
+$("pause").textContent=galleryPlaying?WORDS[LANG].pause:WORDS[LANG].resume;
+$("sound").textContent=galleryMuted?WORDS[LANG].sound:WORDS[LANG].mute;
 }
 
-function galleryNotFound(name){
-  consecutiveMissing++;
-  if(consecutiveMissing>=12){
-    autoplay=false;
-    updateGalleryButtons();
-    displayGalleryEmpty(messageByLang(
-      "Plizyè medya pa jwenn. Verifye non fichye yo ak kote yo ye. Itilize bouton APRE pou kontinye.",
-      "Several media files were not found. Check their names and folders. Use NEXT to continue.",
-      "Plusieurs médias sont introuvables. Vérifiez leurs noms et dossiers. Utilisez SUIVANT pour continuer."
-    ));
-    return;
-  }
-  showSlide(slideIndex+slideDirection,false);
+function scheduleSlide(){
+stopSlideTimer();
+if(galleryPlaying){
+slideTimer=setTimeout(()=>showSlide(slideIndex+1,false),8500);
+}
 }
 
-function loadGalleryCandidate(name,baseIndex,token){
-  if(token!==loadToken)return;
-  if(baseIndex>=BASES.length){
-    galleryNotFound(name);
-    return;
-  }
-
-  const path=BASES[baseIndex]+encodeURI(name);
-
-  if(videoFile(name)){
-    slideVideo.onloadedmetadata=()=>{
-      if(token!==loadToken)return;
-      consecutiveMissing=0;
-      slideImage.hidden=true;
-      slideEmpty.hidden=true;
-      slideVideo.hidden=false;
-      slideVideo.muted=galleryMuted;
-      galleryMessage(name);
-
-      if(autoplay){
-        slideVideo.play().catch(()=>{
-          galleryMessage(messageByLang(
-            "Videyo pare. Peze Play pou jwe li: ",
-            "Video ready. Press Play: ",
-            "Vidéo prête. Appuyez sur Lecture : "
-          )+name);
-        });
-      }
-    };
-    slideVideo.onerror=()=>{
-      if(token===loadToken){
-        loadGalleryCandidate(name,baseIndex+1,token);
-      }
-    };
-    slideVideo.src=path;
-    slideVideo.load();
-  }else{
-    const preview=new Image();
-    preview.onload=()=>{
-      if(token!==loadToken)return;
-      consecutiveMissing=0;
-      slideVideo.pause();
-      slideVideo.hidden=true;
-      slideImage.src=path;
-      slideImage.alt="BSS1815 Community — "+name;
-      slideImage.hidden=false;
-      slideEmpty.hidden=true;
-      galleryMessage(name);
-      scheduleNext();
-    };
-    preview.onerror=()=>{
-      if(token===loadToken){
-        loadGalleryCandidate(name,baseIndex+1,token);
-      }
-    };
-    preview.src=path;
-  }
+function missingMedia(){
+missingCount++;
+if(missingCount>=GALLERY.length){
+galleryPlaying=false;
+stopSlideTimer();
+slideImage.hidden=true;
+slideVideo.pause();
+slideVideo.hidden=true;
+slideEmpty.hidden=false;
+slideEmpty.textContent=txt(
+"Okenn nan fichye medya ki nan lis la pa jwenn. Verifye chemen ak non fichye yo sou GitHub.",
+"No listed media files were found. Check file names and paths on GitHub.",
+"Aucun média répertorié n'a été trouvé. Vérifiez les fichiers et chemins sur GitHub."
+);
+updateGalleryButtons();
+return;
 }
+showSlide(slideIndex+direction,false);
+}
+
+function loadSlide(name,folderIndex,request){
+if(request!==slideRequest)return;
+
+if(folderIndex>=FOLDERS.length){
+missingMedia();
+return;
+}
+
+const path=FOLDERS[folderIndex]+encodeURI(name);
+
+if(isVideo(name)){
+let finished=false;
+const watchdog=setTimeout(()=>{
+if(!finished&&request===slideRequest){
+finished=true;
+loadSlide(name,folderIndex+1,request);
+}
+},12000);
+
+slideVideo.onloadedmetadata=()=>{
+if(request!==slideRequest||finished)return;
+finished=true;
+clearTimeout(watchdog);
+missingCount=0;
+slideImage.hidden=true;
+slideEmpty.hidden=true;
+slideVideo.hidden=false;
+slideVideo.muted=galleryMuted;
+galleryStatus(name);
+if(galleryPlaying)slideVideo.play().catch(()=>{});
+};
+
+slideVideo.onerror=()=>{
+if(request!==slideRequest||finished)return;
+finished=true;
+clearTimeout(watchdog);
+loadSlide(name,folderIndex+1,request);
+};
+
+slideVideo.src=path;
+slideVideo.load();
+
+}else{
+const image=new Image();
+image.onload=()=>{
+if(request!==slideRequest)return;
+missingCount=0;
+slideVideo.pause();
+slideVideo.hidden=true;
+slideImage.src=path;
+slideImage.alt="BSS1815 — "+name;
+slideImage.hidden=false;
+slideEmpty.hidden=true;
+galleryStatus(name);
+scheduleSlide();
+};
+image.onerror=()=>{
+if(request!==slideRequest)return;
+loadSlide(name,folderIndex+1,request);
+};
+image.src=path;
+}
+}
+
+function showSlide(i,reset=true){
+stopSlideTimer();
+slideVideo.pause();
+slideRequest++;
+
+if(reset)missingCount=0;
+
+slideIndex=(i+GALLERY.length)%GALLERY.length;
+const name=GALLERY[slideIndex];
+
+$("counter").textContent=(slideIndex+1)+" / "+GALLERY.length;
+$("progress").style.width=((slideIndex+1)/GALLERY.length*100)+"%";
+galleryStatus("Ap chèche: "+name);
+
+loadSlide(name,0,slideRequest);
+}
+
+$("previous").addEventListener("click",()=>{
+direction=-1;
+showSlide(slideIndex-1);
+});
+
+$("next").addEventListener("click",()=>{
+direction=1;
+showSlide(slideIndex+1);
+});
+
+$("pause").addEventListener("click",()=>{
+galleryPlaying=!galleryPlaying;
+updateGalleryButtons();
+
+if(!galleryPlaying){
+stopSlideTimer();
+slideVideo.pause();
+}else if(!slideVideo.hidden){
+slideVideo.play().catch(()=>{});
+}else if(!slideImage.hidden){
+scheduleSlide();
+}else{
+showSlide(slideIndex);
+}
+});
+
+$("sound").addEventListener("click",()=>{
+galleryMuted=!galleryMuted;
+slideVideo.muted=galleryMuted;
+updateGalleryButtons();
+});
 
 slideVideo.addEventListener("ended",()=>{
-  if(autoplay)showSlide(slideIndex+1,false);
-});
-$("#prevSlide").addEventListener("click",()=>{
-  slideDirection=-1;
-  showSlide(slideIndex-1);
-});
-$("#nextSlide").addEventListener("click",()=>{
-  slideDirection=1;
-  showSlide(slideIndex+1);
-});
-$("#pauseSlide").addEventListener("click",()=>{
-  autoplay=!autoplay;
-  updateGalleryButtons();
-  if(!autoplay){
-    clearGalleryTimer();
-    slideVideo.pause();
-  }else if(!slideVideo.hidden){
-    slideVideo.play().catch(()=>{});
-  }else if(!slideImage.hidden){
-    scheduleNext();
-  }
-});
-$("#soundSlide").addEventListener("click",()=>{
-  galleryMuted=!galleryMuted;
-  slideVideo.muted=galleryMuted;
-  updateGalleryButtons();
+if(galleryPlaying)showSlide(slideIndex+1,false);
 });
 
-/* =========================================================
-   CUSTOMER SERVICE AVATAR VIDEO
-   ========================================================= */
+/* ================= AVATAR VIDEO LOADER ================= */
 
-const AVATAR_PATHS=[
+function setupAvatar(videoId,statusId,buttonId,paths){
+const video=$(videoId);
+const status=$(statusId);
+const button=$(buttonId);
+let pos=0;
+let ready=false;
+
+function load(){
+if(pos>=paths.length){
+status.textContent="VIDEO NOT FOUND — "+paths[0];
+return;
+}
+video.src=paths[pos];
+video.load();
+}
+
+video.addEventListener("loadedmetadata",()=>{
+ready=true;
+status.textContent="VIDEO READY";
+});
+
+video.addEventListener("error",()=>{
+if(ready)return;
+pos++;
+load();
+});
+
+button.addEventListener("click",()=>{
+if(!ready){load();return;}
+video.play().catch(()=>{
+status.textContent="Press Play directly on the video.";
+});
+});
+
+load();
+
+return {video,load};
+}
+
+const aiAvatar=setupAvatar(
+"aiVideo",
+"aiVideoStatus",
+"playAI",
+[
+"./max-louis-le-baron.mp4",
+"./assets/max-louis-le-baron.mp4",
+"./assets/video/max-louis-le-baron.mp4",
+"./media/max-louis-le-baron.mp4"
+]
+);
+
+const customerAvatar=setupAvatar(
+"customerVideo",
+"customerVideoStatus",
+"playCustomer",
+[
 "./video-prof-avatar.mp4",
 "./assets/video-prof-avatar.mp4",
-"./assets/slideshow/video-prof-avatar.mp4"
+"./assets/slideshow/video-prof-avatar.mp4",
+"./media/video-prof-avatar.mp4"
+]
+);
+
+$("restartCustomer").addEventListener("click",()=>{
+customerAvatar.video.currentTime=0;
+customerAvatar.video.play().catch(()=>{});
+});
+
+/* ================= 12 AI MODULES ================= */
+
+const MODULES={
+assistant:{
+name:"AI ASSISTANT",
+description:"Enfòmasyon lokal sou BSS1815, kontak, akademi, radyo ak kominote."
+},
+writer:{
+name:"WRITER AI",
+description:"Modèl lèt, anons, flyer ak mesaj pwofesyonèl."
+},
+translator:{
+name:"TRANSLATION AI",
+description:"Tradiksyon fraz kominotè nan diksyonè lokal la."
+},
+voice:{
+name:"VOICE AI",
+description:"Sentèz vwa navigatè a pou li tèks ou ekri."
+},
+radio:{
+name:"RADIO SCRIPT AI",
+description:"Prepare script pou PRO-MAX FM 106.5 FM."
+},
+planner:{
+name:"PLANNER AI",
+description:"Prepare rapèl ak plan aktivite."
+},
+communication:{
+name:"COMMUNICATION AI",
+description:"Modèl kominikasyon ak lèt pou manm kominote a."
+},
+documents:{
+name:"DOCUMENT AI",
+description:"Prepare fich dokiman ak enfòmasyon pou verifye."
+},
+media:{
+name:"MEDIA AI",
+description:"Prepare plan pwodiksyon medya, video ak foto."
+},
+archive:{
+name:"ARCHIVE AI",
+description:"Prepare fich klasman ak achiv."
+},
+events:{
+name:"EVENT AI",
+description:"Prepare envitasyon ak plan evènman."
+},
+community:{
+name:"COMMUNITY AI",
+description:"Prepare mesaj, anons ak pwopozisyon pou kominote a."
+}
+};
+
+let activeModule="assistant";
+let lastOutput="";
+
+function selectModule(mode){
+if(!MODULES[mode])return;
+
+activeModule=mode;
+$("toolTitle").textContent=MODULES[mode].name;
+$("toolDescription").textContent=MODULES[mode].description;
+
+document.querySelectorAll(".module").forEach(button=>{
+button.classList.toggle("active",button.dataset.mode===mode);
+});
+
+$("dateFields").hidden=mode!=="planner";
+$("translationFields").hidden=mode!=="translator";
+
+$("extraFields").hidden=[
+"assistant","translator","voice","planner"
+].includes(mode);
+
+$("toolTopic").placeholder=
+mode==="assistant"?"Poze kesyon ou la...":
+mode==="translator"?"Ekri fraz pou tradwi...":
+mode==="voice"?"Ekri tèks pou vwa a...":
+"Ekri sijè ou la...";
+
+$("toolOutput").textContent="";
+$("toolStatus").textContent="";
+lastOutput="";
+}
+
+document.querySelectorAll(".module").forEach(button=>{
+button.addEventListener("click",()=>{
+selectModule(button.dataset.mode);
+});
+});
+
+/* Local informational assistant */
+
+function normalizeText(text){
+return text.toLowerCase().normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"");
+}
+
+function getAssistantAnswer(question){
+const q=normalizeText(question);
+
+if(/kontak|contact|telefon|telephone|phone|email/.test(q)){
+return "BSS1815 CONTACT\nUSA: (407) 640-5166 / (317) 538-1150\nHAITI: +509 4254 4447 / +509 4343 7488\nEMAIL: bss1815promaxdmp@gmail.com";
+}
+if(/radio|radyo|106|fm/.test(q)){
+return "PRO-MAX FM 106.5 FM — LA FORCE DU SON. Radyo kominote a.";
+}
+if(/akadem|academy|ecole|school|fomasyon|formation/.test(q)){
+return "PRO-MAX ACADÉMIE — pwojè edikasyon ak fòmasyon BSS1815 PRO-MAX DMP.";
+}
+if(/signo|kominote|community|leogane|istwa|histoire/.test(q)){
+return "BRIYANT SOLÈY SIGNO 1815 se yon kominote ki gen rasin li nan Signo, Léogâne, Ayiti.";
+}
+if(/maximax|immigration|tax|notary|insurance/.test(q)){
+return "MAXIMAX MULTI SERVICES — youn nan pwojè sèvis pwofesyonèl platfòm BSS1815 PRO-MAX DMP la.";
+}
+return txt(
+"Mwen pa jwenn yon repons verifye nan baz lokal sa a. Kontakte ekip BSS1815 la pou plis detay.",
+"I could not find a verified answer in this local knowledge base. Contact BSS1815 for details.",
+"Je n'ai pas trouvé de réponse vérifiée dans cette base locale. Contactez l'équipe BSS1815."
+);
+}
+
+/* Local phrase dictionary */
+
+const DICTIONARY=[
+["Bonjou","Hello","Bonjour"],
+["Bonswa","Good evening","Bonsoir"],
+["Mèsi","Thank you","Merci"],
+["Byenveni","Welcome","Bienvenue"],
+["Inite","Unity","Unité"],
+["Kilti","Culture","Culture"],
+["Fyète","Pride","Fierté"],
+["Kominote","Community","Communauté"],
+["Yon vwa ki rasanble nou","A voice that brings us together","Une voix qui nous rassemble"],
+["Bati pou jodi a, pare pou demen","Build for today, ready for tomorrow","Construire pour aujourd'hui, prêts pour demain"]
 ];
 
-let avatarPathIndex=0;
-let avatarReady=false;
-const avatarVideo=$("#avatarVideo");
+function translateLocal(text){
+const pair=$("translationPair").value.split("-");
+const pos={ht:0,en:1,fr:2};
+const clean=s=>normalizeText(s).replace(/[.!?]+$/,"").trim();
+const row=DICTIONARY.find(r=>clean(r[pos[pair[0]]])===clean(text));
 
-function loadAvatar(){
-  if(avatarPathIndex>=AVATAR_PATHS.length){
-    $("#avatarStatus").textContent=messageByLang(
-      "Videyo a pa jwenn. Verifye kote video-prof-avatar.mp4 ye.",
-      "Avatar video not found. Check the video-prof-avatar.mp4 file.",
-      "Vidéo introuvable. Vérifiez le fichier video-prof-avatar.mp4."
-    );
-    return;
-  }
-  avatarVideo.src=AVATAR_PATHS[avatarPathIndex];
-  avatarVideo.load();
+return row?row[pos[pair[1]]]:txt(
+"Fraz la pa nan diksyonè lokal la. Yon sèvis tradiksyon sekirize nesesè pou tradiksyon lib.",
+"Phrase not available in the local dictionary. Open-ended translation requires a secure service.",
+"Expression absente du dictionnaire local. Une traduction libre nécessite un service sécurisé."
+);
 }
 
-avatarVideo.addEventListener("loadedmetadata",()=>{
-  avatarReady=true;
-  $("#avatarStatus").textContent="CUSTOMER SERVICE VIDEO • READY";
-});
-avatarVideo.addEventListener("error",()=>{
-  if(avatarReady)return;
-  avatarPathIndex++;
-  loadAvatar();
-});
-$("#playAvatar").addEventListener("click",()=>{
-  if(!avatarReady){
-    loadAvatar();
-    return;
-  }
-  avatarVideo.play().catch(()=>{
-    $("#avatarStatus").textContent=
-      "Peze Play dirèkteman sou videyo a.";
-  });
-});
+/* Shared module generator */
 
-/* =========================================================
-   AI CENTER — LOCAL INFORMATION ASSISTANT
-   ========================================================= */
+function generateModule(){
+const topic=$("toolTopic").value.trim();
+const details=$("toolDetails").value.trim();
+const mode=activeModule;
 
-function normalize(s){
-  return String(s).toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"");
+if(!topic){
+$("toolStatus").textContent=txt(
+"Ekri yon sijè oswa yon kesyon.",
+"Enter a topic or question.",
+"Indiquez un sujet ou une question."
+);
+return;
 }
-function addMessage(role,text){
-  const div=document.createElement("div");
-  div.className="chat-msg "+role;
-  div.textContent=text;
-  $("#chatHistory").appendChild(div);
-  $("#chatHistory").scrollTop=$("#chatHistory").scrollHeight;
+
+const today=new Date().toLocaleDateString();
+
+const outputs={
+assistant:()=>getAssistantAnswer(topic),
+
+writer:()=>`BRIYANT SOLÈY SIGNO 1815
+MODÈL DOKIMAN
+
+Sijè: ${topic}
+
+Bonjou,
+
+Nou ekri mesaj sa a pou pataje enfòmasyon konsènan ${topic}.
+
+${details||"[Ajoute detay dokiman an isit la.]"}
+
+Avèk respè,
+BSS1815 PRO-MAX DMP
+bss1815promaxdmp@gmail.com`,
+
+translator:()=>translateLocal(topic),
+
+voice:()=>topic,
+
+radio:()=>`PRO-MAX FM 106.5 FM
+LA FORCE DU SON
+
+Bonjou tout oditè nou yo.
+
+Sijè emisyon an: ${topic}
+
+${details||"[Mete detay ki verifye yo isit la.]"}
+
+Rete konekte ak PRO-MAX FM 106.5 FM.
+Yon vwa ki rasanble nou.`,
+
+planner:()=>`BSS1815 — RAPÈL
+
+AKTIVITE: ${topic}
+DAT: ${$("toolDate").value||"Pou konfime"}
+LÈ: ${$("toolTime").value||"Pou konfime"}
+
+Tanpri prepare nou pou aktivite sa a.
+
+NÒT: Modèl sa a pa pwograme yon rapèl otomatikman.`,
+
+communication:()=>`BSS1815 — COMMUNICATION CENTER
+
+Sijè: ${topic}
+
+Bonjou,
+
+Nou pataje enfòmasyon sa a avèk manm kominote a:
+
+${details||"[Ranpli mesaj ou a isit la.]"}
+
+Mèsi pou kolaborasyon nou.
+DEVAN DEVAN NÈT.`,
+
+documents:()=>`BSS1815 — DOCUMENT CENTER
+
+TIT: ${topic}
+DAT: ${today}
+
+DESKRIPSYON:
+${details||"[Ajoute enfòmasyon dokiman an.]"}
+
+VERIFIKASYON:
+[ ] Dat
+[ ] Responsab
+[ ] Dokiman sipò
+[ ] Apwobasyon`,
+
+media:()=>`BSS1815 — MEDIA STUDIO
+
+PWOJÈ: ${topic}
+
+KONSÈP:
+${details||"[Dekri sèn, foto oswa videyo ou vle prepare a.]"}
+
+IDENTITE VIZYÈL:
+ORANGE APRICOT + BLACK FADE
+LOGO: briyant-soley-signo-1815.jpg
+
+VERIFIKASYON:
+Dwa sou foto, videyo ak otorizasyon.`,
+
+archive:()=>`BSS1815 — ARCHIVE CENTER
+
+NON: ${topic}
+DAT: ${today}
+
+DETAY:
+${details||"[Ajoute deskripsyon achiv la.]"}
+
+ESTATI: POU KLASE
+
+NÒT: Sa se yon fich achiv, li pa sove fichye sou sèvè.`,
+
+events:()=>`BSS1815 — EVENT CENTER
+
+EVÈNMAN: ${topic}
+
+DETAY:
+${details||"[Ajoute dat, lè, kote ak objektif evènman an.]"}
+
+Nou envite tout manm ki konsène yo patisipe.
+
+BRIYANT SOLÈY SIGNO 1815.`,
+
+community:()=>`BSS1815 — COMMUNITY CENTER
+
+SIJÈ: ${topic}
+
+MESAJ:
+${details||"[Ajoute mesaj kominotè ou a.]"}
+
+Ansanm nou ka fè plis.
+
+DEVAN DEVAN NÈT.
+BATI POU JODI A, PARE POU DEMEN.`
+};
+
+lastOutput=outputs[mode]();
+$("toolOutput").textContent=lastOutput;
+$("toolStatus").textContent="BSS1815 • "+MODULES[mode].name;
 }
-function assistantAnswer(question){
-  const q=normalize(question);
 
-  if(/kontak|contact|phone|telefon|telephone|numero|email|adres/.test(q)){
-    return messageByLang(
-      "KONTAK BSS1815:\nUSA: (407) 640-5166 / (317) 538-1150\nAYITI: +509 4254 4447 / +509 4343 7488\nEmail: bss1815promaxdmp@gmail.com",
-      "BSS1815 CONTACT:\nUSA: (407) 640-5166 / (317) 538-1150\nHAITI: +509 4254 4447 / +509 4343 7488\nEmail: bss1815promaxdmp@gmail.com",
-      "CONTACT BSS1815 :\nUSA : (407) 640-5166 / (317) 538-1150\nHAÏTI : +509 4254 4447 / +509 4343 7488\nEmail : bss1815promaxdmp@gmail.com"
-    );
-  }
-  if(/\b(fm|radyo|radio|106)\b/.test(q)){
-    return messageByLang(
-      "PRO-MAX FM 106.5 FM se radyo kominote a. Ou ka jwenn seksyon radyo a sou homepage la.",
-      "PRO-MAX FM 106.5 FM is the community radio station. Visit the radio section on this homepage.",
-      "PRO-MAX FM 106.5 FM est la radio communautaire. Consultez la section radio de cette page."
-    );
-  }
-  if(/akadem|academy|ecole|school|kou\b|cours|formation|fomasyon/.test(q)){
-    return messageByLang(
-      "PRO-MAX ACADÉMIE se pwojè fòmasyon ak edikasyon nan ekosistèm BSS1815 PRO-MAX DMP.",
-      "PRO-MAX ACADÉMIE is the education and training project within BSS1815 PRO-MAX DMP.",
-      "PRO-MAX ACADÉMIE est le projet de formation et d'éducation de BSS1815 PRO-MAX DMP."
-    );
-  }
-  if(/kominote|community|communaute|signo|leogane|heritage|istwa|histoire/.test(q)){
-    return messageByLang(
-      "Briyant Solèy Signo 1815 se yon kominote ki gen rasin li Signo, Léogâne, Ayiti. Li mete istwa, kilti ak solidarite an valè.",
-      "Briyant Solèy Signo 1815 is a community rooted in Signo, Léogâne, Haiti, celebrating history, culture and solidarity.",
-      "Briyant Solèy Signo 1815 est une communauté originaire de Signo, Léogâne, Haïti, qui valorise l'histoire, la culture et la solidarité."
-    );
-  }
-  if(/foto|photo|video|slideshow|gallery|galerie/.test(q)){
-    return messageByLang(
-      "Slideshow kominote a gen yon lis foto ak videyo. Li sèvi ak fichye medya yo mete sou sit la.",
-      "The community slideshow uses a list of photos and videos uploaded with the website.",
-      "Le diaporama communautaire utilise une liste de photos et vidéos présentes sur le site."
-    );
-  }
-  if(/maximax|notary|immigration|tax|insurance|service/.test(q)){
-    return messageByLang(
-      "MAXIMAX MULTI SERVICES se youn nan pwojè sèvis pwofesyonèl platfòm BSS1815 PRO-MAX DMP la.",
-      "MAXIMAX MULTI SERVICES is one of the professional service projects within BSS1815 PRO-MAX DMP.",
-      "MAXIMAX MULTI SERVICES est l'un des projets de services professionnels de BSS1815 PRO-MAX DMP."
-    );
-  }
-  if(/logo|briyant/.test(q)){
-    return "BRIYANT SOLÈY SIGNO 1815 — briyant-soley-signo-1815.jpg";
-  }
-  if(/bonjou|hello|bonjour|salut|hi\b/.test(q)){
-    return messageByLang(
-      "Bonjou! Byenveni nan Briyant Solèy Signo 1815. Ou ka mande m enfòmasyon sou kominote, kontak, radyo ak akademi.",
-      "Hello! Welcome to Briyant Solèy Signo 1815. Ask about the community, contacts, radio or academy.",
-      "Bonjour ! Bienvenue à Briyant Solèy Signo 1815. Posez vos questions sur la communauté, les contacts, la radio ou l'académie."
-    );
-  }
-  return messageByLang(
-    "Mwen pa gen enfòmasyon verifye pou kesyon sa a nan baz lokal la. Pou plis detay, kontakte ekip BSS1815 la nan bss1815promaxdmp@gmail.com.",
-    "I don't have verified information about that question in the local knowledge base. Please contact bss1815promaxdmp@gmail.com.",
-    "Je ne dispose pas d'informations vérifiées pour cette question dans la base locale. Contactez bss1815promaxdmp@gmail.com."
-  );
+$("runTool").addEventListener("click",generateModule);
+
+/* Text-to-speech from browser */
+
+function speak(text){
+if(!text)return;
+
+if(!("speechSynthesis" in window)){
+$("toolStatus").textContent="Speech synthesis unavailable.";
+return;
 }
-function sendChat(question){
-  const q=(question||$("#chatInput").value).trim();
-  if(!q)return;
-  addMessage("user",q);
-  lastReply=assistantAnswer(q);
-  addMessage("assistant",lastReply);
-  $("#chatInput").value="";
+
+window.speechSynthesis.cancel();
+const utterance=new SpeechSynthesisUtterance(text);
+utterance.lang={ht:"ht-HT",en:"en-US",fr:"fr-FR"}[LANG];
+utterance.rate=.95;
+window.speechSynthesis.speak(utterance);
 }
-$("#sendChat").addEventListener("click",()=>sendChat());
-$("#chatInput").addEventListener("keydown",e=>{
-  if(e.key==="Enter"&&!e.shiftKey){
-    e.preventDefault();
-    sendChat();
-  }
-});
-$("#readReply").addEventListener("click",()=>{
-  speakText(lastReply);
-});
-$("#clearChat").addEventListener("click",()=>{
-  $("#chatHistory").textContent="";
-  lastReply="";
-});
-document.querySelectorAll("[data-question]").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    const phrases={
-      contact:{ht:"Kontak BSS1815",en:"BSS1815 contact",fr:"Contact BSS1815"},
-      radio:{ht:"Radyo PRO-MAX FM 106.5 FM",en:"PRO-MAX FM 106.5 FM radio",fr:"Radio PRO-MAX FM 106.5 FM"},
-      academy:{ht:"Akademi",en:"Academy",fr:"Académie"},
-      community:{ht:"Kominote Signo",en:"Signo community",fr:"Communauté Signo"}
-    };
-    sendChat(phrases[btn.dataset.question][lang]);
-  });
+
+$("speakTool").addEventListener("click",()=>{
+speak(lastOutput||$("toolTopic").value.trim());
 });
 
-/* =========================================================
-   WRITER — DOCUMENT TEMPLATES
-   ========================================================= */
+$("stopSpeech").addEventListener("click",()=>{
+if("speechSynthesis" in window)window.speechSynthesis.cancel();
+});
 
-function generateDocument(){
-  const subject=$("#writerTopic").value.trim();
-  const kind=$("#writerKind").value;
-  const out=$("#writerOutput");
-  if(!subject){
-    out.textContent=messageByLang(
-      "Tanpri ekri sijè a.",
-      "Please enter a subject.",
-      "Veuillez indiquer un sujet."
-    );
-    return;
-  }
-
-  const title={
-    letter:{ht:"LÈT OFISYÈL",en:"OFFICIAL LETTER",fr:"LETTRE OFFICIELLE"},
-    announcement:{ht:"ANONS OFISYÈL",en:"OFFICIAL ANNOUNCEMENT",fr:"ANNONCE OFFICIELLE"},
-    flyer:{ht:"FLYER KOMINOTÈ",en:"COMMUNITY FLYER",fr:"FLYER COMMUNAUTAIRE"},
-    message:{ht:"MESAJ KOMINOTÈ",en:"COMMUNITY MESSAGE",fr:"MESSAGE COMMUNAUTAIRE"}
-  }[kind][lang];
-
-  let body="";
-  if(kind==="letter"){
-    body=messageByLang(
-      `Pou: [Destinatè]\nSijè: ${subject}\n\nBonjou,\n\nNou ekri w nan non Briyant Solèy Signo 1815 konsènan ${subject}.\n\nNou ta renmen jwenn kolaborasyon ou epi pataje plis enfòmasyon sou sijè sa a.\n\nAvèk respè,\nBRIYANT SOLÈY SIGNO 1815`,
-      `To: [Recipient]\nSubject: ${subject}\n\nDear Sir/Madam,\n\nOn behalf of Briyant Solèy Signo 1815, we are writing regarding ${subject}.\n\nWe welcome your cooperation and the opportunity to provide further information.\n\nSincerely,\nBRIYANT SOLÈY SIGNO 1815`,
-      `À : [Destinataire]\nObjet : ${subject}\n\nMadame, Monsieur,\n\nAu nom de Briyant Solèy Signo 1815, nous vous écrivons au sujet de ${subject}.\n\nNous souhaitons votre collaboration et restons disponibles pour de plus amples informations.\n\nCordialement,\nBRIYANT SOLÈY SIGNO 1815`
-    );
-  }else if(kind==="announcement"){
-    body=messageByLang(
-      `ATANSYON KOMINOTE A!\n\nBRIYANT SOLÈY SIGNO 1815 anonse:\n${subject}\n\nPou plis enfòmasyon, kontakte ekip la.\nDEVAN DEVAN NÈT.`,
-      `ATTENTION COMMUNITY!\n\nBRIYANT SOLÈY SIGNO 1815 announces:\n${subject}\n\nFor more information, contact our team.`,
-      `AVIS À LA COMMUNAUTÉ !\n\nBRIYANT SOLÈY SIGNO 1815 annonce :\n${subject}\n\nPour plus d'informations, contactez notre équipe.`
-    );
-  }else if(kind==="flyer"){
-    body=`BRIYANT SOLÈY SIGNO 1815\n\n${subject.toUpperCase()}\n\nBSS1815 PRO-MAX DMP\nUSA: (407) 640-5166\nHAITI: +509 4343 7488\nbss1815promaxdmp@gmail.com`;
-  }else{
-    body=messageByLang(
-      `Bonjou tout manm kominote Briyant Solèy Signo 1815.\n\nNou vle pataje mesaj sa a avèk nou: ${subject}.\n\nAnsanm, n ap kontinye avanse.\nDEVAN DEVAN NÈT.`,
-      `Hello to the entire Briyant Solèy Signo 1815 community.\n\nWe would like to share this message: ${subject}.\n\nTogether, we continue moving forward.`,
-      `Bonjour à tous les membres de Briyant Solèy Signo 1815.\n\nNous souhaitons partager ce message : ${subject}.\n\nEnsemble, continuons à avancer.`
-    );
-  }
-  out.textContent=title+"\n\n"+body;
+$("copyTool").addEventListener("click",async()=>{
+if(!lastOutput)return;
+try{
+await navigator.clipboard.writeText(lastOutput);
+$("toolStatus").textContent=txt("Kopye!","Copied!","Copié !");
+}catch(e){
+$("toolStatus").textContent=txt(
+"Kopi otomatik pa disponib. Seleksyone tèks la.",
+"Automatic copy unavailable. Select the text.",
+"Copie automatique indisponible. Sélectionnez le texte."
+);
 }
-$("#generateWriter").addEventListener("click",generateDocument);
+});
 
-/* =========================================================
-   TRANSLATOR — VERIFIED LOCAL PHRASE DICTIONARY
-   ========================================================= */
+/* ================= FM LINK — AVOID BLANK 404 ================= */
 
-const PHRASES=[
-  ["Bonjou","Hello","Bonjour"],
-  ["Bonswa","Good evening","Bonsoir"],
-  ["Mèsi","Thank you","Merci"],
-  ["Byenveni","Welcome","Bienvenue"],
-  ["Inite","Unity","Unité"],
-  ["Kilti","Culture","Culture"],
-  ["Fyète","Pride","Fierté"],
-  ["Kominote","Community","Communauté"],
-  ["Nou ansanm","We are together","Nous sommes ensemble"],
-  ["Bati pou jodi a, pare pou demen",
-   "Build for today, ready for tomorrow",
-   "Construire pour aujourd'hui, prêts pour demain"],
-  ["Yon vwa ki rasanble nou",
-   "A voice that brings us together",
-   "Une voix qui nous rassemble"],
-  ["Bonjou bonswa tande nou se renmen nou",
-   "Listening to one another is already an act of love",
-   "Écoutons-nous, c'est déjà nous aimer"]
+async function verifyRadioPage(){
+const candidates=[
+"./pro-max-fm/index.html",
+"./pro-max-fm/live.html",
+"./pages/live.html"
 ];
-function translateLocal(){
-  const input=$("#translateInput").value.trim();
-  const pair=$("#translatePair").value.split("-");
-  const out=$("#translateOutput");
-  if(!input){out.textContent="";return;}
 
-  const index={ht:0,en:1,fr:2};
-  const source=index[pair[0]];
-  const target=index[pair[1]];
-  const clean=s=>normalize(s).replace(/[.!?]+$/,"").trim();
+for(const path of candidates){
+try{
+const response=await fetch(path,{method:"GET",cache:"no-store"});
+if(!response.ok)continue;
 
-  const found=PHRASES.find(row=>clean(row[source])===clean(input));
-  if(found){
-    out.textContent=found[target];
-  }else{
-    out.textContent=messageByLang(
-      "Fraz sa a pa nan diksyonè lokal la. Tradiksyon lib mande yon sèvis AI/tradiksyon sekirize.",
-      "This phrase is not in the local dictionary. Open-ended translation requires a secure translation service.",
-      "Cette expression ne figure pas dans le dictionnaire local. Une traduction libre nécessite un service sécurisé."
-    );
-  }
+const contentType=response.headers.get("content-type")||"";
+if(!contentType.includes("text/html"))continue;
+
+const html=await response.text();
+if(!/PRO.MAX|RADIO|RADIOKING|106\.5/i.test(html))continue;
+
+$("fmLink").href=path;
+$("fmLink").hidden=false;
+$("fmStatus").textContent="PRO-MAX FM 106.5 FM — PAGE AVAILABLE";
+return;
+}catch(e){}
 }
-$("#translateButton").addEventListener("click",translateLocal);
 
-/* =========================================================
-   BROWSER SPEECH / VOICE
-   ========================================================= */
-
-function speakText(text){
-  if(!text||!text.trim())return;
-  if(!("speechSynthesis" in window)){
-    $("#voiceStatus").textContent=messageByLang(
-      "Navigatè sa a pa sipòte sentèz vwa.",
-      "Speech synthesis is not supported by this browser.",
-      "La synthèse vocale n'est pas disponible sur ce navigateur."
-    );
-    return;
-  }
-  window.speechSynthesis.cancel();
-  const utterance=new SpeechSynthesisUtterance(text);
-  utterance.lang={ht:"ht-HT",en:"en-US",fr:"fr-FR"}[lang];
-  utterance.rate=.95;
-  utterance.pitch=1;
-  utterance.onend=()=>{$("#voiceStatus").textContent="";};
-  utterance.onerror=()=>{
-    $("#voiceStatus").textContent=messageByLang(
-      "Vwa sa a pa disponib sou aparèy la.",
-      "This voice is not available on your device.",
-      "Cette voix n'est pas disponible sur votre appareil."
-    );
-  };
-  window.speechSynthesis.speak(utterance);
+$("fmStatus").textContent=txt(
+"Chemen paj radyo a poko konfime nan depo GitHub sa a. Pou evite yon paj 404, bouton an rete fèmen.",
+"The radio page location is not confirmed in this GitHub repository. The link is disabled to avoid a 404.",
+"L'emplacement de la page radio n'est pas confirmé dans ce dépôt. Le lien reste désactivé pour éviter une erreur 404."
+);
 }
-$("#startVoice").addEventListener("click",()=>{
-  speakText($("#voiceText").value);
-});
-$("#stopVoice").addEventListener("click",()=>{
-  if("speechSynthesis" in window)window.speechSynthesis.cancel();
-  $("#voiceStatus").textContent="";
-});
 
-/* =========================================================
-   RADIO SCRIPT GENERATOR
-   ========================================================= */
-
-function generateRadio(){
-  const kind=$("#radioKind").value;
-  const topic=$("#radioTopic").value.trim();
-  const out=$("#radioOutput");
-
-  if(kind!=="station"&&!topic){
-    out.textContent=messageByLang(
-      "Antre sijè script la.",
-      "Enter the script topic.",
-      "Indiquez le sujet du script."
-    );
-    return;
-  }
-
-  if(kind==="station"){
-    out.textContent=messageByLang(
-      "PRO-MAX FM 106.5 FM — LA FORCE DU SON.\nYon vwa ki rasanble nou.\nMizik, nouvèl, kilti ak plis ankò.\nPRO-MAX FM 106.5 FM.",
-      "PRO-MAX FM 106.5 FM — THE POWER OF SOUND.\nA voice that brings us together.\nMusic, news, culture and more.\nPRO-MAX FM 106.5 FM.",
-      "PRO-MAX FM 106.5 FM — LA FORCE DU SON.\nUne voix qui nous rassemble.\nInformation, nouvelles, divertissement, et plus encore.\nPRO-MAX FM 106.5 FM."
-    );
-  }else if(kind==="news"){
-    out.textContent=messageByLang(
-      `PRO-MAX FM 106.5 FM — BILTEN NOUVÈL\n\nBonjou tout oditè nou yo.\n\nSijè jodi a: ${topic}.\n\n[Ajoute enfòmasyon ki verifye yo isit la.]\n[Ajoute sous ak dat yo.]\n\nSe te bilten nouvèl PRO-MAX FM 106.5 FM.`,
-      `PRO-MAX FM 106.5 FM — NEWS BULLETIN\n\nHello to our listeners.\n\nToday's subject: ${topic}.\n\n[Insert verified facts here.]\n[Include sources and dates.]\n\nPRO-MAX FM 106.5 FM.`,
-      `PRO-MAX FM 106.5 FM — BULLETIN D'INFORMATION\n\nBonjour à tous nos auditeurs.\n\nSujet du jour : ${topic}.\n\n[Insérer les faits vérifiés.]\n[Ajouter les sources et les dates.]\n\nPRO-MAX FM 106.5 FM.`
-    );
-  }else{
-    out.textContent=messageByLang(
-      `PRO-MAX FM 106.5 FM\n\nAtansyon, atansyon!\nNou gen yon anons pou kominote a.\n\n${topic}\n\nPou plis enfòmasyon, kontakte ekip la.\nPRO-MAX FM 106.5 FM — LA FORCE DU SON.`,
-      `PRO-MAX FM 106.5 FM\n\nAttention, listeners!\nWe have a community announcement.\n\n${topic}\n\nFor further details, contact our team.\nPRO-MAX FM 106.5 FM.`,
-      `PRO-MAX FM 106.5 FM\n\nAttention, chers auditeurs !\nVoici une annonce pour la communauté.\n\n${topic}\n\nPour plus d'informations, contactez notre équipe.\nPRO-MAX FM 106.5 FM — LA FORCE DU SON.`
-    );
-  }
-}
-$("#generateRadio").addEventListener("click",generateRadio);
-
-/* =========================================================
-   PLANNING / REMINDER TEMPLATE
-   ========================================================= */
-
-function generatePlan(){
-  const title=$("#planTopic").value.trim();
-  const date=$("#planDate").value;
-  const time=$("#planTime").value;
-  if(!title){
-    $("#planOutput").textContent=messageByLang(
-      "Ekri non aktivite a.",
-      "Enter the activity name.",
-      "Indiquez le nom de l'activité."
-    );
-    return;
-  }
-
-  $("#planOutput").textContent=messageByLang(
-    `RAPÈL BSS1815\n\nAktivite: ${title}\nDat: ${date||"Pou konfime"}\nLè: ${time||"Pou konfime"}\n\nTanpri prepare nou pou aktivite sa a.\nBRIYANT SOLÈY SIGNO 1815\n\nNÒT: Modèl sa a pa voye rapèl otomatikman.`,
-    `BSS1815 REMINDER\n\nActivity: ${title}\nDate: ${date||"To be confirmed"}\nTime: ${time||"To be confirmed"}\n\nPlease prepare for this activity.\nBRIYANT SOLÈY SIGNO 1815\n\nNOTE: This template does not send automatic reminders.`,
-    `RAPPEL BSS1815\n\nActivité : ${title}\nDate : ${date||"À confirmer"}\nHeure : ${time||"À confirmer"}\n\nMerci de vous préparer pour cette activité.\nBRIYANT SOLÈY SIGNO 1815\n\nNOTE : Ce modèle n'envoie pas de rappels automatiques.`
-  );
-}
-$("#generatePlan").addEventListener("click",generatePlan);
-
-/* =========================================================
-   AI CENTER TABS
-   ========================================================= */
-
-document.querySelectorAll("[data-panel]").forEach(button=>{
-  button.addEventListener("click",()=>{
-    const selected=button.dataset.panel;
-    document.querySelectorAll("[data-panel]").forEach(tab=>{
-      const active=tab.dataset.panel===selected;
-      tab.classList.toggle("active",active);
-      tab.setAttribute("aria-selected",String(active));
-    });
-    document.querySelectorAll(".ai-panel").forEach(panel=>{
-      panel.hidden=panel.id!=="panel-"+selected;
-    });
-  });
-});
-
-/* =========================================================
-   COPY OUTPUT — SAFE TEXT COPY
-   ========================================================= */
-
-document.querySelectorAll("[data-copy]").forEach(button=>{
-  button.addEventListener("click",async()=>{
-    const id=button.dataset.copy;
-    const text=document.getElementById(id)?.textContent||"";
-    if(!text.trim())return;
-    try{
-      await navigator.clipboard.writeText(text);
-      $("#copyStatus").textContent=messageByLang(
-        "Tèks la kopye.",
-        "Text copied.",
-        "Texte copié."
-      );
-    }catch(error){
-      $("#copyStatus").textContent=messageByLang(
-        "Kopi otomatik pa disponib. Seleksyone tèks la pou kopye li.",
-        "Automatic copy is unavailable. Select the text to copy it.",
-        "Copie automatique indisponible. Sélectionnez le texte pour le copier."
-      );
-    }
-  });
-});
-
-/* =========================================================
-   LOGO FALLBACK
-   ========================================================= */
-
-document.querySelectorAll(".brand-image").forEach(img=>{
-  const showFallback=()=>{
-    img.hidden=true;
-    const fallback=img.nextElementSibling;
-    if(fallback&&fallback.classList.contains("logo-fallback")){
-      fallback.hidden=false;
-    }
-  };
-  img.addEventListener("error",showFallback);
-  if(img.complete&&img.naturalWidth===0)showFallback();
-});
-
-/* =========================================================
-   INITIALIZATION
-   ========================================================= */
+/* ================= START ================= */
 
 setLang("ht");
-$("#chatHistory").textContent="";
-lastReply="Bonjou! Mwen se asistan enfòmasyon lokal BSS1815 la.";
-addMessage("assistant",lastReply);
-
-document.querySelectorAll("[data-t='statMedia']").forEach(el=>{
-  // The label translates normally; the figure comes from the actual list.
-});
-document.querySelector(".stat:nth-child(3) strong").textContent=GALLERY.length;
-
+selectModule("assistant");
 showSlide(0);
-loadAvatar();
+verifyRadioPage();
 
 </script>
+
 </body>
 </html>
