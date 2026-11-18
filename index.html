@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ht" translate="no">
 <head>
@@ -7,11 +8,23 @@
 <meta name="google" content="notranslate">
 <meta name="description" content="BRIYANT SOLÈY SIGNO 1815 — BSS1815 PRO-MAX DMP">
 <title>BRIYANT SOLÈY SIGNO 1815 | BSS1815 PRO-MAX DMP</title>
+
 <style>
-:root{ --orange:#ff8c00; --apricot:#ffc087; --black:#050200; --dark:#1b0a02; --border:#a64c12; }
+:root{
+ --orange:#ff8c00;
+ --apricot:#ffc087;
+ --black:#050200;
+ --dark:#1b0a02;
+ --border:#a64c12;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{ margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--apricot); background:linear-gradient(135deg,#000,#210b01 55%,#000); }
+body{
+ margin:0;
+ font-family:Arial,Helvetica,sans-serif;
+ color:var(--apricot);
+ background:linear-gradient(135deg,#000,#210b01 55%,#000);
+}
 a{color:inherit;text-decoration:none}
 button,textarea{font:inherit}
 button{cursor:pointer}
@@ -21,71 +34,219 @@ section{padding:55px 0}
 h1,h2,h3{color:var(--orange)}
 h2{text-align:center;font-size:clamp(25px,4vw,38px)}
 .subtitle{text-align:center;max-width:800px;margin:0 auto 28px;line-height:1.7}
-.card{ background:linear-gradient(145deg,#260e02,#090402); border:1px solid var(--border); border-radius:18px; padding:22px; }
-.btn{ display:inline-flex; justify-content:center; align-items:center; padding:12px 20px; border-radius:10px; border:1px solid var(--orange); background:linear-gradient(130deg,#ff9c18,#bd5700); color:#140700; font-weight:800; }
+.card{
+ background:linear-gradient(145deg,#260e02,#090402);
+ border:1px solid var(--border);
+ border-radius:18px;
+ padding:22px;
+}
+.btn{
+ display:inline-flex;
+ justify-content:center;
+ align-items:center;
+ padding:12px 20px;
+ border-radius:10px;
+ border:1px solid var(--orange);
+ background:linear-gradient(130deg,#ff9c18,#bd5700);
+ color:#140700;
+ font-weight:800;
+}
 .btn.outline{background:#170800;color:var(--apricot)}
 .btn:hover,.module:hover{filter:brightness(1.18)}
-a:focus-visible,button:focus-visible,textarea:focus-visible{ outline:3px solid var(--apricot); outline-offset:3px; }
-header{ position:sticky;top:0;z-index:100; background:#080402f5; border-bottom:2px solid var(--orange); }
-.header-content{ display:flex;align-items:center;justify-content:space-between; flex-wrap:wrap;gap:12px;padding:10px 0; }
+a:focus-visible,button:focus-visible,textarea:focus-visible{
+ outline:3px solid var(--apricot);
+ outline-offset:3px;
+}
+header{
+ position:sticky;top:0;z-index:100;
+ background:#080402f5;
+ border-bottom:2px solid var(--orange);
+}
+.header-content{
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:12px;padding:10px 0;
+}
 .brand{display:flex;align-items:center;gap:12px}
-.brand img{ width:70px;height:70px;object-fit:cover; border:2px solid var(--orange); border-radius:50%; background:#190900; }
+.brand img{
+ width:70px;height:70px;object-fit:cover;
+ border:2px solid var(--orange);
+ border-radius:50%;
+ background:#190900;
+}
 .brand strong{display:block;color:var(--orange);font-size:18px}
 .brand small{font-size:12px}
 nav{display:flex;flex-wrap:wrap;gap:15px}
 nav a{font-size:13px;font-weight:bold}
 nav a:hover{color:var(--orange)}
 .lang-switch{display:flex;gap:5px}
-.lang{ border:1px solid var(--orange); background:#1b0902;color:var(--apricot); padding:9px;border-radius:8px;font-weight:bold; }
+.lang{
+ border:1px solid var(--orange);
+ background:#1b0902;color:var(--apricot);
+ padding:9px;border-radius:8px;font-weight:bold;
+}
 .lang.active{background:var(--orange);color:#000}
-.hero{ text-align:center; background:radial-gradient(ellipse,#482006 0%,#150700 60%,#000 100%); }
-.hero-logo{ display:block; width:min(245px,65vw); height:min(245px,65vw); margin:0 auto 25px; object-fit:cover; border:5px solid var(--orange); border-radius:50%; box-shadow:0 0 40px #a64c1280; background:#180900; }
-.hero h1{ font-size:clamp(32px,6vw,62px); line-height:1.12;margin:0 0 20px; }
+.hero{
+ text-align:center;
+ background:radial-gradient(ellipse,#482006 0%,#150700 60%,#000 100%);
+}
+.hero-logo{
+ display:block;
+ width:min(245px,65vw);
+ height:min(245px,65vw);
+ margin:0 auto 25px;
+ object-fit:cover;
+ border:5px solid var(--orange);
+ border-radius:50%;
+ box-shadow:0 0 40px #a64c1280;
+ background:#180900;
+}
+.hero h1{
+ font-size:clamp(32px,6vw,62px);
+ line-height:1.12;margin:0 0 20px;
+}
 .hero p{font-size:20px}
-.hero-actions{ display:flex;justify-content:center;flex-wrap:wrap; gap:12px;margin:25px 0 35px; }
+.hero-actions{
+ display:flex;justify-content:center;flex-wrap:wrap;
+ gap:12px;margin:25px 0 35px;
+}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .stat{text-align:center}
 .stat strong{display:block;font-size:32px;color:var(--orange)}
 .stat span{font-size:13px}
-.module-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
-.module{ display:flex;flex-direction:column;align-items:center; justify-content:center;gap:12px; min-height:170px;padding:18px 10px; border:1px solid var(--orange); border-radius:16px; background:linear-gradient(145deg,#2b1002,#080402); text-align:center; transition:transform .2s; }
+.module-grid{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:16px;
+}
+.module{
+ display:flex;flex-direction:column;align-items:center;
+ justify-content:center;gap:12px;
+ min-height:170px;padding:18px 10px;
+ border:1px solid var(--orange);
+ border-radius:16px;
+ background:linear-gradient(145deg,#2b1002,#080402);
+ text-align:center;
+ transition:transform .2s;
+}
 .module:hover{transform:translateY(-4px)}
-.module svg{ width:44px;height:44px; fill:none;stroke:var(--orange);stroke-width:1.8; stroke-linecap:round;stroke-linejoin:round; }
+.module svg{
+ width:44px;height:44px;
+ fill:none;stroke:var(--orange);stroke-width:1.8;
+ stroke-linecap:round;stroke-linejoin:round;
+}
 .module strong{font-size:13px;color:var(--apricot)}
 .module span{font-size:11px;color:var(--orange);font-weight:bold}
-.slideshow{ overflow:hidden; border:2px solid var(--orange); border-radius:18px; background:#000; }
-.slide-screen{ display:flex;align-items:center;justify-content:center; height:min(65vw,530px);min-height:260px; background:#080402; }
-.slide-screen img,.slide-screen video{ width:100%;height:100%;object-fit:contain; }
+.slideshow{
+ overflow:hidden;
+ border:2px solid var(--orange);
+ border-radius:18px;
+ background:#000;
+}
+.slide-screen{
+ display:flex;align-items:center;justify-content:center;
+ height:min(65vw,530px);min-height:260px;
+ background:#080402;
+}
+.slide-screen img,.slide-screen video{
+ width:100%;height:100%;object-fit:contain;
+}
 .slide-message{text-align:center;padding:25px}
-.slide-controls{ display:flex;justify-content:center;align-items:center; flex-wrap:wrap;gap:10px;padding:14px; background:#160700; }
-.slide-controls button{ padding:10px 16px; border:1px solid var(--orange); border-radius:8px;background:#261003; color:var(--apricot); }
-.customer-grid{ display:grid;grid-template-columns:1fr 1fr; gap:24px;align-items:center; }
-.avatar{ display:block;width:100%;max-height:470px; border:2px solid var(--orange); border-radius:18px;background:#000; }
+.slide-controls{
+ display:flex;justify-content:center;align-items:center;
+ flex-wrap:wrap;gap:10px;padding:14px;
+ background:#160700;
+}
+.slide-controls button{
+ padding:10px 16px;
+ border:1px solid var(--orange);
+ border-radius:8px;background:#261003;
+ color:var(--apricot);
+}
+.customer-grid{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:24px;align-items:center;
+}
+.avatar{
+ display:block;width:100%;max-height:470px;
+ border:2px solid var(--orange);
+ border-radius:18px;background:#000;
+}
 .customer-text p{line-height:1.8}
-.ai-grid{ display:grid;grid-template-columns:repeat(3,1fr);gap:12px; }
-.ai-tool{ padding:14px;border:1px solid var(--border); border-radius:10px;background:#200b02; color:var(--apricot);text-align:left; }
+.ai-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+}
+.ai-tool{
+ padding:14px;border:1px solid var(--border);
+ border-radius:10px;background:#200b02;
+ color:var(--apricot);text-align:left;
+}
 .ai-tool.active{border-color:var(--orange);background:#3a1602}
-textarea{ width:100%;min-height:125px;resize:vertical; background:#080402;color:var(--apricot); border:1px solid var(--orange); border-radius:10px;padding:15px; }
+textarea{
+ width:100%;min-height:125px;resize:vertical;
+ background:#080402;color:var(--apricot);
+ border:1px solid var(--orange);
+ border-radius:10px;padding:15px;
+}
 .ai-actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.ai-output{ white-space:pre-wrap;overflow-wrap:anywhere; min-height:80px;background:#090402; border:1px solid var(--border); border-radius:10px;padding:15px; }
+.ai-output{
+ white-space:pre-wrap;overflow-wrap:anywhere;
+ min-height:80px;background:#090402;
+ border:1px solid var(--border);
+ border-radius:10px;padding:15px;
+}
 .note{font-size:13px;line-height:1.6}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .contact-grid p{line-height:2}
-.social-grid{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
-.social{ display:flex;flex-direction:column;align-items:center; justify-content:center;gap:8px; min-height:92px;padding:12px 5px; border:1px solid currentColor; border-radius:12px;background:#100600; font-size:13px;font-weight:bold; }
+.social-grid{
+ display:grid;
+ grid-template-columns:repeat(5,minmax(0,1fr));
+ gap:12px;
+}
+.social{
+ display:flex;flex-direction:column;align-items:center;
+ justify-content:center;gap:8px;
+ min-height:92px;padding:12px 5px;
+ border:1px solid currentColor;
+ border-radius:12px;background:#100600;
+ font-size:13px;font-weight:bold;
+}
+.social svg{width:27px;height:27px;fill:currentColor}
 .social:hover{background:#281004;transform:translateY(-2px)}
-footer{ text-align:center;padding:35px 0; border-top:2px solid var(--orange); background:#050200; }
-@media(max-width:900px){ .module-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .customer-grid,.contact-grid{grid-template-columns:1fr} }
-@media(max-width:550px){ .brand img{width:54px;height:54px} .brand strong{font-size:15px} .stats{grid-template-columns:1fr} .ai-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .module{min-height:145px} nav{justify-content:center} }
+footer{
+ text-align:center;padding:35px 0;
+ border-top:2px solid var(--orange);
+ background:#050200;
+}
+@media(max-width:900px){
+ .module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .customer-grid,.contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:550px){
+ .brand img{width:54px;height:54px}
+ .brand strong{font-size:15px}
+ .stats{grid-template-columns:1fr}
+ .ai-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .module{min-height:145px}
+ nav{justify-content:center}
+}
 </style>
 </head>
+
 <body>
+
 <header>
  <div class="container header-content">
   <a class="brand" href="#home">
-   <img src="briyant-soley-signo-1815.jpg" alt="Logo Briyant Solèy Signo 1815">
-   <div><strong>BRIYANT SOLÈY SIGNO 1815</strong><small>BSS1815 PRO-MAX DMP</small></div>
+   <img class="official-logo"
+        src="./briyant-soley-signo-1815.jpg"
+        alt="Logo Briyant Solèy Signo 1815">
+   <div>
+    <strong>BRIYANT SOLÈY SIGNO 1815</strong>
+    <small>BSS1815 PRO-MAX DMP</small>
+   </div>
   </a>
+
   <nav>
    <a href="#home" data-t="home">AKÈY</a>
    <a href="#about" data-t="about">SOU NOU</a>
@@ -94,6 +255,7 @@ footer{ text-align:center;padding:35px 0; border-top:2px solid var(--orange); ba
    <a href="#customer" data-t="service">SÈVIS</a>
    <a href="#contact" data-t="contact">KONTAK</a>
   </nav>
+
   <div class="lang-switch">
    <button class="lang active" data-lang="ht">KRE</button>
    <button class="lang" data-lang="en">ENG</button>
@@ -101,48 +263,85 @@ footer{ text-align:center;padding:35px 0; border-top:2px solid var(--orange); ba
   </div>
  </div>
 </header>
+
 <main>
+
 <section class="hero" id="home">
  <div class="container">
-  <img class="hero-logo" src="briyant-soley-signo-1815.jpg" alt="BRIYANT SOLÈY SIGNO 1815">
+  <img class="hero-logo official-logo"
+       src="./briyant-soley-signo-1815.jpg"
+       alt="BRIYANT SOLÈY SIGNO 1815">
+
   <h1>BRIYANT SOLÈY<br>SIGNO 1815</h1>
+
   <p data-t="slogan">DEVAN DEVAN NÈT</p>
   <p data-t="build">Bati pou Jodi a, Pare pou Demen.</p>
+
   <div class="hero-actions">
    <a class="btn" href="#modules" data-t="explore">EKSPORE MODIL YO</a>
    <a class="btn outline" href="#slideshow" data-t="photos">GADE FOTO YO</a>
   </div>
+
   <div class="stats">
-   <div class="card stat"><strong>1815</strong><span data-t="heritage">ERITAJ NOU</span></div>
-   <div class="card stat"><strong>12</strong><span data-t="mainModules">MODIL PRENSIPAL</span></div>
-   <div class="card stat"><strong>1</strong><span data-t="vision">YON SÈL VIZYON</span></div>
+   <div class="card stat">
+    <strong>1815</strong>
+    <span data-t="heritage">ERITAJ NOU</span>
+   </div>
+   <div class="card stat">
+    <strong>12</strong>
+    <span data-t="mainModules">MODIL PRENSIPAL</span>
+   </div>
+   <div class="card stat">
+    <strong>1</strong>
+    <span data-t="vision">YON SÈL VIZYON</span>
+   </div>
   </div>
  </div>
 </section>
+
 <section id="about">
  <div class="container">
   <h2>ONE PLATFORM — ONE VISION</h2>
-  <p class="subtitle" data-t="aboutText">BRIYANT SOLÈY SIGNO 1815 se yon espas dijital ki mete kominote, kominikasyon, teknoloji, sèvis ak eritaj ansanm.</p>
+  <p class="subtitle" data-t="aboutText">
+   BRIYANT SOLÈY SIGNO 1815 se yon espas dijital ki mete
+   kominote, kominikasyon, teknoloji, sèvis ak eritaj ansanm.
+  </p>
+
   <div class="card" style="text-align:center">
    <h3 data-t="light">BRIYANT SE YON LIMYÈ KI PA JANM ETENN</h3>
-   <p data-t="future">Nou valorize istwa nou, ranfòse solidarite epi prepare lavni avèk inovasyon.</p>
+   <p data-t="future">
+    Nou valorize istwa nou, ranfòse solidarite
+    epi prepare lavni avèk inovasyon.
+   </p>
   </div>
  </div>
 </section>
+
 <section id="modules">
  <div class="container">
   <h2 data-t="modulesTitle">MODIL PRENSIPAL YO</h2>
-  <p class="subtitle" data-t="modulesSub">12 modil prensipal avèk pwòp ikòn yo.</p>
+  <p class="subtitle" data-t="modulesSub">
+   12 modil prensipal avèk pwòp ikòn yo.
+  </p>
   <div class="module-grid" id="moduleGrid"></div>
  </div>
 </section>
+
 <section id="slideshow">
  <div class="container">
   <h2>BRIYANT SOLÈY SIGNO 1815 — SLIDESHOW</h2>
-  <p class="subtitle" data-t="gallerySub">Foto, videyo ak souvni kominote a.</p>
+  <p class="subtitle" data-t="gallerySub">
+   Foto, videyo ak souvni kominote a.
+  </p>
+
   <div class="slideshow">
    <div class="slide-screen" id="slideScreen">
-    <div class="slide-message"><h3>BRIYANT SOLÈY SIGNO 1815</h3><p data-t="pendingPhotos">Nouvo lis foto slideshow a poko antre.</p></div>
+    <div class="slide-message">
+     <h3>BRIYANT SOLÈY SIGNO 1815</h3>
+     <p data-t="pendingPhotos">
+      Nouvo lis foto slideshow a poko antre.
+     </p>
+    </div>
    </div>
    <div class="slide-controls">
     <button id="prev" type="button">◀</button>
@@ -153,94 +352,120 @@ footer{ text-align:center;padding:35px 0; border-top:2px solid var(--orange); ba
   </div>
  </div>
 </section>
+
 <section id="customer">
  <div class="container">
   <h2>CUSTOMER SERVICE</h2>
-  <p class="subtitle" data-t="customerSub">Sèvis kliyan BSS1815 PRO-MAX DMP.</p>
+  <p class="subtitle" data-t="customerSub">
+   Sèvis kliyan BSS1815 PRO-MAX DMP.
+  </p>
+
   <div class="customer-grid">
    <div>
-    <video class="avatar" id="profAvatar" controls playsinline preload="metadata" poster="briyant-soley-signo-1815.jpg">
-     <source src="briyant-soley-signo-1815.mp4" type="video/mp4">
+    <video class="avatar"
+           id="profAvatar"
+           controls
+           playsinline
+           preload="metadata"
+           poster="./briyant-soley-signo-1815.jpg">
+     <source
+       src="./briyant-soley-signo-1815.mp4"
+       type="video/mp4">
      Your browser does not support video.
     </video>
     <p class="note" id="avatarStatus" aria-live="polite"></p>
    </div>
+
    <div class="card customer-text">
     <h3 data-t="customerTitle">BYENVINI NAN CUSTOMER SERVICE</h3>
-    <p data-t="customerText">Nou la pou ede ou jwenn enfòmasyon sou sèvis, aktivite ak modil BSS1815 PRO-MAX DMP.</p>
-    <a class="btn" href="#contact" data-t="contactUs">KONTAKTE NOU</a>
+    <p data-t="customerText">
+     Nou la pou ede ou jwenn enfòmasyon sou sèvis,
+     aktivite ak modil BSS1815 PRO-MAX DMP.
+    </p>
+    <a class="btn" href="#contact" data-t="contactUs">
+     KONTAKTE NOU
+    </a>
    </div>
   </div>
  </div>
 </section>
+
 <section id="ai-center">
  <div class="container">
   <h2>AI CENTER</h2>
-  <p class="subtitle" data-t="aiSub">12 zouti pou prepare travay ak demann AI.</p>
-  <div class="ai-grid" id="aiGrid">
-   <button type="button" class="ai-tool active" data-ai="0">01 — AI ASSISTANT</button>
-   <button type="button" class="ai-tool" data-ai="1">02 — AI WRITING</button>
-   <button type="button" class="ai-tool" data-ai="2">03 — AI TRANSLATION</button>
-   <button type="button" class="ai-tool" data-ai="3">04 — AI DOCUMENTS</button>
-   <button type="button" class="ai-tool" data-ai="4">05 — AI VOICE SCRIPT</button>
-   <button type="button" class="ai-tool" data-ai="5">06 — AI RADIO SCRIPT</button>
-   <button type="button" class="ai-tool" data-ai="6">07 — AI SOCIAL MEDIA</button>
-   <button type="button" class="ai-tool" data-ai="7">08 — AI FLYER CONTENT</button>
-   <button type="button" class="ai-tool" data-ai="8">09 — AI PLANNING</button>
-   <button type="button" class="ai-tool" data-ai="9">10 — AI BUSINESS</button>
-   <button type="button" class="ai-tool" data-ai="10">11 — AI RESEARCH</button>
-   <button type="button" class="ai-tool" data-ai="11">12 — AI CUSTOMER SUPPORT</button>
-  </div>
+  <p class="subtitle" data-t="aiSub">
+   12 zouti pou prepare travay ak demann AI.
+  </p>
+
+  <div class="ai-grid" id="aiGrid"></div>
+
   <div class="card" style="margin-top:20px">
    <h3 id="aiTitle">AI ASSISTANT</h3>
    <textarea id="aiInput" placeholder="Ekri demann ou isit la..."></textarea>
+
    <div class="ai-actions">
-    <button class="btn" id="prepareAI" data-t="prepare">PREPARE DEMANN</button>
-    <button class="btn outline" id="copyAI" data-t="copy">KOPYE</button>
-    <button class="btn outline" id="clearAI" data-t="clear">EFASE</button>
+    <button class="btn" id="prepareAI" data-t="prepare">
+     PREPARE DEMANN
+    </button>
+    <button class="btn outline" id="copyAI" data-t="copy">
+     KOPYE
+    </button>
+    <button class="btn outline" id="clearAI" data-t="clear">
+     EFASE
+    </button>
    </div>
+
    <div class="ai-output" id="aiOutput" aria-live="polite"></div>
-   <p class="note" data-t="aiNote">Zouti sa yo prepare demann. Yon sèvis AI sou sèvè nesesè pou jenere repons otomatik sou paj la.</p>
+   <p class="note" data-t="aiNote">
+    Zouti sa yo prepare demann. Yon sèvis AI sou sèvè
+    nesesè pou jenere repons otomatik sou paj la.
+   </p>
   </div>
  </div>
 </section>
+
 <section id="contact">
  <div class="container">
   <h2 data-t="contactTitle">KONTAKTE NOU</h2>
+
   <div class="contact-grid">
    <div class="card">
     <h3>UNITED STATES</h3>
-    <p><a href="tel:+14076405166">(407) 640-5166</a><br><a href="tel:+13175381150">(317) 538-1150</a></p>
+    <p>
+     <a href="tel:+14076405166">(407) 640-5166</a><br>
+     <a href="tel:+13175381150">(317) 538-1150</a>
+    </p>
+
     <h3>HAITI</h3>
-    <p><a href="tel:+50942544447">+509 4254 4447</a><br><a href="tel:+50943437488">+509 4343 7488</a></p>
+    <p>
+     <a href="tel:+50942544447">+509 4254 4447</a><br>
+     <a href="tel:+50943437488">+509 4343 7488</a>
+    </p>
    </div>
+
    <div class="card">
     <h3>EMAIL</h3>
-    <p><a href="mailto:bss1815promaxdmp@gmail.com">bss1815promaxdmp@gmail.com</a></p>
+    <p>
+     <a href="mailto:bss1815promaxdmp@gmail.com">
+      bss1815promaxdmp@gmail.com
+     </a>
+    </p>
     <h3>BSS1815 PRO-MAX DMP</h3>
     <p data-t="build">Bati pou Jodi a, Pare pou Demen.</p>
    </div>
   </div>
  </div>
 </section>
+
 <section id="social">
  <div class="container">
   <h2 data-t="socialTitle">REZO SOSYAL NOU YO</h2>
-  <div class="social-grid" id="socialGrid">
-   <a class="social" href="https://facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer" style="color:#1877f2"><strong style="font-size:25px">f</strong><span>Facebook</span></a>
-   <a class="social" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer" style="color:#25d366"><strong style="font-size:25px">☎</strong><span>WhatsApp</span></a>
-   <a class="social" href="https://tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer" style="color:#25f4ee"><strong style="font-size:25px">♪</strong><span>TikTok</span></a>
-   <a class="social" href="https://instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer" style="color:#e4405f"><strong style="font-size:25px">◎</strong><span>Instagram</span></a>
-   <a class="social" href="https://t.me/bss1815dmp" target="_blank" rel="noopener noreferrer" style="color:#229ed9"><strong style="font-size:25px">➤</strong><span>Telegram</span></a>
-   <a class="social" href="https://youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer" style="color:#ff0033"><strong style="font-size:25px">▶</strong><span>YouTube</span></a>
-   <a class="social" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer" style="color:#1ed760"><strong style="font-size:25px">◉</strong><span>Spotify</span></a>
-   <a class="social" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer" style="color:#d1d1d1"><strong style="font-size:25px">𝕏</strong><span>X</span></a>
-   <a class="social" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer" style="color:#ff3535"><strong style="font-size:25px">T</strong><span>Truth Social</span></a>
-   <a class="social" href="https://linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer" style="color:#0a66c2"><strong style="font-size:25px">in</strong><span>LinkedIn</span></a>
-  </div>
+  <div class="social-grid" id="socialGrid"></div>
  </div>
 </section>
+
 </main>
+
 <footer>
  <div class="container">
   <h3>BRIYANT SOLÈY SIGNO 1815</h3>
@@ -249,25 +474,206 @@ footer{ text-align:center;padding:35px 0; border-top:2px solid var(--orange); ba
   <small>© <span id="year"></span> BSS1815 PRO-MAX DMP</small>
  </div>
 </footer>
+
 <script>
 "use strict";
+
+/* ==================================================
+   OFFICIAL LOGO AND PROF AVATAR
+   Filenames supplied by the project owner.
+================================================== */
+
+const OFFICIAL_LOGO="briyant-soley-signo-1815.jpg";
+const OFFICIAL_AVATAR="briyant-soley-signo-1815.mp4";
+
+const LOGO_PATHS=[
+ "./"+OFFICIAL_LOGO,
+ "./assets/"+OFFICIAL_LOGO,
+ "./images/"+OFFICIAL_LOGO,
+ "./assets/images/"+OFFICIAL_LOGO,
+ "./media/"+OFFICIAL_LOGO
+];
+
+const AVATAR_PATHS=[
+ "./"+OFFICIAL_AVATAR,
+ "./assets/"+OFFICIAL_AVATAR,
+ "./videos/"+OFFICIAL_AVATAR,
+ "./media/"+OFFICIAL_AVATAR,
+ "./assets/videos/"+OFFICIAL_AVATAR
+];
+
+function loadImageWithFallback(img,paths){
+ let index=0;
+ function tryNext(){
+  if(index>=paths.length){
+   console.error("Logo not found in checked paths:",paths);
+   return;
+  }
+  img.src=paths[index++];
+ }
+ img.addEventListener("error",tryNext);
+ tryNext();
+}
+
+document.querySelectorAll(".official-logo").forEach(img=>{
+ loadImageWithFallback(img,LOGO_PATHS);
+});
+
+const profAvatar=document.getElementById("profAvatar");
+const avatarStatus=document.getElementById("avatarStatus");
+let avatarPathIndex=0;
+
+function loadAvatar(){
+ if(avatarPathIndex>=AVATAR_PATHS.length){
+  avatarStatus.textContent=
+   "Video avatar file not found. Verify its location in GitHub.";
+  return;
+ }
+ const source=profAvatar.querySelector("source");
+ source.src=AVATAR_PATHS[avatarPathIndex++];
+ profAvatar.load();
+}
+
+profAvatar.addEventListener("error",()=>{
+ loadAvatar();
+},true);
+
+profAvatar.addEventListener("loadedmetadata",()=>{
+ avatarStatus.textContent="";
+});
+
+loadAvatar();
+
+/* ==================================================
+   LANGUAGE TRANSLATIONS
+================================================== */
+
 const T={
- ht:{ home:"AKÈY",about:"SOU NOU",modules:"MODIL", gallery:"GALRI",service:"SÈVIS",contact:"KONTAK", slogan:"DEVAN DEVAN NÈT", build:"Bati pou Jodi a, Pare pou Demen.", explore:"EKSPORE MODIL YO",photos:"GADE FOTO YO", heritage:"ERITAJ NOU",mainModules:"MODIL PRENSIPAL", vision:"YON SÈL VIZYON", aboutText:"BRIYANT SOLÈY SIGNO 1815 se yon espas dijital ki mete kominote, kominikasyon, teknoloji, sèvis ak eritaj ansanm.", light:"BRIYANT SE YON LIMYÈ KI PA JANM ETENN", future:"Nou valorize istwa nou, ranfòse solidarite epi prepare lavni avèk inovasyon.", modulesTitle:"MODIL PRENSIPAL YO", modulesSub:"12 modil prensipal avèk pwòp ikòn yo.", open:"OUVRI MODIL", unavailable:"Paj modil sa a poko konekte.", gallerySub:"Foto, videyo ak souvni kominote a.", pendingPhotos:"Nouvo lis foto slideshow a poko antre.", pause:"POZ",play:"JWE", customerSub:"Sèvis kliyan BSS1815 PRO-MAX DMP.", customerTitle:"BYENVINI NAN CUSTOMER SERVICE", customerText:"Nou la pou ede ou jwenn enfòmasyon sou sèvis, aktivite ak modil BSS1815 PRO-MAX DMP.", contactUs:"KONTAKTE NOU", aiSub:"12 zouti pou prepare travay ak demann AI.", prepare:"PREPARE DEMANN",copy:"KOPYE",clear:"EFASE", aiNote:"Zouti sa yo prepare demann. Yon sèvis AI sou sèvè nesesè pou jenere repons otomatik sou paj la.", contactTitle:"KONTAKTE NOU", socialTitle:"REZO SOSYAL NOU YO", footer:"DEVAN DEVAN NÈT — Bati pou Jodi a, Pare pou Demen." },
- en:{ home:"HOME",about:"ABOUT",modules:"MODULES", gallery:"GALLERY",service:"SERVICE",contact:"CONTACT", slogan:"FORWARD, ALWAYS FORWARD", build:"Building for Today, Ready for Tomorrow.", explore:"EXPLORE MODULES",photos:"VIEW PHOTOS", heritage:"OUR HERITAGE",mainModules:"MAIN MODULES", vision:"ONE VISION", aboutText:"BRIYANT SOLÈY SIGNO 1815 is a digital space bringing community, communication, technology, services and heritage together.", light:"BRIYANT IS A LIGHT THAT NEVER GOES OUT", future:"We honor our history, strengthen solidarity and prepare for the future through innovation.", modulesTitle:"MAIN MODULES", modulesSub:"12 main modules with their own icons.", open:"OPEN MODULE", unavailable:"This module page is not connected yet.", gallerySub:"Community photos, videos and memories.", pendingPhotos:"The new slideshow photo list has not been added yet.", pause:"PAUSE",play:"PLAY", customerSub:"BSS1815 PRO-MAX DMP Customer Service.", customerTitle:"WELCOME TO CUSTOMER SERVICE", customerText:"We help you find information about BSS1815 PRO-MAX DMP services, activities and modules.", contactUs:"CONTACT US", aiSub:"12 tools for preparing AI tasks and requests.", prepare:"PREPARE REQUEST",copy:"COPY",clear:"CLEAR", aiNote:"These tools prepare requests. A server-side AI service is required to generate automatic responses on this page.", contactTitle:"CONTACT US", socialTitle:"OUR SOCIAL NETWORKS", footer:"FORWARD, ALWAYS FORWARD — Building for Today, Ready for Tomorrow." },
- fr:{ home:"ACCUEIL",about:"À PROPOS",modules:"MODULES", gallery:"GALERIE",service:"SERVICE",contact:"CONTACT", slogan:"TOUJOURS DE L'AVANT", build:"Bâtir pour aujourd'hui, prêts pour demain.", explore:"EXPLORER LES MODULES",photos:"VOIR LES PHOTOS", heritage:"NOTRE HÉRITAGE",mainModules:"MODULES PRINCIPAUX", vision:"UNE SEULE VISION", aboutText:"BRIYANT SOLÈY SIGNO 1815 est un espace numérique réunissant communauté, communication, technologie, services et patrimoine.", light:"BRIYANT EST UNE LUMIÈRE QUI NE S'ÉTEINT JAMAIS", future:"Nous valorisons notre histoire, renforçons la solidarité et préparons l'avenir grâce à l'innovation.", modulesTitle:"MODULES PRINCIPAUX", modulesSub:"12 modules principaux avec leurs propres icônes.", open:"OUVRIR LE MODULE", unavailable:"La page de ce module n'est pas encore connectée.", gallerySub:"Photos, vidéos et souvenirs de la communauté.", pendingPhotos:"La nouvelle liste des photos n'a pas encore été ajoutée.", pause:"PAUSE",play:"LECTURE", customerSub:"Service client BSS1815 PRO-MAX DMP.", customerTitle:"BIENVENUE AU SERVICE CLIENT", customerText:"Nous vous aidons à trouver des informations sur les services, activités et modules BSS1815 PRO-MAX DMP.", contactUs:"CONTACTEZ-NOUS", aiSub:"12 outils pour préparer les tâches et demandes IA.", prepare:"PRÉPARER LA DEMANDE",copy:"COPIER",clear:"EFFACER", aiNote:"Ces outils préparent des demandes. Un service IA côté serveur est nécessaire pour générer des réponses automatiques sur cette page.", contactTitle:"CONTACTEZ-NOUS", socialTitle:"NOS RÉSEAUX SOCIAUX", footer:"TOUJOURS DE L'AVANT — Bâtir pour aujourd'hui, prêts pour demain." }
+ ht:{
+  home:"AKÈY",about:"SOU NOU",modules:"MODIL",
+  gallery:"GALRI",service:"SÈVIS",contact:"KONTAK",
+  slogan:"DEVAN DEVAN NÈT",
+  build:"Bati pou Jodi a, Pare pou Demen.",
+  explore:"EKSPORE MODIL YO",photos:"GADE FOTO YO",
+  heritage:"ERITAJ NOU",mainModules:"MODIL PRENSIPAL",
+  vision:"YON SÈL VIZYON",
+  aboutText:"BRIYANT SOLÈY SIGNO 1815 se yon espas dijital ki mete kominote, kominikasyon, teknoloji, sèvis ak eritaj ansanm.",
+  light:"BRIYANT SE YON LIMYÈ KI PA JANM ETENN",
+  future:"Nou valorize istwa nou, ranfòse solidarite epi prepare lavni avèk inovasyon.",
+  modulesTitle:"MODIL PRENSIPAL YO",
+  modulesSub:"12 modil prensipal avèk pwòp ikòn yo.",
+  open:"OUVRI MODIL",
+  unavailable:"Paj modil sa a poko konekte.",
+  gallerySub:"Foto, videyo ak souvni kominote a.",
+  pendingPhotos:"Nouvo lis foto slideshow a poko antre.",
+  pause:"POZ",play:"JWE",
+  customerSub:"Sèvis kliyan BSS1815 PRO-MAX DMP.",
+  customerTitle:"BYENVINI NAN CUSTOMER SERVICE",
+  customerText:"Nou la pou ede ou jwenn enfòmasyon sou sèvis, aktivite ak modil BSS1815 PRO-MAX DMP.",
+  contactUs:"KONTAKTE NOU",
+  aiSub:"12 zouti pou prepare travay ak demann AI.",
+  prepare:"PREPARE DEMANN",copy:"KOPYE",clear:"EFASE",
+  aiNote:"Zouti sa yo prepare demann. Yon sèvis AI sou sèvè nesesè pou jenere repons otomatik sou paj la.",
+  contactTitle:"KONTAKTE NOU",
+  socialTitle:"REZO SOSYAL NOU YO",
+  footer:"DEVAN DEVAN NÈT — Bati pou Jodi a, Pare pou Demen."
+ },
+ en:{
+  home:"HOME",about:"ABOUT",modules:"MODULES",
+  gallery:"GALLERY",service:"SERVICE",contact:"CONTACT",
+  slogan:"FORWARD, ALWAYS FORWARD",
+  build:"Building for Today, Ready for Tomorrow.",
+  explore:"EXPLORE MODULES",photos:"VIEW PHOTOS",
+  heritage:"OUR HERITAGE",mainModules:"MAIN MODULES",
+  vision:"ONE VISION",
+  aboutText:"BRIYANT SOLÈY SIGNO 1815 is a digital space bringing community, communication, technology, services and heritage together.",
+  light:"BRIYANT IS A LIGHT THAT NEVER GOES OUT",
+  future:"We honor our history, strengthen solidarity and prepare for the future through innovation.",
+  modulesTitle:"MAIN MODULES",
+  modulesSub:"12 main modules with their own icons.",
+  open:"OPEN MODULE",
+  unavailable:"This module page is not connected yet.",
+  gallerySub:"Community photos, videos and memories.",
+  pendingPhotos:"The new slideshow photo list has not been added yet.",
+  pause:"PAUSE",play:"PLAY",
+  customerSub:"BSS1815 PRO-MAX DMP Customer Service.",
+  customerTitle:"WELCOME TO CUSTOMER SERVICE",
+  customerText:"We help you find information about BSS1815 PRO-MAX DMP services, activities and modules.",
+  contactUs:"CONTACT US",
+  aiSub:"12 tools for preparing AI tasks and requests.",
+  prepare:"PREPARE REQUEST",copy:"COPY",clear:"CLEAR",
+  aiNote:"These tools prepare requests. A server-side AI service is required to generate automatic responses on this page.",
+  contactTitle:"CONTACT US",
+  socialTitle:"OUR SOCIAL NETWORKS",
+  footer:"FORWARD, ALWAYS FORWARD — Building for Today, Ready for Tomorrow."
+ },
+ fr:{
+  home:"ACCUEIL",about:"À PROPOS",modules:"MODULES",
+  gallery:"GALERIE",service:"SERVICE",contact:"CONTACT",
+  slogan:"TOUJOURS DE L'AVANT",
+  build:"Bâtir pour aujourd'hui, prêts pour demain.",
+  explore:"EXPLORER LES MODULES",photos:"VOIR LES PHOTOS",
+  heritage:"NOTRE HÉRITAGE",mainModules:"MODULES PRINCIPAUX",
+  vision:"UNE SEULE VISION",
+  aboutText:"BRIYANT SOLÈY SIGNO 1815 est un espace numérique réunissant communauté, communication, technologie, services et patrimoine.",
+  light:"BRIYANT EST UNE LUMIÈRE QUI NE S'ÉTEINT JAMAIS",
+  future:"Nous valorisons notre histoire, renforçons la solidarité et préparons l'avenir grâce à l'innovation.",
+  modulesTitle:"MODULES PRINCIPAUX",
+  modulesSub:"12 modules principaux avec leurs propres icônes.",
+  open:"OUVRIR LE MODULE",
+  unavailable:"La page de ce module n'est pas encore connectée.",
+  gallerySub:"Photos, vidéos et souvenirs de la communauté.",
+  pendingPhotos:"La nouvelle liste des photos n'a pas encore été ajoutée.",
+  pause:"PAUSE",play:"LECTURE",
+  customerSub:"Service client BSS1815 PRO-MAX DMP.",
+  customerTitle:"BIENVENUE AU SERVICE CLIENT",
+  customerText:"Nous vous aidons à trouver des informations sur les services, activités et modules BSS1815 PRO-MAX DMP.",
+  contactUs:"CONTACTEZ-NOUS",
+  aiSub:"12 outils pour préparer les tâches et demandes IA.",
+  prepare:"PRÉPARER LA DEMANDE",copy:"COPIER",clear:"EFFACER",
+  aiNote:"Ces outils préparent des demandes. Un service IA côté serveur est nécessaire pour générer des réponses automatiques sur cette page.",
+  contactTitle:"CONTACTEZ-NOUS",
+  socialTitle:"NOS RÉSEAUX SOCIAUX",
+  footer:"TOUJOURS DE L'AVANT — Bâtir pour aujourd'hui, prêts pour demain."
+ }
 };
+
 let language="ht";
+
 function setLanguage(lang){
  if(!T[lang])return;
  language=lang;
  document.documentElement.lang=lang;
- document.querySelectorAll("[data-t]").forEach(el=>{ const key=el.dataset.t; if(T[lang][key])el.textContent=T[lang][key]; });
- document.querySelectorAll(".lang").forEach(btn=>{ const active=btn.dataset.lang===lang; btn.classList.toggle("active",active); btn.setAttribute("aria-pressed",String(active)); });
- document.getElementById("aiInput").placeholder={ ht:"Ekri demann ou isit la...", en:"Enter your request here...", fr:"Saisissez votre demande ici..." }[lang];
+
+ document.querySelectorAll("[data-t]").forEach(el=>{
+  const key=el.dataset.t;
+  if(T[lang][key])el.textContent=T[lang][key];
+ });
+
+ document.querySelectorAll(".lang").forEach(btn=>{
+  const active=btn.dataset.lang===lang;
+  btn.classList.toggle("active",active);
+  btn.setAttribute("aria-pressed",String(active));
+ });
+
+ document.getElementById("aiInput").placeholder={
+  ht:"Ekri demann ou isit la...",
+  en:"Enter your request here...",
+  fr:"Saisissez votre demande ici..."
+ }[lang];
+
  renderModules();
  updateSlideControls();
 }
-document.querySelectorAll(".lang").forEach(btn=>{ btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)); });
+
+document.querySelectorAll(".lang").forEach(btn=>{
+ btn.addEventListener("click",()=>setLanguage(btn.dataset.lang));
+});
+
+/* ==================================================
+   MODULE ICONS
+================================================== */
+
 const ICONS={
  brain:'<path d="M12 5a3 3 0 0 0-5-2 4 4 0 0 0-4 5 4 4 0 0 0 0 7 4 4 0 0 0 4 5 3 3 0 0 0 5-2"/><path d="M12 5a3 3 0 0 1 5-2 4 4 0 0 1 4 5 4 4 0 0 1 0 7 4 4 0 0 1-4 5 3 3 0 0 1-5-2"/><path d="M12 5v13M7 9l3 2M17 9l-3 2"/>',
  users:'<circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M17 5a3 3 0 0 1 0 6M17 15a5 5 0 0 1 4 5"/>',
@@ -282,6 +688,7 @@ const ICONS={
  radio:'<rect x="3" y="8" width="18" height="13" rx="2"/><path d="M6 8l12-5M7 12h10M7 16h5"/><circle cx="17" cy="17" r="2"/>',
  dashboard:'<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/>'
 };
+
 const MODULES=[
  ["AI CENTER","brain","#ai-center"],
  ["CRM SYSTEM","users",null],
@@ -296,58 +703,144 @@ const MODULES=[
  ["PRO-MAX FM 106.5 FM","radio",null],
  ["ADMIN DASHBOARD","dashboard",null]
 ];
+
 function renderModules(){
  const grid=document.getElementById("moduleGrid");
- if(!grid) return;
  grid.replaceChildren();
+
  MODULES.forEach(([name,icon,target])=>{
   const link=document.createElement("a");
   link.className="module";
   link.href=target||"#modules";
+
   const symbol=document.createElement("div");
-  symbol.innerHTML=[STRIPPED 46 bytes]+ICONS[icon]+'</svg>';
+  symbol.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+
+   ICONS[icon]+'</svg>';
+
   const title=document.createElement("strong");
   title.textContent=name;
+
   const action=document.createElement("span");
   action.textContent=T[language].open;
+
   link.append(symbol,title,action);
-  if(!target){ link.addEventListener("click",event=>{ event.preventDefault(); alert(name+"\n"+T[language].unavailable); }); }
+
+  if(!target){
+   link.addEventListener("click",event=>{
+    event.preventDefault();
+    alert(name+"\n"+T[language].unavailable);
+   });
+  }
   grid.appendChild(link);
  });
 }
-const SLIDESHOW_FILES=[];
-const SLIDESHOW_FOLDER="";
-const SLIDES=SLIDESHOW_FILES.filter(name=>typeof name==="string" && /\.(jpg|jpeg|png|webp|gif|mp4|webm)$/i.test(name));
+
+/* ==================================================
+   SLIDESHOW
+   Add verified filenames when supplied.
+================================================== */
+
+const SLIDESHOW_FILES=[
+ // Confirmed slideshow filenames go here.
+];
+
+const SLIDESHOW_FOLDER="./";
+const SLIDES=SLIDESHOW_FILES.filter(
+ name=>typeof name==="string" &&
+ /\.(jpg|jpeg|png|webp|gif|mp4|webm)$/i.test(name)
+);
+
 let slideIndex=0;
 let playing=true;
 let slideTimer=null;
 let slideToken=0;
+
 const screen=document.getElementById("slideScreen");
-function stopTimer(){ if(slideTimer)clearTimeout(slideTimer); slideTimer=null; }
-function updateSlideControls(){
- document.getElementById("counter").textContent= SLIDES.length?(slideIndex+1)+" / "+SLIDES.length:"0 / 0";
- document.getElementById("togglePlay").textContent= T[language][playing?"pause":"play"];
+
+function stopTimer(){
+ if(slideTimer)clearTimeout(slideTimer);
+ slideTimer=null;
 }
+
+function updateSlideControls(){
+ document.getElementById("counter").textContent=
+  SLIDES.length?(slideIndex+1)+" / "+SLIDES.length:"0 / 0";
+ document.getElementById("togglePlay").textContent=
+  T[language][playing?"pause":"play"];
+}
+
 function showSlide(failures=0){
  stopTimer();
  const token=++slideToken;
- if(!SLIDES.length){ screen.innerHTML='<div class="slide-message"><h3>BRIYANT SOLÈY SIGNO 1815</h3><p>'+T[language].pendingPhotos+'</p></div>'; updateSlideControls(); return; }
- if(failures>=SLIDES.length){ screen.textContent="No slideshow media could be loaded."; return; }
+
+ if(!SLIDES.length){
+  screen.innerHTML=
+   '<div class="slide-message"><h3>BRIYANT SOLÈY SIGNO 1815</h3><p>'+
+   T[language].pendingPhotos+'</p></div>';
+  updateSlideControls();
+  return;
+ }
+
+ if(failures>=SLIDES.length){
+  screen.textContent="No slideshow media could be loaded.";
+  return;
+ }
+
  const name=SLIDES[slideIndex];
  const video=/\.(mp4|webm)$/i.test(name);
  const media=document.createElement(video?"video":"img");
- media.onerror=()=>{ if(token!==slideToken)return; slideIndex=(slideIndex+1)%SLIDES.length; showSlide(failures+1); };
- if(video){ media.controls=true; media.playsInline=true; media.preload="metadata"; media.onended=()=>{ if(playing)nextSlide(); }; }else{ media.alt="BSS1815 slideshow "+(slideIndex+1); }
- media.src=SLIDESHOW_FOLDER+name;
+
+ media.onerror=()=>{
+  if(token!==slideToken)return;
+  slideIndex=(slideIndex+1)%SLIDES.length;
+  showSlide(failures+1);
+ };
+
+ if(video){
+  media.controls=true;
+  media.playsInline=true;
+  media.preload="metadata";
+  media.onended=()=>{
+   if(playing)nextSlide();
+  };
+ }else{
+  media.alt="BSS1815 slideshow "+(slideIndex+1);
+ }
+
+ media.src=SLIDESHOW_FOLDER+name.replace(/^\.\//,"");
  screen.replaceChildren(media);
  updateSlideControls();
- if(playing&&SLIDES.length>1){ slideTimer=setTimeout(nextSlide,5500); }
+
+ if(playing&&SLIDES.length>1){
+  slideTimer=setTimeout(nextSlide,5500);
+ }
 }
-function nextSlide(){ if(!SLIDES.length)return; slideIndex=(slideIndex+1)%SLIDES.length; showSlide(); }
-function prevSlide(){ if(!SLIDES.length)return; slideIndex=(slideIndex-1+SLIDES.length)%SLIDES.length; showSlide(); }
+
+function nextSlide(){
+ if(!SLIDES.length)return;
+ slideIndex=(slideIndex+1)%SLIDES.length;
+ showSlide();
+}
+
+function prevSlide(){
+ if(!SLIDES.length)return;
+ slideIndex=(slideIndex-1+SLIDES.length)%SLIDES.length;
+ showSlide();
+}
+
 document.getElementById("next").addEventListener("click",nextSlide);
 document.getElementById("prev").addEventListener("click",prevSlide);
-document.getElementById("togglePlay").addEventListener("click",()=>{ playing=!playing; if(playing)showSlide(); else stopTimer(); updateSlideControls(); });
+document.getElementById("togglePlay").addEventListener("click",()=>{
+ playing=!playing;
+ if(playing)showSlide();
+ else stopTimer();
+ updateSlideControls();
+});
+
+/* ==================================================
+   AI CENTER — 12 TOOLS
+================================================== */
+
 const AI_TOOLS=[
  ["AI ASSISTANT","Answer this request clearly"],
  ["AI WRITING","Write professional content for"],
@@ -362,33 +855,109 @@ const AI_TOOLS=[
  ["AI RESEARCH","Create a research and verification plan for"],
  ["AI CUSTOMER SUPPORT","Draft a customer service response for"]
 ];
+
 let selectedAI=0;
-document.querySelectorAll(".ai-tool").forEach((button)=>{
+
+const aiGrid=document.getElementById("aiGrid");
+
+AI_TOOLS.forEach(([name],index)=>{
+ const button=document.createElement("button");
+ button.type="button";
+ button.className="ai-tool"+(index===0?" active":"");
+ button.textContent=String(index+1).padStart(2,"0")+" — "+name;
  button.addEventListener("click",()=>{
-  selectedAI=Number(button.dataset.ai||0);
-  document.getElementById("aiTitle").textContent=AI_TOOLS[selectedAI][0];
-  document.querySelectorAll(".ai-tool").forEach((el,i)=>el.classList.toggle("active",i===selectedAI));
+  selectedAI=index;
+  document.getElementById("aiTitle").textContent=name;
+  document.querySelectorAll(".ai-tool").forEach(
+   (el,i)=>el.classList.toggle("active",i===index)
+  );
  });
+ aiGrid.appendChild(button);
 });
+
 document.getElementById("prepareAI").addEventListener("click",()=>{
  const input=document.getElementById("aiInput").value.trim();
  const output=document.getElementById("aiOutput");
- if(!input){ output.textContent="Please enter a request."; return; }
+
+ if(!input){
+  output.textContent="Please enter a request.";
+  return;
+ }
+
  const langName={ht:"Haitian Creole",en:"English",fr:"French"}[language];
- output.textContent= AI_TOOLS[selectedAI][1]+":\n\n"+input+"\n\nRespond in "+langName+". Use verified information and do not invent facts.";
+
+ output.textContent=
+  AI_TOOLS[selectedAI][1]+":\n\n"+
+  input+"\n\nRespond in "+langName+
+  ". Use verified information and do not invent facts.";
 });
+
 document.getElementById("copyAI").addEventListener("click",async()=>{
  const text=document.getElementById("aiOutput").textContent;
  if(!text)return;
- try{ await navigator.clipboard.writeText(text); }catch(error){ const field=document.createElement("textarea"); field.value=text; document.body.appendChild(field); field.select(); document.execCommand("copy"); field.remove(); }
+ try{
+  await navigator.clipboard.writeText(text);
+ }catch(error){
+  const field=document.createElement("textarea");
+  field.value=text;
+  document.body.appendChild(field);
+  field.select();
+  document.execCommand("copy");
+  field.remove();
+ }
 });
+
 document.getElementById("clearAI").addEventListener("click",()=>{
  document.getElementById("aiInput").value="";
  document.getElementById("aiOutput").textContent="";
 });
+
+/* ==================================================
+   SOCIAL NETWORKS — 10 DIRECT LINKS
+================================================== */
+
+const SOCIALS=[
+ {name:"Facebook",color:"#1877f2",url:"https://facebook.com/share/1By3KvYRrM/",symbol:"f"},
+ {name:"WhatsApp",color:"#25d366",url:"https://wa.me/50943437488",symbol:"☎"},
+ {name:"TikTok",color:"#25f4ee",url:"https://tiktok.com/@maximax1960",symbol:"♪"},
+ {name:"Instagram",color:"#e4405f",url:"https://instagram.com/lebaron072/",symbol:"◎"},
+ {name:"Telegram",color:"#229ed9",url:"https://t.me/bss1815dmp",symbol:"➤"},
+ {name:"YouTube",color:"#ff0033",url:"https://youtube.com/@BSS1815PROMAXDMP",symbol:"▶"},
+ {name:"Spotify",color:"#1ed760",url:"https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici",symbol:"◉"},
+ {name:"X",color:"#d1d1d1",url:"https://x.com/w05g2m",symbol:"𝕏"},
+ {name:"Truth Social",color:"#ff3535",url:"https://truthsocial.com/@briyant_soley_1815",symbol:"T"},
+ {name:"LinkedIn",color:"#0a66c2",url:"https://linkedin.com/in/maximax-multi-services-075ba2314",symbol:"in"}
+];
+
+const socialGrid=document.getElementById("socialGrid");
+
+SOCIALS.forEach(s=>{
+ const a=document.createElement("a");
+ a.className="social";
+ a.href=s.url;
+ a.target="_blank";
+ a.rel="noopener noreferrer";
+ a.style.color=s.color;
+
+ const mark=document.createElement("strong");
+ mark.style.fontSize="25px";
+ mark.textContent=s.symbol;
+
+ const label=document.createElement("span");
+ label.textContent=s.name;
+
+ a.append(mark,label);
+ socialGrid.appendChild(a);
+});
+
+/* ==================================================
+   INITIALIZATION
+================================================== */
+
 document.getElementById("year").textContent=new Date().getFullYear();
 setLanguage("ht");
 showSlide();
+
 </script>
 </body>
 </html>
