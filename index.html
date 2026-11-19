@@ -1,394 +1,220 @@
 <!DOCTYPE html>
-<html lang="ht" translate="no">
+<html lang="en" translate="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080402">
 <meta name="google" content="notranslate">
-<meta name="description" content="BRIYANT SOLÈY SIGNO 1815 — BSS1815 PRO-MAX DMP">
-<title>BRIYANT SOLÈY SIGNO 1815 | BSS1815 PRO-MAX DMP</title>
+<meta name="description" content="MAXIMAX MULTI SERVICES — APPOINTMENT CENTER">
+<title>MAXIMAX MULTI SERVICES • APPOINTMENT CENTER</title>
 <style>
-:root{ --orange:#ff8c00; --apricot:#ffc087; --black:#050200; --dark:#1b0a02; --border:#a64c12; }
+:root{ --orange:#ff8c00; --apricot:#ffc087; --black:#050200; --border:#a64c12; }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{ margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--apricot); background:linear-gradient(135deg,#000,#210b01 55%,#000); }
 a{color:inherit;text-decoration:none}
-button,textarea{font:inherit}
+button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-img,video{max-width:100%}
-.container{width:min(1200px,94%);margin:auto}
-section{padding:55px 0}
-h1,h2,h3{color:var(--orange)}
-h2{text-align:center;font-size:clamp(25px,4vw,38px)}
-.subtitle{text-align:center;max-width:800px;margin:0 auto 28px;line-height:1.7}
-.card{ background:linear-gradient(145deg,#260e02,#090402); border:1px solid var(--border); border-radius:18px; padding:22px; }
-.btn{ display:inline-flex; justify-content:center; align-items:center; padding:12px 20px; border-radius:10px; border:1px solid var(--orange); background:linear-gradient(130deg,#ff9c18,#bd5700); color:#140700; font-weight:800; }
-.btn.outline{background:#170800;color:var(--apricot)}
-.btn:hover,.module:hover{filter:brightness(1.18)}
-a:focus-visible,button:focus-visible,textarea:focus-visible{ outline:3px solid var(--apricot); outline-offset:3px; }
+img{max-width:100%}
+.container{width:min(1100px,94%);margin:auto}
+.topbar{ background:var(--orange); color:#140700; text-align:center; font-size:12px; font-weight:800; letter-spacing:1px; padding:10px 8px; }
 header{ position:sticky;top:0;z-index:100; background:#080402f5; border-bottom:2px solid var(--orange); }
-.header-content{ display:flex;align-items:center;justify-content:space-between; flex-wrap:wrap;gap:12px;padding:10px 0; }
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{ width:70px;height:70px;object-fit:cover; border:2px solid var(--orange); border-radius:50%; background:#190900; }
-.brand strong{display:block;color:var(--orange);font-size:18px}
-.brand small{font-size:12px}
-nav{display:flex;flex-wrap:wrap;gap:15px}
-nav a{font-size:13px;font-weight:bold}
-nav a:hover{color:var(--orange)}
-.lang-switch{display:flex;gap:5px}
-.lang{ border:1px solid var(--orange); background:#1b0902;color:var(--apricot); padding:9px;border-radius:8px;font-weight:bold; }
+.header-content{ display:flex;align-items:center;justify-content:space-between; gap:12px;padding:10px 0; }
+.logo-img{ width:56px;height:56px; object-fit:contain; background:#000; border:2px solid var(--orange); border-radius:16px; padding:3px; display:block; }
+.lang-switch{ display:flex;gap:5px; align-items:center; }
+.lang{ border:1px solid var(--orange); background:#1b0902;color:var(--apricot); padding:9px 12px;border-radius:20px;font-weight:bold;font-size:12px; }
 .lang.active{background:var(--orange);color:#000}
-.hero{ text-align:center; background:radial-gradient(ellipse,#482006 0%,#150700 60%,#000 100%); }
-.hero-logo{ display:block; width:min(245px,65vw); height:min(245px,65vw); margin:0 auto 25px; object-fit:cover; border:5px solid var(--orange); border-radius:50%; box-shadow:0 0 40px #a64c1280; background:#180900; }
-.hero h1{ font-size:clamp(32px,6vw,62px); line-height:1.12;margin:0 0 20px; }
-.hero p{font-size:20px}
-.hero-actions{ display:flex;justify-content:center;flex-wrap:wrap; gap:12px;margin:25px 0 35px; }
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.stat{text-align:center}
-.stat strong{display:block;font-size:32px;color:var(--orange)}
-.stat span{font-size:13px}
-.module-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
-.module{ display:flex;flex-direction:column;align-items:center; justify-content:center;gap:12px; min-height:170px;padding:18px 10px; border:1px solid var(--orange); border-radius:16px; background:linear-gradient(145deg,#2b1002,#080402); text-align:center; transition:transform .2s; }
-.module:hover{transform:translateY(-4px)}
-.module svg{ width:44px;height:44px; fill:none;stroke:var(--orange);stroke-width:1.8; stroke-linecap:round;stroke-linejoin:round; }
-.module strong{font-size:13px;color:var(--apricot)}
-.module span{font-size:11px;color:var(--orange);font-weight:bold}
-.slideshow{ overflow:hidden; border:2px solid var(--orange); border-radius:18px; background:#000; }
-.slide-screen{ display:flex;align-items:center;justify-content:center; height:min(65vw,530px);min-height:260px; background:#080402; }
-.slide-screen img,.slide-screen video{ width:100%;height:100%;object-fit:contain; }
-.slide-message{text-align:center;padding:25px}
-.slide-controls{ display:flex;justify-content:center;align-items:center; flex-wrap:wrap;gap:10px;padding:14px; background:#160700; }
-.slide-controls button{ padding:10px 16px; border:1px solid var(--orange); border-radius:8px;background:#261003; color:var(--apricot); }
-.customer-grid{ display:grid;grid-template-columns:1fr 1fr; gap:24px;align-items:center; }
-.avatar{ display:block;width:100%;max-height:470px; border:2px solid var(--orange); border-radius:18px;background:#000; }
-.customer-text p{line-height:1.8}
-.ai-grid{ display:grid;grid-template-columns:repeat(3,1fr);gap:12px; }
-.ai-tool{ padding:14px;border:1px solid var(--border); border-radius:10px;background:#200b02; color:var(--apricot);text-align:left; }
-.ai-tool.active{border-color:var(--orange);background:#3a1602}
-textarea{ width:100%;min-height:125px;resize:vertical; background:#080402;color:var(--apricot); border:1px solid var(--orange); border-radius:10px;padding:15px; }
-.ai-actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.ai-output{ white-space:pre-wrap;overflow-wrap:anywhere; min-height:80px;background:#090402; border:1px solid var(--border); border-radius:10px;padding:15px; }
-.note{font-size:13px;line-height:1.6}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.contact-grid p{line-height:2}
-.social-grid{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
-.social{ display:flex;flex-direction:column;align-items:center; justify-content:center;gap:8px; min-height:92px;padding:12px 5px; border:1px solid currentColor; border-radius:12px;background:#100600; font-size:13px;font-weight:bold; }
-.social:hover{background:#281004;transform:translateY(-2px)}
-footer{ text-align:center;padding:35px 0; border-top:2px solid var(--orange); background:#050200; }
-@media(max-width:900px){ .module-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .customer-grid,.contact-grid{grid-template-columns:1fr} }
-@media(max-width:550px){ .brand img{width:54px;height:54px} .brand strong{font-size:15px} .stats{grid-template-columns:1fr} .ai-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .module{min-height:145px} nav{justify-content:center} }
+.menu-btn{ border:1px solid var(--orange); background:transparent; color:var(--orange); font-size:22px; padding:8px 14px; border-radius:12px; }
+section{padding:30px 0}
+h1,h2,h3{color:var(--orange)}
+.card{ background:linear-gradient(145deg,#260e02,#090402); border:1px solid var(--border); border-radius:22px; padding:28px; }
+.hero{ text-align:center; }
+.hero-icon{ font-size:70px; line-height:1; }
+.hero h1{ font-size:clamp(36px,8vw,68px); line-height:1; margin:10px 0 18px; }
+.hero p{ line-height:1.7; max-width:750px; margin:0 auto; }
+.hero-actions{ display:flex;justify-content:center;flex-wrap:wrap; gap:12px;margin:24px 0 0; }
+.btn{ display:inline-flex; justify-content:center; align-items:center; padding:14px 22px; border-radius:30px; border:1px solid var(--orange); background:linear-gradient(130deg,#ff9c18,#bd5700); color:#140700; font-weight:800; font-size:13px; }
+.btn.outline{background:#170800;color:var(--apricot)}
+.service-list{ display:grid; gap:16px; margin-top:22px; }
+.service{ padding:28px; min-height:170px; }
+.service .icon{ font-size:42px; }
+.service h3{ margin:12px 0 8px; font-size:15px; }
+.service p{ margin:0; line-height:1.6; font-size:14px; }
+label{ display:block; color:var(--orange); font-weight:800; font-size:12px; letter-spacing:1px; margin:22px 0 8px; }
+input,select,textarea{ width:100%; background:#080402; color:var(--apricot); border:1px solid var(--border); border-radius:14px; padding:16px; }
+input::placeholder,textarea::placeholder{ color:#c99a72; }
+.form-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+.success{ display:none; margin-top:18px; padding:16px; border:1px solid var(--orange); border-radius:12px; background:#1b0902; line-height:1.6; }
+.social-title{ text-align:center; font-size:clamp(28px,6vw,44px); margin:0 0 8px; }
+.social-sub{ text-align:center; line-height:1.7; max-width:750px; margin:0 auto 22px; }
+.social-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+.social{ min-height:110px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:16px 8px; border:1px solid var(--border); border-radius:18px; background:linear-gradient(145deg,#260e02,#090402); font-size:11px; font-weight:900; text-align:center; }
+.social svg{ width:36px; height:36px; }
+.social.facebook{ border-color:#1877F2; color:#1877F2; }
+.social.facebook svg{ fill:#1877F2; }
+.social.whatsapp{ border-color:#25D366; color:#25D366; }
+.social.whatsapp svg{ fill:#25D366; }
+.social.tiktok{ border-color:#ffffff; color:#ffffff; }
+.social.tiktok svg{ fill:#ffffff; }
+.social.youtube{ border-color:#FF0000; color:#FF0000; }
+.social.youtube svg{ fill:#FF0000; }
+.social.spotify{ border-color:#1DB954; color:#1DB954; }
+.social.spotify svg{ fill:#1DB954; }
+.social.instagram{ border-color:#E1306C; color:#E1306C; }
+.social.instagram svg{ fill:#E1306C; }
+.social.linkedin{ border-color:#0A66C2; color:#0A66C2; }
+.social.linkedin svg{ fill:#0A66C2; }
+.social.truthsocial{ border-color:#5448EE; color:#5448EE; }
+.social.truthsocial svg{ fill:#5448EE; }
+.social.telegram{ border-color:#229ED9; color:#229ED9; }
+.social.telegram svg{ fill:#229ED9; }
+.social.x-twitter{ border-color:#ffffff; color:#ffffff; }
+.social.x-twitter svg{ fill:#ffffff; }
+footer{ text-align:center;padding:30px 0; border-top:2px solid var(--orange); background:#050200; font-size:13px; line-height:1.8; }
+@media(max-width:700px){ .social-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:600px){ .hero-actions .btn{width:100%} .card{padding:20px} }
 </style>
 </head>
 <body>
+<div class="topbar" data-t="topbar">MAXIMAX MULTI SERVICES • APPOINTMENT CENTER</div>
 <header>
  <div class="container header-content">
-  <a class="brand" href="#home">
-   <img src="briyant-soley-signo-1815.jpg" alt="Logo Briyant Solèy Signo 1815">
-   <div><strong>BRIYANT SOLÈY SIGNO 1815</strong><small>BSS1815 PRO-MAX DMP</small></div>
-  </a>
-  <nav>
-   <a href="#home" data-t="home">AKÈY</a>
-   <a href="#about" data-t="about">SOU NOU</a>
-   <a href="#modules" data-t="modules">MODIL</a>
-   <a href="#slideshow" data-t="gallery">GALRI</a>
-   <a href="#customer" data-t="service">SÈVIS</a>
-   <a href="#contact" data-t="contact">KONTAK</a>
-  </nav>
+  <a href="index.html" aria-label="Maximax Multi Services"><img class="logo-img" src="maximax-multi-services.jpg" alt="Maximax Multi Services Logo"></a>
   <div class="lang-switch">
-   <button class="lang active" data-lang="ht">KRE</button>
-   <button class="lang" data-lang="en">ENG</button>
-   <button class="lang" data-lang="fr">FRAN</button>
+   <button class="lang active" data-lang="en" type="button">🇺🇸 ENG</button>
+   <button class="lang" data-lang="es" type="button">🇪🇸 ESP</button>
+   <button class="lang" data-lang="ht" type="button">🇭🇹 KRE</button>
+   <button class="menu-btn" type="button" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">☰</button>
   </div>
  </div>
 </header>
-<main>
-<section class="hero" id="home">
- <div class="container">
-  <img class="hero-logo" src="briyant-soley-signo-1815.jpg" alt="BRIYANT SOLÈY SIGNO 1815">
-  <h1>BRIYANT SOLÈY<br>SIGNO 1815</h1>
-  <p data-t="slogan">DEVAN DEVAN NÈT</p>
-  <p data-t="build">Bati pou Jodi a, Pare pou Demen.</p>
+<main class="container">
+<section class="hero">
+ <div class="card">
+  <div class="hero-icon">📅</div>
+  <small data-t="center">MAXIMAX SERVICE CENTER</small>
+  <h1 data-t="title">APPOINTMENT CENTER</h1>
+  <p data-t="subtitle">Organize your Maximax service request, preferred appointment date, contact information and document-preparation needs in one place.</p>
   <div class="hero-actions">
-   <a class="btn" href="#modules" data-t="explore">EKSPORE MODIL YO</a>
-   <a class="btn outline" href="#slideshow" data-t="photos">GADE FOTO YO</a>
-  </div>
-  <div class="stats">
-   <div class="card stat"><strong>1815</strong><span data-t="heritage">ERITAJ NOU</span></div>
-   <div class="card stat"><strong>12</strong><span data-t="mainModules">MODIL PRENSIPAL</span></div>
-   <div class="card stat"><strong>1</strong><span data-t="vision">YON SÈL VIZYON</span></div>
+   <a class="btn" href="#request" data-t="requestBtn">REQUEST APPOINTMENT</a>
+   <a class="btn outline" href="tel:+14076405166">📞 (407) 640-5166</a>
+   <a class="btn outline" href="index.html">← BACK TO HOMEPAGE</a>
   </div>
  </div>
 </section>
-<section id="about">
- <div class="container">
-  <h2>ONE PLATFORM — ONE VISION</h2>
-  <p class="subtitle" data-t="aboutText">BRIYANT SOLÈY SIGNO 1815 se yon espas dijital ki mete kominote, kominikasyon, teknoloji, sèvis ak eritaj ansanm.</p>
-  <div class="card" style="text-align:center">
-   <h3 data-t="light">BRIYANT SE YON LIMYÈ KI PA JANM ETENN</h3>
-   <p data-t="future">Nou valorize istwa nou, ranfòse solidarite epi prepare lavni avèk inovasyon.</p>
-  </div>
+
+<section id="menu">
+ <div class="service-list">
+  <div class="card service"><div class="icon">✍️</div><h3>NOTARY</h3><p data-t="notary">Notarial document service requests.</p></div>
+  <div class="card service"><div class="icon">💰</div><h3>TAXES</h3><p data-t="taxes">Tax-document preparation and organization.</p></div>
+  <div class="card service"><div class="icon">🗽</div><h3>IMMIGRATION</h3><p data-t="immigration">Immigration document-preparation services.</p></div>
+  <div class="card service"><div class="icon">⚖️</div><h3>EOIR + BIA</h3><p data-t="eoir">Administrative case-document organization.</p></div>
+  <div class="card service"><div class="icon">🛡️</div><h3>INSURANCE</h3><p data-t="insurance">Insurance service navigation and appointments.</p></div>
+  <div class="card service"><div class="icon">🏠</div><h3>REAL ESTATE</h3><p data-t="realestate">Property and real-estate service requests.</p></div>
+  <div class="card service"><div class="icon">💼</div><h3>BUSINESS</h3><p data-t="business">Business administrative service requests.</p></div>
+  <div class="card service"><div class="icon">🌎</div><h3>APOSTILLE</h3><p data-t="apostille">Apostille document-preparation requests.</p></div>
+  <div class="card service"><div class="icon">✈️</div><h3>TRAVEL + DMV</h3><p data-t="travel">Travel and DMV administrative support.</p></div>
+  <div class="card service"><div class="icon">📈</div><h3>CREDIT</h3><p data-t="credit">Credit-report organization and support.</p></div>
+  <div class="card service"><div class="icon">📄</div><h3>DIVORCE DOCUMENTS</h3><p data-t="divorce">Supported administrative document preparation.</p></div>
+  <div class="card service"><div class="icon">🤖</div><h3>AI SERVICES</h3><p data-t="ai">Digital AI assistance and service navigation.</p></div>
  </div>
 </section>
-<section id="modules">
- <div class="container">
-  <h2 data-t="modulesTitle">MODIL PRENSIPAL YO</h2>
-  <p class="subtitle" data-t="modulesSub">12 modil prensipal avèk pwòp ikòn yo.</p>
-  <div class="module-grid" id="moduleGrid"></div>
+
+<section id="request">
+ <div class="card">
+  <p style="text-align:center;letter-spacing:2px;font-weight:800;color:var(--orange);margin:0" data-t="formTop">MAXIMAX APPOINTMENT REQUEST</p>
+  <h2 style="text-align:center;font-size:clamp(30px,6vw,52px);margin:10px 0" data-t="formTitle">REQUEST AN APPOINTMENT</h2>
+  <p style="text-align:center;line-height:1.7" data-t="formSub">Enter your service request and preferred date. This form saves an appointment request on your device; it does not automatically confirm an appointment.</p>
+  <form id="apptForm">
+   <label data-t="name">FULL NAME</label>
+   <input id="fullName" type="text" placeholder="Your name" required autocomplete="name">
+   <label data-t="phone">PHONE</label>
+   <input id="phone" type="tel" placeholder="Phone number" required autocomplete="tel">
+   <label data-t="email">EMAIL</label>
+   <input id="email" type="email" placeholder="Email address" required autocomplete="email">
+   <label data-t="service">SERVICE</label>
+   <select id="service" required>
+    <option value="" data-t="selectService">Select Service</option>
+    <option>NOTARY</option>
+    <option>TAXES</option>
+    <option>IMMIGRATION</option>
+    <option>EOIR + BIA</option>
+    <option>INSURANCE</option>
+    <option>REAL ESTATE</option>
+    <option>BUSINESS</option>
+    <option>APOSTILLE</option>
+    <option>TRAVEL + DMV</option>
+    <option>CREDIT</option>
+    <option>DIVORCE DOCUMENTS</option>
+    <option>AI SERVICES</option>
+   </select>
+   <label data-t="date">PREFERRED DATE</label>
+   <input id="date" type="date" required>
+   <label data-t="notes">NOTES / DOCUMENTS NEEDED</label>
+   <textarea id="notes" rows="4" placeholder="Write your request here..."></textarea>
+   <div class="form-actions">
+    <button class="btn" type="submit" data-t="submit">SAVE APPOINTMENT REQUEST</button>
+    <a class="btn outline" href="tel:+14076405166">📞 (407) 640-5166</a>
+    <a class="btn outline" href="index.html">← BACK TO HOMEPAGE</a>
+   </div>
+   <div class="success" id="successBox"></div>
+  </form>
  </div>
 </section>
-<section id="slideshow">
- <div class="container">
-  <h2>BRIYANT SOLÈY SIGNO 1815 — SLIDESHOW</h2>
-  <p class="subtitle" data-t="gallerySub">Foto, videyo ak souvni kominote a.</p>
-  <div class="slideshow">
-   <div class="slide-screen" id="slideScreen">
-    <div class="slide-message"><h3>BRIYANT SOLÈY SIGNO 1815</h3><p data-t="pendingPhotos">Nouvo lis foto slideshow a poko antre.</p></div>
-   </div>
-   <div class="slide-controls">
-    <button id="prev" type="button">◀</button>
-    <button id="togglePlay" type="button" data-t="pause">POZ</button>
-    <button id="next" type="button">▶</button>
-    <span id="counter">0 / 0</span>
-   </div>
-  </div>
- </div>
-</section>
-<section id="customer">
- <div class="container">
-  <h2>CUSTOMER SERVICE</h2>
-  <p class="subtitle" data-t="customerSub">Sèvis kliyan BSS1815 PRO-MAX DMP.</p>
-  <div class="customer-grid">
-   <div>
-    <video class="avatar" id="profAvatar" controls playsinline preload="metadata" poster="briyant-soley-signo-1815.jpg">
-     <source src="briyant-soley-signo-1815.mp4" type="video/mp4">
-     Your browser does not support video.
-    </video>
-    <p class="note" id="avatarStatus" aria-live="polite"></p>
-   </div>
-   <div class="card customer-text">
-    <h3 data-t="customerTitle">BYENVINI NAN CUSTOMER SERVICE</h3>
-    <p data-t="customerText">Nou la pou ede ou jwenn enfòmasyon sou sèvis, aktivite ak modil BSS1815 PRO-MAX DMP.</p>
-    <a class="btn" href="#contact" data-t="contactUs">KONTAKTE NOU</a>
-   </div>
-  </div>
- </div>
-</section>
-<section id="ai-center">
- <div class="container">
-  <h2>AI CENTER</h2>
-  <p class="subtitle" data-t="aiSub">12 zouti pou prepare travay ak demann AI.</p>
-  <div class="ai-grid" id="aiGrid">
-   <button type="button" class="ai-tool active" data-ai="0">01 — AI ASSISTANT</button>
-   <button type="button" class="ai-tool" data-ai="1">02 — AI WRITING</button>
-   <button type="button" class="ai-tool" data-ai="2">03 — AI TRANSLATION</button>
-   <button type="button" class="ai-tool" data-ai="3">04 — AI DOCUMENTS</button>
-   <button type="button" class="ai-tool" data-ai="4">05 — AI VOICE SCRIPT</button>
-   <button type="button" class="ai-tool" data-ai="5">06 — AI RADIO SCRIPT</button>
-   <button type="button" class="ai-tool" data-ai="6">07 — AI SOCIAL MEDIA</button>
-   <button type="button" class="ai-tool" data-ai="7">08 — AI FLYER CONTENT</button>
-   <button type="button" class="ai-tool" data-ai="8">09 — AI PLANNING</button>
-   <button type="button" class="ai-tool" data-ai="9">10 — AI BUSINESS</button>
-   <button type="button" class="ai-tool" data-ai="10">11 — AI RESEARCH</button>
-   <button type="button" class="ai-tool" data-ai="11">12 — AI CUSTOMER SUPPORT</button>
-  </div>
-  <div class="card" style="margin-top:20px">
-   <h3 id="aiTitle">AI ASSISTANT</h3>
-   <textarea id="aiInput" placeholder="Ekri demann ou isit la..."></textarea>
-   <div class="ai-actions">
-    <button class="btn" id="prepareAI" data-t="prepare">PREPARE DEMANN</button>
-    <button class="btn outline" id="copyAI" data-t="copy">KOPYE</button>
-    <button class="btn outline" id="clearAI" data-t="clear">EFASE</button>
-   </div>
-   <div class="ai-output" id="aiOutput" aria-live="polite"></div>
-   <p class="note" data-t="aiNote">Zouti sa yo prepare demann. Yon sèvis AI sou sèvè nesesè pou jenere repons otomatik sou paj la.</p>
-  </div>
- </div>
-</section>
-<section id="contact">
- <div class="container">
-  <h2 data-t="contactTitle">KONTAKTE NOU</h2>
-  <div class="contact-grid">
-   <div class="card">
-    <h3>UNITED STATES</h3>
-    <p><a href="tel:+14076405166">(407) 640-5166</a><br><a href="tel:+13175381150">(317) 538-1150</a></p>
-    <h3>HAITI</h3>
-    <p><a href="tel:+50942544447">+509 4254 4447</a><br><a href="tel:+50943437488">+509 4343 7488</a></p>
-   </div>
-   <div class="card">
-    <h3>EMAIL</h3>
-    <p><a href="mailto:bss1815promaxdmp@gmail.com">bss1815promaxdmp@gmail.com</a></p>
-    <h3>BSS1815 PRO-MAX DMP</h3>
-    <p data-t="build">Bati pou Jodi a, Pare pou Demen.</p>
-   </div>
-  </div>
- </div>
-</section>
-<section id="social">
- <div class="container">
-  <h2 data-t="socialTitle">REZO SOSYAL NOU YO</h2>
-  <div class="social-grid" id="socialGrid">
-   <a class="social" href="https://facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer" style="color:#1877f2"><strong style="font-size:25px">f</strong><span>Facebook</span></a>
-   <a class="social" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer" style="color:#25d366"><strong style="font-size:25px">☎</strong><span>WhatsApp</span></a>
-   <a class="social" href="https://tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer" style="color:#25f4ee"><strong style="font-size:25px">♪</strong><span>TikTok</span></a>
-   <a class="social" href="https://instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer" style="color:#e4405f"><strong style="font-size:25px">◎</strong><span>Instagram</span></a>
-   <a class="social" href="https://t.me/bss1815dmp" target="_blank" rel="noopener noreferrer" style="color:#229ed9"><strong style="font-size:25px">➤</strong><span>Telegram</span></a>
-   <a class="social" href="https://youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer" style="color:#ff0033"><strong style="font-size:25px">▶</strong><span>YouTube</span></a>
-   <a class="social" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer" style="color:#1ed760"><strong style="font-size:25px">◉</strong><span>Spotify</span></a>
-   <a class="social" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer" style="color:#d1d1d1"><strong style="font-size:25px">𝕏</strong><span>X</span></a>
-   <a class="social" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer" style="color:#ff3535"><strong style="font-size:25px">T</strong><span>Truth Social</span></a>
-   <a class="social" href="https://linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer" style="color:#0a66c2"><strong style="font-size:25px">in</strong><span>LinkedIn</span></a>
+
+<section id="social-networks">
+ <div class="card">
+  <h2 class="social-title">SOCIAL NETWORKS</h2>
+  <p class="social-sub">Connect with Maximax Multi Services across our social networks.</p>
+  <div class="social-grid">
+   <a class="social facebook" href="https://www.facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.973h-1.513c-1.49 0-1.956.931-1.956 1.887v2.261h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg><span>FACEBOOK</span></a>
+   <a class="social whatsapp" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 0C5.373 0 0 5.373 0 12c0 2.116.552 4.181 1.6 6L0 24l6.153-1.613A11.96 11.96 0 0012.004 24C18.63 24 24 18.627 24 12S18.63 0 12.004 0zm0 21.818a9.78 9.78 0 01-4.99-1.366l-.357-.212-3.65.957.974-3.557-.232-.366A9.77 9.77 0 012.182 12c0-5.414 4.407-9.818 9.822-9.818 5.414 0 9.814 4.404 9.814 9.818s-4.4 9.818-9.814 9.818z"/></svg><span>WHATSAPP</span></a>
+   <a class="social tiktok" href="https://www.tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.321 5.562a5.124 5.124 0 01-3.005-.96A5.15 5.15 0 0114.323 1H10.5v14.4a3.2 3.2 0 11-2.2-3.038V8.45a7.03 7.03 0 00-1.2-.104A7.1 7.1 0 1014.2 15.4V8.096a8.94 8.94 0 005.121 1.64V5.562z"/></svg><span>TIKTOK</span></a>
+   <a class="social youtube" href="https://www.youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.121 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.376-.505a3.016 3.016 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>YOUTUBE</span></a>
+   <a class="social spotify" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.505 17.308a.75.75 0 01-1.032.249c-2.827-1.728-6.386-2.118-10.578-1.16a.75.75 0 11-.334-1.462c4.587-1.049 8.522-.6 11.695 1.34a.75.75 0 01.249 1.033zm1.475-3.282a.94.94 0 01-1.293.31c-3.237-1.988-8.171-2.564-11.998-1.403a.94.94 0 11-.546-1.799c4.376-1.328 9.813-.685 13.527 1.596a.94.94 0 01.31 1.296zm.126-3.417C15.224 8.304 8.819 8.091 5.11 9.212a1.128 1.128 0 11-.652-2.16c4.26-1.288 11.336-1.038 15.8 1.611a1.128 1.128 0 01-1.152 1.946z"/></svg><span>SPOTIFY</span></a>
+   <a class="social instagram" href="https://www.instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 5.838A6.162 6.162 0 1012 18.162 6.162 6.162 0 0012 5.838zm0 10.162a4 4 0 110-8 4 4 0 010 8z"/></svg><span>INSTAGRAM</span></a>
+   <a class="social linkedin" href="https://www.linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.047c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.371 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM7.119 20.452H3.555V9H7.12v11.452z"/></svg><span>LINKEDIN</span></a>
+   <a class="social truthsocial" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer" aria-label="Truth Social"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v4H14v14h-4V7H3V3zm13 6h5v4h-5V9zm0 6h5v4h-5v-4z"/></svg><span>TRUTH SOCIAL</span></a>
+   <a class="social telegram" href="#contact" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.953 4.57a.74.74 0 00-1.017-.267L1.43 12.48c-1.47.59-1.462 1.41-.268 1.776l5.518 1.724 2.114 6.484c.257.71.13.992.878.992.577 0 .831-.264 1.153-.577l2.653-2.58 5.518 4.077c1.016.56 1.748.27 2.001-.943L24 5.585c.322-1.49-.57-2.166-.047-1.015z"/></svg><span>TELEGRAM</span></a>
+   <a class="social x-twitter" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg><span>X / TWITTER</span></a>
   </div>
  </div>
 </section>
 </main>
 <footer>
  <div class="container">
-  <h3>BRIYANT SOLÈY SIGNO 1815</h3>
-  <p>BSS1815 PRO-MAX DMP</p>
-  <p data-t="footer">DEVAN DEVAN NÈT — Bati pou Jodi a, Pare pou Demen.</p>
-  <small>© <span id="year"></span> BSS1815 PRO-MAX DMP</small>
+  <img src="maximax-multi-services.jpg" alt="Maximax Multi Services" style="width:64px;height:64px;object-fit:contain;border:2px solid #ff8c00;border-radius:14px;padding:3px;background:#000;margin-bottom:8px;">
+  <br><strong>MAXIMAX MULTI SERVICES</strong><br>
+  <span data-t="footer">PART OF BSS1815 PRO-MAX DMP</span><br>
+  <a href="tel:+14076405166">(407) 640-5166</a> • <a href="mailto:maximaxmultiservices@gmail.com">maximaxmultiservices@gmail.com</a><br>
+  <a href="index.html">← BACK TO HOMEPAGE</a>
  </div>
 </footer>
 <script>
 "use strict";
 const T={
- ht:{ home:"AKÈY",about:"SOU NOU",modules:"MODIL", gallery:"GALRI",service:"SÈVIS",contact:"KONTAK", slogan:"DEVAN DEVAN NÈT", build:"Bati pou Jodi a, Pare pou Demen.", explore:"EKSPORE MODIL YO",photos:"GADE FOTO YO", heritage:"ERITAJ NOU",mainModules:"MODIL PRENSIPAL", vision:"YON SÈL VIZYON", aboutText:"BRIYANT SOLÈY SIGNO 1815 se yon espas dijital ki mete kominote, kominikasyon, teknoloji, sèvis ak eritaj ansanm.", light:"BRIYANT SE YON LIMYÈ KI PA JANM ETENN", future:"Nou valorize istwa nou, ranfòse solidarite epi prepare lavni avèk inovasyon.", modulesTitle:"MODIL PRENSIPAL YO", modulesSub:"12 modil prensipal avèk pwòp ikòn yo.", open:"OUVRI MODIL", unavailable:"Paj modil sa a poko konekte.", gallerySub:"Foto, videyo ak souvni kominote a.", pendingPhotos:"Nouvo lis foto slideshow a poko antre.", pause:"POZ",play:"JWE", customerSub:"Sèvis kliyan BSS1815 PRO-MAX DMP.", customerTitle:"BYENVINI NAN CUSTOMER SERVICE", customerText:"Nou la pou ede ou jwenn enfòmasyon sou sèvis, aktivite ak modil BSS1815 PRO-MAX DMP.", contactUs:"KONTAKTE NOU", aiSub:"12 zouti pou prepare travay ak demann AI.", prepare:"PREPARE DEMANN",copy:"KOPYE",clear:"EFASE", aiNote:"Zouti sa yo prepare demann. Yon sèvis AI sou sèvè nesesè pou jenere repons otomatik sou paj la.", contactTitle:"KONTAKTE NOU", socialTitle:"REZO SOSYAL NOU YO", footer:"DEVAN DEVAN NÈT — Bati pou Jodi a, Pare pou Demen." },
- en:{ home:"HOME",about:"ABOUT",modules:"MODULES", gallery:"GALLERY",service:"SERVICE",contact:"CONTACT", slogan:"FORWARD, ALWAYS FORWARD", build:"Building for Today, Ready for Tomorrow.", explore:"EXPLORE MODULES",photos:"VIEW PHOTOS", heritage:"OUR HERITAGE",mainModules:"MAIN MODULES", vision:"ONE VISION", aboutText:"BRIYANT SOLÈY SIGNO 1815 is a digital space bringing community, communication, technology, services and heritage together.", light:"BRIYANT IS A LIGHT THAT NEVER GOES OUT", future:"We honor our history, strengthen solidarity and prepare for the future through innovation.", modulesTitle:"MAIN MODULES", modulesSub:"12 main modules with their own icons.", open:"OPEN MODULE", unavailable:"This module page is not connected yet.", gallerySub:"Community photos, videos and memories.", pendingPhotos:"The new slideshow photo list has not been added yet.", pause:"PAUSE",play:"PLAY", customerSub:"BSS1815 PRO-MAX DMP Customer Service.", customerTitle:"WELCOME TO CUSTOMER SERVICE", customerText:"We help you find information about BSS1815 PRO-MAX DMP services, activities and modules.", contactUs:"CONTACT US", aiSub:"12 tools for preparing AI tasks and requests.", prepare:"PREPARE REQUEST",copy:"COPY",clear:"CLEAR", aiNote:"These tools prepare requests. A server-side AI service is required to generate automatic responses on this page.", contactTitle:"CONTACT US", socialTitle:"OUR SOCIAL NETWORKS", footer:"FORWARD, ALWAYS FORWARD — Building for Today, Ready for Tomorrow." },
- fr:{ home:"ACCUEIL",about:"À PROPOS",modules:"MODULES", gallery:"GALERIE",service:"SERVICE",contact:"CONTACT", slogan:"TOUJOURS DE L'AVANT", build:"Bâtir pour aujourd'hui, prêts pour demain.", explore:"EXPLORER LES MODULES",photos:"VOIR LES PHOTOS", heritage:"NOTRE HÉRITAGE",mainModules:"MODULES PRINCIPAUX", vision:"UNE SEULE VISION", aboutText:"BRIYANT SOLÈY SIGNO 1815 est un espace numérique réunissant communauté, communication, technologie, services et patrimoine.", light:"BRIYANT EST UNE LUMIÈRE QUI NE S'ÉTEINT JAMAIS", future:"Nous valorisons notre histoire, renforçons la solidarité et préparons l'avenir grâce à l'innovation.", modulesTitle:"MODULES PRINCIPAUX", modulesSub:"12 modules principaux avec leurs propres icônes.", open:"OUVRIR LE MODULE", unavailable:"La page de ce module n'est pas encore connectée.", gallerySub:"Photos, vidéos et souvenirs de la communauté.", pendingPhotos:"La nouvelle liste des photos n'a pas encore été ajoutée.", pause:"PAUSE",play:"LECTURE", customerSub:"Service client BSS1815 PRO-MAX DMP.", customerTitle:"BIENVENUE AU SERVICE CLIENT", customerText:"Nous vous aidons à trouver des informations sur les services, activités et modules BSS1815 PRO-MAX DMP.", contactUs:"CONTACTEZ-NOUS", aiSub:"12 outils pour préparer les tâches et demandes IA.", prepare:"PRÉPARER LA DEMANDE",copy:"COPIER",clear:"EFFACER", aiNote:"Ces outils préparent des demandes. Un service IA côté serveur est nécessaire pour générer des réponses automatiques sur cette page.", contactTitle:"CONTACTEZ-NOUS", socialTitle:"NOS RÉSEAUX SOCIAUX", footer:"TOUJOURS DE L'AVANT — Bâtir pour aujourd'hui, prêts pour demain." }
+ en:{ topbar:"MAXIMAX MULTI SERVICES • APPOINTMENT CENTER", center:"MAXIMAX SERVICE CENTER", title:"APPOINTMENT CENTER", subtitle:"Organize your Maximax service request, preferred appointment date, contact information and document-preparation needs in one place.", requestBtn:"REQUEST APPOINTMENT", notary:"Notarial document service requests.", taxes:"Tax-document preparation and organization.", immigration:"Immigration document-preparation services.", eoir:"Administrative case-document organization.", insurance:"Insurance service navigation and appointments.", realestate:"Property and real-estate service requests.", business:"Business administrative service requests.", apostille:"Apostille document-preparation requests.", travel:"Travel and DMV administrative support.", credit:"Credit-report organization and support.", divorce:"Supported administrative document preparation.", ai:"Digital AI assistance and service navigation.", formTop:"MAXIMAX APPOINTMENT REQUEST", formTitle:"REQUEST AN APPOINTMENT", formSub:"Enter your service request and preferred date. This form saves an appointment request on your device; it does not automatically confirm an appointment.", name:"FULL NAME", phone:"PHONE", email:"EMAIL", service:"SERVICE", selectService:"Select Service", date:"PREFERRED DATE", notes:"NOTES / DOCUMENTS NEEDED", submit:"SAVE APPOINTMENT REQUEST", footer:"PART OF BSS1815 PRO-MAX DMP" },
+ es:{ topbar:"MAXIMAX MULTI SERVICES • CENTRO DE CITAS", center:"CENTRO DE SERVICIOS MAXIMAX", title:"CENTRO DE CITAS", subtitle:"Organice su solicitud de servicio Maximax, fecha preferida, información de contacto y necesidades de preparación de documentos en un solo lugar.", requestBtn:"SOLICITAR CITA", notary:"Solicitudes de servicios de documentos notariales.", taxes:"Preparación y organización de documentos fiscales.", immigration:"Servicios de preparación de documentos de inmigración.", eoir:"Organización de documentos de casos administrativos.", insurance:"Navegación y citas de servicios de seguros.", realestate:"Solicitudes de servicios inmobiliarios.", business:"Solicitudes de servicios administrativos empresariales.", apostille:"Solicitudes de preparación de documentos de apostilla.", travel:"Apoyo administrativo de viajes y DMV.", credit:"Organización y apoyo de informes de crédito.", divorce:"Preparación administrativa de documentos apoyada.", ai:"Asistencia digital con IA y navegación de servicios.", formTop:"SOLICITUD DE CITA MAXIMAX", formTitle:"SOLICITAR UNA CITA", formSub:"Ingrese su solicitud de servicio y fecha preferida. Este formulario guarda una solicitud de cita en su dispositivo; no confirma automáticamente una cita.", name:"NOMBRE COMPLETO", phone:"TELÉFONO", email:"CORREO ELECTRÓNICO", service:"SERVICIO", selectService:"Seleccione un servicio", date:"FECHA PREFERIDA", notes:"NOTAS / DOCUMENTOS NECESARIOS", submit:"GUARDAR SOLICITUD DE CITA", footer:"PARTE DE BSS1815 PRO-MAX DMP" },
+ ht:{ topbar:"MAXIMAX MULTI SERVICES • SANT RANDEVOU", center:"SANT SÈVIS MAXIMAX", title:"SANT RANDEVOU", subtitle:"Òganize demann sèvis Maximax ou, dat randevou ou prefere, enfòmasyon kontak ou ak bezwen preparasyon dokiman ou nan yon sèl kote.", requestBtn:"MANDE RANDEVOU", notary:"Demann sèvis dokiman notaryal.", taxes:"Preparasyon ak òganizasyon dokiman taks.", immigration:"Sèvis preparasyon dokiman imigrasyon.", eoir:"Òganizasyon dokiman ka administratif.", insurance:"Navigasyon sèvis asirans ak randevou.", realestate:"Demann sèvis pwopriyete ak byen imobilye.", business:"Demann sèvis administratif biznis.", apostille:"Demann preparasyon dokiman apostille.", travel:"Sipò administratif vwayaj ak DMV.", credit:"Òganizasyon ak sipò rapò kredi.", divorce:"Preparasyon dokiman administratif sipòte.", ai:"Asistans dijital AI ak navigasyon sèvis.", formTop:"DEMAND RANDEVOU MAXIMAX", formTitle:"MANDE YON RANDEVOU", notes:"NÒT / DOKIMAN KI BEZWEN", formSub:"Antre demann sèvis ou ak dat ou prefere. Fòm sa a sove yon demann randevou sou aparèy ou; li pa konfime randevou a otomatikman.", name:"NON KONPLÈ", phone:"TELEFÒN", email:"IMEL", service:"SÈVIS", selectService:"Chwazi Sèvis", date:"DAT OU PREFERE", submit:"SOVE DEMANN RANDEVOU A", footer:"PATI NAN BSS1815 PRO-MAX DMP" }
 };
-let language="ht";
-function setLanguage(lang){
- if(!T[lang])return;
- language=lang;
+function setLang(lang){
  document.documentElement.lang=lang;
- document.querySelectorAll("[data-t]").forEach(el=>{ const key=el.dataset.t; if(T[lang][key])el.textContent=T[lang][key]; });
- document.querySelectorAll(".lang").forEach(btn=>{ const active=btn.dataset.lang===lang; btn.classList.toggle("active",active); btn.setAttribute("aria-pressed",String(active)); });
- document.getElementById("aiInput").placeholder={ ht:"Ekri demann ou isit la...", en:"Enter your request here...", fr:"Saisissez votre demande ici..." }[lang];
- renderModules();
- updateSlideControls();
+ document.querySelectorAll("[data-t]").forEach(el=>{ const k=el.dataset.t; if(T[lang]&&T[lang][k]) el.textContent=T[lang][k]; });
+ document.querySelectorAll(".lang").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
+ const ph={ en:{fullName:"Your name",phone:"Phone number",email:"Email address",notes:"Write your request here..."}, es:{fullName:"Su nombre",phone:"Número de teléfono",email:"Correo electrónico",notes:"Escriba su solicitud aquí..."}, ht:{fullName:"Non ou",phone:"Nimewo telefòn",email:"Adrès imel",notes:"Ekri demann ou isit la..."} }[lang];
+ if(ph){ document.getElementById("fullName").placeholder=ph.fullName; document.getElementById("phone").placeholder=ph.phone; document.getElementById("email").placeholder=ph.email; document.getElementById("notes").placeholder=ph.notes; }
 }
-document.querySelectorAll(".lang").forEach(btn=>{ btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)); });
-const ICONS={
- brain:'<path d="M12 5a3 3 0 0 0-5-2 4 4 0 0 0-4 5 4 4 0 0 0 0 7 4 4 0 0 0 4 5 3 3 0 0 0 5-2"/><path d="M12 5a3 3 0 0 1 5-2 4 4 0 0 1 4 5 4 4 0 0 1 0 7 4 4 0 0 1-4 5 3 3 0 0 1-5-2"/><path d="M12 5v13M7 9l3 2M17 9l-3 2"/>',
- users:'<circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M17 5a3 3 0 0 1 0 6M17 15a5 5 0 0 1 4 5"/>',
- message:'<path d="M3 4h18v13H8l-5 4V4zM7 9h10M7 13h7"/>',
- palette:'<path d="M12 3a9 9 0 1 0 0 18h2a2 2 0 0 0 2-2c0-2-2-2-2-4s2-2 4-2a4 4 0 0 0 4-4A9 9 0 0 0 12 3z"/><circle cx="7" cy="11" r="1"/><circle cx="10" cy="7" r="1"/>',
- book:'<path d="M3 5c4-2 7-1 9 1 2-2 5-3 9-1v14c-4-2-7-1-9 1-2-2-5-3-9-1zM12 6v14"/>',
- calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M8 15h3"/>',
- files:'<path d="M6 3h9l4 4v14H6zM15 3v5h4M9 12h7M9 16h7"/>',
- megaphone:'<path d="M3 10v4h4l11 5V5L7 10zM7 14l2 7h4l-2-5M21 9v6"/>',
- wallet:'<rect x="3" y="6" width="18" height="15" rx="2"/><path d="M3 9V5a2 2 0 0 1 2-2h13M15 12h6v5h-6a2 2 0 0 1 0-5z"/>',
- headset:'<path d="M4 14v-3a8 8 0 0 1 16 0v3M4 14h4v6H6a2 2 0 0 1-2-2zM20 14h-4v6h2a2 2 0 0 0 2-2z"/>',
- radio:'<rect x="3" y="8" width="18" height="13" rx="2"/><path d="M6 8l12-5M7 12h10M7 16h5"/><circle cx="17" cy="17" r="2"/>',
- dashboard:'<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/>'
-};
-const MODULES=[
- ["AI CENTER","brain","#ai-center"],
- ["CRM SYSTEM","users",null],
- ["COMMUNICATION CENTER","message",null],
- ["FLYER STUDIO","palette",null],
- ["DIGITAL REGISTRY","book",null],
- ["EVENT MANAGER","calendar",null],
- ["DOCUMENT CENTER","files",null],
- ["ANNOUNCEMENT CENTER","megaphone",null],
- ["FINANCE","wallet",null],
- ["HELP DESK","headset","#customer"],
- ["PRO-MAX FM 106.5 FM","radio",null],
- ["ADMIN DASHBOARD","dashboard",null]
-];
-function renderModules(){
- const grid=document.getElementById("moduleGrid");
- if(!grid) return;
- grid.replaceChildren();
- MODULES.forEach(([name,icon,target])=>{
-  const link=document.createElement("a");
-  link.className="module";
-  link.href=target||"#modules";
-  const symbol=document.createElement("div");
-  symbol.innerHTML=[STRIPPED 46 bytes]+ICONS[icon]+'</svg>';
-  const title=document.createElement("strong");
-  title.textContent=name;
-  const action=document.createElement("span");
-  action.textContent=T[language].open;
-  link.append(symbol,title,action);
-  if(!target){ link.addEventListener("click",event=>{ event.preventDefault(); alert(name+"\n"+T[language].unavailable); }); }
-  grid.appendChild(link);
- });
-}
-const SLIDESHOW_FILES=[];
-const SLIDESHOW_FOLDER="";
-const SLIDES=SLIDESHOW_FILES.filter(name=>typeof name==="string" && /\.(jpg|jpeg|png|webp|gif|mp4|webm)$/i.test(name));
-let slideIndex=0;
-let playing=true;
-let slideTimer=null;
-let slideToken=0;
-const screen=document.getElementById("slideScreen");
-function stopTimer(){ if(slideTimer)clearTimeout(slideTimer); slideTimer=null; }
-function updateSlideControls(){
- document.getElementById("counter").textContent= SLIDES.length?(slideIndex+1)+" / "+SLIDES.length:"0 / 0";
- document.getElementById("togglePlay").textContent= T[language][playing?"pause":"play"];
-}
-function showSlide(failures=0){
- stopTimer();
- const token=++slideToken;
- if(!SLIDES.length){ screen.innerHTML='<div class="slide-message"><h3>BRIYANT SOLÈY SIGNO 1815</h3><p>'+T[language].pendingPhotos+'</p></div>'; updateSlideControls(); return; }
- if(failures>=SLIDES.length){ screen.textContent="No slideshow media could be loaded."; return; }
- const name=SLIDES[slideIndex];
- const video=/\.(mp4|webm)$/i.test(name);
- const media=document.createElement(video?"video":"img");
- media.onerror=()=>{ if(token!==slideToken)return; slideIndex=(slideIndex+1)%SLIDES.length; showSlide(failures+1); };
- if(video){ media.controls=true; media.playsInline=true; media.preload="metadata"; media.onended=()=>{ if(playing)nextSlide(); }; }else{ media.alt="BSS1815 slideshow "+(slideIndex+1); }
- media.src=SLIDESHOW_FOLDER+name;
- screen.replaceChildren(media);
- updateSlideControls();
- if(playing&&SLIDES.length>1){ slideTimer=setTimeout(nextSlide,5500); }
-}
-function nextSlide(){ if(!SLIDES.length)return; slideIndex=(slideIndex+1)%SLIDES.length; showSlide(); }
-function prevSlide(){ if(!SLIDES.length)return; slideIndex=(slideIndex-1+SLIDES.length)%SLIDES.length; showSlide(); }
-document.getElementById("next").addEventListener("click",nextSlide);
-document.getElementById("prev").addEventListener("click",prevSlide);
-document.getElementById("togglePlay").addEventListener("click",()=>{ playing=!playing; if(playing)showSlide(); else stopTimer(); updateSlideControls(); });
-const AI_TOOLS=[
- ["AI ASSISTANT","Answer this request clearly"],
- ["AI WRITING","Write professional content for"],
- ["AI TRANSLATION","Translate the following accurately"],
- ["AI DOCUMENTS","Prepare a professional document for"],
- ["AI VOICE SCRIPT","Write a voice narration for"],
- ["AI RADIO SCRIPT","Write a radio script for"],
- ["AI SOCIAL MEDIA","Prepare a social media post for"],
- ["AI FLYER CONTENT","Write flyer content for"],
- ["AI PLANNING","Create an action plan for"],
- ["AI BUSINESS","Prepare a business plan for"],
- ["AI RESEARCH","Create a research and verification plan for"],
- ["AI CUSTOMER SUPPORT","Draft a customer service response for"]
-];
-let selectedAI=0;
-document.querySelectorAll(".ai-tool").forEach((button)=>{
- button.addEventListener("click",()=>{
-  selectedAI=Number(button.dataset.ai||0);
-  document.getElementById("aiTitle").textContent=AI_TOOLS[selectedAI][0];
-  document.querySelectorAll(".ai-tool").forEach((el,i)=>el.classList.toggle("active",i===selectedAI));
- });
+document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+document.getElementById("apptForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ const data={ name:document.getElementById("fullName").value.trim(), phone:document.getElementById("phone").value.trim(), email:document.getElementById("email").value.trim(), service:document.getElementById("service").value, date:document.getElementById("date").value, notes:document.getElementById("notes").value.trim(), created:new Date().toISOString() };
+ try{ const list=JSON.parse(localStorage.getItem("maximax_appointments")||"[]"); list.push(data); localStorage.setItem("maximax_appointments",JSON.stringify(list)); }catch(err){}
+ const box=document.getElementById("successBox");
+ box.style.display="block";
+ box.textContent="✔ "+data.name+" — "+data.service+" — "+data.date+" — Demann ou sove. N ap rele ou nan (407) 640-5166 pou konfime.";
+ this.reset();
 });
-document.getElementById("prepareAI").addEventListener("click",()=>{
- const input=document.getElementById("aiInput").value.trim();
- const output=document.getElementById("aiOutput");
- if(!input){ output.textContent="Please enter a request."; return; }
- const langName={ht:"Haitian Creole",en:"English",fr:"French"}[language];
- output.textContent= AI_TOOLS[selectedAI][1]+":\n\n"+input+"\n\nRespond in "+langName+". Use verified information and do not invent facts.";
-});
-document.getElementById("copyAI").addEventListener("click",async()=>{
- const text=document.getElementById("aiOutput").textContent;
- if(!text)return;
- try{ await navigator.clipboard.writeText(text); }catch(error){ const field=document.createElement("textarea"); field.value=text; document.body.appendChild(field); field.select(); document.execCommand("copy"); field.remove(); }
-});
-document.getElementById("clearAI").addEventListener("click",()=>{
- document.getElementById("aiInput").value="";
- document.getElementById("aiOutput").textContent="";
-});
-document.getElementById("year").textContent=new Date().getFullYear();
-setLanguage("ht");
-showSlide();
+setLang("en");
 </script>
 </body>
 </html>
