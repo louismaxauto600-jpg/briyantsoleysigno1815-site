@@ -3,7 +3,7 @@
 <html lang="ht" translate="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
 <meta name="google" content="notranslate">
 <meta name="description" content="BRIYANT SOLÈY SIGNO 1815 — Platfòm ofisyèl kominote BSS1815.">
@@ -12,299 +12,209 @@
 <style>
 :root{
   --orange:#ff7900;
-  --apricot:#ffbf80;
-  --black:#000000;
-  --dark:#1b0b00;
+  --apricot:#ffb36b;
+  --black:#000;
+  --dark:#1c0900;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(180deg,#000 0%,#1b0b00 35%,#2a1000 50%,#1b0b00 65%,#000 100%);
-  background-attachment:fixed;
   color:var(--apricot);
+  background:
+    radial-gradient(ellipse at 50% 25%,#512000 0%,#1d0900 45%,#000 85%),
+    linear-gradient(180deg,#000,#351100,#000);
+  background-attachment:fixed;
+  font-weight:700;
 }
 a{color:var(--apricot)}
 button,input,textarea{font:inherit}
 button{cursor:pointer}
+h1,h2,h3,strong,b{font-weight:900}
+h1{margin:0;font-size:23px;color:var(--orange);line-height:1.1}
+h2{color:var(--orange);font-size:27px;margin:0 0 17px}
+h3{color:var(--orange);font-size:19px;margin:0 0 10px}
+p{line-height:1.65}
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#000;
-  border-bottom:2px solid var(--orange);
-  padding:10px 14px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:12px;padding:12px 18px;
+  background:linear-gradient(90deg,#000,#240b00,#000);
+  border-bottom:3px solid var(--orange);
+  box-shadow:0 5px 25px #000;
 }
-.logo{
-  width:56px;
-  height:56px;
-  object-fit:contain;
-  background:#000;
-  border:2px solid var(--orange);
-  border-radius:12px;
-}
-.logo-fallback{
-  display:none;
-  width:56px;
-  height:56px;
-  background:var(--orange);
-  color:#000;
-  font-weight:900;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  border-radius:12px;
-  font-size:13px;
-}
-h1{
-  font-size:22px;
-  margin:0;
-  line-height:1.1;
-}
-h2{color:var(--orange)}
-h3{color:var(--apricot)}
-nav{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  font-weight:700;
-}
-nav a{text-decoration:none}
-nav a:hover{color:var(--orange)}
-.lang{
-  margin-left:auto;
-  display:flex;
-  gap:6px;
-}
-.lang button{
-  background:#000;
-  color:var(--apricot);
-  border:1px solid var(--orange);
-  border-radius:20px;
-  padding:6px 12px;
-}
-.lang button.on{
-  background:var(--orange);
-  color:#000;
-}
-.wrap{
-  max-width:1100px;
-  margin:auto;
-  padding:18px;
-}
-.hero{
-  text-align:center;
-  padding:25px 0;
-}
-.hero-logo{
-  width:150px;
-  height:150px;
-  object-fit:contain;
-  background:#000;
-  border:2px solid var(--orange);
+.logo,.hero-logo{
+  object-fit:contain;background:#000;
+  border:3px solid var(--orange);
   border-radius:50%;
 }
+.logo{width:65px;height:65px}
+.hero-logo{
+  width:160px;height:160px;
+  display:block;margin:0 auto 20px;
+  box-shadow:0 0 30px #ff790055;
+}
+.logo-fallback{
+  display:none;align-items:center;justify-content:center;
+  width:65px;height:65px;border-radius:50%;
+  background:var(--orange);color:#000;
+  text-align:center;font-size:13px;font-weight:900;
+}
+nav{display:flex;flex-wrap:wrap;gap:7px}
+nav a{
+  text-decoration:none;border:2px solid var(--orange);
+  border-radius:25px;padding:9px 12px;
+  background:#000;color:var(--orange);
+  font-size:12px;font-weight:900;
+}
+nav a:hover,.btn2:hover{background:var(--orange);color:#000}
+.lang{display:flex;gap:6px;margin-left:auto}
+.lang button{
+  background:#000;color:var(--orange);
+  border:2px solid var(--orange);
+  border-radius:20px;padding:8px 12px;font-weight:900;
+}
+.lang button.on{background:var(--orange);color:#000}
+.wrap{max-width:1180px;margin:auto;padding:18px}
+.hero{text-align:center;padding:36px 8px}
 .big{
-  font-size:64px;
-  line-height:.95;
-  font-weight:900;
-  margin:18px 0 10px;
+  font-size:clamp(48px,8vw,86px);
+  font-weight:900;line-height:.96;
+  margin:20px 0;color:var(--apricot);
 }
 .big b{color:var(--orange)}
+.hero p{font-size:19px;max-width:850px;margin:20px auto}
 .pill{
-  display:inline-block;
-  border:1px solid var(--orange);
-  border-radius:25px;
-  padding:9px 15px;
-  margin-top:14px;
+  display:inline-block;border:2px solid var(--orange);
+  border-radius:30px;padding:11px 16px;
+  background:#000;color:var(--orange);
+  font-size:14px;font-weight:900;
 }
 .card{
-  background:rgba(0,0,0,.48);
-  border:1px solid var(--orange);
-  border-radius:14px;
-  padding:17px;
-  margin:15px 0;
+  background:linear-gradient(135deg,#000,#1c0900,#000);
+  border:2px solid var(--orange);
+  border-radius:17px;padding:22px;margin:18px 0;
+  box-shadow:0 6px 25px #0008;
 }
 .btn,.btn2{
-  display:inline-block;
-  font-weight:900;
-  padding:12px 18px;
-  border-radius:10px;
-  text-decoration:none;
-  margin:4px;
+  display:inline-block;border:2px solid var(--orange);
+  border-radius:11px;padding:12px 17px;margin:4px;
+  text-decoration:none;text-align:center;
+  font-size:14px;font-weight:900;
+  transition:transform .15s;
 }
-.btn{
-  background:var(--orange);
-  color:#000;
-  border:1px solid var(--orange);
+.btn{background:var(--orange);color:#000}
+.btn2{background:#000;color:var(--orange)}
+.btn:hover,.btn2:hover{transform:translateY(-2px)}
+.grid,.modules,.social,.contacts{
+  display:grid;gap:13px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
 }
-.btn2{
-  background:#000;
-  color:var(--apricot);
-  border:1px solid var(--orange);
+.grid>.card{margin:0;text-align:center}
+.modules{margin:20px 0}
+.module{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-start;text-align:center;
+  gap:11px;min-height:205px;padding:22px 13px;
+  border:2px solid var(--orange);border-radius:16px;
+  background:linear-gradient(145deg,#000,#321100,#000);
+  text-decoration:none;color:var(--apricot);
 }
+.module:hover{
+  background:linear-gradient(145deg,#170800,#4b1b00,#000);
+  box-shadow:0 0 22px #ff790055;
+}
+.module-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:60px;height:60px;border-radius:15px;
+  background:var(--orange);color:#000;
+  font-size:28px;font-weight:900;
+}
+.module strong{
+  color:var(--orange);font-size:17px;
+  font-weight:900;line-height:1.3;
+}
+.module small{font-size:13px;line-height:1.5;color:var(--apricot)}
 input,textarea{
-  width:100%;
-  background:#080400;
-  color:var(--apricot);
-  border:1px solid var(--orange);
-  border-radius:10px;
-  padding:12px;
+  width:100%;padding:13px;background:#080300;
+  color:var(--apricot);border:2px solid var(--orange);
+  border-radius:11px;font-weight:700;
 }
-input::placeholder,textarea::placeholder{color:#ffac57}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:12px;
-}
-.social{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-  gap:12px;
-}
-.soc{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background:#000;
-  border:1px solid var(--orange);
-  border-radius:12px;
-  padding:12px;
-  text-decoration:none;
-  font-weight:700;
-}
-.soc i{
-  width:38px;
-  height:38px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
-  font-style:normal;
-  font-weight:900;
-  background:var(--orange);
-  color:#000;
-}
+input::placeholder,textarea::placeholder{color:var(--apricot)}
 .media-frame{
-  width:100%;
-  min-height:240px;
-  background:#000;
-  border:2px solid var(--orange);
-  border-radius:14px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  width:100%;min-height:270px;background:#000;
+  border:3px solid var(--orange);
+  border-radius:15px;overflow:hidden;
 }
 #slideImage,#slideVideo{
-  width:100%;
-  max-height:540px;
-  object-fit:contain;
-  background:#000;
+  display:none;width:100%;max-height:560px;
+  object-fit:contain;background:#000;
 }
-#slideImage,#slideVideo{display:none}
-#galleryLoading{
-  text-align:center;
-  padding:35px 15px;
-}
+#galleryLoading{text-align:center;padding:35px 15px}
 .gallery-controls{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  margin-top:14px;
+  display:flex;justify-content:center;align-items:center;
+  gap:6px;flex-wrap:wrap;margin-top:13px;
 }
-#counter,#diag{
-  display:inline-block;
-  margin:7px;
-  overflow-wrap:anywhere;
-}
+#counter,#diag{overflow-wrap:anywhere}
 #avatarVideo{
-  display:block;
-  width:100%;
-  max-height:480px;
-  background:#000;
-  border:2px solid var(--orange);
-  border-radius:14px;
+  width:100%;max-height:520px;display:block;
+  background:#000;border:3px solid var(--orange);
+  border-radius:15px;
 }
 #chatBox{
-  min-height:120px;
-  border:1px solid var(--orange);
-  border-radius:10px;
-  padding:12px;
+  min-height:110px;border:2px solid var(--orange);
+  border-radius:11px;padding:14px;margin-bottom:12px;
+  overflow-wrap:anywhere;
+}
+#writerOut,#trOut,#radioOut{white-space:pre-wrap;overflow-wrap:anywhere}
+.contact-card{
+  padding:17px;border:2px solid var(--orange);
+  border-radius:14px;background:#000;
+  overflow-wrap:anywhere;
+}
+.contact-card strong{
+  display:block;font-size:19px;color:var(--orange);
   margin-bottom:10px;
-  overflow-wrap:anywhere;
 }
-#writerOut,#trOut,#radioOut{
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
+.contact-card a{display:inline-block;margin:4px 0}
+.social{margin-top:15px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.soc{
+  display:flex;align-items:center;gap:10px;
+  border:2px solid var(--orange);border-radius:12px;
+  background:#000;text-decoration:none;
+  padding:12px;font-weight:900;
 }
-
-/* 12 AI MODULES — ONLY ADDITIONAL STYLING */
-.ai-module{
-  display:block;
-  width:100%;
-  text-align:left;
-  background:rgba(0,0,0,.48);
-  border:1px solid var(--orange);
-  border-radius:14px;
-  padding:17px;
-  color:var(--apricot);
-  text-decoration:none;
-  font-weight:900;
+.soc:hover{background:#341100}
+.soc i{
+  width:38px;height:38px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--orange);color:#000;
+  border-radius:10px;font-style:normal;
+  font-size:20px;font-weight:900;
 }
-.ai-module:hover,
-.ai-module:focus-visible{
-  background:rgba(255,121,0,.14);
-}
-.ai-module h3{
-  color:var(--orange);
-  font-size:18px;
-  font-weight:900;
-  margin:8px 0;
-}
-.ai-module p{
-  font-size:15px;
-  line-height:1.5;
-  margin:8px 0;
-}
-.ai-number{
-  font-size:12px;
-  font-weight:900;
-  color:var(--orange);
-}
-.ai-module-panel{
-  scroll-margin-top:130px;
-}
-.ai-output{
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  border:1px solid var(--orange);
-  border-radius:10px;
-  padding:12px;
-  min-height:45px;
-  margin-top:10px;
-}
-.ai-module-panel[hidden]{
-  display:none;
-}
+.status{color:var(--orange);font-weight:900}
 footer{
-  border-top:2px solid var(--orange);
-  padding:22px;
-  text-align:center;
+  text-align:center;padding:28px 12px;
+  background:linear-gradient(90deg,#000,#2b0d00,#000);
+  border-top:3px solid var(--orange);
 }
-@media(max-width:600px){
-  .big{font-size:44px}
-  h1{font-size:18px}
+footer strong{font-size:20px;color:var(--orange)}
+@media(max-width:700px){
   header{justify-content:center}
-  nav{justify-content:center}
   .lang{margin-left:0}
+  nav{justify-content:center}
+  h1{font-size:19px}
+  h2{font-size:23px}
+  .wrap{padding:12px}
+  .card{padding:16px}
+  .hero-logo{width:140px;height:140px}
+  .hero p{font-size:16px}
+  .modules{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .module{min-height:190px;padding:17px 8px}
+  .module strong{font-size:14px}
+  .module-icon{width:52px;height:52px;font-size:24px}
 }
 </style>
 </head>
@@ -312,14 +222,9 @@ footer{
 <body>
 
 <header>
-  <img
-    class="logo"
-    id="headerLogo"
-    alt="Logo BRIYANT SOLÈY SIGNO 1815">
-
-  <div class="logo-fallback" id="logoFallback">
-    BSS<br>1815
-  </div>
+  <img class="logo" id="headerLogo"
+       alt="Logo BRIYANT SOLÈY SIGNO 1815">
+  <div class="logo-fallback" id="logoFallback">BSS<br>1815</div>
 
   <h1>BRIYANT SOLÈY<br>SIGNO 1815</h1>
 
@@ -330,6 +235,7 @@ footer{
   </div>
 
   <nav>
+    <a href="#home">HOME</a>
     <a href="#about" data-i18n="navAbout">ABOUT</a>
     <a href="#features" data-i18n="navFeatures">FEATURES</a>
     <a href="#community">COMMUNITY</a>
@@ -343,11 +249,8 @@ footer{
 <main class="wrap">
 
 <section class="hero" id="home">
-
-  <img
-    class="hero-logo"
-    id="heroLogo"
-    alt="BRIYANT SOLÈY SIGNO 1815">
+  <img class="hero-logo" id="heroLogo"
+       alt="BRIYANT SOLÈY SIGNO 1815">
 
   <div>
     <span class="pill" data-i18n="heroPill">
@@ -372,7 +275,6 @@ footer{
   <a class="btn2" href="#service">CUSTOMER SERVICE</a>
   <a class="btn" href="#ai">AI CENTER</a>
   <a class="btn2" href="#fm">PRO-MAX FM 106.5 FM</a>
-
 </section>
 
 <section class="card" id="about">
@@ -389,22 +291,19 @@ footer{
 
   <div class="grid">
     <article class="card">
-      <h3>Leadership</h3>
+      <h3>LEADERSHIP</h3>
       <p data-i18n="leadership">Lidèchip, disiplin, vizyon.</p>
     </article>
-
     <article class="card">
-      <h3>Fans</h3>
+      <h3>FANS</h3>
       <p data-i18n="fans">Kominote, fanatik, fanmi.</p>
     </article>
-
     <article class="card">
-      <h3>Culture</h3>
+      <h3>CULTURE</h3>
       <p data-i18n="culture">Kilti, istwa, fyète.</p>
     </article>
-
     <article class="card">
-      <h3>Contact</h3>
+      <h3>CONTACT</h3>
       <p data-i18n="directContact">Kontak dirèk ak ekip la.</p>
     </article>
   </div>
@@ -415,18 +314,12 @@ footer{
 
   <div class="media-frame">
     <img id="slideImage" alt="Foto kominote BSS1815">
-
-    <video
-      id="slideVideo"
-      controls
-      playsinline
-      muted
-      preload="metadata">
-    </video>
+    <video id="slideVideo" controls playsinline muted
+           preload="metadata"></video>
 
     <div id="galleryLoading">
       <strong>BRIYANT SOLÈY SIGNO 1815</strong>
-      <p id="galleryMessage">Slideshow la ap chèche medya yo...</p>
+      <p id="galleryMessage">Slideshow la ap chaje...</p>
     </div>
   </div>
 
@@ -439,21 +332,10 @@ footer{
   </p>
 
   <div class="gallery-controls">
-    <button class="btn2" type="button" id="previousBtn">
-      ◀ PREVIOUS
-    </button>
-
-    <button class="btn" type="button" id="pauseBtn">
-      ⏸ PAUSE
-    </button>
-
-    <button class="btn2" type="button" id="nextBtn">
-      NEXT ▶
-    </button>
-
-    <button class="btn2" type="button" id="soundBtn">
-      🔊 SOUND
-    </button>
+    <button class="btn2" id="previousBtn" type="button">◀ PREVIOUS</button>
+    <button class="btn" id="pauseBtn" type="button">⏸ PAUSE</button>
+    <button class="btn2" id="nextBtn" type="button">NEXT ▶</button>
+    <button class="btn2" id="soundBtn" type="button">🔇 SOUND OFF</button>
   </div>
 </section>
 
@@ -464,12 +346,7 @@ footer{
     Asistans ak oryantasyon pou vizitè platfòm BSS1815 la.
   </p>
 
-  <video
-    id="avatarVideo"
-    controls
-    playsinline
-    preload="metadata">
-  </video>
+  <video id="avatarVideo" controls playsinline preload="metadata"></video>
 
   <p>
     <button class="btn" type="button" id="avatarPlayBtn">
@@ -477,100 +354,94 @@ footer{
     </button>
   </p>
 
-  <p id="avatarStatus" role="status">
+  <p class="status" id="avatarStatus" role="status">
     PROF AVATAR — BRIYANT SOLÈY SIGNO 1815
   </p>
 
-  <a class="btn" href="#contact">
-    CONTACT CUSTOMER SERVICE
-  </a>
+  <a class="btn" href="#contact">CONTACT CUSTOMER SERVICE</a>
 </section>
 
-<!-- ==========================================================
-     AI CENTER — 12 MODULES RESTORED
-     ========================================================== -->
-
 <section class="card" id="ai">
-  <h2>AI CENTER — 12 MODULES</h2>
+  <h2>AI CENTER — 12 MODIL</h2>
+  <p>BRIYANT SOLÈY SIGNO 1815 — DIGITAL INTELLIGENCE CENTER</p>
 
-  <div class="grid">
+  <div class="modules">
 
-    <button class="ai-module" type="button" data-open-module="assistant">
-      <span class="ai-number">01 — AI ASSISTANT</span>
-      <h3>AI ASSISTANT</h3>
-      <p>Poze kesyon sou BSS1815.</p>
-    </button>
+    <a class="module" href="#assistantTool">
+      <span class="module-icon">✦</span>
+      <strong>AI PRESENTATION</strong>
+      <small>Prezantasyon ak enfòmasyon sou BSS1815</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="writer">
-      <span class="ai-number">02 — AI WRITER</span>
-      <h3>AI WRITER</h3>
-      <p>Prepare lèt, anons, flyer ak mesaj.</p>
-    </button>
+    <a class="module" href="#assistantTool">
+      <span class="module-icon">♟</span>
+      <strong>AI MEMBERS</strong>
+      <small>Asistans pou manm kominote a</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="translator">
-      <span class="ai-number">03 — AI TRANSLATOR</span>
-      <h3>AI TRANSLATOR</h3>
-      <p>Tradiksyon KRE, FRAN ak ENG.</p>
-    </button>
+    <a class="module" href="#community">
+      <span class="module-icon">▣</span>
+      <strong>AI MEDIA CENTER</strong>
+      <small>Galeri foto ak videyo kominote a</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="voice">
-      <span class="ai-number">04 — AI VOICE</span>
-      <h3>AI VOICE</h3>
-      <p>Li tèks ak vwa.</p>
-    </button>
+    <a class="module" href="#writerTool">
+      <span class="module-icon">▤</span>
+      <strong>AI DOCUMENTS</strong>
+      <small>Dokiman, lèt ak mesaj</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="fm">
-      <span class="ai-number">05 — AI FM SCRIPT</span>
-      <h3>AI FM SCRIPT</h3>
-      <p>Script pou PRO-MAX FM 106.5 FM.</p>
-    </button>
+    <a class="module" href="#assistantTool">
+      <span class="module-icon">▦</span>
+      <strong>AI REGISTRY</strong>
+      <small>Enfòmasyon sou rejis kominote a</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="planner">
-      <span class="ai-number">06 — AI PLANNER</span>
-      <h3>AI PLANNER</h3>
-      <p>Planifikasyon aktivite ak pwojè.</p>
-    </button>
+    <a class="module" href="#assistantTool">
+      <span class="module-icon">◉</span>
+      <strong>AI VOICE SCRIPT</strong>
+      <small>Asistan ak lekti mesaj</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="communication">
-      <span class="ai-number">07 — AI COMMUNICATION</span>
-      <h3>AI COMMUNICATION</h3>
-      <p>Mesaj ak kominikasyon ekip.</p>
-    </button>
+    <a class="module" href="#writerTool">
+      <span class="module-icon">#</span>
+      <strong>AI SOCIAL MEDIA</strong>
+      <small>Mesaj pou rezo sosyal yo</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="document">
-      <span class="ai-number">08 — AI DOCUMENT</span>
-      <h3>AI DOCUMENT</h3>
-      <p>Preparasyon dokiman.</p>
-    </button>
+    <a class="module" href="#writerTool">
+      <span class="module-icon">✎</span>
+      <strong>AI FLYER CREATOR</strong>
+      <small>Tèks pou afich ak anons</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="media">
-      <span class="ai-number">09 — AI MEDIA</span>
-      <h3>AI MEDIA</h3>
-      <p>Kontni pou medya ak rezo sosyal.</p>
-    </button>
+    <a class="module" href="#writerTool">
+      <span class="module-icon">▣</span>
+      <strong>AI EVENTS</strong>
+      <small>Preparasyon anons evènman</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="archive">
-      <span class="ai-number">10 — AI ARCHIVE</span>
-      <h3>AI ARCHIVE</h3>
-      <p>Òganizasyon achiv kominote a.</p>
-    </button>
+    <a class="module" href="#radioTool">
+      <span class="module-icon">◖</span>
+      <strong>AI BROADCAST</strong>
+      <small>Script PRO-MAX FM 106.5 FM</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="events">
-      <span class="ai-number">11 — AI EVENTS</span>
-      <h3>AI EVENTS</h3>
-      <p>Preparasyon ak jesyon evènman.</p>
-    </button>
+    <a class="module" href="#assistantTool">
+      <span class="module-icon">◆</span>
+      <strong>AI BUSINESS SUPPORT</strong>
+      <small>Oryantasyon sèvis ak biznis</small>
+    </a>
 
-    <button class="ai-module" type="button" data-open-module="community">
-      <span class="ai-number">12 — AI COMMUNITY</span>
-      <h3>AI COMMUNITY</h3>
-      <p>Enfòmasyon ak sèvis kominotè.</p>
-    </button>
+    <a class="module" href="#contact">
+      <span class="module-icon">◎</span>
+      <strong>AI COMMUNITY SUPPORT</strong>
+      <small>Kontak ak sipò kominote a</small>
+    </a>
 
   </div>
 
-  <!-- ORIGINAL AI ASSISTANT -->
-  <div class="card ai-module-panel" id="module-assistant">
+  <div class="card" id="assistantTool">
     <h3>AI ASSISTANT</h3>
 
     <div id="chatBox" aria-live="polite">
@@ -579,197 +450,53 @@ footer{
       kontak, radyo, akademi ak slideshow.
     </div>
 
-    <textarea
-      id="chatInput"
-      rows="3"
+    <textarea id="chatInput" rows="3"
       placeholder="Ekri kesyon ou la..."></textarea>
 
     <p>
-      <button class="btn" type="button" id="chatSendBtn">
-        VOYE
-      </button>
-
-      <button class="btn2" type="button" id="voiceBtn">
-        VWA ON / OFF
-      </button>
+      <button class="btn" type="button" id="chatSendBtn">VOYE</button>
+      <button class="btn2" type="button" id="voiceBtn">VWA ON / OFF</button>
     </p>
   </div>
 
-  <!-- ORIGINAL WRITER -->
-  <div class="card ai-module-panel" id="module-writer">
-    <h3>EKRIVEN</h3>
+  <div class="card" id="writerTool">
+    <h3>AI WRITER — EKRIVEN</h3>
 
-    <textarea
-      id="writerInput"
-      rows="3"
+    <textarea id="writerInput" rows="3"
       placeholder="Ekri sijè a..."></textarea>
 
     <p>
-      <button class="btn" type="button" onclick="genWriter('Lèt')">
-        LÈT
-      </button>
-
-      <button class="btn2" type="button" onclick="genWriter('Anons')">
-        ANONS
-      </button>
-
-      <button class="btn" type="button" onclick="genWriter('Flyer')">
-        FLYER
-      </button>
-
-      <button class="btn2" type="button" onclick="genWriter('Mesaj')">
-        MESAJ
-      </button>
+      <button class="btn" type="button" onclick="genWriter('Lèt')">LÈT</button>
+      <button class="btn2" type="button" onclick="genWriter('Anons')">ANONS</button>
+      <button class="btn" type="button" onclick="genWriter('Flyer')">FLYER</button>
+      <button class="btn2" type="button" onclick="genWriter('Mesaj')">MESAJ</button>
     </p>
 
     <p id="writerOut"></p>
   </div>
 
-  <!-- ORIGINAL TRANSLATOR -->
-  <div class="card ai-module-panel" id="module-translator">
+  <div class="card" id="translationTool">
     <h3>TRADIKSYON</h3>
 
-    <textarea
-      id="trInput"
-      rows="3"
+    <textarea id="trInput" rows="3"
       placeholder="Ekri yon fraz..."></textarea>
 
     <p>
-      <button class="btn2" type="button" onclick="translateMe('KRE-FR')">
-        KRE → FR
-      </button>
-
-      <button class="btn2" type="button" onclick="translateMe('KRE-ENG')">
-        KRE → ENG
-      </button>
-
-      <button class="btn2" type="button" onclick="translateMe('FR-KRE')">
-        FR → KRE
-      </button>
-
-      <button class="btn2" type="button" onclick="translateMe('ENG-KRE')">
-        ENG → KRE
-      </button>
+      <button class="btn2" type="button" onclick="translateMe('KRE-FR')">KRE → FR</button>
+      <button class="btn2" type="button" onclick="translateMe('KRE-ENG')">KRE → ENG</button>
+      <button class="btn2" type="button" onclick="translateMe('FR-KRE')">FR → KRE</button>
+      <button class="btn2" type="button" onclick="translateMe('ENG-KRE')">ENG → KRE</button>
     </p>
 
     <p id="trOut"></p>
   </div>
 
-  <!-- ORIGINAL RADIO SCRIPT -->
-  <div class="card ai-module-panel" id="module-fm">
+  <div class="card" id="radioTool">
     <h3>SCRIPT RADYO — PRO-MAX FM 106.5 FM</h3>
-
     <button class="btn" type="button" onclick="genRadio()">
       JENERE SCRIPT FM 106.5
     </button>
-
     <p id="radioOut"></p>
-  </div>
-
-  <!-- VOICE -->
-  <div class="card ai-module-panel" id="module-voice" hidden>
-    <h3>AI VOICE</h3>
-    <textarea id="voiceInput" rows="4"
-      placeholder="Ekri tèks ou vle tande a..."></textarea>
-    <p>
-      <button class="btn" type="button" id="readVoiceBtn">
-        ▶ LI TÈKS
-      </button>
-      <button class="btn2" type="button" id="stopVoiceBtn">
-        ⏹ STOP
-      </button>
-    </p>
-  </div>
-
-  <!-- PLANNER -->
-  <div class="card ai-module-panel" id="module-planner" hidden>
-    <h3>AI PLANNER</h3>
-    <textarea id="plannerInput" rows="3"
-      placeholder="Non pwojè oswa aktivite a..."></textarea>
-    <p>
-      <button class="btn" type="button" data-generate="planner">
-        JENERE PLAN
-      </button>
-    </p>
-    <div class="ai-output" id="plannerOutput"></div>
-  </div>
-
-  <!-- COMMUNICATION -->
-  <div class="card ai-module-panel" id="module-communication" hidden>
-    <h3>AI COMMUNICATION</h3>
-    <textarea id="communicationInput" rows="3"
-      placeholder="Sijè kominikasyon an..."></textarea>
-    <p>
-      <button class="btn" type="button" data-generate="communication">
-        JENERE MESAJ
-      </button>
-    </p>
-    <div class="ai-output" id="communicationOutput"></div>
-  </div>
-
-  <!-- DOCUMENT -->
-  <div class="card ai-module-panel" id="module-document" hidden>
-    <h3>AI DOCUMENT</h3>
-    <textarea id="documentInput" rows="3"
-      placeholder="Tit dokiman an..."></textarea>
-    <p>
-      <button class="btn" type="button" data-generate="document">
-        JENERE DOKIMAN
-      </button>
-    </p>
-    <div class="ai-output" id="documentOutput"></div>
-  </div>
-
-  <!-- MEDIA -->
-  <div class="card ai-module-panel" id="module-media" hidden>
-    <h3>AI MEDIA</h3>
-    <textarea id="mediaInput" rows="3"
-      placeholder="Sijè kontni medya a..."></textarea>
-    <p>
-      <button class="btn" type="button" data-generate="media">
-        JENERE KONTNI
-      </button>
-    </p>
-    <div class="ai-output" id="mediaOutput"></div>
-  </div>
-
-  <!-- ARCHIVE -->
-  <div class="card ai-module-panel" id="module-archive" hidden>
-    <h3>AI ARCHIVE</h3>
-    <textarea id="archiveInput" rows="3"
-      placeholder="Non kategori achiv la..."></textarea>
-    <p>
-      <button class="btn" type="button" data-generate="archive">
-        JENERE ESTRIKTI
-      </button>
-    </p>
-    <div class="ai-output" id="archiveOutput"></div>
-  </div>
-
-  <!-- EVENTS -->
-  <div class="card ai-module-panel" id="module-events" hidden>
-    <h3>AI EVENTS</h3>
-    <textarea id="eventsInput" rows="3"
-      placeholder="Non evènman an..."></textarea>
-    <p>
-      <button class="btn" type="button" data-generate="events">
-        JENERE PWOGRAM
-      </button>
-    </p>
-    <div class="ai-output" id="eventsOutput"></div>
-  </div>
-
-  <!-- COMMUNITY -->
-  <div class="card ai-module-panel" id="module-community" hidden>
-    <h3>AI COMMUNITY</h3>
-    <textarea id="communityInput" rows="3"
-      placeholder="Sijè mesaj kominotè a..."></textarea>
-    <p>
-      <button class="btn" type="button" data-generate="community">
-        JENERE MESAJ
-      </button>
-    </p>
-    <div class="ai-output" id="communityOutput"></div>
   </div>
 
   <p>
@@ -783,8 +510,7 @@ footer{
   <h2>PRO-MAX FM 106.5 FM</h2>
 
   <p data-i18n="fmText">
-    Radyo kominote a — mizik, nouvèl, kilti,
-    vwa kominote a.
+    Radyo kominote a — mizik, nouvèl, kilti, vwa kominote a.
   </p>
 
   <a class="btn" href="./pro-max-fm/index.html">
@@ -795,86 +521,71 @@ footer{
 <section class="card" id="contact">
   <h2 data-i18n="contactTitle">KONTAK & REZO SOSYAL</h2>
 
-  <p>
-    <b>Website:</b>
-    <a href="https://bss1815promaxdmp.com">
-      bss1815promaxdmp.com
-    </a>
-  </p>
+  <div class="contacts">
+    <div class="contact-card">
+      <strong>🌐 WEBSITE</strong>
+      <a href="https://bss1815pro-maxdmp.com"
+         target="_blank" rel="noopener noreferrer">
+        bss1815pro-maxdmp.com
+      </a>
+    </div>
 
-  <p>
-    <b>USA:</b>
-    <a href="tel:+14076405166">(407) 640-5166</a>
-    •
-    <a href="tel:+13175381150">(317) 538-1150</a>
-    <br>
+    <div class="contact-card">
+      <strong>🇺🇸 USA</strong>
+      <a href="tel:+14076405166">(407) 640-5166</a>
+      <br>
+      <a href="tel:+13175381150">(317) 538-1150</a>
+    </div>
 
-    <b>HAITI:</b>
-    <a href="tel:+50942544447">+509 4254 4447</a>
-    •
-    <a href="tel:+50943437488">+509 4343 7488</a>
-    <br>
+    <div class="contact-card">
+      <strong>🇭🇹 HAITI</strong>
+      <a href="tel:+50942544447">+509 4254 4447</a>
+      <br>
+      <a href="tel:+50943437488">+509 4343 7488</a>
+    </div>
 
-    <b>EMAIL:</b>
-    <a href="mailto:bss1815promaxdmp@gmail.com">
-      bss1815promaxdmp@gmail.com
-    </a>
-  </p>
+    <div class="contact-card">
+      <strong>✉ EMAIL</strong>
+      <a href="mailto:bss1815promaxdmp@gmail.com">
+        bss1815promaxdmp@gmail.com
+      </a>
+    </div>
+  </div>
 
-  <h2>REZO SOSYAL NOU YO</h2>
+  <h2 style="margin-top:30px">REZO SOSYAL NOU YO</h2>
 
   <div class="social">
+    <a class="soc" href="https://facebook.com/share/1By3KvYRrM/"
+       target="_blank" rel="noopener noreferrer"><i>f</i>Facebook</a>
 
-    <a class="soc" href="https://facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer">
-      <i style="background:#1877f2;color:#fff">f</i>
-      Facebook
-    </a>
+    <a class="soc" href="https://wa.me/50943437488"
+       target="_blank" rel="noopener noreferrer"><i>W</i>WhatsApp</a>
 
-    <a class="soc" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer">
-      <i style="background:#25d366;color:#000">W</i>
-      WhatsApp
-    </a>
+    <a class="soc" href="https://tiktok.com/@maximax1960"
+       target="_blank" rel="noopener noreferrer"><i>♪</i>TikTok</a>
 
-    <a class="soc" href="https://tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer">
-      <i style="background:#000;color:#25f4ee">♪</i>
-      TikTok
-    </a>
+    <a class="soc" href="https://instagram.com/lebaron072/"
+       target="_blank" rel="noopener noreferrer"><i>◎</i>Instagram</a>
 
-    <a class="soc" href="https://instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer">
-      <i style="background:#e4405f;color:#fff">◎</i>
-      Instagram
-    </a>
+    <a class="soc" href="https://t.me/bss1815dmp"
+       target="_blank" rel="noopener noreferrer"><i>➤</i>Telegram</a>
 
-    <a class="soc" href="https://t.me/bss1815dmp" target="_blank" rel="noopener noreferrer">
-      <i style="background:#229ed9;color:#fff">➤</i>
-      Telegram
-    </a>
+    <a class="soc" href="https://youtube.com/@BSS1815PROMAXDMP"
+       target="_blank" rel="noopener noreferrer"><i>▶</i>YouTube</a>
 
-    <a class="soc" href="https://youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer">
-      <i style="background:#ff0033;color:#fff">▶</i>
-      YouTube
-    </a>
+    <a class="soc"
+       href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+       target="_blank" rel="noopener noreferrer"><i>♫</i>Spotify</a>
 
-    <a class="soc" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer">
-      <i style="background:#1ed760;color:#000">♫</i>
-      Spotify
-    </a>
+    <a class="soc" href="https://x.com/w05g2m"
+       target="_blank" rel="noopener noreferrer"><i>𝕏</i>X / Twitter</a>
 
-    <a class="soc" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer">
-      <i style="background:#000;color:#fff">𝕏</i>
-      X / Twitter
-    </a>
+    <a class="soc" href="https://truthsocial.com/@briyant_soley_1815"
+       target="_blank" rel="noopener noreferrer"><i>T</i>Truth Social</a>
 
-    <a class="soc" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer">
-      <i style="background:#ff3535;color:#fff">T</i>
-      Truth Social
-    </a>
-
-    <a class="soc" href="https://linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer">
-      <i style="background:#0a66c2;color:#fff">in</i>
-      LinkedIn
-    </a>
-
+    <a class="soc"
+       href="https://linkedin.com/in/maximax-multi-services-075ba2314"
+       target="_blank" rel="noopener noreferrer"><i>in</i>LinkedIn</a>
   </div>
 </section>
 
@@ -891,12 +602,10 @@ footer{
 "use strict";
 
 /* ==========================================================
-   BSS1815 — MEDIA PATH MANAGEMENT
+   MEDIA PATH MANAGEMENT
    ========================================================== */
 
-const ROOT = new URL("/", window.location.origin).href;
-
-const MEDIA_DIRS = [
+const MEDIA_DIRS=[
   "/",
   "/assets/",
   "/assets/slideshow/",
@@ -907,143 +616,107 @@ const MEDIA_DIRS = [
   "/bss1815/"
 ];
 
-const LOGO_NAME = "briyant-soley-signo-1815.jpg";
-const AVATAR_NAME = "briyant-soley-signo-1815.mp4";
+const LOGO_NAME="briyant-soley-signo-1815.jpg";
+const AVATAR_NAME="briyant-soley-signo-1815.mp4";
 
-function mediaURL(directory, filename){
-  const encoded = filename
-    .split("/")
-    .map(encodeURIComponent)
-    .join("/");
-
-  return new URL(
-    directory.replace(/\/?$/, "/") + encoded,
-    ROOT
-  ).href;
+function mediaURL(dir,name){
+  const encoded=name.split("/").map(encodeURIComponent).join("/");
+  return new URL(dir+encoded,window.location.origin).href;
 }
 
-function candidates(filename){
-  const result = [];
-
-  for(const directory of MEDIA_DIRS){
-    const url = mediaURL(directory,filename);
-    if(!result.includes(url))result.push(url);
-  }
-
-  return result;
+function candidates(name){
+  return [...new Set(MEDIA_DIRS.map(dir=>mediaURL(dir,name)))];
 }
 
 /* ==========================================================
-   LOGO
+   LOGOS
    ========================================================== */
 
-function loadImageWithFallback(element,filename,onFailure){
-  const urls=candidates(filename);
-  let position=0;
+function loadImageWithFallback(element,name,onFailure){
+  const urls=candidates(name);
+  let i=0;
 
-  function attempt(){
-    if(position>=urls.length){
-      if(typeof onFailure==="function")onFailure();
+  function next(){
+    if(i>=urls.length){
+      if(onFailure)onFailure();
       return;
     }
 
-    const url=urls[position++];
+    const url=urls[i++];
     const probe=new Image();
 
-    probe.onload=function(){
+    probe.onload=()=>{
       element.src=url;
-      element.style.display="";
+      element.style.display="block";
     };
 
-    probe.onerror=attempt;
+    probe.onerror=next;
     probe.src=url;
   }
 
-  attempt();
+  next();
 }
 
 const headerLogo=document.getElementById("headerLogo");
 const heroLogo=document.getElementById("heroLogo");
 
-loadImageWithFallback(
-  headerLogo,
-  LOGO_NAME,
-  function(){
-    headerLogo.style.display="none";
-    document.getElementById("logoFallback").style.display="flex";
-  }
-);
+loadImageWithFallback(headerLogo,LOGO_NAME,()=>{
+  headerLogo.style.display="none";
+  document.getElementById("logoFallback").style.display="flex";
+});
 
-loadImageWithFallback(
-  heroLogo,
-  LOGO_NAME,
-  function(){
-    heroLogo.style.display="none";
-  }
-);
+loadImageWithFallback(heroLogo,LOGO_NAME,()=>{
+  heroLogo.style.display="none";
+});
 
 /* ==========================================================
-   AVATAR VIDEO
+   PROF AVATAR
+   JPG = LOGO / POSTER
+   MP4 = VIDEO
    ========================================================== */
 
 const avatarVideo=document.getElementById("avatarVideo");
 const avatarStatus=document.getElementById("avatarStatus");
+const avatarURLs=candidates(AVATAR_NAME);
 
 let avatarPosition=0;
-const avatarURLs=candidates(AVATAR_NAME);
 
 function loadAvatar(){
   if(avatarPosition>=avatarURLs.length){
     avatarStatus.textContent=
-      "Prof Avatar: chemen videyo a pa disponib sou sit sa a.";
+      "Prof Avatar: videyo a pa jwenn sou chemen ki teste yo.";
     return;
   }
 
   avatarStatus.textContent="Prof Avatar ap chaje...";
-
   avatarVideo.src=avatarURLs[avatarPosition++];
   avatarVideo.load();
 }
 
-avatarVideo.addEventListener("loadedmetadata",function(){
+avatarVideo.addEventListener("loadedmetadata",()=>{
   avatarStatus.textContent=
     "PROF AVATAR — BRIYANT SOLÈY SIGNO 1815";
 });
 
-avatarVideo.addEventListener("error",function(){
-  loadAvatar();
+avatarVideo.addEventListener("error",loadAvatar);
+
+document.getElementById("avatarPlayBtn").addEventListener("click",()=>{
+  avatarVideo.play().catch(()=>{
+    avatarStatus.textContent="Peze Play sou videyo a.";
+  });
 });
-
-document.getElementById("avatarPlayBtn").addEventListener(
-  "click",
-  function(){
-    avatarVideo.play().catch(function(){
-      avatarStatus.textContent=
-        "Peze Play sou videyo Prof Avatar la.";
-    });
-  }
-);
-
-loadImageWithFallback(
-  avatarVideo,
-  LOGO_NAME
-);
-
-avatarVideo.removeAttribute("src");
-avatarPosition=0;
 
 (function setAvatarPoster(){
   const urls=candidates(LOGO_NAME);
-  let p=0;
+  let i=0;
 
   function next(){
-    if(p>=urls.length)return;
-    const probe=new Image();
-    const url=urls[p++];
+    if(i>=urls.length)return;
 
-    probe.onload=function(){
-      avatarVideo.poster=url;
-    };
+    const url=urls[i++];
+    const probe=new Image();
+
+    probe.onload=()=>{avatarVideo.poster=url};
     probe.onerror=next;
     probe.src=url;
   }
@@ -1054,88 +727,88 @@ avatarPosition=0;
 loadAvatar();
 
 /* ==========================================================
-   ORIGINAL COMMUNITY MEDIA LIST — NAMES PRESERVED
+   ORIGINAL COMMUNITY GALLERY
    ========================================================== */
 
-const GALLERY = [
-"bss.jpg", "maa.jpg", "max.jpg", "alèt.jpg", "andy.jpg",
-"dèdè.jpg", "maxl.jpg", "ralph.jpg", "cols1.jpg", "nadou.jpg",
-"tifrè.jpg", "jq-max.jpg", "brunel.jpg", "kendy2.jpg",
-"landry.jpg", "madina.jpg", "michel.jpg", "nadou2.jpg",
-"roro8.jpg", "rorony.jpg", "soson.jpg", "tania.jpg",
-"ti-frè.jpg", "ti-rat.jpg", "valery.jpg", "yguens.jpg",
-"badin-s.jpg", "bouboul.jpg", "bss1815.jpg", "cange-d.jpg",
-"lebaron.jpg", "marassa.jpg", "montina.jpg", "paulema.jpg",
-"pro-max.jpg", "pèrodin.jpg", "sindy-b.jpg",
-"la-difference.mp4", "ralph-florial.jpg", "leroy.mp4",
-"bonjou.mp4", "max-in-blue.jpg", "maximax_multi_serv.jpeg",
-"why-max.mp4", "promax.mp4", "maximax.mp4", "montina.mp4",
-"promax1.mp4", "promax2.mp4", "promax3.mp4",
-"the-done.mp4", "l'orateur.mp4", "roro-laja.mp4",
-"pro-max-fm.mp4", "instructor.mp4", "l'orateur2.mp4",
-"the-vision.mp4", "yeah-he-is.mp4", "pro-max-dmp.mp4",
-"montina-prof.mp4", "ti-marasa-yo.mp4",
-"formé-jodi-a.mp4", "la-confusion.mp4",
-"max-is-the-man.mp4", "pro-max-dmp-II.mp4",
-"montina-le-prof.mp4", "max-alias-baron.mp4",
-"bati-pou-jodi-a.mp4", "devan-devan-net.mp4",
-"ersulie-danthor.mp4", "laforce-du-son.mp4",
-"la-presentation.mp4", "pro-max-academie.mp4",
-"pro-max-beat-lab.mp4", "confusion-totale.mp4",
-"insurance-school.mp4", "majistra-mauclaire.mp4",
-"bss1815pro-maxdmp.mp4", "videoprof.mp4", "why-me.mp4",
-"ti-chery.jpg", "warrens.jpg", "fanfan.decoline.jpg",
-"asmide.jpg", "yole.jpg", "tania2.jpg", "papouche.jpg",
-"heritage.jpg", "team-angrenay.jpg", "sfc-5-stars.jpg",
-"team-angrenaye.jpg", "team-san-presyon.jpg",
-"max-on-the-air.jpg", "perodin.jpg", "maxle.jpg",
-"doodly.jpg", "roro-8.jpg", "warrens-v.jpg",
-"ones-g.jpg", "dede.jpg", "jij-mayan-1.jpg",
-"mass-vokal.jpg", "maximax-m-s.jpg", "max-the-man.jpg",
-"ti-fre.jpg", "the-change.jpg", "jij-mayan2.jpg",
-"montinat.jpg", "ti-la-france.jpg", "jij-mayan-3.jpg",
-"ti-marassa.jpg", "the-change-1.jpg", "the-plan.jpg",
-"sonsonn.jpeg", "thin-khard.jpg", "maximax-2.jpg",
-"y-max.jpg", "roro-ny.jpg", "le-baron.jpg",
-"prez-tirat.jpg", "the-one.jpg", "andy.jpeg",
-"roro-1lajan.jpg", "roro-p-p.jpg", "prez-papit.jpg",
-"may-1.jpg", "fanfan-d.jpg", "ti-renold.jpg",
-"asmide1.jpg", "jeff-c.jpg", "tania-f.jpg", "jude.jpg",
-"andre-a.jpg", "nadege.jpg", "macu-1.jpg",
-"prez-aly.jpg", "sonson-m.jpg", "brunel-t.jpg",
-"roro-lj.jpg", "ti-papouche.jpg", "michel-b.jpg",
-"tatane.jpg", "la-belle-yole.jpg", "tila-france.jpg",
-"ralph-p.jpg", "ti-marassa2.jpg", "vp-ernso.jpg",
-"fanfan2.jpg", "paulema2.jpg", "tifre2.jpg",
-"tichery.jpg", "jij-mayan.jpg", "yguens2.jpg",
-"heuch-love.jpg", "cange-0.jpg", "prez-aly-2.jpg",
-"anpere-doudou.jpg", "rivelino.jpg", "tatane-vp.jpg",
-"montinat2.jpg", "prezidan-aly.jpg", "max-louis.jpg",
-"paulema21.jpg", "le-baron1.jpg",
-"devan-devan-net.jpg", "system-akayik.jpg",
-"montina-prof.jpg", "systeme-akayik.jpg",
-"derosier.jpg", "odeline-ademe.jpg",
-"nadia-lafortune.jpg", "max-is-the-man.jpg",
-"maxi-max.mp4", "bss1815-pro-max-dmp.jpg",
-"sonson-felix.jpg", "maximax-multi-services.mp4",
-"tania-felix.jpg", "ladifference1.jpg",
-"la-difference1.jpg", "ralph-florial.webp",
-"whyme.mp4", "la-force-du-son.mp4",
-"majistra-mauclair.mp4", "video-prof-avatar.mp4",
-"warens-v.jpg", "fanfan-decoline.jpg",
-"max-louis-game-changer.jpg", "ti-lafrance.jpg",
-"think-hard.jpg", "the-man.jpg", "the-done.jpg",
-"jeff-colin.jpg", "andre-asouman.jpg",
-"nadiala-fortune2.jpg", "sindy-andrevil.jpg",
+const GALLERY=[
+"bss.jpg","maa.jpg","max.jpg","alèt.jpg","andy.jpg",
+"dèdè.jpg","maxl.jpg","ralph.jpg","cols1.jpg","nadou.jpg",
+"tifrè.jpg","jq-max.jpg","brunel.jpg","kendy2.jpg",
+"landry.jpg","madina.jpg","michel.jpg","nadou2.jpg",
+"roro8.jpg","rorony.jpg","soson.jpg","tania.jpg",
+"ti-frè.jpg","ti-rat.jpg","valery.jpg","yguens.jpg",
+"badin-s.jpg","bouboul.jpg","bss1815.jpg","cange-d.jpg",
+"lebaron.jpg","marassa.jpg","montina.jpg","paulema.jpg",
+"pro-max.jpg","pèrodin.jpg","sindy-b.jpg",
+"la-difference.mp4","ralph-florial.jpg","leroy.mp4",
+"bonjou.mp4","max-in-blue.jpg","maximax_multi_serv.jpeg",
+"why-max.mp4","promax.mp4","maximax.mp4","montina.mp4",
+"promax1.mp4","promax2.mp4","promax3.mp4",
+"the-done.mp4","l'orateur.mp4","roro-laja.mp4",
+"pro-max-fm.mp4","instructor.mp4","l'orateur2.mp4",
+"the-vision.mp4","yeah-he-is.mp4","pro-max-dmp.mp4",
+"montina-prof.mp4","ti-marasa-yo.mp4",
+"formé-jodi-a.mp4","la-confusion.mp4",
+"max-is-the-man.mp4","pro-max-dmp-II.mp4",
+"montina-le-prof.mp4","max-alias-baron.mp4",
+"bati-pou-jodi-a.mp4","devan-devan-net.mp4",
+"ersulie-danthor.mp4","laforce-du-son.mp4",
+"la-presentation.mp4","pro-max-academie.mp4",
+"pro-max-beat-lab.mp4","confusion-totale.mp4",
+"insurance-school.mp4","majistra-mauclaire.mp4",
+"bss1815pro-maxdmp.mp4","videoprof.mp4","why-me.mp4",
+"ti-chery.jpg","warrens.jpg","fanfan.decoline.jpg",
+"asmide.jpg","yole.jpg","tania2.jpg","papouche.jpg",
+"heritage.jpg","team-angrenay.jpg","sfc-5-stars.jpg",
+"team-angrenaye.jpg","team-san-presyon.jpg",
+"max-on-the-air.jpg","perodin.jpg","maxle.jpg",
+"doodly.jpg","roro-8.jpg","warrens-v.jpg",
+"ones-g.jpg","dede.jpg","jij-mayan-1.jpg",
+"mass-vokal.jpg","maximax-m-s.jpg","max-the-man.jpg",
+"ti-fre.jpg","the-change.jpg","jij-mayan2.jpg",
+"montinat.jpg","ti-la-france.jpg","jij-mayan-3.jpg",
+"ti-marassa.jpg","the-change-1.jpg","the-plan.jpg",
+"sonsonn.jpeg","thin-khard.jpg","maximax-2.jpg",
+"y-max.jpg","roro-ny.jpg","le-baron.jpg",
+"prez-tirat.jpg","the-one.jpg","andy.jpeg",
+"roro-1lajan.jpg","roro-p-p.jpg","prez-papit.jpg",
+"may-1.jpg","fanfan-d.jpg","ti-renold.jpg",
+"asmide1.jpg","jeff-c.jpg","tania-f.jpg","jude.jpg",
+"andre-a.jpg","nadege.jpg","macu-1.jpg",
+"prez-aly.jpg","sonson-m.jpg","brunel-t.jpg",
+"roro-lj.jpg","ti-papouche.jpg","michel-b.jpg",
+"tatane.jpg","la-belle-yole.jpg","tila-france.jpg",
+"ralph-p.jpg","ti-marassa2.jpg","vp-ernso.jpg",
+"fanfan2.jpg","paulema2.jpg","tifre2.jpg",
+"tichery.jpg","jij-mayan.jpg","yguens2.jpg",
+"heuch-love.jpg","cange-0.jpg","prez-aly-2.jpg",
+"anpere-doudou.jpg","rivelino.jpg","tatane-vp.jpg",
+"montinat2.jpg","prezidan-aly.jpg","max-louis.jpg",
+"paulema21.jpg","le-baron1.jpg",
+"devan-devan-net.jpg","system-akayik.jpg",
+"montina-prof.jpg","systeme-akayik.jpg",
+"derosier.jpg","odeline-ademe.jpg",
+"nadia-lafortune.jpg","max-is-the-man.jpg",
+"maxi-max.mp4","bss1815-pro-max-dmp.jpg",
+"sonson-felix.jpg","maximax-multi-services.mp4",
+"tania-felix.jpg","ladifference1.jpg",
+"la-difference1.jpg","ralph-florial.webp",
+"whyme.mp4","la-force-du-son.mp4",
+"majistra-mauclair.mp4","video-prof-avatar.mp4",
+"warens-v.jpg","fanfan-decoline.jpg",
+"max-louis-game-changer.jpg","ti-lafrance.jpg",
+"think-hard.jpg","the-man.jpg","the-done.jpg",
+"jeff-colin.jpg","andre-asouman.jpg",
+"nadiala-fortune2.jpg","sindy-andrevil.jpg",
 "max-louis-alias-le-baron-la-seule-difference.jpg",
-"michel-enfatigab.jpg", "vice-president-tatane.jpg",
-"vice-president-ernso.jpg", "anperè-doudou.jpg",
-"devan-devannèt.jpg", "system-akayik2.jpg",
-"private-zone.webp", "admin_super_admin.png",
-"entegrasyon.mp4", "yon-baron-pa-yon-jwèt.mp4",
-"one-platform.jpg", "one_man_one_vision.jpg",
-"it-is-what-itis.jpg", "ou-atake-move-lè.mp4",
-"leader.mp4", "bss1815pro-max-ap-bati.mp4"
+"michel-enfatigab.jpg","vice-president-tatane.jpg",
+"vice-president-ernso.jpg","anperè-doudou.jpg",
+"devan-devannèt.jpg","system-akayik2.jpg",
+"private-zone.webp","admin_super_admin.png",
+"entegrasyon.mp4","yon-baron-pa-yon-jwèt.mp4",
+"one-platform.jpg","one_man_one_vision.jpg",
+"it-is-what-itis.jpg","ou-atake-move-lè.mp4",
+"leader.mp4","bss1815pro-max-ap-bati.mp4"
 ];
 
 /* ==========================================================
@@ -1161,8 +834,8 @@ let slideReady=false;
 const IMAGE_TIME=8500;
 const VIDEO_FALLBACK_TIME=30000;
 
-function isVideo(filename){
-  return /\.(mp4|webm|mov)$/i.test(filename);
+function isVideo(name){
+  return /\.(mp4|webm|mov)$/i.test(name);
 }
 
 function stopTimer(){
@@ -1174,11 +847,8 @@ function stopTimer(){
 
 function scheduleSlide(delay){
   stopTimer();
-
   if(!slidePaused){
-    slideTimer=setTimeout(function(){
-      changeSlide(1);
-    },delay);
+    slideTimer=setTimeout(()=>changeSlide(1),delay);
   }
 }
 
@@ -1212,20 +882,13 @@ function showSlide(index,failedCount=0){
   slideReady=false;
   slideIsVideo=isVideo(filename);
 
-  counter.textContent=
-    (slideIndex+1)+" / "+GALLERY.length;
-
+  counter.textContent=(slideIndex+1)+" / "+GALLERY.length;
   diag.textContent="Ap chèche: "+filename;
 
   galleryLoading.style.display="block";
   galleryMessage.textContent="Ap chaje: "+filename;
 
-  loadSlideCandidate(
-    filename,
-    0,
-    token,
-    failedCount
-  );
+  loadSlideCandidate(filename,0,token,failedCount);
 }
 
 function loadSlideCandidate(filename,position,token,failedCount){
@@ -1236,17 +899,17 @@ function loadSlideCandidate(filename,position,token,failedCount){
   if(position>=urls.length){
     if(failedCount+1>=GALLERY.length){
       galleryMessage.textContent=
-        "Pa gen fichye medya ki aksesib nan chemen yo.";
+        "Pa gen medya ki aksesib nan chemen ki teste yo.";
       diag.textContent="Slideshow: medya pa jwenn.";
       return;
     }
 
     const next=(slideIndex+1)%GALLERY.length;
 
-    setTimeout(function(){
+    setTimeout(()=>{
       if(token!==slideRequest)return;
       showSlide(next,failedCount+1);
-    },250);
+    },100);
 
     return;
   }
@@ -1256,7 +919,7 @@ function loadSlideCandidate(filename,position,token,failedCount){
   if(isVideo(filename)){
     slideIsVideo=true;
 
-    slideVideo.onloadeddata=function(){
+    slideVideo.onloadeddata=()=>{
       if(token!==slideRequest)return;
 
       slideReady=true;
@@ -1265,27 +928,19 @@ function loadSlideCandidate(filename,position,token,failedCount){
       diag.textContent=filename;
 
       if(!slidePaused){
-        slideVideo.play().catch(function(){
-          diag.textContent=
-            filename+" — peze Play pou jwe.";
+        slideVideo.play().catch(()=>{
+          diag.textContent=filename+" — peze Play.";
         });
-
         scheduleSlide(VIDEO_FALLBACK_TIME);
       }
     };
 
-    slideVideo.onerror=function(){
+    slideVideo.onerror=()=>{
       if(token!==slideRequest)return;
-
-      loadSlideCandidate(
-        filename,
-        position+1,
-        token,
-        failedCount
-      );
+      loadSlideCandidate(filename,position+1,token,failedCount);
     };
 
-    slideVideo.onended=function(){
+    slideVideo.onended=()=>{
       if(token!==slideRequest)return;
       if(!slidePaused)changeSlide(1);
     };
@@ -1298,30 +953,21 @@ function loadSlideCandidate(filename,position,token,failedCount){
 
     const probe=new Image();
 
-    probe.onload=function(){
+    probe.onload=()=>{
       if(token!==slideRequest)return;
 
       slideReady=true;
-
       slideImage.src=url;
       slideImage.style.display="block";
       galleryLoading.style.display="none";
       diag.textContent=filename;
 
-      if(!slidePaused){
-        scheduleSlide(IMAGE_TIME);
-      }
+      if(!slidePaused)scheduleSlide(IMAGE_TIME);
     };
 
-    probe.onerror=function(){
+    probe.onerror=()=>{
       if(token!==slideRequest)return;
-
-      loadSlideCandidate(
-        filename,
-        position+1,
-        token,
-        failedCount
-      );
+      loadSlideCandidate(filename,position+1,token,failedCount);
     };
 
     probe.src=url;
@@ -1335,9 +981,7 @@ function changeSlide(direction){
 
 function togglePause(){
   slidePaused=!slidePaused;
-
-  pauseBtn.textContent=
-    slidePaused?"▶ REPREND":"⏸ PAUSE";
+  pauseBtn.textContent=slidePaused?"▶ REPREND":"⏸ PAUSE";
 
   if(slidePaused){
     stopTimer();
@@ -1346,7 +990,7 @@ function togglePause(){
     if(!slideReady)return;
 
     if(slideIsVideo){
-      slideVideo.play().catch(function(){});
+      slideVideo.play().catch(()=>{});
       scheduleSlide(VIDEO_FALLBACK_TIME);
     }else{
       scheduleSlide(IMAGE_TIME);
@@ -1354,27 +998,22 @@ function togglePause(){
   }
 }
 
-document.getElementById("previousBtn").addEventListener(
-  "click",
-  function(){changeSlide(-1);}
-);
+document.getElementById("previousBtn")
+  .addEventListener("click",()=>changeSlide(-1));
 
-document.getElementById("nextBtn").addEventListener(
-  "click",
-  function(){changeSlide(1);}
-);
+document.getElementById("nextBtn")
+  .addEventListener("click",()=>changeSlide(1));
 
 pauseBtn.addEventListener("click",togglePause);
 
-soundBtn.addEventListener("click",function(){
+soundBtn.addEventListener("click",()=>{
   slideVideo.muted=!slideVideo.muted;
-
   soundBtn.textContent=
     slideVideo.muted?"🔇 SOUND OFF":"🔊 SOUND ON";
 });
 
 /* ==========================================================
-   AI CENTER — ORIGINAL LOCAL ASSISTANT
+   AI CENTER — LOCAL ASSISTANT
    ========================================================== */
 
 let lastReply="Bonjou! Mwen se asistan BSS1815 la.";
@@ -1387,7 +1026,6 @@ function addChatLine(who,message){
   const strong=document.createElement("strong");
 
   strong.textContent=who+": ";
-
   p.appendChild(strong);
   p.appendChild(document.createTextNode(message));
   box.appendChild(p);
@@ -1442,13 +1080,11 @@ function sendChat(){
   }
   else if(q.includes("logo")){
     response=
-      "Logo ofisyèl la se "+
-      "briyant-soley-signo-1815.jpg.";
+      "Logo ofisyèl la se briyant-soley-signo-1815.jpg.";
   }
   else if(q.includes("avatar")){
     response=
-      "Videyo Prof Avatar la se "+
-      "briyant-soley-signo-1815.mp4.";
+      "Videyo Prof Avatar la se briyant-soley-signo-1815.mp4.";
   }
   else{
     response=
@@ -1459,10 +1095,8 @@ function sendChat(){
   }
 
   lastReply=response;
-
   addChatLine("OU",question);
   addChatLine("ASISTAN",response);
-
   input.value="";
 }
 
@@ -1478,24 +1112,21 @@ function speakLast(){
   const utterance=new SpeechSynthesisUtterance(lastReply);
 
   utterance.lang=
-    currentLanguage==="en"?"en-US":"fr-FR";
+    currentLanguage==="en"?"en-US":
+    currentLanguage==="fr"?"fr-FR":"fr-FR";
 
-  utterance.onend=function(){speaking=false;};
-  utterance.onerror=function(){speaking=false;};
+  utterance.onend=()=>{speaking=false};
+  utterance.onerror=()=>{speaking=false};
 
   speaking=true;
   speechSynthesis.speak(utterance);
 }
 
-document.getElementById("chatSendBtn").addEventListener(
-  "click",
-  sendChat
-);
+document.getElementById("chatSendBtn")
+  .addEventListener("click",sendChat);
 
-document.getElementById("voiceBtn").addEventListener(
-  "click",
-  speakLast
-);
+document.getElementById("voiceBtn")
+  .addEventListener("click",speakLast);
 
 function genWriter(type){
   const subject=
@@ -1540,144 +1171,6 @@ function genRadio(){
     "kilti ak divètisman.\n\n"+
     "PRO-MAX FM 106.5 FM — LA FORCE DU SON.";
 }
-
-/* ==========================================================
-   NEW AI MODULE INTERACTIONS
-   ========================================================== */
-
-document.querySelectorAll("[data-open-module]").forEach(function(btn){
-  btn.addEventListener("click",function(){
-    const name=btn.dataset.openModule;
-    const panel=document.getElementById("module-"+name);
-
-    if(!panel)return;
-
-    document.querySelectorAll(".ai-module-panel").forEach(function(item){
-      if(
-        item.id!=="module-assistant" &&
-        item.id!=="module-writer" &&
-        item.id!=="module-translator" &&
-        item.id!=="module-fm"
-      ){
-        item.hidden=true;
-      }
-    });
-
-    if(panel.hidden){
-      panel.hidden=false;
-    }
-
-    panel.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-  });
-});
-
-document.getElementById("readVoiceBtn").addEventListener(
-  "click",
-  function(){
-    const value=document.getElementById("voiceInput").value.trim();
-    if(!value || !("speechSynthesis" in window))return;
-
-    speechSynthesis.cancel();
-
-    const utterance=new SpeechSynthesisUtterance(value);
-    utterance.lang=currentLanguage==="en"?"en-US":"fr-FR";
-    speechSynthesis.speak(utterance);
-  }
-);
-
-document.getElementById("stopVoiceBtn").addEventListener(
-  "click",
-  function(){
-    if("speechSynthesis" in window){
-      speechSynthesis.cancel();
-    }
-  }
-);
-
-function generateNewModule(name,subject){
-  const text=subject.trim()||"BRIYANT SOLÈY SIGNO 1815";
-
-  switch(name){
-    case "planner":
-      return "PLAN TRAVAY\n\n"+
-        "Pwojè: "+text+"\n\n"+
-        "1. Defini objektif la.\n"+
-        "2. Chwazi responsab yo.\n"+
-        "3. Prepare materyèl yo.\n"+
-        "4. Fikse dat ak etap yo.\n"+
-        "5. Verifye rezilta yo.";
-
-    case "communication":
-      return "KOMINIKASYON OFISYÈL\n\n"+
-        "BRIYANT SOLÈY SIGNO 1815\n\n"+
-        "Sijè: "+text+"\n\n"+
-        "Nou envite tout moun konsène yo "+
-        "pran enfòmasyon sa a an konsiderasyon.\n\n"+
-        "DEVAN DEVAN NÈT.";
-
-    case "document":
-      return "DOKIMAN BSS1815\n\n"+
-        "Tit: "+text+"\n"+
-        "Dat: "+new Date().toLocaleDateString()+"\n"+
-        "Responsab: __________________\n"+
-        "Objektif: ___________________\n"+
-        "Detay: ______________________\n"+
-        "Siyati: _____________________";
-
-    case "media":
-      return "BRIYANT SOLÈY SIGNO 1815\n\n"+
-        text+"\n\n"+
-        "Yon vizyon, yon vwa, yon kominote.\n"+
-        "DEVAN DEVAN NÈT.\n\n"+
-        "#BSS1815 #BriyantSoleySigno";
-
-    case "archive":
-      return "PLAN ACHIV\n\n"+
-        "Kategori: "+text+"\n\n"+
-        "01 — Dokiman\n"+
-        "02 — Foto\n"+
-        "03 — Videyo\n"+
-        "04 — Evènman\n"+
-        "05 — Istwa kominote\n"+
-        "06 — Dosye administratif";
-
-    case "events":
-      return "PLAN EVÈNMAN\n\n"+
-        "Evènman: "+text+"\n\n"+
-        "Dat: __________________\n"+
-        "Lokal: _________________\n"+
-        "Responsab: _____________\n"+
-        "Envite: ________________\n"+
-        "Pwogram: _______________\n"+
-        "Bidjè: _________________";
-
-    case "community":
-      return "MESAJ POU KOMINOTE A\n\n"+
-        "BRIYANT SOLÈY SIGNO 1815\n\n"+
-        text+"\n\n"+
-        "Ann travay ansanm pou ranfòse "+
-        "inite, respè ak devlopman kominote nou.\n\n"+
-        "Bati pou Jodi a, Pare pou Demen.";
-
-    default:
-      return text;
-  }
-}
-
-document.querySelectorAll("[data-generate]").forEach(function(btn){
-  btn.addEventListener("click",function(){
-    const name=btn.dataset.generate;
-    const input=document.getElementById(name+"Input");
-    const output=document.getElementById(name+"Output");
-
-    if(!input || !output)return;
-
-    output.textContent=generateNewModule(name,input.value);
-  });
-});
 
 /* ==========================================================
    LANGUAGE TOGGLE — KRE / ENG / FRAN
@@ -1743,7 +1236,7 @@ function setLang(language){
   currentLanguage=language;
   document.documentElement.lang=language;
 
-  document.querySelectorAll("[data-i18n]").forEach(function(el){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key=el.getAttribute("data-i18n");
 
     if(TRANSLATIONS[language][key]!==undefined){
@@ -1751,18 +1244,13 @@ function setLang(language){
     }
   });
 
-  document.querySelectorAll(".lang button").forEach(function(btn){
-    btn.classList.toggle(
-      "on",
-      btn.dataset.lang===language
-    );
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    btn.classList.toggle("on",btn.dataset.lang===language);
   });
 }
 
-document.querySelectorAll(".lang button").forEach(function(btn){
-  btn.addEventListener("click",function(){
-    setLang(btn.dataset.lang);
-  });
+document.querySelectorAll(".lang button").forEach(btn=>{
+  btn.addEventListener("click",()=>setLang(btn.dataset.lang));
 });
 
 /* ==========================================================
@@ -1773,6 +1261,5 @@ setLang("ht");
 showSlide(0);
 
 </script>
-
 </body>
 </html>
