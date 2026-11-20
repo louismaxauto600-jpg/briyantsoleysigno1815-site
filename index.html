@@ -13,7 +13,7 @@
 :root{
   --orange:#ff7900;
   --apricot:#ffbf80;
-  --black:#000000;
+  --black:#000;
   --dark:#1b0b00;
 }
 *{box-sizing:border-box}
@@ -25,10 +25,10 @@ body{
   background-attachment:fixed;
   color:var(--apricot);
   font-size:17px;
-  line-height:1.55;
+  line-height:1.6;
 }
 a{color:var(--apricot)}
-button,input,textarea{font:inherit}
+button,input,textarea,select{font:inherit}
 button{cursor:pointer}
 header{
   position:sticky;
@@ -73,10 +73,11 @@ h2{
   color:var(--orange);
   font-size:27px;
   font-weight:900;
+  margin-top:0;
 }
 h3{
   color:var(--apricot);
-  font-size:21px;
+  font-size:20px;
   font-weight:900;
 }
 nav{
@@ -85,7 +86,10 @@ nav{
   flex-wrap:wrap;
   font-weight:900;
 }
-nav a{text-decoration:none}
+nav a{
+  text-decoration:none;
+  font-size:15px;
+}
 nav a:hover{color:var(--orange)}
 .lang{
   margin-left:auto;
@@ -150,6 +154,7 @@ nav a:hover{color:var(--orange)}
   border-radius:10px;
   text-decoration:none;
   margin:4px;
+  font-size:15px;
 }
 .btn{
   background:var(--orange);
@@ -161,7 +166,10 @@ nav a:hover{color:var(--orange)}
   color:var(--apricot);
   border:1px solid var(--orange);
 }
-input,textarea{
+.btn:hover,.btn2:hover{
+  box-shadow:0 0 14px rgba(255,121,0,.45);
+}
+input,textarea,select{
   width:100%;
   background:#080400;
   color:var(--apricot);
@@ -169,7 +177,9 @@ input,textarea{
   border-radius:10px;
   padding:12px;
 }
-input::placeholder,textarea::placeholder{color:#ffac57}
+input::placeholder,textarea::placeholder{
+  color:#ffac57;
+}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -202,6 +212,7 @@ input::placeholder,textarea::placeholder{color:#ffac57}
   font-weight:900;
   background:var(--orange);
   color:#000;
+  flex-shrink:0;
 }
 .media-frame{
   width:100%;
@@ -242,7 +253,6 @@ input::placeholder,textarea::placeholder{color:#ffac57}
   display:block;
   width:100%;
   max-height:480px;
-  min-height:240px;
   background:#000;
   border:2px solid var(--orange);
   border-radius:14px;
@@ -255,31 +265,75 @@ input::placeholder,textarea::placeholder{color:#ffac57}
   margin-bottom:10px;
   overflow-wrap:anywhere;
 }
-#writerOut,#trOut,#radioOut{
+#writerOut,#trOut,#radioOut,
+.module-output{
   white-space:pre-wrap;
   overflow-wrap:anywhere;
 }
 .ai-module{
-  margin:0;
-  min-height:155px;
+  background:linear-gradient(145deg,#1b0b00,#000);
+  border:1px solid var(--orange);
+  border-radius:14px;
+  padding:18px;
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
 .ai-module h3{
-  margin:8px 0;
-}
-.ai-module small{
   color:var(--orange);
-  font-weight:900;
+  font-size:20px;
+  margin:8px 0;
+  text-transform:uppercase;
 }
-.ai-module p{
-  margin-bottom:0;
+.module-icon{
+  font-size:30px;
+  line-height:1.2;
+  color:var(--orange);
+}
+.module-number{
+  font-weight:900;
+  color:var(--orange);
+  font-size:13px;
+}
+.module-action{
+  align-self:flex-start;
+  margin-top:10px;
+}
+.module-panel{
+  display:none;
+}
+.module-panel.active{
+  display:block;
+}
+.module-panel h3{
+  color:var(--orange);
+}
+.module-output{
+  border:1px solid var(--orange);
+  border-radius:10px;
+  padding:14px;
+  margin-top:12px;
+  min-height:55px;
 }
 .contact-line{
+  font-size:18px;
+  font-weight:700;
   overflow-wrap:anywhere;
+}
+.flag{
+  font-size:25px;
+  margin-right:8px;
+}
+.status{
+  font-weight:700;
+  color:var(--apricot);
 }
 footer{
   border-top:2px solid var(--orange);
   padding:22px;
   text-align:center;
+  font-weight:700;
 }
 @media(max-width:600px){
   .big{font-size:44px}
@@ -287,8 +341,8 @@ footer{
   header{justify-content:center}
   nav{justify-content:center}
   .lang{margin-left:0}
-  body{font-size:16px}
   h2{font-size:24px}
+  .contact-line{font-size:16px}
 }
 </style>
 </head>
@@ -299,6 +353,7 @@ footer{
   <img
     class="logo"
     id="headerLogo"
+    src="/briyant-soley-signo-1815.jpg"
     alt="Logo BRIYANT SOLÈY SIGNO 1815">
 
   <div class="logo-fallback" id="logoFallback">
@@ -331,6 +386,7 @@ footer{
   <img
     class="hero-logo"
     id="heroLogo"
+    src="/briyant-soley-signo-1815.jpg"
     alt="BRIYANT SOLÈY SIGNO 1815">
 
   <div>
@@ -410,7 +466,7 @@ footer{
 
     <div id="galleryLoading">
       <strong>BRIYANT SOLÈY SIGNO 1815</strong>
-      <p id="galleryMessage">Slideshow la ap chèche medya yo...</p>
+      <p id="galleryMessage">Slideshow la ap chaje medya yo...</p>
     </div>
   </div>
 
@@ -452,7 +508,12 @@ footer{
     id="avatarVideo"
     controls
     playsinline
-    preload="metadata">
+    preload="metadata"
+    poster="/briyant-soley-signo-1815.jpg">
+    <source
+      src="/briyant-soley-signo-1815.mp4"
+      type="video/mp4">
+    Navigatè ou a pa sipòte videyo HTML5.
   </video>
 
   <p>
@@ -471,85 +532,150 @@ footer{
 </section>
 
 <section class="card" id="ai">
-  <h2>AI CENTER — 12 MODULES</h2>
+  <h2>AI CENTER — 12 MODIL</h2>
+
+  <p>
+    Zouti dijital pou kominikasyon, dokiman,
+    kominote, planifikasyon ak sèvis BSS1815.
+  </p>
 
   <div class="grid">
 
-    <article class="card ai-module">
-      <small>01 — AI ASSISTANT</small>
-      <h3>AI ASSISTANT</h3>
-      <p>Enfòmasyon ak asistans kominotè.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">✦</div>
+        <div class="module-number">01 — AI ASSISTANT</div>
+        <h3>AI ASSISTANT</h3>
+        <p>Enfòmasyon ak asistans kominote.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="assistant">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>02 — AI WRITER</small>
-      <h3>AI WRITER</h3>
-      <p>Lèt, anons, mesaj ak tèks.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">✎</div>
+        <div class="module-number">02 — AI WRITER</div>
+        <h3>AI WRITER</h3>
+        <p>Lèt, anons, mesaj ak tèks.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="writer">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>03 — AI TRANSLATOR</small>
-      <h3>AI TRANSLATOR</h3>
-      <p>Kreyòl, anglè ak fransè.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">文</div>
+        <div class="module-number">03 — AI TRANSLATOR</div>
+        <h3>AI TRANSLATOR</h3>
+        <p>Kreyòl, anglè ak fransè.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="translator">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>04 — AI VOICE</small>
-      <h3>AI VOICE</h3>
-      <p>Li tèks ak vwa aparèy la.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">◉</div>
+        <div class="module-number">04 — AI VOICE</div>
+        <h3>AI VOICE</h3>
+        <p>Li tèks ak vwa aparèy la.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="voice">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>05 — AI FM SCRIPT</small>
-      <h3>AI FM SCRIPT</h3>
-      <p>Modèl script pou radyo.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">♫</div>
+        <div class="module-number">05 — AI FM SCRIPT</div>
+        <h3>AI FM SCRIPT</h3>
+        <p>Modèl script pou radyo.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="fm-script">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>06 — AI PLANNER</small>
-      <h3>AI PLANNER</h3>
-      <p>Plan aktivite ak travay.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">▦</div>
+        <div class="module-number">06 — AI PLANNER</div>
+        <h3>AI PLANNER</h3>
+        <p>Plan aktivite ak travay.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="planner">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>07 — AI COMMUNICATION</small>
-      <h3>AI COMMUNICATION</h3>
-      <p>Mesaj ak kominikasyon ekip.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">✉</div>
+        <div class="module-number">07 — AI COMMUNICATION</div>
+        <h3>AI COMMUNICATION</h3>
+        <p>Mesaj ak kominikasyon ekip.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="communication">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>08 — AI DOCUMENT</small>
-      <h3>AI DOCUMENT</h3>
-      <p>Preparasyon dokiman.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">▤</div>
+        <div class="module-number">08 — AI DOCUMENT</div>
+        <h3>AI DOCUMENT</h3>
+        <p>Preparasyon dokiman.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="document">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>09 — AI MEDIA</small>
-      <h3>AI MEDIA</h3>
-      <p>Kontni pou medya ak rezo sosyal.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">▣</div>
+        <div class="module-number">09 — AI MEDIA</div>
+        <h3>AI MEDIA</h3>
+        <p>Kontni pou medya ak rezo sosyal.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="media">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>10 — AI ARCHIVE</small>
-      <h3>AI ARCHIVE</h3>
-      <p>Òganizasyon achiv.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">▥</div>
+        <div class="module-number">10 — AI ARCHIVE</div>
+        <h3>AI ARCHIVE</h3>
+        <p>Òganizasyon achiv.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="archive">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>11 — AI EVENTS</small>
-      <h3>AI EVENTS</h3>
-      <p>Preparasyon evènman.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">▦</div>
+        <div class="module-number">11 — AI EVENTS</div>
+        <h3>AI EVENTS</h3>
+        <p>Preparasyon evènman.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="events">OUVRI</button>
     </article>
 
-    <article class="card ai-module">
-      <small>12 — AI COMMUNITY</small>
-      <h3>AI COMMUNITY</h3>
-      <p>Enfòmasyon ak aktivite kominotè.</p>
+    <article class="ai-module">
+      <div>
+        <div class="module-icon">◎</div>
+        <div class="module-number">12 — AI COMMUNITY</div>
+        <h3>AI COMMUNITY</h3>
+        <p>Enfòmasyon ak aktivite kominote.</p>
+      </div>
+      <button class="btn module-action" type="button"
+        data-open-module="community">OUVRI</button>
     </article>
 
   </div>
 
-  <div class="card">
+  <div class="card module-panel" id="panel-assistant">
     <h3>AI ASSISTANT</h3>
 
     <div id="chatBox" aria-live="polite">
@@ -558,88 +684,166 @@ footer{
       kontak, radyo, akademi ak slideshow.
     </div>
 
-    <textarea
-      id="chatInput"
-      rows="3"
+    <textarea id="chatInput" rows="3"
       placeholder="Ekri kesyon ou la..."></textarea>
 
     <p>
-      <button class="btn" type="button" id="chatSendBtn">
-        VOYE
-      </button>
-
-      <button class="btn2" type="button" id="voiceBtn">
-        VWA ON / OFF
-      </button>
+      <button class="btn" type="button" id="chatSendBtn">VOYE</button>
+      <button class="btn2" type="button" id="voiceBtn">VWA ON / OFF</button>
     </p>
   </div>
 
-  <div class="card">
-    <h3>EKRIVEN</h3>
+  <div class="card module-panel" id="panel-writer">
+    <h3>AI WRITER — EKRIVEN</h3>
 
-    <textarea
-      id="writerInput"
-      rows="3"
+    <textarea id="writerInput" rows="3"
       placeholder="Ekri sijè a..."></textarea>
 
     <p>
-      <button class="btn" type="button" onclick="genWriter('Lèt')">
-        LÈT
-      </button>
-
-      <button class="btn2" type="button" onclick="genWriter('Anons')">
-        ANONS
-      </button>
-
-      <button class="btn" type="button" onclick="genWriter('Flyer')">
-        FLYER
-      </button>
-
-      <button class="btn2" type="button" onclick="genWriter('Mesaj')">
-        MESAJ
-      </button>
+      <button class="btn" type="button" onclick="genWriter('Lèt')">LÈT</button>
+      <button class="btn2" type="button" onclick="genWriter('Anons')">ANONS</button>
+      <button class="btn" type="button" onclick="genWriter('Flyer')">FLYER</button>
+      <button class="btn2" type="button" onclick="genWriter('Mesaj')">MESAJ</button>
     </p>
 
     <p id="writerOut"></p>
   </div>
 
-  <div class="card">
-    <h3>TRADIKSYON</h3>
+  <div class="card module-panel" id="panel-translator">
+    <h3>AI TRANSLATOR — TRADIKSYON</h3>
 
-    <textarea
-      id="trInput"
-      rows="3"
-      placeholder="Ekri yon fraz..."></textarea>
+    <textarea id="trInput" rows="3"
+      placeholder="Ekri yon mo oswa fraz..."></textarea>
 
     <p>
-      <button class="btn2" type="button" onclick="translateMe('KRE-FR')">
-        KRE → FR
-      </button>
-
-      <button class="btn2" type="button" onclick="translateMe('KRE-ENG')">
-        KRE → ENG
-      </button>
-
-      <button class="btn2" type="button" onclick="translateMe('FR-KRE')">
-        FR → KRE
-      </button>
-
-      <button class="btn2" type="button" onclick="translateMe('ENG-KRE')">
-        ENG → KRE
-      </button>
+      <button class="btn2" type="button" onclick="translateMe('KRE-FR')">KRE → FR</button>
+      <button class="btn2" type="button" onclick="translateMe('KRE-ENG')">KRE → ENG</button>
+      <button class="btn2" type="button" onclick="translateMe('FR-KRE')">FR → KRE</button>
+      <button class="btn2" type="button" onclick="translateMe('ENG-KRE')">ENG → KRE</button>
     </p>
 
     <p id="trOut"></p>
   </div>
 
-  <div class="card">
-    <h3>SCRIPT RADYO — PRO-MAX FM 106.5 FM</h3>
+  <div class="card module-panel" id="panel-voice">
+    <h3>AI VOICE</h3>
+
+    <textarea id="voiceInput" rows="4"
+      placeholder="Ekri tèks ou vle aparèy la li..."></textarea>
+
+    <p>
+      <button class="btn" type="button" id="readTextBtn">▶ LI TÈKS</button>
+      <button class="btn2" type="button" id="stopVoiceBtn">■ STOP</button>
+    </p>
+
+    <p id="voiceStatus" class="status"></p>
+  </div>
+
+  <div class="card module-panel" id="panel-fm-script">
+    <h3>AI FM SCRIPT — PRO-MAX FM 106.5 FM</h3>
 
     <button class="btn" type="button" onclick="genRadio()">
       JENERE SCRIPT FM 106.5
     </button>
 
     <p id="radioOut"></p>
+  </div>
+
+  <div class="card module-panel" id="panel-planner">
+    <h3>AI PLANNER</h3>
+
+    <input id="plannerTitle" placeholder="Non aktivite a">
+    <p><input id="plannerDate" type="date"></p>
+    <textarea id="plannerDetails" rows="3"
+      placeholder="Travay ak objektif..."></textarea>
+
+    <p>
+      <button class="btn" type="button" onclick="createPlanner()">KREYE PLAN</button>
+    </p>
+
+    <div id="plannerOut" class="module-output"></div>
+  </div>
+
+  <div class="card module-panel" id="panel-communication">
+    <h3>AI COMMUNICATION</h3>
+
+    <input id="communicationTitle" placeholder="Sijè mesaj la">
+    <p>
+      <textarea id="communicationDetails" rows="3"
+        placeholder="Enfòmasyon pou kominote a..."></textarea>
+    </p>
+
+    <button class="btn" type="button" onclick="createCommunication()">PREPARE MESAJ</button>
+
+    <div id="communicationOut" class="module-output"></div>
+  </div>
+
+  <div class="card module-panel" id="panel-document">
+    <h3>AI DOCUMENT</h3>
+
+    <input id="documentTitle" placeholder="Tit dokiman an">
+    <p>
+      <textarea id="documentDetails" rows="4"
+        placeholder="Kontni dokiman an..."></textarea>
+    </p>
+
+    <button class="btn" type="button" onclick="createDocument()">PREPARE DOKIMAN</button>
+
+    <div id="documentOut" class="module-output"></div>
+  </div>
+
+  <div class="card module-panel" id="panel-media">
+    <h3>AI MEDIA</h3>
+
+    <input id="mediaTitle" placeholder="Sijè piblikasyon an">
+    <p>
+      <textarea id="mediaDetails" rows="3"
+        placeholder="Detay piblikasyon an..."></textarea>
+    </p>
+
+    <button class="btn" type="button" onclick="createMedia()">PREPARE PIBLIKASYON</button>
+
+    <div id="mediaOut" class="module-output"></div>
+  </div>
+
+  <div class="card module-panel" id="panel-archive">
+    <h3>AI ARCHIVE</h3>
+
+    <input id="archiveTitle" placeholder="Non dosye oswa achiv la">
+    <p>
+      <textarea id="archiveDetails" rows="3"
+        placeholder="Deskripsyon achiv la..."></textarea>
+    </p>
+
+    <button class="btn" type="button" onclick="addArchive()">AJOUTE NAN LIS</button>
+
+    <div id="archiveOut" class="module-output"></div>
+  </div>
+
+  <div class="card module-panel" id="panel-events">
+    <h3>AI EVENTS</h3>
+
+    <input id="eventTitle" placeholder="Non evènman an">
+    <p><input id="eventDate" type="date"></p>
+    <p><input id="eventLocation" placeholder="Kote evènman an"></p>
+
+    <button class="btn" type="button" onclick="createEvent()">PREPARE EVÈNMAN</button>
+
+    <div id="eventOut" class="module-output"></div>
+  </div>
+
+  <div class="card module-panel" id="panel-community">
+    <h3>AI COMMUNITY</h3>
+
+    <input id="communityTitle" placeholder="Sijè kominote a">
+    <p>
+      <textarea id="communityDetails" rows="3"
+        placeholder="Enfòmasyon pou kominote a..."></textarea>
+    </p>
+
+    <button class="btn" type="button" onclick="createCommunity()">PREPARE ENFÒMASYON</button>
+
+    <div id="communityOut" class="module-output"></div>
   </div>
 
   <p>
@@ -666,28 +870,30 @@ footer{
   <h2 data-i18n="contactTitle">KONTAK & REZO SOSYAL</h2>
 
   <p class="contact-line">
-    <b>Website:</b>
-    <a href="https://bss1815promaxdmp.com">
-      bss1815promaxdmp.com
+    <b>WEBSITE:</b>
+    <a href="https://bss1815pro-maxdmp.com">
+      bss1815pro-maxdmp.com
     </a>
   </p>
 
   <p class="contact-line">
-    <b>USA:</b><br>
+    <span class="flag">🇺🇸</span>
+    <b>USA:</b>
     <a href="tel:+14076405166">(407) 640-5166</a>
     •
     <a href="tel:+13175381150">(317) 538-1150</a>
   </p>
 
   <p class="contact-line">
-    <b>HAITI:</b><br>
+    <span class="flag">🇭🇹</span>
+    <b>HAITI:</b>
     <a href="tel:+50942544447">+509 4254 4447</a>
     •
     <a href="tel:+50943437488">+509 4343 7488</a>
   </p>
 
   <p class="contact-line">
-    <b>EMAIL:</b><br>
+    <b>EMAIL:</b>
     <a href="mailto:bss1815promaxdmp@gmail.com">
       bss1815promaxdmp@gmail.com
     </a>
@@ -763,143 +969,58 @@ footer{
 "use strict";
 
 /* ==========================================================
-   BSS1815 — MEDIA PATH MANAGEMENT
-   Original filenames preserved.
+   OFFICIAL MEDIA PATHS — GITHUB ROOT
    ========================================================== */
 
 const ROOT = new URL("/", window.location.origin).href;
 
-const MEDIA_DIRS = [
-  "/",
-  "/assets/",
-  "/assets/slideshow/",
-  "/images/",
-  "/media/",
-  "/photos/",
-  "/galeri/",
-  "/bss1815/"
-];
-
 const LOGO_NAME = "briyant-soley-signo-1815.jpg";
 const AVATAR_NAME = "briyant-soley-signo-1815.mp4";
 
-function mediaURL(directory, filename){
-  const encoded = filename
-    .split("/")
-    .map(encodeURIComponent)
-    .join("/");
-
-  return new URL(
-    directory.replace(/\/?$/, "/") + encoded,
-    ROOT
-  ).href;
-}
-
-function candidates(filename){
-  const result = [];
-
-  for(const directory of MEDIA_DIRS){
-    const url = mediaURL(directory, filename);
-    if(!result.includes(url)) result.push(url);
-  }
-
-  return result;
-}
-
-/* ==========================================================
-   LOGO — IMAGE FILE ONLY
-   ========================================================== */
-
-function loadImageWithFallback(element, filename, onFailure){
-  const urls = candidates(filename);
-  let position = 0;
-
-  function attempt(){
-    if(position >= urls.length){
-      if(typeof onFailure === "function") onFailure();
-      return;
-    }
-
-    const url = urls[position++];
-    const probe = new Image();
-
-    probe.onload = function(){
-      element.src = url;
-      element.style.display = "";
-    };
-
-    probe.onerror = attempt;
-    probe.src = url;
-  }
-
-  attempt();
-}
+const LOGO_URL = new URL(LOGO_NAME, ROOT).href;
+const AVATAR_URL = new URL(AVATAR_NAME, ROOT).href;
 
 const headerLogo = document.getElementById("headerLogo");
 const heroLogo = document.getElementById("heroLogo");
+const logoFallback = document.getElementById("logoFallback");
 
-loadImageWithFallback(
-  headerLogo,
-  LOGO_NAME,
-  function(){
-    headerLogo.style.display = "none";
-    document.getElementById("logoFallback").style.display = "flex";
-  }
-);
+headerLogo.src = LOGO_URL;
+heroLogo.src = LOGO_URL;
 
-loadImageWithFallback(
-  heroLogo,
-  LOGO_NAME,
-  function(){
-    heroLogo.style.display = "none";
-  }
-);
+headerLogo.addEventListener("error", function(){
+  headerLogo.style.display = "none";
+  logoFallback.style.display = "flex";
+});
+
+heroLogo.addEventListener("error", function(){
+  heroLogo.style.display = "none";
+});
 
 /* ==========================================================
-   PROF AVATAR — VIDEO FILE ONLY
-   No image-loading function is applied to the video.
+   PROF AVATAR — DIRECT VIDEO SOURCE
    ========================================================== */
 
 const avatarVideo = document.getElementById("avatarVideo");
 const avatarStatus = document.getElementById("avatarStatus");
 
-const avatarURLs = candidates(AVATAR_NAME);
-let avatarPosition = 0;
-let avatarReady = false;
-
-function loadAvatar(){
-  if(avatarPosition >= avatarURLs.length){
-    avatarStatus.textContent =
-      "Prof Avatar: videyo a pa jwenn nan chemen ki disponib yo.";
-    return;
-  }
-
-  avatarReady = false;
-  avatarStatus.textContent = "Prof Avatar ap chaje...";
-
-  avatarVideo.src = avatarURLs[avatarPosition++];
-  avatarVideo.load();
-}
+avatarVideo.poster = LOGO_URL;
 
 avatarVideo.addEventListener("loadedmetadata", function(){
-  avatarReady = true;
   avatarStatus.textContent =
     "PROF AVATAR — BRIYANT SOLÈY SIGNO 1815";
 });
 
 avatarVideo.addEventListener("error", function(){
-  if(!avatarReady) loadAvatar();
+  avatarStatus.textContent =
+    "Prof Avatar: videyo a pa disponib sou chemen aktyèl la.";
 });
+
+avatarVideo.querySelector("source").src = AVATAR_URL;
+avatarVideo.load();
 
 document.getElementById("avatarPlayBtn").addEventListener(
   "click",
   function(){
-    if(!avatarReady){
-      avatarStatus.textContent =
-        "Prof Avatar poko fin chaje.";
-      return;
-    }
-
     avatarVideo.play().catch(function(){
       avatarStatus.textContent =
         "Peze Play sou videyo Prof Avatar la.";
@@ -907,32 +1028,8 @@ document.getElementById("avatarPlayBtn").addEventListener(
   }
 );
 
-/* The logo can be a video poster, never a video source. */
-(function setAvatarPoster(){
-  const urls = candidates(LOGO_NAME);
-  let position = 0;
-
-  function attempt(){
-    if(position >= urls.length) return;
-
-    const url = urls[position++];
-    const probe = new Image();
-
-    probe.onload = function(){
-      avatarVideo.poster = url;
-    };
-
-    probe.onerror = attempt;
-    probe.src = url;
-  }
-
-  attempt();
-})();
-
-loadAvatar();
-
 /* ==========================================================
-   COMMUNITY MEDIA LIST — ORIGINAL FILENAMES
+   COMMUNITY MEDIA LIST — ORIGINAL FILENAMES PRESERVED
    ========================================================== */
 
 const GALLERY = [
@@ -1017,7 +1114,7 @@ const GALLERY = [
 ];
 
 /* ==========================================================
-   SLIDESHOW ENGINE
+   SLIDESHOW — IMAGE / VIDEO ENGINE
    ========================================================== */
 
 const slideImage = document.getElementById("slideImage");
@@ -1038,6 +1135,37 @@ let slideReady = false;
 
 const IMAGE_TIME = 8500;
 const VIDEO_FALLBACK_TIME = 30000;
+
+/*
+  Slideshow medya yo rete sou menm sit la.
+  Yo pa nesesèman nan rasin lan.
+  Premye chemen se assets/slideshow, epi sistèm nan
+  eseye dosye ki te deja nan kòd orijinal la.
+*/
+
+const SLIDESHOW_DIRS = [
+  "/assets/slideshow/",
+  "/assets/",
+  "/images/",
+  "/media/",
+  "/photos/",
+  "/"
+];
+
+function mediaURL(directory, filename){
+  const encoded = filename
+    .split("/")
+    .map(encodeURIComponent)
+    .join("/");
+
+  return new URL(directory + encoded, ROOT).href;
+}
+
+function slideCandidates(filename){
+  return SLIDESHOW_DIRS.map(function(dir){
+    return mediaURL(dir, filename);
+  });
+}
 
 function isVideo(filename){
   return /\.(mp4|webm|mov)$/i.test(filename);
@@ -1077,7 +1205,7 @@ function resetSlideMedia(){
 }
 
 function showSlide(index, failedCount = 0){
-  if(!GALLERY.length) return;
+  if(!GALLERY.length)return;
 
   slideIndex = (index + GALLERY.length) % GALLERY.length;
   slideRequest++;
@@ -1093,7 +1221,7 @@ function showSlide(index, failedCount = 0){
   counter.textContent =
     (slideIndex + 1) + " / " + GALLERY.length;
 
-  diag.textContent = "Ap chèche: " + filename;
+  diag.textContent = "Ap chaje: " + filename;
 
   galleryLoading.style.display = "block";
   galleryMessage.textContent = "Ap chaje: " + filename;
@@ -1102,9 +1230,9 @@ function showSlide(index, failedCount = 0){
 }
 
 function loadSlideCandidate(filename, position, token, failedCount){
-  if(token !== slideRequest) return;
+  if(token !== slideRequest)return;
 
-  const urls = candidates(filename);
+  const urls = slideCandidates(filename);
 
   if(position >= urls.length){
     if(failedCount + 1 >= GALLERY.length){
@@ -1117,7 +1245,7 @@ function loadSlideCandidate(filename, position, token, failedCount){
     const next = (slideIndex + 1) % GALLERY.length;
 
     setTimeout(function(){
-      if(token !== slideRequest) return;
+      if(token !== slideRequest)return;
       showSlide(next, failedCount + 1);
     }, 250);
 
@@ -1130,7 +1258,7 @@ function loadSlideCandidate(filename, position, token, failedCount){
     slideIsVideo = true;
 
     slideVideo.onloadeddata = function(){
-      if(token !== slideRequest) return;
+      if(token !== slideRequest)return;
 
       slideReady = true;
       galleryLoading.style.display = "none";
@@ -1148,7 +1276,7 @@ function loadSlideCandidate(filename, position, token, failedCount){
     };
 
     slideVideo.onerror = function(){
-      if(token !== slideRequest) return;
+      if(token !== slideRequest)return;
 
       loadSlideCandidate(
         filename,
@@ -1159,8 +1287,8 @@ function loadSlideCandidate(filename, position, token, failedCount){
     };
 
     slideVideo.onended = function(){
-      if(token !== slideRequest) return;
-      if(!slidePaused) changeSlide(1);
+      if(token !== slideRequest)return;
+      if(!slidePaused)changeSlide(1);
     };
 
     slideVideo.src = url;
@@ -1172,10 +1300,9 @@ function loadSlideCandidate(filename, position, token, failedCount){
     const probe = new Image();
 
     probe.onload = function(){
-      if(token !== slideRequest) return;
+      if(token !== slideRequest)return;
 
       slideReady = true;
-
       slideImage.src = url;
       slideImage.style.display = "block";
       galleryLoading.style.display = "none";
@@ -1187,7 +1314,7 @@ function loadSlideCandidate(filename, position, token, failedCount){
     };
 
     probe.onerror = function(){
-      if(token !== slideRequest) return;
+      if(token !== slideRequest)return;
 
       loadSlideCandidate(
         filename,
@@ -1202,7 +1329,7 @@ function loadSlideCandidate(filename, position, token, failedCount){
 }
 
 function changeSlide(direction){
-  if(!GALLERY.length) return;
+  if(!GALLERY.length)return;
   showSlide(slideIndex + direction);
 }
 
@@ -1214,9 +1341,9 @@ function togglePause(){
 
   if(slidePaused){
     stopTimer();
-    if(slideIsVideo) slideVideo.pause();
+    if(slideIsVideo)slideVideo.pause();
   }else{
-    if(!slideReady) return;
+    if(!slideReady)return;
 
     if(slideIsVideo){
       slideVideo.play().catch(function(){});
@@ -1229,12 +1356,12 @@ function togglePause(){
 
 document.getElementById("previousBtn").addEventListener(
   "click",
-  function(){ changeSlide(-1); }
+  function(){changeSlide(-1);}
 );
 
 document.getElementById("nextBtn").addEventListener(
   "click",
-  function(){ changeSlide(1); }
+  function(){changeSlide(1);}
 );
 
 pauseBtn.addEventListener("click", togglePause);
@@ -1247,7 +1374,31 @@ soundBtn.addEventListener("click", function(){
 });
 
 /* ==========================================================
-   AI CENTER — LOCAL ASSISTANT
+   AI CENTER — 12 MODULE PANEL NAVIGATION
+   ========================================================== */
+
+document.querySelectorAll("[data-open-module]").forEach(function(button){
+  button.addEventListener("click", function(){
+    const name = button.getAttribute("data-open-module");
+    const panel = document.getElementById("panel-" + name);
+
+    if(!panel)return;
+
+    document.querySelectorAll(".module-panel").forEach(function(item){
+      item.classList.remove("active");
+    });
+
+    panel.classList.add("active");
+
+    panel.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+  });
+});
+
+/* ==========================================================
+   AI ASSISTANT — LOCAL INFORMATION
    ========================================================== */
 
 let lastReply = "Bonjou! Mwen se asistan BSS1815 la.";
@@ -1270,7 +1421,7 @@ function sendChat(){
   const input = document.getElementById("chatInput");
   const question = input.value.trim();
 
-  if(!question) return;
+  if(!question)return;
 
   const q = question.toLowerCase();
   let response = "";
@@ -1316,12 +1467,12 @@ function sendChat(){
   else if(q.includes("logo")){
     response =
       "Logo ofisyèl la se " +
-      "briyant-soley-signo-1815.jpg.";
+      LOGO_NAME + ".";
   }
   else if(q.includes("avatar")){
     response =
       "Videyo Prof Avatar la se " +
-      "briyant-soley-signo-1815.mp4.";
+      AVATAR_NAME + ".";
   }
   else{
     response =
@@ -1340,7 +1491,7 @@ function sendChat(){
 }
 
 function speakLast(){
-  if(!("speechSynthesis" in window)) return;
+  if(!("speechSynthesis" in window))return;
 
   if(speaking){
     speechSynthesis.cancel();
@@ -1353,8 +1504,8 @@ function speakLast(){
   utterance.lang =
     currentLanguage === "en" ? "en-US" : "fr-FR";
 
-  utterance.onend = function(){ speaking = false; };
-  utterance.onerror = function(){ speaking = false; };
+  utterance.onend = function(){speaking = false;};
+  utterance.onerror = function(){speaking = false;};
 
   speaking = true;
   speechSynthesis.speak(utterance);
@@ -1370,6 +1521,10 @@ document.getElementById("voiceBtn").addEventListener(
   speakLast
 );
 
+/* ==========================================================
+   AI WRITER
+   ========================================================== */
+
 function genWriter(type){
   const subject =
     document.getElementById("writerInput").value.trim();
@@ -1381,6 +1536,10 @@ function genWriter(type){
     "Kontak: bss1815promaxdmp@gmail.com\n" +
     "(407) 640-5166";
 }
+
+/* ==========================================================
+   AI TRANSLATOR — LOCAL DICTIONARY
+   ========================================================== */
 
 function translateMe(direction){
   const input =
@@ -1404,6 +1563,60 @@ function translateMe(direction){
       : "Tradiksyon fraz sa a mande yon sèvis tradiksyon konekte.";
 }
 
+/* ==========================================================
+   AI VOICE — DEVICE SPEECH
+   ========================================================== */
+
+document.getElementById("readTextBtn").addEventListener(
+  "click",
+  function(){
+    const text = document.getElementById("voiceInput").value.trim();
+    const status = document.getElementById("voiceStatus");
+
+    if(!text){
+      status.textContent = "Ekri yon tèks anvan.";
+      return;
+    }
+
+    if(!("speechSynthesis" in window)){
+      status.textContent = "Navigatè sa a pa sipòte lekti vwa.";
+      return;
+    }
+
+    speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang =
+      currentLanguage === "en" ? "en-US" : "fr-FR";
+
+    utterance.onend = function(){
+      status.textContent = "Lekti fini.";
+    };
+
+    utterance.onerror = function(){
+      status.textContent = "Lekti vwa pa disponib.";
+    };
+
+    status.textContent = "Vwa ap li tèks la...";
+    speechSynthesis.speak(utterance);
+  }
+);
+
+document.getElementById("stopVoiceBtn").addEventListener(
+  "click",
+  function(){
+    if("speechSynthesis" in window){
+      speechSynthesis.cancel();
+    }
+    document.getElementById("voiceStatus").textContent =
+      "Lekti sispann.";
+  }
+);
+
+/* ==========================================================
+   AI FM SCRIPT
+   ========================================================== */
+
 function genRadio(){
   document.getElementById("radioOut").textContent =
     "PRO-MAX FM 106.5 FM\n\n" +
@@ -1412,6 +1625,136 @@ function genRadio(){
     "Radyo kominote a: mizik, nouvèl, " +
     "kilti ak divètisman.\n\n" +
     "PRO-MAX FM 106.5 FM — LA FORCE DU SON.";
+}
+
+/* ==========================================================
+   AI PLANNER
+   ========================================================== */
+
+function createPlanner(){
+  const title = document.getElementById("plannerTitle").value.trim();
+  const date = document.getElementById("plannerDate").value;
+  const details = document.getElementById("plannerDetails").value.trim();
+
+  document.getElementById("plannerOut").textContent =
+    "PLAN AKTIVITE — BSS1815\n\n" +
+    "Aktivite: " + (title || "Pa presize") + "\n" +
+    "Dat: " + (date || "Pa presize") + "\n" +
+    "Objektif: " + (details || "Pa presize") + "\n\n" +
+    "1. Prepare aktivite a.\n" +
+    "2. Òganize ekip la.\n" +
+    "3. Verifye resous yo.\n" +
+    "4. Egzekite aktivite a.\n" +
+    "5. Fè bilan travay la.";
+}
+
+/* ==========================================================
+   AI COMMUNICATION
+   ========================================================== */
+
+function createCommunication(){
+  const title = document.getElementById("communicationTitle").value.trim();
+  const details = document.getElementById("communicationDetails").value.trim();
+
+  document.getElementById("communicationOut").textContent =
+    "KOMINIKASYON OFISYÈL\n" +
+    "BRIYANT SOLÈY SIGNO 1815\n\n" +
+    "SIJÈ: " + (title || "Enfòmasyon kominote") + "\n\n" +
+    (details || "Nou envite tout manm kominote a rete enfòme.") +
+    "\n\nDEVAN DEVAN NÈT.";
+}
+
+/* ==========================================================
+   AI DOCUMENT
+   ========================================================== */
+
+function createDocument(){
+  const title = document.getElementById("documentTitle").value.trim();
+  const details = document.getElementById("documentDetails").value.trim();
+
+  document.getElementById("documentOut").textContent =
+    "BRIYANT SOLÈY SIGNO 1815\n" +
+    "BSS1815 PRO-MAX DMP\n\n" +
+    (title || "DOKIMAN") + "\n\n" +
+    (details || "Kontni dokiman an poko ekri.") +
+    "\n\nKontak: bss1815promaxdmp@gmail.com";
+}
+
+/* ==========================================================
+   AI MEDIA
+   ========================================================== */
+
+function createMedia(){
+  const title = document.getElementById("mediaTitle").value.trim();
+  const details = document.getElementById("mediaDetails").value.trim();
+
+  document.getElementById("mediaOut").textContent =
+    "BRIYANT SOLÈY SIGNO 1815\n\n" +
+    (title || "NOUVEL PIBLIKASYON") + "\n\n" +
+    (details || "Enfòmasyon kominote a.") +
+    "\n\n#BSS1815 #BriyantSoleySigno #DevanDevanNet";
+}
+
+/* ==========================================================
+   AI ARCHIVE — LOCAL SESSION LIST
+   ========================================================== */
+
+const archiveItems = [];
+
+function addArchive(){
+  const title = document.getElementById("archiveTitle").value.trim();
+  const details = document.getElementById("archiveDetails").value.trim();
+
+  if(!title){
+    document.getElementById("archiveOut").textContent =
+      "Ekri non achiv la.";
+    return;
+  }
+
+  archiveItems.push({
+    title:title,
+    details:details
+  });
+
+  document.getElementById("archiveOut").textContent =
+    archiveItems.map(function(item,index){
+      return (index+1) + ". " + item.title +
+        (item.details ? "\n" + item.details : "");
+    }).join("\n\n");
+}
+
+/* ==========================================================
+   AI EVENTS
+   ========================================================== */
+
+function createEvent(){
+  const title = document.getElementById("eventTitle").value.trim();
+  const date = document.getElementById("eventDate").value;
+  const location = document.getElementById("eventLocation").value.trim();
+
+  document.getElementById("eventOut").textContent =
+    "EVÈNMAN — BRIYANT SOLÈY SIGNO 1815\n\n" +
+    "EVÈNMAN: " + (title || "Pa presize") + "\n" +
+    "DAT: " + (date || "Pa presize") + "\n" +
+    "KOTE: " + (location || "Pa presize") + "\n\n" +
+    "Nou envite kominote a patisipe.\n" +
+    "DEVAN DEVAN NÈT.";
+}
+
+/* ==========================================================
+   AI COMMUNITY
+   ========================================================== */
+
+function createCommunity(){
+  const title = document.getElementById("communityTitle").value.trim();
+  const details = document.getElementById("communityDetails").value.trim();
+
+  document.getElementById("communityOut").textContent =
+    "BRIYANT SOLÈY SIGNO 1815\n" +
+    "ENFÒMASYON KOMINOTE\n\n" +
+    (title || "KOMINOTE BSS1815") + "\n\n" +
+    (details || "Yon vizyon, yon vwa, yon kominote.") +
+    "\n\nBati pou Jodi a, Pare pou Demen.";
 }
 
 /* ==========================================================
@@ -1473,7 +1816,7 @@ const TRANSLATIONS = {
 };
 
 function setLang(language){
-  if(!TRANSLATIONS[language]) return;
+  if(!TRANSLATIONS[language])return;
 
   currentLanguage = language;
   document.documentElement.lang = language;
