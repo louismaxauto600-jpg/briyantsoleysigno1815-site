@@ -1,419 +1,81 @@
-
-/* =========================================================
-   BRIYANT SOLÈY SIGNO 1815
-   NOUVO SLIDESHOW + GALERI BSS1815
-   Orange / Apricot / Black
-   ========================================================= */
-
-(() => {
-  "use strict";
-
-  const ROOT = "./";
-
-  const mediaFiles = [
-    "papit.png",
-    "fanfan.png",
-    "koukou.png",
-    "perodin.png",
-    "bss-1815.png",
-    "ti-lafrance.png",
-    "bss-fanclub.png",
-    "miami-an-aksyon.png",
-    "team-backup.png",
-    "sfc-5-stars.png",
-    "team-angrenay.png",
-    "papouche.png",
-    "konkont.jpg",
-    "Jeff-colin.jpg",
-    "max.jpg",
-    "montina.jpg",
-    "pro-max-fm-106.5.jpg",
-    "komandan-ralph.jpg",
-    "jude.jpg",
-
-    "valery.jpg",
-    "mass-vokal.jpg",
-    "dèdè.jpg",
-    "pèrodin.jpg",
-    "gq-max.jpg",
-    "lebaron.jpg",
-    "super-fanclub.jpg",
-    "team-sanpresyon.jpg",
-    "team-backup.jpg",
-    "komandan-landry.jpg",
-    "team-san-presyon.jpg",
-    "brunel.jpg",
-    "the-one.jpg",
-    "ti-lafrance.jpg",
-    "manbo-fifi.jpg",
-    "bss1815-IV.jpg",
-    "konkont-II.jpg",
-    "miami-an-aksyon.jpg",
-    "the-dunn.jpg",
-    "nòe-boulin.jpg",
-    "leogâne-info.jpg",
-    "prezidan-jude-josep.jpg",
-    "the-only-one.jpg",
-    "jackson-montina.jpg",
-    "marasa.jpg",
-    "the-real-team.jpg",
-    "nadia-lafortune.jpg",
-    "macu.jpg",
-    "nadou.jpg",
-    "nadou-II.jpg",
-    "maximax-II.jpg",
-    "prof-montina.jpg",
-    "hall-of-leaders.jpg",
-    "pauléma.jpg",
-    "tania-félix.jpg",
-    "tania-II.jpg",
-    "tania.jpg",
-    "tania-3.jpg",
-    "anpére-doudou.jpg",
-    "Leclercfélix.jpg",
-    "roro-lajan-III.jpg",
-    "sonson-miami.jpg",
-    "tatane-II.jpg",
-    "cangé-félix.jpg",
-    "papouche.jpg",
-    "nadou3.jpg",
-    "le-baron.jpg",
-    "platfom-bss.jpg",
-    "cool-max.jpg",
-    "cool-max-II.jpg",
-    "cool-max-III.jpg",
-    "max-is-in-green.jpg",
-    "cols.jpg",
-    "bss1815-I.jpg",
-    "Léogane-info.jpg"
-  ];
-
-  // Yon sèl kopi pou chak non fichye.
-  const uniqueFiles = [...new Set(mediaFiles)];
-
-  // Pa bloke slideshow la si yon foto pa chaje.
-  const validFiles = [];
-  const brokenFiles = [];
-
-  const css = `
-    #bss1815-media-center {
-      font-family: Arial, sans-serif;
-      color: #ffad67;
-      background: linear-gradient(135deg,#000,#251004,#000);
-      padding: 32px 16px;
-      border-top: 2px solid #ff7900;
-      border-bottom: 2px solid #ff7900;
-    }
-    #bss1815-media-center * { box-sizing: border-box; }
-    #bss1815-media-center h2 {
-      text-align: center;
-      color: #ff7900;
-      font-size: clamp(25px,5vw,42px);
-      margin: 0 0 12px;
-    }
-    #bss1815-media-center .bss-subtitle {
-      text-align:center;
-      margin:0 0 24px;
-      font-weight:bold;
-    }
-    .bss-slide-frame {
-      max-width: 1100px;
-      margin: auto;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid #ff7900;
-      border-radius: 20px;
-      background: #000;
-      box-shadow: 0 0 30px #ff790055;
-    }
-    .bss-slide-frame img {
-      display: block;
-      width: 100%;
-      height: min(62vw,620px);
-      min-height: 240px;
-      object-fit: contain;
-      background: #000;
-    }
-    .bss-slide-caption {
-      padding: 15px;
-      text-align: center;
-      color: #ffad67;
-      font-weight: 800;
-      background: #130700;
-      overflow-wrap: anywhere;
-    }
-    .bss-slide-controls {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 20px 0;
-    }
-    .bss-slide-controls button,
-    .bss-gallery-toggle {
-      border: 2px solid #ff7900;
-      border-radius: 12px;
-      background: #1b0900;
-      color: #ffad67;
-      padding: 12px 18px;
-      font: 800 15px Arial,sans-serif;
-      cursor: pointer;
-    }
-    .bss-slide-controls button:hover,
-    .bss-gallery-toggle:hover {
-      background: #ff7900;
-      color: #000;
-    }
-    .bss-gallery-actions {
-      text-align: center;
-      margin: 14px 0 24px;
-    }
-    .bss-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
-      gap: 15px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .bss-gallery-item {
-      background: #100600;
-      border: 1px solid #a94b14;
-      border-radius: 13px;
-      overflow: hidden;
-      cursor: pointer;
-      padding: 0;
-      color: #ffad67;
-      text-align: center;
-      font-family: Arial,sans-serif;
-    }
-    .bss-gallery-item img {
-      display: block;
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-    }
-    .bss-gallery-item span {
-      display: block;
-      padding: 10px;
-      font-size: 12px;
-      font-weight: 800;
-      overflow-wrap: anywhere;
-    }
-    .bss-slide-status {
-      text-align:center;
-      font-size:13px;
-      color:#ffad67;
-      margin:0 0 10px;
-    }
-  `;
-
-  function fileLabel(filename) {
-    return filename
-      .replace(/\.[^.]+$/, "")
-      .replace(/[-_]/g, " ")
-      .toUpperCase();
-  }
-
-  function start() {
-    if (document.getElementById("bss1815-media-center")) return;
-
-    const style = document.createElement("style");
-    style.textContent = css;
-    document.head.appendChild(style);
-
-    const section = document.createElement("section");
-    section.id = "bss1815-media-center";
-    section.innerHTML = `
-      <h2>BRIYANT SOLÈY SIGNO 1815</h2>
-      <p class="bss-subtitle">
-        ISTWA PA JANM EFASE • GALERI OFISYÈL BSS1815
-      </p>
-
-      <div class="bss-slide-frame">
-        <img id="bss-current-image"
-             alt="Foto galeri BSS1815">
-        <div class="bss-slide-caption"
-             id="bss-current-caption">
-          BSS1815
-        </div>
-      </div>
-
-      <div class="bss-slide-controls">
-        <button id="bss-prev" type="button">❮ PREVIOUS</button>
-        <button id="bss-pause" type="button">⏸ PAUSE</button>
-        <button id="bss-next" type="button">NEXT ❯</button>
-      </div>
-
-      <p class="bss-slide-status" id="bss-slide-status">
-        Ap prepare galeri a...
-      </p>
-
-      <div class="bss-gallery-actions">
-        <button class="bss-gallery-toggle"
-                id="bss-gallery-toggle"
-                type="button">
-          🖼 OUVRI GALERI A
-        </button>
-      </div>
-
-      <div class="bss-gallery-grid"
-           id="bss-gallery-grid"
-           hidden></div>
-    `;
-
-    // Ranplase ansyen slideshow sèlman si nou jwenn li
-    // pa youn nan ID sa yo.
-    const oldSlide = document.querySelector(
-      "#slideshow, #bss-slideshow, #bss1815-slideshow"
-    );
-
-    if (oldSlide) {
-      oldSlide.replaceWith(section);
-    } else {
-      // Sinon ajoute nouvo seksyon an san efase lòt seksyon.
-      const history = document.querySelector(
-        "#history, #istwa, #community"
-      );
-      if (history) {
-        history.insertAdjacentElement("afterend", section);
-      } else {
-        document.body.appendChild(section);
-      }
-    }
-
-    const img = section.querySelector("#bss-current-image");
-    const caption = section.querySelector("#bss-current-caption");
-    const status = section.querySelector("#bss-slide-status");
-    const gallery = section.querySelector("#bss-gallery-grid");
-    const toggle = section.querySelector("#bss-gallery-toggle");
-    const pause = section.querySelector("#bss-pause");
-
-    let index = 0;
-    let timer = null;
-    let playing = true;
-
-    function showSlide(nextIndex) {
-      if (!validFiles.length) {
-        caption.textContent = "PA GEN FOTO DISPONIB";
-        status.textContent = "Verifye fichye imaj yo.";
-        return;
-      }
-
-      index = (nextIndex + validFiles.length) % validFiles.length;
-      const file = validFiles[index];
-
-      img.src = ROOT + encodeURI(file);
-      img.alt = fileLabel(file);
-      caption.textContent = fileLabel(file);
-      status.textContent =
-        `FOTO ${index + 1} / ${validFiles.length}`;
-    }
-
-    function next() { showSlide(index + 1); }
-    function prev() { showSlide(index - 1); }
-
-    function stopTimer() {
-      if (timer !== null) {
-        clearInterval(timer);
-        timer = null;
-      }
-    }
-
-    function startTimer() {
-      stopTimer();
-      if (playing && validFiles.length > 1) {
-        timer = setInterval(next, 5000);
-      }
-    }
-
-    section.querySelector("#bss-next").onclick = () => {
-      next();
-      startTimer();
-    };
-
-    section.querySelector("#bss-prev").onclick = () => {
-      prev();
-      startTimer();
-    };
-
-    pause.onclick = () => {
-      playing = !playing;
-      pause.textContent = playing ? "⏸ PAUSE" : "▶ PLAY";
-      startTimer();
-    };
-
-    toggle.onclick = () => {
-      gallery.hidden = !gallery.hidden;
-      toggle.textContent = gallery.hidden
-        ? "🖼 OUVRI GALERI A"
-        : "✕ FÈMEN GALERI A";
-    };
-
-    // Si fichye a pa egziste, retire l nan lis aktif la.
-    function checkImage(file) {
-      return new Promise(resolve => {
-        const test = new Image();
-        test.onload = () => resolve(true);
-        test.onerror = () => resolve(false);
-        test.src = ROOT + encodeURI(file);
-      });
-    }
-
-    async function loadGallery() {
-      for (const file of uniqueFiles) {
-        const exists = await checkImage(file);
-        if (exists) validFiles.push(file);
-        else brokenFiles.push(file);
-      }
-
-      gallery.innerHTML = "";
-
-      validFiles.forEach((file, position) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "bss-gallery-item";
-
-        const photo = document.createElement("img");
-        photo.src = ROOT + encodeURI(file);
-        photo.alt = fileLabel(file);
-        photo.loading = "lazy";
-
-        const name = document.createElement("span");
-        name.textContent = fileLabel(file);
-
-        button.append(photo, name);
-        button.onclick = () => {
-          showSlide(position);
-          section.querySelector(".bss-slide-frame")
-            .scrollIntoView({ behavior: "smooth", block: "center" });
-          startTimer();
-        };
-
-        gallery.appendChild(button);
-      });
-
-      if (validFiles.length) {
-        showSlide(0);
-        startTimer();
-      } else {
-        status.textContent =
-          "Okenn foto pa chaje. Verifye chemen rasin GitHub la.";
-      }
-
-      if (brokenFiles.length) {
-        console.warn(
-          "BSS1815 — fichye ki pa chaje:",
-          brokenFiles
-        );
-      }
-    }
-
-    loadGallery();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", start);
-  } else {
-    start();
-  }
-})();
+<!doctype html>
+<html lang="ht" translate="no">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090300"><meta name="google" content="notranslate">
+<title>BRIYANT SOLÈY SIGNO 1815 — DEVAN DEVAN NÈT</title>
+<meta name="description" content="Briyant Solèy Signo 1815 — istwa, memwa, kominote, galeri ak inovasyon.">
+<link rel="icon" href="./briyant-soley-signo-1815.jpg" type="image/jpeg">
+<style>
+:root{--o:#ff7900;--a:#ffb477;--b:#080301;--p:#1c0902;--l:#934014}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(115deg,#000,#240b02 48%,#000);color:var(--a);font:700 16px/1.6 Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}img,video{max-width:100%}header{border-bottom:3px solid var(--o);background:linear-gradient(90deg,#000,#291002,#000);padding:18px}.top{max-width:1350px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}.identity{display:flex;align-items:center;gap:16px}.logo{width:100px;height:100px;border:3px solid var(--o);border-radius:50%;object-fit:contain;background:#000}.brand h1{color:var(--o);margin:0;font-size:clamp(20px,3vw,32px);line-height:1.2}.brand p{margin:5px 0;font-size:13px}.langs{display:flex;gap:7px}.langs button,.nav a,.btn,.controls button{border:2px solid var(--o);border-radius:12px;background:#140600;color:var(--a);padding:11px 15px;font-weight:900}.langs button.active,.btn.primary,.controls button:hover{background:var(--o);color:#000}.nav{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:22px auto 0;max-width:1400px}.nav a{font-size:12px}.nav a:hover,.btn:hover{background:var(--o);color:#000}section{padding:58px 16px;scroll-margin-top:20px}.wrap{max-width:1300px;margin:auto}.hero{text-align:center;background:radial-gradient(ellipse at center,#4b1c04,#170600 60%,#000)}.hero-logo{width:min(290px,70vw);aspect-ratio:1;object-fit:contain;border:4px solid var(--o);border-radius:50%;background:#000;box-shadow:0 0 35px #ff790066}.hero h2{font-size:clamp(36px,7vw,72px);line-height:1.12;color:var(--o);margin:22px auto}.hero .strap{letter-spacing:2px}.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:25px}.title{text-align:center;color:var(--o);font-size:clamp(27px,4vw,42px);line-height:1.2;margin:0 0 18px}.intro{text-align:center;max-width:950px;margin:0 auto 28px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.card{border:1px solid var(--l);border-radius:20px;padding:22px;background:linear-gradient(140deg,#260e03,#070200);min-width:0}.card h3{color:var(--o);margin:8px 0 12px}.card p{margin:8px 0}.portrait{width:100%;height:270px;object-fit:contain;background:#000;border:2px solid var(--o);border-radius:13px}.memorial,.media{border-block:2px solid var(--o);background:linear-gradient(140deg,#000,#321204,#000)}.tribute{text-align:center;border:2px solid var(--o)}.history{background:linear-gradient(130deg,#190800,#000,#250c02)}.slide{max-width:1050px;margin:auto;border:3px solid var(--o);border-radius:22px;overflow:hidden;background:#000;box-shadow:0 0 30px #ff790055}.slide img{display:block;width:100%;height:clamp(260px,55vw,610px);object-fit:contain;background:#000}.caption{background:#170700;text-align:center;padding:12px;color:var(--o);font-size:19px}.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:18px 0}.status{text-align:center}.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px;margin-top:20px}.gallery[hidden]{display:none}.tile{padding:0;border:1px solid var(--l);background:#100400;border-radius:12px;color:var(--a);overflow:hidden;text-align:center}.tile img{display:block;width:100%;height:165px;object-fit:cover;background:#000}.tile span{display:block;padding:8px;overflow-wrap:anywhere;font-size:12px}.avatar{text-align:center;max-width:850px;margin:auto;border:2px solid var(--o);padding:24px;border-radius:22px;background:#000}.avatar video{width:min(100%,500px);max-height:530px;background:#000;border-radius:14px;border:2px solid var(--o)}.module{text-align:center}.module .symbol{width:70px;height:70px;margin:auto;display:grid;place-items:center;border:2px solid var(--o);border-radius:50%;font-size:30px;color:var(--o);background:#301103}.module h3{font-size:18px}.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.social{border:1px solid var(--l);border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px;background:#110500}.social svg{width:30px;height:30px;flex:none;fill:var(--c)}.social .mark{color:var(--c);font-weight:900;font-size:25px;width:30px;text-align:center}.contact{text-align:center}.contact a{color:var(--o);overflow-wrap:anywhere}footer{text-align:center;background:#000;border-top:3px solid var(--o);padding:30px 15px}.ai-float{position:fixed;right:18px;bottom:18px;z-index:10;border:0;border-radius:14px;background:var(--o);color:#000;padding:14px 18px;font-weight:900}.modal{position:fixed;inset:0;z-index:20;background:#000d;display:none;align-items:center;justify-content:center;padding:15px}.modal.open{display:flex}.panel{width:min(95vw,580px);max-height:90vh;overflow:auto;background:linear-gradient(130deg,#321104,#000);border:2px solid var(--o);border-radius:18px;padding:22px}.panel textarea{display:block;width:100%;min-height:110px;background:#000;color:var(--a);border:1px solid var(--o);padding:12px;border-radius:10px;font:16px Arial}.reply{white-space:pre-wrap;margin-top:12px}.hide{display:none!important}@media(max-width:650px){.logo{width:72px;height:72px}.identity{align-items:flex-start}.nav a{padding:9px;font-size:11px}.grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.tile img{height:140px}section{padding:43px 12px}}
+</style>
+</head>
+<body>
+<header id="home"><div class="top"><div class="identity"><img class="logo" src="./briyant-soley-signo-1815.jpg" alt="Logo Briyant Solèy Signo 1815"><div class="brand"><h1>BRIYANT SOLÈY SIGNO 1815</h1><p>DEVAN DEVAN NÈT™</p><p>BATI POU JODI A • PARE POU DEMEN</p></div></div><div class="langs"><button data-lang="en">ENG</button><button data-lang="ht" class="active">KRE</button><button data-lang="fr">FRAN</button></div></div><nav class="nav" aria-label="Navigasyon"><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#history">HISTORY</a><a href="#memorandum">MEMORANDUM</a><a href="#features">FEATURES</a><a href="#community">COMMUNITY</a><a href="#customer-service">CUSTOMER SERVICE</a><a href="#ai-center">AI CENTER</a><a href="#radio">PRO-MAX FM 106.5 FM</a><a href="#contact">CONTACT</a></nav></header>
+<main>
+<section class="hero"><div class="wrap"><img class="hero-logo" src="./briyant-soley-signo-1815.jpg" alt="Logo ofisyèl"><p class="strap">PLATFÒM OFISYÈL • DEPI 1815 • SIGNO, LÉOGÂNE, AYITI</p><h2>BRIYANT SOLÈY SIGNO 1815</h2><p id="hero-message">Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.</p><h3 style="color:var(--o)">BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</h3><div class="actions"><a class="btn" href="#history">DEKOUVRI ISTWA NOU</a><a class="btn" href="#community">COMMUNITY</a><a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a></div></div></section>
+<section id="memorandum" class="memorial"><div class="wrap"><h2 class="title">MEMORANDUM — 3 EWO NOU PAP JANM BLIYE</h2><p class="intro">Nan non fanmi BSS1815 la, nou onore memwa twa moun ki make istwa kominote a. Nou pap janm efase kontribisyon yo.</p><div class="grid" id="memorial-grid"></div><p class="intro" style="margin-top:25px">BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p></div></section>
+<section id="about"><div class="wrap"><h2 class="title">ABOUT BSS1815</h2><div class="grid"><article class="card"><h3>🏛 ISTWA NOU</h3><p>Prezève memwa jenerasyon ki te travay pou bati ak devlope BSS1815.</p></article><article class="card"><h3>🎯 MISYON NOU</h3><p>Rasanble kominote a, valorize kontribisyon manm yo epi transmèt eritaj nou.</p></article><article class="card"><h3>🌐 VIZYON NOU</h3><p>Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.</p></article></div></div></section>
+<section id="history" class="history"><div class="wrap"><h2 class="title">ISTWA PA JANM EFASE</h2><p class="intro">Chak jenerasyon pote kontribisyon pa li. Nou onore tout moun ki te kenbe flanbo BSS1815 la limen.</p><div class="grid" id="history-grid"></div></div></section>
+<section id="slideshow" class="media"><div class="wrap"><h2 class="title">BSS1815 — SLIDESHOW & GALERI OFISYÈL</h2><p class="intro">YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON</p><div class="slide"><img id="slide-img" alt="Foto galeri BSS1815"><div class="caption" id="slide-caption">BSS1815</div></div><div class="controls"><button id="prev" type="button">❮ PREVIOUS</button><button id="pause" type="button">⏸ PAUSE</button><button id="next" type="button">NEXT ❯</button></div><p class="status" id="slide-status" aria-live="polite">Ap prepare galeri a...</p><div class="controls"><button id="toggle-gallery" type="button" aria-expanded="false">🖼 OUVRI GALERI A</button></div><div id="gallery" class="gallery" hidden></div></div></section>
+<section id="features"><div class="wrap"><h2 class="title">FEATURES & COMMUNITY SERVICES</h2><div class="grid"><article class="card"><h3>🏛 HERITAGE CENTER</h3><p>Memwa, dokiman, foto ak kontribisyon istorik BSS1815.</p></article><article class="card"><h3>📸 MEDIA GALLERY</h3><p>Foto manm yo, ekip yo, aktivite ak moman istorik yo.</p><a class="btn" href="#slideshow">VIEW GALLERY</a></article><article class="card"><h3>🤝 COMMUNITY</h3><p>Yon espas pou ini manm yo ak jenerasyon yo.</p></article><article class="card"><h3>🎤 COMMUNICATION</h3><p>Enfòmasyon, aktivite, medya ak nouvèl kominote a.</p></article></div></div></section>
+<section id="community" class="history"><div class="wrap"><h2 class="title">BSS1815 COMMUNITY</h2><p class="intro">Ansanm nou pi fò. Nou kenbe eritaj nou vivan epi nou prepare demen.</p><div class="grid"><article class="card"><h3>TEAM SAN PRESYON</h3><img class="portrait" src="./team-sanpresyon.jpg" alt="Team San Presyon" loading="lazy"></article><article class="card"><h3>TEAM BACKUP</h3><img class="portrait" src="./team-backup.jpg" alt="Team Backup" loading="lazy"></article><article class="card"><h3>MIAMI AN AKSYON</h3><img class="portrait" src="./miami-an-aksyon.jpg" alt="Miami An Aksyon" loading="lazy"></article></div></div></section>
+<section id="customer-service"><div class="wrap"><h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2><p class="intro">Byenveni nan espas asistans BRIYANT SOLÈY SIGNO 1815.</p><div class="avatar"><video id="avatar" controls playsinline preload="metadata" poster="./briyant-soley-signo-1815.jpg"><source src="./briyant-soley-signo-1815.mp4" type="video/mp4">Navigatè sa a pa sipòte videyo.</video><div class="controls"><button id="play-avatar" type="button">▶ PLAY PROF AVATAR</button></div></div></div></section>
+<section id="ai-center" class="history"><div class="wrap"><h2 class="title">BSS1815 — AI CENTER</h2><p class="intro">12 MODIL • TEKNOLOJI • INOVASYON • KOMINOTE</p><div class="grid" id="modules"></div></div></section>
+<section id="radio"><div class="wrap"><h2 class="title">PRO-MAX FM 106.5 FM</h2><div class="avatar"><img src="./pro-max-fm-106.5.jpg" alt="PRO-MAX FM 106.5 FM" style="max-width:300px;border-radius:15px"><h3>LA FORCE DU SON</h3><p>La radio de tous, partout et toujours.</p><a class="btn primary" href="https://pro-maxfm.com/" target="_blank" rel="noopener">● EN DIRECT</a></div></div></section>
+<section id="social" class="history"><div class="wrap"><h2 class="title">10 SOCIAL NETWORKS</h2><p class="intro">RETE KONEKTE AK BSS1815</p><div class="socials" id="social-grid"></div></div></section>
+<section id="contact"><div class="wrap"><h2 class="title">CONTACT BSS1815</h2><div class="grid"><div class="card contact"><h3>UNITED STATES</h3><p><a href="tel:+14076405166">(407) 640-5166</a></p><p><a href="tel:+13175381150">(317) 538-1150</a></p></div><div class="card contact"><h3>HAITI</h3><p><a href="tel:+50942544447">+509 4254 4447</a></p><p><a href="tel:+50943437488">+509 4343 7488</a></p></div><div class="card contact"><h3>EMAIL</h3><p><a href="mailto:bss1815promaxdmp@gmail.com">bss1815promaxdmp@gmail.com</a></p></div></div></div></section>
+</main>
+<footer><p>BRIYANT SOLÈY SIGNO 1815</p><p>DEVAN DEVAN NÈT™ • BATI POU JODI A, PARE POU DEMEN</p><p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p><p>© <span id="year"></span> BSS1815 PRO-MAX DMP</p></footer>
+<button class="ai-float" id="ai-open" type="button">🤖 BSS1815 AI</button><div class="modal" id="ai-modal" role="dialog" aria-modal="true" aria-label="BSS1815 AI"><div class="panel"><h2 style="color:var(--o)">BSS1815 AI ASSISTANT</h2><p>Kijan nou kapab ede ou?</p><textarea id="ai-question" placeholder="Ekri kesyon ou..."></textarea><div class="controls"><button id="ai-send" type="button">VOYE KESYON</button><button id="ai-close" type="button">FÈMEN</button></div><div class="reply" id="ai-reply" aria-live="polite"></div></div></div>
+<script>
+'use strict';
+// One image registry is shared by slideshow and gallery. Exact duplicate names are removed.
+const FILES=[
+'papit.png','fanfan.png','koukou.png','perodin.png','bss-1815.png','ti-lafrance.png','bss-fanclub.png','miami-an-aksyon.png','team-backup.png','sfc-5-stars.png','team-angrenay.png','papouche.png','konkont.jpg','Jeff-colin.jpg','max.jpg','montina.jpg','pro-max-fm-106.5.jpg','komandan-ralph.jpg','jude.jpg',
+'valery.jpg','mass-vokal.jpg','dèdè.jpg','pèrodin.jpg','gq-max.jpg','lebaron.jpg','super-fanclub.jpg','team-sanpresyon.jpg','team-backup.jpg','komandan-landry.jpg','team-san-presyon.jpg','brunel.jpg','the-one.jpg','ti-lafrance.jpg','manbo-fifi.jpg','bss1815-IV.jpg','konkont-II.jpg','miami-an-aksyon.jpg','the-dunn.jpg','nòe-boulin.jpg','leogâne-info.jpg','prezidan-jude-josep.jpg','the-only-one.jpg','jackson-montina.jpg','marasa.jpg','the-real-team.jpg','nadia-lafortune.jpg','macu.jpg','nadou.jpg','nadou-II.jpg','maximax-II.jpg','prof-montina.jpg','hall-of-leaders.jpg','pauléma.jpg','tania-félix.jpg','tania-II.jpg','tania.jpg','tania-3.jpg','anpére-doudou.jpg','Leclercfélix.jpg','roro-lajan-III.jpg','sonson-miami.jpg','tatane-II.jpg','cangé-félix.jpg','nadou3.jpg','le-baron.jpg','platfom-bss.jpg','cool-max.jpg','cool-max-II.jpg','cool-max-III.jpg','max-is-in-green.jpg','cols.jpg','bss1815-I.jpg','Léogane-info.jpg'
+];
+const media=[...new Set(FILES)];
+const src=file=>'./'+encodeURI(file);
+const label=file=>file.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ').toUpperCase();
+const memorial=[
+{name:'PAPIT',file:'papit.png',text:'Nou salye memwa li ak kontribisyon li nan eritaj kominote a. Non li rete nan istwa BSS1815.'},
+{name:'FANFAN',file:'fanfan.png',text:'Nou rekonèt travay ak angajman li. Eritaj li ap kontinye enspire jenerasyon k ap vini yo.'},
+{name:'KOUKOU',file:'koukou.png',text:'Nou onore souvni li ak plas li nan gwo fanmi Briyant Solèy Signo 1815.'}
+];
+const figures=[
+['LECLERC FÉLIX','Leclercfélix.jpg','Yon figi istorik ki te trase chemen pou kominote a. Eritaj li makonnen ak Léogâne ak Dabònè.'],
+['PIERRE MARTHONE — TI RAT','bss1815-I.jpg','Yon lidè ki te kenbe flanbo BSS la pandan yon bon bout tan. Travay li rete grave nan memwa kominote a.'],
+['PAPOUCHE STRATÈGE','papouche.jpg','Yon poto mitan nan òganizasyon ak rezolisyon pwoblèm BSS1815.'],
+['KONKONT','konkont-II.jpg','Yon kontribitè enpòtan nan travay ak devlopman kominote BSS1815.'],
+['MICHEL DEROSIER','michel-briyant.jpeg','Yon gwo motè nan istwa BSS1815. Nou rekonèt travay ak angajman li.'],
+['FANFAN DECOLINE','fanfan.png','Yon poto mitan nan lavi ak fonksyònman BSS1815.'],
+['MONTINA LE PROFESSEUR','jackson-montina.jpg','Yon kontribitè nan transmisyon konesans ak avansman kominote a.'],
+['MAX LOUIS — LE BARON','lebaron.jpg','La seule différence. Yon vizyon pou fè BSS1815 avanse avèk teknoloji ak inovasyon.'],
+['RORO LAJAN — LE MÉDIATEUR','roro-lajan-III.jpg','Yon figi medyasyon ak dyalòg nan kominote a.'],
+['TI LA FRANCE — TÈT PANSANT','ti-lafrance.jpg','Yon kontribitè ki pote refleksyon ak lide nan devlopman BSS1815.'],
+['VALERY LE MOTIVATEUR','valery.jpg','Yon vwa motivasyon ki ankouraje patisipasyon ak inite.'],
+['KÒMANDAN LANDRY','komandan-landry.jpg','Nou rekonèt prezans li ak kontribisyon li nan lavi kominote a.'],
+['BRUNEL ABDYAS','brunel.jpg','Yon manm kominote a nou salye pou kontribisyon li.'],
+['CANGÉ FÉLIX','cangé-félix.jpg','Yon kowòdonatè ki ranpli yon gwo wòl nan BSS1815.'],
+['SEKRETÈ SONSON','sonson-miami.jpg','Nou rekonèt travay ak angajman li nan òganizasyon kominote a.']
+];
+function addPortraitCard(parent,name,file,description,tribute=false){const article=document.createElement('article');article.className='card'+(tribute?' tribute':'');const img=document.createElement('img');img.className='portrait';img.src=src(file);img.alt=name;img.loading='lazy';const h=document.createElement('h3');h.textContent=name;const p=document.createElement('p');p.textContent=description;article.append(img,h,p);parent.append(article)}
+memorial.forEach(x=>addPortraitCard(document.getElementById('memorial-grid'),x.name,x.file,x.text,true));figures.forEach(x=>addPortraitCard(document.getElementById('history-grid'),...x));
+const moduleData=[['🎬','AI PRESENTATION','Prezantasyon dijital'],['👥','AI MEMBERS','Jesyon ak enfòmasyon manm'],['📸','AI MEDIA CENTER','Medya, foto ak videyo'],['📄','AI DOCUMENTS','Dokiman ak achiv'],['📚','AI REGISTRY','Rejis dijital'],['🎙','AI VOICE SCRIPT','Tèks pou anons ak narasyon'],['📱','AI SOCIAL MEDIA','Kominikasyon sosyal'],['🎨','AI FLYER CREATOR','Kreyasyon afich'],['📅','AI EVENTS','Aktivite ak evènman'],['📡','AI BROADCAST','Difizyon ak kominikasyon'],['💼','AI BUSINESS SUPPORT','Sipò biznis'],['🤝','AI COMMUNITY SUPPORT','Sipò kominotè']];
+for(const [symbol,name,description] of moduleData){const card=document.createElement('article');card.className='card module';const icon=document.createElement('div');icon.className='symbol';icon.textContent=symbol;const h=document.createElement('h3');h.textContent=name;const p=document.createElement('p');p.textContent=description;card.append(icon,h,p);document.getElementById('modules').append(card)}
+const social=[['Facebook','f','#1877f2','https://www.facebook.com/share/1By3KvYRrM/'],['WhatsApp','☎','#25d366','https://wa.me/50943437488'],['TikTok','♪','#25f4ee','https://www.tiktok.com/@maximax1960'],['Instagram','◎','#e4405f','https://www.instagram.com/lebaron072/'],['Telegram','➤','#229ed9','https://t.me/bss1815dmp'],['YouTube','▶','#ff0033','https://www.youtube.com/@BSS1815PROMAXDMP'],['Spotify','≋','#1ed760','https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici'],['X / Twitter','𝕏','#b6b6b6','https://x.com/w05g2m'],['Truth Social','T','#4ca8e8','https://truthsocial.com/@briyant_soley_1815'],['LinkedIn','in','#0a66c2','https://www.linkedin.com/in/maximax-multi-services-075ba2314']];
+for(const [name,mark,color,url] of social){const a=document.createElement('a');a.className='social';a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.style.setProperty('--c',color);const m=document.createElement('span');m.className='mark';m.textContent=mark;const t=document.createElement('span');t.textContent=name;a.append(m,t);document.getElementById('social-grid').append(a)}
+let valid=[],missing=[],index=0,playing=true,timer=null;const img=document.getElementById('slide-img'),caption=document.getElementById('slide-caption'),status=document.getElementById('slide-status'),gallery=document.getElementById('gallery');
+function show(n){if(!valid.length){status.textContent='Pa gen foto ki disponib nan lis la.';return}index=(n+valid.length)%valid.length;const file=valid[index];img.src=src(file);img.alt=label(file);caption.textContent=label(file);status.textContent=`FOTO ${index+1} / ${valid.length}`}
+function restart(){clearInterval(timer);timer=null;if(playing&&valid.length>1)timer=setInterval(()=>show(index+1),5000)}
+document.getElementById('next').onclick=()=>{show(index+1);restart()};document.getElementById('prev').onclick=()=>{show(index-1);restart()};document.getElementById('pause').onclick=e=>{playing=!playing;e.currentTarget.textContent=playing?'⏸ PAUSE':'▶ PLAY';restart()};document.getElementById('toggle-gallery').onclick=e=>{gallery.hidden=!gallery.hidden;e.currentTarget.setAttribute('aria-expanded',String(!gallery.hidden));e.currentTarget.textContent=gallery.hidden?'🖼 OUVRI GALERI A':'✕ FÈMEN GALERI A'};
+function check(file){return new Promise(resolve=>{const probe=new Image();probe.onload=()=>resolve(true);probe.onerror=()=>resolve(false);probe.src=src(file)})}
+async function initGallery(){for(let i=0;i<media.length;i+=10){const batch=media.slice(i,i+10);const result=await Promise.all(batch.map(check));result.forEach((ok,j)=>(ok?valid:missing).push(batch[j]))}for(const [i,file] of valid.entries()){const b=document.createElement('button');b.type='button';b.className='tile';const photo=document.createElement('img');photo.src=src(file);photo.alt=label(file);photo.loading='lazy';const name=document.createElement('span');name.textContent=label(file);b.append(photo,name);b.onclick=()=>{show(i);restart();document.querySelector('.slide').scrollIntoView({behavior:'smooth',block:'center'})};gallery.append(b)}if(valid.length){show(0);restart()}else{status.textContent='Okenn foto pa chaje. Verifye non fichye yo nan depo piblik la.'}if(missing.length)console.warn('Foto ki pa disponib:',missing)}
+initGallery();
+const heroText={ht:'Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.',en:'A legacy spanning generations. A community building its future.',fr:'Un héritage qui traverse les générations. Une communauté qui construit son avenir.'};for(const b of document.querySelectorAll('[data-lang]'))b.onclick=()=>{const lang=b.dataset.lang;document.documentElement.lang=lang;document.querySelectorAll('[data-lang]').forEach(x=>x.classList.toggle('active',x===b));document.getElementById('hero-message').textContent=heroText[lang]};
+document.getElementById('play-avatar').onclick=async()=>{const v=document.getElementById('avatar');try{if(v.paused)await v.play();else v.pause()}catch(e){console.warn('Video:',e)}};
+const modal=document.getElementById('ai-modal');document.getElementById('ai-open').onclick=()=>modal.classList.add('open');document.getElementById('ai-close').onclick=()=>modal.classList.remove('open');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});document.getElementById('ai-send').onclick=async()=>{const message=document.getElementById('ai-question').value.trim();if(!message)return;const out=document.getElementById('ai-reply');out.textContent='Ap trete kesyon ou...';try{const response=await fetch('/api/bss-ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message})});if(!response.ok)throw Error('API unavailable');const data=await response.json();out.textContent=data.reply||data.answer||data.message||'Pa gen repons ki disponib.'}catch(e){out.textContent='Sèvis AI a pa disponib kounye a. Kontakte ekip BSS1815 la.'}};
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
