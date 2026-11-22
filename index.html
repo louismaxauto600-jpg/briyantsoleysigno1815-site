@@ -31,6 +31,8 @@ nav{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:18px}n
 .hero h1{font-size:clamp(31px,5.5vw,65px)}.hero .buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:25px}
 .history-card{text-align:center}.history-card img{display:block;width:100%;height:250px;object-fit:contain;background:#000;border:2px solid var(--orange);border-radius:12px}
 .history-card h3{font-size:19px}.history-number{font-size:22px;color:var(--orange);font-weight:900}
+.feature-card{text-align:center;padding:0;overflow:hidden}.feature-card img{display:block;width:100%;height:230px;object-fit:cover;background:#000;border-bottom:3px solid var(--orange)}
+.feature-card .feature-body{padding:20px}.feature-card h3{font-size:19px;margin:0 0 8px}.feature-card p{font-size:14px;margin:0}.feature-tag{display:inline-block;background:var(--orange);color:#080402;font-size:11px;font-weight:900;letter-spacing:1px;padding:5px 10px;border-radius:20px;margin-bottom:10px}
 .slide-frame{max-width:960px;margin:25px auto;border:3px solid var(--orange);border-radius:22px;overflow:hidden;background:#000}
 .slide-image,.slide-video{display:block;width:100%;height:min(65vh,570px);min-height:300px;object-fit:contain;background:#000}
 .slide-caption{padding:16px;text-align:center;color:var(--orange);font-weight:900;font-size:20px;background:#1d0903;overflow-wrap:anywhere}
@@ -78,10 +80,20 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
 <article class="card"><h3>📜 ISTWA NOU</h3><p>Prezève memwa ak patrimwàn moun ki kontribye nan istwa Briyant Solèy Signo 1815.</p></article>
 <article class="card"><h3>🎯 MISYON NOU</h3><p>Rasanble kominote a, rekonèt kontribisyon moun yo epi transmèt eritaj nou bay lòt jenerasyon.</p></article>
 <article class="card"><h3>🌐 VIZYON NOU</h3><p>Bati yon kominote solid avèk òganizasyon, inovasyon ak teknoloji.</p></article></div></div></section>
-<section id="features"><div class="container"><h2>BSS1815 — FEATURES</h2><div class="grid grid-3">
-<div class="card center"><h3>ISTWA AK PATRIMWÀN</h3><p>Dokimantasyon ak konsèvasyon memwa BSS1815.</p></div>
-<div class="card center"><h3>MEDYA AK KOMINIKASYON</h3><p>Foto, videyo, nouvèl ak aktivite kominotè.</p></div>
-<div class="card center"><h3>TEKNOLOJI AK INOVASYON</h3><p>Zouti dijital pou soutni devlopman kominote a.</p></div></div></div></section>
+<section id="features"><div class="container"><h2>BSS1815 — ISTWA AK PATRIMWÀN</h2><p class="subtitle">3 KAT KI RAKONTE KI MOUN NOU YE — DEPI 1815 JISKA JODI A</p><div class="grid grid-3">
+<article class="card feature-card">
+<img src="./Leclercfélix-II.jpg" alt="Leclerc Félix - Fondatè BSS1815">
+<div class="feature-body"><span class="feature-tag">1815 • LÉOGÂNE • FONDASYON</span><h3>LECLERC FÉLIX — DONTÈ DE CHEVAL</h3><p>Léogâne, Ayiti... ane mil uit san kenz. Nan yon epòk kote lavi kominotè te òganize atravè tè, konbit ak tradisyon, te viv yon militè ayisyen ki rele Leclerc Félix.</p><p style="margin-top:10px">Li te gen anpil konesans nan zafè cheval. Se kapasite sa a ki te fè moun konnen li kòm Dontè de Cheval, sa vle di moun ki donte cheval.</p><p style="margin-top:10px"><strong>Istwa sa a pral mennen nou sou tras yon non ki pral pase de jenerasyon an jenerasyon: Briyant Solèy Signo, mil uit san kenz.</strong></p></div>
+</article>
+<article class="card feature-card">
+<img src="./heritage.jpg" alt="Eritaj BSS1815">
+<div class="feature-body"><span class="feature-tag">ERITAJ • MEMWA • TRANSMISYON</span><h3>ERITAJ AK MEMWA</h3><p>Dokimantasyon ak konsèvasyon memwa BSS1815. Nou pa kite istwa nou efase.</p><p style="margin-top:10px">Foto, videyo, dokiman ak temwayaj — tout sa ki fè nou sonje ki kote nou soti, pou nou konnen ki kote nou prale.</p><p style="margin-top:10px"><strong>Yon pèp ki bliye istwa l, li pèdi bousòl li. BSS1815 kenbe bousòl la.</strong></p></div>
+</article>
+<article class="card feature-card">
+<img src="./konkont-doc.jpg" alt="Konkont - Pilier BSS1815">
+<div class="feature-body"><span class="feature-tag">KOMINOTE • INITE • AVNI</span><h3>KOMINOTE AK AVNI</h3><p>Konkont, Papouche, Ti Rat ak tout lòt yo te bati wout la. Jodi a, se nou ki kontinye mache sou li.</p><p style="margin-top:10px">Medya, kominikasyon, edikasyon ak teknoloji — zouti dijital pou soutni devlopman kominote a.</p><p style="margin-top:10px"><strong>Bati pou jodi a. Pare pou demen. Devan devan nèt.</strong></p></div>
+</article>
+</div></div></section>
 <section id="gallery-section"><div class="container">
 <h2>BSS1815 — SLIDESHOW & GALERI</h2><p class="subtitle">TOUT FOTO OU KLASE YOUN PA YOUN — 3 ÈDTAN TRAVAY</p>
 <div class="slide-frame" id="slideFrame">
