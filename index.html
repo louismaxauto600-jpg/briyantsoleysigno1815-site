@@ -555,7 +555,6 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
         estasyon an san li pa modifye sistèm difizyon ki egziste a.
       </p>
 
-      <!-- SÈL NOUVO BOUTON AJOUTE -->
       <a
         class="btn primary"
         href="https://bss1815pro-maxdmp.com/#radio"
@@ -635,91 +634,89 @@ const historicalFiles = [
   "pierre-marthone.jpg"
 ];
 
-const photoFiles = [
-  "bss1815-doc.jpg",
-  "Leclercfélix-II.jpg",
-  "konkont-doc.jpg",
-  "papouche-doc.jpg",
-  "pierre-marthone.jpg",
-  "papit.png",
-  "fanfan.png",
-  "koukou.png",
-  "perodin.png",
-  "bss-1815.png",
-  "ti-lafrance.png",
-  "bss-fanclub.png",
-  "miami-an-aksyon.png",
-  "team-backup.png",
-  "sfc-5-stars.png",
-  "team-angrenay.png",
-  "papouche.png",
-  "konkont.jpg",
-  "Jeff-colin.jpg",
-  "max.jpg",
-  "montina.jpg",
-  "pro-max-fm-106.5.jpg",
-  "komandan-ralph.jpg",
-  "jude.jpg",
-  "valery.jpg",
-  "mass-vokal.jpg",
-  "dèdè.jpg",
-  "pèrodin.jpg",
-  "gg-max.jpg",
-  "lebaron.jpg",
-  "super-fanclub.jpg",
-  "team-sanpresyon.jpg",
-  "team-backup.jpg",
-  "komandan-landry.jpg",
-  "team-san-presyon.jpg",
-  "brunel.jpg",
-  "the-one.jpg",
-  "ti-lafrance.jpg",
-  "manbo-fifi.jpg",
-  "bss1815-IV.jpg",
-  "konkont-II.jpg",
-  "miami-an-aksyon.jpg",
-  "the-dunn.jpg",
-  "nòe-boulin.jpg",
-  "leogâne-info.jpg",
-  "prezidan-jude-josep.jpg",
-  "the-only-one.jpg",
-  "jackson-montina.jpg",
-  "marasa.jpg",
-  "the-real-team.jpg",
-  "nadia-lafortune.jpg",
-  "macu.jpg",
-  "nadou.jpg",
-  "nadou-II.jpg",
-  "maximax-II.jpg",
-  "prof-montina.jpg",
-  "hall-of-leaders.jpg",
-  "pauléma.jpg",
-  "tania-félix.jpg",
-  "tania-II.jpg",
-  "tania.jpg",
-  "tania-3.jpg",
-  "anpére-doudou.jpg",
-  "Leclercfélix.jpg",
-  "roro-lajan-III.jpg",
-  "sonson-miami.jpg",
-  "tatane-II.jpg",
-  "cangé-félix.jpg",
-  "papouche.jpg",
-  "nadou3.jpg",
-  "le-baron.jpg",
-  "platfom-bss.jpg",
-  "cool-max.jpg",
-  "cool-max-II.jpg",
-  "cool-max-III.jpg",
-  "max-is-in-green.jpg",
-  "cols.jpg",
-  "bss1815-I.jpg",
-  "Léogâne-info.jpg"
+const MEDIA_FILES = [
+"papit.png",
+"fanfan.png",
+"koukou.png",
+"perodin.png",
+"bss-1815.png",
+"ti-lafrance.png",
+"bss-fanclub.png",
+"miami-an-aksyon.png",
+"team-backup.png",
+"sfc-5-stars.png",
+"team-angrenay.png",
+"papouche.png",
+"konkont.jpg",
+"Jeff-colin.jpg",
+"max.jpg",
+"montina.jpg",
+"pro-max-fm-106.5.jpg",
+"komandan-ralph.jpg",
+"jude.jpg",
+"valery.jpg",
+"mass-vokal.jpg",
+"dèdè.jpg",
+"pèrodin.jpg",
+"gq-max.jpg",
+"lebaron.jpg",
+"super-fanclub.jpg",
+"team-sanpresyon.jpg",
+"team-backup.jpg",
+"komandan-landry.jpg",
+"team-san-presyon.jpg",
+"brunel.jpg",
+"the-one.jpg",
+"ti-lafrance.jpg",
+"manbo-fifi.jpg",
+"bss1815-IV.jpg",
+"konkont-II.jpg",
+"miami-an-aksyon.jpg",
+"the-dunn.jpg",
+"nòe-boulin.jpg",
+"leogâne-info.jpg",
+"prezidan-jude-josep.jpg",
+"the-only-one.jpg",
+"jackson-montina.jpg",
+"marasa.jpg",
+"the-real-team.jpg",
+"nadia-lafortune.jpg",
+"macu.jpg",
+"nadou.jpg",
+"nadou-II.jpg",
+"maximax-II.jpg",
+"prof-montina.jpg",
+"hall-of-leaders.jpg",
+"pauléma.jpg",
+"tania-félix.jpg",
+"tania-II.jpg",
+"tania.jpg",
+"tania-3.jpg",
+"anpére-doudou.jpg",
+"Leclercfélix.jpg",
+"roro-lajan-III.jpg",
+"sonson-miami.jpg",
+"tatane-II.jpg",
+"cangé-félix.jpg",
+"nadou3.jpg",
+"le-baron.jpg",
+"platfom-bss.jpg",
+"cool-max.jpg",
+"cool-max-II.jpg",
+"cool-max-III.jpg",
+"max-is-in-green.jpg",
+"cols.jpg",
+"bss1815-I.jpg",
+"Léogane-info.jpg",
+/* Four updated historical photos */
+"Leclercfélix-II.jpg",
+"konkont-doc.jpg",
+"papouche-doc.jpg",
+"pierre-marthone.jpg"
 ];
 
-const uniqueNames = [...new Set(
-  photoFiles.map(x => x.trim()).filter(Boolean)
-)];
+/* Remove exact duplicates only */
+const UNIQUE_MEDIA = [...new Set(MEDIA_FILES)];
 
 const slideImage = document.getElementById("slideImage");
 const slideCaption = document.getElementById("slideCaption");
@@ -746,65 +743,25 @@ function localPath(filename){
 function loadImage(filename){
   return new Promise(resolve => {
     const img = new Image();
-    img.onload = () => resolve({filename,img});
+    img.onload = () => resolve(filename);
     img.onerror = () => resolve(null);
     img.src = localPath(filename);
   });
 }
 
-function imageSignature(img){
-  try{
-    const canvas = document.createElement("canvas");
-    canvas.width = 16;
-    canvas.height = 16;
-    const ctx = canvas.getContext("2d", {
-      willReadFrequently:true
-    });
-    ctx.drawImage(img,0,0,16,16);
-    const pixels = ctx.getImageData(0,0,16,16).data;
-    let values = [];
-    for(let i=0;i<pixels.length;i+=4){
-      const r = Math.round(pixels[i]/16);
-      const g = Math.round(pixels[i+1]/16);
-      const b = Math.round(pixels[i+2]/16);
-      values.push(r.toString(16)+g.toString(16)+b.toString(16));
-    }
-    return img.naturalWidth+"x"+img.naturalHeight+
-      ":"+values.join("");
-  }catch(e){
-    return null;
-  }
-}
-
 async function preparePhotos(){
   galleryStatus.textContent = "AP VERIFYE FOTO YO...";
   const results = await Promise.all(
-    uniqueNames.map(loadImage)
+    UNIQUE_MEDIA.map(loadImage)
   );
-  const signatures = new Set();
-  const valid = [];
-  let unavailable = 0;
-  let duplicates = 0;
-  for(const item of results){
-    if(!item){
-      unavailable++;
-      continue;
-    }
-    const signature = imageSignature(item.img);
-    if(signature && signatures.has(signature)){
-      duplicates++;
-      continue;
-    }
-    if(signature) signatures.add(signature);
-    valid.push(item.filename);
-  }
+  const valid = results.filter(Boolean);
+  const unavailable = UNIQUE_MEDIA.length - valid.length;
   photos = valid;
   currentSlide = 0;
   renderSlide();
   renderGallery();
   galleryStatus.textContent =
     photos.length + " FOTO DISPONIB • " +
-    duplicates + " DOUBLON DETEKTE • " +
     unavailable + " FICHYE PA JWENN";
   if(playing) startSlideshow();
 }
