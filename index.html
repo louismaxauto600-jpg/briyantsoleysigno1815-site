@@ -436,7 +436,7 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
   </div>
 </section>
 
-<!-- SLIDESHOW AK GALERI - TOUT FOTO YO, PA GEN EFASMAN -->
+<!-- SLIDESHOW AK GALERI -->
 <section id="gallery-section">
   <div class="container">
     <h2>BSS1815 — SLIDESHOW & GALERI</h2>
@@ -554,6 +554,15 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
         Radyo a deja an dirèk. Seksyon sa a prezante
         estasyon an san li pa modifye sistèm difizyon ki egziste a.
       </p>
+
+      <!-- SÈL NOUVO BOUTON AJOUTE -->
+      <a
+        class="btn primary"
+        href="https://bss1815pro-maxdmp.com/#radio"
+        target="_blank"
+        rel="noopener noreferrer">
+        ▶ ANTRE NAN PRO-MAX FM 106.5 FM
+      </a>
     </div>
   </div>
 </section>
@@ -734,6 +743,72 @@ function localPath(filename){
   return "./" + encodeURIComponent(filename);
 }
 
+function loadImage(filename){
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve({filename,img});
+    img.onerror = () => resolve(null);
+    img.src = localPath(filename);
+  });
+}
+
+function imageSignature(img){
+  try{
+    const canvas = document.createElement("canvas");
+    canvas.width = 16;
+    canvas.height = 16;
+    const ctx = canvas.getContext("2d", {
+      willReadFrequently:true
+    });
+    ctx.drawImage(img,0,0,16,16);
+    const pixels = ctx.getImageData(0,0,16,16).data;
+    let values = [];
+    for(let i=0;i<pixels.length;i+=4){
+      const r = Math.round(pixels[i]/16);
+      const g = Math.round(pixels[i+1]/16);
+      const b = Math.round(pixels[i+2]/16);
+      values.push(r.toString(16)+g.toString(16)+b.toString(16));
+    }
+    return img.naturalWidth+"x"+img.naturalHeight+
+      ":"+values.join("");
+  }catch(e){
+    return null;
+  }
+}
+
+async function preparePhotos(){
+  galleryStatus.textContent = "AP VERIFYE FOTO YO...";
+  const results = await Promise.all(
+    uniqueNames.map(loadImage)
+  );
+  const signatures = new Set();
+  const valid = [];
+  let unavailable = 0;
+  let duplicates = 0;
+  for(const item of results){
+    if(!item){
+      unavailable++;
+      continue;
+    }
+    const signature = imageSignature(item.img);
+    if(signature && signatures.has(signature)){
+      duplicates++;
+      continue;
+    }
+    if(signature) signatures.add(signature);
+    valid.push(item.filename);
+  }
+  photos = valid;
+  currentSlide = 0;
+  renderSlide();
+  renderGallery();
+  galleryStatus.textContent =
+    photos.length + " FOTO DISPONIB • " +
+    duplicates + " DOUBLON DETEKTE • " +
+    unavailable + " FICHYE PA JWENN";
+  if(playing) startSlideshow();
+}
+
 function renderSlide(){
   if(!photos.length){
     slideImage.removeAttribute("src");
@@ -773,40 +848,6 @@ function startSlideshow(){
   }
 }
 
-function renderGallery(){
-  galleryGrid.replaceChildren();
-  for(let i=0;i<photos.length;i++){
-    const filename = photos[i];
-    const figure = document.createElement("figure");
-    const img = document.createElement("img");
-    const caption = document.createElement("figcaption");
-    img.src = localPath(filename);
-    img.alt = readableName(filename);
-    img.loading = "lazy";
-    caption.textContent = readableName(filename);
-    figure.append(img,caption);
-    figure.addEventListener("click",()=>{
-      currentSlide = i;
-      renderSlide();
-      slideImage.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-      });
-    });
-    galleryGrid.appendChild(figure);
-  }
-}
-
-/* SLIDESHOW - PA GEN FILTRAJ, PA GEN EFASMAN - TOUT FOTO YO RETE */
-function preparePhotos(){
-  photos = uniqueNames.slice();
-  currentSlide = 0;
-  renderSlide();
-  renderGallery();
-  galleryStatus.textContent = photos.length + " FOTO DISPONIB";
-  if(playing) startSlideshow();
-}
-
 document.getElementById("prevSlide")
   .addEventListener("click",()=>{
     moveSlide(-1);
@@ -835,7 +876,30 @@ document.getElementById("toggleGallery")
       "🖼 OUVRI GALERI A";
   });
 
-/* PROF VIDEO AVATAR - KOD: prof-avatar.mp4 */
+function renderGallery(){
+  galleryGrid.replaceChildren();
+  for(let i=0;i<photos.length;i++){
+    const filename = photos[i];
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const caption = document.createElement("figcaption");
+    img.src = localPath(filename);
+    img.alt = readableName(filename);
+    img.loading = "lazy";
+    caption.textContent = readableName(filename);
+    figure.append(img,caption);
+    figure.addEventListener("click",()=>{
+      currentSlide = i;
+      renderSlide();
+      slideImage.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+    });
+    galleryGrid.appendChild(figure);
+  }
+}
+
 const profVideo = document.getElementById("profVideo");
 const videoError = document.getElementById("videoError");
 
@@ -908,7 +972,7 @@ for(const [symbol,title,description] of modules){
 }
 
 const socials = [
-  ["Facebook","f","https://www.facebook.com/share/1By3KvYRrM/"],
+  [" Facebook","f","https://www.facebook.com/share/1By3KvYRrM/"],
   ["WhatsApp","☎","https://wa.me/50943437488"],
   ["TikTok","♪","https://www.tiktok.com/@maximax1960"],
   ["Instagram","◎","https://www.instagram.com/lebaron072/"],
