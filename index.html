@@ -232,6 +232,11 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
   border-radius:14px;font-weight:900;
   border:2px solid #080402;
 }
+/* AJOUT SÈLMAN - CHÈCHÈ + MODIL KONEKTE */
+.ai-search{width:100%;max-width:600px;display:block;margin:0 auto 10px;padding:14px 16px;background:#080402;color:#ffd0a3;border:2px solid #ff7900;border-radius:12px;font-size:16px;font-weight:700;outline:none}
+.ai-search::placeholder{color:#ffb477;opacity:.8}
+.module-linked{cursor:pointer}
+.module-linked:hover{border-color:#ff7900;box-shadow:0 0 18px #ff790055}
 @media(max-width:900px){
   .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -259,7 +264,7 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
       <div class="brand">
         <img
           class="brand-logo"
-          src="./bss1815-doc.jpg"
+          src="./bss1815-do.jpg"
           alt="Logo ofisyèl BSS1815"
           onerror="this.style.display='none';document.getElementById('logoError').style.display='block'">
         <div>
@@ -267,7 +272,7 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
           <p>DEVAN DEVAN NÈT™</p>
           <p>BATI POU JODI A • PARE POU DEMEN</p>
           <div id="logoError" class="media-error">
-            Logo pa jwenn: bss1815-doc.jpg
+            Logo pa jwenn: bss1815-do.jpg
           </div>
         </div>
       </div>
@@ -299,12 +304,12 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
   <div class="container">
     <img
       class="hero-logo"
-      src="./bss1815-doc.jpg"
+      src="./bss1815-do.jpg"
       alt="BSS1815 Historical Documentary"
       onerror="this.style.display='none';document.getElementById('heroLogoError').style.display='block'">
 
     <p id="heroLogoError" class="media-error">
-      Fichye logo a pa chaje: bss1815-doc.jpg
+      Fichye logo a pa chaje: bss1815-do.jpg
     </p>
 
     <p><strong>DEPI 1815 • SIGNO • LÉOGÂNE • AYITI</strong></p>
@@ -493,7 +498,7 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
   </div>
 </section>
 
-<!-- PROF VIDEO AVATAR - VIDEO SÈLMAN - KOD: prof-avatar.mp4 -->
+<!-- PROF VIDEO AVATAR -->
 <section id="customer-service">
   <div class="container">
     <h2>CUSTOMER SERVICE — PROF AVATAR</h2>
@@ -504,7 +509,8 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
         id="profVideo"
         controls
         playsinline
-        preload="metadata">
+        preload="metadata"
+        poster="./bss1815-do.jpg">
         <source src="./prof-avatar.mp4" type="video/mp4">
         Navigatè ou a pa sipòte videyo sa a.
       </video>
@@ -523,6 +529,9 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
   <div class="container">
     <h2>BSS1815 AI CENTER</h2>
     <p class="subtitle">12 MODIL • TEKNOLOJI • INOVASYON</p>
+    <!-- AJOUT SÈLMAN - CHÈCHÈVA -->
+    <input type="text" id="searchAI" class="ai-search" placeholder="🔍 CHÈCHE YON MODIL AI...">
+    <p id="aiSearchStatus" class="subtitle small" aria-live="polite"></p>
     <div id="aiModules" class="grid grid-4"></div>
     <p class="subtitle small">
       Modil yo prezante fonksyon yo. Koneksyon ak sèvis AI yo
@@ -554,14 +563,6 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
         Radyo a deja an dirèk. Seksyon sa a prezante
         estasyon an san li pa modifye sistèm difizyon ki egziste a.
       </p>
-
-      <a
-        class="btn primary"
-        href="https://bss1815pro-maxdmp.com/#radio"
-        target="_blank"
-        rel="noopener noreferrer">
-        ▶ ANTRE NAN PRO-MAX FM 106.5 FM
-      </a>
     </div>
   </div>
 </section>
@@ -621,11 +622,21 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
 <script>
 "use strict";
 
+/* =====================================================
+   BSS1815 — CONFIGURATION
+   Fichye yo chèche nan menm katab ak index.html.
+   Pa chanje non fichye yo otomatikman.
+===================================================== */
+
 const CONFIG = Object.freeze({
-  logo: "bss1815-doc.jpg",
+  logo: "bss1815-do.jpg",
   avatar: "prof-avatar.mp4",
   slideshowDelay: 5000
 });
+
+/* =====================================================
+   FOTO ISTORIK — LÒD OFISYÈL
+===================================================== */
 
 const historicalFiles = [
   "Leclercfélix-II.jpg",
@@ -634,104 +645,110 @@ const historicalFiles = [
   "pierre-marthone.jpg"
 ];
 
-const MEDIA_FILES = [
-"papit.png",
-"fanfan.png",
-"koukou.png",
-"perodin.png",
-"bss-1815.png",
-"ti-lafrance.png",
-"bss-fanclub.png",
-"miami-an-aksyon.png",
-"team-backup.png",
-"sfc-5-stars.png",
-"team-angrenay.png",
-"papouche.png",
-"konkont.jpg",
-"Jeff-colin.jpg",
-"max.jpg",
-"montina.jpg",
-"pro-max-fm-106.5.jpg",
-"komandan-ralph.jpg",
-"jude.jpg",
-"valery.jpg",
-"mass-vokal.jpg",
-"dèdè.jpg",
-"pèrodin.jpg",
-"gq-max.jpg",
-"lebaron.jpg",
-"super-fanclub.jpg",
-"team-sanpresyon.jpg",
-"team-backup.jpg",
-"komandan-landry.jpg",
-"team-san-presyon.jpg",
-"brunel.jpg",
-"the-one.jpg",
-"ti-lafrance.jpg",
-"manbo-fifi.jpg",
-"bss1815-IV.jpg",
-"konkont-II.jpg",
-"miami-an-aksyon.jpg",
-"the-dunn.jpg",
-"nòe-boulin.jpg",
-"leogâne-info.jpg",
-"prezidan-jude-josep.jpg",
-"the-only-one.jpg",
-"jackson-montina.jpg",
-"marasa.jpg",
-"the-real-team.jpg",
-"nadia-lafortune.jpg",
-"macu.jpg",
-"nadou.jpg",
-"nadou-II.jpg",
-"maximax-II.jpg",
-"prof-montina.jpg",
-"hall-of-leaders.jpg",
-"pauléma.jpg",
-"tania-félix.jpg",
-"tania-II.jpg",
-"tania.jpg",
-"tania-3.jpg",
-"anpére-doudou.jpg",
-"Leclercfélix.jpg",
-"roro-lajan-III.jpg",
-"sonson-miami.jpg",
-"tatane-II.jpg",
-"cangé-félix.jpg",
-"nadou3.jpg",
-"le-baron.jpg",
-"platfom-bss.jpg",
-"cool-max.jpg",
-"cool-max-II.jpg",
-"cool-max-III.jpg",
-"max-is-in-green.jpg",
-"cols.jpg",
-"bss1815-I.jpg",
-"Léogane-info.jpg",
-/* Four updated historical photos */
-"Leclercfélix-II.jpg",
-"konkont-doc.jpg",
-"papouche-doc.jpg",
-"pierre-marthone.jpg"
+/* =====================================================
+   KOLEKSYON FOTO
+   Yon sèl lis pou slideshow ak galeri.
+   Pa mete MP4 nan lis foto.
+===================================================== */
+
+const photoFiles = [
+  "bss1815-do.jpg",
+  "Leclercfélix-II.jpg",
+  "konkont-doc.jpg",
+  "papouche-doc.jpg",
+  "pierre-marthone.jpg",
+
+  "papit.png",
+  "fanfan.png",
+  "koukou.png",
+  "perodin.png",
+  "bss-1815.png",
+  "ti-lafrance.png",
+  "bss-fanclub.png",
+  "miami-an-aksyon.png",
+  "team-backup.png",
+  "sfc-5-stars.png",
+  "team-angrenay.png",
+  "papouche.png",
+
+  "konkont.jpg",
+  "Jeff-colin.jpg",
+  "max.jpg",
+  "montina.jpg",
+  "pro-max-fm-106.5.jpg",
+  "komandan-ralph.jpg",
+  "jude.jpg",
+  "valery.jpg",
+  "mass-vokal.jpg",
+  "dèdè.jpg",
+  "pèrodin.jpg",
+  "gg-max.jpg",
+  "lebaron.jpg",
+  "super-fanclub.jpg",
+  "team-sanpresyon.jpg",
+  "team-backup.jpg",
+  "komandan-landry.jpg",
+  "team-san-presyon.jpg",
+  "brunel.jpg",
+  "the-one.jpg",
+  "ti-lafrance.jpg",
+  "manbo-fifi.jpg",
+  "bss1815-IV.jpg",
+  "konkont-II.jpg",
+  "miami-an-aksyon.jpg",
+  "the-dunn.jpg",
+  "nòe-boulin.jpg",
+  "leogâne-info.jpg",
+  "prezidan-jude-josep.jpg",
+  "the-only-one.jpg",
+  "jackson-montina.jpg",
+  "marasa.jpg",
+  "the-real-team.jpg",
+  "nadia-lafortune.jpg",
+  "macu.jpg",
+  "nadou.jpg",
+  "nadou-II.jpg",
+  "maximax-II.jpg",
+  "prof-montina.jpg",
+  "hall-of-leaders.jpg",
+  "pauléma.jpg",
+  "tania-félix.jpg",
+  "tania-II.jpg",
+  "tania.jpg",
+  "tania-3.jpg",
+  "anpére-doudou.jpg",
+  "Leclercfélix.jpg",
+  "roro-lajan-III.jpg",
+  "sonson-miami.jpg",
+  "tatane-II.jpg",
+  "cangé-félix.jpg",
+  "papouche.jpg",
+  "nadou3.jpg",
+  "le-baron.jpg",
+  "platfom-bss.jpg",
+  "cool-max.jpg",
+  "cool-max-II.jpg",
+  "cool-max-III.jpg",
+  "max-is-in-green.jpg",
+  "cols.jpg",
+  "bss1815-I.jpg",
+  "Léogâne-info.jpg"
 ];
 
-/* RETIRE TOUT DOUBLON YO — egzak + menm non ak ekstansyon diferan */
-function baseKey(filename){
-  return filename
-    .replace(/\.[^.]+$/, "")
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-");
-}
-const seenBase = new Set();
-const UNIQUE_MEDIA = [];
-for(const f of MEDIA_FILES){
-  const key = baseKey(f);
-  if(!seenBase.has(key)){
-    seenBase.add(key);
-    UNIQUE_MEDIA.push(f);
-  }
-}
+/*
+  NÒT:
+  Lis sa a gen non fichye ki te deja disponib nan
+  enfòmasyon pwojè a. Li pa reprezante yon
+  envantè verifye tout 212 oswa 459 foto yo.
+
+  Retire non fichye ki idantik.
+  Detekte foto ki gen menm kontni menm lè non
+  fichye yo diferan, lè navigatè a kapab li yo.
+*/
+
+const uniqueNames = [...new Set(
+  photoFiles.map(x => x.trim()).filter(Boolean)
+)];
 
 const slideImage = document.getElementById("slideImage");
 const slideCaption = document.getElementById("slideCaption");
@@ -758,26 +775,84 @@ function localPath(filename){
 function loadImage(filename){
   return new Promise(resolve => {
     const img = new Image();
-    img.onload = () => resolve(filename);
+    img.onload = () => resolve({filename,img});
     img.onerror = () => resolve(null);
     img.src = localPath(filename);
   });
 }
 
+/*
+  Kalkile yon ti siyati vizyèl pou detekte foto
+  ki sanble anpil. Sa pa yon verifikasyon pafè:
+  de foto diferan ki sanble kapab gen menm siyati.
+  Pou evite efase foto pa erè, nou itilize siyati
+  a sèlman pou imaj ki gen menm dimansyon.
+*/
+
+function imageSignature(img){
+  try{
+    const canvas = document.createElement("canvas");
+    canvas.width = 16;
+    canvas.height = 16;
+    const ctx = canvas.getContext("2d", {
+      willReadFrequently:true
+    });
+    ctx.drawImage(img,0,0,16,16);
+    const pixels = ctx.getImageData(0,0,16,16).data;
+    let values = [];
+    for(let i=0;i<pixels.length;i+=4){
+      const r = Math.round(pixels[i]/16);
+      const g = Math.round(pixels[i+1]/16);
+      const b = Math.round(pixels[i+2]/16);
+      values.push(r.toString(16)+g.toString(16)+b.toString(16));
+    }
+    return img.naturalWidth+"x"+img.naturalHeight+
+      ":"+values.join("");
+  }catch(e){
+    return null;
+  }
+}
+
 async function preparePhotos(){
   galleryStatus.textContent = "AP VERIFYE FOTO YO...";
+
   const results = await Promise.all(
-    UNIQUE_MEDIA.map(loadImage)
+    uniqueNames.map(loadImage)
   );
-  const valid = results.filter(Boolean);
-  const unavailable = UNIQUE_MEDIA.length - valid.length;
+
+  const signatures = new Set();
+  const valid = [];
+  let unavailable = 0;
+  let duplicates = 0;
+
+  for(const item of results){
+    if(!item){
+      unavailable++;
+      continue;
+    }
+
+    const signature = imageSignature(item.img);
+
+    if(signature && signatures.has(signature)){
+      duplicates++;
+      continue;
+    }
+
+    if(signature) signatures.add(signature);
+    valid.push(item.filename);
+  }
+
   photos = valid;
   currentSlide = 0;
+
   renderSlide();
   renderGallery();
+
   galleryStatus.textContent =
     photos.length + " FOTO DISPONIB • " +
+    duplicates + " DOUBLON DETEKTE • " +
     unavailable + " FICHYE PA JWENN";
+
   if(playing) startSlideshow();
 }
 
@@ -788,6 +863,7 @@ function renderSlide(){
     slideCounter.textContent = "FOTO 0 / 0";
     return;
   }
+
   const filename = photos[currentSlide];
   slideImage.src = localPath(filename);
   slideImage.alt = readableName(filename);
@@ -850,16 +926,22 @@ document.getElementById("toggleGallery")
 
 function renderGallery(){
   galleryGrid.replaceChildren();
+
   for(let i=0;i<photos.length;i++){
     const filename = photos[i];
+
     const figure = document.createElement("figure");
     const img = document.createElement("img");
     const caption = document.createElement("figcaption");
+
     img.src = localPath(filename);
     img.alt = readableName(filename);
     img.loading = "lazy";
+
     caption.textContent = readableName(filename);
+
     figure.append(img,caption);
+
     figure.addEventListener("click",()=>{
       currentSlide = i;
       renderSlide();
@@ -868,9 +950,14 @@ function renderGallery(){
         block:"center"
       });
     });
+
     galleryGrid.appendChild(figure);
   }
 }
+
+/* =====================================================
+   PROF VIDEO AVATAR
+===================================================== */
 
 const profVideo = document.getElementById("profVideo");
 const videoError = document.getElementById("videoError");
@@ -912,6 +999,10 @@ document.getElementById("playProf")
     }
   });
 
+/* =====================================================
+   12 MODIL AI
+===================================================== */
+
 const modules = [
   ["🎤","AI PRESENTATION","Prezantasyon dijital"],
   ["👥","AI MEMBERS","Jesyon manm"],
@@ -932,25 +1023,68 @@ const aiModules = document.getElementById("aiModules");
 for(const [symbol,title,description] of modules){
   const card = document.createElement("article");
   card.className = "card module";
+
   const icon = document.createElement("div");
   icon.className = "symbol";
   icon.textContent = symbol;
+
   const heading = document.createElement("h3");
   heading.textContent = title;
+
   const paragraph = document.createElement("p");
   paragraph.textContent = description;
+
   card.append(icon,heading,paragraph);
+  // AJOUT SÈLMAN - NIMEWO 1 KONEKTE
+  if(title === "AI PRESENTATION"){
+    card.classList.add("module-linked");
+    card.style.cursor = "pointer";
+    card.setAttribute("title","Klike pou louvri AI PRESENTATION");
+    card.addEventListener("click",()=>{ window.location.href = "ai-presentation.html"; });
+    const note = document.createElement("p");
+    note.className = "small";
+    note.style.color = "#ff7900";
+    note.style.fontWeight = "900";
+    note.textContent = "➜ KLIKE POU OUVRI";
+    card.appendChild(note);
+  }
   aiModules.appendChild(card);
 }
 
+/* AJOUT SÈLMAN - CHÈCHÈVA AI CENTER */
+const searchAI = document.getElementById("searchAI");
+const aiSearchStatus = document.getElementById("aiSearchStatus");
+if(searchAI){
+  searchAI.addEventListener("input",()=>{
+    const q = searchAI.value.trim().toLowerCase();
+    const cards = document.querySelectorAll("#aiModules .module");
+    let visible = 0;
+    cards.forEach((card)=>{
+      const show = !q || card.innerText.toLowerCase().includes(q);
+      card.style.display = show ? "" : "none";
+      if(show) visible++;
+    });
+    if(q){
+      aiSearchStatus.textContent = visible + " MODIL JWENN POU: " + q.toUpperCase();
+      if(visible === 0) aiSearchStatus.textContent = "PA GEN MODIL POU: " + q.toUpperCase();
+    } else {
+      aiSearchStatus.textContent = "";
+    }
+  });
+}
+
+/* =====================================================
+   10 REZO SOSYAL
+===================================================== */
+
 const socials = [
-  [" Facebook","f","https://www.facebook.com/share/1By3KvYRrM/"],
+  ["【entity-Facebook¦canonical_name=Facebook】","f","https://www.facebook.com/share/1By3KvYRrM/"],
   ["WhatsApp","☎","https://wa.me/50943437488"],
   ["TikTok","♪","https://www.tiktok.com/@maximax1960"],
   ["Instagram","◎","https://www.instagram.com/lebaron072/"],
   ["Telegram","✈","https://t.me/bss1815dmp"],
   ["YouTube","▶","https://www.youtube.com/@BSS1815PROMAXDMP"],
-  [" Spotify","♫","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
+  ["Spotify","♫","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
   ["X / Twitter","𝕏","https://x.com/w05g2m"],
   ["Truth Social","T","https://truthsocial.com/@briyant_soley_1815"],
   ["LinkedIn","in","https://www.linkedin.com/in/maximax-multi-services-075ba2314"]
@@ -964,13 +1098,20 @@ for(const [name,symbol,url] of socials){
   a.href = url;
   a.target = "_blank";
   a.rel = "noopener noreferrer";
+
   const icon = document.createElement("span");
   icon.textContent = symbol;
+
   const label = document.createElement("div");
   label.textContent = name;
+
   a.append(icon,label);
   socialLinks.appendChild(a);
 }
+
+/* =====================================================
+   LANGUAGES — ENG / KRE / FRAN
+===================================================== */
 
 const translations = {
   ht:{
@@ -991,10 +1132,14 @@ document.querySelectorAll("[data-lang]")
   .forEach(button=>{
     button.addEventListener("click",()=>{
       const lang = button.dataset.lang;
+
       document.documentElement.lang = lang;
+
       document.querySelectorAll("[data-lang]")
         .forEach(b=>b.classList.remove("active"));
+
       button.classList.add("active");
+
       document.querySelectorAll("[data-i18n]")
         .forEach(element=>{
           const key = element.dataset.i18n;
@@ -1004,6 +1149,10 @@ document.querySelectorAll("[data-lang]")
         });
     });
   });
+
+/* =====================================================
+   DEMARAJ
+===================================================== */
 
 preparePhotos();
 
