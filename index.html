@@ -1,352 +1,252 @@
-
 <!DOCTYPE html>
 <html lang="ht" translate="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#080300">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090402">
 <meta name="google" content="notranslate">
-<meta name="description" content="BRIYANT SOLÈY SIGNO 1815 — Istwa, patrimwàn, kominote ak inovasyon.">
+<meta name="description" content="Briyant Solèy Signo 1815 — Istwa, patrimwàn, kominote ak inovasyon.">
 <title>BRIYANT SOLÈY SIGNO 1815</title>
-<link rel="icon" href="./briyant-soley-signo-1815.jpg">
 
 <style>
 :root{
- --orange:#ff7900;
- --apricot:#ffb477;
- --black:#080300;
- --border:#a94b0c;
+  --orange:#ff7900;
+  --apricot:#ffb477;
+  --black:#080402;
+  --panel:#190b06;
+  --line:#d95d17;
+  --text:#ffd0a3;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- margin:0;
- font-family:Arial,Helvetica,sans-serif;
- font-weight:700;
- line-height:1.6;
- color:var(--apricot);
- background:linear-gradient(125deg,#000,#240b01 52%,#000);
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(125deg,#080402,#311006 48%,#080402);
+  color:var(--text);
+  line-height:1.55;
 }
 a{color:inherit;text-decoration:none}
-button,textarea{font:inherit}
-button{cursor:pointer}
+button{font-family:inherit;cursor:pointer}
 img,video{max-width:100%}
-.container{width:min(1320px,95%);margin:auto}
+h1,h2,h3{color:var(--orange);line-height:1.2}
+h2{text-align:center;font-size:clamp(24px,3.5vw,37px)}
+p{overflow-wrap:anywhere}
+.container{width:min(1200px,94%);margin:auto}
+section{padding:62px 0;border-bottom:1px solid #a94820}
+.subtitle{text-align:center;color:var(--apricot);font-weight:bold}
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  background:#160802;
+  border:2px solid var(--orange);
+  color:var(--text);
+  border-radius:12px;
+  padding:12px 17px;
+  font-weight:800;
+  transition:.2s;
+}
+.btn:hover,.btn:focus-visible{
+  background:var(--orange);
+  color:#080402;
+}
+.btn.primary{background:var(--orange);color:#080402}
+.card{
+  background:linear-gradient(145deg,#2a1109,#0b0503);
+  border:2px solid #a94a22;
+  border-radius:17px;
+  padding:20px;
+  min-width:0;
+}
+.grid{display:grid;gap:17px}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.center{text-align:center}
+.small{font-size:13px}
+.media-error{
+  display:none;
+  padding:12px;
+  color:var(--apricot);
+  background:#230d06;
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow-wrap:anywhere;
+}
 header{
- padding:20px 0;
- background:linear-gradient(110deg,#000,#301002,#000);
- border-bottom:3px solid var(--orange);
+  background:linear-gradient(100deg,#080402,#3c1409,#080402);
+  border-bottom:3px solid var(--orange);
+  padding:16px 0;
 }
 .topbar{
- display:flex;
- justify-content:space-between;
- align-items:center;
- flex-wrap:wrap;
- gap:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
 }
-.identity{display:flex;align-items:center;gap:16px}
-.logo{
- width:105px;height:105px;
- object-fit:contain;
- border:3px solid var(--orange);
- border-radius:50%;
- background:#000;
+.brand{display:flex;align-items:center;gap:15px}
+.brand-logo{
+  width:105px;height:105px;
+  border:3px solid var(--orange);
+  border-radius:50%;
+  object-fit:contain;
+  background:#000;
 }
-.identity h1{
- margin:0;
- color:var(--orange);
- font-size:clamp(20px,3vw,32px);
- line-height:1.2;
+.brand h2{font-size:clamp(18px,2.6vw,27px);margin:0 0 7px}
+.brand p{font-size:12px;font-weight:bold;margin:3px 0}
+.langs{display:flex;gap:8px}
+.langs button.active{background:var(--orange);color:#080402}
+nav{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:9px;margin-top:18px;
 }
-.identity p{margin:4px 0;font-size:13px}
-.languages,.nav,.actions,.controls{
- display:flex;justify-content:center;
- flex-wrap:wrap;gap:10px;
-}
-.languages button,.nav a,.btn,.control{
- padding:11px 16px;
- border:2px solid var(--orange);
- border-radius:12px;
- background:#160600;
- color:var(--apricot);
- font-weight:900;
-}
-.languages .active,.btn.primary{
- background:var(--orange);
- color:#000;
-}
-.nav{margin-top:20px}
-.nav a{font-size:12px}
-.btn:hover,.control:hover,.nav a:hover{
- background:var(--orange);
- color:#000;
-}
-section{padding:65px 0;scroll-margin-top:15px}
-.title{
- margin:0 0 20px;
- text-align:center;
- color:var(--orange);
- font-size:clamp(27px,4vw,43px);
- line-height:1.2;
-}
-.intro{
- max-width:1000px;
- margin:0 auto 32px;
- text-align:center;
-}
+nav a{font-size:13px}
 .hero{
- text-align:center;
- background:radial-gradient(ellipse,#421504,#150600 65%,#000);
+  min-height:620px;
+  display:flex;align-items:center;
+  text-align:center;
+  background:radial-gradient(ellipse at center,#59200e,#130702 67%,#080402);
 }
 .hero-logo{
- display:block;
- width:min(310px,78vw);
- aspect-ratio:1;
- margin:auto;
- object-fit:contain;
- border:4px solid var(--orange);
- border-radius:50%;
- background:#000;
- box-shadow:0 0 40px #ff790055;
+  width:220px;height:220px;
+  border:5px solid var(--orange);
+  border-radius:50%;
+  background:#000;
+  object-fit:contain;
+  box-shadow:0 0 35px #ff790055;
 }
-.hero h2{
- margin:25px auto;
- color:var(--orange);
- font-size:clamp(35px,6.5vw,72px);
- line-height:1.1;
+.hero h1{font-size:clamp(31px,5.5vw,65px)}
+.hero .buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:25px}
+.history-card{text-align:center}
+.history-card img{
+  display:block;width:100%;height:250px;
+  object-fit:contain;background:#000;
+  border:2px solid var(--orange);
+  border-radius:12px;
 }
-.hero p{font-size:clamp(15px,2vw,19px)}
-.actions{margin-top:30px}
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
- gap:20px;
+.history-card h3{font-size:19px}
+.history-number{font-size:22px;color:var(--orange);font-weight:900}
+.slide-frame{
+  max-width:960px;
+  margin:25px auto;
+  border:3px solid var(--orange);
+  border-radius:22px;
+  overflow:hidden;
+  background:#000;
 }
-.card{
- min-width:0;
- padding:22px;
- border:1px solid var(--border);
- border-radius:20px;
- background:linear-gradient(145deg,#301003,#080300);
-}
-.card h3{color:var(--orange);margin:10px 0}
-.card p{margin:8px 0}
-.dark-section{
- background:linear-gradient(125deg,#000,#301003,#000);
- border-top:1px solid var(--border);
- border-bottom:1px solid var(--border);
-}
-.portrait{
- display:block;
- width:100%;
- height:300px;
- object-fit:contain;
- border:2px solid var(--orange);
- border-radius:14px;
- background:#000;
-}
-.historical-card{text-align:center}
-.historical-card:first-child{
- border:2px solid var(--orange);
-}
-.historical-card .number{
- color:var(--orange);
- font-size:22px;
-}
-.historical-card h3{font-size:21px}
-.slideshow{
- max-width:1100px;
- margin:auto;
- overflow:hidden;
- border:3px solid var(--orange);
- border-radius:23px;
- background:#000;
- box-shadow:0 0 35px #ff790044;
-}
-.slideshow img{
- display:block;
- width:100%;
- height:clamp(280px,57vw,650px);
- object-fit:contain;
- background:#000;
+.slide-image{
+  display:block;
+  width:100%;
+  height:min(65vh,570px);
+  min-height:300px;
+  object-fit:contain;
+  background:#000;
 }
 .slide-caption{
- padding:17px;
- background:#1c0801;
- color:var(--orange);
- text-align:center;
- font-size:21px;
- overflow-wrap:anywhere;
+  padding:16px;
+  text-align:center;
+  color:var(--orange);
+  font-weight:900;
+  font-size:20px;
+  background:#1d0903;
+  overflow-wrap:anywhere;
 }
-.controls{margin:25px auto}
-.status{text-align:center}
+.controls{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.counter{text-align:center;font-weight:900;margin:18px}
 .gallery{
- display:grid;
- grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
- gap:14px;
- margin-top:25px;
+  display:none;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
+  margin-top:24px;
 }
-.gallery[hidden]{display:none}
-.gallery-item{
- min-width:0;
- padding:0;
- overflow:hidden;
- border:1px solid var(--border);
- border-radius:14px;
- background:#120500;
- color:var(--apricot);
- text-align:center;
+.gallery.open{display:grid}
+.gallery figure{
+  margin:0;
+  border:2px solid #ad4d22;
+  border-radius:12px;
+  overflow:hidden;
+  background:#0a0402;
 }
-.gallery-item img{
- display:block;
- width:100%;
- height:180px;
- object-fit:cover;
- background:#000;
+.gallery img{
+  width:100%;height:165px;
+  object-fit:contain;
+  display:block;
+  background:#000;
 }
-.gallery-item span{
- display:block;
- padding:10px;
- font-size:12px;
- overflow-wrap:anywhere;
+.gallery figcaption{
+  font-size:12px;
+  text-align:center;
+  padding:9px;
+  color:var(--apricot);
+  overflow-wrap:anywhere;
 }
-.video-box{
- max-width:850px;
- margin:auto;
- padding:25px;
- text-align:center;
- border:2px solid var(--orange);
- border-radius:22px;
- background:#000;
-}
-.video-box video{
- display:block;
- width:min(100%,550px);
- max-height:600px;
- margin:auto;
- border:2px solid var(--orange);
- border-radius:14px;
- background:#000;
+.avatar-box{max-width:760px;margin:20px auto;text-align:center}
+.avatar-box video{
+  display:block;
+  width:100%;
+  max-height:520px;
+  background:#000;
+  border:3px solid var(--orange);
+  border-radius:15px;
 }
 .module{text-align:center}
-.module-icon{
- display:grid;
- place-items:center;
- width:75px;height:75px;
- margin:0 auto 15px;
- border:2px solid var(--orange);
- border-radius:50%;
- background:#321003;
- font-size:32px;
+.module .symbol{
+  display:grid;
+  place-items:center;
+  width:58px;height:58px;
+  border:3px solid var(--orange);
+  border-radius:50%;
+  margin:0 auto 12px;
+  font-size:27px;
 }
-.module h3{font-size:18px}
+.module h3{font-size:16px;margin:8px 0}
+.module p{font-size:13px}
 .social-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
- gap:14px;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
 }
 .social{
- display:flex;
- align-items:center;
- gap:12px;
- padding:14px;
- border:1px solid var(--border);
- border-radius:14px;
- background:#140600;
+  text-align:center;
+  border:2px solid var(--line);
+  border-radius:12px;
+  padding:13px 8px;
+  background:#170904;
+  font-weight:bold;
 }
-.social-icon{
- display:grid;
- place-items:center;
- flex-shrink:0;
- width:38px;height:38px;
- border:2px solid var(--social-color);
- border-radius:9px;
- color:var(--social-color);
- font-size:22px;
- font-weight:900;
+.social span{display:block;font-size:23px;margin-bottom:5px}
+.contact-card{text-align:center}
+.contact-card a{display:block;margin:8px 0;overflow-wrap:anywhere}
+footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
+#aiHelp{
+  position:fixed;right:15px;bottom:15px;
+  z-index:30;background:var(--orange);
+  color:#080402;padding:14px;
+  border-radius:14px;font-weight:900;
+  border:2px solid #080402;
 }
-.social:hover{border-color:var(--orange)}
-.contact{text-align:center}
-.contact a{
- color:var(--orange);
- overflow-wrap:anywhere;
+@media(max-width:900px){
+  .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery.open{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .social-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
-.phone-line{
- display:flex;
- justify-content:center;
- align-items:center;
- gap:10px;
- margin:12px 0;
-}
-.flag{font-size:25px}
-.notice{
- text-align:center;
- padding:15px;
- border:1px solid var(--border);
- border-radius:12px;
- background:#180800;
-}
-footer{
- padding:35px 12px;
- text-align:center;
- background:#000;
- border-top:3px solid var(--orange);
-}
-.ai-button{
- position:fixed;
- right:16px;bottom:18px;
- z-index:20;
- padding:14px 18px;
- border:0;
- border-radius:14px;
- background:var(--orange);
- color:#000;
- font-weight:900;
-}
-.modal{
- position:fixed;
- inset:0;
- z-index:30;
- display:none;
- align-items:center;
- justify-content:center;
- padding:15px;
- background:#000e;
-}
-.modal.open{display:flex}
-.modal-panel{
- width:min(95vw,620px);
- max-height:90vh;
- overflow:auto;
- padding:24px;
- border:2px solid var(--orange);
- border-radius:20px;
- background:linear-gradient(135deg,#351204,#000);
-}
-.modal textarea{
- width:100%;
- min-height:110px;
- padding:12px;
- color:var(--apricot);
- background:#000;
- border:1px solid var(--orange);
- border-radius:10px;
- font:16px Arial;
-}
-.ai-answer{white-space:pre-wrap;margin-top:15px}
-.media-note{
- margin:12px auto;
- text-align:center;
- font-size:13px;
-}
-@media(max-width:650px){
- .logo{width:75px;height:75px}
- .nav a{padding:9px;font-size:11px}
- section{padding:45px 0}
- .gallery{
-  grid-template-columns:repeat(2,minmax(0,1fr));
- }
- .gallery-item img{height:145px}
+@media(max-width:560px){
+  .brand-logo{width:75px;height:75px}
+  .topbar{justify-content:center}
+  .brand{width:100%;justify-content:center}
+  .grid-4,.grid-3{grid-template-columns:1fr}
+  .gallery.open{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-logo{width:170px;height:170px}
+  section{padding:42px 0}
 }
 </style>
 </head>
@@ -354,1134 +254,778 @@ footer{
 <body>
 
 <header id="home">
-<div class="container">
- <div class="topbar">
-  <div class="identity">
-   <img
-    class="logo"
-    data-media="briyant-soley-signo-1815.jpg"
-    src="./briyant-soley-signo-1815.jpg"
-    alt="Logo ofisyèl BSS1815">
-   <div>
-    <h1>BRIYANT SOLÈY SIGNO 1815</h1>
-    <p>DEVAN DEVAN NÈT™</p>
-    <p>BATI POU JODI A • PARE POU DEMEN</p>
-   </div>
-  </div>
-  <div class="languages">
-   <button type="button" data-lang="en">ENG</button>
-   <button type="button" data-lang="ht" class="active">KRE</button>
-   <button type="button" data-lang="fr">FRAN</button>
-  </div>
- </div>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <img
+          class="brand-logo"
+          src="./bss1815-doc.jpg"
+          alt="Logo ofisyèl BSS1815"
+          onerror="this.style.display='none';document.getElementById('logoError').style.display='block'">
+        <div>
+          <h2>BRIYANT SOLÈY SIGNO 1815</h2>
+          <p>DEVAN DEVAN NÈT™</p>
+          <p>BATI POU JODI A • PARE POU DEMEN</p>
+          <div id="logoError" class="media-error">
+            Logo pa jwenn: bss1815-doc.jpg
+          </div>
+        </div>
+      </div>
+      <div class="langs">
+        <button class="btn" data-lang="en">ENG</button>
+        <button class="btn active" data-lang="ht">KRE</button>
+        <button class="btn" data-lang="fr">FRAN</button>
+      </div>
+    </div>
 
- <nav class="nav" aria-label="Navigasyon">
-  <a href="#home">HOME</a>
-  <a href="#about">ABOUT</a>
-  <a href="#history">HISTORY</a>
-  <a href="#features">FEATURES</a>
-  <a href="#slideshow">GALLERY</a>
-  <a href="#community">COMMUNITY</a>
-  <a href="#customer-service">CUSTOMER SERVICE</a>
-  <a href="#ai-center">AI CENTER</a>
-  <a href="#radio">PRO-MAX FM 106.5 FM</a>
-  <a href="#contact">CONTACT</a>
- </nav>
-</div>
+    <nav>
+      <a class="btn" href="#home">HOME</a>
+      <a class="btn" href="#about">ABOUT</a>
+      <a class="btn" href="#history">HISTORY</a>
+      <a class="btn" href="#features">FEATURES</a>
+      <a class="btn" href="#gallery-section">GALLERY</a>
+      <a class="btn" href="#community">COMMUNITY</a>
+      <a class="btn" href="#customer-service">CUSTOMER SERVICE</a>
+      <a class="btn" href="#ai-center">AI CENTER</a>
+      <a class="btn" href="#radio">PRO-MAX FM 106.5 FM</a>
+      <a class="btn" href="#contact">CONTACT</a>
+    </nav>
+  </div>
 </header>
 
 <main>
 
 <section class="hero">
-<div class="container">
- <img
-  class="hero-logo"
-  data-media="briyant-soley-signo-1815.jpg"
-  src="./briyant-soley-signo-1815.jpg"
-  alt="BRIYANT SOLÈY SIGNO 1815">
+  <div class="container">
+    <img
+      class="hero-logo"
+      src="./bss1815-doc.jpg"
+      alt="BSS1815 Historical Documentary"
+      onerror="this.style.display='none';document.getElementById('heroLogoError').style.display='block'">
 
- <p>DEPI 1815 • SIGNO • LÉOGÂNE • AYITI</p>
+    <p id="heroLogoError" class="media-error">
+      Fichye logo a pa chaje: bss1815-doc.jpg
+    </p>
 
- <h2>BRIYANT SOLÈY SIGNO 1815</h2>
+    <p><strong>DEPI 1815 • SIGNO • LÉOGÂNE • AYITI</strong></p>
 
- <p id="hero-description">
-  Yon patrimwàn ki travèse jenerasyon.
-  Yon istwa ki merite respè.
-  Yon kominote ki kontinye bati avni li.
- </p>
+    <h1>BRIYANT SOLÈY SIGNO 1815</h1>
 
- <h3 style="color:var(--orange)">
-  BRIYANT SE YON LIMYÈ KI PA JANM ETENN.
- </h3>
+    <p data-i18n="heroDescription">
+      Yon patrimwàn ki travèse jenerasyon. Yon istwa ki merite respè.
+      Yon kominote ki kontinye bati avni li.
+    </p>
 
- <div class="actions">
-  <a class="btn primary" href="#history">
-   ISTWA PA JANM EFASE
-  </a>
-  <a class="btn" href="#slideshow">
-   GALERI FOTO
-  </a>
-  <a class="btn" href="#ai-center">
-   AI CENTER
-  </a>
- </div>
-</div>
+    <h3>BRIYANT SE YON LIMYÈ KI PA JANM ETENN</h3>
+
+    <div class="buttons">
+      <a href="#history" class="btn primary">ISTWA PA JANM EFASE</a>
+      <a href="#gallery-section" class="btn">GALERI FOTO</a>
+      <a href="#ai-center" class="btn">AI CENTER</a>
+    </div>
+  </div>
 </section>
 
-<section id="history" class="dark-section">
-<div class="container">
- <h2 class="title">ISTWA PA JANM EFASE</h2>
- <p class="intro">
-  KAT GWO FIGI NAN ISTWA BRIYANT SOLÈY SIGNO 1815
- </p>
- <div class="grid" id="historical-grid"></div>
-</div>
+<!-- ISTWA: 4 FIGI ISTORIK YO -->
+<section id="history">
+  <div class="container">
+    <h2>ISTWA PA JANM EFASE</h2>
+    <p class="subtitle">
+      KAT GWO FIGI NAN ISTWA BRIYANT SOLÈY SIGNO 1815
+    </p>
+
+    <div class="grid grid-4">
+
+      <article class="card history-card">
+        <img src="./Leclercfélix-II.jpg" alt="Leclerc Félix">
+        <div class="history-number">01</div>
+        <h3>LECLERC FÉLIX</h3>
+        <strong>FONDATÈ BSS1815</strong>
+        <p>
+          Leclerc Félix se premye gwo figi nan istwa BSS1815.
+          Eritaj li makonnen ak Léogâne, Dabònè,
+          tradisyon travay ak konbit.
+        </p>
+      </article>
+
+      <article class="card history-card">
+        <img src="./konkont-doc.jpg" alt="Konkont">
+        <div class="history-number">02</div>
+        <h3>KONKONT</h3>
+        <strong>YON GWO PILYE BSS1815</strong>
+        <p>
+          Konkont te fè yon travay kolosal pou BSS1815.
+          Kontribisyon li merite rekonesans ak respè.
+        </p>
+      </article>
+
+      <article class="card history-card">
+        <img src="./papouche-doc.jpg" alt="Papouche Stratège">
+        <div class="history-number">03</div>
+        <h3>PAPOUCHE STRATÈGE</h3>
+        <strong>MOTÈ AK STRATÈJ BSS1815</strong>
+        <p>
+          Papouche Stratège se youn nan poto mitan BSS1815.
+          Li te kontribye nan jwenn solisyon pou pwoblèm kominote a.
+        </p>
+      </article>
+
+      <article class="card history-card">
+        <img src="./pierre-marthone.jpg" alt="Pierre Marthone Ti Rat">
+        <div class="history-number">04</div>
+        <h3>PIERRE MARTHONE — TI RAT</h3>
+        <strong>GADYEN FLANBO BSS1815</strong>
+        <p>
+          Pierre Marthone, alias Ti Rat, te kenbe flanbo BSS1815
+          pandan yon bon bout tan. Travay li rete nan memwa kominote a.
+        </p>
+      </article>
+
+    </div>
+  </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-<div class="container">
- <h2 class="title">ABOUT BSS1815</h2>
- <div class="grid">
-  <article class="card">
-   <h3>🏛 ISTWA NOU</h3>
-   <p>
-    Prezève memwa ak patrimwàn moun
-    ki kontribye nan istwa BSS1815.
-   </p>
-  </article>
-  <article class="card">
-   <h3>🎯 MISYON NOU</h3>
-   <p>
-    Rasanble kominote a, rekonèt
-    kontribisyon manm yo epi transmèt
-    eritaj nou bay lòt jenerasyon.
-   </p>
-  </article>
-  <article class="card">
-   <h3>🌐 VIZYON NOU</h3>
-   <p>
-    Bati yon kominote solid avèk
-    òganizasyon, inovasyon ak teknoloji.
-   </p>
-  </article>
- </div>
-</div>
-</section>
-
-<section id="slideshow" class="dark-section">
-<div class="container">
- <h2 class="title">
-  BSS1815 — SLIDESHOW & GALERI
- </h2>
- <p class="intro">KOLEKSYON FOTO BSS1815</p>
-
- <div class="slideshow">
-  <img id="slide-image" alt="Galeri foto BSS1815">
-  <div id="slide-caption" class="slide-caption">
-   BSS1815
+  <div class="container">
+    <h2>ABOUT BSS1815</h2>
+    <div class="grid grid-3">
+      <article class="card">
+        <h3>📜 ISTWA NOU</h3>
+        <p>
+          Prezève memwa ak patrimwàn moun ki kontribye
+          nan istwa Briyant Solèy Signo 1815.
+        </p>
+      </article>
+      <article class="card">
+        <h3>🎯 MISYON NOU</h3>
+        <p>
+          Rasanble kominote a, rekonèt kontribisyon moun
+          yo epi transmèt eritaj nou bay lòt jenerasyon.
+        </p>
+      </article>
+      <article class="card">
+        <h3>🌐 VIZYON NOU</h3>
+        <p>
+          Bati yon kominote solid avèk òganizasyon,
+          inovasyon ak teknoloji.
+        </p>
+      </article>
+    </div>
   </div>
- </div>
-
- <div class="controls">
-  <button id="slide-prev" class="control" type="button">
-   ❮ PREVIOUS
-  </button>
-  <button id="slide-pause" class="control" type="button">
-   ⏸ PAUSE
-  </button>
-  <button id="slide-next" class="control" type="button">
-   NEXT ❯
-  </button>
- </div>
-
- <p id="slide-status" class="status" aria-live="polite">
-  Ap prepare koleksyon foto yo...
- </p>
-
- <div class="controls">
-  <button
-   id="gallery-toggle"
-   class="control"
-   type="button"
-   aria-expanded="false">
-   🖼 OUVRI GALERI A
-  </button>
- </div>
-
- <div id="gallery-grid" class="gallery" hidden></div>
- <p id="gallery-message" class="notice" hidden></p>
-</div>
 </section>
 
+<!-- FEATURES -->
 <section id="features">
-<div class="container">
- <h2 class="title">
-  FEATURES & COMMUNITY SERVICES
- </h2>
- <div class="grid">
-  <article class="card">
-   <h3>🏛 HERITAGE CENTER</h3>
-   <p>Istwa ak patrimwàn BSS1815.</p>
-  </article>
-  <article class="card">
-   <h3>📸 MEDIA CENTER</h3>
-   <p>Foto ak videyo kominote a.</p>
-  </article>
-  <article class="card">
-   <h3>🤝 COMMUNITY CENTER</h3>
-   <p>Inite ak patisipasyon.</p>
-  </article>
-  <article class="card">
-   <h3>🎤 COMMUNICATION</h3>
-   <p>Enfòmasyon ak kominikasyon.</p>
-  </article>
- </div>
-</div>
-</section>
-
-<section id="community" class="dark-section">
-<div class="container">
- <h2 class="title">BSS1815 COMMUNITY</h2>
- <p class="intro">
-  DEVAN DEVAN NÈT — ANSANM NOU PI FÒ.
- </p>
- <div class="grid">
-  <article class="card">
-   <h3>TEAM SAN PRESYON</h3>
-   <img
-    class="portrait"
-    data-media="team-san-presyon.jpg"
-    src="./team-san-presyon.jpg"
-    alt="Team San Presyon"
-    loading="lazy">
-  </article>
-  <article class="card">
-   <h3>TEAM BACKUP</h3>
-   <img
-    class="portrait"
-    data-media="team-backup.jpg"
-    src="./team-backup.jpg"
-    alt="Team Backup"
-    loading="lazy">
-  </article>
-  <article class="card">
-   <h3>MIAMI AN AKSYON</h3>
-   <img
-    class="portrait"
-    data-media="miami-an-aksyon.png"
-    src="./miami-an-aksyon.png"
-    alt="Miami An Aksyon"
-    loading="lazy">
-  </article>
- </div>
-</div>
-</section>
-
-<section id="customer-service">
-<div class="container">
- <h2 class="title">
-  CUSTOMER SERVICE — PROF AVATAR
- </h2>
- <p class="intro">ASISTANS DIJITAL BSS1815</p>
-
- <div class="video-box">
-  <video
-   id="prof-avatar"
-   controls
-   playsinline
-   preload="metadata"
-   poster="./briyant-soley-signo-1815.jpg">
-   <source
-    id="prof-avatar-source"
-    src="./briyant-soley-signo-1815.mp4"
-    type="video/mp4">
-   Navigatè sa a pa sipòte videyo.
-  </video>
-
-  <div class="controls">
-   <button
-    id="avatar-play"
-    class="control"
-    type="button">
-    ▶ PLAY PROF AVATAR
-   </button>
+  <div class="container">
+    <h2>BSS1815 — FEATURES</h2>
+    <div class="grid grid-3">
+      <div class="card center">
+        <h3>ISTWA AK PATRIMWÀN</h3>
+        <p>Dokimantasyon ak konsèvasyon memwa BSS1815.</p>
+      </div>
+      <div class="card center">
+        <h3>MEDYA AK KOMINIKASYON</h3>
+        <p>Foto, videyo, nouvèl ak aktivite kominotè.</p>
+      </div>
+      <div class="card center">
+        <h3>TEKNOLOJI AK INOVASYON</h3>
+        <p>Zouti dijital pou soutni devlopman kominote a.</p>
+      </div>
+    </div>
   </div>
-  <p id="avatar-status" class="media-note"></p>
- </div>
-</div>
 </section>
 
-<section id="ai-center" class="dark-section">
-<div class="container">
- <h2 class="title">BSS1815 AI CENTER</h2>
- <p class="intro">
-  12 MODIL • TEKNOLOJI • INOVASYON
- </p>
- <div class="grid" id="modules-grid"></div>
-</div>
+<!-- SLIDESHOW AK GALERI -->
+<section id="gallery-section">
+  <div class="container">
+    <h2>BSS1815 — SLIDESHOW & GALERI</h2>
+    <p class="subtitle">
+      YON SÈL KOLEKSYON FOTO POU SLIDESHOW AK GALERI
+    </p>
+
+    <div class="slide-frame">
+      <img id="slideImage" class="slide-image" alt="Foto BSS1815">
+      <div id="slideCaption" class="slide-caption">BSS1815</div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="prevSlide">❮ PREVIOUS</button>
+      <button class="btn" id="pauseSlide">⏸ PAUSE</button>
+      <button class="btn" id="nextSlide">NEXT ❯</button>
+    </div>
+
+    <div class="counter" id="slideCounter">FOTO 0 / 0</div>
+
+    <div class="center">
+      <button class="btn" id="toggleGallery">
+        🖼 OUVRI GALERI A
+      </button>
+    </div>
+
+    <div id="galleryGrid" class="gallery"></div>
+
+    <p id="galleryStatus" class="small center" aria-live="polite"></p>
+  </div>
 </section>
 
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="container">
+    <h2>BSS1815 COMMUNITY</h2>
+    <p class="subtitle">
+      YON KOMINOTE • YON ISTWA • YON AVNI
+    </p>
+    <div class="grid grid-3">
+      <div class="card center">
+        <h3>TEAM SAN PRESYON</h3>
+        <p>Inite, patisipasyon ak angajman.</p>
+      </div>
+      <div class="card center">
+        <h3>FAN CLUB BSS1815</h3>
+        <p>Sipò ak prezans kominotè.</p>
+      </div>
+      <div class="card center">
+        <h3>DEVAN DEVAN NÈT</h3>
+        <p>Bati pou jodi a, pare pou demen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROF VIDEO AVATAR -->
+<section id="customer-service">
+  <div class="container">
+    <h2>CUSTOMER SERVICE — PROF AVATAR</h2>
+    <p class="subtitle">ASISTANS DIJITAL BSS1815</p>
+
+    <div class="card avatar-box">
+      <video
+        id="profVideo"
+        controls
+        playsinline
+        preload="metadata"
+        poster="./bss1815-doc.jpg">
+        <source src="./proavatar.mp4" type="video/mp4">
+        Navigatè ou a pa sipòte videyo sa a.
+      </video>
+
+      <p id="videoError" class="media-error" aria-live="polite"></p>
+
+      <button class="btn" id="playProf">
+        ▶ PLAY PROF AVATAR
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- AI CENTER -->
+<section id="ai-center">
+  <div class="container">
+    <h2>BSS1815 AI CENTER</h2>
+    <p class="subtitle">12 MODIL • TEKNOLOJI • INOVASYON</p>
+    <div id="aiModules" class="grid grid-4"></div>
+    <p class="subtitle small">
+      Modil yo prezante fonksyon yo. Koneksyon ak sèvis AI yo
+      mande entegrasyon sèvis ki koresponn ak chak modil.
+    </p>
+  </div>
+</section>
+
+<!-- RADIO -->
 <section id="radio">
-<div class="container">
- <h2 class="title">PRO-MAX FM 106.5 FM</h2>
+  <div class="container center">
+    <h2>PRO-MAX FM 106.5 FM</h2>
+    <p class="subtitle">LA FORCE DU SON</p>
 
- <div class="video-box">
-  <img
-   id="radio-image"
-   data-media="pro-max-fm-106.5.jpg"
-   src="./pro-max-fm-106.5.jpg"
-   alt="PRO-MAX FM 106.5 FM"
-   style="
-    display:block;
-    width:min(100%,340px);
-    margin:0 auto 20px;
-    border:2px solid #ff7900;
-    border-radius:18px;
-   ">
+    <div class="card" style="max-width:700px;margin:auto">
+      <img
+        src="./pro-max-fm-106.5.jpg"
+        alt="PRO-MAX FM 106.5 FM"
+        style="max-height:300px;object-fit:contain"
+        onerror="this.style.display='none';document.getElementById('radioError').style.display='block'">
 
-  <h3 style="color:var(--orange)">
-   LA FORCE DU SON
-  </h3>
-  <p>La radio de tous, partout et toujours.</p>
-  <p>PRO-MAX FM 106.5 FM</p>
- </div>
-</div>
+      <p id="radioError" class="media-error">
+        Foto radyo a pa jwenn sou chemen ki endike a.
+      </p>
+
+      <h3>PRO-MAX FM 106.5 FM</h3>
+      <p>Enfòmasyon • Mizik • Divètisman • Kominote</p>
+      <p>
+        Radyo a deja an dirèk. Seksyon sa a prezante
+        estasyon an san li pa modifye sistèm difizyon ki egziste a.
+      </p>
+    </div>
+  </div>
 </section>
 
-<section id="social" class="dark-section">
-<div class="container">
- <h2 class="title">10 SOCIAL NETWORKS</h2>
- <p class="intro">RETE KONEKTE AK BSS1815</p>
- <div class="social-grid" id="social-grid"></div>
-</div>
+<!-- SOCIAL NETWORKS -->
+<section id="social">
+  <div class="container">
+    <h2>FOLLOW BSS1815</h2>
+    <div id="socialLinks" class="social-grid"></div>
+  </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-<div class="container">
- <h2 class="title">CONTACT BSS1815</h2>
+  <div class="container">
+    <h2>CONTACT BSS1815</h2>
 
- <div class="grid">
-  <article class="card contact">
-   <h3>🇺🇸 UNITED STATES</h3>
+    <div class="grid grid-3">
+      <div class="card contact-card">
+        <h3>🇺🇸 UNITED STATES</h3>
+        <a href="tel:+14076405166">🇺🇸 (407) 640-5166</a>
+        <a href="tel:+13175381150">🇺🇸 (317) 538-1150</a>
+      </div>
 
-   <div class="phone-line">
-    <span class="flag">🇺🇸</span>
-    <a href="tel:+14076405166">
-     (407) 640-5166
-    </a>
-   </div>
+      <div class="card contact-card">
+        <h3>🇭🇹 HAITI</h3>
+        <a href="tel:+50942544447">🇭🇹 +509 4254 4447</a>
+        <a href="tel:+50943437488">🇭🇹 +509 4343 7488</a>
+      </div>
 
-   <div class="phone-line">
-    <span class="flag">🇺🇸</span>
-    <a href="tel:+13175381150">
-     (317) 538-1150
-    </a>
-   </div>
-  </article>
-
-  <article class="card contact">
-   <h3>🇭🇹 HAITI</h3>
-
-   <div class="phone-line">
-    <span class="flag">🇭🇹</span>
-    <a href="tel:+50942544447">
-     +509 4254 4447
-    </a>
-   </div>
-
-   <div class="phone-line">
-    <span class="flag">🇭🇹</span>
-    <a href="tel:+50943437488">
-     +509 4343 7488
-    </a>
-   </div>
-  </article>
-
-  <article class="card contact">
-   <h3>EMAIL & WEBSITE</h3>
-
-   <p>
-    <a href="mailto:bss1815promaxdmp@gmail.com">
-     bss1815promaxdmp@gmail.com
-    </a>
-   </p>
-
-   <p>
-    <a
-     href="https://bss1815pro-maxdmp.com"
-     target="_blank"
-     rel="noopener noreferrer">
-     bss1815pro-maxdmp.com
-    </a>
-   </p>
-  </article>
- </div>
-</div>
+      <div class="card contact-card">
+        <h3>EMAIL & WEBSITE</h3>
+        <a href="mailto:bss1815promaxdmp@gmail.com">
+          bss1815promaxdmp@gmail.com
+        </a>
+        <a href="https://bss1815pro-maxdmp.com/"
+           target="_blank" rel="noopener noreferrer">
+          bss1815pro-maxdmp.com
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 </main>
 
 <footer>
- <p>BRIYANT SOLÈY SIGNO 1815</p>
- <p>DEVAN DEVAN NÈT™</p>
- <p>BATI POU JODI A • PARE POU DEMEN</p>
- <p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p>
- <p>© <span id="year"></span> BSS1815 PRO-MAX DMP</p>
+  <p>BRIYANT SOLÈY SIGNO 1815</p>
+  <p>DEVAN DEVAN NÈT™</p>
+  <p>BATI POU JODI A • PARE POU DEMEN</p>
+  <p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN</p>
+  <p>© 2026 BSS1815 PRO-MAX DMP</p>
 </footer>
 
-<button id="ai-open" class="ai-button" type="button">
- 🤖 BSS1815 AI
-</button>
-
-<div
- id="ai-modal"
- class="modal"
- role="dialog"
- aria-modal="true"
- aria-label="BSS1815 AI Assistant">
- <div class="modal-panel">
-  <h2 style="color:var(--orange)">
-   BSS1815 AI ASSISTANT
-  </h2>
-  <p>Kijan nou kapab ede ou?</p>
-
-  <textarea
-   id="ai-question"
-   placeholder="Ekri kesyon ou..."></textarea>
-
-  <div class="controls">
-   <button id="ai-send" class="control" type="button">
-    VOYE KESYON
-   </button>
-   <button id="ai-close" class="control" type="button">
-    FÈMEN
-   </button>
-  </div>
-
-  <div
-   id="ai-answer"
-   class="ai-answer"
-   aria-live="polite"></div>
- </div>
-</div>
+<a id="aiHelp" href="#customer-service">🤖 BSS1815 AI</a>
 
 <script>
 "use strict";
 
-/* ==========================================
-   BSS1815 CONFIGURATION
-   ========================================== */
+const CONFIG = Object.freeze({
+  logo: "bss1815-doc.jpg",
+  avatar: "proavatar.mp4",
+  slideshowDelay: 5000
+});
 
-const CONFIG = {
- githubOwner: "louismaxauto600-jpg",
- githubRepo: "briyantsoleysigno1815-site",
- slideInterval: 5000,
- logo: "briyant-soley-signo-1815.jpg",
- avatar: "briyant-soley-signo-1815.mp4"
-};
-
-/* ==========================================
-   GITHUB FILE INDEX
-   ========================================== */
-
-let repositoryFiles = [];
-let repositoryBranch = "";
-
-function encodePath(path) {
- return path.split("/")
-  .map(encodeURIComponent)
-  .join("/");
-}
-
-function localAsset(path) {
- return "./" + encodePath(path);
-}
-
-function displayName(path) {
- return path.split("/").pop()
-  .replace(/\.[^.]+$/, "")
-  .replace(/[-_]/g," ")
-  .toUpperCase();
-}
-
-async function githubJSON(url) {
- const response = await fetch(url,{
-  headers:{
-   "Accept":"application/vnd.github+json"
-  }
- });
-
- if(!response.ok){
-  throw new Error("GitHub HTTP "+response.status);
- }
-
- return response.json();
-}
-
-async function loadRepositoryIndex() {
- const owner = encodeURIComponent(
-  CONFIG.githubOwner
- );
- const repo = encodeURIComponent(
-  CONFIG.githubRepo
- );
-
- const base =
-  "https://api.github.com/repos/" +
-  owner + "/" + repo;
-
- const info = await githubJSON(base);
- repositoryBranch = info.default_branch;
-
- const tree = await githubJSON(
-  base + "/git/trees/" +
-  encodeURIComponent(repositoryBranch) +
-  "?recursive=1"
- );
-
- if(tree.truncated){
-  throw new Error(
-   "Lis GitHub la pa konplè."
-  );
- }
-
- if(!Array.isArray(tree.tree)){
-  throw new Error(
-   "GitHub pa retounen lis fichye yo."
-  );
- }
-
- repositoryFiles = tree.tree.filter(
-  item => item.type === "blob"
- );
-}
-
-function findRepositoryFile(filename) {
- const exact = repositoryFiles.find(
-  item => item.path === filename
- );
-
- if(exact) return exact;
-
- const basenameMatches = repositoryFiles.filter(
-  item => item.path.split("/").pop() === filename
- );
-
- if(basenameMatches.length === 1){
-  return basenameMatches[0];
- }
-
- return null;
-}
-
-function githubRawURL(path) {
- return (
-  "https://raw.githubusercontent.com/" +
-  encodeURIComponent(CONFIG.githubOwner) + "/" +
-  encodeURIComponent(CONFIG.githubRepo) + "/" +
-  encodeURIComponent(repositoryBranch) + "/" +
-  encodePath(path)
- );
-}
-
-/* ==========================================
-   IMAGE LOADING
-   ========================================== */
-
-function imageLoads(url) {
- return new Promise(resolve=>{
-  const image = new Image();
-
-  image.onload = ()=>resolve(true);
-  image.onerror = ()=>resolve(false);
-
-  image.src = url;
- });
-}
-
-async function resolveImage(filename) {
- const local = localAsset(filename);
-
- if(await imageLoads(local)){
-  return local;
- }
-
- const match = findRepositoryFile(filename);
-
- if(match){
-  const raw = githubRawURL(match.path);
-
-  if(await imageLoads(raw)){
-   return raw;
-  }
- }
-
- return local;
-}
-
-async function repairImages() {
- const elements = [
-  ...document.querySelectorAll(
-   "img[data-media]"
-  )
- ];
-
- for(const element of elements){
-  const filename = element.dataset.media;
-  element.src = await resolveImage(filename);
- }
-}
-
-/* ==========================================
-   HISTORICAL FIGURES
-   ========================================== */
-
-const HISTORICAL_FIGURES = [
- {
-  name:"LECLERC FÉLIX",
-  title:"FONDATÈ BSS1815",
-  file:"Leclercfélix-II.jpg",
-  text:
-   "Leclerc Félix se premye gwo figi " +
-   "nan istwa BSS1815. Eritaj li " +
-   "makonnen ak Léogâne ak Dabònè, " +
-   "ak tradisyon travay ak konbit."
- },
- {
-  name:"KONKONT",
-  title:"YON GWO PILYE BSS1815",
-  file:"konkont-doc.jpg",
-  text:
-   "Konkont te fè yon travay kolosal " +
-   "pou BSS1815. Kontribisyon li " +
-   "merite rekonesans ak respè."
- },
- {
-  name:"PAPOUCHE STRATÈGE",
-  title:"MOTÈ AK STRATÈJ BSS1815",
-  file:"papouche-doc.jpg",
-  text:
-   "Papouche Stratège se youn nan " +
-   "poto mitan BSS1815. Li te " +
-   "kontribye nan jwenn solisyon " +
-   "pou pwoblèm kominote a."
- },
- {
-  name:"PIERRE MARTHONE — TI RAT",
-  title:"GADYEN FLANBO BSS1815",
-  file:"pierre-marthone.jpg",
-  text:
-   "Pierre Marthone, alias Ti Rat, " +
-   "te kenbe flanbo BSS1815 la " +
-   "pandan yon bon bout tan. " +
-   "Travay li rete nan memwa kominote a."
- }
+const historicalFiles = [
+  "Leclercfélix-II.jpg",
+  "konkont-doc.jpg",
+  "papouche-doc.jpg",
+  "pierre-marthone.jpg"
 ];
 
-async function renderHistory() {
- const grid = document.getElementById(
-  "historical-grid"
- );
+const photoFiles = [
+  "bss1815-doc.jpg",
+  "Leclercfélix-II.jpg",
+  "konkont-doc.jpg",
+  "papouche-doc.jpg",
+  "pierre-marthone.jpg",
+  "papit.png",
+  "fanfan.png",
+  "koukou.png",
+  "perodin.png",
+  "bss-1815.png",
+  "ti-lafrance.png",
+  "bss-fanclub.png",
+  "miami-an-aksyon.png",
+  "team-backup.png",
+  "sfc-5-stars.png",
+  "team-angrenay.png",
+  "papouche.png",
+  "konkont.jpg",
+  "Jeff-colin.jpg",
+  "max.jpg",
+  "montina.jpg",
+  "pro-max-fm-106.5.jpg",
+  "komandan-ralph.jpg",
+  "jude.jpg",
+  "valery.jpg",
+  "mass-vokal.jpg",
+  "dèdè.jpg",
+  "pèrodin.jpg",
+  "gg-max.jpg",
+  "lebaron.jpg",
+  "super-fanclub.jpg",
+  "team-sanpresyon.jpg",
+  "team-backup.jpg",
+  "komandan-landry.jpg",
+  "team-san-presyon.jpg",
+  "brunel.jpg",
+  "the-one.jpg",
+  "ti-lafrance.jpg",
+  "manbo-fifi.jpg",
+  "bss1815-IV.jpg",
+  "konkont-II.jpg",
+  "miami-an-aksyon.jpg",
+  "the-dunn.jpg",
+  "nòe-boulin.jpg",
+  "leogâne-info.jpg",
+  "prezidan-jude-josep.jpg",
+  "the-only-one.jpg",
+  "jackson-montina.jpg",
+  "marasa.jpg",
+  "the-real-team.jpg",
+  "nadia-lafortune.jpg",
+  "macu.jpg",
+  "nadou.jpg",
+  "nadou-II.jpg",
+  "maximax-II.jpg",
+  "prof-montina.jpg",
+  "hall-of-leaders.jpg",
+  "pauléma.jpg",
+  "tania-félix.jpg",
+  "tania-II.jpg",
+  "tania.jpg",
+  "tania-3.jpg",
+  "anpére-doudou.jpg",
+  "Leclercfélix.jpg",
+  "roro-lajan-III.jpg",
+  "sonson-miami.jpg",
+  "tatane-II.jpg",
+  "cangé-félix.jpg",
+  "papouche.jpg",
+  "nadou3.jpg",
+  "le-baron.jpg",
+  "platfom-bss.jpg",
+  "cool-max.jpg",
+  "cool-max-II.jpg",
+  "cool-max-III.jpg",
+  "max-is-in-green.jpg",
+  "cols.jpg",
+  "bss1815-I.jpg",
+  "Léogâne-info.jpg"
+];
 
- for(let i=0;i<HISTORICAL_FIGURES.length;i++){
-  const person = HISTORICAL_FIGURES[i];
+const uniqueNames = [...new Set(
+  photoFiles.map(x => x.trim()).filter(Boolean)
+)];
 
-  const card = document.createElement("article");
-  card.className = "card historical-card";
+const slideImage = document.getElementById("slideImage");
+const slideCaption = document.getElementById("slideCaption");
+const slideCounter = document.getElementById("slideCounter");
+const galleryGrid = document.getElementById("galleryGrid");
+const galleryStatus = document.getElementById("galleryStatus");
 
-  const image = document.createElement("img");
-  image.className = "portrait";
-  image.alt = person.name;
-  image.loading = "lazy";
-  image.src = await resolveImage(person.file);
-
-  const number = document.createElement("div");
-  number.className = "number";
-  number.textContent =
-   String(i+1).padStart(2,"0");
-
-  const heading = document.createElement("h3");
-  heading.textContent = person.name;
-
-  const subtitle = document.createElement("strong");
-  subtitle.textContent = person.title;
-
-  const description = document.createElement("p");
-  description.textContent = person.text;
-
-  card.append(
-   image,number,heading,subtitle,description
-  );
-
-  grid.appendChild(card);
- }
-}
-
-/* ==========================================
-   SLIDESHOW — GITHUB PHOTO COLLECTION
-   ========================================== */
-
-const IMAGE_EXTENSIONS =
- /\.(jpg|jpeg|png|webp|gif|avif)$/i;
-
-let allPhotos = [];
-let slideIndex = 0;
-let playing = true;
+let photos = [];
+let currentSlide = 0;
 let slideTimer = null;
+let playing = true;
 
-const slideImage = document.getElementById(
- "slide-image"
-);
-const slideCaption = document.getElementById(
- "slide-caption"
-);
-const slideStatus = document.getElementById(
- "slide-status"
-);
-const galleryGrid = document.getElementById(
- "gallery-grid"
-);
-const galleryMessage = document.getElementById(
- "gallery-message"
-);
-
-function showSlide(index) {
- if(!allPhotos.length) return;
-
- slideIndex =
-  (index + allPhotos.length) %
-  allPhotos.length;
-
- const photo = allPhotos[slideIndex];
-
- slideImage.src = photo.url;
- slideImage.alt = displayName(photo.name);
-
- slideCaption.textContent =
-  displayName(photo.name);
-
- slideStatus.textContent =
-  "FOTO " +
-  (slideIndex+1) +
-  " / " +
-  allPhotos.length;
+function readableName(filename){
+  return filename
+    .replace(/\.[^.]+$/, "")
+    .replace(/[-_]+/g, " ")
+    .toUpperCase();
 }
 
-function startSlideshow() {
- if(slideTimer){
-  clearInterval(slideTimer);
-  slideTimer = null;
- }
-
- if(playing && allPhotos.length>1){
-  slideTimer = setInterval(()=>{
-   showSlide(slideIndex+1);
-  },CONFIG.slideInterval);
- }
+function localPath(filename){
+  return "./" + encodeURIComponent(filename);
 }
 
-document.getElementById("slide-next")
- .addEventListener("click",()=>{
-  showSlide(slideIndex+1);
-  startSlideshow();
- });
+function loadImage(filename){
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve({filename,img});
+    img.onerror = () => resolve(null);
+    img.src = localPath(filename);
+  });
+}
 
-document.getElementById("slide-prev")
- .addEventListener("click",()=>{
-  showSlide(slideIndex-1);
-  startSlideshow();
- });
-
-document.getElementById("slide-pause")
- .addEventListener("click",event=>{
-  playing = !playing;
-
-  event.currentTarget.textContent =
-   playing ? "⏸ PAUSE" : "▶ PLAY";
-
-  startSlideshow();
- });
-
-function renderGallery() {
- galleryGrid.replaceChildren();
-
- allPhotos.forEach((photo,index)=>{
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "gallery-item";
-
-  const image = document.createElement("img");
-  image.src = photo.url;
-  image.alt = displayName(photo.name);
-  image.loading = "lazy";
-
-  const caption = document.createElement("span");
-  caption.textContent = displayName(photo.name);
-
-  button.append(image,caption);
-
-  button.addEventListener("click",()=>{
-   showSlide(index);
-   startSlideshow();
-
-   document.querySelector(".slideshow")
-    .scrollIntoView({
-     behavior:"smooth",
-     block:"center"
+function imageSignature(img){
+  try{
+    const canvas = document.createElement("canvas");
+    canvas.width = 16;
+    canvas.height = 16;
+    const ctx = canvas.getContext("2d", {
+      willReadFrequently:true
     });
+    ctx.drawImage(img,0,0,16,16);
+    const pixels = ctx.getImageData(0,0,16,16).data;
+    let values = [];
+    for(let i=0;i<pixels.length;i+=4){
+      const r = Math.round(pixels[i]/16);
+      const g = Math.round(pixels[i+1]/16);
+      const b = Math.round(pixels[i+2]/16);
+      values.push(r.toString(16)+g.toString(16)+b.toString(16));
+    }
+    return img.naturalWidth+"x"+img.naturalHeight+
+      ":"+values.join("");
+  }catch(e){
+    return null;
+  }
+}
+
+async function preparePhotos(){
+  galleryStatus.textContent = "AP VERIFYE FOTO YO...";
+  const results = await Promise.all(
+    uniqueNames.map(loadImage)
+  );
+  const signatures = new Set();
+  const valid = [];
+  let unavailable = 0;
+  let duplicates = 0;
+  for(const item of results){
+    if(!item){
+      unavailable++;
+      continue;
+    }
+    const signature = imageSignature(item.img);
+    if(signature && signatures.has(signature)){
+      duplicates++;
+      continue;
+    }
+    if(signature) signatures.add(signature);
+    valid.push(item.filename);
+  }
+  photos = valid;
+  currentSlide = 0;
+  renderSlide();
+  renderGallery();
+  galleryStatus.textContent =
+    photos.length + " FOTO DISPONIB • " +
+    duplicates + " DOUBLON DETEKTE • " +
+    unavailable + " FICHYE PA JWENN";
+  if(playing) startSlideshow();
+}
+
+function renderSlide(){
+  if(!photos.length){
+    slideImage.removeAttribute("src");
+    slideCaption.textContent = "PA GEN FOTO DISPONIB";
+    slideCounter.textContent = "FOTO 0 / 0";
+    return;
+  }
+  const filename = photos[currentSlide];
+  slideImage.src = localPath(filename);
+  slideImage.alt = readableName(filename);
+  slideCaption.textContent = readableName(filename);
+  slideCounter.textContent =
+    "FOTO " + (currentSlide+1) + " / " + photos.length;
+}
+
+function moveSlide(step){
+  if(!photos.length) return;
+  currentSlide =
+    (currentSlide+step+photos.length)%photos.length;
+  renderSlide();
+}
+
+function stopSlideshow(){
+  if(slideTimer){
+    clearInterval(slideTimer);
+    slideTimer = null;
+  }
+}
+
+function startSlideshow(){
+  stopSlideshow();
+  if(photos.length>1 && playing){
+    slideTimer = setInterval(
+      () => moveSlide(1),
+      CONFIG.slideshowDelay
+    );
+  }
+}
+
+document.getElementById("prevSlide")
+  .addEventListener("click",()=>{
+    moveSlide(-1);
+    startSlideshow();
   });
 
-  galleryGrid.appendChild(button);
- });
-}
+document.getElementById("nextSlide")
+  .addEventListener("click",()=>{
+    moveSlide(1);
+    startSlideshow();
+  });
 
-document.getElementById("gallery-toggle")
- .addEventListener("click",event=>{
-  galleryGrid.hidden = !galleryGrid.hidden;
+document.getElementById("pauseSlide")
+  .addEventListener("click",function(){
+    playing = !playing;
+    this.textContent = playing ? "⏸ PAUSE" : "▶ PLAY";
+    if(playing) startSlideshow();
+    else stopSlideshow();
+  });
 
-  event.currentTarget.setAttribute(
-   "aria-expanded",
-   String(!galleryGrid.hidden)
-  );
+document.getElementById("toggleGallery")
+  .addEventListener("click",function(){
+    const open = galleryGrid.classList.toggle("open");
+    this.textContent = open ?
+      "✕ FÈMEN GALERI A" :
+      "🖼 OUVRI GALERI A";
+  });
 
-  event.currentTarget.textContent =
-   galleryGrid.hidden
-    ? "🖼 OUVRI GALERI A"
-    : "✕ FÈMEN GALERI A";
- });
-
-function initializeGallery() {
- const files = repositoryFiles.filter(
-  item =>
-   IMAGE_EXTENSIONS.test(item.path) &&
-   item.path.split("/").pop().toLowerCase() !==
-    CONFIG.logo.toLowerCase()
- );
-
- allPhotos = files.map(item=>({
-  name:item.path.split("/").pop(),
-  path:item.path,
-  url:githubRawURL(item.path)
- }));
-
- if(!allPhotos.length){
-  slideStatus.textContent =
-   "Koleksyon foto a pa disponib.";
-
-  galleryMessage.hidden = false;
-  galleryMessage.textContent =
-   "GitHub pa retounen foto yo.";
-  return;
- }
-
- renderGallery();
- showSlide(0);
- startSlideshow();
-}
-
-/* ==========================================
-   PROF AVATAR VIDEO
-   ========================================== */
-
-async function resolveAvatar() {
- const video = document.getElementById(
-  "prof-avatar"
- );
-
- const source = document.getElementById(
-  "prof-avatar-source"
- );
-
- const status = document.getElementById(
-  "avatar-status"
- );
-
- const match = findRepositoryFile(
-  CONFIG.avatar
- );
-
- if(match){
-  source.src = githubRawURL(match.path);
-  video.load();
-  status.textContent = "";
- } else {
-  source.src = localAsset(CONFIG.avatar);
-  video.load();
-  status.textContent =
-   "Videyo a poko konfime nan lis GitHub la.";
- }
-}
-
-document.getElementById("avatar-play")
- .addEventListener("click",async()=>{
-  const video = document.getElementById(
-   "prof-avatar"
-  );
-
-  const status = document.getElementById(
-   "avatar-status"
-  );
-
-  try{
-   if(video.paused){
-    await video.play();
-    status.textContent = "";
-   }else{
-    video.pause();
-   }
-  }catch(error){
-   status.textContent =
-    "Navigatè a pa rive jwe videyo a.";
+function renderGallery(){
+  galleryGrid.replaceChildren();
+  for(let i=0;i<photos.length;i++){
+    const filename = photos[i];
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const caption = document.createElement("figcaption");
+    img.src = localPath(filename);
+    img.alt = readableName(filename);
+    img.loading = "lazy";
+    caption.textContent = readableName(filename);
+    figure.append(img,caption);
+    figure.addEventListener("click",()=>{
+      currentSlide = i;
+      renderSlide();
+      slideImage.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+    });
+    galleryGrid.appendChild(figure);
   }
- });
+}
 
-/* ==========================================
-   12 AI MODULES
-   ========================================== */
+const profVideo = document.getElementById("profVideo");
+const videoError = document.getElementById("videoError");
 
-const MODULES = [
- ["🎬","AI PRESENTATION","Prezantasyon dijital"],
- ["👥","AI MEMBERS","Jesyon manm"],
- ["📸","AI MEDIA CENTER","Foto ak videyo"],
- ["📄","AI DOCUMENTS","Dokiman ak achiv"],
- ["📚","AI REGISTRY","Rejis dijital"],
- ["🎙","AI VOICE SCRIPT","Narasyon ak anons"],
- ["📱","AI SOCIAL MEDIA","Rezo sosyal"],
- ["🎨","AI FLYER CREATOR","Kreyasyon afich"],
- ["📅","AI EVENTS","Jesyon evènman"],
- ["📡","AI BROADCAST","Difizyon"],
- ["💼","AI BUSINESS SUPPORT","Sipò biznis"],
- ["🤝","AI COMMUNITY SUPPORT","Sipò kominotè"]
+function showVideoError(message){
+  videoError.textContent = message;
+  videoError.style.display = "block";
+}
+
+profVideo.addEventListener("error",()=>{
+  showVideoError(
+    "Videyo a pa chaje. Verifye fichye: proavatar.mp4"
+  );
+});
+
+profVideo.addEventListener("loadedmetadata",()=>{
+  videoError.style.display = "none";
+});
+
+profVideo.addEventListener("stalled",()=>{
+  showVideoError(
+    "Chajman videyo a kanpe. Verifye koneksyon oswa fichye MP4 a."
+  );
+});
+
+document.getElementById("playProf")
+  .addEventListener("click",async()=>{
+    try{
+      if(profVideo.paused){
+        await profVideo.play();
+      }else{
+        profVideo.pause();
+      }
+    }catch(error){
+      showVideoError(
+        "Navigatè a pa kapab jwe proavatar.mp4. " +
+        "Fichye a ka pa disponib oswa kodèk videyo a pa sipòte."
+      );
+    }
+  });
+
+const modules = [
+  ["🎤","AI PRESENTATION","Prezantasyon dijital"],
+  ["👥","AI MEMBERS","Jesyon manm"],
+  ["🎬","AI MEDIA CENTER","Foto ak videyo"],
+  ["📄","AI DOCUMENTS","Dokiman dijital"],
+  ["📋","AI REGISTRY","Rejis dijital"],
+  ["🎙","AI VOICE SCRIPT","Narasyon ak anons"],
+  ["📱","AI SOCIAL MEDIA","Rezo sosyal"],
+  ["🎨","AI FLYER CREATOR","Kreyasyon afich"],
+  ["📅","AI EVENTS","Jesyon evènman"],
+  ["📡","AI BROADCAST","Difizyon"],
+  ["💼","AI BUSINESS SUPPORT","Sipò biznis"],
+  ["🤝","AI COMMUNITY SUPPORT","Sipò kominotè"]
 ];
 
-function renderModules(){
- const grid = document.getElementById(
-  "modules-grid"
- );
+const aiModules = document.getElementById("aiModules");
 
- MODULES.forEach(([symbol,name,description])=>{
+for(const [symbol,title,description] of modules){
   const card = document.createElement("article");
   card.className = "card module";
-
   const icon = document.createElement("div");
-  icon.className = "module-icon";
+  icon.className = "symbol";
   icon.textContent = symbol;
-
-  const title = document.createElement("h3");
-  title.textContent = name;
-
-  const text = document.createElement("p");
-  text.textContent = description;
-
-  card.append(icon,title,text);
-  grid.appendChild(card);
- });
+  const heading = document.createElement("h3");
+  heading.textContent = title;
+  const paragraph = document.createElement("p");
+  paragraph.textContent = description;
+  card.append(icon,heading,paragraph);
+  aiModules.appendChild(card);
 }
 
-/* ==========================================
-   10 SOCIAL NETWORKS
-   ========================================== */
-
-const SOCIALS = [
- ["Facebook","f","#1877f2",
-  "https://www.facebook.com/share/1By3KvYRrM/"],
- ["WhatsApp","☎","#25d366",
-  "https://wa.me/50943437488"],
- ["TikTok","♪","#25f4ee",
-  "https://www.tiktok.com/@maximax1960"],
- ["Instagram","◎","#e4405f",
-  "https://www.instagram.com/lebaron072/"],
- ["Telegram","➤","#229ed9",
-  "https://t.me/bss1815dmp"],
- ["YouTube","▶","#ff0033",
-  "https://www.youtube.com/@BSS1815PROMAXDMP"],
- ["Spotify","≋","#1ed760",
-  "https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
- ["X / Twitter","𝕏","#b8b8b8",
-  "https://x.com/w05g2m"],
- ["Truth Social","T","#4ca8e8",
-  "https://truthsocial.com/@briyant_soley_1815"],
- ["LinkedIn","in","#0a66c2",
-  "https://www.linkedin.com/in/maximax-multi-services-075ba2314"]
+const socials = [
+  [" Facebook","f","https://www.facebook.com/share/1By3KvYRrM/"],
+  ["WhatsApp","☎","https://wa.me/50943437488"],
+  ["TikTok","♪","https://www.tiktok.com/@maximax1960"],
+  ["Instagram","◎","https://www.instagram.com/lebaron072/"],
+  ["Telegram","✈","https://t.me/bss1815dmp"],
+  ["YouTube","▶","https://www.youtube.com/@BSS1815PROMAXDMP"],
+  [" Spotify","♫","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
+  ["X / Twitter","𝕏","https://x.com/w05g2m"],
+  ["Truth Social","T","https://truthsocial.com/@briyant_soley_1815"],
+  ["LinkedIn","in","https://www.linkedin.com/in/maximax-multi-services-075ba2314"]
 ];
 
-function renderSocials(){
- const grid = document.getElementById(
-  "social-grid"
- );
+const socialLinks = document.getElementById("socialLinks");
 
- SOCIALS.forEach(([name,symbol,color,url])=>{
-  const link = document.createElement("a");
-  link.className = "social";
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-
-  link.style.setProperty(
-   "--social-color",
-   color
-  );
-
+for(const [name,symbol,url] of socials){
+  const a = document.createElement("a");
+  a.className = "social";
+  a.href = url;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
   const icon = document.createElement("span");
-  icon.className = "social-icon";
   icon.textContent = symbol;
-
-  const label = document.createElement("span");
+  const label = document.createElement("div");
   label.textContent = name;
-
-  link.append(icon,label);
-  grid.appendChild(link);
- });
+  a.append(icon,label);
+  socialLinks.appendChild(a);
 }
 
-/* ==========================================
-   LANGUAGE SELECTOR
-   ========================================== */
-
-const TRANSLATIONS = {
- ht:
-  "Yon patrimwàn ki travèse jenerasyon. " +
-  "Yon istwa ki merite respè. " +
-  "Yon kominote ki kontinye bati avni li.",
- en:
-  "A heritage spanning generations. " +
-  "A history deserving respect. " +
-  "A community continuing to build its future.",
- fr:
-  "Un patrimoine qui traverse les générations. " +
-  "Une histoire qui mérite le respect. " +
-  "Une communauté qui continue de bâtir son avenir."
+const translations = {
+  ht:{
+    heroDescription:
+      "Yon patrimwàn ki travèse jenerasyon. Yon istwa ki merite respè. Yon kominote ki kontinye bati avni li."
+  },
+  en:{
+    heroDescription:
+      "A heritage spanning generations. A history worthy of respect. A community continuing to build its future."
+  },
+  fr:{
+    heroDescription:
+      "Un patrimoine qui traverse les générations. Une histoire qui mérite le respect. Une communauté qui continue de bâtir son avenir."
+  }
 };
 
 document.querySelectorAll("[data-lang]")
- .forEach(button=>{
-  button.addEventListener("click",()=>{
-   const lang = button.dataset.lang;
-
-   document.documentElement.lang = lang;
-
-   document.querySelectorAll("[data-lang]")
-    .forEach(item=>{
-     item.classList.toggle(
-      "active",
-      item === button
-     );
+  .forEach(button=>{
+    button.addEventListener("click",()=>{
+      const lang = button.dataset.lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-lang]")
+        .forEach(b=>b.classList.remove("active"));
+      button.classList.add("active");
+      document.querySelectorAll("[data-i18n]")
+        .forEach(element=>{
+          const key = element.dataset.i18n;
+          if(translations[lang]?.[key]){
+            element.textContent = translations[lang][key];
+          }
+        });
     });
-
-   document.getElementById(
-    "hero-description"
-   ).textContent = TRANSLATIONS[lang];
   });
- });
 
-/* ==========================================
-   AI ASSISTANT
-   ========================================== */
-
-const aiModal = document.getElementById(
- "ai-modal"
-);
-
-document.getElementById("ai-open")
- .addEventListener("click",()=>{
-  aiModal.classList.add("open");
- });
-
-document.getElementById("ai-close")
- .addEventListener("click",()=>{
-  aiModal.classList.remove("open");
- });
-
-aiModal.addEventListener("click",event=>{
- if(event.target === aiModal){
-  aiModal.classList.remove("open");
- }
-});
-
-document.addEventListener("keydown",event=>{
- if(event.key === "Escape"){
-  aiModal.classList.remove("open");
- }
-});
-
-document.getElementById("ai-send")
- .addEventListener("click",async()=>{
-  const message = document.getElementById(
-   "ai-question"
-  ).value.trim();
-
-  if(!message) return;
-
-  const output = document.getElementById(
-   "ai-answer"
-  );
-
-  output.textContent = "Ap trete kesyon ou...";
-
-  try{
-   const response = await fetch(
-    "/api/bss-ai",
-    {
-     method:"POST",
-     headers:{
-      "Content-Type":"application/json"
-     },
-     body:JSON.stringify({message})
-    }
-   );
-
-   if(!response.ok){
-    throw new Error("API unavailable");
-   }
-
-   const data = await response.json();
-
-   output.textContent =
-    data.reply ||
-    data.answer ||
-    data.message ||
-    "Pa gen repons.";
-
-  }catch(error){
-   output.textContent =
-    "Sèvis AI a pa disponib kounye a. " +
-    "Kontakte ekip BSS1815 la.";
-  }
- });
-
-/* ==========================================
-   INITIALIZE WEBSITE
-   ========================================== */
-
-async function initializeWebsite(){
- document.getElementById("year").textContent =
-  new Date().getFullYear();
-
- renderModules();
- renderSocials();
-
- try{
-  await loadRepositoryIndex();
- }catch(error){
-  console.warn(
-   "BSS1815 GitHub index:",
-   error
-  );
- }
-
- await renderHistory();
- await repairImages();
- await resolveAvatar();
-
- if(repositoryFiles.length){
-  initializeGallery();
- }else{
-  slideStatus.textContent =
-   "Lis foto GitHub la pa disponib.";
- }
-}
-
-initializeWebsite();
+preparePhotos();
 
 </script>
 </body>
