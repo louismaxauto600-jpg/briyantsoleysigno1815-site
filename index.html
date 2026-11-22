@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ht" translate="no">
 <head>
@@ -493,7 +494,7 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
   </div>
 </section>
 
-<!-- PROF VIDEO AVATAR - VIDEO SÈLMAN, PA GEN LOGO -->
+<!-- PROF VIDEO AVATAR -->
 <section id="customer-service">
   <div class="container">
     <h2>CUSTOMER SERVICE — PROF AVATAR</h2>
@@ -504,8 +505,9 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
         id="profVideo"
         controls
         playsinline
-        preload="metadata">
-        <source src="./prof-avatar.mp4" type="video/mp4">
+        preload="metadata"
+        poster="./bss1815-doc.jpg">
+        <source src="./proavatar.mp4" type="video/mp4">
         Navigatè ou a pa sipòte videyo sa a.
       </video>
 
@@ -554,6 +556,16 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
         Radyo a deja an dirèk. Seksyon sa a prezante
         estasyon an san li pa modifye sistèm difizyon ki egziste a.
       </p>
+
+      <!-- SÈL AJOUT: BOUTON RADIO -->
+      <a
+        href="https://bss1815pro-maxdmp.com/"
+        class="btn primary"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="margin-top:20px">
+        ▶ ANTRE NAN PRO-MAX FM 106.5 FM
+      </a>
     </div>
   </div>
 </section>
@@ -615,7 +627,7 @@ footer{text-align:center;padding:40px 15px;background:#090402;font-weight:bold}
 
 const CONFIG = Object.freeze({
   logo: "bss1815-doc.jpg",
-  avatar: "prof-avatar.mp4",
+  avatar: "proavatar.mp4",
   slideshowDelay: 5000
 });
 
@@ -901,7 +913,7 @@ function showVideoError(message){
 
 profVideo.addEventListener("error",()=>{
   showVideoError(
-    "Videyo a pa chaje. Verifye fichye: prof-avatar.mp4"
+    "Videyo a pa chaje. Verifye fichye: proavatar.mp4"
   );
 });
 
@@ -925,7 +937,7 @@ document.getElementById("playProf")
       }
     }catch(error){
       showVideoError(
-        "Navigatè a pa kapab jwe prof-avatar.mp4. " +
+        "Navigatè a pa kapab jwe proavatar.mp4. " +
         "Fichye a ka pa disponib oswa kodèk videyo a pa sipòte."
       );
     }
@@ -963,7 +975,7 @@ for(const [symbol,title,description] of modules){
 }
 
 const socials = [
-  ["【entity-Facebook¦canonical_name=Facebook】","f","https://www.facebook.com/share/1By3KvYRrM/"],
+  [" Facebook","f","https://www.facebook.com/share/1By3KvYRrM/"],
   ["WhatsApp","☎","https://wa.me/50943437488"],
   ["TikTok","♪","https://www.tiktok.com/@maximax1960"],
   ["Instagram","◎","https://www.instagram.com/lebaron072/"],
