@@ -715,8 +715,23 @@ const MEDIA_FILES = [
 "pierre-marthone.jpg"
 ];
 
-/* Remove exact duplicates only */
-const UNIQUE_MEDIA = [...new Set(MEDIA_FILES)];
+/* RETIRE TOUT DOUBLON YO — egzak + menm non ak ekstansyon diferan */
+function baseKey(filename){
+  return filename
+    .replace(/\.[^.]+$/, "")
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-");
+}
+const seenBase = new Set();
+const UNIQUE_MEDIA = [];
+for(const f of MEDIA_FILES){
+  const key = baseKey(f);
+  if(!seenBase.has(key)){
+    seenBase.add(key);
+    UNIQUE_MEDIA.push(f);
+  }
+}
 
 const slideImage = document.getElementById("slideImage");
 const slideCaption = document.getElementById("slideCaption");
