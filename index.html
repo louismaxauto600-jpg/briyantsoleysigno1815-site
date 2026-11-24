@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080301">
 <meta name="google" content="notranslate">
-
 <title>BRIYANT SOLÈY SIGNO 1815</title>
 
 <link rel="icon" href="./briyant-soley-signo-1815.jpg">
@@ -380,31 +379,7 @@ textarea{min-height:130px}
   border-radius:12px;
 }
 
-@media(max-width:1000px){
-  .heroes{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-}
-
-@media(max-width:600px){
-  .heroes,.grid{
-    grid-template-columns:1fr;
-  }
-
-  .logo{
-    width:75px;
-    height:75px;
-  }
-
-  .gallery{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  section{padding:40px 12px}
-  .portrait{height:340px}
-}
-
-/* COMMUNITY — TEAM DESIGN ONLY */
+/* COMMUNITY */
 
 #community .team-card{
   cursor:pointer;
@@ -456,14 +431,14 @@ textarea{min-height:130px}
   background:#000;
 }
 
-#bss-team-dialog .team-media-grid{
+.team-media-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:16px;
   margin-top:20px;
 }
 
-#bss-team-dialog .team-media-item{
+.team-media-item{
   min-width:0;
   padding:12px;
   border:1px solid var(--orange);
@@ -472,8 +447,8 @@ textarea{min-height:130px}
   text-align:center;
 }
 
-#bss-team-dialog .team-media-item img,
-#bss-team-dialog .team-media-item video{
+.team-media-item img,
+.team-media-item video{
   width:100%;
   height:230px;
   object-fit:contain;
@@ -481,17 +456,15 @@ textarea{min-height:130px}
   border-radius:10px;
 }
 
-#bss-team-dialog .team-media-item p{
+.team-media-item p{
   overflow-wrap:anywhere;
 }
 
-#bss-team-dialog .team-media-item button{
+.team-media-item button{
   margin:5px;
 }
 
-#bss-team-dialog [hidden]{
-  display:none!important;
-}
+[hidden]{display:none!important}
 
 #bss-team-status{
   text-align:center;
@@ -511,353 +484,355 @@ textarea{min-height:130px}
   background:#000;
 }
 
+.team-error{
+  font-size:12px;
+  overflow-wrap:anywhere;
+  color:var(--apricot);
+}
+
+@media(max-width:1000px){
+  .heroes{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:600px){
+  .heroes,.grid{
+    grid-template-columns:1fr;
+  }
+
+  .logo{
+    width:75px;
+    height:75px;
+  }
+
+  .gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  section{padding:40px 12px}
+  .portrait{height:340px}
+}
 </style>
 </head>
 
 <body>
 
 <header id="home">
-  <div class="top">
 
-    <div class="identity">
+<div class="top">
 
-      <img class="logo"
-           src="./briyant-soley-signo-1815.jpg"
-           alt="BRIYANT SOLÈY SIGNO 1815">
+  <div class="identity">
 
-      <div class="brand">
-        <h1>BRIYANT SOLÈY SIGNO 1815</h1>
-        <p>DEVAN DEVAN NÈT™</p>
-        <p>BATI POU JODI A, PARE POU DEMEN.</p>
-      </div>
+    <img class="logo"
+         src="./briyant-soley-signo-1815.jpg"
+         alt="BRIYANT SOLÈY SIGNO 1815">
 
-    </div>
-
-    <div class="langs">
-      <button data-lang="en">ENG</button>
-      <button data-lang="ht" class="active">KRE</button>
-      <button data-lang="fr">FRAN</button>
+    <div class="brand">
+      <h1>BRIYANT SOLÈY SIGNO 1815</h1>
+      <p>DEVAN DEVAN NÈT™</p>
+      <p>BATI POU JODI A, PARE POU DEMEN.</p>
     </div>
 
   </div>
 
-  <nav class="nav">
+  <div class="langs">
+    <button data-lang="en">ENG</button>
+    <button data-lang="ht" class="active">KRE</button>
+    <button data-lang="fr">FRAN</button>
+  </div>
 
-    <a href="#home" data-t="AKÈY|HOME|ACCUEIL">AKÈY</a>
-    <a href="#about" data-t="SOU NOU|ABOUT|À PROPOS">SOU NOU</a>
-    <a href="#history" data-t="ISTWA|HISTORY|HISTOIRE">ISTWA</a>
-    <a href="#memorandum">MEMORANDUM</a>
-    <a href="#features">FEATURES</a>
-    <a href="#community">COMMUNITY</a>
-    <a href="#slideshow">GALLERY</a>
-    <a href="#customer-service">CUSTOMER SERVICE</a>
-    <a href="#ai-center">AI CENTER</a>
-    <a href="#radio">PRO-MAX FM 106.5 FM</a>
-    <a href="#contact">CONTACT</a>
+</div>
 
-  </nav>
+<nav class="nav">
+
+  <a href="#home" data-t="AKÈY|HOME|ACCUEIL">AKÈY</a>
+  <a href="#about" data-t="SOU NOU|ABOUT|À PROPOS">SOU NOU</a>
+  <a href="#history" data-t="ISTWA|HISTORY|HISTOIRE">ISTWA</a>
+  <a href="#memorandum">MEMORANDUM</a>
+  <a href="#features">FEATURES</a>
+  <a href="#community">COMMUNITY</a>
+  <a href="#slideshow">GALLERY</a>
+  <a href="#customer-service">CUSTOMER SERVICE</a>
+  <a href="#ai-center">AI CENTER</a>
+  <a href="#radio">PRO-MAX FM 106.5 FM</a>
+  <a href="#contact">CONTACT</a>
+
+</nav>
 
 </header>
 
 <main>
 
-<!-- HERO -->
-
 <section class="hero">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <img class="hero-logo"
-         src="./briyant-soley-signo-1815.jpg"
-         alt="Logo ofisyèl BSS1815">
+  <img class="hero-logo"
+       src="./briyant-soley-signo-1815.jpg"
+       alt="Logo ofisyèl BSS1815">
 
-    <p>PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI</p>
+  <p>PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI</p>
 
-    <h2>BRIYANT SOLÈY SIGNO 1815</h2>
+  <h2>BRIYANT SOLÈY SIGNO 1815</h2>
 
-    <p data-t="Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.|A legacy spanning generations. A community building its future.|Un héritage qui traverse les générations. Une communauté qui construit son avenir.">
-      Yon eritaj ki travèse jenerasyon.
-      Yon kominote ki kontinye bati avni li.
-    </p>
+  <p data-t="Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.|A legacy spanning generations. A community building its future.|Un héritage qui traverse les générations. Une communauté qui construit son avenir.">
+    Yon eritaj ki travèse jenerasyon.
+    Yon kominote ki kontinye bati avni li.
+  </p>
 
-    <h3>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</h3>
+  <h3>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</h3>
 
-    <div class="actions">
-      <a class="btn" href="#history">DEKOUVRI ISTWA NOU</a>
-      <a class="btn" href="#community">COMMUNITY</a>
-      <a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a>
-    </div>
-
+  <div class="actions">
+    <a class="btn" href="#history">DEKOUVRI ISTWA NOU</a>
+    <a class="btn" href="#community">COMMUNITY</a>
+    <a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a>
   </div>
 
-</section>
+</div>
 
-<!-- MEMORANDUM -->
+</section>
 
 <section id="memorandum" class="memorial">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title"
-        data-t="MEMORANDUM — 4 EWO NOU PAP JANM BLIYE|MEMORANDUM — 4 HEROES WE WILL NEVER FORGET|MÉMORANDUM — 4 HÉROS INOUBLIABLES">
-      MEMORANDUM — 4 EWO NOU PAP JANM BLIYE
-    </h2>
+  <h2 class="title"
+      data-t="MEMORANDUM — 4 EWO NOU PAP JANM BLIYE|MEMORANDUM — 4 HEROES WE WILL NEVER FORGET|MÉMORANDUM — 4 HÉROS INOUBLIABLES">
+    MEMORANDUM — 4 EWO NOU PAP JANM BLIYE
+  </h2>
 
-    <p class="intro">
-      Nou onore kat gwo moniman istorik BSS1815.
-      Travay yo ak eritaj yo pap janm efase.
-    </p>
+  <p class="intro">
+    Nou onore kat gwo moniman istorik BSS1815.
+    Travay yo ak eritaj yo pap janm efase.
+  </p>
 
-    <div class="heroes" id="memorial-grid"></div>
+  <div class="heroes" id="memorial-grid"></div>
 
-    <h3 style="text-align:center;color:var(--orange)">
-      BSS1815 — NOU PAP JANM BLIYE.
-    </h3>
+  <h3 style="text-align:center;color:var(--orange)">
+    BSS1815 — NOU PAP JANM BLIYE.
+  </h3>
 
-  </div>
+</div>
 
 </section>
-
-<!-- ABOUT -->
 
 <section id="about">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">ABOUT BSS1815</h2>
+  <h2 class="title">ABOUT BSS1815</h2>
 
-    <div class="grid">
+  <div class="grid">
 
-      <article class="card">
-        <h3>ISTWA NOU</h3>
-        <p>Prezève memwa ak kontribisyon jenerasyon ki te travay pou bati BSS1815.</p>
-      </article>
+    <article class="card">
+      <h3>ISTWA NOU</h3>
+      <p>Prezève memwa ak kontribisyon jenerasyon ki te travay pou bati BSS1815.</p>
+    </article>
 
-      <article class="card">
-        <h3>MISYON NOU</h3>
-        <p>Rasanble kominote a, valorize manm yo epi transmèt eritaj nou.</p>
-      </article>
+    <article class="card">
+      <h3>MISYON NOU</h3>
+      <p>Rasanble kominote a, valorize manm yo epi transmèt eritaj nou.</p>
+    </article>
 
-      <article class="card">
-        <h3>VIZYON NOU</h3>
-        <p>Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.</p>
-      </article>
-
-    </div>
+    <article class="card">
+      <h3>VIZYON NOU</h3>
+      <p>Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.</p>
+    </article>
 
   </div>
 
-</section>
+</div>
 
-<!-- HISTORY -->
+</section>
 
 <section id="history">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title"
-        data-t="ISTWA PA JANM EFASE|HISTORY IS NEVER ERASED|L'HISTOIRE NE S'EFFACE JAMAIS">
-      ISTWA PA JANM EFASE
-    </h2>
+  <h2 class="title"
+      data-t="ISTWA PA JANM EFASE|HISTORY IS NEVER ERASED|L'HISTOIRE NE S'EFFACE JAMAIS">
+    ISTWA PA JANM EFASE
+  </h2>
 
-    <p class="intro">
-      Chak jenerasyon pote kontribisyon pa li.
-      Nou rekonèt moun ki te kenbe flanbo BSS1815 la limen.
-    </p>
+  <p class="intro">
+    Chak jenerasyon pote kontribisyon pa li.
+    Nou rekonèt moun ki te kenbe flanbo BSS1815 la limen.
+  </p>
 
-    <div class="heroes" id="history-grid"></div>
+  <div class="heroes" id="history-grid"></div>
 
-  </div>
+</div>
 
 </section>
-
-<!-- SLIDESHOW AND GALLERY -->
 
 <section id="slideshow" class="media">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">BSS1815 — SLIDESHOW & GALERI</h2>
+  <h2 class="title">BSS1815 — SLIDESHOW & GALERI</h2>
 
-    <p class="intro">
-      YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON
-    </p>
+  <p class="intro">
+    YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON
+  </p>
 
-    <div class="slide">
-      <div id="slide-media"></div>
-      <div class="caption" id="slide-caption">BSS1815</div>
-    </div>
-
-    <div class="controls">
-      <button id="prev">❮ PREVIOUS</button>
-      <button id="pause">⏸ PAUSE</button>
-      <button id="next">NEXT ❯</button>
-    </div>
-
-    <p id="slide-status" style="text-align:center"></p>
-
-    <div class="controls">
-      <button id="toggle-gallery">
-        <i class="fa-solid fa-images"></i>
-        OUVRI GALERI A
-      </button>
-    </div>
-
-    <div id="gallery" class="gallery" hidden></div>
-
+  <div class="slide">
+    <div id="slide-media"></div>
+    <div class="caption" id="slide-caption">BSS1815</div>
   </div>
 
-</section>
+  <div class="controls">
+    <button id="prev">❮ PREVIOUS</button>
+    <button id="pause">⏸ PAUSE</button>
+    <button id="next">NEXT ❯</button>
+  </div>
 
-<!-- FEATURES -->
+  <p id="slide-status" style="text-align:center"></p>
+
+  <div class="controls">
+    <button id="toggle-gallery">
+      <i class="fa-solid fa-images"></i>
+      OUVRI GALERI A
+    </button>
+  </div>
+
+  <div id="gallery" class="gallery" hidden></div>
+
+</div>
+
+</section>
 
 <section id="features">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">FEATURES & COMMUNITY SERVICES</h2>
+  <h2 class="title">FEATURES & COMMUNITY SERVICES</h2>
 
-    <div class="grid">
+  <div class="grid">
 
-      <article class="card">
-        <h3>HERITAGE CENTER</h3>
-        <p>Memwa, dokiman ak kontribisyon istorik.</p>
-        <a class="btn" href="#history">EXPLORE</a>
-      </article>
+    <article class="card">
+      <h3>HERITAGE CENTER</h3>
+      <p>Memwa, dokiman ak kontribisyon istorik.</p>
+      <a class="btn" href="#history">EXPLORE</a>
+    </article>
 
-      <article class="card">
-        <h3>MEDIA GALLERY</h3>
-        <p>Foto, videyo, aktivite ak moman istorik.</p>
-        <a class="btn" href="#slideshow">VIEW GALLERY</a>
-      </article>
+    <article class="card">
+      <h3>MEDIA GALLERY</h3>
+      <p>Foto, videyo, aktivite ak moman istorik.</p>
+      <a class="btn" href="#slideshow">VIEW GALLERY</a>
+    </article>
 
-      <article class="card">
-        <h3>COMMUNITY CENTER</h3>
-        <p>Ekip, manm ak aktivite kominotè.</p>
-        <a class="btn" href="#community">EXPLORE</a>
-      </article>
+    <article class="card">
+      <h3>COMMUNITY CENTER</h3>
+      <p>Ekip, manm ak aktivite kominotè.</p>
+      <a class="btn" href="#community">EXPLORE</a>
+    </article>
 
-      <article class="card">
-        <h3>AI CENTER</h3>
-        <p>Zouti dijital pou kominote BSS1815.</p>
-        <a class="btn" href="#ai-center">OPEN CENTER</a>
-      </article>
-
-    </div>
+    <article class="card">
+      <h3>AI CENTER</h3>
+      <p>Zouti dijital pou kominote BSS1815.</p>
+      <a class="btn" href="#ai-center">OPEN CENTER</a>
+    </article>
 
   </div>
+
+</div>
 
 </section>
 
-<!-- COMMUNITY — FIVE OFFICIAL TEAMS -->
+<!-- FIVE OFFICIAL TEAMS — UPDATED -->
 
 <section id="community">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">BSS1815 COMMUNITY</h2>
+  <h2 class="title">BSS1815 COMMUNITY</h2>
 
-    <div class="grid" id="community-grid">
+  <div class="grid" id="community-grid">
 
-      <!-- TEAM SAN PRESYON -->
+    <article class="card tribute team-card"
+             data-team="san-presyon">
 
-      <article class="card tribute team-card"
-               data-team="san-presyon">
+      <img class="portrait"
+           src="./teamsanpresyon.jpeg"
+           alt="TEAM SAN PRESYON">
 
-        <img class="portrait"
-             src="./teamsanpresyon.jpeg"
-             alt="TEAM SAN PRESYON">
+      <h3>TEAM SAN PRESYON</h3>
 
-        <h3>TEAM SAN PRESYON</h3>
+      <button class="btn primary" type="button">
+        OPEN TEAM
+      </button>
 
-        <button class="btn primary"
-                type="button">
-          OPEN TEAM
-        </button>
+    </article>
 
-      </article>
+    <article class="card tribute team-card"
+             data-team="backup">
 
-      <!-- TEAM BACKUP -->
+      <img class="portrait"
+           src="./team-bakup.jpg"
+           alt="TEAM BACKUP">
 
-      <article class="card tribute team-card"
-               data-team="backup">
+      <h3>TEAM BACKUP</h3>
 
-        <img class="portrait"
-             src="./team-backup-2.jpg"
-             alt="TEAM BACKUP">
+      <button class="btn primary" type="button">
+        OPEN TEAM
+      </button>
 
-        <h3>TEAM BACKUP</h3>
+    </article>
 
-        <button class="btn primary"
-                type="button">
-          OPEN TEAM
-        </button>
+    <article class="card tribute team-card"
+             data-team="miami">
 
-      </article>
+      <video class="portrait"
+             src="./miami-an-aksyon2.mp4"
+             autoplay
+             muted
+             loop
+             playsinline
+             preload="auto">
+      </video>
 
-      <!-- MIAMI AN AKSYON -->
+      <h3>MIAMI AN AKSYON</h3>
 
-      <article class="card tribute team-card"
-               data-team="miami">
+      <button class="btn primary" type="button">
+        OPEN TEAM
+      </button>
 
-        <video class="portrait"
-               src="./la-difference.mp4"
-               autoplay
-               muted
-               loop
-               playsinline
-               preload="metadata">
-        </video>
+    </article>
 
-        <h3>MIAMI AN AKSYON</h3>
+    <article class="card tribute team-card"
+             data-team="angrenay">
 
-        <button class="btn primary"
-                type="button">
-          OPEN TEAM
-        </button>
+      <img class="portrait"
+           src="./teamangrenay.png"
+           alt="TEAM ANGRENAY">
 
-      </article>
+      <h3>TEAM ANGRENAY</h3>
 
-      <!-- TEAM ANGRENAY -->
+      <button class="btn primary" type="button">
+        OPEN TEAM
+      </button>
 
-      <article class="card tribute team-card"
-               data-team="angrenay">
+    </article>
 
-        <img class="portrait"
-             src="./team-angrenay.jpg"
-             alt="TEAM ANGRENAY">
+    <article class="card tribute team-card"
+             data-team="super-fanclub">
 
-        <h3>TEAM ANGRENAY</h3>
+      <img class="portrait"
+           src="./super-fanclub-5.jpg"
+           alt="SUPER FANCLUB">
 
-        <button class="btn primary"
-                type="button">
-          OPEN TEAM
-        </button>
+      <h3>SUPER FANCLUB</h3>
 
-      </article>
+      <button class="btn primary" type="button">
+        OPEN TEAM
+      </button>
 
-      <!-- SUPER FANCLUB -->
-
-      <article class="card tribute team-card"
-               data-team="super-fanclub">
-
-        <img class="portrait"
-             id="super-fanclub-cover"
-             src="./super-fanclub.jpg"
-             alt="SUPER FANCLUB">
-
-        <h3>SUPER FANCLUB</h3>
-
-        <button class="btn primary"
-                type="button">
-          OPEN TEAM
-        </button>
-
-      </article>
-
-    </div>
+    </article>
 
   </div>
+
+</div>
 
 </section>
 
@@ -865,180 +840,167 @@ textarea{min-height:130px}
 
 <section id="customer-service">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2>
+  <h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2>
 
-    <div class="avatar">
+  <div class="avatar">
 
-      <video id="avatar"
-             controls
-             playsinline
-             preload="metadata">
+    <video id="avatar"
+           src="./prof-avatar-cust.mp4"
+           controls
+           playsinline
+           preload="metadata">
+    </video>
 
-        <source src="./prof-avatar-cust.mp4"
-                type="video/mp4">
+    <h3>PROF AVATAR — BSS1815</h3>
 
-      </video>
+    <p>Byenveni nan sèvis asistans BRIYANT SOLÈY SIGNO 1815.</p>
 
-      <h3>PROF AVATAR — BSS1815</h3>
+    <div class="actions">
 
-      <p>Byenveni nan sèvis asistans BRIYANT SOLÈY SIGNO 1815.</p>
+      <button class="btn primary" id="play-avatar">
+        <i class="fa-solid fa-play"></i>
+        PLAY VIDEO
+      </button>
 
-      <div class="actions">
-
-        <button class="btn primary" id="play-avatar">
-          <i class="fa-solid fa-play"></i>
-          PLAY VIDEO
-        </button>
-
-        <button class="btn" onclick="openModule(11)">
-          ASK AI
-        </button>
-
-      </div>
+      <button class="btn" onclick="openModule(11)">
+        ASK AI
+      </button>
 
     </div>
 
   </div>
 
-</section>
+</div>
 
-<!-- 12 AI MODULES -->
+</section>
 
 <section id="ai-center">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">BSS1815 — AI CENTER</h2>
+  <h2 class="title">BSS1815 — AI CENTER</h2>
 
-    <p class="intro">
-      12 DIGITAL TOOLS • COMMUNITY • INNOVATION
-    </p>
+  <p class="intro">
+    12 DIGITAL TOOLS • COMMUNITY • INNOVATION
+  </p>
 
-    <div class="grid" id="modules"></div>
+  <div class="grid" id="modules"></div>
 
-  </div>
+</div>
 
 </section>
-
-<!-- RADIO -->
 
 <section id="radio">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">PRO-MAX FM 106.5 FM</h2>
+  <h2 class="title">PRO-MAX FM 106.5 FM</h2>
 
-    <div class="card" style="text-align:center">
+  <div class="card" style="text-align:center">
 
-      <h3>LA FORCE DU SON</h3>
+    <h3>LA FORCE DU SON</h3>
 
-      <p>Une voix qui nous rassemble.</p>
+    <p>Une voix qui nous rassemble.</p>
 
-      <a class="btn primary"
-         href="https://link.radioking.com/modern-radio192"
-         target="_blank"
-         rel="noopener noreferrer">
-        RADIO — DIGITAL PLATFORM
-      </a>
-
-    </div>
+    <a class="btn primary"
+       href="https://bss1815promaxdmp.com/"
+       target="_blank"
+       rel="noopener noreferrer">
+      RADIO — DIGITAL PLATFORM
+    </a>
 
   </div>
 
-</section>
+</div>
 
-<!-- CONTACT -->
+</section>
 
 <section id="contact">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">CONTACT BSS1815</h2>
+  <h2 class="title">CONTACT BSS1815</h2>
 
-    <div class="grid">
+  <div class="grid">
 
-      <article class="card contact">
+    <article class="card contact">
 
-        <img class="flag"
-             src="https://flagcdn.com/w160/us.png"
-             alt="United States Flag">
+      <img class="flag"
+           src="https://flagcdn.com/w160/us.png"
+           alt="United States Flag">
 
-        <h3>🇺🇸 UNITED STATES</h3>
+      <h3>🇺🇸 UNITED STATES</h3>
 
-        <a class="phone" href="tel:+14076405166">
-          <i class="fa-solid fa-phone"></i>
-          (407) 640-5166
-        </a>
+      <a class="phone" href="tel:+14076405166">
+        <i class="fa-solid fa-phone"></i>
+        (407) 640-5166
+      </a>
 
-        <a class="phone" href="tel:+13175381150">
-          <i class="fa-solid fa-phone"></i>
-          (317) 538-1150
-        </a>
+      <a class="phone" href="tel:+13175381150">
+        <i class="fa-solid fa-phone"></i>
+        (317) 538-1150
+      </a>
 
-      </article>
+    </article>
 
-      <article class="card contact">
+    <article class="card contact">
 
-        <img class="flag"
-             src="https://flagcdn.com/w160/ht.png"
-             alt="Drapo Ayiti">
+      <img class="flag"
+           src="https://flagcdn.com/w160/ht.png"
+           alt="Drapo Ayiti">
 
-        <h3>🇭🇹 HAÏTI — AYITI</h3>
+      <h3>🇭🇹 HAÏTI — AYITI</h3>
 
-        <a class="phone" href="tel:+50942544447">
-          <i class="fa-solid fa-phone"></i>
-          +509 4254-4447
-        </a>
+      <a class="phone" href="tel:+50942544447">
+        <i class="fa-solid fa-phone"></i>
+        +509 4254-4447
+      </a>
 
-        <a class="phone" href="tel:+50943437488">
-          <i class="fa-solid fa-phone"></i>
-          +509 4343-7488
-        </a>
+      <a class="phone" href="tel:+50943437488">
+        <i class="fa-solid fa-phone"></i>
+        +509 4343-7488
+      </a>
 
-      </article>
+    </article>
 
-      <article class="card contact">
+    <article class="card contact">
 
-        <i class="fa-solid fa-envelope"
-           style="font-size:45px;color:var(--orange)">
-        </i>
+      <i class="fa-solid fa-envelope"
+         style="font-size:45px;color:var(--orange)">
+      </i>
 
-        <h3>EMAIL OFFICIEL</h3>
+      <h3>EMAIL OFFICIEL</h3>
 
-        <a style="overflow-wrap:anywhere"
-           href="mailto:bss1815promaxdmp@gmail.com">
-          bss1815promaxdmp@gmail.com
-        </a>
+      <a style="overflow-wrap:anywhere"
+         href="mailto:bss1815promaxdmp@gmail.com">
+        bss1815promaxdmp@gmail.com
+      </a>
 
-        <p>SIGNO — LÉOGÂNE — AYITI</p>
+      <p>SIGNO — LÉOGÂNE — AYITI</p>
 
-      </article>
-
-    </div>
+    </article>
 
   </div>
+
+</div>
 
 </section>
 
-<!-- SOCIAL NETWORKS -->
-
 <section id="social-networks">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <h2 class="title">SOCIAL NETWORKS</h2>
+  <h2 class="title">SOCIAL NETWORKS</h2>
 
-    <div class="socials" id="social-grid"></div>
+  <div class="socials" id="social-grid"></div>
 
-  </div>
+</div>
 
 </section>
 
 </main>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -1064,8 +1026,6 @@ textarea{min-height:130px}
   BSS1815 AI
 </button>
 
-<!-- AI MODULE WINDOW -->
-
 <dialog id="module-dialog">
 
   <h2 id="module-title" style="color:var(--orange)"></h2>
@@ -1078,17 +1038,22 @@ textarea{min-height:130px}
             placeholder="Antre enfòmasyon ou yo..."></textarea>
 
   <div class="controls">
+
     <button class="btn primary" onclick="runModule()">GENERATE</button>
+
     <button class="btn" onclick="copyOutput()">COPY</button>
+
     <button class="btn" onclick="saveOutput()">SAVE</button>
+
     <button class="btn" onclick="moduleDialog.close()">CLOSE</button>
+
   </div>
 
   <pre id="output"></pre>
 
 </dialog>
 
-<!-- INDEPENDENT TEAM WINDOW -->
+<!-- TEAM MANAGEMENT -->
 
 <dialog id="bss-team-dialog">
 
@@ -1141,22 +1106,16 @@ textarea{min-height:130px}
     LOCAL MEDIA STORAGE — Aparèy sa a sèlman.
   </p>
 
-  <div id="bss-team-media"
-       class="team-media-grid">
-  </div>
+  <div id="bss-team-media" class="team-media-grid"></div>
 
 </dialog>
-
-<!-- TEAM MEDIA VIEWER -->
 
 <dialog id="bss-team-viewer">
 
   <div class="controls">
-
     <button class="btn" id="bss-viewer-close">
       ✕ CLOSE
     </button>
-
   </div>
 
   <div id="bss-viewer-content"></div>
@@ -1168,9 +1127,7 @@ textarea{min-height:130px}
 <script>
 "use strict";
 
-/* ==================================================
-   OFFICIAL ASSETS
-================================================== */
+/* OFFICIAL ASSETS */
 
 const LOGO = "briyant-soley-signo-1815.jpg";
 const PROF_AVATAR = "prof-avatar-cust.mp4";
@@ -1208,21 +1165,20 @@ function loadImage(img,files){
       img.src = candidates[position];
     }else{
       img.onerror = null;
-      img.alt = img.alt + " — Foto pa disponib";
+      img.alt += " — Foto pa disponib";
     }
 
   };
 
   img.src = candidates[0];
+
 }
 
 document.querySelectorAll(
   ".logo,.hero-logo,footer img"
 ).forEach(img => loadImage(img,LOGO));
 
-/* ==================================================
-   FOUR HISTORICAL HEROES
-================================================== */
+/* HISTORICAL HEROES */
 
 const HEROES = [
   {
@@ -1297,39 +1253,47 @@ function renderHeroes(containerId){
 renderHeroes("memorial-grid");
 renderHeroes("history-grid");
 
-/* ==================================================
-   COMMUNITY — FIVE INDEPENDENT TEAM CENTERS
-================================================== */
+/* ================================================
+   FIVE TEAMS — CORRECTED GITHUB FILENAMES
+================================================ */
 
 const TEAMS = [
   {
     id:"san-presyon",
     name:"TEAM SAN PRESYON",
-    files:["teamsanpresyon.jpeg"],
+    files:[
+      "teamsanpresyon.jpeg",
+      "team-san-presyon.jpg",
+      "team-sanpresyon.jpg"
+    ],
     video:false
   },
   {
     id:"backup",
     name:"TEAM BACKUP",
-    files:["team-backup-2.jpg"],
+    files:["team-bakup.jpg","team-backup-2.jpg"],
     video:false
   },
   {
     id:"miami",
     name:"MIAMI AN AKSYON",
-    files:["la-difference.mp4"],
+    files:["miami-an-aksyon2.mp4"],
     video:true
   },
   {
     id:"angrenay",
     name:"TEAM ANGRENAY",
-    files:["team-angrenay.jpg"],
+    files:["teamangrenay.png","team-angrenay.jpg"],
     video:false
   },
   {
     id:"super-fanclub",
     name:"SUPER FANCLUB",
-    files:["super-fanclub.jpg","sfc-5-stars.jpg"],
+    files:[
+      "super-fanclub-5.jpg",
+      "super-fanclub.jpg",
+      "sfc-5-stars.jpg"
+    ],
     video:false
   }
 ];
@@ -1347,45 +1311,136 @@ let teamObjectURLs = [];
 let viewerObjectURL = null;
 let teamUploading = false;
 
-/* KEEP EXISTING SUPER FANCLUB COVER */
+/* SAME MEDIA LOADER FOR ALL FIVE TEAMS */
 
-loadImage(
-  teamElement("super-fanclub-cover"),
-  ["super-fanclub.jpg","sfc-5-stars.jpg"]
-);
+function loadTeamCover(media,team){
 
-/* DIRECT ROOT MEDIA PATHS */
+  const candidates = [
+    ...new Set(
+      team.files.flatMap(
+        file => BASES.map(
+          base => assetURL(base,file)
+        )
+      )
+    )
+  ];
+
+  let position = 0;
+
+  media.onerror = function(){
+
+    position++;
+
+    if(position < candidates.length){
+
+      media.src = candidates[position];
+
+      if(team.video){
+        media.load();
+      }
+
+    }else{
+
+      media.onerror = null;
+
+      const parent = media.parentElement;
+
+      if(parent && !parent.querySelector(".team-error")){
+
+        const message = document.createElement("p");
+
+        message.className = "team-error";
+
+        message.textContent =
+          "Media unavailable: " + team.files[0];
+
+        parent.append(message);
+
+      }
+
+    }
+
+  };
+
+  media.src = candidates[0];
+
+  if(team.video){
+    media.load();
+  }
+
+}
 
 function createTeamCover(team){
 
+  const media = document.createElement(
+    team.video ? "video" : "img"
+  );
+
+  media.className = "team-cover";
+
   if(team.video){
 
-    const video = document.createElement("video");
+    media.controls = true;
+    media.playsInline = true;
+    media.preload = "metadata";
 
-    video.className = "team-cover";
-    video.src = "./" + encodeURIComponent(team.files[0]);
-    video.controls = true;
-    video.playsInline = true;
-    video.preload = "metadata";
-
-    return video;
-  }
-
-  const image = document.createElement("img");
-
-  image.className = "team-cover";
-  image.alt = team.name;
-
-  if(team.id === "super-fanclub"){
-    loadImage(image,team.files);
   }else{
-    image.src = "./" + encodeURIComponent(team.files[0]);
+
+    media.alt = team.name;
+
   }
 
-  return image;
+  loadTeamCover(media,team);
+
+  return media;
+
 }
 
-/* TEAM DATABASE */
+/* ACTIVATE ALL FIVE CARDS */
+
+document.querySelectorAll(
+  "#community [data-team]"
+).forEach(card => {
+
+  const team = TEAMS.find(
+    item => item.id === card.dataset.team
+  );
+
+  if(!team)return;
+
+  const media = card.querySelector("img,video");
+
+  if(team.video){
+
+    media.muted = true;
+    media.autoplay = true;
+    media.loop = true;
+    media.playsInline = true;
+
+  }
+
+  loadTeamCover(media,team);
+
+  card.addEventListener("click",() => {
+
+    openTeam(team);
+
+  });
+
+  card.querySelector("button").addEventListener(
+    "click",
+    event => {
+
+      event.stopPropagation();
+
+      openTeam(team);
+
+    }
+  );
+
+});
+
+/* INDEPENDENT TEAM DATABASE */
 
 function openTeamDatabase(){
 
@@ -1396,8 +1451,11 @@ function openTeamDatabase(){
   teamDatabasePromise = new Promise((resolve,reject) => {
 
     if(!window.indexedDB){
+
       reject(new Error("IndexedDB unavailable"));
+
       return;
+
     }
 
     const request = indexedDB.open(
@@ -1434,8 +1492,11 @@ function openTeamDatabase(){
       const db = request.result;
 
       db.onversionchange = () => {
+
         db.close();
+
         teamDatabasePromise = null;
+
       };
 
       resolve(db);
@@ -1451,14 +1512,14 @@ function openTeamDatabase(){
   }).catch(error => {
 
     teamDatabasePromise = null;
+
     throw error;
 
   });
 
   return teamDatabasePromise;
-}
 
-/* SAVE TEAM MEDIA */
+}
 
 async function saveTeamMedia(teamId,file){
 
@@ -1472,12 +1533,14 @@ async function saveTeamMedia(teamId,file){
     );
 
     transaction.objectStore("media").add({
+
       team:teamId,
       name:file.name,
       type:file.type,
       size:file.size,
       date:Date.now(),
       blob:file
+
     });
 
     transaction.oncomplete = () => resolve();
@@ -1491,8 +1554,6 @@ async function saveTeamMedia(teamId,file){
   });
 
 }
-
-/* READ TEAM MEDIA */
 
 async function getTeamMedia(teamId){
 
@@ -1528,8 +1589,6 @@ async function getTeamMedia(teamId){
 
 }
 
-/* DELETE UPLOADED MEDIA */
-
 async function deleteTeamMedia(id){
 
   const db = await openTeamDatabase();
@@ -1555,8 +1614,6 @@ async function deleteTeamMedia(id){
 
 }
 
-/* CLEAR TEMPORARY MEDIA */
-
 function clearTeamMedia(){
 
   const box = teamElement("bss-team-media");
@@ -1572,9 +1629,8 @@ function clearTeamMedia(){
   );
 
   teamObjectURLs = [];
-}
 
-/* OPEN INDEPENDENT TEAM */
+}
 
 function openTeam(team){
 
@@ -1597,14 +1653,14 @@ function openTeam(team){
     "Loading team media...";
 
   if(!teamDialog.open){
+
     teamDialog.showModal();
+
   }
 
   renderTeamMedia();
 
 }
-
-/* VIEW UPLOADED PHOTO OR VIDEO */
 
 function viewTeamMedia(record){
 
@@ -1617,7 +1673,9 @@ function viewTeamMedia(record){
   box.replaceChildren();
 
   if(viewerObjectURL){
+
     URL.revokeObjectURL(viewerObjectURL);
+
   }
 
   viewerObjectURL = URL.createObjectURL(
@@ -1650,20 +1708,19 @@ function viewTeamMedia(record){
     record.name;
 
   if(!teamViewer.open){
+
     teamViewer.showModal();
+
   }
 
 }
 
-/* DISPLAY INDEPENDENT TEAM MEDIA */
-
 async function renderTeamMedia(){
 
-  if(!selectedTeam || !teamDialog.open){
-    return;
-  }
+  if(!selectedTeam || !teamDialog.open)return;
 
   const teamId = selectedTeam.id;
+
   const token = ++teamRenderToken;
 
   clearTeamMedia();
@@ -1678,7 +1735,9 @@ async function renderTeamMedia(){
     const records = await getTeamMedia(teamId);
 
     if(token !== teamRenderToken || !teamDialog.open){
+
       return;
+
     }
 
     if(!records.length){
@@ -1687,6 +1746,7 @@ async function renderTeamMedia(){
         "Pa gen nouvo medya. Upload foto oswa videyo.";
 
       return;
+
     }
 
     const photos = records.filter(
@@ -1750,7 +1810,9 @@ async function renderTeamMedia(){
       remove.onclick = async () => {
 
         if(!confirm("Efase " + record.name + "?")){
+
           return;
+
         }
 
         remove.disabled = true;
@@ -1791,13 +1853,12 @@ async function renderTeamMedia(){
 
 }
 
-/* UPLOAD MULTIPLE PHOTOS AND VIDEOS */
-
 async function uploadTeamFiles(input,kind){
 
   if(!selectedTeam || teamUploading){
 
     input.value = "";
+
     return;
 
   }
@@ -1806,9 +1867,7 @@ async function uploadTeamFiles(input,kind){
 
   input.value = "";
 
-  if(!files.length){
-    return;
-  }
+  if(!files.length)return;
 
   const teamId = selectedTeam.id;
 
@@ -1831,11 +1890,13 @@ async function uploadTeamFiles(input,kind){
       if(!file.type.startsWith(kind + "/")){
 
         failed++;
+
         continue;
 
       }
 
-      status.textContent = "Uploading: " + file.name;
+      status.textContent =
+        "Uploading: " + file.name;
 
       try{
 
@@ -1859,9 +1920,11 @@ async function uploadTeamFiles(input,kind){
 
       await renderTeamMedia();
 
-      if(selectedTeam &&
-         selectedTeam.id === teamId &&
-         teamDialog.open){
+      if(
+        selectedTeam &&
+        selectedTeam.id === teamId &&
+        teamDialog.open
+      ){
 
         status.textContent =
           `${saved} MEDIA SAVED • ${failed} FAILED`;
@@ -1880,8 +1943,6 @@ async function uploadTeamFiles(input,kind){
   }
 
 }
-
-/* TEAM BUTTONS */
 
 teamElement("bss-upload-photo").onclick = () => {
 
@@ -1963,43 +2024,7 @@ teamViewer.addEventListener("close",() => {
 
 });
 
-/* ACTIVATE ALL FIVE TEAM CARDS */
-
-document.querySelectorAll(
-  "#community [data-team]"
-).forEach(card => {
-
-  const team = TEAMS.find(
-    item => item.id === card.dataset.team
-  );
-
-  if(!team)return;
-
-  card.addEventListener("click",() => {
-
-    openTeam(team);
-
-  });
-
-  const button = card.querySelector("button");
-
-  button.addEventListener("click",event => {
-
-    event.stopPropagation();
-
-    openTeam(team);
-
-  });
-
-});
-
-/* ==================================================
-   END COMMUNITY — TEAM MANAGEMENT
-================================================== */
-
-/* ==================================================
-   ORIGINAL 212 MEDIA FILES
-================================================== */
+/* ORIGINAL 212 MEDIA FILES */
 
 const GALLERY = [
 "bss.jpg",
@@ -2216,9 +2241,7 @@ const GALLERY = [
 "bss1815pro-max-ap-bati.mp4"
 ];
 
-/* ==================================================
-   MEDIA ENGINE
-================================================== */
+/* MEDIA ENGINE */
 
 const gallery = document.getElementById("gallery");
 const slideMedia = document.getElementById("slide-media");
@@ -2327,7 +2350,8 @@ function showSlide(index,direction=1,attempts=0){
 
   if(attempts >= GALLERY.length){
 
-    slideStatus.textContent = "Okenn medya pa disponib.";
+    slideStatus.textContent =
+      "Okenn medya pa disponib.";
 
     return;
 
@@ -2538,9 +2562,7 @@ document.getElementById("toggle-gallery").onclick = function(){
 
 showSlide(0);
 
-/* ==================================================
-   CUSTOMER SERVICE VIDEO
-================================================== */
+/* CUSTOMER SERVICE */
 
 const avatar = document.getElementById("avatar");
 
@@ -2585,9 +2607,7 @@ document.getElementById("play-avatar").onclick = async () => {
 
 };
 
-/* ==================================================
-   OFFICIAL SOCIAL BRAND ICONS
-================================================== */
+/* OFFICIAL SOCIAL NETWORKS */
 
 const SOCIALS = [
   [
@@ -2698,9 +2718,7 @@ SOCIALS.forEach(([name,icon,color,url]) => {
 
 });
 
-/* ==================================================
-   AI CENTER — 12 LOCAL DIGITAL TOOLS
-================================================== */
+/* AI CENTER */
 
 const MODULES = [
   ["fa-film","AI PRESENTATION","Prezantasyon dijital"],
@@ -3010,9 +3028,7 @@ function saveOutput(){
 
 }
 
-/* ==================================================
-   LANGUAGE SWITCHER
-================================================== */
+/* LANGUAGE SWITCHER */
 
 function setLanguage(language){
 
