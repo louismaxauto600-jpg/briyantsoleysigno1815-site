@@ -390,618 +390,22 @@ textarea{min-height:130px}
   .heroes,.grid{
     grid-template-columns:1fr;
   }
+
   .logo{
     width:75px;
     height:75px;
   }
+
   .gallery{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
+
   section{padding:40px 12px}
   .portrait{height:340px}
 }
-</style>
-</head>
 
-<body>
+/* COMMUNITY — TEAM DESIGN ONLY */
 
-<header id="home">
-  <div class="top">
-    <div class="identity">
-      <img class="logo"
-           src="./briyant-soley-signo-1815.jpg"
-           alt="BRIYANT SOLÈY SIGNO 1815">
-
-      <div class="brand">
-        <h1>BRIYANT SOLÈY SIGNO 1815</h1>
-        <p>DEVAN DEVAN NÈT™</p>
-        <p>BATI POU JODI A, PARE POU DEMEN.</p>
-      </div>
-    </div>
-
-    <div class="langs">
-      <button data-lang="en">ENG</button>
-      <button data-lang="ht" class="active">KRE</button>
-      <button data-lang="fr">FRAN</button>
-    </div>
-  </div>
-
-  <nav class="nav">
-    <a href="#home" data-t="AKÈY|HOME|ACCUEIL">AKÈY</a>
-    <a href="#about" data-t="SOU NOU|ABOUT|À PROPOS">SOU NOU</a>
-    <a href="#history" data-t="ISTWA|HISTORY|HISTOIRE">ISTWA</a>
-    <a href="#memorandum">MEMORANDUM</a>
-    <a href="#features">FEATURES</a>
-    <a href="#community">COMMUNITY</a>
-    <a href="#slideshow">GALLERY</a>
-    <a href="#customer-service">CUSTOMER SERVICE</a>
-    <a href="#ai-center">AI CENTER</a>
-    <a href="#radio">PRO-MAX FM 106.5 FM</a>
-    <a href="#contact">CONTACT</a>
-  </nav>
-</header>
-
-<main>
-
-<!-- HERO -->
-
-<section class="hero">
-  <div class="wrap">
-
-    <img class="hero-logo"
-         src="./briyant-soley-signo-1815.jpg"
-         alt="Logo ofisyèl BSS1815">
-
-    <p>PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI</p>
-
-    <h2>BRIYANT SOLÈY SIGNO 1815</h2>
-
-    <p data-t="Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.|A legacy spanning generations. A community building its future.|Un héritage qui traverse les générations. Une communauté qui construit son avenir.">
-      Yon eritaj ki travèse jenerasyon.
-      Yon kominote ki kontinye bati avni li.
-    </p>
-
-    <h3>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</h3>
-
-    <div class="actions">
-      <a class="btn" href="#history">DEKOUVRI ISTWA NOU</a>
-      <a class="btn" href="#community">COMMUNITY</a>
-      <a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- MEMORANDUM : EXACTLY FOUR HEROES -->
-
-<section id="memorandum" class="memorial">
-  <div class="wrap">
-
-    <h2 class="title"
-        data-t="MEMORANDUM — 4 EWO NOU PAP JANM BLIYE|MEMORANDUM — 4 HEROES WE WILL NEVER FORGET|MÉMORANDUM — 4 HÉROS INOUBLIABLES">
-      MEMORANDUM — 4 EWO NOU PAP JANM BLIYE
-    </h2>
-
-    <p class="intro">
-      Nou onore kat gwo moniman istorik BSS1815.
-      Travay yo ak eritaj yo pap janm efase.
-    </p>
-
-    <div class="heroes" id="memorial-grid"></div>
-
-    <h3 style="text-align:center;color:var(--orange)">
-      BSS1815 — NOU PAP JANM BLIYE.
-    </h3>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-  <div class="wrap">
-    <h2 class="title">ABOUT BSS1815</h2>
-
-    <div class="grid">
-
-      <article class="card">
-        <h3>ISTWA NOU</h3>
-        <p>Prezève memwa ak kontribisyon jenerasyon ki te travay pou bati BSS1815.</p>
-      </article>
-
-      <article class="card">
-        <h3>MISYON NOU</h3>
-        <p>Rasanble kominote a, valorize manm yo epi transmèt eritaj nou.</p>
-      </article>
-
-      <article class="card">
-        <h3>VIZYON NOU</h3>
-        <p>Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- HISTORY -->
-
-<section id="history">
-  <div class="wrap">
-
-    <h2 class="title"
-        data-t="ISTWA PA JANM EFASE|HISTORY IS NEVER ERASED|L'HISTOIRE NE S'EFFACE JAMAIS">
-      ISTWA PA JANM EFASE
-    </h2>
-
-    <p class="intro">
-      Chak jenerasyon pote kontribisyon pa li.
-      Nou rekonèt moun ki te kenbe flanbo BSS1815 la limen.
-    </p>
-
-    <div class="heroes" id="history-grid"></div>
-
-  </div>
-</section>
-
-<!-- SLIDESHOW AND GALLERY -->
-
-<section id="slideshow" class="media">
-  <div class="wrap">
-
-    <h2 class="title">BSS1815 — SLIDESHOW & GALERI</h2>
-
-    <p class="intro">
-      YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON
-    </p>
-
-    <div class="slide">
-      <div id="slide-media"></div>
-      <div class="caption" id="slide-caption">BSS1815</div>
-    </div>
-
-    <div class="controls">
-      <button id="prev">❮ PREVIOUS</button>
-      <button id="pause">⏸ PAUSE</button>
-      <button id="next">NEXT ❯</button>
-    </div>
-
-    <p id="slide-status" style="text-align:center"></p>
-
-    <div class="controls">
-      <button id="toggle-gallery">
-        <i class="fa-solid fa-images"></i>
-        OUVRI GALERI A
-      </button>
-    </div>
-
-    <div id="gallery" class="gallery" hidden></div>
-
-  </div>
-</section>
-
-<!-- FEATURES -->
-
-<section id="features">
-  <div class="wrap">
-
-    <h2 class="title">FEATURES & COMMUNITY SERVICES</h2>
-
-    <div class="grid">
-
-      <article class="card">
-        <h3>HERITAGE CENTER</h3>
-        <p>Memwa, dokiman ak kontribisyon istorik.</p>
-        <a class="btn" href="#history">EXPLORE</a>
-      </article>
-
-      <article class="card">
-        <h3>MEDIA GALLERY</h3>
-        <p>Foto, videyo, aktivite ak moman istorik.</p>
-        <a class="btn" href="#slideshow">VIEW GALLERY</a>
-      </article>
-
-      <article class="card">
-        <h3>COMMUNITY CENTER</h3>
-        <p>Ekip, manm ak aktivite kominotè.</p>
-        <a class="btn" href="#community">EXPLORE</a>
-      </article>
-
-      <article class="card">
-        <h3>AI CENTER</h3>
-        <p>Zouti dijital pou kominote BSS1815.</p>
-        <a class="btn" href="#ai-center">OPEN CENTER</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- COMMUNITY -->
-
-<section id="community">
-  <div class="wrap">
-
-    <h2 class="title">BSS1815 COMMUNITY</h2>
-
-    <div class="grid" id="community-grid"></div>
-
-  </div>
-</section>
-
-<!-- CUSTOMER SERVICE -->
-
-<section id="customer-service">
-  <div class="wrap">
-
-    <h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2>
-
-    <div class="avatar">
-
-      <video id="avatar"
-             controls
-             playsinline
-             preload="metadata">
-
-        <source src="./prof-avatar-cust.mp4"
-                type="video/mp4">
-
-      </video>
-
-      <h3>PROF AVATAR — BSS1815</h3>
-
-      <p>Byenveni nan sèvis asistans BRIYANT SOLÈY SIGNO 1815.</p>
-
-      <div class="actions">
-        <button class="btn primary" id="play-avatar">
-          <i class="fa-solid fa-play"></i>
-          PLAY VIDEO
-        </button>
-
-        <button class="btn" onclick="openModule(11)">
-          ASK AI
-        </button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- 12 AI MODULES -->
-
-<section id="ai-center">
-  <div class="wrap">
-
-    <h2 class="title">BSS1815 — AI CENTER</h2>
-
-    <p class="intro">
-      12 DIGITAL TOOLS • COMMUNITY • INNOVATION
-    </p>
-
-    <div class="grid" id="modules"></div>
-
-  </div>
-</section>
-
-<!-- RADIO -->
-
-<section id="radio">
-  <div class="wrap">
-
-    <h2 class="title">PRO-MAX FM 106.5 FM</h2>
-
-    <div class="card" style="text-align:center">
-
-      <h3>LA FORCE DU SON</h3>
-
-      <p>Une voix qui nous rassemble.</p>
-
-      <a class="btn primary"
-         href="https://bss1815promaxdmp.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-        RADIO — DIGITAL PLATFORM
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-  <div class="wrap">
-
-    <h2 class="title">CONTACT BSS1815</h2>
-
-    <div class="grid">
-
-      <article class="card contact">
-
-        <img class="flag"
-             src="https://flagcdn.com/w160/us.png"
-             alt="United States Flag">
-
-        <h3>🇺🇸 UNITED STATES</h3>
-
-        <a class="phone" href="tel:+14076405166">
-          <i class="fa-solid fa-phone"></i>
-          (407) 640-5166
-        </a>
-
-        <a class="phone" href="tel:+13175381150">
-          <i class="fa-solid fa-phone"></i>
-          (317) 538-1150
-        </a>
-
-      </article>
-
-      <article class="card contact">
-
-        <img class="flag"
-             src="https://flagcdn.com/w160/ht.png"
-             alt="Drapo Ayiti">
-
-        <h3>🇭🇹 HAÏTI — AYITI</h3>
-
-        <a class="phone" href="tel:+50942544447">
-          <i class="fa-solid fa-phone"></i>
-          +509 4254-4447
-        </a>
-
-        <a class="phone" href="tel:+50943437488">
-          <i class="fa-solid fa-phone"></i>
-          +509 4343-7488
-        </a>
-
-      </article>
-
-      <article class="card contact">
-
-        <i class="fa-solid fa-envelope"
-           style="font-size:45px;color:var(--orange)"></i>
-
-        <h3>EMAIL OFFICIEL</h3>
-
-        <a style="overflow-wrap:anywhere"
-           href="mailto:bss1815promaxdmp@gmail.com">
-          bss1815promaxdmp@gmail.com
-        </a>
-
-        <p>SIGNO — LÉOGÂNE — AYITI</p>
-
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- 10 SOCIAL NETWORKS -->
-
-<section id="social-networks">
-  <div class="wrap">
-
-    <h2 class="title">SOCIAL NETWORKS</h2>
-
-    <div class="socials" id="social-grid"></div>
-
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-
-<footer>
-
-  <img src="./briyant-soley-signo-1815.jpg"
-       alt="BSS1815">
-
-  <h2 style="color:var(--orange)">
-    BRIYANT SOLÈY SIGNO 1815
-  </h2>
-
-  <h3>DEVAN DEVAN NÈT™</h3>
-
-  <p>BATI POU JODI A, PARE POU DEMEN.</p>
-
-  <p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p>
-
-  <p>© <span id="year"></span> BRIYANT SOLÈY SIGNO 1815</p>
-
-</footer>
-
-<button class="ai-float" onclick="openModule(11)">
-  <i class="fa-solid fa-robot"></i>
-  BSS1815 AI
-</button>
-
-<!-- AI MODULE WINDOW -->
-
-<dialog id="module-dialog">
-
-  <h2 id="module-title" style="color:var(--orange)"></h2>
-
-  <p id="module-description"></p>
-
-  <input id="module-subject" placeholder="Tit / Subject">
-
-  <textarea id="module-input"
-            placeholder="Antre enfòmasyon ou yo..."></textarea>
-
-  <div class="controls">
-    <button class="btn primary" onclick="runModule()">GENERATE</button>
-    <button class="btn" onclick="copyOutput()">COPY</button>
-    <button class="btn" onclick="saveOutput()">SAVE</button>
-    <button class="btn" onclick="moduleDialog.close()">CLOSE</button>
-  </div>
-
-  <pre id="output"></pre>
-
-</dialog>
-
-<script>
-"use strict";
-
-/* ==================================================
-   OFFICIAL ASSETS
-================================================== */
-
-const LOGO = "briyant-soley-signo-1815.jpg";
-const PROF_AVATAR = "prof-avatar-cust.mp4";
-
-const BASES = [
-  "./",
-  "./assets/slideshow/",
-  "./assets/",
-  "./images/",
-  "./media/",
-  "./photos/",
-  "https://bss1815pro-maxdmp.com/",
-  "https://bss1815promaxdmp.com/"
-];
-
-function assetURL(base,file){
-  return base + encodeURIComponent(file);
-}
-
-function loadImage(img,files){
-  const names = Array.isArray(files) ? files : [files];
-
-  const candidates = names.flatMap(
-    file => BASES.map(base => assetURL(base,file))
-  );
-
-  let position = 0;
-
-  img.onerror = function(){
-    position++;
-
-    if(position < candidates.length){
-      img.src = candidates[position];
-    }else{
-      img.onerror = null;
-      img.alt = img.alt + " — Foto pa disponib";
-    }
-  };
-
-  img.src = candidates[0];
-}
-
-document.querySelectorAll(
-  ".logo,.hero-logo,footer img"
-).forEach(img => loadImage(img,LOGO));
-
-/* ==================================================
-   FOUR HISTORICAL HEROES
-================================================== */
-
-const HEROES = [
-  {
-    name:"LECLERC FÉLIX",
-    files:["Leclercfélix.jpg"],
-    description:[
-      "Moun ki te trase chemen an. Eritaj li rete vivan nan istwa BSS1815.",
-      "The pioneer who paved the way. His legacy lives on in BSS1815.",
-      "Le pionnier qui a tracé la voie. Son héritage demeure vivant."
-    ]
-  },
-  {
-    name:"KONKONT",
-    files:["konkont-II.jpg","konkont.jpg"],
-    description:[
-      "Yon gwo pilye ki te fè yon travay kolosal nan istwa BSS1815.",
-      "A major pillar who made an important contribution to BSS1815.",
-      "Un grand pilier qui a apporté une contribution majeure à BSS1815."
-    ]
-  },
-  {
-    name:"PAPOUCHE STRATÈGE",
-    files:["papouche.png","papouche.jpg","ti-papouche.jpg"],
-    description:[
-      "Motè BSS, stratej ak solisyonè. Yon gwo poto mitan nan òganizasyon an.",
-      "A driving force, strategist and problem solver within BSS.",
-      "Le moteur, stratège et pilier de l'organisation BSS."
-    ]
-  },
-  {
-    name:"PIERRE MARTHONE ALIAS TI RAT 🐀",
-    files:["ti-rat.jpg","prez-tirat.jpg"],
-    description:[
-      "Moun ki te kenbe flanbo BSS la pandan yon bon bout tan.",
-      "The guardian who carried the BSS torch for many years.",
-      "Le gardien qui a porté le flambeau de BSS pendant de nombreuses années."
-    ]
-  }
-];
-
-function renderHeroes(containerId){
-  const container = document.getElementById(containerId);
-
-  container.replaceChildren();
-
-  HEROES.forEach(hero => {
-    const card = document.createElement("article");
-    card.className = "card tribute";
-
-    const img = document.createElement("img");
-    img.className = "portrait";
-    img.alt = hero.name;
-
-    loadImage(img,hero.files);
-
-    const name = document.createElement("h3");
-    name.textContent = hero.name;
-
-    const description = document.createElement("p");
-    description.dataset.t = hero.description.join("|");
-    description.textContent = hero.description[0];
-
-    card.append(img,name,description);
-    container.append(card);
-  });
-}
-
-renderHeroes("memorial-grid");
-renderHeroes("history-grid");
-
-/* ==================================================
-   COMMUNITY — 5 INDEPENDENT TEAM CENTERS
-================================================== */
-
-const TEAMS = [
-  {
-    id:"san-presyon",
-    name:"TEAM SAN PRESYON",
-    files:["teamsanpresyon.jpeg"]
-  },
-  {
-    id:"backup",
-    name:"TEAM BACKUP",
-    files:["team-backup-2.jpg"]
-  },
-  {
-    id:"miami",
-    name:"MIAMI AN AKSYON",
-    files:["la-difference.mp4"],
-    video:true
-  },
-  {
-    id:"angrenay",
-    name:"TEAM ANGRENAY",
-    files:["team-angrenay.jpg"]
-  },
-  {
-    id:"super-fanclub",
-    name:"SUPER FANCLUB",
-    files:["super-fanclub.jpg","sfc-5-stars.jpg"]
-  }
-];
-
-/* TEAM DESIGN — COMMUNITY ONLY */
-
-const teamStyle = document.createElement("style");
-
-teamStyle.textContent = `
 #community .team-card{
   cursor:pointer;
   display:flex;
@@ -1022,6 +426,7 @@ teamStyle.textContent = `
   box-shadow:0 0 20px #ff790044;
 }
 
+#community .team-card img,
 #community .team-card video{
   display:block;
   width:100%;
@@ -1105,73 +510,882 @@ teamStyle.textContent = `
   object-fit:contain;
   background:#000;
 }
-`;
 
-document.head.append(teamStyle);
+</style>
+</head>
 
-/* TEAM COVER MEDIA */
+<body>
 
-function createTeamCover(team){
+<header id="home">
+  <div class="top">
 
-  if(!team.video){
+    <div class="identity">
 
-    const image = document.createElement("img");
+      <img class="logo"
+           src="./briyant-soley-signo-1815.jpg"
+           alt="BRIYANT SOLÈY SIGNO 1815">
 
-    image.className = "portrait";
-    image.alt = team.name;
+      <div class="brand">
+        <h1>BRIYANT SOLÈY SIGNO 1815</h1>
+        <p>DEVAN DEVAN NÈT™</p>
+        <p>BATI POU JODI A, PARE POU DEMEN.</p>
+      </div>
 
-    loadImage(image,team.files);
+    </div>
 
-    return image;
-  }
+    <div class="langs">
+      <button data-lang="en">ENG</button>
+      <button data-lang="ht" class="active">KRE</button>
+      <button data-lang="fr">FRAN</button>
+    </div>
 
-  const video = document.createElement("video");
+  </div>
 
-  video.className = "portrait";
-  video.muted = true;
-  video.defaultMuted = true;
-  video.autoplay = true;
-  video.loop = true;
-  video.playsInline = true;
-  video.preload = "metadata";
+  <nav class="nav">
 
-  const candidates = team.files.flatMap(
-    file => BASES.map(
-      base => assetURL(base,file)
-    )
+    <a href="#home" data-t="AKÈY|HOME|ACCUEIL">AKÈY</a>
+    <a href="#about" data-t="SOU NOU|ABOUT|À PROPOS">SOU NOU</a>
+    <a href="#history" data-t="ISTWA|HISTORY|HISTOIRE">ISTWA</a>
+    <a href="#memorandum">MEMORANDUM</a>
+    <a href="#features">FEATURES</a>
+    <a href="#community">COMMUNITY</a>
+    <a href="#slideshow">GALLERY</a>
+    <a href="#customer-service">CUSTOMER SERVICE</a>
+    <a href="#ai-center">AI CENTER</a>
+    <a href="#radio">PRO-MAX FM 106.5 FM</a>
+    <a href="#contact">CONTACT</a>
+
+  </nav>
+
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="wrap">
+
+    <img class="hero-logo"
+         src="./briyant-soley-signo-1815.jpg"
+         alt="Logo ofisyèl BSS1815">
+
+    <p>PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI</p>
+
+    <h2>BRIYANT SOLÈY SIGNO 1815</h2>
+
+    <p data-t="Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.|A legacy spanning generations. A community building its future.|Un héritage qui traverse les générations. Une communauté qui construit son avenir.">
+      Yon eritaj ki travèse jenerasyon.
+      Yon kominote ki kontinye bati avni li.
+    </p>
+
+    <h3>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</h3>
+
+    <div class="actions">
+      <a class="btn" href="#history">DEKOUVRI ISTWA NOU</a>
+      <a class="btn" href="#community">COMMUNITY</a>
+      <a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MEMORANDUM -->
+
+<section id="memorandum" class="memorial">
+
+  <div class="wrap">
+
+    <h2 class="title"
+        data-t="MEMORANDUM — 4 EWO NOU PAP JANM BLIYE|MEMORANDUM — 4 HEROES WE WILL NEVER FORGET|MÉMORANDUM — 4 HÉROS INOUBLIABLES">
+      MEMORANDUM — 4 EWO NOU PAP JANM BLIYE
+    </h2>
+
+    <p class="intro">
+      Nou onore kat gwo moniman istorik BSS1815.
+      Travay yo ak eritaj yo pap janm efase.
+    </p>
+
+    <div class="heroes" id="memorial-grid"></div>
+
+    <h3 style="text-align:center;color:var(--orange)">
+      BSS1815 — NOU PAP JANM BLIYE.
+    </h3>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="wrap">
+
+    <h2 class="title">ABOUT BSS1815</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>ISTWA NOU</h3>
+        <p>Prezève memwa ak kontribisyon jenerasyon ki te travay pou bati BSS1815.</p>
+      </article>
+
+      <article class="card">
+        <h3>MISYON NOU</h3>
+        <p>Rasanble kominote a, valorize manm yo epi transmèt eritaj nou.</p>
+      </article>
+
+      <article class="card">
+        <h3>VIZYON NOU</h3>
+        <p>Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.</p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- HISTORY -->
+
+<section id="history">
+
+  <div class="wrap">
+
+    <h2 class="title"
+        data-t="ISTWA PA JANM EFASE|HISTORY IS NEVER ERASED|L'HISTOIRE NE S'EFFACE JAMAIS">
+      ISTWA PA JANM EFASE
+    </h2>
+
+    <p class="intro">
+      Chak jenerasyon pote kontribisyon pa li.
+      Nou rekonèt moun ki te kenbe flanbo BSS1815 la limen.
+    </p>
+
+    <div class="heroes" id="history-grid"></div>
+
+  </div>
+
+</section>
+
+<!-- SLIDESHOW AND GALLERY -->
+
+<section id="slideshow" class="media">
+
+  <div class="wrap">
+
+    <h2 class="title">BSS1815 — SLIDESHOW & GALERI</h2>
+
+    <p class="intro">
+      YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON
+    </p>
+
+    <div class="slide">
+      <div id="slide-media"></div>
+      <div class="caption" id="slide-caption">BSS1815</div>
+    </div>
+
+    <div class="controls">
+      <button id="prev">❮ PREVIOUS</button>
+      <button id="pause">⏸ PAUSE</button>
+      <button id="next">NEXT ❯</button>
+    </div>
+
+    <p id="slide-status" style="text-align:center"></p>
+
+    <div class="controls">
+      <button id="toggle-gallery">
+        <i class="fa-solid fa-images"></i>
+        OUVRI GALERI A
+      </button>
+    </div>
+
+    <div id="gallery" class="gallery" hidden></div>
+
+  </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section id="features">
+
+  <div class="wrap">
+
+    <h2 class="title">FEATURES & COMMUNITY SERVICES</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>HERITAGE CENTER</h3>
+        <p>Memwa, dokiman ak kontribisyon istorik.</p>
+        <a class="btn" href="#history">EXPLORE</a>
+      </article>
+
+      <article class="card">
+        <h3>MEDIA GALLERY</h3>
+        <p>Foto, videyo, aktivite ak moman istorik.</p>
+        <a class="btn" href="#slideshow">VIEW GALLERY</a>
+      </article>
+
+      <article class="card">
+        <h3>COMMUNITY CENTER</h3>
+        <p>Ekip, manm ak aktivite kominotè.</p>
+        <a class="btn" href="#community">EXPLORE</a>
+      </article>
+
+      <article class="card">
+        <h3>AI CENTER</h3>
+        <p>Zouti dijital pou kominote BSS1815.</p>
+        <a class="btn" href="#ai-center">OPEN CENTER</a>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COMMUNITY — FIVE OFFICIAL TEAMS -->
+
+<section id="community">
+
+  <div class="wrap">
+
+    <h2 class="title">BSS1815 COMMUNITY</h2>
+
+    <div class="grid" id="community-grid">
+
+      <!-- TEAM SAN PRESYON -->
+
+      <article class="card tribute team-card"
+               data-team="san-presyon">
+
+        <img class="portrait"
+             src="./teamsanpresyon.jpeg"
+             alt="TEAM SAN PRESYON">
+
+        <h3>TEAM SAN PRESYON</h3>
+
+        <button class="btn primary"
+                type="button">
+          OPEN TEAM
+        </button>
+
+      </article>
+
+      <!-- TEAM BACKUP -->
+
+      <article class="card tribute team-card"
+               data-team="backup">
+
+        <img class="portrait"
+             src="./team-backup-2.jpg"
+             alt="TEAM BACKUP">
+
+        <h3>TEAM BACKUP</h3>
+
+        <button class="btn primary"
+                type="button">
+          OPEN TEAM
+        </button>
+
+      </article>
+
+      <!-- MIAMI AN AKSYON -->
+
+      <article class="card tribute team-card"
+               data-team="miami">
+
+        <video class="portrait"
+               src="./la-difference.mp4"
+               autoplay
+               muted
+               loop
+               playsinline
+               preload="metadata">
+        </video>
+
+        <h3>MIAMI AN AKSYON</h3>
+
+        <button class="btn primary"
+                type="button">
+          OPEN TEAM
+        </button>
+
+      </article>
+
+      <!-- TEAM ANGRENAY -->
+
+      <article class="card tribute team-card"
+               data-team="angrenay">
+
+        <img class="portrait"
+             src="./team-angrenay.jpg"
+             alt="TEAM ANGRENAY">
+
+        <h3>TEAM ANGRENAY</h3>
+
+        <button class="btn primary"
+                type="button">
+          OPEN TEAM
+        </button>
+
+      </article>
+
+      <!-- SUPER FANCLUB -->
+
+      <article class="card tribute team-card"
+               data-team="super-fanclub">
+
+        <img class="portrait"
+             id="super-fanclub-cover"
+             src="./super-fanclub.jpg"
+             alt="SUPER FANCLUB">
+
+        <h3>SUPER FANCLUB</h3>
+
+        <button class="btn primary"
+                type="button">
+          OPEN TEAM
+        </button>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CUSTOMER SERVICE -->
+
+<section id="customer-service">
+
+  <div class="wrap">
+
+    <h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2>
+
+    <div class="avatar">
+
+      <video id="avatar"
+             controls
+             playsinline
+             preload="metadata">
+
+        <source src="./prof-avatar-cust.mp4"
+                type="video/mp4">
+
+      </video>
+
+      <h3>PROF AVATAR — BSS1815</h3>
+
+      <p>Byenveni nan sèvis asistans BRIYANT SOLÈY SIGNO 1815.</p>
+
+      <div class="actions">
+
+        <button class="btn primary" id="play-avatar">
+          <i class="fa-solid fa-play"></i>
+          PLAY VIDEO
+        </button>
+
+        <button class="btn" onclick="openModule(11)">
+          ASK AI
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 12 AI MODULES -->
+
+<section id="ai-center">
+
+  <div class="wrap">
+
+    <h2 class="title">BSS1815 — AI CENTER</h2>
+
+    <p class="intro">
+      12 DIGITAL TOOLS • COMMUNITY • INNOVATION
+    </p>
+
+    <div class="grid" id="modules"></div>
+
+  </div>
+
+</section>
+
+<!-- RADIO -->
+
+<section id="radio">
+
+  <div class="wrap">
+
+    <h2 class="title">PRO-MAX FM 106.5 FM</h2>
+
+    <div class="card" style="text-align:center">
+
+      <h3>LA FORCE DU SON</h3>
+
+      <p>Une voix qui nous rassemble.</p>
+
+      <a class="btn primary"
+         href="https://bss1815promaxdmp.com/"
+         target="_blank"
+         rel="noopener noreferrer">
+        RADIO — DIGITAL PLATFORM
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="wrap">
+
+    <h2 class="title">CONTACT BSS1815</h2>
+
+    <div class="grid">
+
+      <article class="card contact">
+
+        <img class="flag"
+             src="https://flagcdn.com/w160/us.png"
+             alt="United States Flag">
+
+        <h3>🇺🇸 UNITED STATES</h3>
+
+        <a class="phone" href="tel:+14076405166">
+          <i class="fa-solid fa-phone"></i>
+          (407) 640-5166
+        </a>
+
+        <a class="phone" href="tel:+13175381150">
+          <i class="fa-solid fa-phone"></i>
+          (317) 538-1150
+        </a>
+
+      </article>
+
+      <article class="card contact">
+
+        <img class="flag"
+             src="https://flagcdn.com/w160/ht.png"
+             alt="Drapo Ayiti">
+
+        <h3>🇭🇹 HAÏTI — AYITI</h3>
+
+        <a class="phone" href="tel:+50942544447">
+          <i class="fa-solid fa-phone"></i>
+          +509 4254-4447
+        </a>
+
+        <a class="phone" href="tel:+50943437488">
+          <i class="fa-solid fa-phone"></i>
+          +509 4343-7488
+        </a>
+
+      </article>
+
+      <article class="card contact">
+
+        <i class="fa-solid fa-envelope"
+           style="font-size:45px;color:var(--orange)">
+        </i>
+
+        <h3>EMAIL OFFICIEL</h3>
+
+        <a style="overflow-wrap:anywhere"
+           href="mailto:bss1815promaxdmp@gmail.com">
+          bss1815promaxdmp@gmail.com
+        </a>
+
+        <p>SIGNO — LÉOGÂNE — AYITI</p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SOCIAL NETWORKS -->
+
+<section id="social-networks">
+
+  <div class="wrap">
+
+    <h2 class="title">SOCIAL NETWORKS</h2>
+
+    <div class="socials" id="social-grid"></div>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <img src="./briyant-soley-signo-1815.jpg"
+       alt="BSS1815">
+
+  <h2 style="color:var(--orange)">
+    BRIYANT SOLÈY SIGNO 1815
+  </h2>
+
+  <h3>DEVAN DEVAN NÈT™</h3>
+
+  <p>BATI POU JODI A, PARE POU DEMEN.</p>
+
+  <p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p>
+
+  <p>© <span id="year"></span> BRIYANT SOLÈY SIGNO 1815</p>
+
+</footer>
+
+<button class="ai-float" onclick="openModule(11)">
+  <i class="fa-solid fa-robot"></i>
+  BSS1815 AI
+</button>
+
+<!-- AI MODULE WINDOW -->
+
+<dialog id="module-dialog">
+
+  <h2 id="module-title" style="color:var(--orange)"></h2>
+
+  <p id="module-description"></p>
+
+  <input id="module-subject" placeholder="Tit / Subject">
+
+  <textarea id="module-input"
+            placeholder="Antre enfòmasyon ou yo..."></textarea>
+
+  <div class="controls">
+    <button class="btn primary" onclick="runModule()">GENERATE</button>
+    <button class="btn" onclick="copyOutput()">COPY</button>
+    <button class="btn" onclick="saveOutput()">SAVE</button>
+    <button class="btn" onclick="moduleDialog.close()">CLOSE</button>
+  </div>
+
+  <pre id="output"></pre>
+
+</dialog>
+
+<!-- INDEPENDENT TEAM WINDOW -->
+
+<dialog id="bss-team-dialog">
+
+  <div class="actions" style="justify-content:flex-end">
+
+    <button class="btn" id="bss-team-close">
+      ✕ CLOSE TEAM
+    </button>
+
+  </div>
+
+  <h2 id="bss-team-title"></h2>
+
+  <div id="bss-team-cover"></div>
+
+  <div class="controls">
+
+    <button class="btn primary" id="bss-upload-photo">
+      <i class="fa-solid fa-camera"></i>
+      UPLOAD PHOTO
+    </button>
+
+    <button class="btn primary" id="bss-upload-video">
+      <i class="fa-solid fa-video"></i>
+      UPLOAD VIDEO
+    </button>
+
+    <button class="btn" id="bss-view-media">
+      <i class="fa-solid fa-photo-film"></i>
+      VIEW PHOTO & VIDEO
+    </button>
+
+  </div>
+
+  <input id="bss-photo-input"
+         type="file"
+         accept="image/*"
+         multiple
+         hidden>
+
+  <input id="bss-video-input"
+         type="file"
+         accept="video/*"
+         multiple
+         hidden>
+
+  <p id="bss-team-status" aria-live="polite"></p>
+
+  <p style="text-align:center;font-size:13px">
+    LOCAL MEDIA STORAGE — Aparèy sa a sèlman.
+  </p>
+
+  <div id="bss-team-media"
+       class="team-media-grid">
+  </div>
+
+</dialog>
+
+<!-- TEAM MEDIA VIEWER -->
+
+<dialog id="bss-team-viewer">
+
+  <div class="controls">
+
+    <button class="btn" id="bss-viewer-close">
+      ✕ CLOSE
+    </button>
+
+  </div>
+
+  <div id="bss-viewer-content"></div>
+
+  <h3 id="bss-viewer-title"></h3>
+
+</dialog>
+
+<script>
+"use strict";
+
+/* ==================================================
+   OFFICIAL ASSETS
+================================================== */
+
+const LOGO = "briyant-soley-signo-1815.jpg";
+const PROF_AVATAR = "prof-avatar-cust.mp4";
+
+const BASES = [
+  "./",
+  "./assets/slideshow/",
+  "./assets/",
+  "./images/",
+  "./media/",
+  "./photos/",
+  "https://bss1815pro-maxdmp.com/",
+  "https://bss1815promaxdmp.com/"
+];
+
+function assetURL(base,file){
+  return base + encodeURIComponent(file);
+}
+
+function loadImage(img,files){
+
+  const names = Array.isArray(files) ? files : [files];
+
+  const candidates = names.flatMap(
+    file => BASES.map(base => assetURL(base,file))
   );
 
   let position = 0;
 
-  video.onerror = () => {
+  img.onerror = function(){
 
     position++;
 
     if(position < candidates.length){
-
-      video.src = candidates[position];
-      video.load();
-
+      img.src = candidates[position];
     }else{
-
-      video.onerror = null;
-      video.title = "Video unavailable";
-
+      img.onerror = null;
+      img.alt = img.alt + " — Foto pa disponib";
     }
+
   };
 
-  video.onloadeddata = () => {
-    video.play().catch(() => {});
-  };
+  img.src = candidates[0];
+}
 
-  video.src = candidates[0];
+document.querySelectorAll(
+  ".logo,.hero-logo,footer img"
+).forEach(img => loadImage(img,LOGO));
 
-  return video;
+/* ==================================================
+   FOUR HISTORICAL HEROES
+================================================== */
+
+const HEROES = [
+  {
+    name:"LECLERC FÉLIX",
+    files:["Leclercfélix.jpg"],
+    description:[
+      "Moun ki te trase chemen an. Eritaj li rete vivan nan istwa BSS1815.",
+      "The pioneer who paved the way. His legacy lives on in BSS1815.",
+      "Le pionnier qui a tracé la voie. Son héritage demeure vivant."
+    ]
+  },
+  {
+    name:"KONKONT",
+    files:["konkont-II.jpg","konkont.jpg"],
+    description:[
+      "Yon gwo pilye ki te fè yon travay kolosal nan istwa BSS1815.",
+      "A major pillar who made an important contribution to BSS1815.",
+      "Un grand pilier qui a apporté une contribution majeure à BSS1815."
+    ]
+  },
+  {
+    name:"PAPOUCHE STRATÈGE",
+    files:["papouche.png","papouche.jpg","ti-papouche.jpg"],
+    description:[
+      "Motè BSS, stratej ak solisyonè. Yon gwo poto mitan nan òganizasyon an.",
+      "A driving force, strategist and problem solver within BSS.",
+      "Le moteur, stratège et pilier de l'organisation BSS."
+    ]
+  },
+  {
+    name:"PIERRE MARTHONE ALIAS TI RAT 🐀",
+    files:["ti-rat.jpg","prez-tirat.jpg"],
+    description:[
+      "Moun ki te kenbe flanbo BSS1815 la pandan yon bon bout tan.",
+      "The guardian who carried the BSS torch for many years.",
+      "Le gardien qui a porté le flambeau de BSS pendant de nombreuses années."
+    ]
+  }
+];
+
+function renderHeroes(containerId){
+
+  const container = document.getElementById(containerId);
+
+  container.replaceChildren();
+
+  HEROES.forEach(hero => {
+
+    const card = document.createElement("article");
+    card.className = "card tribute";
+
+    const img = document.createElement("img");
+    img.className = "portrait";
+    img.alt = hero.name;
+
+    loadImage(img,hero.files);
+
+    const name = document.createElement("h3");
+    name.textContent = hero.name;
+
+    const description = document.createElement("p");
+    description.dataset.t = hero.description.join("|");
+    description.textContent = hero.description[0];
+
+    card.append(img,name,description);
+    container.append(card);
+
+  });
+
+}
+
+renderHeroes("memorial-grid");
+renderHeroes("history-grid");
+
+/* ==================================================
+   COMMUNITY — FIVE INDEPENDENT TEAM CENTERS
+================================================== */
+
+const TEAMS = [
+  {
+    id:"san-presyon",
+    name:"TEAM SAN PRESYON",
+    files:["teamsanpresyon.jpeg"],
+    video:false
+  },
+  {
+    id:"backup",
+    name:"TEAM BACKUP",
+    files:["team-backup-2.jpg"],
+    video:false
+  },
+  {
+    id:"miami",
+    name:"MIAMI AN AKSYON",
+    files:["la-difference.mp4"],
+    video:true
+  },
+  {
+    id:"angrenay",
+    name:"TEAM ANGRENAY",
+    files:["team-angrenay.jpg"],
+    video:false
+  },
+  {
+    id:"super-fanclub",
+    name:"SUPER FANCLUB",
+    files:["super-fanclub.jpg","sfc-5-stars.jpg"],
+    video:false
+  }
+];
+
+const teamElement = id =>
+  document.getElementById(id);
+
+const teamDialog = teamElement("bss-team-dialog");
+const teamViewer = teamElement("bss-team-viewer");
+
+let selectedTeam = null;
+let teamDatabasePromise = null;
+let teamRenderToken = 0;
+let teamObjectURLs = [];
+let viewerObjectURL = null;
+let teamUploading = false;
+
+/* KEEP EXISTING SUPER FANCLUB COVER */
+
+loadImage(
+  teamElement("super-fanclub-cover"),
+  ["super-fanclub.jpg","sfc-5-stars.jpg"]
+);
+
+/* DIRECT ROOT MEDIA PATHS */
+
+function createTeamCover(team){
+
+  if(team.video){
+
+    const video = document.createElement("video");
+
+    video.className = "team-cover";
+    video.src = "./" + encodeURIComponent(team.files[0]);
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+
+    return video;
+  }
+
+  const image = document.createElement("img");
+
+  image.className = "team-cover";
+  image.alt = team.name;
+
+  if(team.id === "super-fanclub"){
+    loadImage(image,team.files);
+  }else{
+    image.src = "./" + encodeURIComponent(team.files[0]);
+  }
+
+  return image;
 }
 
 /* TEAM DATABASE */
-
-let teamDatabasePromise = null;
 
 function openTeamDatabase(){
 
@@ -1179,78 +1393,72 @@ function openTeamDatabase(){
     return teamDatabasePromise;
   }
 
-  teamDatabasePromise = new Promise(
-    (resolve,reject) => {
+  teamDatabasePromise = new Promise((resolve,reject) => {
 
-      if(!window.indexedDB){
+    if(!window.indexedDB){
+      reject(new Error("IndexedDB unavailable"));
+      return;
+    }
 
-        reject(
-          new Error("IndexedDB unavailable")
+    const request = indexedDB.open(
+      "BSS1815_TEAM_MEDIA",
+      1
+    );
+
+    request.onupgradeneeded = () => {
+
+      const db = request.result;
+
+      if(!db.objectStoreNames.contains("media")){
+
+        const store = db.createObjectStore(
+          "media",
+          {
+            keyPath:"id",
+            autoIncrement:true
+          }
         );
 
-        return;
+        store.createIndex(
+          "team",
+          "team",
+          {unique:false}
+        );
+
       }
 
-      const request = indexedDB.open(
-        "BSS1815_TEAM_MEDIA",
-        1
-      );
+    };
 
-      request.onupgradeneeded = () => {
+    request.onsuccess = () => {
 
-        const db = request.result;
+      const db = request.result;
 
-        if(!db.objectStoreNames.contains("media")){
-
-          const store = db.createObjectStore(
-            "media",
-            {
-              keyPath:"id",
-              autoIncrement:true
-            }
-          );
-
-          store.createIndex(
-            "team",
-            "team",
-            {unique:false}
-          );
-        }
+      db.onversionchange = () => {
+        db.close();
+        teamDatabasePromise = null;
       };
 
-      request.onsuccess = () => {
+      resolve(db);
 
-        const db = request.result;
+    };
 
-        db.onversionchange = () => {
-          db.close();
-          teamDatabasePromise = null;
-        };
+    request.onerror = () =>
+      reject(request.error);
 
-        resolve(db);
-      };
+    request.onblocked = () =>
+      reject(new Error("Database blocked"));
 
-      request.onerror = () => {
-        reject(request.error);
-      };
-
-      request.onblocked = () => {
-        reject(
-          new Error("Database blocked")
-        );
-      };
-    }
-  ).catch(error => {
+  }).catch(error => {
 
     teamDatabasePromise = null;
-
     throw error;
+
   });
 
   return teamDatabasePromise;
 }
 
-/* SAVE PHOTO OR VIDEO */
+/* SAVE TEAM MEDIA */
 
 async function saveTeamMedia(teamId,file){
 
@@ -1278,14 +1486,13 @@ async function saveTeamMedia(teamId,file){
       reject(transaction.error);
 
     transaction.onabort = () =>
-      reject(
-        transaction.error ||
-        new Error("Upload aborted")
-      );
+      reject(transaction.error || new Error("Upload aborted"));
+
   });
+
 }
 
-/* READ INDEPENDENT TEAM MEDIA */
+/* READ TEAM MEDIA */
 
 async function getTeamMedia(teamId){
 
@@ -1304,19 +1511,24 @@ async function getTeamMedia(teamId){
       .getAll(teamId);
 
     request.onsuccess = () => {
+
       resolve(
-        request.result.sort(
-          (a,b) => b.date-a.date
-        )
+        request.result.sort((a,b) => b.date-a.date)
       );
+
     };
 
     request.onerror = () =>
       reject(request.error);
+
+    transaction.onabort = () =>
+      reject(transaction.error || new Error("Read aborted"));
+
   });
+
 }
 
-/* DELETE UPLOADED TEAM MEDIA */
+/* DELETE UPLOADED MEDIA */
 
 async function deleteTeamMedia(id){
 
@@ -1337,115 +1549,13 @@ async function deleteTeamMedia(id){
       reject(transaction.error);
 
     transaction.onabort = () =>
-      reject(
-        transaction.error ||
-        new Error("Delete aborted")
-      );
+      reject(transaction.error || new Error("Delete aborted"));
+
   });
+
 }
 
-/* INDEPENDENT TEAM WINDOW */
-
-const teamDialog = document.createElement("dialog");
-
-teamDialog.id = "bss-team-dialog";
-
-teamDialog.innerHTML = `
-<div class="actions"
-     style="justify-content:flex-end">
-
-  <button class="btn"
-          id="bss-team-close">
-    ✕ CLOSE TEAM
-  </button>
-
-</div>
-
-<h2 id="bss-team-title"></h2>
-
-<div id="bss-team-cover"></div>
-
-<div class="controls">
-
-  <button class="btn primary"
-          id="bss-upload-photo">
-    <i class="fa-solid fa-camera"></i>
-    UPLOAD PHOTO
-  </button>
-
-  <button class="btn primary"
-          id="bss-upload-video">
-    <i class="fa-solid fa-video"></i>
-    UPLOAD VIDEO
-  </button>
-
-  <button class="btn"
-          id="bss-view-media">
-    <i class="fa-solid fa-photo-film"></i>
-    VIEW PHOTO & VIDEO
-  </button>
-
-</div>
-
-<input id="bss-photo-input"
-       type="file"
-       accept="image/*"
-       multiple
-       hidden>
-
-<input id="bss-video-input"
-       type="file"
-       accept="video/*"
-       multiple
-       hidden>
-
-<p id="bss-team-status"
-   aria-live="polite"></p>
-
-<p style="text-align:center;font-size:13px">
-  LOCAL MEDIA STORAGE — Aparèy sa a sèlman.
-</p>
-
-<div id="bss-team-media"
-     class="team-media-grid">
-</div>
-`;
-
-document.body.append(teamDialog);
-
-/* FULL MEDIA VIEWER */
-
-const teamViewer = document.createElement("dialog");
-
-teamViewer.id = "bss-team-viewer";
-
-teamViewer.innerHTML = `
-<div class="controls">
-
-  <button class="btn"
-          id="bss-viewer-close">
-    ✕ CLOSE
-  </button>
-
-</div>
-
-<div id="bss-viewer-content"></div>
-
-<h3 id="bss-viewer-title"></h3>
-`;
-
-document.body.append(teamViewer);
-
-const teamElement = id =>
-  document.getElementById(id);
-
-let selectedTeam = null;
-let teamRenderToken = 0;
-let teamObjectURLs = [];
-let viewerObjectURL = null;
-let teamUploading = false;
-
-/* RELEASE TEMPORARY MEDIA URLS */
+/* CLEAR TEMPORARY MEDIA */
 
 function clearTeamMedia(){
 
@@ -1464,7 +1574,7 @@ function clearTeamMedia(){
   teamObjectURLs = [];
 }
 
-/* OPEN TEAM */
+/* OPEN INDEPENDENT TEAM */
 
 function openTeam(team){
 
@@ -1479,15 +1589,9 @@ function openTeam(team){
     video => video.pause()
   );
 
-  const cover = createTeamCover(team);
-
-  cover.className = "team-cover";
-
-  if(team.video){
-    cover.controls = true;
-  }
-
-  coverBox.replaceChildren(cover);
+  coverBox.replaceChildren(
+    createTeamCover(team)
+  );
 
   teamElement("bss-team-status").textContent =
     "Loading team media...";
@@ -1497,15 +1601,14 @@ function openTeam(team){
   }
 
   renderTeamMedia();
+
 }
 
-/* OPEN PHOTO OR VIDEO */
+/* VIEW UPLOADED PHOTO OR VIDEO */
 
 function viewTeamMedia(record){
 
-  const box = teamElement(
-    "bss-viewer-content"
-  );
+  const box = teamElement("bss-viewer-content");
 
   box.querySelectorAll("video").forEach(
     video => video.pause()
@@ -1538,6 +1641,7 @@ function viewTeamMedia(record){
   }else{
 
     media.alt = record.name;
+
   }
 
   box.append(media);
@@ -1548,9 +1652,10 @@ function viewTeamMedia(record){
   if(!teamViewer.open){
     teamViewer.showModal();
   }
+
 }
 
-/* DISPLAY TEAM MEDIA */
+/* DISPLAY INDEPENDENT TEAM MEDIA */
 
 async function renderTeamMedia(){
 
@@ -1572,10 +1677,7 @@ async function renderTeamMedia(){
 
     const records = await getTeamMedia(teamId);
 
-    if(
-      token !== teamRenderToken ||
-      !teamDialog.open
-    ){
+    if(token !== teamRenderToken || !teamDialog.open){
       return;
     }
 
@@ -1600,21 +1702,15 @@ async function renderTeamMedia(){
 
     records.forEach(record => {
 
-      const item = document.createElement(
-        "article"
-      );
+      const item = document.createElement("article");
 
       item.className = "team-media-item";
 
-      const url = URL.createObjectURL(
-        record.blob
-      );
+      const url = URL.createObjectURL(record.blob);
 
       teamObjectURLs.push(url);
 
-      const video = record.type.startsWith(
-        "video/"
-      );
+      const video = record.type.startsWith("video/");
 
       const media = document.createElement(
         video ? "video" : "img"
@@ -1632,35 +1728,28 @@ async function renderTeamMedia(){
 
         media.alt = record.name;
         media.loading = "lazy";
+
       }
 
       const name = document.createElement("p");
 
       name.textContent = record.name;
 
-      const view = document.createElement(
-        "button"
-      );
+      const view = document.createElement("button");
 
       view.className = "btn";
       view.textContent = "VIEW MEDIA";
 
-      view.onclick = () => {
-        viewTeamMedia(record);
-      };
+      view.onclick = () => viewTeamMedia(record);
 
-      const remove = document.createElement(
-        "button"
-      );
+      const remove = document.createElement("button");
 
       remove.className = "btn";
       remove.textContent = "DELETE MEDIA";
 
       remove.onclick = async () => {
 
-        if(!confirm(
-          "Efase " + record.name + "?"
-        )){
+        if(!confirm("Efase " + record.name + "?")){
           return;
         }
 
@@ -1678,17 +1767,15 @@ async function renderTeamMedia(){
             "Medya a pa t kapab efase.";
 
           remove.disabled = false;
+
         }
+
       };
 
-      item.append(
-        media,
-        name,
-        view,
-        remove
-      );
+      item.append(media,name,view,remove);
 
       box.append(item);
+
     });
 
   }catch(error){
@@ -1699,7 +1786,9 @@ async function renderTeamMedia(){
         "Depo medya lokal la pa disponib.";
 
     }
+
   }
+
 }
 
 /* UPLOAD MULTIPLE PHOTOS AND VIDEOS */
@@ -1707,8 +1796,10 @@ async function renderTeamMedia(){
 async function uploadTeamFiles(input,kind){
 
   if(!selectedTeam || teamUploading){
+
     input.value = "";
     return;
+
   }
 
   const files = Array.from(input.files || []);
@@ -1721,17 +1812,9 @@ async function uploadTeamFiles(input,kind){
 
   const teamId = selectedTeam.id;
 
-  const status = teamElement(
-    "bss-team-status"
-  );
-
-  const photoButton = teamElement(
-    "bss-upload-photo"
-  );
-
-  const videoButton = teamElement(
-    "bss-upload-video"
-  );
+  const status = teamElement("bss-team-status");
+  const photoButton = teamElement("bss-upload-photo");
+  const videoButton = teamElement("bss-upload-video");
 
   teamUploading = true;
 
@@ -1746,12 +1829,13 @@ async function uploadTeamFiles(input,kind){
     for(const file of files){
 
       if(!file.type.startsWith(kind + "/")){
+
         failed++;
         continue;
+
       }
 
-      status.textContent =
-        "Uploading: " + file.name;
+      status.textContent = "Uploading: " + file.name;
 
       try{
 
@@ -1762,7 +1846,9 @@ async function uploadTeamFiles(input,kind){
       }catch(error){
 
         failed++;
+
       }
+
     }
 
     if(
@@ -1773,8 +1859,15 @@ async function uploadTeamFiles(input,kind){
 
       await renderTeamMedia();
 
-      status.textContent =
-        `${saved} MEDIA SAVED • ${failed} FAILED`;
+      if(selectedTeam &&
+         selectedTeam.id === teamId &&
+         teamDialog.open){
+
+        status.textContent =
+          `${saved} MEDIA SAVED • ${failed} FAILED`;
+
+      }
+
     }
 
   }finally{
@@ -1783,7 +1876,9 @@ async function uploadTeamFiles(input,kind){
 
     photoButton.disabled = false;
     videoButton.disabled = false;
+
   }
+
 }
 
 /* TEAM BUTTONS */
@@ -1800,19 +1895,17 @@ teamElement("bss-upload-video").onclick = () => {
 
 };
 
-teamElement("bss-photo-input").onchange =
-  function(){
+teamElement("bss-photo-input").onchange = function(){
 
-    uploadTeamFiles(this,"image");
+  uploadTeamFiles(this,"image");
 
-  };
+};
 
-teamElement("bss-video-input").onchange =
-  function(){
+teamElement("bss-video-input").onchange = function(){
 
-    uploadTeamFiles(this,"video");
+  uploadTeamFiles(this,"video");
 
-  };
+};
 
 teamElement("bss-view-media").onclick = () => {
 
@@ -1847,13 +1940,12 @@ teamDialog.addEventListener("close",() => {
   cover.replaceChildren();
 
   selectedTeam = null;
+
 });
 
 teamViewer.addEventListener("close",() => {
 
-  const box = teamElement(
-    "bss-viewer-content"
-  );
+  const box = teamElement("bss-viewer-content");
 
   box.querySelectorAll("video").forEach(
     video => video.pause()
@@ -1866,55 +1958,39 @@ teamViewer.addEventListener("close",() => {
     URL.revokeObjectURL(viewerObjectURL);
 
     viewerObjectURL = null;
+
   }
+
 });
 
-/* RENDER THE FIVE OFFICIAL TEAMS */
+/* ACTIVATE ALL FIVE TEAM CARDS */
 
-TEAMS.forEach(team => {
+document.querySelectorAll(
+  "#community [data-team]"
+).forEach(card => {
 
-  const card = document.createElement(
-    "article"
+  const team = TEAMS.find(
+    item => item.id === card.dataset.team
   );
 
-  card.className = "card tribute team-card";
+  if(!team)return;
 
-  const cover = createTeamCover(team);
+  card.addEventListener("click",() => {
 
-  const title = document.createElement("h3");
+    openTeam(team);
 
-  title.textContent = team.name;
+  });
 
-  const button = document.createElement(
-    "button"
-  );
+  const button = card.querySelector("button");
 
-  button.className = "btn primary";
-
-  button.textContent = "OPEN TEAM";
-
-  button.onclick = event => {
+  button.addEventListener("click",event => {
 
     event.stopPropagation();
 
     openTeam(team);
-  };
 
-  card.onclick = () => {
+  });
 
-    openTeam(team);
-
-  };
-
-  card.append(
-    cover,
-    title,
-    button
-  );
-
-  document.getElementById(
-    "community-grid"
-  ).append(card);
 });
 
 /* ==================================================
@@ -2157,62 +2233,92 @@ let slideToken = 0;
 const isVideo = file => /\.mp4$/i.test(file);
 
 function mediaLabel(file){
+
   return file.replace(/\.[^.]+$/,"")
              .replace(/[-_]/g," ")
              .toUpperCase();
+
 }
 
 function createMedia(file,onReady,onFailed){
+
   const video = isVideo(file);
-  const element = document.createElement(video ? "video" : "img");
+
+  const element = document.createElement(
+    video ? "video" : "img"
+  );
 
   let baseIndex = 0;
 
   if(video){
+
     element.muted = true;
     element.playsInline = true;
     element.preload = "metadata";
+
   }else{
+
     element.alt = mediaLabel(file);
+
   }
 
   element.onerror = function(){
+
     baseIndex++;
 
     if(baseIndex < BASES.length){
+
       element.src = assetURL(BASES[baseIndex],file);
 
-      if(video) element.load();
+      if(video)element.load();
+
     }else{
+
       element.onerror = null;
-      if(onFailed) onFailed();
+
+      if(onFailed)onFailed();
+
     }
+
   };
 
   if(video){
+
     element.onloadeddata = () => {
-      if(onReady) onReady(element);
+
+      if(onReady)onReady(element);
+
     };
+
   }else{
+
     element.onload = () => {
-      if(onReady) onReady(element);
+
+      if(onReady)onReady(element);
+
     };
+
   }
 
   element.src = assetURL(BASES[0],file);
 
   return element;
+
 }
 
 function scheduleNext(delay=6000){
+
   clearTimeout(slideTimer);
 
   if(playing){
+
     slideTimer = setTimeout(
       () => showSlide(currentIndex+1),
       delay
     );
+
   }
+
 }
 
 function showSlide(index,direction=1,attempts=0){
@@ -2220,8 +2326,11 @@ function showSlide(index,direction=1,attempts=0){
   clearTimeout(slideTimer);
 
   if(attempts >= GALLERY.length){
+
     slideStatus.textContent = "Okenn medya pa disponib.";
+
     return;
+
   }
 
   const token = ++slideToken;
@@ -2237,45 +2346,79 @@ function showSlide(index,direction=1,attempts=0){
     `MEDIA ${currentIndex+1} / ${GALLERY.length}`;
 
   const element = createMedia(
+
     file,
 
     media => {
-      if(token !== slideToken) return;
+
+      if(token !== slideToken)return;
 
       if(isVideo(file)){
+
         media.controls = true;
 
         media.onended = () => {
+
           if(playing && token === slideToken){
+
             showSlide(currentIndex+1);
+
           }
+
         };
 
         if(playing){
-          media.play().catch(() => scheduleNext(10000));
+
+          media.play().catch(
+            () => scheduleNext(10000)
+          );
+
         }
 
       }else{
+
         scheduleNext();
+
       }
+
     },
 
     () => {
+
       if(token === slideToken){
-        showSlide(currentIndex+direction,direction,attempts+1);
+
+        showSlide(
+          currentIndex+direction,
+          direction,
+          attempts+1
+        );
+
       }
+
     }
+
   );
 
   slideMedia.replaceChildren(element);
 
   if(playing){
+
     slideTimer = setTimeout(() => {
+
       if(token === slideToken){
-        showSlide(currentIndex+direction,direction,attempts+1);
+
+        showSlide(
+          currentIndex+direction,
+          direction,
+          attempts+1
+        );
+
       }
+
     },25000);
+
   }
+
 }
 
 document.getElementById("prev").onclick = () =>
@@ -2295,66 +2438,86 @@ document.getElementById("pause").onclick = function(){
   const video = slideMedia.querySelector("video");
 
   if(video){
+
     if(playing){
+
       video.play().catch(() => scheduleNext());
+
     }else{
+
       video.pause();
+
     }
+
   }else if(playing){
+
     scheduleNext();
+
   }
+
 };
 
 let galleryBuilt = false;
 
 function buildGallery(){
 
-  if(galleryBuilt) return;
+  if(galleryBuilt)return;
 
   galleryBuilt = true;
 
   GALLERY.forEach((file,index) => {
 
     const tile = document.createElement("button");
+
     tile.className = "tile";
 
     const name = document.createElement("span");
+
     name.textContent = mediaLabel(file);
 
     if(isVideo(file)){
+
       const icon = document.createElement("div");
 
       icon.style.cssText =
         "height:180px;display:grid;place-items:center;font-size:45px;color:#ff7900;background:#000";
 
-      icon.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
+      icon.innerHTML =
+        '<i class="fa-solid fa-circle-play"></i>';
 
       tile.append(icon);
 
     }else{
 
       const image = document.createElement("img");
+
       image.loading = "lazy";
+
       image.alt = mediaLabel(file);
 
       loadImage(image,file);
 
       tile.append(image);
+
     }
 
     tile.append(name);
 
     tile.onclick = () => {
+
       showSlide(index);
 
       document.querySelector(".slide").scrollIntoView({
         behavior:"smooth",
         block:"center"
       });
+
     };
 
     gallery.append(tile);
+
   });
+
 }
 
 document.getElementById("toggle-gallery").onclick = function(){
@@ -2362,12 +2525,15 @@ document.getElementById("toggle-gallery").onclick = function(){
   gallery.hidden = !gallery.hidden;
 
   if(!gallery.hidden){
+
     buildGallery();
+
   }
 
   this.textContent = gallery.hidden
     ? "OUVRI GALERI A"
     : "FÈMEN GALERI A";
+
 };
 
 showSlide(0);
@@ -2385,21 +2551,38 @@ avatar.addEventListener("error",() => {
   avatarBase++;
 
   if(avatarBase < BASES.length){
-    avatar.src = assetURL(BASES[avatarBase],PROF_AVATAR);
+
+    avatar.src = assetURL(
+      BASES[avatarBase],
+      PROF_AVATAR
+    );
+
     avatar.load();
+
   }
+
 });
 
 document.getElementById("play-avatar").onclick = async () => {
+
   try{
+
     if(avatar.paused){
+
       await avatar.play();
+
     }else{
+
       avatar.pause();
+
     }
+
   }catch(error){
+
     alert("Verifye fichye prof-avatar-cust.mp4 la.");
+
   }
+
 };
 
 /* ==================================================
@@ -2481,25 +2664,38 @@ SOCIALS.forEach(([name,icon,color,url]) => {
   let symbol;
 
   if(icon === "truthsocial"){
+
     symbol = document.createElement("img");
-    symbol.src = "https://cdn.simpleicons.org/truthsocial/5448EE";
+
+    symbol.src =
+      "https://cdn.simpleicons.org/truthsocial/5448EE";
+
     symbol.alt = "Truth Social";
+
   }else{
+
     symbol = document.createElement("i");
+
     symbol.className = "fa-brands " + icon;
+
     symbol.style.color = color;
 
     if(icon === "fa-tiktok"){
+
       symbol.style.textShadow = "2px 2px #FE2C55";
+
     }
+
   }
 
   const label = document.createElement("span");
+
   label.textContent = name;
 
   link.append(symbol,label);
 
   document.getElementById("social-grid").append(link);
+
 });
 
 /* ==================================================
@@ -2524,25 +2720,33 @@ const MODULES = [
 MODULES.forEach(([icon,name,description],index) => {
 
   const card = document.createElement("article");
+
   card.className = "card module";
 
   const symbol = document.createElement("i");
+
   symbol.className = "fa-solid " + icon;
 
   const title = document.createElement("h3");
+
   title.textContent = name;
 
   const text = document.createElement("p");
+
   text.textContent = description;
 
   const button = document.createElement("button");
+
   button.className = "btn";
+
   button.textContent = "OPEN MODULE";
+
   button.onclick = () => openModule(index);
 
   card.append(symbol,title,text,button);
 
   document.getElementById("modules").append(card);
+
 });
 
 const moduleDialog = document.getElementById("module-dialog");
@@ -2560,63 +2764,89 @@ function openModule(index){
     MODULES[index][2] + " — Local Digital Assistant";
 
   document.getElementById("module-subject").value = "";
+
   document.getElementById("module-input").value = "";
+
   document.getElementById("output").textContent = "";
 
   if(!moduleDialog.open){
+
     moduleDialog.showModal();
+
   }
+
 }
 
 function saveRecord(key,record){
 
   try{
+
     const records = JSON.parse(
       localStorage.getItem(key) || "[]"
     );
 
     records.push(record);
 
-    localStorage.setItem(key,JSON.stringify(records));
+    localStorage.setItem(
+      key,
+      JSON.stringify(records)
+    );
 
     return records.length;
 
   }catch(error){
+
     return null;
+
   }
+
 }
 
 function runModule(){
 
-  const subject = document.getElementById("module-subject").value.trim();
-  const input = document.getElementById("module-input").value.trim();
-  const output = document.getElementById("output");
+  const subject =
+    document.getElementById("module-subject").value.trim();
+
+  const input =
+    document.getElementById("module-input").value.trim();
+
+  const output =
+    document.getElementById("output");
 
   const title = subject || "BSS1815";
+
   const date = new Date().toLocaleDateString();
 
   let result = "";
 
   if(!subject && !input){
-    output.textContent = "Antre enfòmasyon ou yo anvan.";
+
+    output.textContent =
+      "Antre enfòmasyon ou yo anvan.";
+
     return;
+
   }
 
   switch(activeModule){
 
     case 0:
+
       result =
         "BRIYANT SOLÈY SIGNO 1815\n\n" +
         title.toUpperCase() +
         "\n\nByenveni nan prezantasyon nou an.\n\n" +
         input +
         "\n\nDEVAN DEVAN NÈT™\nBATI POU JODI A, PARE POU DEMEN.";
+
       break;
 
     case 1:
     case 4:
     case 8:{
-      const key = "bss1815-records-" + activeModule;
+
+      const key =
+        "bss1815-records-" + activeModule;
 
       const total = saveRecord(key,{
         title,
@@ -2631,11 +2861,15 @@ function runModule(){
           "\nDat: " + date +
           "\nDetay: " + input +
           "\nTotal dosye: " + total;
+
       break;
+
     }
 
     case 2:{
-      const query = (subject || input).toLowerCase();
+
+      const query =
+        (subject || input).toLowerCase();
 
       const matches = GALLERY.filter(
         file => file.toLowerCase().includes(query)
@@ -2644,51 +2878,64 @@ function runModule(){
       result = matches.length
         ? matches.join("\n")
         : "Pa gen fichye ki koresponn ak rechèch la.";
+
       break;
+
     }
 
     case 3:
+
       result =
         "BRIYANT SOLÈY SIGNO 1815\n" +
         "DOKIMAN — " + title.toUpperCase() +
         "\nDat: " + date +
         "\n\n" + input +
         "\n\nSiyati: __________________";
+
       break;
 
     case 5:
+
       result =
         "VOICE SCRIPT\n\n" +
         "Bonjou, bonswa tout fanmi BSS1815.\n\n" +
         title + "\n\n" + input +
         "\n\nBriyant se yon limyè ki pa janm etenn.";
+
       break;
 
     case 6:
+
       result =
         title.toUpperCase() +
         "\n\n" + input +
         "\n\n#BSS1815 #BriyantSoleySigno #DevanDevanNet";
+
       break;
 
     case 7:
+
       result =
         "FLYER DESIGN BRIEF\n\n" +
         "TITLE: " + title +
         "\nDETAILS: " + input +
         "\nCOLORS: Orange / Apricot / Black Fade" +
         "\nLOGO: " + LOGO;
+
       break;
 
     case 9:
+
       result =
         "PRO-MAX FM 106.5 FM\n\n" +
         title +
         "\n\n" + input +
         "\n\nLa force du son.";
+
       break;
 
     case 10:
+
       result =
         "BUSINESS SUPPORT — " + title +
         "\n\n" + input +
@@ -2696,38 +2943,51 @@ function runModule(){
         "\n2. Idantifye resous." +
         "\n3. Prepare bidjè." +
         "\n4. Etabli plan aksyon.";
+
       break;
 
     case 11:
+
       result =
         "BSS1815 COMMUNITY SUPPORT\n\n" +
         "Pou asistans sou: " + title +
         "\n\nUSA: (407) 640-5166 / (317) 538-1150" +
         "\nAYITI: +509 4254-4447 / +509 4343-7488" +
         "\nEMAIL: bss1815promaxdmp@gmail.com";
+
       break;
+
   }
 
   output.textContent = result;
+
 }
 
 async function copyOutput(){
-  const text = document.getElementById("output").textContent;
 
-  if(!text) return;
+  const text =
+    document.getElementById("output").textContent;
+
+  if(!text)return;
 
   try{
+
     await navigator.clipboard.writeText(text);
+
   }catch(error){
+
     alert("Chwazi tèks la epi kopye li.");
+
   }
+
 }
 
 function saveOutput(){
 
-  const text = document.getElementById("output").textContent;
+  const text =
+    document.getElementById("output").textContent;
 
-  if(!text) return;
+  if(!text)return;
 
   const blob = new Blob([text],{
     type:"text/plain;charset=utf-8"
@@ -2738,11 +2998,16 @@ function saveOutput(){
   const link = document.createElement("a");
 
   link.href = url;
+
   link.download = "BSS1815-document.txt";
 
   link.click();
 
-  setTimeout(() => URL.revokeObjectURL(url),1000);
+  setTimeout(
+    () => URL.revokeObjectURL(url),
+    1000
+  );
+
 }
 
 /* ==================================================
@@ -2751,7 +3016,11 @@ function saveOutput(){
 
 function setLanguage(language){
 
-  const index = {ht:0,en:1,fr:2}[language];
+  const index = {
+    ht:0,
+    en:1,
+    fr:2
+  }[language];
 
   document.documentElement.lang = language;
 
@@ -2761,18 +3030,24 @@ function setLanguage(language){
 
     element.textContent =
       translations[index] || translations[0];
+
   });
 
   document.querySelectorAll("[data-lang]").forEach(button => {
+
     button.classList.toggle(
       "active",
       button.dataset.lang === language
     );
+
   });
+
 }
 
 document.querySelectorAll("[data-lang]").forEach(button => {
+
   button.onclick = () => setLanguage(button.dataset.lang);
+
 });
 
 document.getElementById("year").textContent =
