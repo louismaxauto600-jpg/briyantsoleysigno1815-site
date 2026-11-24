@@ -20,7 +20,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -73,10 +72,7 @@ header{
   font-size:clamp(20px,3vw,32px);
 }
 
-.brand p{
-  margin:4px 0;
-  font-weight:bold;
-}
+.brand p{margin:4px 0;font-weight:bold}
 
 .langs,.nav,.actions,.controls{
   display:flex;
@@ -85,9 +81,7 @@ header{
   gap:10px;
 }
 
-.nav{
-  margin:24px auto 0;
-}
+.nav{margin:24px auto 0}
 
 .btn,.nav a,.langs button,.controls button{
   padding:12px 17px;
@@ -108,11 +102,7 @@ header{
 }
 
 section{padding:60px 18px}
-
-.wrap{
-  max-width:1350px;
-  margin:auto;
-}
+.wrap{max-width:1350px;margin:auto}
 
 .hero{
   text-align:center;
@@ -187,9 +177,7 @@ section{padding:60px 18px}
   background:#000;
 }
 
-.media{
-  border-block:2px solid var(--orange);
-}
+.media{border-block:2px solid var(--orange)}
 
 .slide{
   max-width:1100px;
@@ -332,10 +320,7 @@ footer{
   border-top:3px solid var(--orange);
 }
 
-footer img{
-  width:130px;
-  border-radius:15px;
-}
+footer img{width:130px;border-radius:15px}
 
 .ai-float{
   position:fixed;
@@ -383,23 +368,184 @@ textarea{min-height:130px}
   border-radius:12px;
 }
 
+/* CRM CENTER */
+
+#crm-dialog{
+  width:min(96vw,1100px);
+}
+
+.crm-dashboard{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:12px;
+  margin:20px 0;
+}
+
+.crm-stat{
+  text-align:center;
+  border:1px solid var(--orange);
+  border-radius:15px;
+  padding:15px;
+  background:#120500;
+}
+
+.crm-stat strong{
+  display:block;
+  color:var(--orange);
+  font-size:34px;
+}
+
+.crm-fields{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.crm-table-wrap{
+  overflow-x:auto;
+  margin-top:20px;
+}
+
+.crm-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:800px;
+}
+
+.crm-table th,.crm-table td{
+  border:1px solid var(--border);
+  padding:12px;
+  text-align:left;
+}
+
+.crm-table th{
+  background:var(--orange);
+  color:#000;
+}
+
+.crm-table td{background:#100500}
+
+.crm-table button{
+  padding:7px 12px;
+  margin:3px;
+  border:1px solid var(--orange);
+  border-radius:8px;
+  background:#000;
+  color:var(--apricot);
+}
+
+.crm-highlight{
+  border:2px solid var(--orange);
+  box-shadow:0 0 20px #ff790025;
+}
+
+/* PRO-MAX FM LIVE PLAYER */
+
+.radio-player{
+  max-width:850px;
+  margin:auto;
+  padding:35px 20px;
+  text-align:center;
+  border:3px solid var(--orange);
+  border-radius:28px;
+  background:radial-gradient(ellipse,#502000,#170600,#000);
+  box-shadow:0 0 35px #ff790033;
+}
+
+.radio-logo{
+  width:190px;
+  height:190px;
+  object-fit:contain;
+  border:3px solid var(--orange);
+  border-radius:50%;
+  background:#000;
+}
+
+.radio-live{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 18px;
+  border:1px solid var(--orange);
+  border-radius:30px;
+  color:var(--orange);
+  font-weight:900;
+  margin:20px 0;
+}
+
+.live-dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--orange);
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  50%{box-shadow:0 0 18px var(--orange);opacity:.5}
+}
+
+.radio-play{
+  width:90px;
+  height:90px;
+  border:3px solid var(--apricot);
+  border-radius:50%;
+  background:var(--orange);
+  color:#000;
+  font-size:32px;
+  margin:15px;
+}
+
+.radio-volume{
+  max-width:280px;
+  margin:20px auto;
+}
+
+.radio-volume input{
+  padding:0;
+  accent-color:var(--orange);
+}
+
+.radio-status{
+  min-height:30px;
+  font-weight:bold;
+}
+
+.equalizer{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  height:50px;
+}
+
+.equalizer span{
+  width:6px;
+  height:8px;
+  border-radius:5px;
+  background:var(--orange);
+}
+
+.equalizer.active span{
+  animation:wave .8s infinite alternate;
+}
+
+.equalizer span:nth-child(2n){animation-delay:.2s}
+.equalizer span:nth-child(3n){animation-delay:.4s}
+
+@keyframes wave{
+  from{height:8px}
+  to{height:45px}
+}
+
 @media(max-width:1000px){
-  .heroes{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
+  .heroes{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media(max-width:600px){
-  .heroes,.grid{
-    grid-template-columns:1fr;
-  }
-  .logo{
-    width:75px;
-    height:75px;
-  }
-  .gallery{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
+  .heroes,.grid,.crm-fields{grid-template-columns:1fr}
+  .logo{width:75px;height:75px}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
   section{padding:40px 12px}
   .portrait{height:340px}
 }
@@ -475,7 +621,7 @@ textarea{min-height:130px}
   </div>
 </section>
 
-<!-- MEMORANDUM : EXACTLY FOUR HEROES -->
+<!-- MEMORANDUM -->
 
 <section id="memorandum" class="memorial">
   <div class="wrap">
@@ -623,15 +769,12 @@ textarea{min-height:130px}
 
 <section id="community">
   <div class="wrap">
-
     <h2 class="title">BSS1815 COMMUNITY</h2>
-
     <div class="grid" id="community-grid"></div>
-
   </div>
 </section>
 
-<!-- CUSTOMER SERVICE : NEW VIDEO -->
+<!-- CUSTOMER SERVICE -->
 
 <section id="customer-service">
   <div class="wrap">
@@ -641,13 +784,10 @@ textarea{min-height:130px}
     <div class="avatar">
 
       <video id="avatar"
+             src="./prof-avatar-cust.mp4"
              controls
              playsinline
              preload="metadata">
-
-        <source src="./prof-avatar-cust.mp4"
-                type="video/mp4">
-
       </video>
 
       <h3>PROF AVATAR — BSS1815</h3>
@@ -669,7 +809,7 @@ textarea{min-height:130px}
   </div>
 </section>
 
-<!-- 12 AI MODULES -->
+<!-- AI CENTER — 13 MODULES -->
 
 <section id="ai-center">
   <div class="wrap">
@@ -677,7 +817,7 @@ textarea{min-height:130px}
     <h2 class="title">BSS1815 — AI CENTER</h2>
 
     <p class="intro">
-      12 DIGITAL TOOLS • COMMUNITY • INNOVATION
+      13 DIGITAL TOOLS • COMMUNITY • INNOVATION
     </p>
 
     <div class="grid" id="modules"></div>
@@ -685,31 +825,77 @@ textarea{min-height:130px}
   </div>
 </section>
 
-<!-- RADIO -->
+<!-- PRO-MAX FM 106.5 FM — INTEGRATED LIVE PLAYER -->
 
 <section id="radio">
   <div class="wrap">
 
     <h2 class="title">PRO-MAX FM 106.5 FM</h2>
 
-    <div class="card" style="text-align:center">
+    <div class="radio-player">
 
-      <h3>LA FORCE DU SON</h3>
+      <img id="radio-logo"
+           class="radio-logo"
+           src="./pro-max-fm-106.5.jpg"
+           alt="PRO-MAX FM 106.5 FM">
+
+      <h2 style="color:var(--orange)">
+        LA FORCE DU SON
+      </h2>
 
       <p>Une voix qui nous rassemble.</p>
 
-      <a class="btn primary"
-         href="https://bss1815promaxdmp.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-        RADIO — DIGITAL PLATFORM
-      </a>
+      <div class="radio-live">
+        <span class="live-dot"></span>
+        LIVE RADIO
+      </div>
+
+      <div class="equalizer" id="radio-equalizer">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+
+      <audio id="radio-audio" preload="none"
+             src="https://listen.radioking.com/radio/952371/stream/1024056">
+      </audio>
+
+      <button id="radio-play"
+              class="radio-play"
+              aria-label="Play live radio">
+        <i class="fa-solid fa-play"></i>
+      </button>
+
+      <div id="radio-status"
+           class="radio-status"
+           aria-live="polite">
+        PRESS PLAY TO LISTEN LIVE
+      </div>
+
+      <div class="radio-volume">
+        <label for="radio-volume">
+          <i class="fa-solid fa-volume-high"></i>
+          VOLUME
+        </label>
+
+        <input id="radio-volume"
+               type="range"
+               min="0"
+               max="1"
+               step="0.05"
+               value="0.8">
+      </div>
+
+      <p>INFORMATION • MUSIC • CULTURE • COMMUNITY</p>
+
+      <p>PRO-MAX FM 106.5 FM — PARTOUT ET TOUJOURS.</p>
 
     </div>
   </div>
 </section>
 
-<!-- CONTACT WITH USA AND HAITI FLAGS -->
+<!-- CONTACT -->
 
 <section id="contact">
   <div class="wrap">
@@ -778,15 +964,12 @@ textarea{min-height:130px}
   </div>
 </section>
 
-<!-- 10 SOCIAL NETWORKS -->
+<!-- SOCIAL NETWORKS -->
 
 <section id="social-networks">
   <div class="wrap">
-
     <h2 class="title">SOCIAL NETWORKS</h2>
-
     <div class="socials" id="social-grid"></div>
-
   </div>
 </section>
 
@@ -842,12 +1025,184 @@ textarea{min-height:130px}
 
 </dialog>
 
+<!-- CRM CENTER — COMPLETE LOCAL DASHBOARD -->
+
+<dialog id="crm-dialog">
+
+  <h2 class="title">
+    <i class="fa-solid fa-address-book"></i>
+    BSS1815 — CRM CENTER
+  </h2>
+
+  <p class="intro">
+    CUSTOMER RELATIONSHIP MANAGEMENT
+  </p>
+
+  <p style="text-align:center">
+    Local CRM — Done yo konsève sou navigatè aparèy sa a.
+    Pa itilize li pou enfòmasyon konfidansyèl sou yon aparèy pataje.
+  </p>
+
+  <div class="crm-dashboard">
+
+    <div class="crm-stat">
+      <strong id="crm-total">0</strong>
+      TOTAL CONTACTS
+    </div>
+
+    <div class="crm-stat">
+      <strong id="crm-active">0</strong>
+      ACTIVE MEMBERS
+    </div>
+
+    <div class="crm-stat">
+      <strong id="crm-pending">0</strong>
+      PENDING
+    </div>
+
+    <div class="crm-stat">
+      <strong id="crm-teams">0</strong>
+      TEAMS
+    </div>
+
+  </div>
+
+  <form id="crm-form">
+
+    <input type="hidden" id="crm-id">
+
+    <div class="crm-fields">
+
+      <label>
+        FULL NAME
+        <input id="crm-name" required maxlength="150">
+      </label>
+
+      <label>
+        PHONE NUMBER
+        <input id="crm-phone" type="tel" maxlength="50">
+      </label>
+
+      <label>
+        EMAIL
+        <input id="crm-email" type="email" maxlength="150">
+      </label>
+
+      <label>
+        COUNTRY
+        <select id="crm-country">
+          <option value="Haiti">HAITI</option>
+          <option value="USA">USA</option>
+          <option value="Canada">CANADA</option>
+          <option value="France">FRANCE</option>
+          <option value="Other">OTHER</option>
+        </select>
+      </label>
+
+      <label>
+        TEAM
+        <select id="crm-team">
+          <option value="">SELECT TEAM</option>
+          <option>TEAM SAN PRESYON</option>
+          <option>TEAM BACKUP</option>
+          <option>MIAMI AN AKSYON</option>
+          <option>TEAM ANGRENAY</option>
+          <option>SUPER FANCLUB</option>
+          <option>ADMINISTRATION</option>
+          <option>OTHER</option>
+        </select>
+      </label>
+
+      <label>
+        STATUS
+        <select id="crm-status">
+          <option value="Active">ACTIVE</option>
+          <option value="Pending">PENDING</option>
+          <option value="Inactive">INACTIVE</option>
+        </select>
+      </label>
+
+      <label>
+        ROLE / POSITION
+        <input id="crm-role" maxlength="100">
+      </label>
+
+      <label>
+        FOLLOW-UP DATE
+        <input id="crm-followup" type="date">
+      </label>
+
+    </div>
+
+    <label>
+      COMMUNICATION / NOTES
+      <textarea id="crm-notes" maxlength="5000"></textarea>
+    </label>
+
+    <div class="controls">
+      <button class="btn primary" type="submit">
+        <i class="fa-solid fa-floppy-disk"></i>
+        SAVE CONTACT
+      </button>
+
+      <button class="btn" type="button" id="crm-reset">
+        NEW CONTACT
+      </button>
+    </div>
+
+  </form>
+
+  <p id="crm-message" aria-live="polite"></p>
+
+  <input id="crm-search"
+         type="search"
+         placeholder="Search name, phone, email, team...">
+
+  <div class="controls">
+
+    <button class="btn" id="crm-export">
+      <i class="fa-solid fa-file-csv"></i>
+      EXPORT CSV
+    </button>
+
+    <button class="btn" id="crm-backup">
+      BACKUP JSON
+    </button>
+
+    <button class="btn" id="crm-close">
+      CLOSE CRM
+    </button>
+
+  </div>
+
+  <div class="crm-table-wrap">
+
+    <table class="crm-table">
+
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>PHONE</th>
+          <th>EMAIL</th>
+          <th>TEAM</th>
+          <th>STATUS</th>
+          <th>FOLLOW-UP</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+
+      <tbody id="crm-records"></tbody>
+
+    </table>
+
+  </div>
+
+</dialog>
+
 <script>
 "use strict";
 
-/* ==================================================
-   OFFICIAL ASSETS
-================================================== */
+/* OFFICIAL ASSETS */
 
 const LOGO = "briyant-soley-signo-1815.jpg";
 const PROF_AVATAR = "prof-avatar-cust.mp4";
@@ -868,6 +1223,7 @@ function assetURL(base,file){
 }
 
 function loadImage(img,files){
+
   const names = Array.isArray(files) ? files : [files];
 
   const candidates = names.flatMap(
@@ -877,13 +1233,14 @@ function loadImage(img,files){
   let position = 0;
 
   img.onerror = function(){
+
     position++;
 
     if(position < candidates.length){
       img.src = candidates[position];
     }else{
       img.onerror = null;
-      img.alt = img.alt + " — Foto pa disponib";
+      img.alt += " — Foto pa disponib";
     }
   };
 
@@ -894,9 +1251,12 @@ document.querySelectorAll(
   ".logo,.hero-logo,footer img"
 ).forEach(img => loadImage(img,LOGO));
 
-/* ==================================================
-   FOUR HISTORICAL HEROES
-================================================== */
+loadImage(
+  document.getElementById("radio-logo"),
+  ["pro-max-fm-106.5.jpg","pro-max-fm.jpg"]
+);
+
+/* FOUR HISTORICAL HEROES */
 
 const HEROES = [
   {
@@ -938,11 +1298,13 @@ const HEROES = [
 ];
 
 function renderHeroes(containerId){
+
   const container = document.getElementById(containerId);
 
   container.replaceChildren();
 
   HEROES.forEach(hero => {
+
     const card = document.createElement("article");
     card.className = "card tribute";
 
@@ -967,9 +1329,7 @@ function renderHeroes(containerId){
 renderHeroes("memorial-grid");
 renderHeroes("history-grid");
 
-/* ==================================================
-   COMMUNITY
-================================================== */
+/* COMMUNITY */
 
 const TEAMS = [
   ["TEAM SAN PRESYON",["team-san-presyon.jpg","team-sanpresyon.jpg"]],
@@ -980,6 +1340,7 @@ const TEAMS = [
 ];
 
 TEAMS.forEach(([name,files]) => {
+
   const card = document.createElement("article");
   card.className = "card tribute";
 
@@ -996,9 +1357,7 @@ TEAMS.forEach(([name,files]) => {
   document.getElementById("community-grid").append(card);
 });
 
-/* ==================================================
-   ORIGINAL 212 MEDIA FILES
-================================================== */
+/* ORIGINAL 212 MEDIA FILES */
 
 const GALLERY = [
 "bss.jpg",
@@ -1215,9 +1574,7 @@ const GALLERY = [
 "bss1815pro-max-ap-bati.mp4"
 ];
 
-/* ==================================================
-   MEDIA ENGINE
-================================================== */
+/* MEDIA ENGINE */
 
 const gallery = document.getElementById("gallery");
 const slideMedia = document.getElementById("slide-media");
@@ -1238,6 +1595,7 @@ function mediaLabel(file){
 }
 
 function createMedia(file,onReady,onFailed){
+
   const video = isVideo(file);
   const element = document.createElement(video ? "video" : "img");
 
@@ -1252,11 +1610,11 @@ function createMedia(file,onReady,onFailed){
   }
 
   element.onerror = function(){
+
     baseIndex++;
 
     if(baseIndex < BASES.length){
       element.src = assetURL(BASES[baseIndex],file);
-
       if(video) element.load();
     }else{
       element.onerror = null;
@@ -1280,6 +1638,7 @@ function createMedia(file,onReady,onFailed){
 }
 
 function scheduleNext(delay=6000){
+
   clearTimeout(slideTimer);
 
   if(playing){
@@ -1312,12 +1671,15 @@ function showSlide(index,direction=1,attempts=0){
     `MEDIA ${currentIndex+1} / ${GALLERY.length}`;
 
   const element = createMedia(
+
     file,
 
     media => {
+
       if(token !== slideToken) return;
 
       if(isVideo(file)){
+
         media.controls = true;
 
         media.onended = () => {
@@ -1342,13 +1704,20 @@ function showSlide(index,direction=1,attempts=0){
     }
   );
 
+  const oldVideo = slideMedia.querySelector("video");
+
+  if(oldVideo) oldVideo.pause();
+
   slideMedia.replaceChildren(element);
 
   if(playing){
+
     slideTimer = setTimeout(() => {
+
       if(token === slideToken){
         showSlide(currentIndex+direction,direction,attempts+1);
       }
+
     },25000);
   }
 }
@@ -1370,11 +1739,13 @@ document.getElementById("pause").onclick = function(){
   const video = slideMedia.querySelector("video");
 
   if(video){
+
     if(playing){
       video.play().catch(() => scheduleNext());
     }else{
       video.pause();
     }
+
   }else if(playing){
     scheduleNext();
   }
@@ -1397,18 +1768,21 @@ function buildGallery(){
     name.textContent = mediaLabel(file);
 
     if(isVideo(file)){
+
       const icon = document.createElement("div");
 
       icon.style.cssText =
         "height:180px;display:grid;place-items:center;font-size:45px;color:#ff7900;background:#000";
 
-      icon.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
+      icon.innerHTML =
+        '<i class="fa-solid fa-circle-play"></i>';
 
       tile.append(icon);
 
     }else{
 
       const image = document.createElement("img");
+
       image.loading = "lazy";
       image.alt = mediaLabel(file);
 
@@ -1420,6 +1794,7 @@ function buildGallery(){
     tile.append(name);
 
     tile.onclick = () => {
+
       showSlide(index);
 
       document.querySelector(".slide").scrollIntoView({
@@ -1436,9 +1811,7 @@ document.getElementById("toggle-gallery").onclick = function(){
 
   gallery.hidden = !gallery.hidden;
 
-  if(!gallery.hidden){
-    buildGallery();
-  }
+  if(!gallery.hidden) buildGallery();
 
   this.textContent = gallery.hidden
     ? "OUVRI GALERI A"
@@ -1447,9 +1820,7 @@ document.getElementById("toggle-gallery").onclick = function(){
 
 showSlide(0);
 
-/* ==================================================
-   CUSTOMER SERVICE VIDEO
-================================================== */
+/* CUSTOMER SERVICE VIDEO */
 
 const avatar = document.getElementById("avatar");
 
@@ -1466,80 +1837,61 @@ avatar.addEventListener("error",() => {
 });
 
 document.getElementById("play-avatar").onclick = async () => {
+
   try{
+
     if(avatar.paused){
       await avatar.play();
     }else{
       avatar.pause();
     }
+
   }catch(error){
     alert("Verifye fichye prof-avatar-cust.mp4 la.");
   }
 };
 
-/* ==================================================
-   OFFICIAL SOCIAL BRAND ICONS
-================================================== */
+/* SOCIAL NETWORKS */
 
 const SOCIALS = [
   [
-    "Facebook",
-    "fa-facebook",
-    "#1877F2",
+    "Facebook","fa-facebook","#1877F2",
     "https://www.facebook.com/share/1By3KvYRrM/"
   ],
   [
-    "WhatsApp",
-    "fa-whatsapp",
-    "#25D366",
+    "WhatsApp","fa-whatsapp","#25D366",
     "https://wa.me/50943437488"
   ],
   [
-    "TikTok",
-    "fa-tiktok",
-    "#25F4EE",
+    "TikTok","fa-tiktok","#25F4EE",
     "https://www.tiktok.com/@maximax1960"
   ],
   [
-    "Instagram",
-    "fa-instagram",
-    "#E4405F",
+    "Instagram","fa-instagram","#E4405F",
     "https://www.instagram.com/lebaron072/"
   ],
   [
-    "Telegram",
-    "fa-telegram",
-    "#229ED9",
+    "Telegram","fa-telegram","#229ED9",
     "https://t.me/bss1815dmp"
   ],
   [
-    "YouTube",
-    "fa-youtube",
-    "#FF0000",
+    "YouTube","fa-youtube","#FF0000",
     "https://www.youtube.com/@BSS1815PROMAXDMP"
   ],
   [
-    "Spotify",
-    "fa-spotify",
-    "#1DB954",
+    "Spotify","fa-spotify","#1DB954",
     "https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
   ],
   [
-    "X / Twitter",
-    "fa-x-twitter",
-    "#E7E9EA",
+    "X / Twitter","fa-x-twitter","#E7E9EA",
     "https://x.com/w05g2m"
   ],
   [
-    "Truth Social",
-    "truthsocial",
-    "#5448EE",
+    "Truth Social","truthsocial","#5448EE",
     "https://truthsocial.com/@briyant_soley_1815"
   ],
   [
-    "LinkedIn",
-    "fa-linkedin",
-    "#0A66C2",
+    "LinkedIn","fa-linkedin","#0A66C2",
     "https://www.linkedin.com/in/maximax-multi-services-075ba2314"
   ]
 ];
@@ -1556,10 +1908,13 @@ SOCIALS.forEach(([name,icon,color,url]) => {
   let symbol;
 
   if(icon === "truthsocial"){
+
     symbol = document.createElement("img");
     symbol.src = "https://cdn.simpleicons.org/truthsocial/5448EE";
     symbol.alt = "Truth Social";
+
   }else{
+
     symbol = document.createElement("i");
     symbol.className = "fa-brands " + icon;
     symbol.style.color = color;
@@ -1577,9 +1932,7 @@ SOCIALS.forEach(([name,icon,color,url]) => {
   document.getElementById("social-grid").append(link);
 });
 
-/* ==================================================
-   AI CENTER — 12 LOCAL DIGITAL TOOLS
-================================================== */
+/* AI CENTER — 13 MODULES */
 
 const MODULES = [
   ["fa-film","AI PRESENTATION","Prezantasyon dijital"],
@@ -1593,13 +1946,17 @@ const MODULES = [
   ["fa-calendar-days","AI EVENTS","Planifikasyon aktivite"],
   ["fa-tower-broadcast","AI BROADCAST","Anons radyo"],
   ["fa-briefcase","AI BUSINESS SUPPORT","Sipò biznis"],
-  ["fa-headset","AI COMMUNITY SUPPORT","Asistans kominotè"]
+  ["fa-headset","AI COMMUNITY SUPPORT","Asistans kominotè"],
+  ["fa-address-book","CRM CENTER","Customer Relationship Management"]
 ];
 
 MODULES.forEach(([icon,name,description],index) => {
 
   const card = document.createElement("article");
-  card.className = "card module";
+
+  card.className = index === 12
+    ? "card module crm-highlight"
+    : "card module";
 
   const symbol = document.createElement("i");
   symbol.className = "fa-solid " + icon;
@@ -1612,7 +1969,11 @@ MODULES.forEach(([icon,name,description],index) => {
 
   const button = document.createElement("button");
   button.className = "btn";
-  button.textContent = "OPEN MODULE";
+
+  button.textContent = index === 12
+    ? "OPEN CRM CENTER"
+    : "OPEN MODULE";
+
   button.onclick = () => openModule(index);
 
   card.append(symbol,title,text,button);
@@ -1625,6 +1986,11 @@ const moduleDialog = document.getElementById("module-dialog");
 let activeModule = 0;
 
 function openModule(index){
+
+  if(index === 12){
+    openCRM();
+    return;
+  }
 
   activeModule = index;
 
@@ -1646,6 +2012,7 @@ function openModule(index){
 function saveRecord(key,record){
 
   try{
+
     const records = JSON.parse(
       localStorage.getItem(key) || "[]"
     );
@@ -1663,8 +2030,12 @@ function saveRecord(key,record){
 
 function runModule(){
 
-  const subject = document.getElementById("module-subject").value.trim();
-  const input = document.getElementById("module-input").value.trim();
+  const subject =
+    document.getElementById("module-subject").value.trim();
+
+  const input =
+    document.getElementById("module-input").value.trim();
+
   const output = document.getElementById("output");
 
   const title = subject || "BSS1815";
@@ -1680,17 +2051,20 @@ function runModule(){
   switch(activeModule){
 
     case 0:
+
       result =
         "BRIYANT SOLÈY SIGNO 1815\n\n" +
         title.toUpperCase() +
         "\n\nByenveni nan prezantasyon nou an.\n\n" +
         input +
         "\n\nDEVAN DEVAN NÈT™\nBATI POU JODI A, PARE POU DEMEN.";
+
       break;
 
     case 1:
     case 4:
     case 8:{
+
       const key = "bss1815-records-" + activeModule;
 
       const total = saveRecord(key,{
@@ -1700,16 +2074,18 @@ function runModule(){
       });
 
       result = total === null
-        ? "Rejis la pa t kapab anrejistre sou aparèy sa a."
+        ? "Rejis la pa t kapab anrejistre."
         : "ENFÒMASYON ANREJISTRE LOKALMAN\n\n" +
           "Tit: " + title +
           "\nDat: " + date +
           "\nDetay: " + input +
           "\nTotal dosye: " + total;
+
       break;
     }
 
     case 2:{
+
       const query = (subject || input).toLowerCase();
 
       const matches = GALLERY.filter(
@@ -1719,51 +2095,63 @@ function runModule(){
       result = matches.length
         ? matches.join("\n")
         : "Pa gen fichye ki koresponn ak rechèch la.";
+
       break;
     }
 
     case 3:
+
       result =
         "BRIYANT SOLÈY SIGNO 1815\n" +
         "DOKIMAN — " + title.toUpperCase() +
         "\nDat: " + date +
         "\n\n" + input +
         "\n\nSiyati: __________________";
+
       break;
 
     case 5:
+
       result =
         "VOICE SCRIPT\n\n" +
         "Bonjou, bonswa tout fanmi BSS1815.\n\n" +
         title + "\n\n" + input +
         "\n\nBriyant se yon limyè ki pa janm etenn.";
+
       break;
 
     case 6:
+
       result =
         title.toUpperCase() +
         "\n\n" + input +
         "\n\n#BSS1815 #BriyantSoleySigno #DevanDevanNet";
+
       break;
 
     case 7:
+
       result =
         "FLYER DESIGN BRIEF\n\n" +
         "TITLE: " + title +
         "\nDETAILS: " + input +
         "\nCOLORS: Orange / Apricot / Black Fade" +
         "\nLOGO: " + LOGO;
+
       break;
 
     case 9:
+
       result =
         "PRO-MAX FM 106.5 FM\n\n" +
         title +
         "\n\n" + input +
         "\n\nLa force du son.";
+
       break;
 
     case 10:
+
       result =
         "BUSINESS SUPPORT — " + title +
         "\n\n" + input +
@@ -1771,15 +2159,18 @@ function runModule(){
         "\n2. Idantifye resous." +
         "\n3. Prepare bidjè." +
         "\n4. Etabli plan aksyon.";
+
       break;
 
     case 11:
+
       result =
         "BSS1815 COMMUNITY SUPPORT\n\n" +
         "Pou asistans sou: " + title +
         "\n\nUSA: (407) 640-5166 / (317) 538-1150" +
         "\nAYITI: +509 4254-4447 / +509 4343-7488" +
         "\nEMAIL: bss1815promaxdmp@gmail.com";
+
       break;
   }
 
@@ -1787,6 +2178,7 @@ function runModule(){
 }
 
 async function copyOutput(){
+
   const text = document.getElementById("output").textContent;
 
   if(!text) return;
@@ -1798,31 +2190,509 @@ async function copyOutput(){
   }
 }
 
-function saveOutput(){
+function downloadFile(content,filename,type){
 
-  const text = document.getElementById("output").textContent;
-
-  if(!text) return;
-
-  const blob = new Blob([text],{
-    type:"text/plain;charset=utf-8"
-  });
+  const blob = new Blob([content],{type});
 
   const url = URL.createObjectURL(blob);
 
   const link = document.createElement("a");
 
   link.href = url;
-  link.download = "BSS1815-document.txt";
+  link.download = filename;
+
+  document.body.append(link);
 
   link.click();
+  link.remove();
 
   setTimeout(() => URL.revokeObjectURL(url),1000);
 }
 
-/* ==================================================
-   LANGUAGE SWITCHER
-================================================== */
+function saveOutput(){
+
+  const text = document.getElementById("output").textContent;
+
+  if(!text) return;
+
+  downloadFile(
+    text,
+    "BSS1815-document.txt",
+    "text/plain;charset=utf-8"
+  );
+}
+
+/* CRM CENTER — DATABASE & DASHBOARD */
+
+const CRM_KEY = "bss1815-crm-contacts-v1";
+
+const crmDialog = document.getElementById("crm-dialog");
+const crmForm = document.getElementById("crm-form");
+
+const crmFields = [
+  "name",
+  "phone",
+  "email",
+  "country",
+  "team",
+  "status",
+  "role",
+  "followup",
+  "notes"
+];
+
+let crmContacts = [];
+
+let crmStorageAvailable = true;
+
+try{
+
+  const stored = JSON.parse(
+    localStorage.getItem(CRM_KEY) || "[]"
+  );
+
+  if(Array.isArray(stored)){
+    crmContacts = stored.filter(
+      item => item && typeof item.id === "string"
+    );
+  }else{
+    crmStorageAvailable = false;
+  }
+
+}catch(error){
+  crmStorageAvailable = false;
+}
+
+function crmMessage(message){
+  document.getElementById("crm-message").textContent = message;
+}
+
+function persistCRM(nextRecords){
+
+  if(!crmStorageAvailable){
+    crmMessage("Local storage unavailable. Records not saved.");
+    return false;
+  }
+
+  try{
+
+    localStorage.setItem(
+      CRM_KEY,
+      JSON.stringify(nextRecords)
+    );
+
+    crmContacts = nextRecords;
+
+    return true;
+
+  }catch(error){
+
+    crmMessage("Unable to save records on this device.");
+
+    return false;
+  }
+}
+
+function openCRM(){
+
+  renderCRM();
+
+  if(!crmDialog.open){
+    crmDialog.showModal();
+  }
+
+  if(!crmStorageAvailable){
+    crmMessage("Local storage unavailable. Export existing data before making changes.");
+  }
+}
+
+function resetCRM(){
+
+  crmForm.reset();
+
+  document.getElementById("crm-id").value = "";
+}
+
+function renderCRM(){
+
+  document.getElementById("crm-total").textContent =
+    crmContacts.length;
+
+  document.getElementById("crm-active").textContent =
+    crmContacts.filter(item => item.status === "Active").length;
+
+  document.getElementById("crm-pending").textContent =
+    crmContacts.filter(item => item.status === "Pending").length;
+
+  document.getElementById("crm-teams").textContent =
+    new Set(
+      crmContacts.map(item => item.team).filter(Boolean)
+    ).size;
+
+  const query = document.getElementById("crm-search")
+    .value.trim().toLowerCase();
+
+  const tbody = document.getElementById("crm-records");
+
+  tbody.replaceChildren();
+
+  const matches = crmContacts.filter(item =>
+    crmFields.some(field =>
+      String(item[field] || "").toLowerCase().includes(query)
+    )
+  );
+
+  if(!matches.length){
+
+    const row = document.createElement("tr");
+
+    const cell = document.createElement("td");
+
+    cell.colSpan = 7;
+    cell.textContent = "NO CONTACTS FOUND";
+    cell.style.textAlign = "center";
+
+    row.append(cell);
+    tbody.append(row);
+
+    return;
+  }
+
+  matches.forEach(item => {
+
+    const row = document.createElement("tr");
+
+    [
+      item.name,
+      item.phone,
+      item.email,
+      item.team,
+      item.status,
+      item.followup
+    ].forEach(value => {
+
+      const cell = document.createElement("td");
+
+      cell.textContent = value || "—";
+
+      row.append(cell);
+    });
+
+    const actions = document.createElement("td");
+
+    const edit = document.createElement("button");
+
+    edit.textContent = "EDIT";
+    edit.onclick = () => editCRM(item.id);
+
+    const remove = document.createElement("button");
+
+    remove.textContent = "DELETE";
+    remove.onclick = () => deleteCRM(item.id);
+
+    actions.append(edit,remove);
+
+    row.append(actions);
+    tbody.append(row);
+  });
+}
+
+crmForm.addEventListener("submit",event => {
+
+  event.preventDefault();
+
+  const currentId =
+    document.getElementById("crm-id").value;
+
+  const existing =
+    crmContacts.find(item => item.id === currentId);
+
+  const record = {
+
+    id: existing
+      ? existing.id
+      : (
+          typeof crypto.randomUUID === "function"
+            ? crypto.randomUUID()
+            : Date.now().toString(36) +
+              Math.random().toString(36).slice(2)
+        ),
+
+    created: existing
+      ? existing.created
+      : new Date().toISOString(),
+
+    updated:new Date().toISOString()
+  };
+
+  crmFields.forEach(field => {
+
+    record[field] =
+      document.getElementById("crm-" + field).value.trim();
+  });
+
+  if(!record.name){
+
+    crmMessage("Full name is required.");
+
+    return;
+  }
+
+  const nextRecords = existing
+    ? crmContacts.map(item =>
+        item.id === currentId ? record : item
+      )
+    : [...crmContacts,record];
+
+  if(persistCRM(nextRecords)){
+
+    resetCRM();
+    renderCRM();
+
+    crmMessage(
+      existing
+        ? "CONTACT UPDATED SUCCESSFULLY"
+        : "NEW CONTACT SAVED SUCCESSFULLY"
+    );
+  }
+});
+
+function editCRM(id){
+
+  const record = crmContacts.find(item => item.id === id);
+
+  if(!record) return;
+
+  document.getElementById("crm-id").value = record.id;
+
+  crmFields.forEach(field => {
+
+    document.getElementById("crm-" + field).value =
+      record[field] || "";
+  });
+
+  crmForm.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+  crmMessage("EDITING: " + record.name);
+}
+
+function deleteCRM(id){
+
+  const record = crmContacts.find(item => item.id === id);
+
+  if(!record) return;
+
+  if(!confirm("Delete contact: " + record.name + "?")){
+    return;
+  }
+
+  const nextRecords = crmContacts.filter(
+    item => item.id !== id
+  );
+
+  if(persistCRM(nextRecords)){
+
+    if(document.getElementById("crm-id").value === id){
+      resetCRM();
+    }
+
+    renderCRM();
+
+    crmMessage("CONTACT DELETED");
+  }
+}
+
+document.getElementById("crm-search")
+  .addEventListener("input",renderCRM);
+
+document.getElementById("crm-reset").onclick = () => {
+
+  resetCRM();
+
+  crmMessage("NEW CONTACT");
+};
+
+document.getElementById("crm-close").onclick = () => {
+
+  crmDialog.close();
+};
+
+function csvCell(value){
+
+  let text = String(value ?? "");
+
+  if(/^[\s]*[=+\-@]/.test(text)){
+    text = "'" + text;
+  }
+
+  return '"' + text.replace(/"/g,'""') + '"';
+}
+
+document.getElementById("crm-export").onclick = () => {
+
+  const fields = [
+    ...crmFields,
+    "created",
+    "updated"
+  ];
+
+  const rows = [
+    fields.map(csvCell).join(","),
+    ...crmContacts.map(item =>
+      fields.map(field => csvCell(item[field])).join(",")
+    )
+  ];
+
+  downloadFile(
+    "\uFEFF" + rows.join("\r\n"),
+    "BSS1815-CRM-CONTACTS.csv",
+    "text/csv;charset=utf-8"
+  );
+
+  crmMessage("CSV EXPORT PREPARED");
+};
+
+document.getElementById("crm-backup").onclick = () => {
+
+  downloadFile(
+    JSON.stringify(crmContacts,null,2),
+    "BSS1815-CRM-BACKUP.json",
+    "application/json"
+  );
+
+  crmMessage("JSON BACKUP PREPARED");
+};
+
+/* PRO-MAX FM 106.5 FM — RADIOKING PLAYER */
+
+const radioAudio = document.getElementById("radio-audio");
+const radioPlay = document.getElementById("radio-play");
+const radioStatus = document.getElementById("radio-status");
+const radioVolume = document.getElementById("radio-volume");
+const radioEqualizer = document.getElementById("radio-equalizer");
+
+radioAudio.volume = Number(radioVolume.value);
+
+let radioRequested = false;
+
+function updateRadioButton(isPlaying){
+
+  radioPlay.innerHTML = isPlaying
+    ? '<i class="fa-solid fa-pause"></i>'
+    : '<i class="fa-solid fa-play"></i>';
+
+  radioPlay.setAttribute(
+    "aria-label",
+    isPlaying ? "Stop live radio" : "Play live radio"
+  );
+
+  radioEqualizer.classList.toggle("active",isPlaying);
+}
+
+radioPlay.addEventListener("click",async () => {
+
+  if(radioRequested || !radioAudio.paused){
+
+    radioRequested = false;
+
+    radioAudio.pause();
+
+    updateRadioButton(false);
+
+    radioStatus.textContent = "RADIO STOPPED";
+
+    return;
+  }
+
+  radioRequested = true;
+
+  radioStatus.textContent = "CONNECTING TO LIVE RADIO...";
+
+  radioPlay.innerHTML =
+    '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+  try{
+
+    if(radioAudio.error){
+      radioAudio.load();
+    }
+
+    await radioAudio.play();
+
+    if(!radioRequested){
+      radioAudio.pause();
+    }
+
+  }catch(error){
+
+    if(radioRequested){
+
+      radioRequested = false;
+
+      updateRadioButton(false);
+
+      radioStatus.textContent =
+        "STREAM UNAVAILABLE — PRESS PLAY TO RETRY";
+    }
+  }
+});
+
+radioAudio.addEventListener("playing",() => {
+
+  updateRadioButton(true);
+
+  radioStatus.textContent =
+    "ON AIR — PRO-MAX FM 106.5 FM";
+});
+
+radioAudio.addEventListener("waiting",() => {
+
+  if(radioRequested){
+
+    radioStatus.textContent = "BUFFERING LIVE STREAM...";
+
+    radioEqualizer.classList.remove("active");
+  }
+});
+
+radioAudio.addEventListener("pause",() => {
+
+  radioRequested = false;
+
+  updateRadioButton(false);
+
+  radioStatus.textContent = "PRESS PLAY TO LISTEN LIVE";
+});
+
+radioAudio.addEventListener("error",() => {
+
+  radioRequested = false;
+
+  updateRadioButton(false);
+
+  radioStatus.textContent =
+    "STREAM UNAVAILABLE — PRESS PLAY TO RETRY";
+});
+
+radioAudio.addEventListener("ended",() => {
+
+  radioRequested = false;
+
+  updateRadioButton(false);
+
+  radioStatus.textContent =
+    "STREAM ENDED — PRESS PLAY TO RECONNECT";
+});
+
+radioVolume.addEventListener("input",() => {
+
+  radioAudio.volume = Number(radioVolume.value);
+});
+
+/* LANGUAGE SWITCHER */
 
 function setLanguage(language){
 
@@ -1839,6 +2709,7 @@ function setLanguage(language){
   });
 
   document.querySelectorAll("[data-lang]").forEach(button => {
+
     button.classList.toggle(
       "active",
       button.dataset.lang === language
@@ -1847,6 +2718,7 @@ function setLanguage(language){
 }
 
 document.querySelectorAll("[data-lang]").forEach(button => {
+
   button.onclick = () => setLanguage(button.dataset.lang);
 });
 
