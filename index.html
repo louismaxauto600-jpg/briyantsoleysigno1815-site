@@ -2,790 +2,1009 @@
 <html lang="ht" translate="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080300">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080301">
 <meta name="google" content="notranslate">
+
 <title>BRIYANT SOLÈY SIGNO 1815</title>
+
+<link rel="icon" href="./briyant-soley-signo-1815.jpg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 :root{
- --orange:#ff7900;
- --apricot:#ffb477;
- --black:#000;
- --border:#74350e;
+  --orange:#ff7900;
+  --apricot:#ffb477;
+  --black:#080301;
+  --border:#934014;
 }
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
- margin:0;
- font:700 16px/1.6 Arial,Helvetica,sans-serif;
- color:var(--apricot);
- background:linear-gradient(135deg,#000,#291003,#000);
- background-attachment:fixed;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#000,#321204,#000);
+  color:var(--apricot);
+  line-height:1.6;
 }
+
 a{color:inherit;text-decoration:none}
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
 img,video{max-width:100%}
-[hidden]{display:none!important}
+
 header{
- padding:20px;
- background:linear-gradient(100deg,#000,#301000,#000);
- border-bottom:3px solid var(--orange);
+  padding:20px;
+  background:linear-gradient(90deg,#000,#351304,#000);
+  border-bottom:3px solid var(--orange);
 }
-.wrap{width:min(1300px,calc(100% - 32px));margin:auto}
+
 .top{
- display:flex;align-items:center;justify-content:space-between;
- flex-wrap:wrap;gap:18px
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
 }
-.identity{display:flex;align-items:center;gap:16px}
+
+.identity{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
 .logo{
- width:100px;height:100px;object-fit:contain;
- border:3px solid var(--orange);border-radius:50%;background:#000
+  width:110px;
+  height:110px;
+  border:3px solid var(--orange);
+  border-radius:50%;
+  object-fit:contain;
+  background:#000;
 }
-.brand h1{font-size:clamp(19px,3vw,32px);color:var(--orange);margin:0}
-.brand p{font-size:13px;margin:4px 0}
+
+.brand h1{
+  margin:0;
+  color:var(--orange);
+  font-size:clamp(20px,3vw,32px);
+}
+
+.brand p{
+  margin:4px 0;
+  font-weight:bold;
+}
+
 .langs,.nav,.actions,.controls{
- display:flex;flex-wrap:wrap;justify-content:center;gap:10px
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
 }
-.nav{margin-top:22px}
-.btn,button,.nav a{
- border:2px solid var(--orange);border-radius:12px;
- padding:11px 16px;background:#100400;color:var(--apricot);
- font-weight:900;text-decoration:none
+
+.nav{
+  margin:24px auto 0;
 }
-button:hover,.btn:hover,.nav a:hover,.active,.primary{
- background:var(--orange)!important;color:#000!important
+
+.btn,.nav a,.langs button,.controls button{
+  padding:12px 17px;
+  border:2px solid var(--orange);
+  border-radius:12px;
+  background:#190800;
+  color:var(--apricot);
+  font-weight:900;
+  display:inline-block;
 }
-button:disabled{
- opacity:.5;
- cursor:not-allowed
-}
+
 .nav a{font-size:12px}
-section{padding:58px 0}
-.hero{text-align:center;background:radial-gradient(ellipse,#512004,#000)}
+
+.btn:hover,.nav a:hover,
+.langs button.active,.primary{
+  background:var(--orange);
+  color:#000;
+}
+
+section{padding:60px 18px}
+
+.wrap{
+  max-width:1350px;
+  margin:auto;
+}
+
+.hero{
+  text-align:center;
+  background:radial-gradient(ellipse,#542004,#160600,#000);
+}
+
 .hero-logo{
- width:280px;height:280px;object-fit:contain;
- border:4px solid var(--orange);border-radius:50%;
- background:#000;box-shadow:0 0 35px #ff790066
+  width:min(360px,85vw);
+  border:3px solid var(--orange);
+  border-radius:24px;
+  box-shadow:0 0 45px #ff790066;
 }
+
 .hero h2{
- font-size:clamp(32px,6vw,70px);
- color:var(--orange);line-height:1.1
+  color:var(--orange);
+  font-size:clamp(34px,6vw,70px);
+  line-height:1.1;
 }
-.title{text-align:center;color:var(--orange);font-size:clamp(26px,4vw,42px)}
-.intro{text-align:center;max-width:950px;margin:0 auto 28px}
+
+.title{
+  text-align:center;
+  color:var(--orange);
+  font-size:clamp(27px,4vw,43px);
+  line-height:1.2;
+  margin:0 0 24px;
+}
+
+.intro{
+  text-align:center;
+  max-width:950px;
+  margin:0 auto 30px;
+}
+
 .grid{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
+
 .card{
- background:linear-gradient(140deg,#281003,#050100);
- border:1px solid var(--border);border-radius:20px;padding:23px;
- min-width:0
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:linear-gradient(140deg,#351304,#070200);
+  min-width:0;
 }
+
 .card h3{color:var(--orange)}
+
+.memorial{
+  border-block:3px solid var(--orange);
+  background:linear-gradient(135deg,#000,#401704,#000);
+}
+
+.heroes{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+}
+
+.tribute{
+  text-align:center;
+  border:2px solid var(--orange);
+}
+
 .portrait{
- display:block;width:100%;height:300px;object-fit:contain;
- border:2px solid var(--orange);border-radius:14px;background:#000
+  width:100%;
+  height:300px;
+  object-fit:contain;
+  border:2px solid var(--orange);
+  border-radius:15px;
+  background:#000;
 }
-.memorial,.media{border-block:2px solid var(--orange)}
-.tribute{text-align:center;border:2px solid var(--orange)}
-.monuments{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.media{
+  border-block:2px solid var(--orange);
+}
+
 .slide{
- max-width:1050px;margin:auto;background:#000;
- border:3px solid var(--orange);border-radius:20px;overflow:hidden
+  max-width:1100px;
+  margin:auto;
+  background:#000;
+  border:3px solid var(--orange);
+  border-radius:22px;
+  overflow:hidden;
 }
+
 .slide img,.slide video{
- display:block;width:100%;height:clamp(260px,55vw,620px);
- object-fit:contain;background:#000
+  display:block;
+  width:100%;
+  height:clamp(280px,55vw,620px);
+  object-fit:contain;
+  background:#000;
 }
-.caption{text-align:center;padding:13px;background:#1c0900;color:var(--orange)}
-.controls{margin:18px 0}
-.status{text-align:center}
+
+.caption{
+  padding:14px;
+  text-align:center;
+  background:#200900;
+  color:var(--orange);
+  font-weight:900;
+}
+
+.controls{margin:20px 0}
+
 .gallery{
- display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
- gap:15px;margin-top:24px
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:14px;
 }
-.tile{padding:0;overflow:hidden;border:1px solid var(--border)}
-.tile img{display:block;width:100%;height:240px;object-fit:contain;background:#000}
-.tile span{display:block;padding:9px;font-size:12px;overflow-wrap:anywhere}
+
+.gallery[hidden]{display:none}
+
+.tile{
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  background:#120500;
+  color:var(--apricot);
+  padding:0;
+}
+
+.tile img,.tile video{
+  display:block;
+  width:100%;
+  height:180px;
+  object-fit:contain;
+  background:#000;
+}
+
+.tile span{
+  display:block;
+  padding:8px;
+  overflow-wrap:anywhere;
+}
+
 .avatar{
- max-width:850px;margin:auto;padding:25px;text-align:center;
- border:2px solid var(--orange);border-radius:20px;background:#000
+  max-width:850px;
+  margin:auto;
+  padding:25px;
+  border:2px solid var(--orange);
+  border-radius:24px;
+  background:#000;
+  text-align:center;
 }
-.avatar video{width:100%;max-height:540px;border-radius:15px}
-.module{text-align:center;cursor:pointer}
-.module:hover{border-color:var(--orange);transform:translateY(-3px)}
-.symbol{
- display:grid;place-items:center;width:75px;height:75px;
- margin:auto;border:2px solid var(--orange);border-radius:50%;
- font-size:32px;color:var(--orange);background:#321003
+
+.avatar video{
+  width:100%;
+  max-height:600px;
+  border-radius:16px;
+  border:2px solid var(--orange);
 }
+
+.module{text-align:center}
+
+.module i{
+  font-size:42px;
+  color:var(--orange);
+}
+
 .socials{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:14px;
 }
+
 .social{
- display:flex;align-items:center;gap:13px;padding:17px;
- background:#0d0400;border:1px solid var(--border);border-radius:13px
+  display:flex;
+  align-items:center;
+  gap:14px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:#120500;
+  padding:16px;
+  font-weight:bold;
 }
-.social i,.social img{
- font-size:30px;width:32px;height:32px;
- object-fit:contain;color:var(--brand)
+
+.social i{
+  font-size:32px;
+  width:36px;
+  text-align:center;
 }
-.social:hover{border-color:var(--brand);transform:translateY(-3px)}
+
+.social img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+
+.social:hover{
+  border-color:var(--orange);
+  transform:translateY(-3px);
+}
+
 .contact{text-align:center}
-.contact a{color:var(--orange);overflow-wrap:anywhere}
-.flag{font-size:35px;display:block}
+
+.flag{
+  width:85px;
+  height:56px;
+  object-fit:cover;
+  border:2px solid var(--orange);
+  border-radius:6px;
+}
+
+.phone{
+  display:block;
+  color:var(--orange);
+  font-size:20px;
+  font-weight:bold;
+  margin:12px 0;
+}
+
 footer{
- text-align:center;background:#000;
- border-top:3px solid var(--orange);padding:35px 15px
+  padding:35px 15px;
+  text-align:center;
+  background:#000;
+  border-top:3px solid var(--orange);
 }
+
+footer img{
+  width:130px;
+  border-radius:15px;
+}
+
 .ai-float{
- position:fixed;right:16px;bottom:16px;z-index:10;
- background:var(--orange);color:#000;box-shadow:0 5px 25px #000
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:20;
+  background:var(--orange);
+  color:#000;
+  border:0;
+  border-radius:15px;
+  padding:15px 20px;
+  font-weight:900;
 }
+
 dialog{
- width:min(720px,94vw);max-height:90vh;overflow:auto;
- background:linear-gradient(140deg,#321003,#000);
- color:var(--apricot);border:2px solid var(--orange);
- border-radius:20px;padding:25px
+  width:min(95vw,680px);
+  max-height:90vh;
+  overflow:auto;
+  border:2px solid var(--orange);
+  border-radius:20px;
+  background:linear-gradient(135deg,#321104,#000);
+  color:var(--apricot);
+  padding:24px;
 }
+
 dialog::backdrop{background:#000d}
-dialog h2{color:var(--orange)}
-input,textarea,select{
- width:100%;padding:12px;margin:7px 0 14px;
- background:#000;color:var(--apricot);
- border:1px solid var(--orange);border-radius:10px
-}
-textarea{min-height:120px;resize:vertical}
-.output{
- white-space:pre-wrap;overflow-wrap:anywhere;padding:16px;
- border:1px solid var(--border);border-radius:12px;
- background:#100400;margin:16px 0
-}
-.record{padding:12px;border-bottom:1px solid var(--border)}
-.notice{font-size:13px;color:var(--apricot)}
 
-/* ==========================================
-   BSS1815 COMMUNITY — FIVE TEAMS
-========================================== */
+textarea,input,select{
+  width:100%;
+  background:#000;
+  color:var(--apricot);
+  border:1px solid var(--orange);
+  border-radius:10px;
+  padding:12px;
+  margin:10px 0;
+}
 
-.team-card{
- text-align:center;
- border:2px solid var(--orange);
- background:linear-gradient(145deg,#421600,#000);
- padding:15px;
- transition:transform .25s,box-shadow .25s;
+textarea{min-height:130px}
+
+#output{
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  background:#000;
+  padding:16px;
+  border-radius:12px;
 }
-.team-card:hover{
- transform:translateY(-5px);
- box-shadow:0 0 24px #ff790044;
+
+@media(max-width:1000px){
+  .heroes{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
-.team-card h3{
- font-size:20px;
- min-height:55px;
- display:flex;
- align-items:center;
- justify-content:center;
+
+@media(max-width:600px){
+  .heroes,.grid{
+    grid-template-columns:1fr;
+  }
+  .logo{
+    width:75px;
+    height:75px;
+  }
+  .gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  section{padding:40px 12px}
+  .portrait{height:340px}
 }
-.team-card .portrait{
- height:280px;
+
+/* ==================================================
+   TEAM MANAGEMENT — COMMUNITY ONLY
+================================================== */
+
+#community .team-card{
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
 }
-.team-open{
- width:100%;
- margin-top:10px;
+
+#community .team-card h3{
+  flex:1;
 }
-.team-number{
- display:inline-block;
- margin-bottom:12px;
- border:1px solid var(--orange);
- border-radius:8px;
- padding:4px 15px;
- color:var(--orange);
- font-size:13px;
- letter-spacing:2px;
+
+#community .team-card .btn{
+  width:100%;
 }
-#team-dialog{
- width:min(1150px,96vw);
+
+#community .team-card video{
+  display:block;
+  width:100%;
+  height:300px;
+  object-fit:contain;
+  background:#000;
 }
-.team-heading{
- text-align:center;
- padding-bottom:20px;
- border-bottom:1px solid var(--orange);
+
+#community .team-card:hover{
+  box-shadow:0 0 20px #ff790044;
 }
-.team-heading img,
-.team-heading video{
- width:min(420px,100%);
- height:250px;
- object-fit:contain;
- background:#000;
- border:2px solid var(--orange);
- border-radius:16px;
+
+#team-dialog,#team-viewer{
+  width:min(1100px,95vw);
 }
-.team-stats{
- display:grid;
- grid-template-columns:repeat(3,minmax(0,1fr));
- gap:12px;
- margin:22px 0;
+
+#team-dialog h2,#team-viewer h2{
+  color:var(--orange);
+  text-align:center;
 }
-.team-stat{
- text-align:center;
- padding:16px 6px;
- border:1px solid var(--orange);
- border-radius:14px;
- background:linear-gradient(135deg,#311000,#000);
+
+#team-dialog .team-cover{
+  display:block;
+  width:100%;
+  max-width:480px;
+  height:300px;
+  margin:15px auto;
+  object-fit:contain;
+  border:2px solid var(--orange);
+  border-radius:15px;
+  background:#000;
 }
-.team-stat strong{
- display:block;
- font-size:32px;
- color:var(--orange);
+
+#team-dialog .team-media-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:16px;
+  margin-top:20px;
 }
-.team-stat span{
- font-size:12px;
+
+#team-dialog .team-media-item{
+  min-width:0;
+  padding:12px;
+  border:1px solid var(--orange);
+  border-radius:15px;
+  background:#120500;
+  text-align:center;
 }
-.team-media-grid{
- display:grid;
- grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
- gap:16px;
- margin-top:20px;
+
+#team-dialog .team-media-item img,
+#team-dialog .team-media-item video{
+  display:block;
+  width:100%;
+  height:230px;
+  object-fit:contain;
+  background:#000;
+  border-radius:10px;
 }
-.team-media-card{
- overflow:hidden;
- border:1px solid var(--orange);
- border-radius:15px;
- background:#080200;
+
+#team-dialog .team-media-item p{
+  overflow-wrap:anywhere;
 }
-.team-media-card img,
-.team-media-card video{
- display:block;
- width:100%;
- height:240px;
- object-fit:contain;
- background:#000;
+
+#team-dialog .team-media-item button{
+  margin:5px;
 }
-.team-media-info{
- padding:12px;
- font-size:13px;
- overflow-wrap:anywhere;
+
+#team-dialog [hidden]{
+  display:none!important;
 }
-.team-media-actions{
- display:flex;
- flex-wrap:wrap;
- justify-content:center;
- gap:7px;
- padding:10px;
-}
-.team-media-actions button{
- font-size:12px;
- padding:8px 12px;
-}
-.team-empty{
- grid-column:1/-1;
- text-align:center;
- padding:35px 15px;
- border:1px dashed var(--orange);
- border-radius:15px;
-}
+
 #team-status{
- text-align:center;
- color:var(--orange);
- overflow-wrap:anywhere;
-}
-#team-viewer{
- width:min(1100px,96vw);
- text-align:center;
-}
-#team-viewer-content img,
-#team-viewer-content video{
- max-width:100%;
- max-height:68vh;
- object-fit:contain;
- background:#000;
-}
-.team-upload-note{
- text-align:center;
- font-size:12px;
-}
-.team-cover-placeholder{
- display:grid;
- place-items:center;
- min-height:220px;
- border:2px solid var(--orange);
- border-radius:14px;
- background:#000;
- color:var(--orange);
+  text-align:center;
 }
 
-@media(max-width:650px){
- .logo{width:72px;height:72px}
- .grid,.monuments{grid-template-columns:1fr}
- .gallery,.socials{grid-template-columns:repeat(2,minmax(0,1fr))}
- .tile img{height:180px}
- .hero-logo{width:210px;height:210px}
- .portrait{height:290px}
- section{padding:42px 0}
- .social{padding:10px;font-size:12px}
- .team-media-grid{grid-template-columns:1fr}
- .team-stat span{font-size:10px}
- #team-dialog{padding:15px}
- .team-card h3{min-height:0}
+#team-viewer{
+  text-align:center;
 }
+
+#team-viewer img,#team-viewer video{
+  display:block;
+  width:100%;
+  max-height:70vh;
+  object-fit:contain;
+  background:#000;
+}
+
+#team-dialog button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
 </style>
 </head>
 
 <body>
 
 <header id="home">
-<div class="wrap">
-<div class="top">
-<div class="identity">
-<img class="logo" data-logo alt="BSS1815">
-<div class="brand">
-<h1>BRIYANT SOLÈY SIGNO 1815</h1>
-<p>DEVAN DEVAN NÈT™</p>
-<p>BATI POU JODI A • PARE POU DEMEN</p>
-</div>
-</div>
+  <div class="top">
+    <div class="identity">
+      <img class="logo"
+           src="./briyant-soley-signo-1815.jpg"
+           alt="BRIYANT SOLÈY SIGNO 1815">
 
-<div class="langs">
-<button data-lang="en">ENG</button>
-<button data-lang="ht" class="active">KRE</button>
-<button data-lang="fr">FRAN</button>
-</div>
-</div>
+      <div class="brand">
+        <h1>BRIYANT SOLÈY SIGNO 1815</h1>
+        <p>DEVAN DEVAN NÈT™</p>
+        <p>BATI POU JODI A, PARE POU DEMEN.</p>
+      </div>
+    </div>
 
-<nav class="nav">
-<a href="#home" data-t="Akèy|Home|Accueil">AKÈY</a>
-<a href="#about" data-t="Sou nou|About|À propos">SOU NOU</a>
-<a href="#history" data-t="Istwa|History|Histoire">ISTWA</a>
-<a href="#memorandum">MEMORANDUM</a>
-<a href="#features">FEATURES</a>
-<a href="#community">COMMUNITY</a>
-<a href="#slideshow">MEDIA GALLERY</a>
-<a href="#customer-service">CUSTOMER SERVICE</a>
-<a href="#ai-center">AI CENTER</a>
-<a href="#radio">PRO-MAX FM 106.5 FM</a>
-<a href="#contact">CONTACT</a>
-</nav>
-</div>
+    <div class="langs">
+      <button data-lang="en">ENG</button>
+      <button data-lang="ht" class="active">KRE</button>
+      <button data-lang="fr">FRAN</button>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#home" data-t="AKÈY|HOME|ACCUEIL">AKÈY</a>
+    <a href="#about" data-t="SOU NOU|ABOUT|À PROPOS">SOU NOU</a>
+    <a href="#history" data-t="ISTWA|HISTORY|HISTOIRE">ISTWA</a>
+    <a href="#memorandum">MEMORANDUM</a>
+    <a href="#features">FEATURES</a>
+    <a href="#community">COMMUNITY</a>
+    <a href="#slideshow">GALLERY</a>
+    <a href="#customer-service">CUSTOMER SERVICE</a>
+    <a href="#ai-center">AI CENTER</a>
+    <a href="#radio">PRO-MAX FM 106.5 FM</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero">
-<div class="wrap">
-<img class="hero-logo" data-logo alt="BSS1815">
+  <div class="wrap">
 
-<p data-t="PLATFÒM OFISYÈL • SIGNO, LÉOGÂNE, AYITI|OFFICIAL PLATFORM • SIGNO, LÉOGÂNE, HAITI|PLATEFORME OFFICIELLE • SIGNO, LÉOGÂNE, HAÏTI"></p>
+    <img class="hero-logo"
+         src="./briyant-soley-signo-1815.jpg"
+         alt="Logo ofisyèl BSS1815">
 
-<h2>BRIYANT SOLÈY SIGNO 1815</h2>
+    <p>PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI</p>
 
-<p data-t="Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.|A legacy spanning generations. A community building its future.|Un héritage qui traverse les générations. Une communauté qui construit son avenir."></p>
+    <h2>BRIYANT SOLÈY SIGNO 1815</h2>
 
-<h3 style="color:var(--orange)">
-BRIYANT SE YON LIMYÈ KI PA JANM ETENN.
-</h3>
+    <p data-t="Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.|A legacy spanning generations. A community building its future.|Un héritage qui traverse les générations. Une communauté qui construit son avenir.">
+      Yon eritaj ki travèse jenerasyon.
+      Yon kominote ki kontinye bati avni li.
+    </p>
 
-<div class="actions">
-<a class="btn" href="#history" data-t="DEKOUVRI ISTWA NOU|DISCOVER OUR HISTORY|DÉCOUVRIR NOTRE HISTOIRE"></a>
-<a class="btn" href="#community">COMMUNITY</a>
-<a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a>
-</div>
-</div>
+    <h3>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</h3>
+
+    <div class="actions">
+      <a class="btn" href="#history">DEKOUVRI ISTWA NOU</a>
+      <a class="btn" href="#community">COMMUNITY</a>
+      <a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a>
+    </div>
+
+  </div>
 </section>
 
-<!-- MEMORANDUM -->
+<!-- MEMORANDUM : EXACTLY FOUR HEROES -->
 
 <section id="memorandum" class="memorial">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title" data-t="MEMORANDUM — 3 EWO NOU PAP JANM BLIYE|MEMORANDUM — 3 HEROES WE WILL NEVER FORGET|MÉMORANDUM — 3 HÉROS INOUBLIABLES"></h2>
+    <h2 class="title"
+        data-t="MEMORANDUM — 4 EWO NOU PAP JANM BLIYE|MEMORANDUM — 4 HEROES WE WILL NEVER FORGET|MÉMORANDUM — 4 HÉROS INOUBLIABLES">
+      MEMORANDUM — 4 EWO NOU PAP JANM BLIYE
+    </h2>
 
-<p class="intro" data-t="Nou onore memwa ak kontribisyon yo nan istwa kominote a.|We honor their memory and contributions to our community.|Nous honorons leur mémoire et leur contribution à notre communauté."></p>
+    <p class="intro">
+      Nou onore kat gwo moniman istorik BSS1815.
+      Travay yo ak eritaj yo pap janm efase.
+    </p>
 
-<div class="grid" id="memorial-grid"></div>
+    <div class="heroes" id="memorial-grid"></div>
 
-<p class="intro" style="margin-top:25px">
-BRIYANT SE YON LIMYÈ KI PA JANM ETENN.
-</p>
+    <h3 style="text-align:center;color:var(--orange)">
+      BSS1815 — NOU PAP JANM BLIYE.
+    </h3>
 
-</div>
+  </div>
 </section>
 
 <!-- ABOUT -->
 
 <section id="about">
-<div class="wrap">
-<h2 class="title">ABOUT BSS1815</h2>
+  <div class="wrap">
+    <h2 class="title">ABOUT BSS1815</h2>
 
-<div class="grid">
+    <div class="grid">
 
-<article class="card">
-<h3 data-t="ISTWA NOU|OUR HISTORY|NOTRE HISTOIRE"></h3>
-<p data-t="Prezève eritaj ak memwa jenerasyon ki te bati Briyant Solèy Signo 1815.|Preserve the heritage and memory of the generations that built our community.|Préserver le patrimoine et la mémoire des générations qui ont bâti notre communauté."></p>
-</article>
+      <article class="card">
+        <h3>ISTWA NOU</h3>
+        <p>Prezève memwa ak kontribisyon jenerasyon ki te travay pou bati BSS1815.</p>
+      </article>
 
-<article class="card">
-<h3 data-t="MISYON NOU|OUR MISSION|NOTRE MISSION"></h3>
-<p data-t="Rasanble kominote a, valorize kontribisyon manm yo epi transmèt eritaj nou.|Unite our community, recognize members and transmit our heritage.|Rassembler la communauté, valoriser ses membres et transmettre notre patrimoine."></p>
-</article>
+      <article class="card">
+        <h3>MISYON NOU</h3>
+        <p>Rasanble kominote a, valorize manm yo epi transmèt eritaj nou.</p>
+      </article>
 
-<article class="card">
-<h3 data-t="VIZYON NOU|OUR VISION|NOTRE VISION"></h3>
-<p data-t="Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.|Build a strong community through technology, innovation and communication.|Développer une communauté solide grâce à la technologie, l’innovation et la communication."></p>
-</article>
+      <article class="card">
+        <h3>VIZYON NOU</h3>
+        <p>Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.</p>
+      </article>
 
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
 <!-- HISTORY -->
 
 <section id="history">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title" data-t="ISTWA PA JANM EFASE|HISTORY IS NEVER ERASED|L’HISTOIRE NE S’EFFACE JAMAIS"></h2>
+    <h2 class="title"
+        data-t="ISTWA PA JANM EFASE|HISTORY IS NEVER ERASED|L'HISTOIRE NE S'EFFACE JAMAIS">
+      ISTWA PA JANM EFASE
+    </h2>
 
-<h3 class="intro" data-t="4 MONIMAN ISTORIK|4 HISTORICAL FIGURES|4 FIGURES HISTORIQUES"></h3>
+    <p class="intro">
+      Chak jenerasyon pote kontribisyon pa li.
+      Nou rekonèt moun ki te kenbe flanbo BSS1815 la limen.
+    </p>
 
-<div class="grid monuments" id="history-grid"></div>
+    <div class="heroes" id="history-grid"></div>
 
-</div>
+  </div>
 </section>
 
-<!-- ORIGINAL SLIDESHOW -->
+<!-- SLIDESHOW AND GALLERY -->
 
 <section id="slideshow" class="media">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title">BSS1815 — SLIDESHOW & MEDIA GALLERY</h2>
+    <h2 class="title">BSS1815 — SLIDESHOW & GALERI</h2>
 
-<p class="intro" data-t="YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON|ONE GALLERY • ONE HISTORY • ALL GENERATIONS|UNE GALERIE • UNE HISTOIRE • TOUTES LES GÉNÉRATIONS"></p>
+    <p class="intro">
+      YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON
+    </p>
 
-<div class="slide">
-<img id="slide-img" alt="BSS1815" hidden>
-<video id="slide-video" controls playsinline muted hidden></video>
-<div id="slide-caption" class="caption">BSS1815</div>
-</div>
+    <div class="slide">
+      <div id="slide-media"></div>
+      <div class="caption" id="slide-caption">BSS1815</div>
+    </div>
 
-<div class="controls">
-<button id="prev">❮ PREVIOUS</button>
-<button id="pause">⏸ PAUSE</button>
-<button id="next">NEXT ❯</button>
-<button id="sound">🔊 SOUND</button>
-</div>
+    <div class="controls">
+      <button id="prev">❮ PREVIOUS</button>
+      <button id="pause">⏸ PAUSE</button>
+      <button id="next">NEXT ❯</button>
+    </div>
 
-<p class="status" id="slide-status">Loading...</p>
+    <p id="slide-status" style="text-align:center"></p>
 
-<div class="controls">
-<button id="toggle-gallery" data-t="OUVRI GALERI A|OPEN GALLERY|OUVRIR LA GALERIE"></button>
-</div>
+    <div class="controls">
+      <button id="toggle-gallery">
+        <i class="fa-solid fa-images"></i>
+        OUVRI GALERI A
+      </button>
+    </div>
 
-<div class="gallery" id="gallery" hidden></div>
+    <div id="gallery" class="gallery" hidden></div>
 
-</div>
+  </div>
 </section>
 
 <!-- FEATURES -->
 
 <section id="features">
-<div class="wrap">
-<h2 class="title">FEATURES & COMMUNITY SERVICES</h2>
+  <div class="wrap">
 
-<div class="grid">
+    <h2 class="title">FEATURES & COMMUNITY SERVICES</h2>
 
-<article class="card">
-<h3>HERITAGE CENTER</h3>
-<p data-t="Memwa ak kontribisyon istorik.|Historical memory and contributions.|Mémoire et contributions historiques."></p>
-<a class="btn" href="#history">EXPLORE</a>
-</article>
+    <div class="grid">
 
-<article class="card">
-<h3>MEDIA GALLERY</h3>
-<p data-t="Foto, videyo ak souvni.|Photos, videos and memories.|Photos, vidéos et souvenirs."></p>
-<a class="btn" href="#slideshow">VIEW GALLERY</a>
-</article>
+      <article class="card">
+        <h3>HERITAGE CENTER</h3>
+        <p>Memwa, dokiman ak kontribisyon istorik.</p>
+        <a class="btn" href="#history">EXPLORE</a>
+      </article>
 
-<article class="card">
-<h3>COMMUNITY</h3>
-<p data-t="Inite ak solidarite.|Unity and solidarity.|Unité et solidarité."></p>
-<a class="btn" href="#community">EXPLORE</a>
-</article>
+      <article class="card">
+        <h3>MEDIA GALLERY</h3>
+        <p>Foto, videyo, aktivite ak moman istorik.</p>
+        <a class="btn" href="#slideshow">VIEW GALLERY</a>
+      </article>
 
-<article class="card">
-<h3>COMMUNICATION</h3>
-<p data-t="Enfòmasyon ak aktivite.|Information and activities.|Informations et activités."></p>
-<a class="btn" href="#social">CONNECT</a>
-</article>
+      <article class="card">
+        <h3>COMMUNITY CENTER</h3>
+        <p>Ekip, manm ak aktivite kominotè.</p>
+        <a class="btn" href="#community">EXPLORE</a>
+      </article>
 
-</div>
-</div>
+      <article class="card">
+        <h3>AI CENTER</h3>
+        <p>Zouti dijital pou kominote BSS1815.</p>
+        <a class="btn" href="#ai-center">OPEN CENTER</a>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<!-- ==========================================
-     COMMUNITY — FIVE OFFICIAL TEAMS
-=========================================== -->
+<!-- COMMUNITY -->
 
 <section id="community">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title">BSS1815 COMMUNITY</h2>
+    <h2 class="title">BSS1815 COMMUNITY</h2>
 
-<p class="intro" data-t="5 TEAM • YON SÈL KOMINOTE|5 TEAMS • ONE COMMUNITY|5 ÉQUIPES • UNE COMMUNAUTÉ"></p>
+    <div class="grid" id="community-grid"></div>
 
-<div class="grid" id="teams"></div>
-
-</div>
+  </div>
 </section>
 
-<!-- CUSTOMER SERVICE -->
+<!-- CUSTOMER SERVICE : NEW VIDEO -->
 
 <section id="customer-service">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2>
+    <h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2>
 
-<p class="intro" data-t="Byenveni nan espas asistans BRIYANT SOLÈY SIGNO 1815.|Welcome to our customer service center.|Bienvenue dans notre espace d’assistance."></p>
+    <div class="avatar">
 
-<div class="avatar">
+      <video id="avatar"
+             controls
+             playsinline
+             preload="metadata">
 
-<video id="avatar" controls playsinline preload="metadata"></video>
+        <source src="./prof-avatar-cust.mp4"
+                type="video/mp4">
 
-<p id="avatar-status" class="notice"></p>
+      </video>
 
-<div class="controls">
-<button id="play-avatar">▶ PLAY PROF AVATAR</button>
-<button onclick="openTool(0)">ASK AI</button>
-<a class="btn" href="#contact">CONTACT</a>
-</div>
+      <h3>PROF AVATAR — BSS1815</h3>
 
-</div>
-</div>
+      <p>Byenveni nan sèvis asistans BRIYANT SOLÈY SIGNO 1815.</p>
+
+      <div class="actions">
+        <button class="btn primary" id="play-avatar">
+          <i class="fa-solid fa-play"></i>
+          PLAY VIDEO
+        </button>
+
+        <button class="btn" onclick="openModule(11)">
+          ASK AI
+        </button>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<!-- AI CENTER -->
+<!-- 12 AI MODULES -->
 
 <section id="ai-center">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title">BSS1815 — AI CENTER</h2>
+    <h2 class="title">BSS1815 — AI CENTER</h2>
 
-<p class="intro">12 MODIL • TEKNOLOJI • INOVASYON • KOMINOTE</p>
+    <p class="intro">
+      12 DIGITAL TOOLS • COMMUNITY • INNOVATION
+    </p>
 
-<div class="grid" id="modules"></div>
+    <div class="grid" id="modules"></div>
 
-<p class="notice" data-t="Zouti lokal yo disponib san API. Fonksyon AI jeneratif mande yon backend sekirize.|Local tools work without an API. Generative AI requires a secure backend.|Les outils locaux fonctionnent sans API. L’IA générative nécessite un serveur sécurisé."></p>
-
-</div>
+  </div>
 </section>
 
 <!-- RADIO -->
 
 <section id="radio">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title">PRO-MAX FM 106.5 FM</h2>
+    <h2 class="title">PRO-MAX FM 106.5 FM</h2>
 
-<div class="avatar">
+    <div class="card" style="text-align:center">
 
-<img id="radio-logo" alt="PRO-MAX FM 106.5 FM" style="max-width:300px">
+      <h3>LA FORCE DU SON</h3>
 
-<h3>LA FORCE DU SON</h3>
+      <p>Une voix qui nous rassemble.</p>
 
-<p>La radio de tous, partout et toujours.</p>
+      <a class="btn primary"
+         href="https://bss1815promaxdmp.com/"
+         target="_blank"
+         rel="noopener noreferrer">
+        RADIO — DIGITAL PLATFORM
+      </a>
 
-<a class="btn primary"
-href="https://pro-maxfm.com/"
-target="_blank"
-rel="noopener">● EN DIRECT</a>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
-<!-- SOCIAL NETWORKS -->
-
-<section id="social">
-<div class="wrap">
-
-<h2 class="title">10 SOCIAL NETWORKS</h2>
-
-<div class="socials" id="social-grid"></div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
+<!-- CONTACT WITH USA AND HAITI FLAGS -->
 
 <section id="contact">
-<div class="wrap">
+  <div class="wrap">
 
-<h2 class="title">CONTACT BSS1815</h2>
+    <h2 class="title">CONTACT BSS1815</h2>
 
-<div class="grid">
+    <div class="grid">
 
-<div class="card contact">
-<span class="flag">🇺🇸</span>
-<h3>UNITED STATES</h3>
-<p><a href="tel:+14076405166">(407) 640-5166</a></p>
-<p><a href="tel:+13175381150">(317) 538-1150</a></p>
-</div>
+      <article class="card contact">
 
-<div class="card contact">
-<span class="flag">🇭🇹</span>
-<h3>HAITI</h3>
-<p><a href="tel:+50942544447">+509 4254 4447</a></p>
-<p><a href="tel:+50943437488">+509 4343 7488</a></p>
-</div>
+        <img class="flag"
+             src="https://flagcdn.com/w160/us.png"
+             alt="United States Flag">
 
-<div class="card contact">
-<h3><i class="fa-solid fa-envelope"></i> EMAIL</h3>
-<p>
-<a href="mailto:bss1815promaxdmp@gmail.com">
-bss1815promaxdmp@gmail.com
-</a>
-</p>
-</div>
+        <h3>🇺🇸 UNITED STATES</h3>
 
-</div>
-</div>
+        <a class="phone" href="tel:+14076405166">
+          <i class="fa-solid fa-phone"></i>
+          (407) 640-5166
+        </a>
+
+        <a class="phone" href="tel:+13175381150">
+          <i class="fa-solid fa-phone"></i>
+          (317) 538-1150
+        </a>
+
+      </article>
+
+      <article class="card contact">
+
+        <img class="flag"
+             src="https://flagcdn.com/w160/ht.png"
+             alt="Drapo Ayiti">
+
+        <h3>🇭🇹 HAÏTI — AYITI</h3>
+
+        <a class="phone" href="tel:+50942544447">
+          <i class="fa-solid fa-phone"></i>
+          +509 4254-4447
+        </a>
+
+        <a class="phone" href="tel:+50943437488">
+          <i class="fa-solid fa-phone"></i>
+          +509 4343-7488
+        </a>
+
+      </article>
+
+      <article class="card contact">
+
+        <i class="fa-solid fa-envelope"
+           style="font-size:45px;color:var(--orange)"></i>
+
+        <h3>EMAIL OFFICIEL</h3>
+
+        <a style="overflow-wrap:anywhere"
+           href="mailto:bss1815promaxdmp@gmail.com">
+          bss1815promaxdmp@gmail.com
+        </a>
+
+        <p>SIGNO — LÉOGÂNE — AYITI</p>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 10 SOCIAL NETWORKS -->
+
+<section id="social-networks">
+  <div class="wrap">
+
+    <h2 class="title">SOCIAL NETWORKS</h2>
+
+    <div class="socials" id="social-grid"></div>
+
+  </div>
 </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
-<h3>BRIYANT SOLÈY SIGNO 1815</h3>
-<p>DEVAN DEVAN NÈT™</p>
-<p>BATI POU JODI A, PARE POU DEMEN</p>
-<p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p>
-<p>© <span id="year"></span> BRIYANT SOLÈY SIGNO 1815</p>
+
+  <img src="./briyant-soley-signo-1815.jpg"
+       alt="BSS1815">
+
+  <h2 style="color:var(--orange)">
+    BRIYANT SOLÈY SIGNO 1815
+  </h2>
+
+  <h3>DEVAN DEVAN NÈT™</h3>
+
+  <p>BATI POU JODI A, PARE POU DEMEN.</p>
+
+  <p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p>
+
+  <p>© <span id="year"></span> BRIYANT SOLÈY SIGNO 1815</p>
+
 </footer>
 
-<button class="ai-float" onclick="openTool(0)">
-🤖 BSS1815 AI
+<button class="ai-float" onclick="openModule(11)">
+  <i class="fa-solid fa-robot"></i>
+  BSS1815 AI
 </button>
 
-<!-- ORIGINAL AI TOOL WINDOW -->
+<!-- AI MODULE WINDOW -->
 
-<dialog id="tool-dialog">
+<dialog id="module-dialog">
 
-<div class="actions" style="justify-content:flex-end">
-<button onclick="document.getElementById('tool-dialog').close()">
-✕ CLOSE
-</button>
-</div>
+  <h2 id="module-title" style="color:var(--orange)"></h2>
 
-<h2 id="tool-title"></h2>
+  <p id="module-description"></p>
 
-<p id="tool-description"></p>
+  <input id="module-subject" placeholder="Tit / Subject">
 
-<div id="tool-fields"></div>
+  <textarea id="module-input"
+            placeholder="Antre enfòmasyon ou yo..."></textarea>
 
-<div class="actions">
-<button id="tool-run" class="primary">EXECUTE</button>
-<button id="tool-copy">COPY</button>
-<button id="tool-save">SAVE TXT</button>
-</div>
+  <div class="controls">
+    <button class="btn primary" onclick="runModule()">GENERATE</button>
+    <button class="btn" onclick="copyOutput()">COPY</button>
+    <button class="btn" onclick="saveOutput()">SAVE</button>
+    <button class="btn" onclick="moduleDialog.close()">CLOSE</button>
+  </div>
 
-<div id="tool-output" class="output" aria-live="polite"></div>
-
-<div id="tool-records"></div>
+  <pre id="output"></pre>
 
 </dialog>
 
-<!-- ==========================================
-     INTEGRATED TEAM MANAGEMENT CENTER
-=========================================== -->
+<!-- INDEPENDENT TEAM MANAGEMENT WINDOW -->
 
 <dialog id="team-dialog">
 
-<div class="actions" style="justify-content:flex-end">
-<button id="team-close">
-<i class="fa-solid fa-xmark"></i> CLOSE TEAM
-</button>
-</div>
+  <div class="actions" style="justify-content:flex-end">
+    <button class="btn" id="team-close">
+      ✕ CLOSE TEAM
+    </button>
+  </div>
 
-<div class="team-heading">
+  <h2 id="team-title"></h2>
 
-<div id="team-cover"></div>
+  <div id="team-cover-box"></div>
 
-<h2 id="team-title"></h2>
+  <div class="actions">
 
-<p>TEAM MANAGEMENT CENTER</p>
+    <button class="btn primary" id="team-upload-photo">
+      <i class="fa-solid fa-camera"></i>
+      UPLOAD PHOTO
+    </button>
 
-</div>
+    <button class="btn primary" id="team-upload-video">
+      <i class="fa-solid fa-video"></i>
+      UPLOAD VIDEO
+    </button>
 
-<div class="team-stats">
+    <button class="btn" id="team-view-media">
+      <i class="fa-solid fa-photo-film"></i>
+      VIEW PHOTO & VIDEO
+    </button>
 
-<div class="team-stat">
-<strong id="team-total">0</strong>
-<span>TOTAL MEDIA</span>
-</div>
+  </div>
 
-<div class="team-stat">
-<strong id="team-photos">0</strong>
-<span>PHOTOS</span>
-</div>
+  <input type="file"
+         id="team-photo-input"
+         accept="image/*"
+         multiple
+         hidden>
 
-<div class="team-stat">
-<strong id="team-videos">0</strong>
-<span>VIDEOS</span>
-</div>
+  <input type="file"
+         id="team-video-input"
+         accept="video/*"
+         multiple
+         hidden>
 
-</div>
+  <p id="team-status" aria-live="polite"></p>
 
-<div class="actions">
+  <p style="text-align:center;font-size:13px">
+    LOCAL MEDIA STORAGE — Medya yo anrejistre sou navigatè aparèy sa a sèlman.
+  </p>
 
-<button id="team-upload-photo" class="primary">
-<i class="fa-solid fa-camera"></i>
-UPLOAD PHOTOS
-</button>
-
-<button id="team-upload-video" class="primary">
-<i class="fa-solid fa-video"></i>
-UPLOAD VIDEOS
-</button>
-
-</div>
-
-<div class="actions">
-
-<button id="team-filter-all" class="active">
-ALL MEDIA
-</button>
-
-<button id="team-filter-photos">
-PHOTOS
-</button>
-
-<button id="team-filter-videos">
-VIDEOS
-</button>
-
-</div>
-
-<input
-type="file"
-id="team-photo-input"
-accept="image/*"
-multiple
-hidden>
-
-<input
-type="file"
-id="team-video-input"
-accept="video/*"
-multiple
-hidden>
-
-<p class="team-upload-note"
-data-t="Medya ou ajoute yo konsève sou navigatè aparèy sa a.|Uploaded media is stored in this device’s browser.|Les médias ajoutés sont enregistrés dans le navigateur de cet appareil.">
-</p>
-
-<p id="team-status" aria-live="polite"></p>
-
-<div class="team-media-grid" id="team-media"></div>
+  <div id="team-media-grid" class="team-media-grid"></div>
 
 </dialog>
 
@@ -793,2142 +1012,1737 @@ data-t="Medya ou ajoute yo konsève sou navigatè aparèy sa a.|Uploaded media i
 
 <dialog id="team-viewer">
 
-<h2 id="team-viewer-title"></h2>
+  <div class="controls">
+    <button class="btn" id="team-viewer-close">
+      ✕ CLOSE MEDIA
+    </button>
+  </div>
 
-<div id="team-viewer-content"></div>
+  <h2 id="team-viewer-title"></h2>
 
-<div class="actions">
-
-<button id="team-viewer-prev">
-❮ PREVIOUS
-</button>
-
-<button id="team-viewer-next">
-NEXT ❯
-</button>
-
-<button id="team-viewer-close" class="primary">
-✕ CLOSE
-</button>
-
-</div>
+  <div id="team-viewer-content"></div>
 
 </dialog>
 
 <script>
 "use strict";
 
-const $=id=>document.getElementById(id);
-let language="ht";
+/* ==================================================
+   OFFICIAL ASSETS
+================================================== */
 
-function local(ht,en,fr){
- return {ht,en,fr}[language];
+const LOGO = "briyant-soley-signo-1815.jpg";
+const PROF_AVATAR = "prof-avatar-cust.mp4";
+
+const BASES = [
+  "./",
+  "./assets/slideshow/",
+  "./assets/",
+  "./images/",
+  "./media/",
+  "./photos/",
+  "https://bss1815pro-maxdmp.com/",
+  "https://bss1815promaxdmp.com/"
+];
+
+function assetURL(base,file){
+  return base + encodeURIComponent(file);
 }
 
-function translatePage(){
- document.querySelectorAll("[data-t]").forEach(el=>{
-  const values=el.dataset.t.split("|");
-  el.textContent=values[{ht:0,en:1,fr:2}[language]]||values[0];
- });
-}
+function loadImage(img,files){
+  const names = Array.isArray(files) ? files : [files];
 
-document.querySelectorAll("[data-lang]").forEach(b=>{
- b.onclick=()=>{
-  language=b.dataset.lang;
-  document.documentElement.lang=language;
-  document.querySelectorAll("[data-lang]").forEach(x=>
-   x.classList.toggle("active",x===b)
+  const candidates = names.flatMap(
+    file => BASES.map(base => assetURL(base,file))
   );
-  translatePage();
- };
-});
 
-/* ORIGINAL 212 MEDIA REGISTRY */
+  let position = 0;
 
-const ORIGINAL=[
-"bss.jpg","maa.jpg","max.jpg","alèt.jpg","andy.jpg",
-"dèdè.jpg","maxl.jpg","ralph.jpg","cols1.jpg","nadou.jpg",
-"tifrè.jpg","jq-max.jpg","brunel.jpg","kendy2.jpg","landry.jpg",
-"madina.jpg","michel.jpg","nadou2.jpg","roro8.jpg","rorony.jpg",
-"soson.jpg","tania.jpg","ti-frè.jpg","ti-rat.jpg","valery.jpg",
-"yguens.jpg","badin-s.jpg","bouboul.jpg","bss1815.jpg","cange-d.jpg",
-"lebaron.jpg","marassa.jpg","montina.jpg","paulema.jpg","pro-max.jpg",
-"pèrodin.jpg","sindy-b.jpg","la-difference.mp4","ralph-florial.jpg",
-"leroy.mp4","bonjou.mp4","max-in-blue.jpg","maximax_multi_serv.jpeg",
-"why-max.mp4","promax.mp4","maximax.mp4","montina.mp4","promax1.mp4",
-"promax2.mp4","promax3.mp4","the-done.mp4","l'orateur.mp4",
-"roro-laja.mp4","pro-max-fm.mp4","instructor.mp4","l'orateur2.mp4",
-"the-vision.mp4","yeah-he-is.mp4","pro-max-dmp.mp4","montina-prof.mp4",
-"ti-marasa-yo.mp4","formé-jodi-a.mp4","la-confusion.mp4",
-"max-is-the-man.mp4","pro-max-dmp-II.mp4","montina-le-prof.mp4",
-"max-alias-baron.mp4","bati-pou-jodi-a.mp4","devan-devan-net.mp4",
-"ersulie-danthor.mp4","laforce-du-son.mp4","la-presentation.mp4",
-"pro-max-academie.mp4","pro-max-beat-lab.mp4","confusion-totale.mp4",
-"insurance-school.mp4","majistra-mauclaire.mp4","bss1815pro-maxdmp.mp4",
-"videoprof.mp4","why-me.mp4","ti-chery.jpg","warrens.jpg",
-"fanfan.decoline.jpg","asmide.jpg","yole.jpg","tania2.jpg",
-"papouche.jpg","heritage.jpg","team-angrenay.jpg","sfc-5-stars.jpg",
-"team-angrenaye.jpg","team-san-presyon.jpg","max-on-the-air.jpg",
-"perodin.jpg","maxle.jpg","doodly.jpg","roro-8.jpg","warrens-v.jpg",
-"ones-g.jpg","dede.jpg","jij-mayan-1.jpg","mass-vokal.jpg",
-"maximax-m-s.jpg","max-the-man.jpg","ti-fre.jpg","the-change.jpg",
-"jij-mayan2.jpg","montinat.jpg","ti-la-france.jpg","jij-mayan-3.jpg",
-"ti-marassa.jpg","the-change-1.jpg","the-plan.jpg","sonsonn.jpeg",
-"thin-khard.jpg","maximax-2.jpg","y-max.jpg","roro-ny.jpg",
-"le-baron.jpg","prez-tirat.jpg","the-one.jpg","andy.jpeg",
-"roro-1lajan.jpg","roro-p-p.jpg","prez-papit.jpg","may-1.jpg",
-"fanfan-d.jpg","ti-renold.jpg","asmide1.jpg","jeff-c.jpg",
-"tania-f.jpg","jude.jpg","andre-a.jpg","nadege.jpg","macu-1.jpg",
-"prez-aly.jpg","sonson-m.jpg","brunel-t.jpg","roro-lj.jpg",
-"ti-papouche.jpg","michel-b.jpg","tatane.jpg","la-belle-yole.jpg",
-"tila-france.jpg","ralph-p.jpg","ti-marassa2.jpg","vp-ernso.jpg",
-"fanfan2.jpg","paulema2.jpg","tifre2.jpg","tichery.jpg",
-"jij-mayan.jpg","yguens2.jpg","heuch-love.jpg","cange-0.jpg",
-"prez-aly-2.jpg","anpere-doudou.jpg","rivelino.jpg","tatane-vp.jpg",
-"montinat2.jpg","prezidan-aly.jpg","max-louis.jpg","paulema21.jpg",
-"le-baron1.jpg","devan-devan-net.jpg","system-akayik.jpg",
-"montina-prof.jpg","systeme-akayik.jpg","derosier.jpg",
-"odeline-ademe.jpg","nadia-lafortune.jpg","max-is-the-man.jpg",
-"maxi-max.mp4","bss1815-pro-max-dmp.jpg","sonson-felix.jpg",
-"maximax-multi-services.mp4","tania-felix.jpg","ladifference1.jpg",
-"la-difference1.jpg","ralph-florial.webp","whyme.mp4",
-"la-force-du-son.mp4","majistra-mauclair.mp4","video-prof-avatar.mp4",
-"warens-v.jpg","fanfan-decoline.jpg","max-louis-game-changer.jpg",
-"ti-lafrance.jpg","think-hard.jpg","the-man.jpg","the-done.jpg",
-"jeff-colin.jpg","andre-asouman.jpg","nadiala-fortune2.jpg",
-"sindy-andrevil.jpg","max-louis-alias-le-baron-la-seule-difference.jpg",
-"michel-enfatigab.jpg","vice-president-tatane.jpg",
-"vice-president-ernso.jpg","anperè-doudou.jpg","devan-devannèt.jpg",
-"system-akayik2.jpg","private-zone.webp","admin_super_admin.png",
-"entegrasyon.mp4","yon-baron-pa-yon-jwèt.mp4","one-platform.jpg",
-"one_man_one_vision.jpg","it-is-what-it-is.jpg","ou-atake-move-lè.mp4",
-"leader.mp4","bss1815pro-max-ap-bati.mp4"
-];
+  img.onerror = function(){
+    position++;
 
-/* ADDITIONAL MEDIA FROM THE RECOVERED HOMEPAGE */
-
-const ADDITIONAL=[
-"papit.png","fanfan.png","koukou.png","perodin.png","bss-1815.png",
-"ti-lafrance.png","bss-fanclub.png","miami-an-aksyon.png",
-"team-backup.png","sfc-5-stars.png","team-angrenay.png","papouche.png",
-"konkont.jpg","Jeff-colin.jpg","komandan-ralph.jpg","gq-max.jpg",
-"super-fanclub.jpg","team-sanpresyon.jpg","team-backup.jpg",
-"komandan-landry.jpg","manbo-fifi.jpg","bss1815-IV.jpg",
-"konkont-II.jpg","miami-an-aksyon.jpg","the-dunn.jpg","nòe-boulin.jpg",
-"leogâne-info.jpg","prezidan-jude-josep.jpg","the-only-one.jpg",
-"jackson-montina.jpg","marasa.jpg","the-real-team.jpg","macu.jpg",
-"nadou-II.jpg","maximax-II.jpg","prof-montina.jpg","hall-of-leaders.jpg",
-"pauléma.jpg","tania-félix.jpg","tania-II.jpg","tania-3.jpg",
-"anpére-doudou.jpg","Leclercfélix.jpg","roro-lajan-III.jpg",
-"sonson-miami.jpg","tatane-II.jpg","cangé-félix.jpg","nadou3.jpg",
-"platfom-bss.jpg","cool-max.jpg","cool-max-II.jpg","cool-max-III.jpg",
-"max-is-in-green.jpg","cols.jpg","bss1815-I.jpg","Léogane-info.jpg",
-"pro-max-fm-106.5.jpg"
-];
-
-const BASES=[
- "./",
- "./assets/slideshow/",
- "./assets/",
- "./images/",
- "./media/",
- "./photos/",
- "https://bss1815pro-maxdmp.com/"
-];
-
-const FILES=[...new Set([...ORIGINAL,...ADDITIONAL])];
-
-const resolved=new Map();
-
-const isVideo=name=>/\.(mp4|webm|mov)$/i.test(name);
-
-const label=name=>name.replace(/\.[^.]+$/,"")
-.replace(/[-_]/g," ").toUpperCase();
-
-function probe(url,video=false){
- return new Promise(resolve=>{
-  let done=false;
-
-  const element=video?
-   document.createElement("video"):new Image();
-
-  const finish=ok=>{
-   if(done)return;
-   done=true;
-   clearTimeout(timer);
-   element.onload=null;
-   element.onerror=null;
-   element.onloadedmetadata=null;
-
-   if(video){
-    element.removeAttribute("src");
-    element.load();
-   }
-
-   resolve(ok);
+    if(position < candidates.length){
+      img.src = candidates[position];
+    }else{
+      img.onerror = null;
+      img.alt = img.alt + " — Foto pa disponib";
+    }
   };
 
-  const timer=setTimeout(()=>finish(false),7000);
-
-  element.onerror=()=>finish(false);
-
-  if(video){
-   element.preload="metadata";
-   element.onloadedmetadata=()=>finish(true);
-  }else{
-   element.onload=()=>finish(true);
-  }
-
-  element.src=url;
- });
+  img.src = candidates[0];
 }
 
-async function resolveMedia(name){
- if(resolved.has(name))return resolved.get(name);
+document.querySelectorAll(
+  ".logo,.hero-logo,footer img"
+).forEach(img => loadImage(img,LOGO));
 
- const task=(async()=>{
-  for(const base of BASES){
-   const url=base+encodeURIComponent(name);
+/* ==================================================
+   FOUR HISTORICAL HEROES
+================================================== */
 
-   if(await probe(url,isVideo(name)))return url;
+const HEROES = [
+  {
+    name:"LECLERC FÉLIX",
+    files:["Leclercfélix.jpg"],
+    description:[
+      "Moun ki te trase chemen an. Eritaj li rete vivan nan istwa BSS1815.",
+      "The pioneer who paved the way. His legacy lives on in BSS1815.",
+      "Le pionnier qui a tracé la voie. Son héritage demeure vivant."
+    ]
+  },
+  {
+    name:"KONKONT",
+    files:["konkont-II.jpg","konkont.jpg"],
+    description:[
+      "Yon gwo pilye ki te fè yon travay kolosal nan istwa BSS1815.",
+      "A major pillar who made an important contribution to BSS1815.",
+      "Un grand pilier qui a apporté une contribution majeure à BSS1815."
+    ]
+  },
+  {
+    name:"PAPOUCHE STRATÈGE",
+    files:["papouche.png","papouche.jpg","ti-papouche.jpg"],
+    description:[
+      "Motè BSS, stratej ak solisyonè. Yon gwo poto mitan nan òganizasyon an.",
+      "A driving force, strategist and problem solver within BSS.",
+      "Le moteur, stratège et pilier de l'organisation BSS."
+    ]
+  },
+  {
+    name:"PIERRE MARTHONE ALIAS TI RAT 🐀",
+    files:["ti-rat.jpg","prez-tirat.jpg"],
+    description:[
+      "Moun ki te kenbe flanbo BSS la pandan yon bon bout tan.",
+      "The guardian who carried the BSS torch for many years.",
+      "Le gardien qui a porté le flambeau de BSS pendant de nombreuses années."
+    ]
   }
-
-  return null;
- })();
-
- resolved.set(name,task);
-
- return task;
-}
-
-async function setImage(element,names){
- for(const name of names){
-  const url=await resolveMedia(name);
-
-  if(url){
-   element.src=url;
-   element.hidden=false;
-   return true;
-  }
- }
-
- element.hidden=true;
-
- return false;
-}
-
-/* OFFICIAL LOGO */
-
-document.querySelectorAll("[data-logo]").forEach(el=>{
- setImage(el,[
-  "briyant-soley-signo-1815.jpg",
-  "briyant-soley-signo-1815.png",
-  "bss1815-logo.png",
-  "bss-1815.png",
-  "bss1815.jpg"
- ]);
-});
-
-setImage($("radio-logo"),["pro-max-fm-106.5.jpg"]);
-
-/* THREE MEMORIAL HEROES */
-
-const MEMORIAL=[
-
- ["PAPIT",["papit.png","prez-papit.jpg"],
- "Nou salye memwa li ak kontribisyon li nan eritaj kominote a.|We honor his memory and contribution to our heritage.|Nous honorons sa mémoire et sa contribution à notre patrimoine."],
-
- ["FANFAN",["fanfan.png","fanfan-decoline.jpg","fanfan.decoline.jpg","fanfan-d.jpg"],
- "Nou rekonèt travay ak angajman li.|We recognize his work and commitment.|Nous reconnaissons son travail et son engagement."],
-
- ["KOUKOU",["koukou.png","koukou.jpg"],
- "Nou onore souvni li nan fanmi Briyant Solèy Signo 1815.|We honor his memory within our community.|Nous honorons sa mémoire au sein de notre communauté."]
-
 ];
 
-/* FOUR HISTORICAL MONUMENTS */
+function renderHeroes(containerId){
+  const container = document.getElementById(containerId);
 
-const HISTORY=[
+  container.replaceChildren();
 
- ["LECLERC FÉLIX",["Leclercfélix.jpg"],
- "Li te trase chemen pou kominote a. Eritaj li makonnen ak Léogâne ak Dabònè.|He helped establish the community’s heritage in Léogâne and Dabònè.|Il a tracé la voie de notre communauté à Léogâne et Dabònè."],
+  HEROES.forEach(hero => {
+    const card = document.createElement("article");
+    card.className = "card tribute";
 
- ["KONKONT",["konkont-II.jpg","konkont.jpg"],
- "Yon gwo kontribitè nan travay ak devlopman BSS1815.|A major contributor to the development of BSS1815.|Un acteur important du développement de BSS1815."],
+    const img = document.createElement("img");
+    img.className = "portrait";
+    img.alt = hero.name;
 
- ["PAPOUCHE STRATÈGE",["papouche.png","papouche.jpg","ti-papouche.jpg"],
- "Yon poto mitan nan òganizasyon ak rezolisyon pwoblèm bann lan.|A pillar of organization and problem solving.|Un pilier de l’organisation et de la résolution des problèmes."],
+    loadImage(img,hero.files);
 
- ["PIERRE MARTHONE — TI RAT 🐀",["ti-rat.jpg","prez-tirat.jpg"],
- "Li te kenbe flanbo BSS1815 la pandan yon bon bout tan.|He carried the BSS1815 torch for many years.|Il a porté le flambeau de BSS1815 pendant de nombreuses années."]
+    const name = document.createElement("h3");
+    name.textContent = hero.name;
 
+    const description = document.createElement("p");
+    description.dataset.t = hero.description.join("|");
+    description.textContent = hero.description[0];
+
+    card.append(img,name,description);
+    container.append(card);
+  });
+}
+
+renderHeroes("memorial-grid");
+renderHeroes("history-grid");
+
+/* ==================================================
+   COMMUNITY — FIVE INDEPENDENT TEAMS
+================================================== */
+
+const TEAMS = [
+  {
+    id:"san-presyon",
+    name:"TEAM SAN PRESYON",
+    files:["la-difference.mp4","ladifference.mp4"],
+    video:true
+  },
+  {
+    id:"backup",
+    name:"TEAM BACKUP",
+    files:["team-backup2.jpg","team-backup-2.jpg"],
+    video:false
+  },
+  {
+    id:"miami",
+    name:"MIAMI AN AKSYON",
+    files:["miami-an-aksyon.png","miami-an-aksyon.jpg"],
+    video:false
+  },
+  {
+    id:"angrenay",
+    name:"TEAM ANGRENAY",
+    files:["team-angrenay.png","team-angrenay.jpg"],
+    video:false
+  },
+  {
+    id:"super-fanclub",
+    name:"SUPER FANCLUB",
+    files:["super-fanclub.jpg","sfc-5-stars.jpg"],
+    video:false
+  }
 ];
 
-function portraitCard(parent,data,tribute=false){
+const teamGet = id => document.getElementById(id);
 
- const card=document.createElement("article");
+const teamDialog = teamGet("team-dialog");
+const teamViewer = teamGet("team-viewer");
 
- card.className="card"+(tribute?" tribute":"");
+let selectedTeam = null;
+let teamDBPromise = null;
+let teamRenderToken = 0;
+let teamURLs = [];
+let viewerURL = null;
+let teamUploading = false;
 
- const img=document.createElement("img");
+/* OFFICIAL TEAM COVER */
 
- img.className="portrait";
- img.alt=data[0];
- img.hidden=true;
+function createTeamCover(team,inside=false){
 
- const title=document.createElement("h3");
+  if(!team.video){
 
- title.textContent=data[0];
+    const img = document.createElement("img");
 
- const desc=document.createElement("p");
+    img.className = inside ? "team-cover" : "portrait";
+    img.alt = team.name;
 
- desc.dataset.t=data[2]||"";
+    loadImage(img,team.files);
 
- card.append(img,title,desc);
-
- parent.append(card);
-
- setImage(img,data[1]).then(ok=>{
-
-  if(!ok){
-
-   const note=document.createElement("p");
-
-   note.className="notice";
-
-   note.textContent="Media unavailable";
-
-   card.insertBefore(note,title);
+    return img;
   }
- });
-}
 
-MEMORIAL.forEach(x=>portraitCard($("memorial-grid"),x,true));
+  const video = document.createElement("video");
 
-HISTORY.forEach(x=>portraitCard($("history-grid"),x));
+  video.className = inside ? "team-cover" : "portrait";
 
-/* ==========================================
-   FIVE OFFICIAL TEAMS
-   INDEPENDENT TEAM MANAGEMENT
-========================================== */
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.autoplay = !inside;
+  video.loop = !inside;
+  video.controls = inside;
+  video.preload = "metadata";
 
-const TEAMS=[
+  const candidates = team.files.flatMap(
+    file => BASES.map(base => assetURL(base,file))
+  );
 
- {
-  id:"san-presyon",
-  number:"01",
-  name:"TEAM SAN PRESYON",
-  type:"video",
-  files:["ladifference.mp4","la-difference.mp4"]
- },
+  let position = 0;
 
- {
-  id:"backup",
-  number:"02",
-  name:"TEAM BACKUP",
-  type:"image",
-  files:[
-   "team-backup2.jpg",
-   "team-backup-2.jpg",
-   "team-backup.png",
-   "team-backup.jpg"
-  ]
- },
+  video.onerror = () => {
 
- {
-  id:"miami",
-  number:"03",
-  name:"MIAMI AN AKSYON",
-  type:"image",
-  files:[
-   "miami-an-aksyon.png",
-   "miami-an-aksyon.jpg"
-  ]
- },
+    position++;
 
- {
-  id:"angrenay",
-  number:"04",
-  name:"TEAM ANGRENAY",
-  type:"image",
-  files:[
-   "team-angrenay.png",
-   "team-angrenay.jpg",
-   "team-angrenaye.jpg"
-  ]
- },
+    if(position < candidates.length){
 
- {
-  id:"super-fanclub",
-  number:"05",
-  name:"SUPER FANCLUB",
-  type:"image",
-  files:[
-   "super-fanclub.jpg",
-   "sfc-5-stars.png",
-   "sfc-5-stars.jpg"
-  ]
- }
+      video.src = candidates[position];
+      video.load();
 
-];
+    }else{
 
-let selectedTeam=null;
-let teamFilter="all";
-let teamRecords=[];
-let teamVisibleRecords=[];
-let teamRenderToken=0;
-let teamUploading=false;
-let teamViewerIndex=0;
-let teamViewerURL=null;
+      video.onerror = null;
 
-const teamObjectURLs=new Set();
+      const message = document.createElement("p");
 
-function teamStatus(message){
- $("team-status").textContent=message;
-}
+      message.textContent =
+        "Verifye fichye " + team.files[0];
 
-function releaseTeamURLs(){
- teamObjectURLs.forEach(url=>URL.revokeObjectURL(url));
- teamObjectURLs.clear();
-}
+      video.replaceWith(message);
+    }
+  };
 
-function teamObjectURL(blob){
- const url=URL.createObjectURL(blob);
- teamObjectURLs.add(url);
- return url;
-}
+  if(!inside){
 
-/* TEAM COVER LOADING */
+    video.onloadeddata = () => {
 
-function createTeamCover(team,controls=false){
+      video.play().catch(() => {});
 
- const media=document.createElement(
-  team.type==="video"?"video":"img"
- );
-
- media.className="portrait";
-
- const candidates=team.files.flatMap(file=>
-  BASES.map(base=>base+encodeURIComponent(file))
- );
-
- let position=0;
-
- if(team.type==="video"){
-  media.muted=true;
-  media.loop=true;
-  media.autoplay=true;
-  media.playsInline=true;
-  media.controls=controls;
-  media.preload="metadata";
- }else{
-  media.alt=team.name;
- }
-
- media.onerror=()=>{
-
-  position++;
-
-  if(position<candidates.length){
-
-   media.src=candidates[position];
-
-   if(team.type==="video")media.load();
-
-  }else{
-
-   media.onerror=null;
-
-   const fallback=document.createElement("div");
-
-   fallback.className="team-cover-placeholder";
-
-   fallback.textContent=team.name;
-
-   media.replaceWith(fallback);
+    };
   }
- };
 
- media.src=candidates[0];
+  video.src = candidates[0];
 
- return media;
+  return video;
 }
 
-/* RENDER ALL FIVE TEAM CARDS */
-
-function renderTeams(){
-
- const container=$("teams");
-
- container.replaceChildren();
-
- TEAMS.forEach(team=>{
-
-  const card=document.createElement("article");
-
-  card.className="card team-card";
-
-  const number=document.createElement("span");
-
-  number.className="team-number";
-
-  number.textContent="TEAM "+team.number;
-
-  const cover=createTeamCover(team);
-
-  const title=document.createElement("h3");
-
-  title.textContent=team.name;
-
-  const open=document.createElement("button");
-
-  open.type="button";
-
-  open.className="team-open primary";
-
-  open.dataset.t="OUVRI TEAM|OPEN TEAM|OUVRIR L’ÉQUIPE";
-
-  open.textContent="OPEN TEAM";
-
-  open.onclick=()=>openTeam(team);
-
-  card.append(number,cover,title,open);
-
-  container.append(card);
-
- });
-
-}
-
-/* ==========================================
-   TEAM DATABASE — LOCAL MEDIA STORAGE
-========================================== */
-
-const TEAM_DB_NAME="BSS1815_TEAM_MANAGEMENT";
-
-const TEAM_STORE_NAME="team_media";
-
-let teamDBPromise=null;
+/* INDEPENDENT LOCAL TEAM DATABASE */
 
 function openTeamDatabase(){
 
- if(teamDBPromise)return teamDBPromise;
-
- teamDBPromise=new Promise((resolve,reject)=>{
-
-  if(!window.indexedDB){
-
-   reject(new Error("Local storage unavailable"));
-
-   return;
+  if(teamDBPromise){
+    return teamDBPromise;
   }
 
-  const request=indexedDB.open(TEAM_DB_NAME,1);
+  teamDBPromise = new Promise((resolve,reject) => {
 
-  request.onupgradeneeded=()=>{
+    if(!window.indexedDB){
 
-   const database=request.result;
+      reject(new Error("IndexedDB unavailable"));
 
-   if(!database.objectStoreNames.contains(TEAM_STORE_NAME)){
+      return;
+    }
 
-    const store=database.createObjectStore(
-     TEAM_STORE_NAME,
-     {keyPath:"id"}
+    const request = indexedDB.open(
+      "BSS1815_TEAM_MEDIA",
+      1
     );
 
-    store.createIndex(
-     "teamId",
-     "teamId",
-     {unique:false}
+    request.onupgradeneeded = () => {
+
+      const db = request.result;
+
+      if(!db.objectStoreNames.contains("media")){
+
+        const store = db.createObjectStore(
+          "media",
+          {
+            keyPath:"id",
+            autoIncrement:true
+          }
+        );
+
+        store.createIndex(
+          "team",
+          "team",
+          {unique:false}
+        );
+      }
+    };
+
+    request.onsuccess = () => {
+
+      const db = request.result;
+
+      db.onversionchange = () => {
+
+        db.close();
+
+        teamDBPromise = null;
+      };
+
+      resolve(db);
+    };
+
+    request.onerror = () => reject(request.error);
+
+    request.onblocked = () =>
+      reject(new Error("Database blocked"));
+
+  }).catch(error => {
+
+    teamDBPromise = null;
+
+    throw error;
+  });
+
+  return teamDBPromise;
+}
+
+/* SAVE TEAM MEDIA */
+
+async function saveTeamMedia(teamId,file){
+
+  const db = await openTeamDatabase();
+
+  return new Promise((resolve,reject) => {
+
+    const transaction = db.transaction(
+      "media",
+      "readwrite"
     );
-   }
-  };
 
-  request.onsuccess=()=>{
+    transaction.objectStore("media").add({
+      team:teamId,
+      name:file.name,
+      type:file.type,
+      size:file.size,
+      date:Date.now(),
+      blob:file
+    });
 
-   const database=request.result;
+    transaction.oncomplete = () => resolve();
 
-   database.onversionchange=()=>{
+    transaction.onerror = () =>
+      reject(transaction.error);
 
-    database.close();
-
-    teamDBPromise=null;
-   };
-
-   resolve(database);
-  };
-
-  request.onerror=()=>reject(request.error);
-
- });
-
- teamDBPromise.catch(()=>{
-
-  teamDBPromise=null;
-
- });
-
- return teamDBPromise;
+    transaction.onabort = () =>
+      reject(
+        transaction.error ||
+        new Error("Upload aborted")
+      );
+  });
 }
 
-async function saveTeamMedia(record){
-
- const database=await openTeamDatabase();
-
- return new Promise((resolve,reject)=>{
-
-  const transaction=database.transaction(
-   TEAM_STORE_NAME,
-   "readwrite"
-  );
-
-  transaction.objectStore(TEAM_STORE_NAME).put(record);
-
-  transaction.oncomplete=()=>resolve();
-
-  transaction.onerror=()=>reject(transaction.error);
-
-  transaction.onabort=()=>reject(transaction.error);
-
- });
-}
+/* READ TEAM MEDIA */
 
 async function getTeamMedia(teamId){
 
- const database=await openTeamDatabase();
+  const db = await openTeamDatabase();
 
- return new Promise((resolve,reject)=>{
+  return new Promise((resolve,reject) => {
 
-  const transaction=database.transaction(
-   TEAM_STORE_NAME,
-   "readonly"
-  );
+    const transaction = db.transaction(
+      "media",
+      "readonly"
+    );
 
-  const store=transaction.objectStore(TEAM_STORE_NAME);
+    const request = transaction
+      .objectStore("media")
+      .index("team")
+      .getAll(teamId);
 
-  const request=store.index("teamId").getAll(
-   IDBKeyRange.only(teamId)
-  );
+    request.onsuccess = () => {
 
-  request.onsuccess=()=>{
+      resolve(
+        request.result.sort(
+          (a,b) => b.date-a.date
+        )
+      );
+    };
 
-   resolve(
-    request.result.sort((a,b)=>b.created-a.created)
-   );
-
-  };
-
-  request.onerror=()=>reject(request.error);
-
- });
+    request.onerror = () =>
+      reject(request.error);
+  });
 }
+
+/* DELETE TEAM MEDIA */
 
 async function deleteTeamMedia(id){
 
- const database=await openTeamDatabase();
+  const db = await openTeamDatabase();
 
- return new Promise((resolve,reject)=>{
+  return new Promise((resolve,reject) => {
 
-  const transaction=database.transaction(
-   TEAM_STORE_NAME,
-   "readwrite"
-  );
+    const transaction = db.transaction(
+      "media",
+      "readwrite"
+    );
 
-  transaction.objectStore(TEAM_STORE_NAME).delete(id);
+    transaction.objectStore("media").delete(id);
 
-  transaction.oncomplete=()=>resolve();
+    transaction.oncomplete = () => resolve();
 
-  transaction.onerror=()=>reject(transaction.error);
+    transaction.onerror = () =>
+      reject(transaction.error);
 
-  transaction.onabort=()=>reject(transaction.error);
+    transaction.onabort = () =>
+      reject(
+        transaction.error ||
+        new Error("Delete aborted")
+      );
+  });
+}
 
- });
+/* CLEAN TEMPORARY MEDIA */
+
+function clearTeamMedia(){
+
+  const box = teamGet("team-media-grid");
+
+  box.querySelectorAll("video").forEach(video => {
+
+    video.pause();
+
+  });
+
+  box.replaceChildren();
+
+  teamURLs.forEach(url => {
+
+    URL.revokeObjectURL(url);
+
+  });
+
+  teamURLs = [];
 }
 
 /* OPEN INDIVIDUAL TEAM */
 
-async function openTeam(team){
+function openTeam(team){
 
- if(teamUploading)return;
+  selectedTeam = team;
 
- selectedTeam=team;
+  teamGet("team-title").textContent =
+    team.name;
 
- teamFilter="all";
+  const coverBox = teamGet("team-cover-box");
 
- teamRecords=[];
+  coverBox.querySelectorAll("video").forEach(video => {
 
- teamVisibleRecords=[];
+    video.pause();
 
- $("team-title").textContent=team.name;
+  });
 
- $("team-cover").replaceChildren(
-  createTeamCover(team,true)
- );
+  coverBox.replaceChildren(
+    createTeamCover(team,true)
+  );
 
- $("team-media").replaceChildren();
+  teamGet("team-status").textContent =
+    "Loading team media...";
 
- $("team-total").textContent="0";
- $("team-photos").textContent="0";
- $("team-videos").textContent="0";
+  if(!teamDialog.open){
 
- updateTeamFilters();
+    teamDialog.showModal();
+  }
 
- if(!$("team-dialog").open){
+  renderTeamMedia();
+}
 
-  $("team-dialog").showModal();
+/* VIEW INDIVIDUAL MEDIA */
 
- }
+function viewTeamMedia(record){
 
- teamStatus(
-  local(
-   "TEAM AP CHAJE...",
-   "LOADING TEAM...",
-   "CHARGEMENT..."
-  )
- );
+  const box = teamGet("team-viewer-content");
 
- await refreshTeamMedia();
+  box.querySelectorAll("video").forEach(video => {
 
+    video.pause();
+
+  });
+
+  box.replaceChildren();
+
+  if(viewerURL){
+
+    URL.revokeObjectURL(viewerURL);
+  }
+
+  viewerURL = URL.createObjectURL(record.blob);
+
+  const video = record.type.startsWith("video/");
+
+  const media = document.createElement(
+    video ? "video" : "img"
+  );
+
+  media.src = viewerURL;
+
+  if(video){
+
+    media.controls = true;
+    media.playsInline = true;
+    media.preload = "metadata";
+
+  }else{
+
+    media.alt = record.name;
+  }
+
+  box.append(media);
+
+  teamGet("team-viewer-title").textContent =
+    record.name;
+
+  if(!teamViewer.open){
+
+    teamViewer.showModal();
+  }
+}
+
+/* DISPLAY UPLOADED MEDIA FOR SELECTED TEAM */
+
+async function renderTeamMedia(){
+
+  if(!selectedTeam || !teamDialog.open){
+
+    return;
+  }
+
+  const teamId = selectedTeam.id;
+  const token = ++teamRenderToken;
+
+  clearTeamMedia();
+
+  const box = teamGet("team-media-grid");
+  const status = teamGet("team-status");
+
+  status.textContent = "Loading media...";
+
+  try{
+
+    const records = await getTeamMedia(teamId);
+
+    if(
+      token !== teamRenderToken ||
+      !teamDialog.open
+    ){
+
+      return;
+    }
+
+    if(!records.length){
+
+      status.textContent =
+        "Pa gen nouvo medya. Upload foto oswa videyo.";
+
+      return;
+    }
+
+    const photos = records.filter(
+      record => record.type.startsWith("image/")
+    ).length;
+
+    const videos = records.filter(
+      record => record.type.startsWith("video/")
+    ).length;
+
+    status.textContent =
+      `${photos} PHOTO • ${videos} VIDEO`;
+
+    records.forEach(record => {
+
+      const item = document.createElement("article");
+
+      item.className = "team-media-item";
+
+      const url = URL.createObjectURL(record.blob);
+
+      teamURLs.push(url);
+
+      const video = record.type.startsWith("video/");
+
+      const media = document.createElement(
+        video ? "video" : "img"
+      );
+
+      media.src = url;
+
+      if(video){
+
+        media.controls = true;
+        media.playsInline = true;
+        media.preload = "metadata";
+
+      }else{
+
+        media.alt = record.name;
+        media.loading = "lazy";
+      }
+
+      const name = document.createElement("p");
+
+      name.textContent = record.name;
+
+      const view = document.createElement("button");
+
+      view.className = "btn";
+      view.textContent = "VIEW MEDIA";
+
+      view.onclick = () => {
+
+        viewTeamMedia(record);
+      };
+
+      const remove = document.createElement("button");
+
+      remove.className = "btn";
+      remove.textContent = "DELETE MEDIA";
+
+      remove.onclick = async () => {
+
+        if(!confirm("Efase " + record.name + "?")){
+
+          return;
+        }
+
+        remove.disabled = true;
+
+        try{
+
+          await deleteTeamMedia(record.id);
+
+          await renderTeamMedia();
+
+        }catch(error){
+
+          status.textContent =
+            "Medya a pa t kapab efase.";
+
+          remove.disabled = false;
+        }
+      };
+
+      item.append(media,name,view,remove);
+
+      box.append(item);
+    });
+
+  }catch(error){
+
+    if(token === teamRenderToken){
+
+      status.textContent =
+        "Depo medya lokal la pa disponib.";
+    }
+  }
 }
 
 /* UPLOAD PHOTO AND VIDEO */
 
-function createTeamMediaId(){
+async function uploadTeamFiles(input,kind){
 
- if(window.crypto&&crypto.randomUUID){
+  if(!selectedTeam || teamUploading){
 
-  return crypto.randomUUID();
+    input.value = "";
 
- }
-
- return Date.now().toString(36)+
- Math.random().toString(36).slice(2);
-
-}
-
-function setTeamUploadBusy(busy){
-
- teamUploading=busy;
-
- $("team-upload-photo").disabled=busy;
-
- $("team-upload-video").disabled=busy;
-
- $("team-close").disabled=busy;
-
-}
-
-async function uploadTeamFiles(files,type){
-
- if(!selectedTeam||teamUploading||!files.length)return;
-
- const teamId=selectedTeam.id;
-
- setTeamUploadBusy(true);
-
- let saved=0;
-
- let failed=0;
-
- try{
-
-  for(const file of files){
-
-   if(!file.type.startsWith(type+"/")){
-
-    failed++;
-
-    continue;
-   }
-
-   teamStatus(
-    "UPLOADING "+
-    (saved+failed+1)+
-    " / "+
-    files.length+
-    " — "+
-    file.name
-   );
-
-   try{
-
-    await saveTeamMedia({
-
-     id:createTeamMediaId(),
-
-     teamId:teamId,
-
-     name:file.name,
-
-     type:type,
-
-     mime:file.type,
-
-     size:file.size,
-
-     created:Date.now(),
-
-     blob:file
-
-    });
-
-    saved++;
-
-   }catch(error){
-
-    failed++;
-
-   }
+    return;
   }
 
-  if(selectedTeam&&selectedTeam.id===teamId){
+  const files = Array.from(input.files || []);
 
-   await refreshTeamMedia();
+  input.value = "";
 
-   teamStatus(
-    saved+" "+
-    local(
-     "MEDYA ANREJISTRE SOU APARÈY SA A",
-     "MEDIA SAVED ON THIS DEVICE",
-     "MÉDIAS ENREGISTRÉS SUR CET APPAREIL"
-    )+
-    " • "+
-    failed+
-    " FAILED"
-   );
+  if(!files.length){
 
+    return;
   }
 
- }finally{
+  const teamId = selectedTeam.id;
 
-  setTeamUploadBusy(false);
+  const status = teamGet("team-status");
 
-  $("team-photo-input").value="";
+  const photoButton = teamGet("team-upload-photo");
 
-  $("team-video-input").value="";
+  const videoButton = teamGet("team-upload-video");
 
- }
+  teamUploading = true;
+
+  photoButton.disabled = true;
+  videoButton.disabled = true;
+
+  let saved = 0;
+  let failed = 0;
+
+  try{
+
+    for(const file of files){
+
+      if(!file.type.startsWith(kind + "/")){
+
+        failed++;
+
+        continue;
+      }
+
+      if(
+        selectedTeam &&
+        selectedTeam.id === teamId &&
+        teamDialog.open
+      ){
+
+        status.textContent =
+          "Uploading: " + file.name;
+      }
+
+      try{
+
+        await saveTeamMedia(teamId,file);
+
+        saved++;
+
+      }catch(error){
+
+        failed++;
+      }
+    }
+
+    if(
+      selectedTeam &&
+      selectedTeam.id === teamId &&
+      teamDialog.open
+    ){
+
+      await renderTeamMedia();
+
+      status.textContent =
+        `${saved} MEDIA SAVED • ${failed} FAILED`;
+    }
+
+  }finally{
+
+    teamUploading = false;
+
+    photoButton.disabled = false;
+    videoButton.disabled = false;
+  }
 }
 
-$("team-upload-photo").onclick=()=>{
+/* TEAM CONTROLS */
 
- $("team-photo-input").click();
+teamGet("team-upload-photo").onclick = () => {
 
+  teamGet("team-photo-input").click();
 };
 
-$("team-upload-video").onclick=()=>{
+teamGet("team-upload-video").onclick = () => {
 
- $("team-video-input").click();
-
+  teamGet("team-video-input").click();
 };
 
-$("team-photo-input").onchange=event=>{
+teamGet("team-photo-input").onchange = function(){
 
- uploadTeamFiles(
-  Array.from(event.target.files),
-  "image"
- );
-
+  uploadTeamFiles(this,"image");
 };
 
-$("team-video-input").onchange=event=>{
+teamGet("team-video-input").onchange = function(){
 
- uploadTeamFiles(
-  Array.from(event.target.files),
-  "video"
- );
-
+  uploadTeamFiles(this,"video");
 };
 
-/* DISPLAY SELECTED TEAM MEDIA */
-
-async function refreshTeamMedia(){
-
- if(!selectedTeam)return;
-
- const teamId=selectedTeam.id;
-
- const request=++teamRenderToken;
-
- try{
-
-  const records=await getTeamMedia(teamId);
-
-  if(
-   request!==teamRenderToken||
-   !selectedTeam||
-   selectedTeam.id!==teamId
-  )return;
-
-  teamRecords=records;
+teamGet("team-view-media").onclick = () => {
 
   renderTeamMedia();
-
-  teamStatus(
-   local("TEAM PARE","TEAM READY","ÉQUIPE PRÊTE")
-  );
-
- }catch(error){
-
-  teamStatus(
-   local(
-    "Depo medya lokal la pa disponib.",
-    "Local media storage is unavailable.",
-    "Le stockage local est indisponible."
-   )
-  );
-
- }
-}
-
-function renderTeamMedia(){
-
- const container=$("team-media");
-
- container.querySelectorAll("video").forEach(v=>v.pause());
-
- container.replaceChildren();
-
- releaseTeamURLs();
-
- $("team-total").textContent=teamRecords.length;
-
- $("team-photos").textContent=
- teamRecords.filter(x=>x.type==="image").length;
-
- $("team-videos").textContent=
- teamRecords.filter(x=>x.type==="video").length;
-
- teamVisibleRecords=teamRecords.filter(record=>
-
-  teamFilter==="all"||record.type===teamFilter
-
- );
-
- if(!teamVisibleRecords.length){
-
-  const empty=document.createElement("div");
-
-  empty.className="team-empty";
-
-  empty.textContent=local(
-   "Poko gen medya. Itilize UPLOAD PHOTOS oswa UPLOAD VIDEOS.",
-   "No media yet. Use UPLOAD PHOTOS or UPLOAD VIDEOS.",
-   "Aucun média. Ajoutez des photos ou des vidéos."
-  );
-
-  container.append(empty);
-
-  return;
-
- }
-
- teamVisibleRecords.forEach((record,index)=>{
-
-  const card=document.createElement("article");
-
-  card.className="team-media-card";
-
-  const media=document.createElement(
-   record.type==="video"?"video":"img"
-  );
-
-  media.src=teamObjectURL(record.blob);
-
-  if(record.type==="video"){
-
-   media.controls=true;
-
-   media.playsInline=true;
-
-   media.preload="metadata";
-
-  }else{
-
-   media.alt=record.name;
-
-   media.loading="lazy";
-
-  }
-
-  const info=document.createElement("div");
-
-  info.className="team-media-info";
-
-  info.textContent=record.name;
-
-  const actions=document.createElement("div");
-
-  actions.className="team-media-actions";
-
-  const view=document.createElement("button");
-
-  view.textContent="VIEW";
-
-  view.onclick=()=>openTeamViewer(index);
-
-  const download=document.createElement("button");
-
-  download.textContent="SAVE";
-
-  download.onclick=()=>{
-
-   const url=URL.createObjectURL(record.blob);
-
-   const link=document.createElement("a");
-
-   link.href=url;
-
-   link.download=record.name;
-
-   document.body.append(link);
-
-   link.click();
-
-   link.remove();
-
-   setTimeout(()=>URL.revokeObjectURL(url),2000);
-
-  };
-
-  const remove=document.createElement("button");
-
-  remove.textContent="DELETE";
-
-  remove.onclick=async()=>{
-
-   if(teamUploading)return;
-
-   if(!confirm(
-    local(
-     "Efase medya sa a?",
-     "Delete this media?",
-     "Supprimer ce média?"
-    )+" "+record.name
-   ))return;
-
-   try{
-
-    await deleteTeamMedia(record.id);
-
-    await refreshTeamMedia();
-
-    teamStatus("MEDIA DELETED");
-
-   }catch(error){
-
-    teamStatus("DELETE FAILED");
-
-   }
-  };
-
-  actions.append(view,download,remove);
-
-  card.append(media,info,actions);
-
-  container.append(card);
-
- });
-}
-
-/* TEAM MEDIA FILTERS */
-
-function updateTeamFilters(){
-
- $("team-filter-all").classList.toggle(
-  "active",teamFilter==="all"
- );
-
- $("team-filter-photos").classList.toggle(
-  "active",teamFilter==="image"
- );
-
- $("team-filter-videos").classList.toggle(
-  "active",teamFilter==="video"
- );
-
-}
-
-function changeTeamFilter(filter){
-
- teamFilter=filter;
-
- updateTeamFilters();
-
- renderTeamMedia();
-
-}
-
-$("team-filter-all").onclick=()=>changeTeamFilter("all");
-
-$("team-filter-photos").onclick=()=>changeTeamFilter("image");
-
-$("team-filter-videos").onclick=()=>changeTeamFilter("video");
-
-/* TEAM MEDIA VIEWER */
-
-function releaseTeamViewer(){
-
- $("team-viewer-content")
- .querySelectorAll("video")
- .forEach(v=>v.pause());
-
- $("team-viewer-content").replaceChildren();
-
- if(teamViewerURL){
-
-  URL.revokeObjectURL(teamViewerURL);
-
-  teamViewerURL=null;
-
- }
-
-}
-
-function openTeamViewer(index){
-
- if(!teamVisibleRecords.length)return;
-
- const total=teamVisibleRecords.length;
-
- teamViewerIndex=((index%total)+total)%total;
-
- const record=teamVisibleRecords[teamViewerIndex];
-
- releaseTeamViewer();
-
- teamViewerURL=URL.createObjectURL(record.blob);
-
- const media=document.createElement(
-  record.type==="video"?"video":"img"
- );
-
- media.src=teamViewerURL;
-
- if(record.type==="video"){
-
-  media.controls=true;
-
-  media.playsInline=true;
-
- }else{
-
-  media.alt=record.name;
-
- }
-
- $("team-viewer-title").textContent=record.name;
-
- $("team-viewer-content").append(media);
-
- if(!$("team-viewer").open){
-
-  $("team-viewer").showModal();
-
- }
-
-}
-
-$("team-viewer-prev").onclick=()=>{
-
- openTeamViewer(teamViewerIndex-1);
-
 };
 
-$("team-viewer-next").onclick=()=>{
+teamGet("team-close").onclick = () => {
 
- openTeamViewer(teamViewerIndex+1);
-
+  teamDialog.close();
 };
 
-$("team-viewer-close").onclick=()=>{
+teamGet("team-viewer-close").onclick = () => {
 
- $("team-viewer").close();
-
+  teamViewer.close();
 };
 
-$("team-viewer").addEventListener(
- "close",
- releaseTeamViewer
-);
+teamDialog.addEventListener("close",() => {
 
-/* CLOSE TEAM MANAGEMENT */
+  teamRenderToken++;
 
-$("team-close").onclick=()=>{
+  clearTeamMedia();
 
- if(teamUploading)return;
+  const cover = teamGet("team-cover-box");
 
- $("team-dialog").close();
+  cover.querySelectorAll("video").forEach(video => {
 
-};
+    video.pause();
+  });
 
-$("team-dialog").addEventListener("cancel",event=>{
+  cover.replaceChildren();
 
- if(teamUploading)event.preventDefault();
-
+  selectedTeam = null;
 });
 
-$("team-dialog").addEventListener("close",()=>{
+teamViewer.addEventListener("close",() => {
 
- teamRenderToken++;
+  const box = teamGet("team-viewer-content");
 
- $("team-dialog").querySelectorAll("video")
- .forEach(v=>v.pause());
+  box.querySelectorAll("video").forEach(video => {
 
- $("team-cover").replaceChildren();
+    video.pause();
+  });
 
- $("team-media").replaceChildren();
+  box.replaceChildren();
 
- releaseTeamURLs();
+  if(viewerURL){
 
- selectedTeam=null;
+    URL.revokeObjectURL(viewerURL);
 
- teamRecords=[];
-
- teamVisibleRecords=[];
-
+    viewerURL = null;
+  }
 });
 
-renderTeams();
-
-/* ==========================================
-   ORIGINAL SHARED GALLERY AND SLIDESHOW
-========================================== */
-
-let index=0,playing=true,muted=true,timer=null,token=0;
-
-let found=0,checked=0;
-
-const available=new Map();
-
-function clearTimer(){
-
- clearTimeout(timer);
-
- timer=null;
-
-}
-
-function schedule(){
-
- clearTimer();
-
- if(playing)timer=setTimeout(()=>showSlide(index+1),6000);
-
-}
-
-async function showSlide(n){
-
- clearTimer();
-
- const request=++token;
-
- $("slide-video").pause();
-
- for(let attempt=0;attempt<FILES.length;attempt++){
-
-  if(request!==token)return;
-
-  index=((n+attempt)%FILES.length+FILES.length)%FILES.length;
-
-  const name=FILES[index];
-
-  $("slide-status").textContent=
-   `${index+1} / ${FILES.length} — ${name}`;
-
-  const url=await resolveMedia(name);
-
-  if(request!==token)return;
-
-  if(!url)continue;
-
-  $("slide-caption").textContent=label(name);
-
-  if(isVideo(name)){
-
-   $("slide-img").hidden=true;
-
-   const v=$("slide-video");
-
-   v.hidden=false;
-
-   v.src=url;
-
-   v.muted=muted;
-
-   v.onerror=()=>{
-
-    if(request===token)showSlide(index+1);
-
-   };
-
-   if(playing)v.play().catch(()=>schedule());
-
-  }else{
-
-   $("slide-video").hidden=true;
-
-   $("slide-img").src=url;
-
-   $("slide-img").hidden=false;
-
-   schedule();
-
-  }
-
-  return;
-
- }
-
- $("slide-caption").textContent="Media unavailable";
-
-}
-
-$("slide-video").onended=()=>{
-
- if(playing)showSlide(index+1);
-
-};
-
-$("next").onclick=()=>showSlide(index+1);
-
-$("prev").onclick=()=>showSlide(index-1);
-
-$("pause").onclick=()=>{
-
- playing=!playing;
-
- $("pause").textContent=playing?"⏸ PAUSE":"▶ PLAY";
-
- if(!playing){
-
-  clearTimer();
-
-  $("slide-video").pause();
-
- }else if(!$("slide-video").hidden){
-
-  $("slide-video").play().catch(()=>schedule());
-
- }else{
-
-  schedule();
-
- }
-
-};
-
-$("sound").onclick=()=>{
-
- muted=!muted;
-
- $("slide-video").muted=muted;
-
- $("sound").textContent=muted?"🔊 SOUND":"🔇 MUTE";
-
-};
-
-function addGalleryTile(name,url,i){
-
- const b=document.createElement("button");
-
- b.className="tile";
-
- if(isVideo(name)){
-
-  const icon=document.createElement("div");
-
-  icon.className="symbol";
-
-  icon.style.margin="30px auto";
-
-  icon.innerHTML='<i class="fa-solid fa-circle-play"></i>';
-
-  b.append(icon);
-
- }else{
-
-  const img=document.createElement("img");
-
-  img.src=url;
-
-  img.alt=label(name);
-
-  img.loading="lazy";
-
-  b.append(img);
-
- }
-
- const text=document.createElement("span");
-
- text.textContent=label(name);
-
- b.append(text);
-
- b.onclick=()=>{
-
-  showSlide(i);
-
-  document.querySelector(".slide")
-  .scrollIntoView({behavior:"smooth"});
-
- };
-
- $("gallery").append(b);
-
-}
-
-let galleryStarted=false;
-
-async function scanGallery(){
-
- if(galleryStarted)return;
-
- galleryStarted=true;
-
- const status=document.createElement("p");
-
- status.className="status";
-
- $("gallery").before(status);
-
- let cursor=0;
-
- async function worker(){
-
-  while(cursor<FILES.length){
-
-   const i=cursor++;
-
-   const name=FILES[i];
-
-   const url=await resolveMedia(name);
-
-   checked++;
-
-   if(url){
-
-    found++;
-
-    available.set(i,url);
-
-   }
-
-   status.textContent=
-    `${found} AVAILABLE • ${checked}/${FILES.length} CHECKED`;
-
-  }
- }
-
- await Promise.all(Array.from({length:8},worker));
-
- [...available.entries()]
- .sort((a,b)=>a[0]-b[0])
- .forEach(([i,url])=>{
-
-  addGalleryTile(FILES[i],url,i);
-
- });
-
- status.textContent=
- `${found} MEDIA AVAILABLE • ${FILES.length-found} UNAVAILABLE`;
-
-}
-
-$("toggle-gallery").onclick=()=>{
-
- $("gallery").hidden=!$("gallery").hidden;
-
- $("toggle-gallery").textContent=$("gallery").hidden?
-
- local("OUVRI GALERI A","OPEN GALLERY","OUVRIR LA GALERIE"):
-
- local("FÈMEN GALERI A","CLOSE GALLERY","FERMER LA GALERIE");
-
- if(!$("gallery").hidden)scanGallery();
-
-};
-
-/* PROF AVATAR — RECOVERED VIDEO PATH */
-
-let avatarReady=false;
-
-async function loadAvatar(){
-
- $("avatar-status").textContent="Loading video...";
-
- for(const name of [
-
-  "video-prof-avatar.mp4",
-
-  "bss1815-customer-service-final.mp4"
-
- ]){
-
-  const url=await resolveMedia(name);
-
-  if(url){
-
-   $("avatar").src=url;
-
-   $("avatar-status").textContent="VIDEO READY";
-
-   avatarReady=true;
-
-   return;
-
-  }
- }
-
- $("avatar-status").textContent="Customer Service video unavailable.";
-
-}
-
-$("play-avatar").onclick=async()=>{
-
- if(!avatarReady)await loadAvatar();
-
- if(avatarReady){
-
-  if($("avatar").paused){
-
-   $("avatar").play().catch(()=>{
-
-    $("avatar-status").textContent="Press play on the video.";
-
-   });
-
-  }else{
-
-   $("avatar").pause();
-
-  }
- }
-
-};
-
-/* OFFICIAL SOCIAL BRAND ICONS AND COLORS */
-
-const SOCIAL=[
-
- ["Facebook","fa-facebook","#1877F2","https://www.facebook.com/share/1By3KvYRrM/"],
-
- ["WhatsApp","fa-whatsapp","#25D366","https://wa.me/50943437488"],
-
- ["TikTok","fa-tiktok","#25F4EE","https://www.tiktok.com/@maximax1960"],
-
- ["Instagram","fa-instagram","#E4405F","https://www.instagram.com/lebaron072/"],
-
- ["Telegram","fa-telegram","#229ED9","https://t.me/bss1815dmp"],
-
- ["YouTube","fa-youtube","#FF0000","https://www.youtube.com/@BSS1815PROMAXDMP"],
-
- ["Spotify","fa-spotify","#1DB954","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
-
- ["X / Twitter","fa-x-twitter","#E7E9EA","https://x.com/w05g2m"],
-
- ["Truth Social","truthsocial","#5448EE","https://truthsocial.com/@briyant_soley_1815"],
-
- ["LinkedIn","fa-linkedin","#0A66C2","https://www.linkedin.com/in/maximax-multi-services-075ba2314"]
-
+/* RENDER ALL FIVE TEAMS */
+
+TEAMS.forEach(team => {
+
+  const card = document.createElement("article");
+
+  card.className = "card tribute team-card";
+
+  const cover = createTeamCover(team);
+
+  const title = document.createElement("h3");
+
+  title.textContent = team.name;
+
+  const button = document.createElement("button");
+
+  button.className = "btn primary";
+
+  button.textContent = "OPEN TEAM";
+
+  button.onclick = event => {
+
+    event.stopPropagation();
+
+    openTeam(team);
+  };
+
+  card.onclick = () => {
+
+    openTeam(team);
+  };
+
+  card.append(cover,title,button);
+
+  document.getElementById(
+    "community-grid"
+  ).append(card);
+});
+
+/* ==================================================
+   END COMMUNITY
+================================================== */
+
+/* ==================================================
+   ORIGINAL 212 MEDIA FILES
+================================================== */
+
+const GALLERY = [
+"bss.jpg",
+"maa.jpg",
+"max.jpg",
+"alèt.jpg",
+"andy.jpg",
+"dèdè.jpg",
+"maxl.jpg",
+"ralph.jpg",
+"cols1.jpg",
+"nadou.jpg",
+"tifrè.jpg",
+"jq-max.jpg",
+"brunel.jpg",
+"kendy2.jpg",
+"landry.jpg",
+"madina.jpg",
+"michel.jpg",
+"nadou2.jpg",
+"roro8.jpg",
+"rorony.jpg",
+"soson.jpg",
+"tania.jpg",
+"ti-frè.jpg",
+"ti-rat.jpg",
+"valery.jpg",
+"yguens.jpg",
+"badin-s.jpg",
+"bouboul.jpg",
+"bss1815.jpg",
+"cange-d.jpg",
+"lebaron.jpg",
+"marassa.jpg",
+"montina.jpg",
+"paulema.jpg",
+"pro-max.jpg",
+"pèrodin.jpg",
+"sindy-b.jpg",
+"la-difference.mp4",
+"ralph-florial.jpg",
+"leroy.mp4",
+"bonjou.mp4",
+"max-in-blue.jpg",
+"maximax_multi_serv.jpeg",
+"why-max.mp4",
+"promax.mp4",
+"maximax.mp4",
+"montina.mp4",
+"promax1.mp4",
+"promax2.mp4",
+"promax3.mp4",
+"the-done.mp4",
+"l'orateur.mp4",
+"roro-laja.mp4",
+"pro-max-fm.mp4",
+"instructor.mp4",
+"l'orateur2.mp4",
+"the-vision.mp4",
+"yeah-he-is.mp4",
+"pro-max-dmp.mp4",
+"montina-prof.mp4",
+"ti-marasa-yo.mp4",
+"formé-jodi-a.mp4",
+"la-confusion.mp4",
+"max-is-the-man.mp4",
+"pro-max-dmp-II.mp4",
+"montina-le-prof.mp4",
+"max-alias-baron.mp4",
+"bati-pou-jodi-a.mp4",
+"devan-devan-net.mp4",
+"ersulie-danthor.mp4",
+"laforce-du-son.mp4",
+"la-presentation.mp4",
+"pro-max-academie.mp4",
+"pro-max-beat-lab.mp4",
+"confusion-totale.mp4",
+"insurance-school.mp4",
+"majistra-mauclaire.mp4",
+"bss1815pro-maxdmp.mp4",
+"videoprof.mp4",
+"why-me.mp4",
+"ti-chery.jpg",
+"warrens.jpg",
+"fanfan.decoline.jpg",
+"asmide.jpg",
+"yole.jpg",
+"tania2.jpg",
+"papouche.jpg",
+"heritage.jpg",
+"team-angrenay.jpg",
+"sfc-5-stars.jpg",
+"team-angrenaye.jpg",
+"team-san-presyon.jpg",
+"max-on-the-air.jpg",
+"perodin.jpg",
+"maxle.jpg",
+"doodly.jpg",
+"roro-8.jpg",
+"warrens-v.jpg",
+"ones-g.jpg",
+"dede.jpg",
+"jij-mayan-1.jpg",
+"mass-vokal.jpg",
+"maximax-m-s.jpg",
+"max-the-man.jpg",
+"ti-fre.jpg",
+"the-change.jpg",
+"jij-mayan2.jpg",
+"montinat.jpg",
+"ti-la-france.jpg",
+"jij-mayan-3.jpg",
+"ti-marassa.jpg",
+"the-change-1.jpg",
+"the-plan.jpg",
+"sonsonn.jpeg",
+"thin-khard.jpg",
+"maximax-2.jpg",
+"y-max.jpg",
+"roro-ny.jpg",
+"le-baron.jpg",
+"prez-tirat.jpg",
+"the-one.jpg",
+"andy.jpeg",
+"roro-1lajan.jpg",
+"roro-p-p.jpg",
+"prez-papit.jpg",
+"may-1.jpg",
+"fanfan-d.jpg",
+"ti-renold.jpg",
+"asmide1.jpg",
+"jeff-c.jpg",
+"tania-f.jpg",
+"jude.jpg",
+"andre-a.jpg",
+"nadege.jpg",
+"macu-1.jpg",
+"prez-aly.jpg",
+"sonson-m.jpg",
+"brunel-t.jpg",
+"roro-lj.jpg",
+"ti-papouche.jpg",
+"michel-b.jpg",
+"tatane.jpg",
+"la-belle-yole.jpg",
+"tila-france.jpg",
+"ralph-p.jpg",
+"ti-marassa2.jpg",
+"vp-ernso.jpg",
+"fanfan2.jpg",
+"paulema2.jpg",
+"tifre2.jpg",
+"tichery.jpg",
+"jij-mayan.jpg",
+"yguens2.jpg",
+"heuch-love.jpg",
+"cange-0.jpg",
+"prez-aly-2.jpg",
+"anpere-doudou.jpg",
+"rivelino.jpg",
+"tatane-vp.jpg",
+"montinat2.jpg",
+"prezidan-aly.jpg",
+"max-louis.jpg",
+"paulema21.jpg",
+"le-baron1.jpg",
+"devan-devan-net.jpg",
+"system-akayik.jpg",
+"montina-prof.jpg",
+"systeme-akayik.jpg",
+"derosier.jpg",
+"odeline-ademe.jpg",
+"nadia-lafortune.jpg",
+"max-is-the-man.jpg",
+"maxi-max.mp4",
+"bss1815-pro-max-dmp.jpg",
+"sonson-felix.jpg",
+"maximax-multi-services.mp4",
+"tania-felix.jpg",
+"ladifference1.jpg",
+"la-difference1.jpg",
+"ralph-florial.webp",
+"whyme.mp4",
+"la-force-du-son.mp4",
+"majistra-mauclair.mp4",
+"video-prof-avatar.mp4",
+"warens-v.jpg",
+"fanfan-decoline.jpg",
+"max-louis-game-changer.jpg",
+"ti-lafrance.jpg",
+"think-hard.jpg",
+"the-man.jpg",
+"the-done.jpg",
+"jeff-colin.jpg",
+"andre-asouman.jpg",
+"nadiala-fortune2.jpg",
+"sindy-andrevil.jpg",
+"max-louis-alias-le-baron-la-seule-difference.jpg",
+"michel-enfatigab.jpg",
+"vice-president-tatane.jpg",
+"vice-president-ernso.jpg",
+"anperè-doudou.jpg",
+"devan-devannèt.jpg",
+"system-akayik2.jpg",
+"private-zone.webp",
+"admin_super_admin.png",
+"entegrasyon.mp4",
+"yon-baron-pa-yon-jwèt.mp4",
+"one-platform.jpg",
+"one_man_one_vision.jpg",
+"it-is-what-it-is.jpg",
+"ou-atake-move-lè.mp4",
+"leader.mp4",
+"bss1815pro-max-ap-bati.mp4"
 ];
 
-SOCIAL.forEach(([name,icon,color,url])=>{
+/* ==================================================
+   MEDIA ENGINE
+================================================== */
 
- const a=document.createElement("a");
+const gallery = document.getElementById("gallery");
+const slideMedia = document.getElementById("slide-media");
+const slideCaption = document.getElementById("slide-caption");
+const slideStatus = document.getElementById("slide-status");
 
- a.className="social";
+let currentIndex = 0;
+let slideTimer = null;
+let playing = true;
+let slideToken = 0;
 
- a.href=url;
+const isVideo = file => /\.mp4$/i.test(file);
 
- a.target="_blank";
+function mediaLabel(file){
+  return file.replace(/\.[^.]+$/,"")
+             .replace(/[-_]/g," ")
+             .toUpperCase();
+}
 
- a.rel="noopener noreferrer";
+function createMedia(file,onReady,onFailed){
+  const video = isVideo(file);
+  const element = document.createElement(video ? "video" : "img");
 
- a.style.setProperty("--brand",color);
+  let baseIndex = 0;
 
- if(icon==="truthsocial"){
-
-  const img=document.createElement("img");
-
-  img.src="https://cdn.simpleicons.org/truthsocial/5448EE";
-
-  img.alt="Truth Social";
-
-  a.append(img);
-
- }else{
-
-  const i=document.createElement("i");
-
-  i.className="fa-brands "+icon;
-
-  if(name==="TikTok"){
-
-   i.style.textShadow="2px 2px #FE2C55";
-
+  if(video){
+    element.muted = true;
+    element.playsInline = true;
+    element.preload = "metadata";
+  }else{
+    element.alt = mediaLabel(file);
   }
 
-  if(name==="Instagram"){
-
-   i.style.background="linear-gradient(45deg,#FCAF45,#E4405F,#833AB4)";
-
-   i.style.backgroundClip="text";
-
-   i.style.webkitBackgroundClip="text";
-
-   i.style.color="transparent";
-
-  }
-
-  a.append(i);
-
- }
-
- const span=document.createElement("span");
-
- span.textContent=name;
-
- a.append(span);
-
- $("social-grid").append(a);
-
-});
-
-/* ORIGINAL 12 INTERACTIVE LOCAL TOOLS */
-
-const TOOLS=[
-
- ["AI PRESENTATION","fa-chalkboard-user","Prezantasyon dijital"],
-
- ["AI MEMBERS","fa-users","Jesyon manm"],
-
- ["AI MEDIA CENTER","fa-photo-film","Foto ak videyo"],
-
- ["AI DOCUMENTS","fa-file-lines","Dokiman ak achiv"],
-
- ["AI REGISTRY","fa-book","Rejis dijital"],
-
- ["AI VOICE SCRIPT","fa-microphone","Vwa ak narasyon"],
-
- ["AI SOCIAL MEDIA","fa-share-nodes","Kominikasyon sosyal"],
-
- ["AI FLYER CREATOR","fa-palette","Kreyasyon afich"],
-
- ["AI EVENTS","fa-calendar-days","Planifikasyon aktivite"],
-
- ["AI BROADCAST","fa-tower-broadcast","Script radyo"],
-
- ["AI BUSINESS SUPPORT","fa-briefcase","Sipò biznis"],
-
- ["AI COMMUNITY SUPPORT","fa-handshake","Asistans kominotè"]
-
-];
-
-TOOLS.forEach(([name,icon,description],i)=>{
-
- const card=document.createElement("article");
-
- card.className="card module";
-
- card.innerHTML=
- `<div class="symbol"><i class="fa-solid ${icon}"></i></div>
- <h3>${name}</h3><p>${description}</p>`;
-
- const button=document.createElement("button");
-
- button.textContent="OPEN MODULE";
-
- button.onclick=()=>openTool(i);
-
- card.append(button);
-
- $("modules").append(card);
-
-});
-
-let activeTool=0;
-
-const field=(id,title,type="text")=>
- `<label for="${id}">${title}</label>
- <input id="${id}" type="${type}">`;
-
-const area=(id,title)=>
- `<label for="${id}">${title}</label><textarea id="${id}"></textarea>`;
-
-const value=id=>$(id)?.value.trim()||"";
-
-function openTool(i){
-
- activeTool=i;
-
- $("tool-title").textContent=TOOLS[i][0];
-
- $("tool-description").textContent=TOOLS[i][2];
-
- $("tool-output").textContent="";
-
- $("tool-records").replaceChildren();
-
- const forms=[
-
-  field("topic","Presentation title")+
-  area("details","Key points / Question"),
-
-  field("name","Member name")+
-  field("role","Role")+
-  field("phone","Phone","tel"),
-
-  '<label>Search gallery</label><input id="topic" type="search">',
-
-  field("topic","Document subject")+
-  area("details","Document details"),
-
-  field("name","Registry title")+
-  area("details","Registry entry"),
-
-  area("details","Text / Voice script")+
-  '<button type="button" onclick="speakText()">▶ PLAY VOICE</button> '+
-  '<button type="button" onclick="speechSynthesis.cancel()">■ STOP</button>',
-
-  field("topic","Post title")+
-  area("details","Message"),
-
-  field("topic","Event title")+
-  field("date","Date","date")+
-  field("place","Location")+
-  area("details","Additional information"),
-
-  field("topic","Event")+
-  field("date","Date","date")+
-  field("time","Time","time")+
-  field("place","Location"),
-
-  field("topic","Broadcast subject")+
-  area("details","Announcement"),
-
-  field("topic","Business name")+
-  area("details","Business objective"),
-
-  area("details","Your question / Kesyon ou")
-
- ];
-
- $("tool-fields").innerHTML=forms[i];
-
- if(i===1||i===4||i===8)renderRecords();
-
- if(!$("tool-dialog").open)$("tool-dialog").showModal();
-
-}
-
-function answer(question){
-
- const q=question.toLowerCase();
-
- if(/contact|kontak|phone|telefon|email/.test(q)){
-
-  return "🇺🇸 (407) 640-5166 / (317) 538-1150\n🇭🇹 +509 4254 4447 / +509 4343 7488\nbss1815promaxdmp@gmail.com";
-
- }
-
- if(/radio|radyo|106|fm/.test(q)){
-
-  return "PRO-MAX FM 106.5 FM — LA FORCE DU SON";
-
- }
-
- if(/istwa|history|histoire|signo/.test(q)){
-
-  return "BRIYANT SOLÈY SIGNO 1815 — Signo, Léogâne, Ayiti.\nDEVAN DEVAN NÈT.";
-
- }
-
- return local(
-
-  "Kesyon sa a mande asistans ekip BSS1815. Kontakte bss1815promaxdmp@gmail.com.",
-
-  "Please contact the BSS1815 team at bss1815promaxdmp@gmail.com.",
-
-  "Contactez l’équipe BSS1815 : bss1815promaxdmp@gmail.com."
-
- );
-
-}
-
-function records(){
-
- try{
-
-  return JSON.parse(
-   localStorage.getItem("bss1815-tool-"+activeTool)||"[]"
-  );
-
- }catch{
-
-  return [];
-
- }
-
-}
-
-function saveRecord(text){
-
- const list=records();
-
- list.push({id:Date.now(),text});
-
- localStorage.setItem(
-  "bss1815-tool-"+activeTool,
-  JSON.stringify(list)
- );
-
- renderRecords();
-
-}
-
-function renderRecords(){
-
- const box=$("tool-records");
-
- box.replaceChildren();
-
- records().forEach(record=>{
-
-  const row=document.createElement("div");
-
-  row.className="record";
-
-  const p=document.createElement("p");
-
-  p.textContent=record.text;
-
-  const b=document.createElement("button");
-
-  b.textContent="DELETE";
-
-  b.onclick=()=>{
-
-   if(!confirm("Delete this local record?"))return;
-
-   localStorage.setItem(
-    "bss1815-tool-"+activeTool,
-    JSON.stringify(
-     records().filter(x=>x.id!==record.id)
-    )
-   );
-
-   renderRecords();
-
+  element.onerror = function(){
+    baseIndex++;
+
+    if(baseIndex < BASES.length){
+      element.src = assetURL(BASES[baseIndex],file);
+
+      if(video) element.load();
+    }else{
+      element.onerror = null;
+      if(onFailed) onFailed();
+    }
   };
 
-  row.append(p,b);
-
-  box.append(row);
-
- });
-
-}
-
-function speakText(){
-
- if(!("speechSynthesis" in window)){
-
-  $("tool-output").textContent="Voice unavailable.";
-
-  return;
-
- }
-
- speechSynthesis.cancel();
-
- const u=new SpeechSynthesisUtterance(value("details"));
-
- u.lang={ht:"ht-HT",en:"en-US",fr:"fr-FR"}[language];
-
- speechSynthesis.speak(u);
-
-}
-
-$("tool-run").onclick=()=>{
-
- const topic=value("topic");
-
- const details=value("details");
-
- const name=value("name");
-
- const date=value("date");
-
- const place=value("place");
-
- const time=value("time");
-
- let output="";
-
- if(!topic&&!details&&!name&&activeTool!==2){
-
-  $("tool-output").textContent=local(
-   "Ranpli enfòmasyon yo.",
-   "Enter the information.",
-   "Saisissez les informations."
-  );
-
-  return;
-
- }
-
- switch(activeTool){
-
- case 0:
-
- output=`BRIYANT SOLÈY SIGNO 1815\n${topic}\n\nINTRODUCTION\n${details}\n\nOBJECTIVES\nCOMMUNITY • HERITAGE • INNOVATION\n\nCONCLUSION\nDEVAN DEVAN NÈT`;
-
- break;
-
- case 1:
-
- if(!name)return;
-
- output=`MEMBER: ${name}\nROLE: ${value("role")}\nPHONE: ${value("phone")}`;
-
- saveRecord(output);
-
- break;
-
- case 2:
-
- output=FILES.filter(
-  x=>label(x).includes(topic.toUpperCase())
- ).join("\n");
-
- if(!output)output="No matching media.";
-
- break;
-
- case 3:
-
- output=`BRIYANT SOLÈY SIGNO 1815\nDOCUMENT — ${topic}\n\n${details}\n\nDate: ${new Date().toLocaleDateString()}\nSignature: __________________`;
-
- break;
-
- case 4:
-
- output=`REGISTRY — ${name}\n${details}`;
-
- saveRecord(output);
-
- break;
-
- case 5:
-
- output=details;
-
- break;
-
- case 6:
-
- output=`BRIYANT SOLÈY SIGNO 1815\n${topic}\n\n${details}\n\n#BSS1815 #DevanDevanNet #Leogane`;
-
- break;
-
- case 7:
-
- output=`BRIYANT SOLÈY SIGNO 1815\n${topic.toUpperCase()}\nDATE: ${date}\nLOCATION: ${place}\n${details}\nDEVAN DEVAN NÈT`;
-
- createFlyer(output);
-
- break;
-
- case 8:
-
- output=`EVENT: ${topic}\nDATE: ${date}\nTIME: ${time}\nLOCATION: ${place}`;
-
- saveRecord(output);
-
- break;
-
- case 9:
-
- output=`PRO-MAX FM 106.5 FM\nLA FORCE DU SON\n\n${topic}\n${details}\n\nLa radio de tous, partout et toujours.`;
-
- break;
-
- case 10:
-
- output=`BUSINESS PLAN — ${topic}\n\nOBJECTIVE\n${details}\n\nACTION PLAN\n1. Identify customers.\n2. Define services.\n3. Estimate costs and revenue.\n4. Establish a communication strategy.\n5. Review results.`;
-
- break;
-
- case 11:
-
- output=answer(details);
-
- break;
-
- }
-
- $("tool-output").textContent=output;
-
-};
-
-function createFlyer(text){
-
- const canvas=document.createElement("canvas");
-
- canvas.width=1080;
-
- canvas.height=1350;
-
- const ctx=canvas.getContext("2d");
-
- const bg=ctx.createLinearGradient(0,0,1080,1350);
-
- bg.addColorStop(0,"#000000");
-
- bg.addColorStop(.5,"#5c2000");
-
- bg.addColorStop(1,"#000000");
-
- ctx.fillStyle=bg;
-
- ctx.fillRect(0,0,1080,1350);
-
- ctx.strokeStyle="#ff7900";
-
- ctx.lineWidth=10;
-
- ctx.strokeRect(35,35,1010,1280);
-
- ctx.fillStyle="#ffb477";
-
- ctx.font="bold 40px Arial";
-
- ctx.textAlign="center";
-
- let y=150;
-
- for(const paragraph of text.split("\n")){
-
-  let line="";
-
-  for(const word of paragraph.split(" ")){
-
-   const next=line?line+" "+word:word;
-
-   if(ctx.measureText(next).width>900&&line){
-
-    ctx.fillText(line,540,y);
-
-    y+=60;
-
-    line=word;
-
-   }else{
-
-    line=next;
-
-   }
-
+  if(video){
+    element.onloadeddata = () => {
+      if(onReady) onReady(element);
+    };
+  }else{
+    element.onload = () => {
+      if(onReady) onReady(element);
+    };
   }
 
-  if(y<1200)ctx.fillText(line,540,y);
+  element.src = assetURL(BASES[0],file);
 
-  y+=70;
-
-  if(y>=1200)break;
-
- }
-
- $("tool-records").replaceChildren();
-
- canvas.style.width="100%";
-
- canvas.style.marginTop="15px";
-
- $("tool-records").append(canvas);
-
- const download=document.createElement("button");
-
- download.textContent="SAVE FLYER PNG";
-
- download.onclick=()=>{
-
-  const a=document.createElement("a");
-
-  a.href=canvas.toDataURL("image/png");
-
-  a.download="BSS1815-FLYER.png";
-
-  a.click();
-
- };
-
- $("tool-records").append(download);
-
+  return element;
 }
 
-$("tool-copy").onclick=async()=>{
+function scheduleNext(delay=6000){
+  clearTimeout(slideTimer);
 
- try{
+  if(playing){
+    slideTimer = setTimeout(
+      () => showSlide(currentIndex+1),
+      delay
+    );
+  }
+}
 
-  await navigator.clipboard.writeText(
-   $("tool-output").textContent
+function showSlide(index,direction=1,attempts=0){
+
+  clearTimeout(slideTimer);
+
+  if(attempts >= GALLERY.length){
+    slideStatus.textContent = "Okenn medya pa disponib.";
+    return;
+  }
+
+  const token = ++slideToken;
+
+  currentIndex =
+    ((index % GALLERY.length)+GALLERY.length)%GALLERY.length;
+
+  const file = GALLERY[currentIndex];
+
+  slideCaption.textContent = mediaLabel(file);
+
+  slideStatus.textContent =
+    `MEDIA ${currentIndex+1} / ${GALLERY.length}`;
+
+  const element = createMedia(
+    file,
+
+    media => {
+      if(token !== slideToken) return;
+
+      if(isVideo(file)){
+        media.controls = true;
+
+        media.onended = () => {
+          if(playing && token === slideToken){
+            showSlide(currentIndex+1);
+          }
+        };
+
+        if(playing){
+          media.play().catch(() => scheduleNext(10000));
+        }
+
+      }else{
+        scheduleNext();
+      }
+    },
+
+    () => {
+      if(token === slideToken){
+        showSlide(currentIndex+direction,direction,attempts+1);
+      }
+    }
   );
 
-  $("tool-copy").textContent="COPIED";
+  slideMedia.replaceChildren(element);
 
-  setTimeout(
-   ()=>$("tool-copy").textContent="COPY",
-   1500
-  );
+  if(playing){
+    slideTimer = setTimeout(() => {
+      if(token === slideToken){
+        showSlide(currentIndex+direction,direction,attempts+1);
+      }
+    },25000);
+  }
+}
 
- }catch{
+document.getElementById("prev").onclick = () =>
+  showSlide(currentIndex-1,-1);
 
-  $("tool-copy").textContent="COPY UNAVAILABLE";
+document.getElementById("next").onclick = () =>
+  showSlide(currentIndex+1);
 
- }
+document.getElementById("pause").onclick = function(){
 
+  playing = !playing;
+
+  this.textContent = playing ? "⏸ PAUSE" : "▶ PLAY";
+
+  clearTimeout(slideTimer);
+
+  const video = slideMedia.querySelector("video");
+
+  if(video){
+    if(playing){
+      video.play().catch(() => scheduleNext());
+    }else{
+      video.pause();
+    }
+  }else if(playing){
+    scheduleNext();
+  }
 };
 
-$("tool-save").onclick=()=>{
+let galleryBuilt = false;
 
- const text=$("tool-output").textContent;
+function buildGallery(){
 
- if(!text)return;
+  if(galleryBuilt) return;
 
- const blob=new Blob(
-  [text],
-  {type:"text/plain;charset=utf-8"}
- );
+  galleryBuilt = true;
 
- const url=URL.createObjectURL(blob);
+  GALLERY.forEach((file,index) => {
 
- const a=document.createElement("a");
+    const tile = document.createElement("button");
+    tile.className = "tile";
 
- a.href=url;
+    const name = document.createElement("span");
+    name.textContent = mediaLabel(file);
 
- a.download=
- "BSS1815-"+
- TOOLS[activeTool][0].replaceAll(" ","-")+
- ".txt";
+    if(isVideo(file)){
+      const icon = document.createElement("div");
 
- a.click();
+      icon.style.cssText =
+        "height:180px;display:grid;place-items:center;font-size:45px;color:#ff7900;background:#000";
 
- setTimeout(()=>URL.revokeObjectURL(url),1000);
+      icon.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 
+      tile.append(icon);
+
+    }else{
+
+      const image = document.createElement("img");
+      image.loading = "lazy";
+      image.alt = mediaLabel(file);
+
+      loadImage(image,file);
+
+      tile.append(image);
+    }
+
+    tile.append(name);
+
+    tile.onclick = () => {
+      showSlide(index);
+
+      document.querySelector(".slide").scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+    };
+
+    gallery.append(tile);
+  });
+}
+
+document.getElementById("toggle-gallery").onclick = function(){
+
+  gallery.hidden = !gallery.hidden;
+
+  if(!gallery.hidden){
+    buildGallery();
+  }
+
+  this.textContent = gallery.hidden
+    ? "OUVRI GALERI A"
+    : "FÈMEN GALERI A";
 };
-
-/* FINAL INITIALIZATION */
-
-$("year").textContent=new Date().getFullYear();
-
-translatePage();
 
 showSlide(0);
 
-loadAvatar();
+/* ==================================================
+   CUSTOMER SERVICE VIDEO
+================================================== */
+
+const avatar = document.getElementById("avatar");
+
+let avatarBase = 0;
+
+avatar.addEventListener("error",() => {
+
+  avatarBase++;
+
+  if(avatarBase < BASES.length){
+    avatar.src = assetURL(BASES[avatarBase],PROF_AVATAR);
+    avatar.load();
+  }
+});
+
+document.getElementById("play-avatar").onclick = async () => {
+  try{
+    if(avatar.paused){
+      await avatar.play();
+    }else{
+      avatar.pause();
+    }
+  }catch(error){
+    alert("Verifye fichye prof-avatar-cust.mp4 la.");
+  }
+};
+
+/* ==================================================
+   OFFICIAL SOCIAL BRAND ICONS
+================================================== */
+
+const SOCIALS = [
+  [
+    "Facebook",
+    "fa-facebook",
+    "#1877F2",
+    "https://www.facebook.com/share/1By3KvYRrM/"
+  ],
+  [
+    "WhatsApp",
+    "fa-whatsapp",
+    "#25D366",
+    "https://wa.me/50943437488"
+  ],
+  [
+    "TikTok",
+    "fa-tiktok",
+    "#25F4EE",
+    "https://www.tiktok.com/@maximax1960"
+  ],
+  [
+    "Instagram",
+    "fa-instagram",
+    "#E4405F",
+    "https://www.instagram.com/lebaron072/"
+  ],
+  [
+    "Telegram",
+    "fa-telegram",
+    "#229ED9",
+    "https://t.me/bss1815dmp"
+  ],
+  [
+    "YouTube",
+    "fa-youtube",
+    "#FF0000",
+    "https://www.youtube.com/@BSS1815PROMAXDMP"
+  ],
+  [
+    "Spotify",
+    "fa-spotify",
+    "#1DB954",
+    "https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+  ],
+  [
+    "X / Twitter",
+    "fa-x-twitter",
+    "#E7E9EA",
+    "https://x.com/w05g2m"
+  ],
+  [
+    "Truth Social",
+    "truthsocial",
+    "#5448EE",
+    "https://truthsocial.com/@briyant_soley_1815"
+  ],
+  [
+    "LinkedIn",
+    "fa-linkedin",
+    "#0A66C2",
+    "https://www.linkedin.com/in/maximax-multi-services-075ba2314"
+  ]
+];
+
+SOCIALS.forEach(([name,icon,color,url]) => {
+
+  const link = document.createElement("a");
+
+  link.className = "social";
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+
+  let symbol;
+
+  if(icon === "truthsocial"){
+    symbol = document.createElement("img");
+    symbol.src = "https://cdn.simpleicons.org/truthsocial/5448EE";
+    symbol.alt = "Truth Social";
+  }else{
+    symbol = document.createElement("i");
+    symbol.className = "fa-brands " + icon;
+    symbol.style.color = color;
+
+    if(icon === "fa-tiktok"){
+      symbol.style.textShadow = "2px 2px #FE2C55";
+    }
+  }
+
+  const label = document.createElement("span");
+  label.textContent = name;
+
+  link.append(symbol,label);
+
+  document.getElementById("social-grid").append(link);
+});
+
+/* ==================================================
+   AI CENTER — 12 LOCAL DIGITAL TOOLS
+================================================== */
+
+const MODULES = [
+  ["fa-film","AI PRESENTATION","Prezantasyon dijital"],
+  ["fa-users","AI MEMBERS","Rejis ak jesyon manm"],
+  ["fa-images","AI MEDIA CENTER","Rechèch medya"],
+  ["fa-file-lines","AI DOCUMENTS","Preparasyon dokiman"],
+  ["fa-book","AI REGISTRY","Rejis dijital"],
+  ["fa-microphone","AI VOICE SCRIPT","Tèks narasyon ak anons"],
+  ["fa-share-nodes","AI SOCIAL MEDIA","Piblikasyon sosyal"],
+  ["fa-palette","AI FLYER CREATOR","Preparasyon afich"],
+  ["fa-calendar-days","AI EVENTS","Planifikasyon aktivite"],
+  ["fa-tower-broadcast","AI BROADCAST","Anons radyo"],
+  ["fa-briefcase","AI BUSINESS SUPPORT","Sipò biznis"],
+  ["fa-headset","AI COMMUNITY SUPPORT","Asistans kominotè"]
+];
+
+MODULES.forEach(([icon,name,description],index) => {
+
+  const card = document.createElement("article");
+  card.className = "card module";
+
+  const symbol = document.createElement("i");
+  symbol.className = "fa-solid " + icon;
+
+  const title = document.createElement("h3");
+  title.textContent = name;
+
+  const text = document.createElement("p");
+  text.textContent = description;
+
+  const button = document.createElement("button");
+  button.className = "btn";
+  button.textContent = "OPEN MODULE";
+  button.onclick = () => openModule(index);
+
+  card.append(symbol,title,text,button);
+
+  document.getElementById("modules").append(card);
+});
+
+const moduleDialog = document.getElementById("module-dialog");
+
+let activeModule = 0;
+
+function openModule(index){
+
+  activeModule = index;
+
+  document.getElementById("module-title").textContent =
+    MODULES[index][1];
+
+  document.getElementById("module-description").textContent =
+    MODULES[index][2] + " — Local Digital Assistant";
+
+  document.getElementById("module-subject").value = "";
+  document.getElementById("module-input").value = "";
+  document.getElementById("output").textContent = "";
+
+  if(!moduleDialog.open){
+    moduleDialog.showModal();
+  }
+}
+
+function saveRecord(key,record){
+
+  try{
+    const records = JSON.parse(
+      localStorage.getItem(key) || "[]"
+    );
+
+    records.push(record);
+
+    localStorage.setItem(key,JSON.stringify(records));
+
+    return records.length;
+
+  }catch(error){
+    return null;
+  }
+}
+
+function runModule(){
+
+  const subject = document.getElementById("module-subject").value.trim();
+  const input = document.getElementById("module-input").value.trim();
+  const output = document.getElementById("output");
+
+  const title = subject || "BSS1815";
+  const date = new Date().toLocaleDateString();
+
+  let result = "";
+
+  if(!subject && !input){
+    output.textContent = "Antre enfòmasyon ou yo anvan.";
+    return;
+  }
+
+  switch(activeModule){
+
+    case 0:
+      result =
+        "BRIYANT SOLÈY SIGNO 1815\n\n" +
+        title.toUpperCase() +
+        "\n\nByenveni nan prezantasyon nou an.\n\n" +
+        input +
+        "\n\nDEVAN DEVAN NÈT™\nBATI POU JODI A, PARE POU DEMEN.";
+      break;
+
+    case 1:
+    case 4:
+    case 8:{
+      const key = "bss1815-records-" + activeModule;
+
+      const total = saveRecord(key,{
+        title,
+        details:input,
+        date
+      });
+
+      result = total === null
+        ? "Rejis la pa t kapab anrejistre sou aparèy sa a."
+        : "ENFÒMASYON ANREJISTRE LOKALMAN\n\n" +
+          "Tit: " + title +
+          "\nDat: " + date +
+          "\nDetay: " + input +
+          "\nTotal dosye: " + total;
+      break;
+    }
+
+    case 2:{
+      const query = (subject || input).toLowerCase();
+
+      const matches = GALLERY.filter(
+        file => file.toLowerCase().includes(query)
+      );
+
+      result = matches.length
+        ? matches.join("\n")
+        : "Pa gen fichye ki koresponn ak rechèch la.";
+      break;
+    }
+
+    case 3:
+      result =
+        "BRIYANT SOLÈY SIGNO 1815\n" +
+        "DOKIMAN — " + title.toUpperCase() +
+        "\nDat: " + date +
+        "\n\n" + input +
+        "\n\nSiyati: __________________";
+      break;
+
+    case 5:
+      result =
+        "VOICE SCRIPT\n\n" +
+        "Bonjou, bonswa tout fanmi BSS1815.\n\n" +
+        title + "\n\n" + input +
+        "\n\nBriyant se yon limyè ki pa janm etenn.";
+      break;
+
+    case 6:
+      result =
+        title.toUpperCase() +
+        "\n\n" + input +
+        "\n\n#BSS1815 #BriyantSoleySigno #DevanDevanNet";
+      break;
+
+    case 7:
+      result =
+        "FLYER DESIGN BRIEF\n\n" +
+        "TITLE: " + title +
+        "\nDETAILS: " + input +
+        "\nCOLORS: Orange / Apricot / Black Fade" +
+        "\nLOGO: " + LOGO;
+      break;
+
+    case 9:
+      result =
+        "PRO-MAX FM 106.5 FM\n\n" +
+        title +
+        "\n\n" + input +
+        "\n\nLa force du son.";
+      break;
+
+    case 10:
+      result =
+        "BUSINESS SUPPORT — " + title +
+        "\n\n" + input +
+        "\n\nPLAN:\n1. Defini objektif." +
+        "\n2. Idantifye resous." +
+        "\n3. Prepare bidjè." +
+        "\n4. Etabli plan aksyon.";
+      break;
+
+    case 11:
+      result =
+        "BSS1815 COMMUNITY SUPPORT\n\n" +
+        "Pou asistans sou: " + title +
+        "\n\nUSA: (407) 640-5166 / (317) 538-1150" +
+        "\nAYITI: +509 4254-4447 / +509 4343-7488" +
+        "\nEMAIL: bss1815promaxdmp@gmail.com";
+      break;
+  }
+
+  output.textContent = result;
+}
+
+async function copyOutput(){
+  const text = document.getElementById("output").textContent;
+
+  if(!text) return;
+
+  try{
+    await navigator.clipboard.writeText(text);
+  }catch(error){
+    alert("Chwazi tèks la epi kopye li.");
+  }
+}
+
+function saveOutput(){
+
+  const text = document.getElementById("output").textContent;
+
+  if(!text) return;
+
+  const blob = new Blob([text],{
+    type:"text/plain;charset=utf-8"
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "BSS1815-document.txt";
+
+  link.click();
+
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+}
+
+/* ==================================================
+   LANGUAGE SWITCHER
+================================================== */
+
+function setLanguage(language){
+
+  const index = {ht:0,en:1,fr:2}[language];
+
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-t]").forEach(element => {
+
+    const translations = element.dataset.t.split("|");
+
+    element.textContent =
+      translations[index] || translations[0];
+  });
+
+  document.querySelectorAll("[data-lang]").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.lang === language
+    );
+  });
+}
+
+document.querySelectorAll("[data-lang]").forEach(button => {
+  button.onclick = () => setLanguage(button.dataset.lang);
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
 </script>
 
