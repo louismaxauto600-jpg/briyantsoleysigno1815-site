@@ -4140,12 +4140,12 @@ document.getElementById("year").textContent =
   new Date().getFullYear();  
 
 /* ==================================================
-   SELMAN AJOUTE — 5 KOD FOTO A
+   SELMAN AJOUTE — 5 KOD FOTO A — VRE KOD SAN PRESYON
    PA RETIRE ANYEN — PA MODIFYE ANYEN KI TE LA
 ================================================== */
 
-/* 1 — TEAM SAN PRESYON — teamsanpresyon.jpeg */
-TEAMS.find(t=>t.id==="san-presyon").files.unshift("teamsanpresyon.jpeg");
+/* 1 — TEAM SAN PRESYON — team-san-presyon-2.jpg — VRE KOD LA */
+TEAMS.find(t=>t.id==="san-presyon").files.unshift("team-san-presyon-2.jpg");
 
 /* 2 — TEAM BACKUP — team-bakup.jpg */
 TEAMS.find(t=>t.id==="backup").files.unshift("team-bakup.jpg");
@@ -4162,7 +4162,6 @@ TEAMS.find(t=>t.id==="super-fanclub").files.unshift("super-fanclub-5.jpg");
 /* ==================================================
    SELMAN AJOUTE — FIX 3 KAT KI TE NWA
    PA RETIRE ANYEN — PA MODIFYE ANYEN KI TE LA
-   Kat HTML yo te rete sou ansyen fichye, blok sa a mete nouvo fichye yo sou kat yo
 ================================================== */
 (function(){
   var fix=function(teamId,file){
@@ -4171,7 +4170,7 @@ TEAMS.find(t=>t.id==="super-fanclub").files.unshift("super-fanclub-5.jpg");
     var img=card.querySelector('img');
     if(img){ img.onerror=null; img.src="./"+file; }
   };
-  fix("san-presyon","teamsanpresyon.jpeg");
+  fix("san-presyon","team-san-presyon-2.jpg");
   fix("backup","team-bakup.jpg");
   fix("angrenay","teamangrenay.png");
   /* MIAMI + SUPER FANCLUB — konfime yo tou, san touche rès la */
