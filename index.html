@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>  <html lang="ht" translate="no">  
 <head>  
 <meta charset="UTF-8">  
@@ -167,6 +166,10 @@ section{padding:60px 18px}
   object-fit:contain;  
   background:#000;  
 }  
+/* AJISTEMAN 1 - SLIDESHOW FENNEN LÈ LAP CHANJE */
+#slide-media{transition:opacity .8s ease}
+#slide-media.slide-fade{opacity:0}
+#slide-media img,#slide-media video{transition:opacity .8s ease}
 .caption{  
   padding:14px;  
   text-align:center;  
@@ -632,12 +635,14 @@ textarea{min-height:130px}
 <div class="card" style="text-align:center;max-width:850px;margin:0 auto 30px">
   <h3 style="color:var(--orange)">🎵 ISTWA PAP JANM KA EFASE 🎵</h3>
   <p>BRIYANT SOLÈY SIGNO 1815</p>
-  <audio id="istwa-audio" controls preload="metadata" style="width:100%">
+  <audio id="istwa-audio" controls preload="auto" playsinline style="width:100%">
     <source src="./istwa-pap-janm-ka-efase.mp3" type="audio/mpeg">
+    <source src="./istwa-pap-janm-ka-efase.mp3" type="audio/mp3">
   </audio>
+  <p id="istwa-status" style="font-size:13px;color:var(--apricot)"></p>
   <div class="actions" style="justify-content:center;margin-top:15px">
-    <button class="btn primary" type="button" onclick="document.getElementById('istwa-audio').play()">▶ PLAY MIZIK LA</button>
-    <button class="btn" type="button" onclick="document.getElementById('istwa-audio').pause()">⏸ PAUSE</button>
+    <button class="btn primary" type="button" id="istwa-play-btn">▶ PLAY MIZIK LA</button>
+    <button class="btn" type="button" id="istwa-pause-btn">⏸ PAUSE</button>
   </div>
 </div>
 <!-- FEN KOD MIZIK LA -->
@@ -654,6 +659,8 @@ textarea{min-height:130px}
   <button id="prev">❮ PREVIOUS</button>  
   <button id="pause">⏸ PAUSE</button>  
   <button id="next">NEXT ❯</button>  
+  <!-- AJISTEMAN 2 - BOUTON SON SLIDESHOW -->
+  <button id="slide-sound" class="btn primary">🔊 SON: ON</button>
 </div>  
 <p id="slide-status" style="text-align:center"></p>  
 <div class="controls">  
@@ -1125,13 +1132,34 @@ let currentIndex = 0;
 let slideTimer = null;  
 let playing = true;  
 let slideToken = 0;  
+/* AJISTEMAN 2 - SON SLIDESHOW OTOMATIK APRE PREMYE TOUCHE */
+let slideSoundOn = true;
+let slideSoundUnlocked = false;
+function unlockSlideSound(){
+  slideSoundUnlocked = true;
+  const v = slideMedia.querySelector("video");
+  if(v && slideSoundOn){ v.muted = false; v.volume = 1; v.play().catch(()=>{}); }
+}
+document.addEventListener("pointerdown", unlockSlideSound);
+document.addEventListener("touchstart", unlockSlideSound);
+document.addEventListener("click", unlockSlideSound);
+const slideSoundBtn = document.getElementById("slide-sound");
+if(slideSoundBtn){
+  slideSoundBtn.onclick = function(){
+    slideSoundOn = !slideSoundOn;
+    slideSoundUnlocked = true;
+    this.textContent = slideSoundOn ? "🔊 SON: ON" : "🔇 SON: OFF";
+    const v = slideMedia.querySelector("video");
+    if(v){ v.muted = !slideSoundOn; v.volume = 1; if(slideSoundOn && playing){ v.play().catch(()=>{}); } }
+  };
+}
 const isVideo = file => /\.mp4$/i.test(file);  
 function mediaLabel(file){return file.replace(/\.[^.]+$/,"").replace(/[-_]/g," ").toUpperCase();}  
 function createMedia(file,onReady,onFailed){  
   const video = isVideo(file);  
   const element = document.createElement(video ? "video" : "img");  
   let baseIndex = 0;  
-  if(video){element.muted = true;element.playsInline = true;element.preload = "metadata";}else{element.alt = mediaLabel(file);}  
+  if(video){element.muted = !slideSoundOn || !slideSoundUnlocked; element.volume = 1; element.playsInline = true;element.preload = "metadata";}else{element.alt = mediaLabel(file);}  
   element.onerror = function(){  
     baseIndex++;  
     if(baseIndex < BASES.length){element.src = assetURL(BASES[baseIndex],file);if(video)element.load();}else{element.onerror = null;if(onFailed)onFailed();}  
@@ -1149,12 +1177,18 @@ function showSlide(index,direction=1,attempts=0){
   const file = GALLERY[currentIndex];  
   slideCaption.textContent = mediaLabel(file);  
   slideStatus.textContent = `MEDIA ${currentIndex+1} / ${GALLERY.length}`;  
-  const element = createMedia(file,media => {  
-    if(token !== slideToken)return;  
-    if(isVideo(file)){media.controls = true;media.onended = () => {if(playing && token === slideToken){showSlide(currentIndex+1);}};if(playing){media.play().catch(() => scheduleNext(10000));}}else{scheduleNext();}  
-  },() => {if(token === slideToken){showSlide(currentIndex+direction,direction,attempts+1);}});  
-  slideMedia.replaceChildren(element);  
-  if(playing){slideTimer = setTimeout(() => {if(token === slideToken){showSlide(currentIndex+direction,direction,attempts+1);}},25000);}  
+  /* AJISTEMAN 1 - FADE OUT ANVAN CHANJMAN */
+  slideMedia.classList.add("slide-fade");
+  setTimeout(()=>{
+    if(token !== slideToken) return;
+    const element = createMedia(file,media => {  
+      if(token !== slideToken)return;  
+      if(isVideo(file)){media.controls = true; media.muted = !slideSoundOn || !slideSoundUnlocked; media.volume = 1; media.onended = () => {if(playing && token === slideToken){showSlide(currentIndex+1);}};if(playing){media.play().then(()=>{ if(slideSoundOn && slideSoundUnlocked){media.muted=false;} }).catch(() => scheduleNext(10000));}}else{scheduleNext();}  
+      slideMedia.classList.remove("slide-fade");
+    },() => {if(token === slideToken){slideMedia.classList.remove("slide-fade"); showSlide(currentIndex+direction,direction,attempts+1);}});  
+    slideMedia.replaceChildren(element);  
+    if(playing){slideTimer = setTimeout(() => {if(token === slideToken){showSlide(currentIndex+direction,direction,attempts+1);}},25000);}  
+  }, 450);
 }  
 document.getElementById("prev").onclick = () => showSlide(currentIndex-1,-1);  
 document.getElementById("next").onclick = () => showSlide(currentIndex+1);  
@@ -1539,5 +1573,29 @@ TEAMS.find(t=>t.id==="super-fanclub").files.unshift("super-fanclub-5.jpg");
   var sfc=document.querySelector('#community [data-team="super-fanclub"] img');  
   if(sfc){sfc.onerror=null;sfc.src="./super-fanclub-5.jpg";}  
 })();  
+/* AJISTEMAN 3 - MIZIK ISTWA PAP JANM KA EFASE - RANJE PLAY */
+(function(){
+  var audio = document.getElementById("istwa-audio");
+  var status = document.getElementById("istwa-status");
+  var playBtn = document.getElementById("istwa-play-btn");
+  var pauseBtn = document.getElementById("istwa-pause-btn");
+  if(!audio) return;
+  audio.volume = 1;
+  audio.muted = false;
+  audio.addEventListener("error", function(){ if(status) status.textContent = "Fichye a pa jwenn: verifye istwa-pap-janm-ka-efase.mp3 nan rasin repo a."; });
+  audio.addEventListener("playing", function(){ if(status) status.textContent = "🎵 AP JWE — ISTWA PAP JANM KA EFASE"; });
+  audio.addEventListener("pause", function(){ if(status) status.textContent = "⏸ PAUSE"; });
+  if(playBtn){
+    playBtn.onclick = function(){
+      audio.muted = false; audio.volume = 1;
+      var p = audio.play();
+      if(p && p.catch){ p.catch(function(){ if(status) status.textContent = "Peze PLAY ankò — navigatè a te bloke premye esè a."; }); }
+    };
+  }
+  if(pauseBtn){ pauseBtn.onclick = function(){ audio.pause(); }; }
+  document.addEventListener("pointerdown", function(){
+    if(audio.paused && audio.currentTime === 0 && status && !status.textContent){ /* pa fòse autoplay mizik la, kite bouton an */ }
+  });
+})();
 </script>  </body>  
-  </html>
+</html>
