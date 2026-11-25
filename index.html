@@ -166,6 +166,7 @@ section{padding:60px 18px}
   object-fit:contain;  
   background:#000;  
 }  
+/* AJISTEMAN 1 - SLIDESHOW FENNEN LÈ LAP CHANJE */
 #slide-media{transition:opacity .8s ease}
 #slide-media.slide-fade{opacity:0}
 #slide-media img,#slide-media video{transition:opacity .8s ease}
@@ -630,17 +631,15 @@ textarea{min-height:130px}
   Chak jenerasyon pote kontribisyon pa li.  
   Nou rekonèt moun ki te kenbe flanbo BSS1815 la limen.  
 </p>  
-<!-- SELMAN AJOUTE — KOD MIZIK LA — RANJE POU ISTWA PAP JANM KA PASÉ -->
+<!-- SELMAN AJOUTE — KOD MIZIK LA -->
 <div class="card" style="text-align:center;max-width:850px;margin:0 auto 30px">
-  <h3 style="color:var(--orange)">🎵 ISTWA PAP JANM KA PASÉ 🎵</h3>
+  <h3 style="color:var(--orange)">🎵 ISTWA PAP JANM KA EFASE 🎵</h3>
   <p>BRIYANT SOLÈY SIGNO 1815</p>
   <audio id="istwa-audio" controls preload="auto" playsinline style="width:100%">
-    <source src="./istwa-pap-janm-ka-pase.mp3" type="audio/mpeg">
     <source src="./istwa-pap-janm-ka-efase.mp3" type="audio/mpeg">
-    <source src="./istwa-pap-janm-ka-pase.mp3" type="audio/mp3">
     <source src="./istwa-pap-janm-ka-efase.mp3" type="audio/mp3">
   </audio>
-  <p id="istwa-status" style="font-size:13px;color:var(--apricot)">Peze PLAY MIZIK LA</p>
+  <p id="istwa-status" style="font-size:13px;color:var(--apricot)"></p>
   <div class="actions" style="justify-content:center;margin-top:15px">
     <button class="btn primary" type="button" id="istwa-play-btn">▶ PLAY MIZIK LA</button>
     <button class="btn" type="button" id="istwa-pause-btn">⏸ PAUSE</button>
@@ -660,6 +659,7 @@ textarea{min-height:130px}
   <button id="prev">❮ PREVIOUS</button>  
   <button id="pause">⏸ PAUSE</button>  
   <button id="next">NEXT ❯</button>  
+  <!-- AJISTEMAN 2 - BOUTON SON SLIDESHOW -->
   <button id="slide-sound" class="btn primary">🔊 SON: ON</button>
 </div>  
 <p id="slide-status" style="text-align:center"></p>  
@@ -743,6 +743,7 @@ textarea{min-height:130px}
   <a class="btn primary" href="https://link.radioking.com/modern-radio192" target="_blank" rel="noopener noreferrer">RADIO — DIGITAL PLATFORM</a>  
 </div>  
   </div>  </section>  
+<!-- SELMAN AJOUTE — LEOGANE INFO APRÈ PRO-MAX FM 106.5 — MENM JAN AK CONTACT BSS1815 LA — SÈLMAN FOTO : leogane-enfo.jpg -->
 <section id="leogane-info">
   <div class="wrap">
     <h2 class="title">LEOGANE INFO</h2>
@@ -750,9 +751,11 @@ textarea{min-height:130px}
       <img src="./leogane-enfo.jpg" alt="LEOGANE INFO" style="display:block;width:100%;height:clamp(280px,55vw,620px);object-fit:contain;background:#000">
     </div>
     <p class="intro">NOUVÈL • KILTI • KOMINOTE • LÉOGÂNE</p>
+    <!-- SELMAN AJOUTE — BOUTON KI KONEKTE LEOGANE INFO AK PRO-MAX FM LAN -->
     <div class="actions" style="justify-content:center;margin:0 auto 20px">
       <a class="btn primary" href="#radio">🎙 PRO-MAX FM 106.5 FM</a>
     </div>
+    <!-- FEN BOUTON KONEKSYON -->
     <div class="grid">
       <article class="card contact">
         <img class="flag" src="https://flagcdn.com/w160/us.png" alt="United States Flag">
@@ -778,6 +781,7 @@ textarea{min-height:130px}
     </div>
   </div>
 </section>
+<!-- FEN LEOGANE INFO -->
 <section id="contact">    <div class="wrap">  <h2 class="title">CONTACT BSS1815</h2>  
 <div class="grid">  
   <article class="card contact">  
@@ -987,7 +991,8 @@ async function deleteTeamMedia(id){
     const transaction = db.transaction("media","readwrite");  
     transaction.objectStore("media").delete(id);  
     transaction.oncomplete = () => resolve();  
-    transaction.onerror = () => reject(transaction.error || new Error("Delete aborted"));  
+    transaction.onerror = () => reject(transaction.error);  
+    transaction.onabort = () => reject(transaction.error || new Error("Delete aborted"));  
   });  
 }  
 function clearTeamMedia(){  
@@ -1127,6 +1132,7 @@ let currentIndex = 0;
 let slideTimer = null;  
 let playing = true;  
 let slideToken = 0;  
+/* AJISTEMAN 2 - SON SLIDESHOW OTOMATIK APRE PREMYE TOUCHE */
 let slideSoundOn = true;
 let slideSoundUnlocked = false;
 function unlockSlideSound(){
@@ -1171,6 +1177,7 @@ function showSlide(index,direction=1,attempts=0){
   const file = GALLERY[currentIndex];  
   slideCaption.textContent = mediaLabel(file);  
   slideStatus.textContent = `MEDIA ${currentIndex+1} / ${GALLERY.length}`;  
+  /* AJISTEMAN 1 - FADE OUT ANVAN CHANJMAN */
   slideMedia.classList.add("slide-fade");
   setTimeout(()=>{
     if(token !== slideToken) return;
@@ -1550,6 +1557,7 @@ function setLanguage(language){
 }  
 document.querySelectorAll("[data-lang]").forEach(button => {button.onclick = () => setLanguage(button.dataset.lang);});  
 document.getElementById("year").textContent = new Date().getFullYear();  
+/* SELMAN AJOUTE — 5 KOD FOTO A */
 TEAMS.find(t=>t.id==="san-presyon").files.unshift("team-san-presyon-2.jpg");  
 TEAMS.find(t=>t.id==="backup").files.unshift("team-bakup.jpg");  
 TEAMS.find(t=>t.id==="miami").files.unshift("miami-an-aksyon2.mp4");  
@@ -1565,56 +1573,29 @@ TEAMS.find(t=>t.id==="super-fanclub").files.unshift("super-fanclub-5.jpg");
   var sfc=document.querySelector('#community [data-team="super-fanclub"] img');  
   if(sfc){sfc.onerror=null;sfc.src="./super-fanclub-5.jpg";}  
 })();  
-/* RANJE MIZIK ISTWA PAP JANM KA PASÉ — ESEYE TOU 2 NON YO */
+/* AJISTEMAN 3 - MIZIK ISTWA PAP JANM KA EFASE - RANJE PLAY */
 (function(){
   var audio = document.getElementById("istwa-audio");
   var status = document.getElementById("istwa-status");
   var playBtn = document.getElementById("istwa-play-btn");
   var pauseBtn = document.getElementById("istwa-pause-btn");
   if(!audio) return;
-  var candidates = [
-    "./istwa-pap-janm-ka-pase.mp3",
-    "./istwa-pap-janm-ka-efase.mp3",
-    "./istwa-pap-janm-ka-pasé.mp3",
-    "./ISTWA-PAP-JANM-KA-PASE.mp3",
-    "./ISTWA-PAP-JANM-KA-EFASE.mp3"
-  ];
-  var idx = 0;
-  function tryNext(){
-    if(idx >= candidates.length){
-      if(status) status.textContent = "❌ PA Jwenn fichye a — Verifye nan GitHub: istwa-pap-janm-ka-pase.mp3 OU istwa-pap-janm-ka-efase.mp3 dwe nan rasin repo a, bò kote index.html la, pa nan folder.";
-      return;
-    }
-    var url = candidates[idx];
-    if(status) status.textContent = "Ap chache: " + url.replace("./","");
-    audio.src = url;
-    audio.load();
-  }
   audio.volume = 1;
   audio.muted = false;
-  audio.addEventListener("error", function(){
-    idx++;
-    tryNext();
-  }, true);
-  // Si source ki nan HTML la echwe, audio element la ap voye error tou — nou koute dènye source a
-  var sources = audio.querySelectorAll("source");
-  sources.forEach(function(s){
-    s.addEventListener("error", function(){ idx++; tryNext(); });
-  });
-  audio.addEventListener("canplay", function(){ if(status) status.textContent = "✅ Mizik la pare — Peze PLAY MIZIK LA"; });
-  audio.addEventListener("playing", function(){ if(status) status.textContent = "🎵 AP JWE — ISTWA PAP JANM KA PASÉ"; });
-  audio.addEventListener("pause", function(){ if(status && !audio.ended) status.textContent = "⏸ PAUSE"; });
+  audio.addEventListener("error", function(){ if(status) status.textContent = "Fichye a pa jwenn: verifye istwa-pap-janm-ka-efase.mp3 nan rasin repo a."; });
+  audio.addEventListener("playing", function(){ if(status) status.textContent = "🎵 AP JWE — ISTWA PAP JANM KA EFASE"; });
+  audio.addEventListener("pause", function(){ if(status) status.textContent = "⏸ PAUSE"; });
   if(playBtn){
     playBtn.onclick = function(){
       audio.muted = false; audio.volume = 1;
-      if(!audio.src) tryNext();
       var p = audio.play();
       if(p && p.catch){ p.catch(function(){ if(status) status.textContent = "Peze PLAY ankò — navigatè a te bloke premye esè a."; }); }
     };
   }
   if(pauseBtn){ pauseBtn.onclick = function(){ audio.pause(); }; }
-  // Kòmanse ak premye kandida a
-  tryNext();
+  document.addEventListener("pointerdown", function(){
+    if(audio.paused && audio.currentTime === 0 && status && !status.textContent){ /* pa fòse autoplay mizik la, kite bouton an */ }
+  });
 })();
 </script>  </body>  
 </html>
