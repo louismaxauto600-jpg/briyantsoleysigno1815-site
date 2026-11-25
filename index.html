@@ -2823,8 +2823,8 @@ const SOCIALS = [
     "https://www.youtube.com/@BSS1815PROMAXDMP"  
   ],  
   [  
-    "【entity-Spotify¦canonical_name=Spotify】",  
-    "fa-【entity-spotify¦canonical_name=Spotify】",  
+    " Spotify",  
+    "fa- spotify",  
     "#1DB954",  
     "https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"  
   ],  
@@ -4158,6 +4158,28 @@ TEAMS.find(t=>t.id==="angrenay").files.unshift("teamangrenay.png");
 
 /* 5 — SUPER FANCLUB — super-fanclub-5.jpg */
 TEAMS.find(t=>t.id==="super-fanclub").files.unshift("super-fanclub-5.jpg");
+
+/* ==================================================
+   SELMAN AJOUTE — FIX 3 KAT KI TE NWA
+   PA RETIRE ANYEN — PA MODIFYE ANYEN KI TE LA
+   Kat HTML yo te rete sou ansyen fichye, blok sa a mete nouvo fichye yo sou kat yo
+================================================== */
+(function(){
+  var fix=function(teamId,file){
+    var card=document.querySelector('#community [data-team="'+teamId+'"]');
+    if(!card) return;
+    var img=card.querySelector('img');
+    if(img){ img.onerror=null; img.src="./"+file; }
+  };
+  fix("san-presyon","teamsanpresyon.jpeg");
+  fix("backup","team-bakup.jpg");
+  fix("angrenay","teamangrenay.png");
+  /* MIAMI + SUPER FANCLUB — konfime yo tou, san touche rès la */
+  var miami=document.querySelector('#community [data-team="miami"] video');
+  if(miami){ miami.src="./miami-an-aksyon2.mp4"; }
+  var sfc=document.querySelector('#community [data-team="super-fanclub"] img');
+  if(sfc){ sfc.onerror=null; sfc.src="./super-fanclub-5.jpg"; }
+})();
   
 </script>  </body>  
 </html>
