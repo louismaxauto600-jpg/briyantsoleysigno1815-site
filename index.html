@@ -1,1542 +1,1687 @@
-<!DOCTYPE html>  <html lang="ht" translate="no">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<meta name="theme-color" content="#080301">  
-<meta name="google" content="notranslate">  <title>BRIYANT SOLÈY SIGNO 1815</title>  <link rel="icon" href="./briyant-soley-signo-1815.jpg">  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <style>  
-:root{  
-  --orange:#ff7900;  
-  --apricot:#ffb477;  
-  --black:#080301;  
-  --border:#934014;  
-}  
-*{box-sizing:border-box}  
-html{scroll-behavior:smooth}  
-body{  
-  margin:0;  
-  font-family:Arial,Helvetica,sans-serif;  
-  background:linear-gradient(135deg,#000,#321204,#000);  
-  color:var(--apricot);  
-  line-height:1.6;  
-}  
-a{color:inherit;text-decoration:none}  
-button,input,textarea,select{font:inherit}  
-button{cursor:pointer}  
-img,video{max-width:100%}  
-header{  
-  padding:20px;  
-  background:linear-gradient(90deg,#000,#351304,#000);  
-  border-bottom:3px solid var(--orange);  
-}  
-.top{  
-  max-width:1400px;  
-  margin:auto;  
-  display:flex;  
-  justify-content:space-between;  
-  align-items:center;  
-  flex-wrap:wrap;  
-  gap:20px;  
-}  
-.identity{  
-  display:flex;  
-  align-items:center;  
-  gap:16px;  
-}  
-.logo{  
-  width:110px;  
-  height:110px;  
-  border:3px solid var(--orange);  
-  border-radius:50%;  
-  object-fit:contain;  
-  background:#000;  
-}  
-.brand h1{  
-  margin:0;  
-  color:var(--orange);  
-  font-size:clamp(20px,3vw,32px);  
-}  
-.brand p{  
-  margin:4px 0;  
-  font-weight:bold;  
-}  
-.langs,.nav,.actions,.controls{  
-  display:flex;  
-  flex-wrap:wrap;  
-  justify-content:center;  
-  gap:10px;  
-}  
-.nav{margin:24px auto 0}  
-.btn,.nav a,.langs button,.controls button{  
-  padding:12px 17px;  
-  border:2px solid var(--orange);  
-  border-radius:12px;  
-  background:#190800;  
-  color:var(--apricot);  
-  font-weight:900;  
-  display:inline-block;  
-}  
-.nav a{font-size:12px}  
-.btn:hover,.nav a:hover,  
-.langs button.active,.primary{  
-  background:var(--orange);  
-  color:#000;  
-}  
-section{padding:60px 18px}  
-.wrap{  
-  max-width:1350px;  
-  margin:auto;  
-}  
-.hero{  
-  text-align:center;  
-  background:radial-gradient(ellipse,#542004,#160600,#000);  
-}  
-.hero-logo{  
-  width:min(360px,85vw);  
-  border:3px solid var(--orange);  
-  border-radius:24px;  
-  box-shadow:0 0 45px #ff790066;  
-}  
-.hero h2{  
-  color:var(--orange);  
-  font-size:clamp(34px,6vw,70px);  
-  line-height:1.1;  
-}  
-.title{  
-  text-align:center;  
-  color:var(--orange);  
-  font-size:clamp(27px,4vw,43px);  
-  line-height:1.2;  
-  margin:0 0 24px;  
-}  
-.intro{  
-  text-align:center;  
-  max-width:950px;  
-  margin:0 auto 30px;  
-}  
-.grid{  
-  display:grid;  
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));  
-  gap:20px;  
-}  
-.card{  
-  padding:22px;  
-  border:1px solid var(--border);  
-  border-radius:20px;  
-  background:linear-gradient(140deg,#351304,#070200);  
-  min-width:0;  
-}  
-.card h3{color:var(--orange)}  
-.memorial{  
-  border-block:3px solid var(--orange);  
-  background:linear-gradient(135deg,#000,#401704,#000);  
-}  
-.heroes{  
-  display:grid;  
-  grid-template-columns:repeat(4,minmax(0,1fr));  
-  gap:18px;  
-}  
-.tribute{  
-  text-align:center;  
-  border:2px solid var(--orange);  
-}  
-.portrait{  
-  width:100%;  
-  height:300px;  
-  object-fit:contain;  
-  border:2px solid var(--orange);  
-  border-radius:15px;  
-  background:#000;  
-}  
-.media{  
-  border-block:2px solid var(--orange);  
-}  
-.slide{  
-  max-width:1100px;  
-  margin:auto;  
-  background:#000;  
-  border:3px solid var(--orange);  
-  border-radius:22px;  
-  overflow:hidden;  
-}  
-.slide img,.slide video{  
-  display:block;  
-  width:100%;  
-  height:clamp(280px,55vw,620px);  
-  object-fit:contain;  
-  background:#000;  
-}  
-.caption{  
-  padding:14px;  
-  text-align:center;  
-  background:#200900;  
-  color:var(--orange);  
-  font-weight:900;  
-}  
-.controls{margin:20px 0}  
-.gallery{  
-  display:grid;  
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));  
-  gap:14px;  
-}  
-.gallery[hidden]{display:none}  
-.tile{  
-  border:1px solid var(--border);  
-  border-radius:14px;  
-  overflow:hidden;  
-  background:#120500;  
-  color:var(--apricot);  
-  padding:0;  
-}  
-.tile img,.tile video{  
-  display:block;  
-  width:100%;  
-  height:180px;  
-  object-fit:contain;  
-  background:#000;  
-}  
-.tile span{  
-  display:block;  
-  padding:8px;  
-  overflow-wrap:anywhere;  
-}  
-.avatar{  
-  max-width:850px;  
-  margin:auto;  
-  padding:25px;  
-  border:2px solid var(--orange);  
-  border-radius:24px;  
-  background:#000;  
-  text-align:center;  
-}  
-.avatar video{  
-  width:100%;  
-  max-height:600px;  
-  border-radius:16px;  
-  border:2px solid var(--orange);  
-}  
-.module{text-align:center}  
-.module i{  
-  font-size:42px;  
-  color:var(--orange);  
-}  
-.socials{  
-  display:grid;  
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));  
-  gap:14px;  
-}  
-.social{  
-  display:flex;  
-  align-items:center;  
-  gap:14px;  
-  border:1px solid var(--border);  
-  border-radius:15px;  
-  background:#120500;  
-  padding:16px;  
-  font-weight:bold;  
-}  
-.social i{  
-  font-size:32px;  
-  width:36px;  
-  text-align:center;  
-}  
-.social img{  
-  width:32px;  
-  height:32px;  
-  object-fit:contain;  
-}  
-.social:hover{  
-  border-color:var(--orange);  
-  transform:translateY(-3px);  
-}  
-.contact{text-align:center}  
-.flag{  
-  width:85px;  
-  height:56px;  
-  object-fit:cover;  
-  border:2px solid var(--orange);  
-  border-radius:6px;  
-}  
-.phone{  
-  display:block;  
-  color:var(--orange);  
-  font-size:20px;  
-  font-weight:bold;  
-  margin:12px 0;  
-}  
-footer{  
-  padding:35px 15px;  
-  text-align:center;  
-  background:#000;  
-  border-top:3px solid var(--orange);  
-}  
-footer img{  
-  width:130px;  
-  border-radius:15px;  
-}  
-.ai-float{  
-  position:fixed;  
-  bottom:20px;  
-  right:20px;  
-  z-index:20;  
-  background:var(--orange);  
-  color:#000;  
-  border:0;  
-  border-radius:15px;  
-  padding:15px 20px;  
-  font-weight:900;  
-}  
-dialog{  
-  width:min(95vw,680px);  
-  max-height:90vh;  
-  overflow:auto;  
-  border:2px solid var(--orange);  
-  border-radius:20px;  
-  background:linear-gradient(135deg,#321104,#000);  
-  color:var(--apricot);  
-  padding:24px;  
-}  
-dialog::backdrop{background:#000d}  
-textarea,input,select{  
-  width:100%;  
-  background:#000;  
-  color:var(--apricot);  
-  border:1px solid var(--orange);  
-  border-radius:10px;  
-  padding:12px;  
-  margin:10px 0;  
-}  
-textarea{min-height:130px}  
-#output{  
-  white-space:pre-wrap;  
-  overflow-wrap:anywhere;  
-  background:#000;  
-  padding:16px;  
-  border-radius:12px;  
-}  
-@media(max-width:1000px){  
-  .heroes{  
-    grid-template-columns:repeat(2,minmax(0,1fr));  
-  }  
-}  
-@media(max-width:600px){  
-  .heroes,.grid{  
-    grid-template-columns:1fr;  
-  }  
-  .logo{  
-    width:75px;  
-    height:75px;  
-  }  
-  .gallery{  
-    grid-template-columns:repeat(2,minmax(0,1fr));  
-  }  
-  section{padding:40px 12px}  
-  .portrait{height:340px}  
-}  
-#community .team-card{  
-  cursor:pointer;  
-  display:flex;  
-  flex-direction:column;  
-  align-items:center;  
-}  
-#community .team-card h3{  
-  flex:1;  
-}  
-#community .team-card .btn{  
-  width:100%;  
-}  
-#community .team-card:hover{  
-  border-color:var(--orange);  
-  box-shadow:0 0 20px #ff790044;  
-}  
-#community .team-card img,  
-#community .team-card video{  
-  display:block;  
-  width:100%;  
-  height:300px;  
-  object-fit:contain;  
-  background:#000;  
-}  
-#bss-team-dialog{  
-  width:min(1100px,95vw);  
-}  
-#bss-team-dialog h2{  
-  text-align:center;  
-  color:var(--orange);  
-}  
-#bss-team-dialog .team-cover{  
-  display:block;  
-  width:100%;  
-  max-width:480px;  
-  height:300px;  
-  margin:15px auto;  
-  object-fit:contain;  
-  border:2px solid var(--orange);  
-  border-radius:15px;  
-  background:#000;  
-}  
-#bss-team-dialog .team-media-grid{  
-  display:grid;  
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));  
-  gap:16px;  
-  margin-top:20px;  
-}  
-#bss-team-dialog .team-media-item{  
-  min-width:0;  
-  padding:12px;  
-  border:1px solid var(--orange);  
-  border-radius:15px;  
-  background:#120500;  
-  text-align:center;  
-}  
-#bss-team-dialog .team-media-item img,  
-#bss-team-dialog .team-media-item video{  
-  width:100%;  
-  height:230px;  
-  object-fit:contain;  
-  background:#000;  
-  border-radius:10px;  
-}  
-#bss-team-dialog .team-media-item p{  
-  overflow-wrap:anywhere;  
-}  
-#bss-team-dialog .team-media-item button{  
-  margin:5px;  
-}  
-#bss-team-dialog [hidden]{  
-  display:none!important;  
-}  
-#bss-team-status{  
-  text-align:center;  
-  color:var(--apricot);  
-}  
-#bss-team-viewer{  
-  width:min(1100px,95vw);  
-  text-align:center;  
-}  
-#bss-team-viewer img,  
-#bss-team-viewer video{  
-  width:100%;  
-  max-height:75vh;  
-  object-fit:contain;  
-  background:#000;  
-}  
-#crm-dialog{  
-  width:min(1200px,96vw);  
-}  
-#crm-dialog .crm-heading{  
-  text-align:center;  
-  color:var(--orange);  
-}  
-#crm-dialog .crm-logo{  
-  display:block;  
-  width:110px;  
-  height:110px;  
-  object-fit:contain;  
-  border:2px solid var(--orange);  
-  border-radius:50%;  
-  margin:0 auto;  
-  background:#000;  
-}  
-#crm-dialog .crm-stats{  
-  display:grid;  
-  grid-template-columns:repeat(4,minmax(0,1fr));  
-  gap:12px;  
-  margin:24px 0;  
-}  
-#crm-dialog .crm-stat{  
-  padding:18px 10px;  
-  border:1px solid var(--orange);  
-  border-radius:15px;  
-  text-align:center;  
-  background:linear-gradient(145deg,#351304,#000);  
-}  
-#crm-dialog .crm-stat i{  
-  color:var(--orange);  
-  font-size:25px;  
-}  
-#crm-dialog .crm-stat strong{  
-  display:block;  
-  color:var(--orange);  
-  font-size:32px;  
-}  
-#crm-dialog .crm-stat span{  
-  font-size:12px;  
-  font-weight:bold;  
-}  
-#crm-dialog .crm-panel{  
-  border:1px solid var(--border);  
-  border-radius:18px;  
-  background:#120500;  
-  padding:20px;  
-  margin:20px 0;  
-}  
-#crm-dialog .crm-panel h3{  
-  color:var(--orange);  
-  margin-top:0;  
-}  
-#crm-dialog .crm-form-grid{  
-  display:grid;  
-  grid-template-columns:repeat(2,minmax(0,1fr));  
-  gap:12px;  
-}  
-#crm-dialog label{  
-  display:block;  
-  font-weight:bold;  
-}  
-#crm-dialog .crm-full{  
-  grid-column:1/-1;  
-}  
-#crm-dialog .crm-table-wrap{  
-  overflow-x:auto;  
-  border:1px solid var(--border);  
-  border-radius:12px;  
-}  
-#crm-dialog table{  
-  width:100%;  
-  min-width:950px;  
-  border-collapse:collapse;  
-  font-size:14px;  
-}  
-#crm-dialog th{  
-  background:var(--orange);  
-  color:#000;  
-  text-align:left;  
-  padding:13px;  
-}  
-#crm-dialog td{  
-  border-bottom:1px solid var(--border);  
-  padding:12px;  
-  vertical-align:top;  
-  overflow-wrap:anywhere;  
-}  
-#crm-dialog td .btn{  
-  padding:8px 10px;  
-  margin:3px;  
-  font-size:12px;  
-}  
-#crm-dialog .crm-status-tag{  
-  display:inline-block;  
-  border:1px solid var(--orange);  
-  padding:4px 9px;  
-  border-radius:8px;  
-  font-weight:bold;  
-}  
-#crm-dialog .crm-notice{  
-  text-align:center;  
-  font-size:13px;  
-  padding:12px;  
-  background:#000;  
-  border:1px solid var(--border);  
-  border-radius:10px;  
-}  
-#crm-dialog #crm-message{  
-  min-height:24px;  
-  text-align:center;  
-  color:var(--orange);  
-  font-weight:bold;  
-}  
-#crm-dialog .crm-filters{  
-  display:grid;  
-  grid-template-columns:2fr 1fr 1fr;  
-  gap:12px;  
-}  
-#crm-dialog [hidden]{  
-  display:none!important;  
-}  
-@media(max-width:650px){  
-  #crm-dialog .crm-stats{  
-    grid-template-columns:repeat(2,minmax(0,1fr));  
-  }  
-  #crm-dialog .crm-form-grid,  
-  #crm-dialog .crm-filters{  
-    grid-template-columns:1fr;  
-  }  
-  #crm-dialog{  
-    padding:14px;  
-  }  
-}  
-</style>  </head>  <body>  <header id="home">    <div class="top">  <div class="identity">  
-  <img class="logo" src="./briyant-soley-signo-1815.jpg" alt="BRIYANT SOLÈY SIGNO 1815">  
-  <div class="brand">  
-    <h1>BRIYANT SOLÈY SIGNO 1815</h1>  
-    <p>DEVAN DEVAN NÈT™</p>  
-    <p>BATI POU JODI A, PARE POU DEMEN.</p>  
-  </div>  
-</div>  
-<div class="langs">  
-  <button data-lang="en">ENG</button>  
-  <button data-lang="ht" class="active">KRE</button>  
-  <button data-lang="fr">FRAN</button>  
-</div>  
-  </div>    <nav class="nav">  <a href="#home" data-t="AKÈY|HOME|ACCUEIL">AKÈY</a>  
-<a href="#about" data-t="SOU NOU|ABOUT|À PROPOS">SOU NOU</a>  
-<a href="#history" data-t="ISTWA|HISTORY|HISTOIRE">ISTWA</a>  
-<a href="#memorandum">MEMORANDUM</a>  
-<a href="#features">FEATURES</a>  
-<a href="#community">COMMUNITY</a>  
-<a href="#slideshow">GALLERY</a>  
-<a href="#customer-service">CUSTOMER SERVICE</a>  
-<a href="#ai-center">AI CENTER</a>  
-<a href="#radio">PRO-MAX FM 106.5 FM</a>  
-<a href="#leogane-info">LEOGANE INFO</a>  
-<a href="#contact">CONTACT</a>  
-  </nav>  </header>  <main>  <section class="hero">    <div class="wrap">  <img class="hero-logo" src="./briyant-soley-signo-1815.jpg" alt="Logo ofisyèl BSS1815">  
-<p>PLATFÒM OFISYÈL • SIGNO • LÉOGÂNE • AYITI</p>  
-<h2>BRIYANT SOLÈY SIGNO 1815</h2>  
-<p data-t="Yon eritaj ki travèse jenerasyon. Yon kominote ki kontinye bati avni li.|A legacy spanning generations. A community building its future.|Un héritage qui traverse les générations. Une communauté qui construit son avenir.">  
-  Yon eritaj ki travèse jenerasyon.  
-  Yon kominote ki kontinye bati avni li.  
-</p>  
-<h3>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</h3>  
-<div class="actions">  
-  <a class="btn" href="#history">DEKOUVRI ISTWA NOU</a>  
-  <a class="btn" href="#community">COMMUNITY</a>  
-  <a class="btn primary" href="#ai-center">EXPLORE AI CENTER</a>  
-</div>  
-  </div>  </section>  <section id="memorandum" class="memorial">    <div class="wrap">  <h2 class="title" data-t="MEMORANDUM — 4 EWO NOU PAP JANM BLIYE|MEMORANDUM — 4 HEROES WE WILL NEVER FORGET|MÉMORANDUM — 4 HÉROS INOUBLIABLES">  
-  MEMORANDUM — 4 EWO NOU PAP JANM BLIYE  
-</h2>  
-<p class="intro">  
-  Nou onore kat gwo moniman istorik BSS1815.  
-  Travay yo ak eritaj yo pap janm efase.  
-</p>  
-<div class="heroes" id="memorial-grid"></div>  
-<h3 style="text-align:center;color:var(--orange)">  
-  BSS1815 — NOU PAP JANM BLIYE.  
-</h3>  
-  </div>  </section>  <section id="about">    <div class="wrap">  <h2 class="title">ABOUT BSS1815</h2>  
-<div class="grid">  
-  <article class="card">  
-    <h3>ISTWA NOU</h3>  
-    <p>Prezève memwa ak kontribisyon jenerasyon ki te travay pou bati BSS1815.</p>  
-  </article>  
-  <article class="card">  
-    <h3>MISYON NOU</h3>  
-    <p>Rasanble kominote a, valorize manm yo epi transmèt eritaj nou.</p>  
-  </article>  
-  <article class="card">  
-    <h3>VIZYON NOU</h3>  
-    <p>Devlope yon kominote solid avèk teknoloji, inovasyon ak kominikasyon.</p>  
-  </article>  
-</div>  
-  </div>  </section>  <section id="history">    <div class="wrap">  <h2 class="title" data-t="ISTWA PA JANM EFASE|HISTORY IS NEVER ERASED|L'HISTOIRE NE S'EFFACE JAMAIS">  
-  ISTWA PA JANM EFASE  
-</h2>  
-<p class="intro">  
-  Chak jenerasyon pote kontribisyon pa li.  
-  Nou rekonèt moun ki te kenbe flanbo BSS1815 la limen.  
-</p>  
-<!-- SELMAN AJOUTE — KOD MIZIK LA -->
-<div class="card" style="text-align:center;max-width:850px;margin:0 auto 30px">
-  <h3 style="color:var(--orange)">🎵 ISTWA PAP JANM KA EFASE 🎵</h3>
-  <p>BRIYANT SOLÈY SIGNO 1815</p>
-  <audio id="istwa-audio" controls preload="metadata" style="width:100%">
-    <source src="./nou-pap-janm-bliye-nou2.mp3" type="audio/mpeg">
-  </audio>
-  <div class="actions" style="justify-content:center;margin-top:15px">
-    <button class="btn primary" type="button" onclick="document.getElementById('istwa-audio').play()">▶ PLAY MIZIK LA</button>
-    <button class="btn" type="button" onclick="document.getElementById('istwa-audio').pause()">⏸ PAUSE</button>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="PRO-MAX FM — La Force du Son">
+<title>PRO-MAX FM | LA FORCE DU SON</title>
+<link rel="icon" href="pro-max-fm.jpg" type="image/jpeg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{--orange:#ff8c00;--apricot:#ffb347;--ink:#ffca8a;--border:#87410a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:linear-gradient(135deg,#000,#271306 45%,#050505);color:var(--ink);font:16px Arial,sans-serif}
+h1,h2,h3{color:var(--orange)}
+a{color:var(--orange)}
+button,input{font:inherit}
+button{cursor:pointer}
+button,.btn{display:inline-block;border:1px solid var(--orange);border-radius:9px;padding:11px 15px;color:var(--orange);background:#180d05;text-decoration:none;font-weight:800}
+button:hover,button.active,.btn:hover{background:var(--orange);color:#000}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outline-offset:3px}
+header{text-align:center;background:radial-gradient(ellipse at top,#4c2205,#070707 79%);padding:25px 15px;border-bottom:3px solid var(--orange)}
+.main-logo{width:145px;height:145px;border:3px solid var(--orange);border-radius:50%;object-fit:contain;background:#000}
+.brand{font-weight:900;color:var(--orange);font-size:clamp(34px,6vw,50px);margin:10px 0}
+.slogan{font-size:23px;font-weight:900;letter-spacing:2px}
+.actions,.languages,.filters{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:18px auto}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;padding:12px;background:#130a04;border-bottom:1px solid var(--orange);position:sticky;top:0;z-index:5}
+nav a{padding:8px;color:var(--orange);font-size:13px;font-weight:900;text-decoration:none}
+nav a:hover{background:#502305;border-radius:5px}
+.hero{text-align:center;padding:55px 16px;background:radial-gradient(ellipse,#422006,#080808 75%)}
+.hero h1{font-size:clamp(30px,5vw,45px)}
+.hero p{max-width:800px;margin:16px auto;line-height:1.7}
+main{max-width:1240px;margin:auto;padding:12px 18px}
+.module{border-bottom:1px solid #623009;padding:35px 0;scroll-margin-top:85px}
+.title{text-align:center;font-size:clamp(25px,4vw,35px)}
+.intro{text-align:center;max-width:850px;margin:12px auto 24px;line-height:1.7}
+.sub{text-align:center;font-size:23px;margin:30px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px}
+.card,.banner,.notice{padding:20px;border:1px solid var(--border);border-radius:13px;background:linear-gradient(140deg,#2a1506,#090707);min-width:0;overflow-wrap:anywhere}
+.banner{max-width:980px;text-align:center;border:2px solid var(--orange);margin:20px auto}
+.notice{border-left:5px solid var(--orange);margin:22px 0}
+.card p,.banner p,.notice p{line-height:1.7}
+.card h3{margin:10px 0}
+.tag{display:inline-block;color:var(--apricot);border:1px solid var(--orange);border-radius:20px;padding:5px 10px;font-size:12px;font-weight:bold;margin:5px 5px 5px 0}
+.media-head{display:flex;gap:12px;align-items:center}
+.media-logo{width:58px;height:58px;object-fit:contain;border:1px solid var(--orange);border-radius:10px;background:#080808;flex-shrink:0}
+.initials{display:grid;place-items:center;width:58px;height:58px;border-radius:10px;background:var(--orange);color:#000;font-size:19px;font-weight:900;flex-shrink:0}
+.search{display:block;width:min(100%,690px);margin:18px auto;padding:13px;border:2px solid var(--orange);border-radius:10px;color:var(--apricot);background:#100804}
+.counter,.status{text-align:center;line-height:1.7}
+.tiny{font-size:13px;color:var(--apricot)}
+.live-box{text-align:center;max-width:850px;margin:auto;padding:25px;border:2px solid var(--orange);border-radius:16px;background:radial-gradient(ellipse at top,#4a2306,#080808)}
+.live-box .main-logo{width:115px;height:115px}
+.on-air{display:inline-block;border:1px solid var(--orange);border-radius:20px;padding:7px 15px;margin:15px;color:var(--orange);font-weight:900}
+audio{width:100%;max-width:700px;display:block;margin:15px auto}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}
+.stat{text-align:center;border:1px solid var(--border);border-radius:10px;padding:16px 7px;background:#1a0d04}
+.stat strong{display:block;color:var(--orange);font-size:30px}
+.stat span{font-size:12px;font-weight:900}
+.table-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;border:1px solid var(--border);text-align:left}
+th{background:#3b1b07;color:var(--orange)}
+.socials,.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.socials a{display:flex;gap:10px;align-items:center;padding:13px;background:#1b0e05;border:1px solid var(--border);border-radius:9px;text-decoration:none;font-weight:bold}
+.contacts a{display:block;padding:5px 0}
+.calendar-bar{display:flex;justify-content:center;align-items:center;gap:14px;margin:16px 0}
+.calendar{max-width:700px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin:auto}
+.calendar div,.calendar button{min-height:43px;padding:9px 2px;text-align:center;border:1px solid var(--border);border-radius:7px}
+.calendar .weekday{background:#361904;color:var(--orange);font-weight:bold}
+.calendar .blank{border:0}
+.calendar .today{border:2px solid var(--orange)}
+.calendar .selected{background:var(--orange);color:#000}
+footer{text-align:center;padding:34px 18px;background:#000;border-top:3px solid var(--orange)}
+[hidden]{display:none!important}
+@media(max-width:650px){
+  main{padding:10px}
+  nav{position:relative}
+  .grid{grid-template-columns:1fr}
+  .card,.banner,.notice{padding:16px}
+  .stats{gap:5px}
+  .stat{padding:13px 3px}
+  .stat strong{font-size:23px}
+  .stat span{font-size:10px}
+  th,td{font-size:12px;padding:8px 6px}
+}
+.newsroom-portrait{width:min(100%,480px);display:block;margin:18px auto;border:2px solid var(--orange);border-radius:16px;object-fit:cover;background:#000}
+.newsroom-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,1fr);align-items:center;gap:22px;text-align:left}
+.newsroom-layout h3{margin-top:0}
+.source-note{max-width:780px;margin:8px auto 15px;text-align:center;color:var(--apricot);font-size:14px}
+.social-strip{display:flex;justify-content:center;flex-wrap:wrap;margin:18px auto;gap:8px}
+.social-strip a{width:auto;padding:9px 12px;font-size:13px}
+.social-icon{display:inline-grid;place-items:center;width:33px;height:33px;min-width:33px;border-radius:50%;color:#000;font-size:18px;font-weight:900;background:var(--orange)}
+.social-icon i{font-size:19px}
+.social-icon .fallback{font-weight:900}
+.support-box{max-width:960px;margin:30px auto;padding:22px;border:2px solid var(--orange);border-radius:17px;background:linear-gradient(130deg,#321706,#080808)}
+.support-box h3{text-align:center;margin-top:0}
+.service-video-panel{max-width:640px;margin:18px auto 22px;border:2px solid var(--orange);border-radius:15px;overflow:hidden;background:#070707}
+.service-video-panel video{display:block;width:100%;height:auto;max-height:460px;object-fit:contain;background:#000}
+.service-video-label{text-align:center;color:var(--apricot);font-weight:800;padding:12px 12px 3px}
+.service-video-note{margin:0;padding:5px 12px 13px;text-align:center;color:var(--ink);font-size:13px}
+.service-video-error{margin:0;padding:12px;color:var(--apricot);text-align:center}
+.support-form{display:flex;flex-wrap:wrap;gap:10px}
+.support-form input{flex:1;min-width:220px;border:1px solid var(--orange);border-radius:9px;padding:13px;background:#090705;color:var(--apricot)}
+.support-reply{margin-top:13px;padding:15px;border-left:4px solid var(--orange);background:#120a05;border-radius:8px;line-height:1.6;min-height:50px;white-space:pre-wrap}
+.show-listen{display:inline-block;margin-top:10px}
+@media(max-width:650px){
+  .newsroom-layout{grid-template-columns:1fr}
+  .social-strip a{font-size:12px}
+  .support-form input{min-width:100%}
+}
+</style>
+</head>
+<body data-ai-project="pro-max-fm">
+
+<header id="home">
+  <img src="pro-max-fm.jpg" class="main-logo" alt="Logo officiel PRO-MAX FM">
+  <div class="brand">PRO-MAX FM</div>
+  <div class="slogan">LA FORCE DU SON</div>
+  <p data-i18n="tagline">La radio de tous, partout et toujours.</p>
+  <div class="languages">
+    <button id="lang-fr">FR</button>
+    <button id="lang-en">ENG</button>
+    <button id="lang-ht">KRE</button>
   </div>
+</header>
+
+<nav aria-label="PRO-MAX FM">
+  <a href="#home" data-i18n="home">ACCUEIL</a>
+  <a href="#live">LIVE</a>
+  <a href="#news">NEWS</a>
+  <a href="#shows">SHOWS</a>
+  <a href="#podcasts">PODCASTS</a>
+  <a href="#music">MUSIC</a>
+  <a href="#artists">ARTISTS</a>
+  <a href="#video">VIDEO</a>
+  <a href="#events">EVENTS</a>
+  <a href="#contact">CONTACT</a>
+  <a href="#customer-service" data-i18n="supportNav">CUSTOMER SERVICE AI</a>
+</nav>
+
+<div class="hero">
+  <h1>PRO-MAX FM — LA FORCE DU SON</h1>
+  <p data-i18n="hero">
+    Information, nouvelles, divertissement, musique,
+    artistes et communauté.
+  </p>
+  <div class="actions">
+    <a class="btn" href="#live" data-i18n="listen">● ÉCOUTER EN DIRECT</a>
+    <a class="btn" href="#news" data-i18n="explore">EXPLORER LES ACTUALITÉS</a>
+    <a class="btn" href="#customer-service" data-i18n="supportNav">CUSTOMER SERVICE AI</a>
+  </div>
+  <div id="heroSocialGrid" class="social-strip" aria-label="Réseaux sociaux PRO-MAX FM"></div>
 </div>
-<!-- FEN KOD MIZIK LA -->
-<div class="heroes" id="history-grid"></div>  
-  </div>  </section>  <section id="slideshow" class="media">    <div class="wrap">  <h2 class="title">BSS1815 — SLIDESHOW & GALERI</h2>  
-<p class="intro">  
-  YON SÈL GALERI • YON SÈL ISTWA • TOUT JENERASYON  
-</p>  
-<div class="slide">  
-  <div id="slide-media"></div>  
-  <div class="caption" id="slide-caption">BSS1815</div>  
-</div>  
-<div class="controls">  
-  <button id="prev">❮ PREVIOUS</button>  
-  <button id="pause">⏸ PAUSE</button>  
-  <button id="next">NEXT ❯</button>  
-</div>  
-<p id="slide-status" style="text-align:center"></p>  
-<div class="controls">  
-  <button id="toggle-gallery">  
-    <i class="fa-solid fa-images"></i>  
-    OUVRI GALERI A  
-  </button>  
-</div>  
-<div id="gallery" class="gallery" hidden></div>  
-  </div>  </section>  <section id="features">    <div class="wrap">  <h2 class="title">FEATURES & COMMUNITY SERVICES</h2>  
-<div class="grid">  
-  <article class="card">  
-    <h3>HERITAGE CENTER</h3>  
-    <p>Memwa, dokiman ak kontribisyon istorik.</p>  
-    <a class="btn" href="#history">EXPLORE</a>  
-  </article>  
-  <article class="card">  
-    <h3>MEDIA GALLERY</h3>  
-    <p>Foto, videyo, aktivite ak moman istorik.</p>  
-    <a class="btn" href="#slideshow">VIEW GALLERY</a>  
-  </article>  
-  <article class="card">  
-    <h3>COMMUNITY CENTER</h3>  
-    <p>Ekip, manm ak aktivite kominotè.</p>  
-    <a class="btn" href="#community">EXPLORE</a>  
-  </article>  
-  <article class="card">  
-    <h3>AI CENTER</h3>  
-    <p>Zouti dijital pou kominote BSS1815.</p>  
-    <a class="btn" href="#ai-center">OPEN CENTER</a>  
-  </article>  
-</div>  
-  </div>  </section>  <section id="community">    <div class="wrap">  <h2 class="title">BSS1815 COMMUNITY</h2>  
-<div class="grid" id="community-grid">  
-  <article class="card tribute team-card" data-team="san-presyon">  
-    <img class="portrait" src="./teamsanpresyon.jpeg" alt="TEAM SAN PRESYON">  
-    <h3>TEAM SAN PRESYON</h3>  
-    <button class="btn primary" type="button">OPEN TEAM</button>  
-  </article>  
-  <article class="card tribute team-card" data-team="backup">  
-    <img class="portrait" src="./team-backup-2.jpg" alt="TEAM BACKUP">  
-    <h3>TEAM BACKUP</h3>  
-    <button class="btn primary" type="button">OPEN TEAM</button>  
-  </article>  
-  <article class="card tribute team-card" data-team="miami">  
-    <video class="portrait" src="./la-difference.mp4" autoplay muted loop playsinline preload="metadata"></video>  
-    <h3>MIAMI AN AKSYON</h3>  
-    <button class="btn primary" type="button">OPEN TEAM</button>  
-  </article>  
-  <article class="card tribute team-card" data-team="angrenay">  
-    <img class="portrait" src="./team-angrenay.jpg" alt="TEAM ANGRENAY">  
-    <h3>TEAM ANGRENAY</h3>  
-    <button class="btn primary" type="button">OPEN TEAM</button>  
-  </article>  
-  <article class="card tribute team-card" data-team="super-fanclub">  
-    <img class="portrait" id="super-fanclub-cover" src="./super-fanclub.jpg" alt="SUPER FANCLUB">  
-    <h3>SUPER FANCLUB</h3>  
-    <button class="btn primary" type="button">OPEN TEAM</button>  
-  </article>  
-</div>  
-  </div>  </section>  <section id="customer-service">    <div class="wrap">  <h2 class="title">CUSTOMER SERVICE — PROF AVATAR</h2>  
-<div class="avatar">  
-  <video id="avatar" controls playsinline preload="metadata">  
-    <source src="./prof-avatar-cust.mp4" type="video/mp4">  
-  </video>  
-  <h3>PROF AVATAR — BSS1815</h3>  
-  <p>Byenveni nan sèvis asistans BRIYANT SOLÈY SIGNO 1815.</p>  
-  <div class="actions">  
-    <button class="btn primary" id="play-avatar"><i class="fa-solid fa-play"></i> PLAY VIDEO</button>  
-    <button class="btn" onclick="openModule(11)">ASK AI</button>  
-  </div>  
-</div>  
-  </div>  </section>  <section id="ai-center">    <div class="wrap">  <h2 class="title">BSS1815 — AI CENTER</h2>  
-<p class="intro">13 DIGITAL TOOLS • COMMUNITY • INNOVATION</p>  
-<div class="grid" id="modules"></div>  
-  </div>  </section>  <section id="radio">    <div class="wrap">  <h2 class="title">PRO-MAX FM 106.5 FM</h2>  
-<div class="card" style="text-align:center">  
-  <h3>LA FORCE DU SON</h3>  
-  <p>Une voix qui nous rassemble.</p>  
-  <a class="btn primary" href="https://link.radioking.com/modern-radio192" target="_blank" rel="noopener noreferrer">RADIO — DIGITAL PLATFORM</a>  
-</div>  
-  </div>  </section>  
-<!-- SELMAN AJOUTE — LEOGANE INFO APRÈ PRO-MAX FM 106.5 — MENM JAN AK CONTACT BSS1815 LA — SÈLMAN FOTO : leogane-enfo.jpg -->
-<section id="leogane-info">
-  <div class="wrap">
-    <h2 class="title">LEOGANE INFO</h2>
-    <div class="card" style="text-align:center;max-width:1100px;margin:0 auto 20px;padding:0;overflow:hidden">
-      <img src="./leogane-enfo.jpg" alt="LEOGANE INFO" style="display:block;width:100%;height:clamp(280px,55vw,620px);object-fit:contain;background:#000">
-    </div>
-    <p class="intro">NOUVÈL • KILTI • KOMINOTE • LÉOGÂNE</p>
-    <!-- SELMAN AJOUTE — BOUTON KI KONEKTE LEOGANE INFO AK PRO-MAX FM LAN -->
-    <div class="actions" style="justify-content:center;margin:0 auto 20px">
-      <a class="btn primary" href="#radio">🎙 PRO-MAX FM 106.5 FM</a>
-    </div>
-    <!-- FEN BOUTON KONEKSYON -->
-    <div class="grid">
-      <article class="card contact">
-        <img class="flag" src="https://flagcdn.com/w160/us.png" alt="United States Flag">
-        <h3>🇺🇸 UNITED STATES</h3>
-        <a class="phone" style="display:flex;align-items:center;justify-content:center;gap:10px" href="tel:+14076405166"><img src="https://flagcdn.com/w40/us.png" alt="" style="width:28px;height:19px;object-fit:cover;border:1px solid var(--orange);border-radius:3px"><span><i class="fa-solid fa-phone"></i> (407) 640-5166</span></a>
-        <a class="phone" style="display:flex;align-items:center;justify-content:center;gap:10px" href="tel:+13175381150"><img src="https://flagcdn.com/w40/us.png" alt="" style="width:28px;height:19px;object-fit:cover;border:1px solid var(--orange);border-radius:3px"><span><i class="fa-solid fa-phone"></i> (317)5381150</span></a>
-        <a class="phone" style="display:flex;align-items:center;justify-content:center;gap:10px" href="tel:+13175381150"><img src="https://flagcdn.com/w40/us.png" alt="" style="width:28px;height:19px;object-fit:cover;border:1px solid var(--orange);border-radius:3px"><span><i class="fa-solid fa-phone"></i> (317) 538-1150</span></a>
-        <a class="phone" style="display:flex;align-items:center;justify-content:center;gap:10px" href="tel:+15162168494"><img src="https://flagcdn.com/w40/us.png" alt="" style="width:28px;height:19px;object-fit:cover;border:1px solid var(--orange);border-radius:3px"><span><i class="fa-solid fa-phone"></i> (516)216-8494</span></a>
-      </article>
-      <article class="card contact">
-        <img class="flag" src="https://flagcdn.com/w160/ht.png" alt="Drapo Ayiti">
-        <h3>🇭🇹 HAÏTI — AYITI</h3>
-        <a class="phone" style="display:flex;align-items:center;justify-content:center;gap:10px" href="tel:+50942544447"><img src="https://flagcdn.com/w40/ht.png" alt="" style="width:28px;height:19px;object-fit:cover;border:1px solid var(--orange);border-radius:3px"><span><i class="fa-solid fa-phone"></i> +50942544447</span></a>
-        <a class="phone" style="display:flex;align-items:center;justify-content:center;gap:10px" href="tel:+50943437488"><img src="https://flagcdn.com/w40/ht.png" alt="" style="width:28px;height:19px;object-fit:cover;border:1px solid var(--orange);border-radius:3px"><span><i class="fa-solid fa-phone"></i> +50943437488</span></a>
-      </article>
-      <article class="card contact">
-        <i class="fa-solid fa-envelope" style="font-size:45px;color:var(--orange)"></i>
-        <h3>LEOGANE INFO</h3>
-        <p>NOUVÈL • KILTI • KOMINOTE</p>
-        <p>SIGNO — LÉOGÂNE — AYITI</p>
-        <a class="btn" href="#contact">CONTACT BSS1815</a>
-      </article>
-    </div>
+
+<main>
+
+<!-- MODULE 01 — LIVE -->
+<section class="module" id="live">
+  <h2 class="title">01 — LIVE RADIO</h2>
+  <p class="intro" data-i18n="liveIntro">Écoutez la radio en direct sur RadioKing.</p>
+  <div class="live-box">
+    <img src="pro-max-fm.jpg" class="main-logo" alt="PRO-MAX FM">
+    <div><span class="on-air">● ON AIR — PRO-MAX FM</span></div>
+    <p id="radioStatus" role="status"></p>
+    <iframe
+      id="radioPlayer"
+      title="PRO-MAX FM — LIVE RADIO"
+      src="https://player.radioking.io/modern-radio192/?c=%23ff8c00&amp;c2=%23000000&amp;f=h&amp;i=1&amp;p=1&amp;s=1&amp;li=1&amp;popup=0&amp;plc=0&amp;h=145&amp;l=470&amp;v=2"
+      width="700"
+      height="160"
+      style="display:block;width:100%;max-width:700px;height:160px;margin:16px auto;border:0;border-radius:10px;background:#000"
+      loading="eager"
+      allow="autoplay"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
   </div>
 </section>
-<!-- FEN LEOGANE INFO -->
-<section id="contact">    <div class="wrap">  <h2 class="title">CONTACT BSS1815</h2>  
-<div class="grid">  
-  <article class="card contact">  
-    <img class="flag" src="https://flagcdn.com/w160/us.png" alt="United States Flag">  
-    <h3>🇺🇸 UNITED STATES</h3>  
-    <a class="phone" href="tel:+14076405166"><i class="fa-solid fa-phone"></i> (407) 640-5166</a>  
-    <a class="phone" href="tel:+13175381150"><i class="fa-solid fa-phone"></i> (317) 538-1150</a>  
-  </article>  
-  <article class="card contact">  
-    <img class="flag" src="https://flagcdn.com/w160/ht.png" alt="Drapo Ayiti">  
-    <h3>🇭🇹 HAÏTI — AYITI</h3>  
-    <a class="phone" href="tel:+50942544447"><i class="fa-solid fa-phone"></i> +509 4254-4447</a>  
-    <a class="phone" href="tel:+50943437488"><i class="fa-solid fa-phone"></i> +509 4343-7488</a>  
-  </article>  
-  <article class="card contact">  
-    <i class="fa-solid fa-envelope" style="font-size:45px;color:var(--orange)"></i>  
-    <h3>EMAIL OFFICIEL</h3>  
-    <a style="overflow-wrap:anywhere" href="mailto:bss1815promaxdmp@gmail.com">bss1815promaxdmp@gmail.com</a>  
-    <p>SIGNO — LÉOGÂNE — AYITI</p>  
-  </article>  
-</div>  
-  </div>  </section>  <section id="social-networks">    <div class="wrap">  <h2 class="title">SOCIAL NETWORKS</h2>  
-<div class="socials" id="social-grid"></div>  
-  </div>  </section>  </main>  <footer>  <img src="./briyant-soley-signo-1815.jpg" alt="BSS1815">  
-  <h2 style="color:var(--orange)">BRIYANT SOLÈY SIGNO 1815</h2>    <h3>DEVAN DEVAN NÈT™</h3>    <p>BATI POU JODI A, PARE POU DEMEN.</p>    <p>BRIYANT SE YON LIMYÈ KI PA JANM ETENN.</p>    <p>© <span id="year"></span> BRIYANT SOLÈY SIGNO 1815</p>  </footer>  <button class="ai-float" onclick="openModule(11)"><i class="fa-solid fa-robot"></i> BSS1815 AI</button>  <dialog id="module-dialog">    <h2 id="module-title" style="color:var(--orange)"></h2>    <p id="module-description"></p>    <input id="module-subject" placeholder="Tit / Subject">    <textarea id="module-input" placeholder="Antre enfòmasyon ou yo..."></textarea>    <div class="controls">  
-    <button class="btn primary" onclick="runModule()">GENERATE</button>  
-    <button class="btn" onclick="copyOutput()">COPY</button>  
-    <button class="btn" onclick="saveOutput()">SAVE</button>  
-    <button class="btn" onclick="moduleDialog.close()">CLOSE</button>  
-  </div>    <pre id="output"></pre>  </dialog>  <dialog id="bss-team-dialog">    <div class="actions" style="justify-content:flex-end">  <button class="btn" id="bss-team-close">✕ CLOSE TEAM</button>  
-  </div>    <h2 id="bss-team-title"></h2>    <div id="bss-team-cover"></div>    <div class="controls">  <button class="btn primary" id="bss-upload-photo"><i class="fa-solid fa-camera"></i> UPLOAD PHOTO</button>  
-<button class="btn primary" id="bss-upload-video"><i class="fa-solid fa-video"></i> UPLOAD VIDEO</button>  
-<button class="btn" id="bss-view-media"><i class="fa-solid fa-photo-film"></i> VIEW PHOTO & VIDEO</button>  
-  </div>  <input id="bss-photo-input" type="file" accept="image/*" multiple hidden>  
-<input id="bss-video-input" type="file" accept="video/*" multiple hidden>  
-  <p id="bss-team-status" aria-live="polite"></p>    <p style="text-align:center;font-size:13px">LOCAL MEDIA STORAGE — Aparèy sa a sèlman.</p>    <div id="bss-team-media" class="team-media-grid"></div>  </dialog>  <dialog id="bss-team-viewer">    <div class="controls">  <button class="btn" id="bss-viewer-close">✕ CLOSE</button>  
-  </div>    <div id="bss-viewer-content"></div>    <h3 id="bss-viewer-title"></h3>  </dialog>  <dialog id="crm-dialog">    <div class="actions" style="justify-content:flex-end">  <button class="btn" id="crm-close" type="button">✕ CLOSE CRM</button>  
-  </div>  <img class="crm-logo" src="./briyant-soley-signo-1815.jpg" alt="BSS1815">  
-  <div class="crm-heading">  <h2>BSS1815 — CRM CENTER</h2>  
-<h3>CUSTOMER RELATIONSHIP MANAGEMENT</h3>  
-<p>MEMBERS • CONTACTS • TEAMS • FOLLOW-UP</p>  
-  </div>    <div class="crm-notice">LOCAL DATABASE — Done yo rete nan navigatè sa a. Pa gen cloud synchronization ni sistèm login. Pa anrejistre modpas oswa enfòmasyon konfidansyèl.</div>    <div class="crm-stats">  <article class="crm-stat"><i class="fa-solid fa-address-book"></i><strong id="crm-total">0</strong><span>TOTAL CONTACTS</span></article>  
-<article class="crm-stat"><i class="fa-solid fa-user-check"></i><strong id="crm-active">0</strong><span>ACTIVE MEMBERS</span></article>  
-<article class="crm-stat"><i class="fa-solid fa-clock"></i><strong id="crm-pending">0</strong><span>PENDING</span></article>  
-<article class="crm-stat"><i class="fa-solid fa-people-group"></i><strong id="crm-teams">0</strong><span>TEAMS REPRESENTED</span></article>  
-  </div>    <div class="crm-panel">  <h3><i class="fa-solid fa-user-plus"></i> MEMBER & CONTACT REGISTRATION</h3>  
-<form id="crm-form">  
-  <input type="hidden" id="crm-id">  
-  <div class="crm-form-grid">  
-    <label>FULL NAME *<input id="crm-name" type="text" maxlength="150" placeholder="Non ak siyati" required></label>  
-    <label>PHONE NUMBER<input id="crm-phone" type="tel" maxlength="50" placeholder="+1 / +509"></label>  
-    <label>EMAIL ADDRESS<input id="crm-email" type="email" maxlength="200" placeholder="Email address"></label>  
-    <label>COUNTRY<select id="crm-country"><option value="Haiti">HAITI</option><option value="USA">UNITED STATES</option><option value="Canada">CANADA</option><option value="France">FRANCE</option><option value="Other">OTHER</option></select></label>  
-    <label>TEAM / DEPARTMENT<select id="crm-team"><option value="TEAM SAN PRESYON">TEAM SAN PRESYON</option><option value="TEAM BACKUP">TEAM BACKUP</option><option value="MIAMI AN AKSYON">MIAMI AN AKSYON</option><option value="TEAM ANGRENAY">TEAM ANGRENAY</option><option value="SUPER FANCLUB">SUPER FANCLUB</option><option value="ADMINISTRATION">ADMINISTRATION</option><option value="OTHER">OTHER</option></select></label>  
-    <label>MEMBERSHIP STATUS<select id="crm-status"><option value="Active">ACTIVE</option><option value="Pending">PENDING</option><option value="Inactive">INACTIVE</option></select></label>  
-    <label>POSITION / RESPONSIBILITY<input id="crm-role" type="text" maxlength="150" placeholder="Fonksyon oswa responsabilite"></label>  
-    <label>FOLLOW-UP DATE<input id="crm-followup" type="date"></label>  
-    <label class="crm-full">NOTES & FOLLOW-UP<textarea id="crm-notes" maxlength="5000" placeholder="Enfòmasyon, aktivite ak swivi..."></textarea></label>  
-  </div>  
-  <div class="controls">  
-    <button class="btn primary" type="submit"><i class="fa-solid fa-floppy-disk"></i> SAVE CONTACT</button>  
-    <button class="btn" id="crm-new" type="button"><i class="fa-solid fa-plus"></i> NEW CONTACT</button>  
-  </div>  
-</form>  
-<p id="crm-message" aria-live="polite"></p>  
-  </div>    <div class="crm-panel">  <h3><i class="fa-solid fa-users"></i> CONTACT & MEMBER DIRECTORY</h3>  
-<div class="crm-filters">  
-  <input id="crm-search" type="search" aria-label="Search contacts" placeholder="Search name, phone, email...">  
-  <select id="crm-filter-team" aria-label="Filter by team"><option value="">ALL TEAMS</option><option>TEAM SAN PRESYON</option><option>TEAM BACKUP</option><option>MIAMI AN AKSYON</option><option>TEAM ANGRENAY</option><option>SUPER FANCLUB</option><option>ADMINISTRATION</option><option>OTHER</option></select>  
-  <select id="crm-filter-status" aria-label="Filter by status"><option value="">ALL STATUS</option><option value="Active">ACTIVE</option><option value="Pending">PENDING</option><option value="Inactive">INACTIVE</option></select>  
-</div>  
-<p id="crm-results"></p>  
-<div class="crm-table-wrap">  
-  <table>  
-    <thead><tr><th>NAME</th><th>PHONE</th><th>EMAIL</th><th>TEAM</th><th>STATUS</th><th>FOLLOW-UP</th><th>ACTIONS</th></tr></thead>  
-    <tbody id="crm-table-body"></tbody>  
-  </table>  
-</div>  
-<div class="controls">  
-  <button class="btn primary" id="crm-export" type="button"><i class="fa-solid fa-file-csv"></i> EXPORT CSV</button>  
-  <button class="btn" id="crm-backup" type="button"><i class="fa-solid fa-database"></i> BACKUP JSON</button>  
-  <button class="btn" id="crm-import" type="button"><i class="fa-solid fa-file-import"></i> RESTORE BACKUP</button>  
-  <input id="crm-import-file" type="file" accept=".json,application/json" hidden>  
-</div>  
-  </div>    <p style="text-align:center;font-weight:bold">BSS1815 — DEVAN DEVAN NÈT™</p>  </dialog>  <script>  
-"use strict";  
-const LOGO = "briyant-soley-signo-1815.jpg";  
-const PROF_AVATAR = "prof-avatar-cust.mp4";  
-const BASES = ["./","./assets/slideshow/","./assets/","./images/","./media/","./photos/","https://bss1815pro-maxdmp.com/","https://bss1815promaxdmp.com/"];  
-function assetURL(base,file){return base + encodeURIComponent(file);}  
-function loadImage(img,files){  
-  const names = Array.isArray(files) ? files : [files];  
-  const candidates = names.flatMap(file => BASES.map(base => assetURL(base,file)));  
-  let position = 0;  
-  img.onerror = function(){  
-    position++;  
-    if(position < candidates.length){img.src = candidates[position];}else{img.onerror = null;img.alt = img.alt + " — Foto pa disponib";}  
-  };  
-  img.src = candidates[0];  
-}  
-document.querySelectorAll(".logo,.hero-logo,footer img").forEach(img => loadImage(img,LOGO));  
-const HEROES = [  
-  {name:"LECLERC FÉLIX",files:["Leclercfélix.jpg"],description:["Moun ki te trase chemen an. Eritaj li rete vivan nan istwa BSS1815.","The pioneer who paved the way. His legacy lives on in BSS1815.","Le pionnier qui a tracé la voie. Son héritage demeure vivant."]},  
-  {name:"KONKONT",files:["konkont-II.jpg","konkont.jpg"],description:["Yon gwo pilye ki te fè yon travay kolosal nan istwa BSS1815.","A major pillar who made an important contribution to BSS1815.","Un grand pilier qui a apporté une contribution majeure à BSS1815."]},  
-  {name:"PAPOUCHE STRATÈGE",files:["papouche.png","papouche.jpg","ti-papouche.jpg"],description:["Motè BSS, stratej ak solisyonè. Yon gwo poto mitan nan òganizasyon an.","A driving force, strategist and problem solver within BSS.","Le moteur, stratège et pilier de l'organisation BSS."]},  
-  {name:"PIERRE MARTHONE ALIAS TI RAT 🐀",files:["ti-rat.jpg","prez-tirat.jpg"],description:["Moun ki te kenbe flanbo BSS la pandan yon bon bout tan.","The guardian who carried the BSS torch for many years.","Le gardien qui a porté le flambeau de BSS pendant de nombreuses années."]}  
-];  
-function renderHeroes(containerId){  
-  const container = document.getElementById(containerId);  
-  container.replaceChildren();  
-  HEROES.forEach(hero => {  
-    const card = document.createElement("article");  
-    card.className = "card tribute";  
-    const img = document.createElement("img");  
-    img.className = "portrait";  
-    img.alt = hero.name;  
-    loadImage(img,hero.files);  
-    const name = document.createElement("h3");  
-    name.textContent = hero.name;  
-    const description = document.createElement("p");  
-    description.dataset.t = hero.description.join("|");  
-    description.textContent = hero.description[0];  
-    card.append(img,name,description);  
-    container.append(card);  
-  });  
-}  
-renderHeroes("memorial-grid");  
-renderHeroes("history-grid");  
-const TEAMS = [  
-  {id:"san-presyon",name:"TEAM SAN PRESYON",files:["teamsanpresyon.jpeg"],video:false},  
-  {id:"backup",name:"TEAM BACKUP",files:["team-backup-2.jpg"],video:false},  
-  {id:"miami",name:"MIAMI AN AKSYON",files:["la-difference.mp4"],video:true},  
-  {id:"angrenay",name:"TEAM ANGRENAY",files:["team-angrenay.jpg"],video:false},  
-  {id:"super-fanclub",name:"SUPER FANCLUB",files:["super-fanclub.jpg","sfc-5-stars.jpg"],video:false}  
-];  
-const teamElement = id => document.getElementById(id);  
-const teamDialog = teamElement("bss-team-dialog");  
-const teamViewer = teamElement("bss-team-viewer");  
-let selectedTeam = null;  
-let teamDatabasePromise = null;  
-let teamRenderToken = 0;  
-let teamObjectURLs = [];  
-let viewerObjectURL = null;  
-let teamUploading = false;  
-loadImage(teamElement("super-fanclub-cover"),["super-fanclub.jpg","sfc-5-stars.jpg"]);  
-function createTeamCover(team){  
-  if(team.video){  
-    const video = document.createElement("video");  
-    video.className = "team-cover";  
-    video.src = "./" + encodeURIComponent(team.files[0]);  
-    video.controls = true;  
-    video.playsInline = true;  
-    video.preload = "metadata";  
-    return video;  
-  }  
-  const image = document.createElement("img");  
-  image.className = "team-cover";  
-  image.alt = team.name;  
-  if(team.id === "super-fanclub"){loadImage(image,team.files);}else{image.src = "./" + encodeURIComponent(team.files[0]);}  
-  return image;  
-}  
-function openTeamDatabase(){  
-  if(teamDatabasePromise){return teamDatabasePromise;}  
-  teamDatabasePromise = new Promise((resolve,reject) => {  
-    if(!window.indexedDB){reject(new Error("IndexedDB unavailable"));return;}  
-    const request = indexedDB.open("BSS1815_TEAM_MEDIA",1);  
-    request.onupgradeneeded = () => {  
-      const db = request.result;  
-      if(!db.objectStoreNames.contains("media")){  
-        const store = db.createObjectStore("media",{keyPath:"id",autoIncrement:true});  
-        store.createIndex("team","team",{unique:false});  
-      }  
-    };  
-    request.onsuccess = () => {  
-      const db = request.result;  
-      db.onversionchange = () => {db.close();teamDatabasePromise = null;};  
-      resolve(db);  
-    };  
-    request.onerror = () => reject(request.error);  
-    request.onblocked = () => reject(new Error("Database blocked"));  
-  }).catch(error => {teamDatabasePromise = null;throw error;});  
-  return teamDatabasePromise;  
-}  
-async function saveTeamMedia(teamId,file){  
-  const db = await openTeamDatabase();  
-  return new Promise((resolve,reject) => {  
-    const transaction = db.transaction("media","readwrite");  
-    transaction.objectStore("media").add({team:teamId,name:file.name,type:file.type,size:file.size,date:Date.now(),blob:file});  
-    transaction.oncomplete = () => resolve();  
-    transaction.onerror = () => reject(transaction.error);  
-    transaction.onabort = () => reject(transaction.error || new Error("Upload aborted"));  
-  });  
-}  
-async function getTeamMedia(teamId){  
-  const db = await openTeamDatabase();  
-  return new Promise((resolve,reject) => {  
-    const transaction = db.transaction("media","readonly");  
-    const request = transaction.objectStore("media").index("team").getAll(teamId);  
-    request.onsuccess = () => {resolve(request.result.sort((a,b) => b.date-a.date));};  
-    request.onerror = () => reject(request.error);  
-    transaction.onabort = () => reject(transaction.error || new Error("Read aborted"));  
-  });  
-}  
-async function deleteTeamMedia(id){  
-  const db = await openTeamDatabase();  
-  return new Promise((resolve,reject) => {  
-    const transaction = db.transaction("media","readwrite");  
-    transaction.objectStore("media").delete(id);  
-    transaction.oncomplete = () => resolve();  
-    transaction.onerror = () => reject(transaction.error);  
-    transaction.onabort = () => reject(transaction.error || new Error("Delete aborted"));  
-  });  
-}  
-function clearTeamMedia(){  
-  const box = teamElement("bss-team-media");  
-  box.querySelectorAll("video").forEach(video => video.pause());  
-  box.replaceChildren();  
-  teamObjectURLs.forEach(url => URL.revokeObjectURL(url));  
-  teamObjectURLs = [];  
-}  
-function openTeam(team){  
-  selectedTeam = team;  
-  teamElement("bss-team-title").textContent = team.name;  
-  const coverBox = teamElement("bss-team-cover");  
-  coverBox.querySelectorAll("video").forEach(video => video.pause());  
-  coverBox.replaceChildren(createTeamCover(team));  
-  teamElement("bss-team-status").textContent = "Loading team media...";  
-  if(!teamDialog.open){teamDialog.showModal();}  
-  renderTeamMedia();  
-}  
-function viewTeamMedia(record){  
-  const box = teamElement("bss-viewer-content");  
-  box.querySelectorAll("video").forEach(video => video.pause());  
-  box.replaceChildren();  
-  if(viewerObjectURL){URL.revokeObjectURL(viewerObjectURL);}  
-  viewerObjectURL = URL.createObjectURL(record.blob);  
-  const video = record.type.startsWith("video/");  
-  const media = document.createElement(video ? "video" : "img");  
-  media.src = viewerObjectURL;  
-  if(video){media.controls = true;media.playsInline = true;media.preload = "metadata";}else{media.alt = record.name;}  
-  box.append(media);  
-  teamElement("bss-viewer-title").textContent = record.name;  
-  if(!teamViewer.open){teamViewer.showModal();}  
-}  
-async function renderTeamMedia(){  
-  if(!selectedTeam || !teamDialog.open){return;}  
-  const teamId = selectedTeam.id;  
-  const token = ++teamRenderToken;  
-  clearTeamMedia();  
-  const box = teamElement("bss-team-media");  
-  const status = teamElement("bss-team-status");  
-  status.textContent = "Loading media...";  
-  try{  
-    const records = await getTeamMedia(teamId);  
-    if(token !== teamRenderToken || !teamDialog.open){return;}  
-    if(!records.length){status.textContent = "Pa gen nouvo medya. Upload foto oswa videyo.";return;}  
-    const photos = records.filter(item => item.type.startsWith("image/")).length;  
-    const videos = records.filter(item => item.type.startsWith("video/")).length;  
-    status.textContent = `${photos} PHOTO • ${videos} VIDEO`;  
-    records.forEach(record => {  
-      const item = document.createElement("article");  
-      item.className = "team-media-item";  
-      const url = URL.createObjectURL(record.blob);  
-      teamObjectURLs.push(url);  
-      const video = record.type.startsWith("video/");  
-      const media = document.createElement(video ? "video" : "img");  
-      media.src = url;  
-      if(video){media.controls = true;media.playsInline = true;media.preload = "metadata";}else{media.alt = record.name;media.loading = "lazy";}  
-      const name = document.createElement("p");  
-      name.textContent = record.name;  
-      const view = document.createElement("button");  
-      view.className = "btn";  
-      view.textContent = "VIEW MEDIA";  
-      view.onclick = () => viewTeamMedia(record);  
-      const remove = document.createElement("button");  
-      remove.className = "btn";  
-      remove.textContent = "DELETE MEDIA";  
-      remove.onclick = async () => {  
-        if(!confirm("Efase " + record.name + "?")){return;}  
-        remove.disabled = true;  
-        try{await deleteTeamMedia(record.id);await renderTeamMedia();}catch(error){status.textContent = "Medya a pa t kapab efase.";remove.disabled = false;}  
-      };  
-      item.append(media,name,view,remove);  
-      box.append(item);  
-    });  
-  }catch(error){if(token === teamRenderToken){status.textContent = "Depo medya lokal la pa disponib.";}}  
-}  
-async function uploadTeamFiles(input,kind){  
-  if(!selectedTeam || teamUploading){input.value = "";return;}  
-  const files = Array.from(input.files || []);  
-  input.value = "";  
-  if(!files.length){return;}  
-  const teamId = selectedTeam.id;  
-  const status = teamElement("bss-team-status");  
-  const photoButton = teamElement("bss-upload-photo");  
-  const videoButton = teamElement("bss-upload-video");  
-  teamUploading = true;  
-  photoButton.disabled = true;  
-  videoButton.disabled = true;  
-  let saved = 0;  
-  let failed = 0;  
-  try{  
-    for(const file of files){  
-      if(!file.type.startsWith(kind + "/")){failed++;continue;}  
-      status.textContent = "Uploading: " + file.name;  
-      try{await saveTeamMedia(teamId,file);saved++;}catch(error){failed++;}  
-    }  
-    if(selectedTeam && selectedTeam.id === teamId && teamDialog.open){  
-      await renderTeamMedia();  
-      if(selectedTeam && selectedTeam.id === teamId && teamDialog.open){status.textContent = `${saved} MEDIA SAVED • ${failed} FAILED`;}  
-    }  
-  }finally{teamUploading = false;photoButton.disabled = false;videoButton.disabled = false;}  
-}  
-teamElement("bss-upload-photo").onclick = () => {teamElement("bss-photo-input").click();};  
-teamElement("bss-upload-video").onclick = () => {teamElement("bss-video-input").click();};  
-teamElement("bss-photo-input").onchange = function(){uploadTeamFiles(this,"image");};  
-teamElement("bss-video-input").onchange = function(){uploadTeamFiles(this,"video");};  
-teamElement("bss-view-media").onclick = () => {renderTeamMedia();};  
-teamElement("bss-team-close").onclick = () => {teamDialog.close();};  
-teamElement("bss-viewer-close").onclick = () => {teamViewer.close();};  
-teamDialog.addEventListener("close",() => {  
-  teamRenderToken++;  
-  clearTeamMedia();  
-  const cover = teamElement("bss-team-cover");  
-  cover.querySelectorAll("video").forEach(video => video.pause());  
-  cover.replaceChildren();  
-  selectedTeam = null;  
-});  
-teamViewer.addEventListener("close",() => {  
-  const box = teamElement("bss-viewer-content");  
-  box.querySelectorAll("video").forEach(video => video.pause());  
-  box.replaceChildren();  
-  if(viewerObjectURL){URL.revokeObjectURL(viewerObjectURL);viewerObjectURL = null;}  
-});  
-document.querySelectorAll("#community [data-team]").forEach(card => {  
-  const team = TEAMS.find(item => item.id === card.dataset.team);  
-  if(!team)return;  
-  card.addEventListener("click",() => {openTeam(team);});  
-  const button = card.querySelector("button");  
-  button.addEventListener("click",event => {event.stopPropagation();openTeam(team);});  
-});  
-const GALLERY = ["bss.jpg","maa.jpg","max.jpg","alèt.jpg","andy.jpg","dèdè.jpg","maxl.jpg","ralph.jpg","cols1.jpg","nadou.jpg","tifrè.jpg","jq-max.jpg","brunel.jpg","kendy2.jpg","landry.jpg","madina.jpg","michel.jpg","nadou2.jpg","roro8.jpg","rorony.jpg","soson.jpg","tania.jpg","ti-frè.jpg","ti-rat.jpg","valery.jpg","yguens.jpg","badin-s.jpg","bouboul.jpg","bss1815.jpg","cange-d.jpg","lebaron.jpg","marassa.jpg","montina.jpg","paulema.jpg","pro-max.jpg","pèrodin.jpg","sindy-b.jpg","la-difference.mp4","ralph-florial.jpg","leroy.mp4","bonjou.mp4","max-in-blue.jpg","maximax_multi_serv.jpeg","why-max.mp4","promax.mp4","maximax.mp4","montina.mp4","promax1.mp4","promax2.mp4","promax3.mp4","the-done.mp4","l'orateur.mp4","roro-laja.mp4","pro-max-fm.mp4","instructor.mp4","l'orateur2.mp4","the-vision.mp4","yeah-he-is.mp4","pro-max-dmp.mp4","montina-prof.mp4","ti-marasa-yo.mp4","formé-jodi-a.mp4","la-confusion.mp4","max-is-the-man.mp4","pro-max-dmp-II.mp4","montina-le-prof.mp4","max-alias-baron.mp4","bati-pou-jodi-a.mp4","devan-devan-net.mp4","ersulie-danthor.mp4","laforce-du-son.mp4","la-presentation.mp4","pro-max-academie.mp4","pro-max-beat-lab.mp4","confusion-totale.mp4","insurance-school.mp4","majistra-mauclaire.mp4","bss1815pro-maxdmp.mp4","videoprof.mp4","why-me.mp4","ti-chery.jpg","warrens.jpg","fanfan.decoline.jpg","asmide.jpg","yole.jpg","tania2.jpg","papouche.jpg","heritage.jpg","team-angrenay.jpg","sfc-5-stars.jpg","team-angrenaye.jpg","team-san-presyon.jpg","max-on-the-air.jpg","perodin.jpg","maxle.jpg","doodly.jpg","roro-8.jpg","warrens-v.jpg","ones-g.jpg","dede.jpg","jij-mayan-1.jpg","mass-vokal.jpg","maximax-m-s.jpg","max-the-man.jpg","ti-fre.jpg","the-change.jpg","jij-mayan2.jpg","montinat.jpg","ti-la-france.jpg","jij-mayan-3.jpg","ti-marassa.jpg","the-change-1.jpg","the-plan.jpg","sonsonn.jpeg","thin-khard.jpg","maximax-2.jpg","y-max.jpg","roro-ny.jpg","le-baron.jpg","prez-tirat.jpg","the-one.jpg","andy.jpeg","roro-1lajan.jpg","roro-p-p.jpg","prez-papit.jpg","may-1.jpg","fanfan-d.jpg","ti-renold.jpg","asmide1.jpg","jeff-c.jpg","tania-f.jpg","jude.jpg","andre-a.jpg","nadege.jpg","macu-1.jpg","prez-aly.jpg","sonson-m.jpg","brunel-t.jpg","roro-lj.jpg","ti-papouche.jpg","michel-b.jpg","tatane.jpg","la-belle-yole.jpg","tila-france.jpg","ralph-p.jpg","ti-marassa2.jpg","vp-ernso.jpg","fanfan2.jpg","paulema2.jpg","tifre2.jpg","tichery.jpg","jij-mayan.jpg","yguens2.jpg","heuch-love.jpg","cange-0.jpg","prez-aly-2.jpg","anpere-doudou.jpg","rivelino.jpg","tatane-vp.jpg","montinat2.jpg","prezidan-aly.jpg","max-louis.jpg","paulema21.jpg","le-baron1.jpg","devan-devan-net.jpg","system-akayik.jpg","montina-prof.jpg","systeme-akayik.jpg","derosier.jpg","odeline-ademe.jpg","nadia-lafortune.jpg","max-is-the-man.jpg","maxi-max.mp4","bss1815-pro-max-dmp.jpg","sonson-felix.jpg","maximax-multi-services.mp4","tania-felix.jpg","ladifference1.jpg","la-difference1.jpg","ralph-florial.webp","whyme.mp4","la-force-du-son.mp4","majistra-mauclair.mp4","video-prof-avatar.mp4","warens-v.jpg","fanfan-decoline.jpg","max-louis-game-changer.jpg","ti-lafrance.jpg","think-hard.jpg","the-man.jpg","the-done.jpg","jeff-colin.jpg","andre-asouman.jpg","nadiala-fortune2.jpg","sindy-andrevil.jpg","max-louis-alias-le-baron-la-seule-difference.jpg","michel-enfatigab.jpg","vice-president-tatane.jpg","vice-president-ernso.jpg","anperè-doudou.jpg","devan-devannèt.jpg","system-akayik2.jpg","private-zone.webp","admin_super_admin.png","entegrasyon.mp4","yon-baron-pa-yon-jwèt.mp4","one-platform.jpg","one_man_one_vision.jpg","it-is-what-it-is.jpg","ou-atake-move-lè.mp4","leader.mp4","bss1815pro-max-ap-bati.mp4"];  
-const gallery = document.getElementById("gallery");  
-const slideMedia = document.getElementById("slide-media");  
-const slideCaption = document.getElementById("slide-caption");  
-const slideStatus = document.getElementById("slide-status");  
-let currentIndex = 0;  
-let slideTimer = null;  
-let playing = true;  
-let slideToken = 0;  
-const isVideo = file => /\.mp4$/i.test(file);  
-function mediaLabel(file){return file.replace(/\.[^.]+$/,"").replace(/[-_]/g," ").toUpperCase();}  
-function createMedia(file,onReady,onFailed){  
-  const video = isVideo(file);  
-  const element = document.createElement(video ? "video" : "img");  
-  let baseIndex = 0;  
-  if(video){element.muted = true;element.playsInline = true;element.preload = "metadata";}else{element.alt = mediaLabel(file);}  
-  element.onerror = function(){  
-    baseIndex++;  
-    if(baseIndex < BASES.length){element.src = assetURL(BASES[baseIndex],file);if(video)element.load();}else{element.onerror = null;if(onFailed)onFailed();}  
-  };  
-  if(video){element.onloadeddata = () => {if(onReady)onReady(element);};}else{element.onload = () => {if(onReady)onReady(element);};}  
-  element.src = assetURL(BASES[0],file);  
-  return element;  
-}  
-function scheduleNext(delay=6000){clearTimeout(slideTimer);if(playing){slideTimer = setTimeout(() => showSlide(currentIndex+1),delay);}}  
-function showSlide(index,direction=1,attempts=0){  
-  clearTimeout(slideTimer);  
-  if(attempts >= GALLERY.length){slideStatus.textContent = "Okenn medya pa disponib.";return;}  
-  const token = ++slideToken;  
-  currentIndex = ((index % GALLERY.length)+GALLERY.length)%GALLERY.length;  
-  const file = GALLERY[currentIndex];  
-  slideCaption.textContent = mediaLabel(file);  
-  slideStatus.textContent = `MEDIA ${currentIndex+1} / ${GALLERY.length}`;  
-  const element = createMedia(file,media => {  
-    if(token !== slideToken)return;  
-    if(isVideo(file)){media.controls = true;media.onended = () => {if(playing && token === slideToken){showSlide(currentIndex+1);}};if(playing){media.play().catch(() => scheduleNext(10000));}}else{scheduleNext();}  
-  },() => {if(token === slideToken){showSlide(currentIndex+direction,direction,attempts+1);}});  
-  slideMedia.replaceChildren(element);  
-  if(playing){slideTimer = setTimeout(() => {if(token === slideToken){showSlide(currentIndex+direction,direction,attempts+1);}},25000);}  
-}  
-document.getElementById("prev").onclick = () => showSlide(currentIndex-1,-1);  
-document.getElementById("next").onclick = () => showSlide(currentIndex+1);  
-document.getElementById("pause").onclick = function(){  
-  playing = !playing;  
-  this.textContent = playing ? "⏸ PAUSE" : "▶ PLAY";  
-  clearTimeout(slideTimer);  
-  const video = slideMedia.querySelector("video");  
-  if(video){if(playing){video.play().catch(() => scheduleNext());}else{video.pause();}}else if(playing){scheduleNext();}  
-};  
-let galleryBuilt = false;  
-function buildGallery(){  
-  if(galleryBuilt)return;  
-  galleryBuilt = true;  
-  GALLERY.forEach((file,index) => {  
-    const tile = document.createElement("button");  
-    tile.className = "tile";  
-    const name = document.createElement("span");  
-    name.textContent = mediaLabel(file);  
-    if(isVideo(file)){  
-      const icon = document.createElement("div");  
-      icon.style.cssText = "height:180px;display:grid;place-items:center;font-size:45px;color:#ff7900;background:#000";  
-      icon.innerHTML = '<i class="fa-solid fa-circle-play"></i>';  
-      tile.append(icon);  
-    }else{  
-      const image = document.createElement("img");  
-      image.loading = "lazy";  
-      image.alt = mediaLabel(file);  
-      loadImage(image,file);  
-      tile.append(image);  
-    }  
-    tile.append(name);  
-    tile.onclick = () => {showSlide(index);document.querySelector(".slide").scrollIntoView({behavior:"smooth",block:"center"});};  
-    gallery.append(tile);  
-  });  
-}  
-document.getElementById("toggle-gallery").onclick = function(){  
-  gallery.hidden = !gallery.hidden;  
-  if(!gallery.hidden){buildGallery();}  
-  this.textContent = gallery.hidden ? "OUVRI GALERI A" : "FÈMEN GALERI A";  
-};  
-showSlide(0);  
-const avatar = document.getElementById("avatar");  
-let avatarBase = 0;  
-avatar.addEventListener("error",() => {  
-  avatarBase++;  
-  if(avatarBase < BASES.length){avatar.src = assetURL(BASES[avatarBase],PROF_AVATAR);avatar.load();}  
-});  
-document.getElementById("play-avatar").onclick = async () => {  
-  try{if(avatar.paused){await avatar.play();}else{avatar.pause();}}catch(error){alert("Verifye fichye prof-avatar-cust.mp4 la.");}  
-};  
-const SOCIALS = [  
-  [" Facebook","fa- facebook","#1877F2","https://www.facebook.com/share/1By3KvYRrM/"],  
-  [" WhatsApp","fa- whatsapp","#25D366","https://wa.me/50943437488"],  
-  ["TikTok","fa-tiktok","#25F4EE","https://www.tiktok.com/@maximax1960"],  
-  [" Instagram","fa- instagram","#E4405F","https://www.instagram.com/lebaron072/"],  
-  ["Telegram","fa-telegram","#229ED9","https://t.me/bss1815dmp"],  
-  ["YouTube","fa-youtube","#FF0000","https://www.youtube.com/@BSS1815PROMAXDMP"],  
-  [" Spotify","fa- spotify","#1DB954","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],  
-  ["X / Twitter","fa-x-twitter","#E7E9EA","https://x.com/w05g2m"],  
-  ["Truth Social","truthsocial","#5448EE","https://truthsocial.com/@briyant_soley_1815"],  
-  ["LinkedIn","fa-linkedin","#0A66C2","https://www.linkedin.com/in/maximax-multi-services-075ba2314"]  
-];  
-SOCIALS.forEach(([name,icon,color,url]) => {  
-  const link = document.createElement("a");  
-  link.className = "social";  
-  link.href = url;  
-  link.target = "_blank";  
-  link.rel = "noopener noreferrer";  
-  let symbol;  
-  if(icon === "truthsocial"){symbol = document.createElement("img");symbol.src = "https://cdn.simpleicons.org/truthsocial/5448EE";symbol.alt = "Truth Social";}else{symbol = document.createElement("i");symbol.className = "fa-brands " + icon;symbol.style.color = color;if(icon === "fa-tiktok"){symbol.style.textShadow = "2px 2px #FE2C55";}}  
-  const label = document.createElement("span");  
-  label.textContent = name;  
-  link.append(symbol,label);  
-  document.getElementById("social-grid").append(link);  
-});  
-const MODULES = [  
-  ["fa-film","AI PRESENTATION","Prezantasyon dijital"],  
-  ["fa-users","AI MEMBERS","Rejis ak jesyon manm"],  
-  ["fa-images","AI MEDIA CENTER","Rechèch medya"],  
-  ["fa-file-lines","AI DOCUMENTS","Preparasyon dokiman"],  
-  ["fa-book","AI REGISTRY","Rejis dijital"],  
-  ["fa-microphone","AI VOICE SCRIPT","Tèks narasyon ak anons"],  
-  ["fa-share-nodes","AI SOCIAL MEDIA","Piblikasyon sosyal"],  
-  ["fa-palette","AI FLYER CREATOR","Preparasyon afich"],  
-  ["fa-calendar-days","AI EVENTS","Planifikasyon aktivite"],  
-  ["fa-tower-broadcast","AI BROADCAST","Anons radyo"],  
-  ["fa-briefcase","AI BUSINESS SUPPORT","Sipò biznis"],  
-  ["fa-headset","AI COMMUNITY SUPPORT","Asistans kominotè"],  
-  ["fa-address-book","CRM CENTER","Customer Relationship Management"]  
-];  
-MODULES.forEach(([icon,name,description],index) => {  
-  const card = document.createElement("article");  
-  card.className = "card module";  
-  const symbol = document.createElement("i");  
-  symbol.className = "fa-solid " + icon;  
-  const title = document.createElement("h3");  
-  title.textContent = name;  
-  const text = document.createElement("p");  
-  text.textContent = description;  
-  const button = document.createElement("button");  
-  button.className = "btn";  
-  button.textContent = "OPEN MODULE";  
-  button.onclick = () => openModule(index);  
-  card.append(symbol,title,text,button);  
-  document.getElementById("modules").append(card);  
-});  
-const moduleDialog = document.getElementById("module-dialog");  
-let activeModule = 0;  
-function openModule(index){  
-  if(index === 12){openCRM();return;}  
-  activeModule = index;  
-  document.getElementById("module-title").textContent = MODULES[index][1];  
-  document.getElementById("module-description").textContent = MODULES[index][2] + " — Local Digital Assistant";  
-  document.getElementById("module-subject").value = "";  
-  document.getElementById("module-input").value = "";  
-  document.getElementById("output").textContent = "";  
-  if(!moduleDialog.open){moduleDialog.showModal();}  
-}  
-function saveRecord(key,record){  
-  try{const records = JSON.parse(localStorage.getItem(key) || "[]");records.push(record);localStorage.setItem(key,JSON.stringify(records));return records.length;}catch(error){return null;}  
-}  
-function runModule(){  
-  const subject = document.getElementById("module-subject").value.trim();  
-  const input = document.getElementById("module-input").value.trim();  
-  const output = document.getElementById("output");  
-  const title = subject || "BSS1815";  
-  const date = new Date().toLocaleDateString();  
-  let result = "";  
-  if(!subject && !input){output.textContent = "Antre enfòmasyon ou yo anvan.";return;}  
-  switch(activeModule){  
-    case 0:result = "BRIYANT SOLÈY SIGNO 1815\n\n" + title.toUpperCase() + "\n\nByenveni nan prezantasyon nou an.\n\n" + input + "\n\nDEVAN DEVAN NÈT™\nBATI POU JODI A, PARE POU DEMEN.";break;  
-    case 1:case 4:case 8:{const key = "bss1815-records-" + activeModule;const total = saveRecord(key,{title,details:input,date});result = total === null ? "Rejis la pa t kapab anrejistre sou aparèy sa a." : "ENFÒMASYON ANREJISTRE LOKALMAN\n\n" + "Tit: " + title + "\nDat: " + date + "\nDetay: " + input + "\nTotal dosye: " + total;break;}  
-    case 2:{const query = (subject || input).toLowerCase();const matches = GALLERY.filter(file => file.toLowerCase().includes(query));result = matches.length ? matches.join("\n") : "Pa gen fichye ki koresponn ak rechèch la.";break;}  
-    case 3:result = "BRIYANT SOLÈY SIGNO 1815\n" + "DOKIMAN — " + title.toUpperCase() + "\nDat: " + date + "\n\n" + input + "\n\nSiyati: __________________";break;  
-    case 5:result = "VOICE SCRIPT\n\n" + "Bonjou, bonswa tout fanmi BSS1815.\n\n" + title + "\n\n" + input + "\n\nBriyant se yon limyè ki pa janm etenn.";break;  
-    case 6:result = title.toUpperCase() + "\n\n" + input + "\n\n#BSS1815 #BriyantSoleySigno #DevanDevanNet";break;  
-    case 7:result = "FLYER DESIGN BRIEF\n\n" + "TITLE: " + title + "\nDETAILS: " + input + "\nCOLORS: Orange / Apricot / Black Fade" + "\nLOGO: " + LOGO;break;  
-    case 9:result = "PRO-MAX FM 106.5 FM\n\n" + title + "\n\n" + input + "\n\nLa force du son.";break;  
-    case 10:result = "BUSINESS SUPPORT — " + title + "\n\n" + input + "\n\nPLAN:\n1. Defini objektif." + "\n2. Idantifye resous." + "\n3. Prepare bidjè." + "\n4. Etabli plan aksyon.";break;  
-    case 11:result = "BSS1815 COMMUNITY SUPPORT\n\n" + "Pou asistans sou: " + title + "\n\nUSA: (407) 640-5166 / (317) 538-1150" + "\nAYITI: +509 4254-4447 / +509 4343-7488" + "\nEMAIL: bss1815promaxdmp@gmail.com";break;  
-  }  
-  output.textContent = result;  
-}  
-async function copyOutput(){const text = document.getElementById("output").textContent;if(!text)return;try{await navigator.clipboard.writeText(text);}catch(error){alert("Chwazi tèks la epi kopye li.");}}  
-function saveOutput(){  
-  const text = document.getElementById("output").textContent;  
-  if(!text)return;  
-  const blob = new Blob([text],{type:"text/plain;charset=utf-8"});  
-  const url = URL.createObjectURL(blob);  
-  const link = document.createElement("a");  
-  link.href = url;  
-  link.download = "BSS1815-document.txt";  
-  link.click();  
-  setTimeout(() => URL.revokeObjectURL(url),1000);  
-}  
-const crmElement = id => document.getElementById(id);  
-const crmDialog = crmElement("crm-dialog");  
-const CRM_STORAGE_KEY = "bss1815-crm-contacts-v1";  
-const crmFields = ["name","phone","email","country","team","status","role","followup","notes"];  
-const crmTeamNames = ["TEAM SAN PRESYON","TEAM BACKUP","MIAMI AN AKSYON","TEAM ANGRENAY","SUPER FANCLUB","ADMINISTRATION","OTHER"];  
-const crmCountries = ["Haiti","USA","Canada","France","Other"];  
-const crmStatuses = ["Active","Pending","Inactive"];  
-let crmContacts = [];  
-let crmStorageReady = false;  
-function crmMessage(message){crmElement("crm-message").textContent = message;}  
-function createCRMId(){if(window.crypto && typeof crypto.randomUUID === "function"){return crypto.randomUUID();}return "CRM-" + Date.now() + "-" + Math.random().toString(36).slice(2);}  
-function normalizeCRMContact(record){  
-  if(!record || typeof record !== "object"){throw new Error("Invalid contact");}  
-  const contact = {};  
-  crmFields.forEach(field => {const value = record[field];contact[field] = typeof value === "string" ? value.trim() : "";});  
-  if(!contact.name){throw new Error("Contact name required");}  
-  if(!crmTeamNames.includes(contact.team)){contact.team = "OTHER";}  
-  if(!crmCountries.includes(contact.country)){contact.country = "Other";}  
-  if(!crmStatuses.includes(contact.status)){contact.status = "Pending";}  
-  if(contact.followup && !/^\d{4}-\d{2}-\d{2}$/.test(contact.followup)){contact.followup = "";}  
-  contact.id = typeof record.id === "string" && record.id ? record.id : createCRMId();  
-  contact.createdAt = typeof record.createdAt === "string" ? record.createdAt : new Date().toISOString();  
-  contact.updatedAt = typeof record.updatedAt === "string" ? record.updatedAt : contact.createdAt;  
-  return contact;  
-}  
-function loadCRM(){  
-  try{const raw = localStorage.getItem(CRM_STORAGE_KEY);const stored = raw ? JSON.parse(raw) : [];if(!Array.isArray(stored)){throw new Error("Invalid CRM database");}const records = stored.map(normalizeCRMContact);const ids = new Set(records.map(record => record.id));if(ids.size !== records.length){throw new Error("Duplicate CRM identifiers");}crmContacts = records;crmStorageReady = true;return true;}catch(error){crmStorageReady = false;crmMessage("CRM DATABASE ERROR — Done yo pa kapab chaje. Pa gen okenn done ki ranplase.");return false;}  
-}  
-function persistCRM(nextRecords){  
-  if(!crmStorageReady){crmMessage("CRM database unavailable.");return false;}  
-  try{localStorage.setItem(CRM_STORAGE_KEY,JSON.stringify(nextRecords));crmContacts = nextRecords;return true;}catch(error){crmMessage("SAVE FAILED — Verifye espas depo navigatè a.");return false;}  
-}  
-function openCRM(){  
-  resetCRMForm();  
-  crmElement("crm-search").value = "";  
-  crmElement("crm-filter-team").value = "";  
-  crmElement("crm-filter-status").value = "";  
-  loadCRM();  
-  crmRender();  
-  if(!crmDialog.open){crmDialog.showModal();}  
-}  
-function resetCRMForm(){crmElement("crm-form").reset();crmElement("crm-id").value = "";crmMessage("");}  
-function updateCRMStats(){  
-  const active = crmContacts.filter(contact => contact.status === "Active").length;  
-  const pending = crmContacts.filter(contact => contact.status === "Pending").length;  
-  const officialTeams = crmTeamNames.slice(0,5);  
-  const represented = new Set(crmContacts.map(contact => contact.team).filter(team => officialTeams.includes(team))).size;  
-  crmElement("crm-total").textContent = crmContacts.length;  
-  crmElement("crm-active").textContent = active;  
-  crmElement("crm-pending").textContent = pending;  
-  crmElement("crm-teams").textContent = represented;  
-}  
-function getFilteredCRMContacts(){  
-  const query = crmElement("crm-search").value.trim().toLowerCase();  
-  const team = crmElement("crm-filter-team").value;  
-  const status = crmElement("crm-filter-status").value;  
-  return crmContacts.filter(contact => {  
-    const searchable = crmFields.map(field => contact[field] || "").join(" ").toLowerCase();  
-    const matchesQuery = !query || searchable.includes(query);  
-    const matchesTeam = !team || contact.team === team;  
-    const matchesStatus = !status || contact.status === status;  
-    return matchesQuery && matchesTeam && matchesStatus;  
-  }).sort((a,b) => a.name.localeCompare(b.name));  
-}  
-function crmRender(){  
-  updateCRMStats();  
-  const body = crmElement("crm-table-body");  
-  body.replaceChildren();  
-  if(!crmStorageReady){crmElement("crm-results").textContent = "CRM database unavailable.";return;}  
-  const records = getFilteredCRMContacts();  
-  crmElement("crm-results").textContent = `${records.length} CONTACT(S) — ${crmContacts.length} TOTAL`;  
-  if(!records.length){const row = document.createElement("tr");const cell = document.createElement("td");cell.colSpan = 7;cell.style.textAlign = "center";cell.textContent = "No contacts found. Add a new contact.";row.append(cell);body.append(row);return;}  
-  records.forEach(contact => {  
-    const row = document.createElement("tr");  
-    [contact.name,contact.phone,contact.email,contact.team].forEach(value => {const cell = document.createElement("td");cell.textContent = value || "—";row.append(cell);});  
-    const statusCell = document.createElement("td");  
-    const statusTag = document.createElement("span");  
-    statusTag.className = "crm-status-tag";  
-    statusTag.textContent = contact.status;  
-    statusCell.append(statusTag);  
-    row.append(statusCell);  
-    const followupCell = document.createElement("td");  
-    followupCell.textContent = contact.followup || "—";  
-    row.append(followupCell);  
-    const actions = document.createElement("td");  
-    const edit = document.createElement("button");  
-    edit.type = "button";  
-    edit.className = "btn";  
-    edit.textContent = "VIEW / EDIT";  
-    edit.onclick = () => editCRMContact(contact.id);  
-    const remove = document.createElement("button");  
-    remove.type = "button";  
-    remove.className = "btn";  
-    remove.textContent = "DELETE";  
-    remove.onclick = () => deleteCRMContact(contact.id);  
-    actions.append(edit,remove);  
-    row.append(actions);  
-    body.append(row);  
-  });  
-}  
-crmElement("crm-form").addEventListener("submit",event => {  
-  event.preventDefault();  
-  if(!crmStorageReady){crmMessage("CRM database unavailable.");return;}  
-  const id = crmElement("crm-id").value;  
-  const existing = crmContacts.find(contact => contact.id === id);  
-  const record = {};  
-  crmFields.forEach(field => {record[field] = crmElement("crm-" + field).value.trim();});  
-  if(!record.name){crmMessage("Antre non manm nan.");return;}  
-  if(id && !existing){crmMessage("Contact not found.");return;}  
-  record.id = existing ? existing.id : createCRMId();  
-  record.createdAt = existing ? existing.createdAt : new Date().toISOString();  
-  record.updatedAt = new Date().toISOString();  
-  const duplicate = crmContacts.find(contact => {  
-    if(contact.id === record.id)return false;  
-    const sameEmail = record.email && contact.email.toLowerCase() === record.email.toLowerCase();  
-    const sameNameAndPhone = record.phone && contact.name.toLowerCase() === record.name.toLowerCase() && contact.phone.replace(/\D/g,"") === record.phone.replace(/\D/g,"");  
-    return sameEmail || sameNameAndPhone;  
-  });  
-  if(duplicate){if(!confirm("Possible duplicate contact: " + duplicate.name + ". Continue?")){return;}}  
-  const nextRecords = existing ? crmContacts.map(contact => contact.id === record.id ? record : contact) : [...crmContacts,record];  
-  if(!persistCRM(nextRecords))return;  
-  resetCRMForm();  
-  crmRender();  
-  crmMessage(existing ? "CONTACT UPDATED SUCCESSFULLY." : "CONTACT SAVED SUCCESSFULLY.");  
-});  
-function editCRMContact(id){  
-  const contact = crmContacts.find(item => item.id === id);  
-  if(!contact){crmMessage("Contact not found.");return;}  
-  crmElement("crm-id").value = contact.id;  
-  crmFields.forEach(field => {crmElement("crm-" + field).value = contact[field] || "";});  
-  crmMessage("EDITING: " + contact.name);  
-  crmElement("crm-form").scrollIntoView({behavior:"smooth",block:"start"});  
-}  
-function deleteCRMContact(id){  
-  const contact = crmContacts.find(item => item.id === id);  
-  if(!contact)return;  
-  if(!confirm("Delete contact: " + contact.name + "?")){return;}  
-  const nextRecords = crmContacts.filter(item => item.id !== id);  
-  if(!persistCRM(nextRecords))return;  
-  if(crmElement("crm-id").value === id){resetCRMForm();}  
-  crmRender();  
-  crmMessage("CONTACT DELETED.");  
-}  
-function downloadCRMFile(content,filename,type){  
-  const blob = new Blob([content],{type});  
-  const url = URL.createObjectURL(blob);  
-  const link = document.createElement("a");  
-  link.href = url;  
-  link.download = filename;  
-  document.body.append(link);  
-  link.click();  
-  link.remove();  
-  setTimeout(() => URL.revokeObjectURL(url),1000);  
-}  
-function crmCSVCell(value){  
-  let text = String(value ?? "");  
-  if(/^[\s]*[=+\-@]/.test(text) || /^[\t\r\n]/.test(text)){text = "'" + text;}  
-  return '"' + text.replace(/"/g,'""') + '"';  
-}  
-function exportCRMCSV(){  
-  if(!crmStorageReady || !crmContacts.length){crmMessage("No contacts available for export.");return;}  
-  const columns = ["id",...crmFields,"createdAt","updatedAt"];  
-  const rows = [columns.map(crmCSVCell).join(",")];  
-  crmContacts.forEach(contact => {rows.push(columns.map(field => crmCSVCell(contact[field])).join(","));});  
-  downloadCRMFile("\uFEFF" + rows.join("\r\n"),"BSS1815-CRM-CONTACTS.csv","text/csv;charset=utf-8");  
-  crmMessage("CSV EXPORT REQUESTED.");  
-}  
-function backupCRM(){  
-  if(!crmStorageReady){crmMessage("CRM database unavailable.");return;}  
-  const backup = {application:"BSS1815 CRM CENTER",version:1,exportedAt:new Date().toISOString(),contacts:crmContacts};  
-  downloadCRMFile(JSON.stringify(backup,null,2),"BSS1815-CRM-BACKUP.json","application/json;charset=utf-8");  
-  crmMessage("JSON BACKUP REQUESTED.");  
-}  
-async function restoreCRMBackup(file){  
-  if(!file)return;  
-  if(!crmStorageReady){crmMessage("CRM database unavailable. Existing data was not changed.");return;}  
-  try{  
-    if(file.size > 10 * 1024 * 1024){throw new Error("Backup file too large");}  
-    const text = await file.text();  
-    const backup = JSON.parse(text);  
-    if(backup.application !== "BSS1815 CRM CENTER" || backup.version !== 1 || !Array.isArray(backup.contacts)){throw new Error("Invalid CRM backup");}  
-    const imported = backup.contacts.map(normalizeCRMContact);  
-    const uniqueIds = new Set(imported.map(contact => contact.id));  
-    if(uniqueIds.size !== imported.length){throw new Error("Duplicate backup identifiers");}  
-    if(!confirm("Restore " + imported.length + " contact(s)? Existing contacts with matching IDs will be updated. Other contacts will be preserved.")){return;}  
-    const merged = new Map(crmContacts.map(contact => [contact.id,contact]));  
-    imported.forEach(contact => {merged.set(contact.id,contact);});  
-    const nextRecords = Array.from(merged.values());  
-    if(!persistCRM(nextRecords))return;  
-    resetCRMForm();  
-    crmRender();  
-    crmMessage("BACKUP RESTORED — " + imported.length + " CONTACT(S) IMPORTED.");  
-  }catch(error){crmMessage("RESTORE FAILED — Invalid or unreadable backup.");}  
-}  
-crmElement("crm-close").onclick = () => {crmDialog.close();};  
-crmElement("crm-new").onclick = () => {resetCRMForm();};  
-crmElement("crm-search").oninput = crmRender;  
-crmElement("crm-filter-team").onchange = crmRender;  
-crmElement("crm-filter-status").onchange = crmRender;  
-crmElement("crm-export").onclick = exportCRMCSV;  
-crmElement("crm-backup").onclick = backupCRM;  
-crmElement("crm-import").onclick = () => {crmElement("crm-import-file").click();};  
-crmElement("crm-import-file").onchange = async function(){const file = this.files && this.files[0];this.value = "";await restoreCRMBackup(file);};  
-crmDialog.addEventListener("close",() => {resetCRMForm();});  
-function setLanguage(language){  
-  const index = {ht:0,en:1,fr:2}[language];  
-  document.documentElement.lang = language;  
-  document.querySelectorAll("[data-t]").forEach(element => {const translations = element.dataset.t.split("|");element.textContent = translations[index] || translations[0];});  
-  document.querySelectorAll("[data-lang]").forEach(button => {button.classList.toggle("active",button.dataset.lang === language);});  
-}  
-document.querySelectorAll("[data-lang]").forEach(button => {button.onclick = () => setLanguage(button.dataset.lang);});  
-document.getElementById("year").textContent = new Date().getFullYear();  
-/* SELMAN AJOUTE — 5 KOD FOTO A */
-TEAMS.find(t=>t.id==="san-presyon").files.unshift("team-san-presyon-2.jpg");  
-TEAMS.find(t=>t.id==="backup").files.unshift("team-bakup.jpg");  
-TEAMS.find(t=>t.id==="miami").files.unshift("miami-an-aksyon2.mp4");  
-TEAMS.find(t=>t.id==="angrenay").files.unshift("teamangrenay.png");  
-TEAMS.find(t=>t.id==="super-fanclub").files.unshift("super-fanclub-5.jpg");  
-(function(){  
-  var fix=function(teamId,file){var card=document.querySelector('#community [data-team="'+teamId+'"]');if(!card) return;var img=card.querySelector('img');if(img){img.onerror=null;img.src="./"+file;}};  
-  fix("san-presyon","team-san-presyon-2.jpg");  
-  fix("backup","team-bakup.jpg");  
-  fix("angrenay","teamangrenay.png");  
-  var miami=document.querySelector('#community [data-team="miami"] video');  
-  if(miami){miami.src="./miami-an-aksyon2.mp4";}  
-  var sfc=document.querySelector('#community [data-team="super-fanclub"] img');  
-  if(sfc){sfc.onerror=null;sfc.src="./super-fanclub-5.jpg";}  
-})();  
-</script>  </body>  
+
+<!-- MODULE 02 — NEWS CENTER -->
+<section class="module" id="news">
+  <h2 class="title">02 — NEWS CENTER</h2>
+  <p class="intro" data-i18n="newsIntro">
+    Actualités d'Haïti, de Floride, de la diaspora et du monde.
+  </p>
+
+  <div class="banner">
+    <img class="media-logo" src="pro-max-fm.jpg" alt="PRO-MAX FM">
+    <h3>● PRO-MAX FM — FLASH INFO</h3>
+    <p id="flashStatus" class="status" role="status" aria-live="polite"></p>
+    <button id="refreshBtn" data-i18n="refresh">ACTUALISER LES NOUVELLES</button>
+  </div>
+  <div id="flashGrid" class="grid"></div>
+
+  <h3 class="sub" data-i18n="featured">À LA UNE</h3>
+  <div id="featuredGrid" class="grid"></div>
+
+  <h3 class="sub" data-i18n="published">ACTUALITÉS PUBLIÉES</h3>
+  <input
+    id="articleSearch"
+    class="search"
+    type="search"
+    data-placeholder="searchArticle"
+    placeholder="Rechercher un article..."
+  >
+  <div id="articleFilters" class="filters"></div>
+  <p id="articleCount" class="counter"></p>
+  <div id="articleGrid" class="grid"></div>
+
+  <div class="banner" id="leogane-info">
+    <div class="media-head" style="justify-content:center">
+      <img src="leogane-info-logo.png" class="media-logo"
+           id="leoganeLogo" alt="Logo LÉOGÂNE INFO"
+           onerror="this.style.display='none'">
+      <h3>LÉOGÂNE INFO</h3>
+    </div>
+    <p data-i18n="leogane">
+      Yon vwa ki rasanble nou — pon ant Florid ak Léogâne.
+    </p>
+    <div class="newsroom-layout">
+      <img src="Léogâne-info.png" class="newsroom-portrait"
+           alt="Jounalis LÉOGÂNE INFO avèk mikwo, an dirèk"
+           loading="lazy"
+           onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='../Léogâne-info.png'}else{this.style.display='none'}">
+      <div>
+        <h3 data-i18n="leoganeTitle">LÉOGÂNE INFO — NOUVÈL • KILTI • KOMINOTE</h3>
+        <p data-i18n="leoganeBody">
+          Pon ant Florid ak Léogâne: enfòmasyon, kilti, dyaspora ak kominote.
+        </p>
+        <a class="btn" href="#leoganeGrid" data-i18n="latestLeogane">ATIK LÉOGÂNE INFO</a>
+        <a class="btn" href="#customer-service" data-i18n="contactNewsroom">KONTAKTE REDAKSYON AN</a>
+      </div>
+    </div>
+    <h3 class="sub" data-i18n="latestLeogane">ATIK LÉOGÂNE INFO</h3>
+    <div id="leoganeGrid" class="grid"></div>
+  </div>
+
+  <h3 class="sub" data-i18n="sources">RÉPERTOIRE DES SOURCES MÉDIATIQUES</h3>
+  <input
+    id="sourceSearch"
+    class="search"
+    type="search"
+    data-placeholder="searchSource"
+    placeholder="Rechercher un média..."
+  >
+  <p class="source-note" data-i18n="sourceNote">
+    Chwazi TOUT / ALL pou wè tout sous medya yo.
+  </p>
+  <div id="sourceFilters" class="filters"></div>
+  <p id="sourceCount" class="counter"></p>
+  <div id="sourceGrid" class="grid"></div>
+
+  <div class="notice">
+    <h3 data-i18n="policyTitle">POLITIQUE ÉDITORIALE</h3>
+    <p data-i18n="policy">
+      Les informations provenant de médias externes sont identifiées
+      et ne sont pas automatiquement approuvées par PRO-MAX FM.
+    </p>
+  </div>
+</section>
+
+<!-- MODULE 03 — SHOWS -->
+<section class="module" id="shows">
+  <h2 class="title">03 — SHOWS CENTER</h2>
+  <p class="intro" data-i18n="showsIntro">
+    Nos émissions et programmes à l'heure de Floride.
+  </p>
+  <div id="showsGrid" class="grid"></div>
+  <div class="actions">
+    <a class="btn" href="#live" data-i18n="watchShowsLive">
+      ▶ ÉCOUTER LES ÉMISSIONS EN DIRECT
+    </a>
+  </div>
+  <div class="banner">
+    <img src="pro-max-fm.jpg" alt="PRO-MAX FM" class="media-logo">
+    <h3>BRIYANT SOLÈY SIGNO 1815</h3>
+    <p data-i18n="videoShow">
+      La vidéo BRIYANT est accessible sur notre chaîne,
+      même sans MP4 local.
+    </p>
+    <a class="btn"
+       href="https://www.youtube.com/@BSS1815PROMAXDMP"
+       target="_blank" rel="noopener noreferrer">
+      ▶ BRIYANT — YOUTUBE
+    </a>
+  </div>
+  <h3 class="sub" data-i18n="schedule">GRILLE DES PROGRAMMES</h3>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th data-i18n="days">JOURS</th>
+          <th data-i18n="hours">HORAIRES</th>
+          <th data-i18n="show">ÉMISSION</th>
+        </tr>
+      </thead>
+      <tbody id="showsTable"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MODULE 04 — PODCASTS -->
+<section class="module" id="podcasts">
+  <h2 class="title">04 — PODCASTS CENTER</h2>
+  <p class="intro" data-i18n="podcastIntro">
+    Épisodes et replays. Les fiches restent visibles sans MP3.
+  </p>
+  <div class="stats">
+    <div class="stat">
+      <strong id="episodeCount">15</strong>
+      <span data-i18n="episodes">ÉPISODES</span>
+    </div>
+    <div class="stat">
+      <strong id="replayCount">6</strong>
+      <span>REPLAYS</span>
+    </div>
+    <div class="stat">
+      <strong id="audioCount">0</strong>
+      <span data-i18n="mp3">MP3 DISPONIBLES</span>
+    </div>
+  </div>
+  <input id="podcastSearch" class="search" type="search"
+         data-placeholder="searchPodcast"
+         placeholder="Rechercher un podcast...">
+  <div id="podcastFilters" class="filters"></div>
+  <div id="podcastGrid" class="grid"></div>
+  <h3 class="sub">REPLAYS</h3>
+  <div id="replayGrid" class="grid"></div>
+</section>
+
+<!-- MODULE 05 — MUSIC -->
+<section class="module" id="music">
+  <h2 class="title">05 — MUSIC CENTER</h2>
+  <p class="intro" data-i18n="musicIntro">
+    Musiques, catégories et Auto DJ.
+  </p>
+  <input id="musicSearch" class="search" type="search"
+         data-placeholder="searchMusic"
+         placeholder="Rechercher un genre...">
+  <div id="genreGrid" class="grid"></div>
+  <div class="notice">
+    <h3>PRO-MAX FM — AUTO DJ</h3>
+    <p data-i18n="autoDJ">
+      La programmation Auto DJ et les fichiers audio
+      sont gérés dans RadioKing.
+    </p>
+    <a class="btn"
+       href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+       target="_blank" rel="noopener noreferrer">
+      SPOTIFY
+    </a>
+  </div>
+</section>
+
+<!-- MODULE 06 — ARTISTS -->
+<section class="module" id="artists">
+  <h2 class="title">06 — ARTISTS CENTER</h2>
+  <p class="intro" data-i18n="artistsIntro">
+    Répertoire d'artistes et de groupes.
+  </p>
+  <input id="artistSearch" class="search" type="search"
+         data-placeholder="searchArtist"
+         placeholder="Rechercher un artiste...">
+  <div id="artistFilters" class="filters"></div>
+  <div id="artistGrid" class="grid"></div>
+</section>
+
+<!-- MODULE 07 — VIDEO -->
+<section class="module" id="video">
+  <h2 class="title">07 — VIDEO CENTER</h2>
+  <p class="intro" data-i18n="videosIntro">
+    Chaînes, reportages et contenus vidéo.
+  </p>
+  <div id="videoGrid" class="grid"></div>
+</section>
+
+<!-- MODULE 08 — EVENTS -->
+<section class="module" id="events">
+  <h2 class="title">08 — EVENTS CENTER</h2>
+  <p class="intro" data-i18n="eventsIntro">
+    Calendrier des événements de la communauté.
+  </p>
+  <div class="calendar-bar">
+    <button id="prevMonth">◀</button>
+    <strong id="monthName"></strong>
+    <button id="nextMonth">▶</button>
+  </div>
+  <div id="calendar" class="calendar"></div>
+  <p id="selectedDate" class="status"></p>
+  <h3 class="sub" data-i18n="upcoming">ÉVÉNEMENTS À VENIR</h3>
+  <div id="eventGrid" class="grid"></div>
+</section>
+
+<!-- MODULE 09 — CONTACT -->
+<section class="module" id="contact">
+  <h2 class="title">09 — CONTACT CENTER</h2>
+  <div class="contacts">
+    <article class="card">
+      <h3>🇺🇸 FLORIDA</h3>
+      <a href="tel:+14076405166">🇺🇸 (407) 640-5166</a>
+    </article>
+    <article class="card">
+      <h3>🇺🇸 INDIANA</h3>
+      <a href="tel:+13175381150">🇺🇸 (317) 538-1150</a>
+    </article>
+    <article class="card">
+      <h3>🇭🇹 HAÏTI</h3>
+      <a href="tel:+50942544447">🇭🇹 +509 4254 4447</a>
+      <a href="tel:+50944829869">🇭🇹 +509 4482 9869</a>
+      <a href="tel:+50943437488">🇭🇹 +509 4343 7488</a>
+    </article>
+  </div>
+
+  <h3 class="sub" data-i18n="social">RÉSEAUX SOCIAUX</h3>
+  <p class="source-note" data-i18n="socialNote">
+    Les 10 réseaux sociaux de PRO-MAX FM sont réunis ici.
+  </p>
+  <div id="socialGrid" class="socials"></div>
+
+  <!-- CUSTOMER SERVICE -->
+  <section id="customer-service"
+           class="support-box"
+           aria-labelledby="supportTitle">
+    <h3 id="supportTitle">🤖 CUSTOMER SERVICE AI — PRO-MAX FM</h3>
+    <p class="intro" data-i18n="supportIntro">
+      Posez une question sur la radio, les émissions,
+      les nouvelles ou les contacts.
+    </p>
+
+    <!-- VIDEO MAX LOUIS — PA GEN FOTO KOUVÈTI -->
+    <div class="service-video-panel">
+      <div class="service-video-label">
+        MAX LOUIS ALIAS LE BARON
+      </div>
+      <video
+        id="serviceVideo"
+        controls
+        playsinline
+        preload="auto"
+        aria-label="Présentation vidéo du service client PRO-MAX FM"
+      >
+        <source
+          id="serviceVideoSource"
+          src="max-louis-le-baron.mp4"
+          type="video/mp4"
+        >
+        Votre navigateur ne prend pas en charge la vidéo MP4.
+      </video>
+      <p class="service-video-note" data-i18n="videoInstructions">
+        Lancez la vidéo pour écouter la présentation du service client.
+      </p>
+      <p id="serviceVideoError"
+         class="service-video-error"
+         role="status"
+         hidden></p>
+    </div>
+
+    <div class="actions" id="supportTopics">
+      <button type="button" data-question="LIVE RADIO">LIVE RADIO</button>
+      <button type="button" data-question="SHOWS">SHOWS</button>
+      <button type="button" data-question="LÉOGÂNE INFO">LÉOGÂNE INFO</button>
+      <button type="button" data-question="CONTACT">CONTACT</button>
+    </div>
+
+    <form id="supportForm" class="support-form">
+      <input id="supportQuestion"
+             type="text"
+             maxlength="300"
+             autocomplete="off"
+             required
+             data-placeholder="supportPlaceholder"
+             placeholder="Écrivez votre question..."
+             aria-label="Question pour le service client">
+      <button type="submit" data-i18n="send">ENVOYER</button>
+    </form>
+
+    <div id="supportReply"
+         class="support-reply"
+         role="status"
+         aria-live="polite"
+         data-i18n="supportReady">
+      Bienvenue ! Comment pouvons-nous vous orienter ?
+    </div>
+
+    <div class="actions">
+      <a class="btn"
+         href="https://bss1815promaxdmp.com/ai-center.html?project=pro-max-fm&amp;lang=fr"
+         data-open-central-ai="pro-max-fm"
+         target="_blank"
+         rel="noopener noreferrer"
+         data-i18n="fullSupport">
+        CUSTOMER SERVICE AI — BSS1815 DMP
+      </a>
+      <a class="btn"
+         href="https://wa.me/50943437488"
+         target="_blank"
+         rel="noopener noreferrer"
+         data-i18n="humanAgent">
+        CONTACTER UN RESPONSABLE SUR WHATSAPP
+      </a>
+    </div>
+  </section>
+
+  <div class="actions">
+    <a class="btn"
+       href="https://bss1815promaxdmp.com"
+       target="_blank"
+       rel="noopener noreferrer">
+      BSS1815 PRO-MAX DMP
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <h2>PRO-MAX FM</h2>
+  <p>LA FORCE DU SON</p>
+  <p data-i18n="tagline">
+    La radio de tous, partout et toujours.
+  </p>
+  <p>© 2026 PRO-MAX FM — BSS1815 PRO-MAX DMP</p>
+</footer>
+
+<script src="https://player.radioking.io/scripts/iframe.bundle.js" defer></script>
+<script>
+"use strict";
+
+(() => {
+const $ = id => document.getElementById(id);
+const NEWS_JSON = "news-articles.json";
+const RSS_API = "https://api.rss2json.com/v1/api.json";
+const AUDIO_ROOT = "audio/podcasts/";
+
+const T = {
+fr:{
+  home:"ACCUEIL",
+  tagline:"La radio de tous, partout et toujours.",
+  hero:"Information, nouvelles, divertissement, musique, artistes et communauté.",
+  listen:"● ÉCOUTER EN DIRECT",
+  explore:"EXPLORER LES ACTUALITÉS",
+  liveIntro:"Écoutez la radio en direct sur RadioKing.",
+  play:"▶ ÉCOUTER",
+  stop:"■ ARRÊTER",
+  ready:"PRÊT À ÉCOUTER",
+  connecting:"CONNEXION...",
+  playing:"DIFFUSION EN COURS",
+  stopped:"LECTURE ARRÊTÉE",
+  error:"IMPOSSIBLE DE LIRE LE FLUX",
+  newsIntro:"Actualités d'Haïti, de Floride, de la diaspora et du monde.",
+  refresh:"ACTUALISER LES NOUVELLES",
+  featured:"À LA UNE",
+  published:"ACTUALITÉS PUBLIÉES",
+  searchArticle:"Rechercher un article...",
+  searchSource:"Rechercher un média...",
+  sources:"RÉPERTOIRE DES SOURCES MÉDIATIQUES",
+  leogane:"Une voix qui nous rassemble — un pont entre la Floride et Léogâne.",
+  policyTitle:"POLITIQUE ÉDITORIALE",
+  policy:"Les informations provenant de médias externes sont identifiées et ne sont pas automatiquement approuvées par PRO-MAX FM.",
+  showsIntro:"Nos émissions et programmes à l'heure de Floride.",
+  videoShow:"La vidéo BRIYANT est accessible sur notre chaîne, même sans MP4 local.",
+  schedule:"GRILLE DES PROGRAMMES",
+  days:"JOURS",
+  hours:"HORAIRES",
+  show:"ÉMISSION",
+  daily:"LUNDI–VENDREDI",
+  weekend:"WEEK-END",
+  saturday:"SAMEDI",
+  confirm:"Horaire à confirmer",
+  podcastIntro:"Épisodes et replays. Les fiches restent visibles sans MP3.",
+  episodes:"ÉPISODES",
+  mp3:"MP3 DISPONIBLES",
+  searchPodcast:"Rechercher un podcast...",
+  noAudio:"AUDIO NON DISPONIBLE",
+  musicIntro:"Musiques, catégories et Auto DJ.",
+  searchMusic:"Rechercher un genre...",
+  autoDJ:"La programmation Auto DJ et les fichiers audio sont gérés dans RadioKing.",
+  artistsIntro:"Répertoire d'artistes et de groupes.",
+  searchArtist:"Rechercher un artiste...",
+  videosIntro:"Chaînes, reportages et contenus vidéo.",
+  eventsIntro:"Calendrier des événements de la communauté.",
+  upcoming:"ÉVÉNEMENTS À VENIR",
+  social:"RÉSEAUX SOCIAUX",
+  all:"TOUS",
+  haiti:"HAÏTI",
+  digital:"DIGITAL",
+  world:"MONDE",
+  diaspora:"DIASPORA",
+  independent:"INDÉPENDANTS",
+  community:"COMMUNAUTÉ",
+  entertainment:"DIVERTISSEMENT",
+  news:"ACTUALITÉS",
+  music:"MUSIQUE",
+  culture:"CULTURE",
+  interview:"ENTRETIENS",
+  special:"SPÉCIAL",
+  group:"GROUPES",
+  roots:"RACINES",
+  visit:"VISITER LA SOURCE",
+  read:"LIRE L'ARTICLE",
+  external:"SOURCE EXTERNE",
+  approved:"PUBLIÉ PAR LA RÉDACTION",
+  loading:"Chargement des informations...",
+  rssFail:"Les flux RSS sont indisponibles. Consultez les sources ci-dessous.",
+  rssReady:"Titres RSS reçus — vérifiez-les à la source.",
+  noNews:"Aucun article disponible actuellement.",
+  noLeogane:"Aucun article approuvé de LÉOGÂNE INFO.",
+  noEvent:"Aucun événement confirmé.",
+  fullSupport:"SERVICE CLIENT AI — BSS1815 DMP",
+  supportNav:"SERVICE CLIENT AI",
+  supportIntro:"Posez une question sur la radio, les émissions, les nouvelles ou les contacts.",
+  videoInstructions:"Cliquez sur lecture pour écouter Max Louis alias Le Baron.",
+  videoFileMissing:"Vidéo introuvable. Vérifiez que max-louis-le-baron.mp4 se trouve dans le dossier PRO-MAX FM.",
+  supportPlaceholder:"Écrivez votre question...",
+  supportReady:"Bienvenue ! Comment pouvons-nous vous orienter ?",
+  send:"ENVOYER",
+  humanAgent:"CONTACTER UN RESPONSABLE SUR WHATSAPP",
+  socialNote:"Les 10 réseaux sociaux de PRO-MAX FM sont réunis ici.",
+  sourceNote:"Choisissez TOUS pour voir toutes les sources médiatiques.",
+  leoganeTitle:"LÉOGÂNE INFO — NOUVELLES • CULTURE • COMMUNAUTÉ",
+  leoganeBody:"Le pont entre la Floride et Léogâne : actualités, culture et communauté.",
+  latestLeogane:"ARTICLES LÉOGÂNE INFO",
+  contactNewsroom:"CONTACTER LA RÉDACTION",
+  watchShowsLive:"▶ ÉCOUTER LES ÉMISSIONS EN DIRECT",
+  gospel:"ÉMISSION ÉVANGÉLIQUE",
+  announce:"À ANNONCER",
+  showListen:"▶ ÉCOUTER SUR PRO-MAX FM"
+},
+en:{
+  home:"HOME",
+  tagline:"The radio for everyone, everywhere, always.",
+  hero:"News, entertainment, music, artists and community.",
+  listen:"● LISTEN LIVE",
+  explore:"EXPLORE NEWS",
+  liveIntro:"Listen live via RadioKing.",
+  play:"▶ LISTEN",
+  stop:"■ STOP",
+  ready:"READY TO LISTEN",
+  connecting:"CONNECTING...",
+  playing:"STREAM PLAYING",
+  stopped:"PLAYBACK STOPPED",
+  error:"UNABLE TO PLAY STREAM",
+  newsIntro:"News from Haiti, Florida, the diaspora and the world.",
+  refresh:"REFRESH NEWS",
+  featured:"FEATURED NEWS",
+  published:"PUBLISHED NEWS",
+  searchArticle:"Search articles...",
+  searchSource:"Search media...",
+  sources:"MEDIA SOURCE DIRECTORY",
+  leogane:"A voice that unites us — bridging Florida and Léogâne.",
+  policyTitle:"EDITORIAL POLICY",
+  policy:"External news is identified and is not automatically endorsed by PRO-MAX FM.",
+  showsIntro:"Our shows and schedule in Florida time.",
+  videoShow:"BRIYANT videos are accessible from our channel without a local MP4.",
+  schedule:"SHOW SCHEDULE",
+  days:"DAYS",
+  hours:"TIME",
+  show:"SHOW",
+  daily:"MONDAY–FRIDAY",
+  weekend:"WEEKEND",
+  saturday:"SATURDAY",
+  confirm:"Time to be confirmed",
+  podcastIntro:"Episodes and replays remain listed even without MP3 files.",
+  episodes:"EPISODES",
+  mp3:"AVAILABLE MP3",
+  searchPodcast:"Search podcasts...",
+  noAudio:"AUDIO NOT AVAILABLE",
+  musicIntro:"Genres and Auto DJ.",
+  searchMusic:"Search genres...",
+  autoDJ:"Auto DJ audio files are managed in RadioKing.",
+  artistsIntro:"Artist and band directory.",
+  searchArtist:"Search artists...",
+  videosIntro:"Public channels, news reports and videos.",
+  eventsIntro:"Community event calendar.",
+  upcoming:"UPCOMING EVENTS",
+  social:"SOCIAL NETWORKS",
+  all:"ALL",
+  haiti:"HAITI",
+  digital:"DIGITAL",
+  world:"WORLD",
+  diaspora:"DIASPORA",
+  independent:"INDEPENDENT",
+  community:"COMMUNITY",
+  entertainment:"ENTERTAINMENT",
+  news:"NEWS",
+  music:"MUSIC",
+  culture:"CULTURE",
+  interview:"INTERVIEWS",
+  special:"SPECIAL",
+  group:"BANDS",
+  roots:"ROOTS",
+  visit:"VISIT SOURCE",
+  read:"READ ARTICLE",
+  external:"EXTERNAL SOURCE",
+  approved:"PUBLISHED BY NEWSROOM",
+  loading:"Loading news feeds...",
+  rssFail:"RSS feeds unavailable. Visit the sources below.",
+  rssReady:"RSS headlines received — verify at the source.",
+  noNews:"No articles available yet.",
+  noLeogane:"No approved LÉOGÂNE INFO articles yet.",
+  noEvent:"No confirmed events.",
+  fullSupport:"CUSTOMER SERVICE AI — BSS1815 DMP",
+  supportNav:"CUSTOMER SERVICE AI",
+  supportIntro:"Ask about the radio, programs, news, or contact details.",
+  videoInstructions:"Press play to watch Max Louis alias Le Baron.",
+  videoFileMissing:"Video not found. Check that max-louis-le-baron.mp4 is in the PRO-MAX FM folder.",
+  supportPlaceholder:"Type your question...",
+  supportReady:"Welcome! How can we help you?",
+  send:"SEND",
+  humanAgent:"CONTACT A REPRESENTATIVE ON WHATSAPP",
+  socialNote:"All 10 PRO-MAX FM social networks are listed here.",
+  sourceNote:"Choose ALL to see every media source.",
+  leoganeTitle:"LÉOGÂNE INFO — NEWS • CULTURE • COMMUNITY",
+  leoganeBody:"Bridging Florida and Léogâne through news, culture and community.",
+  latestLeogane:"LÉOGÂNE INFO ARTICLES",
+  contactNewsroom:"CONTACT THE NEWSROOM",
+  watchShowsLive:"▶ LISTEN TO SHOWS LIVE",
+  gospel:"GOSPEL PROGRAM",
+  announce:"TO BE ANNOUNCED",
+  showListen:"▶ LISTEN ON PRO-MAX FM"
+},
+ht:{
+  home:"AKÈY",
+  tagline:"Radyo pou tout moun, tout kote, tout tan.",
+  hero:"Nouvèl, amizman, mizik, atis ak kominote.",
+  listen:"● KOUTE AN DIRÈK",
+  explore:"DEKOUVRI NOUVÈL YO",
+  liveIntro:"Koute radyo a an dirèk sou RadioKing.",
+  play:"▶ KOUTE",
+  stop:"■ KANPE",
+  ready:"PARE POU KOUTE",
+  connecting:"AP KONEKTE...",
+  playing:"RADYO A AP JWE",
+  stopped:"LEKTI KANPE",
+  error:"PA KA JWE STREAM NAN",
+  newsIntro:"Nouvèl Ayiti, Florid, dyaspora ak lemonn.",
+  refresh:"RAFRECHI NOUVÈL YO",
+  featured:"AN VEDET",
+  published:"NOUVÈL KI PIBLIYE",
+  searchArticle:"Chèche nouvèl...",
+  searchSource:"Chèche yon medya...",
+  sources:"ANYÈ SOUS MEDYA",
+  leogane:"Yon vwa ki rasanble nou — pon ant Florid ak Léogâne.",
+  policyTitle:"POLITIK EDITORYAL",
+  policy:"Nouvèl ki sòti nan lòt medya pa otomatikman verifye pa PRO-MAX FM.",
+  showsIntro:"Emisyon ak orè pwogram nou yo selon lè Florid.",
+  videoShow:"Videyo BRIYANT yo disponib sou chèn nou an menm san MP4 sou sit la.",
+  schedule:"ORÈ EMISYON YO",
+  days:"JOU",
+  hours:"LÈ",
+  show:"EMISYON",
+  daily:"LENDI–VANDREDI",
+  weekend:"WIKENN",
+  saturday:"SAMDI",
+  confirm:"Lè pou konfime",
+  podcastIntro:"Epizòd ak replays rete vizib menm si MP3 poko la.",
+  episodes:"EPIZÒD",
+  mp3:"MP3 DISPONIB",
+  searchPodcast:"Chèche podcast...",
+  noAudio:"ODYO POKO DISPONIB",
+  musicIntro:"Kategori mizik ak Auto DJ.",
+  searchMusic:"Chèche kategori...",
+  autoDJ:"Se nan RadioKing yo jere fichye mizik Auto DJ yo.",
+  artistsIntro:"Anyè atis ak gwoup mizikal.",
+  searchArtist:"Chèche atis...",
+  videosIntro:"Chèn piblik, repòtaj ak videyo.",
+  eventsIntro:"Kalandriye evènman kominote a.",
+  upcoming:"EVÈNMAN K AP VINI",
+  social:"REZO SOSYAL",
+  all:"TOUT",
+  haiti:"AYITI",
+  digital:"DIJITAL",
+  world:"LEMONN",
+  diaspora:"DYASPORA",
+  independent:"ENDEPANDAN",
+  community:"KOMINOTE",
+  entertainment:"AMIZMAN",
+  news:"NOUVÈL",
+  music:"MIZIK",
+  culture:"KILTI",
+  interview:"ENTÈVYOU",
+  special:"ESPESYAL",
+  group:"GWOUP",
+  roots:"RASIN",
+  visit:"VIZITE SOUS LA",
+  read:"LI ATIK LA",
+  external:"SOUS EKSTÈN",
+  approved:"REDAKSYON AN PIBLIYE",
+  loading:"Ap chaje nouvèl yo...",
+  rssFail:"Flux RSS yo pa disponib. Konsilte sous ki anba yo.",
+  rssReady:"Tit nouvèl RSS yo rive — verifye yo nan sous la.",
+  noNews:"Pa gen atik ki disponib kounye a.",
+  noLeogane:"Pa gen atik LÉOGÂNE INFO ki apwouve.",
+  noEvent:"Pa gen evènman konfime.",
+  fullSupport:"SÈVIS KLIYAN AI — BSS1815 DMP",
+  supportNav:"SÈVIS KLIYAN AI",
+  supportIntro:"Poze kesyon sou radyo a, emisyon, nouvèl oswa kontak.",
+  videoInstructions:"Peze PLAY pou gade Max Louis alias Le Baron.",
+  videoFileMissing:"Videyo a pa jwenn. Verifye max-louis-le-baron.mp4 nan dosye PRO-MAX FM lan.",
+  supportPlaceholder:"Ekri kesyon ou...",
+  supportReady:"Byenveni! Ki kote nou ka gide ou?",
+  send:"VOYE",
+  humanAgent:"PALE AK YON RESPONSAB SOU WHATSAPP",
+  socialNote:"Tout 10 rezo sosyal PRO-MAX FM yo disponib isit la.",
+  sourceNote:"Chwazi TOUT pou wè tout sous medya yo.",
+  leoganeTitle:"LÉOGÂNE INFO — NOUVÈL • KILTI • KOMINOTE",
+  leoganeBody:"Pon ant Florid ak Léogâne: nouvèl, kilti ak kominote.",
+  latestLeogane:"ATIK LÉOGÂNE INFO",
+  contactNewsroom:"KONTAKTE REDAKSYON AN",
+  watchShowsLive:"▶ KOUTE EMISYON YO AN DIRÈK",
+  gospel:"EMISYON EVANJELIK",
+  announce:"POU ANONSE",
+  showListen:"▶ KOUTE SOU PRO-MAX FM"
+}
+};
+
+let lang="fr";
+let radioStatus="ready";
+let newsFilter="all";
+let articleFilter="all";
+let podFilter="all";
+let artistFilter="all";
+let rssBusy=false;
+let external=[];
+let editorial=[];
+let rssSuccess=false;
+
+const t=k=>T[lang][k]||k;
+const localized=obj=>
+  typeof obj==="string"
+    ? obj
+    : (obj&&(obj[lang]||obj.fr||obj.en||obj.ht))||"";
+
+function n(tag,text,cls){
+  const e=document.createElement(tag);
+  if(text!==undefined&&text!==null)e.textContent=String(text);
+  if(cls)e.className=cls;
+  return e;
+}
+function clear(id){
+  const e=$(id);
+  e.replaceChildren();
+  return e;
+}
+function safe(url){
+  try{
+    return ["https:","http:"].includes(new URL(url).protocol);
+  }catch{return false}
+}
+function normalize(s){
+  return String(s||"").toLocaleLowerCase();
+}
+function match(s,q){
+  return normalize(s).includes(normalize(q));
+}
+function empty(msg){
+  const e=n("article",null,"card");
+  e.append(n("p",msg));
+  return e;
+}
+function link(label,url){
+  const e=n("a",label,"btn");
+  e.href=url;
+  e.target="_blank";
+  e.rel="noopener noreferrer";
+  return e;
+}
+function logo(parent,name,src){
+  const initials=n(
+    "div",
+    name.split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase(),
+    "initials"
+  );
+  parent.append(initials);
+  if(!src)return;
+  const image=n("img");
+  image.className="media-logo";
+  image.alt="Logo "+name;
+  image.src=src;
+  image.loading="lazy";
+  image.addEventListener("load",()=>initials.replaceWith(image));
+}
+function favicon(url){
+  try{
+    return "https://www.google.com/s2/favicons?domain="+
+      encodeURIComponent(new URL(url).hostname)+"&sz=128";
+  }catch{return ""}
+}
+function card(title,description,url,category,img){
+  const e=n("article",null,"card");
+  const h=n("div",null,"media-head");
+  logo(h,title,img);
+  h.append(n("h3",title));
+  e.append(h);
+  if(category)e.append(n("span",t(category),"tag"));
+  if(description)e.append(n("p",description));
+  if(safe(url))e.append(link(t("visit"),url));
+  return e;
+}
+function filters(id,options,value,callback){
+  const root=clear(id);
+  for(const key of options){
+    const b=n("button",t(key));
+    b.type="button";
+    b.classList.toggle("active",key===value);
+    b.setAttribute("aria-pressed",String(key===value));
+    b.onclick=()=>callback(key);
+    root.append(b);
+  }
+}
+function setLanguage(code){
+  if(!T[code])return;
+  lang=code;
+  document.documentElement.lang=code;
+  window.BSS1815_INTEGRATION?.setLanguage(code);
+  const centralLink=document.querySelector("[data-open-central-ai]");
+  if(centralLink)centralLink.href="https://bss1815promaxdmp.com/ai-center.html?project=pro-max-fm&lang="+encodeURIComponent(code);
+  document.querySelectorAll("[data-i18n]").forEach(e=>
+    e.textContent=t(e.dataset.i18n)
+  );
+  document.querySelectorAll("[data-placeholder]").forEach(e=>{
+    e.placeholder=t(e.dataset.placeholder);
+    e.setAttribute("aria-label",t(e.dataset.placeholder));
+  });
+  ["fr","en","ht"].forEach(k=>
+    $("lang-"+k).classList.toggle("active",k===code)
+  );
+  $("radioStatus").textContent=t(radioStatus);
+  renderAll();
+}
+["fr","en","ht"].forEach(k=>
+  $("lang-"+k).onclick=()=>setLanguage(k)
+);
+
+/* MODULE 02 — NEWS SOURCES */
+const NEWS=[
+["Radio Télé Éclair","haiti","https://www.youtube.com/channel/UCOvGbDh5biuOqjx6G3CdrQg","media-logos/radio-tele-eclair.png"],
+["Radio Télévision Caraïbes","haiti","https://www.radiotelevisioncaraibes.com"],
+["Radio Vision 2000","haiti",null,"media-logos/vision-2000.png"],
+["Le Nouvelliste","haiti","https://lenouvelliste.com"],
+["Radio Télé Métropole","haiti","https://metropole.ht"],
+["RT 6 Univers","haiti",null,"media-logos/rt-6-univers.png"],
+["ZOOM HAITI TV","digital",null,"media-logos/zoom-haiti-tv.png"],
+["Ti Koze ak TT","digital","https://www.youtube.com/@tikozeaktt1","media-logos/ti-koze-ak-tt.png"],
+["Tripotay Bò Lakay","digital",null,"media-logos/tripotay-bo-lakay.png"],
+["EnfoFyab TV","digital",null,"media-logos/enfofyab-tv.png"],
+["Info Media / MRJEAN","digital",null,"media-logos/info-media-mrjean.png"],
+["CNN","world","https://www.cnn.com"],
+["BBC News","world","https://www.bbc.com/news"],
+["France 24","world","https://www.france24.com"],
+["RFI","world","https://www.rfi.fr"],
+["Reuters","world","https://www.reuters.com"],
+["Associated Press","world","https://apnews.com"],
+["Axios","world","https://www.axios.com"],
+["Miami Herald","diaspora","https://www.miamiherald.com"],
+["The Haitian Times","diaspora","https://haitiantimes.com"],
+["PAP Times","diaspora",null,"media-logos/pap-times.png"],
+["AyiboPost","independent","https://ayibopost.com"],
+["Loop Haiti","independent",null,"media-logos/loop-haiti.png"],
+["Tabou Network","independent",null,"media-logos/tabou-network.png"],
+["Access Hollywood","entertainment","https://www.youtube.com/channel/UCiKGMZZmZXK-RpbKJGXgH3Q"],
+["Scottish DNA Exposed","entertainment","https://www.youtube.com/results?search_query=Scottish+DNA+Reveals+a+Surprising+History+of+Ancient","media-logos/scottish-dna-exposed.png"],
+["LÉOGÂNE INFO","community",null,"leogane-info-logo.png"],
+["Radio Kiskeya","haiti",null],
+["Radio Magik9","haiti",null],
+["Radio Télé Ginen","haiti",null],
+["Haïti Libre","independent","https://www.haitilibre.com"],
+["AlterPresse","independent","https://www.alterpresse.org"]
+];
+
+const NEWS_CATS=[
+  "all","haiti","digital","world","diaspora",
+  "independent","community","entertainment"
+];
+
+function renderSources(){
+  filters("sourceFilters",NEWS_CATS,newsFilter,k=>{
+    newsFilter=k;
+    renderSources();
+  });
+  const q=$("sourceSearch").value.trim();
+  const rows=NEWS.filter(x=>
+    (newsFilter==="all"||x[1]===newsFilter)&&match(x[0],q)
+  );
+  const root=clear("sourceGrid");
+  $("sourceCount").textContent=rows.length+" / "+NEWS.length;
+  rows.forEach(x=>{
+    const img=x[3]||(safe(x[2])?favicon(x[2]):"");
+    root.append(card(x[0],"",x[2],x[1],img));
+  });
+  if(!rows.length)root.append(empty(t("noNews")));
+}
+$("sourceSearch").addEventListener("input",renderSources);
+
+/* FLASH INFO — RSS */
+const FEEDS=[
+  {
+    name:"HAÏTI",
+    category:"haiti",
+    url:"https://news.google.com/rss/search?q=Haiti&hl=fr&gl=FR&ceid=FR:fr"
+  },
+  {
+    name:"FLORIDA / DIASPORA",
+    category:"diaspora",
+    url:"https://news.google.com/rss/search?q=Haiti+Florida&hl=en-US&gl=US&ceid=US:en"
+  },
+  {
+    name:"BBC WORLD",
+    category:"world",
+    url:"https://feeds.bbci.co.uk/news/world/rss.xml"
+  }
+];
+function plain(v){
+  const d=new DOMParser().parseFromString(String(v||""),"text/html");
+  d.querySelectorAll("script,style,iframe").forEach(e=>e.remove());
+  return(d.body.textContent||"").replace(/\s+/g," ").trim();
+}
+async function loadFeed(feed){
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),12000);
+  try{
+    const response=await fetch(
+      RSS_API+"?rss_url="+encodeURIComponent(feed.url)+"&count=15",
+      {signal:ctrl.signal,cache:"no-store"}
+    );
+    if(!response.ok)throw Error("RSS unavailable");
+    const data=await response.json();
+    if(data.status!=="ok"||!Array.isArray(data.items)){
+      throw Error("RSS unavailable");
+    }
+    return data.items
+      .filter(x=>x.title&&safe(x.link))
+      .map(x=>({
+        title:plain(x.title),
+        summary:plain(x.description||x.content).slice(0,230),
+        url:x.link,
+        date:x.pubDate||"",
+        source:(data.feed&&data.feed.title)||feed.name,
+        category:feed.category,
+        external:true
+      }));
+  }finally{
+    clearTimeout(timer);
+  }
+}
+async function updateNews(){
+  if(rssBusy)return;
+  rssBusy=true;
+  $("refreshBtn").disabled=true;
+  $("flashStatus").textContent=t("loading");
+  try{
+    const result=await Promise.allSettled(FEEDS.map(loadFeed));
+    const seen=new Set();
+    const rows=result
+      .filter(x=>x.status==="fulfilled")
+      .flatMap(x=>x.value)
+      .filter(x=>{
+        if(seen.has(x.url))return false;
+        seen.add(x.url);
+        return true;
+      });
+    if(rows.length){
+      external=rows
+        .sort((a,b)=>Date.parse(b.date||0)-Date.parse(a.date||0))
+        .slice(0,45);
+      rssSuccess=true;
+    }else{
+      rssSuccess=false;
+    }
+  }catch{
+    rssSuccess=false;
+  }finally{
+    rssBusy=false;
+    $("refreshBtn").disabled=false;
+    renderNews();
+  }
+}
+async function loadPublished(){
+  try{
+    const r=await fetch(NEWS_JSON+"?v="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;
+    const data=await r.json();
+    const list=Array.isArray(data)
+      ?data
+      :(Array.isArray(data.articles)?data.articles:[]);
+    editorial=list.filter(x=>
+      x&&x.approved===true&&x.status==="published"&&localized(x.title)
+    );
+  }catch{
+    // Optional newsroom data.
+  }
+  renderNews();
+}
+function articleTitle(x){
+  return localized(x.title);
+}
+function articleSummary(x){
+  return localized(x.summary||x.description||"");
+}
+function newsCard(x){
+  const title=articleTitle(x);
+  const out=card(
+    title,
+    articleSummary(x),
+    x.url,
+    x.category||"news",
+    x.image||(x.external?favicon(x.url):"")
+  );
+  out.append(n("span",x.external?t("external"):t("approved"),"tag"));
+  if(x.date){
+    out.append(n("p",String(x.date).slice(0,16)+" | "+(x.source||""),"tiny"));
+  }
+  return out;
+}
+function newsCollection(id,items,emptyMsg){
+  const root=clear(id);
+  items.forEach(x=>root.append(newsCard(x)));
+  if(!items.length)root.append(empty(emptyMsg||t("noNews")));
+}
+function renderNews(){
+  const all=[...editorial,...external];
+  const flash=[
+    ...editorial.filter(x=>x.flash===true).slice(0,5),
+    ...external.slice(0,6)
+  ];
+  const featured=[
+    ...editorial.filter(x=>x.featured===true).slice(0,4),
+    ...external.slice(0,4)
+  ];
+  newsCollection("flashGrid",flash,rssSuccess?t("noNews"):t("rssFail"));
+  newsCollection("featuredGrid",featured);
+  filters("articleFilters",NEWS_CATS,articleFilter,k=>{
+    articleFilter=k;
+    renderNews();
+  });
+  const q=$("articleSearch").value.trim();
+  const filtered=all.filter(x=>
+    (articleFilter==="all"||x.category===articleFilter)&&
+    match(articleTitle(x)+" "+articleSummary(x)+" "+x.source,q)
+  );
+  $("articleCount").textContent=filtered.length+" / "+all.length;
+  newsCollection("articleGrid",filtered);
+  newsCollection(
+    "leoganeGrid",
+    editorial.filter(x=>
+      x.leogane===true||
+      x.source==="LÉOGÂNE INFO"||
+      x.category==="community"
+    ),
+    t("noLeogane")
+  );
+  $("flashStatus").textContent=rssSuccess
+    ?t("rssReady")+" ("+external.length+")"
+    :t("rssFail");
+}
+$("articleSearch").addEventListener("input",renderNews);
+$("refreshBtn").onclick=()=>{
+  updateNews();
+  loadPublished();
+};
+
+/* MODULE 03 — SHOWS CENTER */
+const SHOWS=[
+  {
+    title:"MATIN FORCE",
+    days:"daily",
+    time:"6:00 AM – 10:00 AM",
+    description:{
+      fr:"Actualités et réveil musical.",
+      en:"Morning news and music.",
+      ht:"Nouvèl maten ak mizik."
+    }
+  },
+  {
+    title:"HIT NON STOP",
+    days:"daily",
+    time:"10:00 AM – 3:00 PM",
+    description:{
+      fr:"Musique sans interruption.",
+      en:"Nonstop music.",
+      ht:"Mizik san rete."
+    }
+  },
+  {
+    title:"DRIVE TIME",
+    days:"daily",
+    time:"3:00 PM – 7:00 PM",
+    description:{
+      fr:"Musique et divertissement.",
+      en:"Music and entertainment.",
+      ht:"Mizik ak amizman."
+    }
+  },
+  {
+    title:"WEEKEND PARTY MIX",
+    days:"weekend",
+    time:null,
+    description:{
+      fr:"Mix musical du week-end.",
+      en:"Weekend party mix.",
+      ht:"Mix mizik wikenn."
+    }
+  },
+  {
+    title:"PETIT BAL DU SAMEDI SOIR",
+    days:"saturday",
+    time:"8:00 PM – 12:00 AM",
+    description:{
+      fr:"Bal du samedi soir, heure de Floride.",
+      en:"Saturday night dance, Florida time.",
+      ht:"Ti bal samdi swa, lè Florid."
+    }
+  },
+  {
+    title:{
+      fr:"ÉMISSION ÉVANGÉLIQUE",
+      en:"GOSPEL PROGRAM",
+      ht:"EMISYON EVANJELIK"
+    },
+    days:"announce",
+    time:null,
+    description:{
+      fr:"Programmation évangélique — horaire à annoncer.",
+      en:"Gospel program — time to be announced.",
+      ht:"Pwogram evanjelik — lè pou anonse."
+    }
+  }
+];
+function renderShows(){
+  const root=clear("showsGrid");
+  const table=clear("showsTable");
+  SHOWS.forEach(x=>{
+    const title=localized(x.title);
+    const c=card(
+      title,
+      localized(x.description)+" • "+(x.time||t("announce")),
+      null,"music","pro-max-fm.jpg"
+    );
+    const listen=link(t("showListen"),"#live");
+    listen.classList.add("show-listen");
+    listen.removeAttribute("target");
+    listen.removeAttribute("rel");
+    c.append(listen);
+    root.append(c);
+    const tr=n("tr");
+    [t(x.days),x.time||t("announce"),title]
+      .forEach(value=>tr.append(n("td",value)));
+    table.append(tr);
+  });
+}
+
+/* MODULE 04 — PODCASTS CENTER */
+const PODS=[
+["Bonjour PRO-MAX","Bonjou PRO-MAX","news","Max Louis"],
+["Le Son du Week-end","Son Wikenn nan","music","DJ Max"],
+["Voix de la Communauté","Vwa Kominote a","interview","Max Louis"],
+["Racines & Culture","Rasin & Kilti","culture","Équipe PRO-MAX"],
+["On Parle Vrai","Ann Pale Vre","community","Max Louis"],
+["Gospel Matin","Gospel Maten","music","DJ Max"],
+["Flash Info PRO-MAX","Flash Enfo PRO-MAX","news","Équipe PRO-MAX"],
+["Artiste à la Une","Atis An Vedèt","interview","Max Louis"],
+["Motivation du Jour","Motivasyon Jounen an","special","Max Louis"],
+["Santé & Bien-être","Sante & Byennèt","community","Équipe PRO-MAX"],
+["Contes & Histoires","Kont & Istwa","culture","Équipe PRO-MAX"],
+["Mix Party PRO-MAX","Mix Pati PRO-MAX","music","DJ Max"],
+["Le Débat PRO-MAX","Debat PRO-MAX la","news","Max Louis"],
+["Entrepreneur du Mois","Antreprenè Mwa a","interview","Max Louis"],
+["Prière & Espoir","Lapriyè & Espwa","special","Max Louis"]
+];
+const episodes=PODS.map((p,i)=>({
+  id:i+1,
+  title:{fr:p[0],en:p[0],ht:p[1]},
+  category:p[2],
+  host:p[3],
+  file:AUDIO_ROOT+"episode-"+String(i+1).padStart(3,"0")+".mp3",
+  available:false
+}));
+const replaySources=[1,0,2,4,3,8];
+const replays=replaySources.map((source,i)=>({
+  id:i+1,
+  title:{
+    fr:"Replay — "+PODS[source][0],
+    en:"Replay — "+PODS[source][0],
+    ht:"Replay — "+PODS[source][1]
+  },
+  category:PODS[source][2],
+  host:PODS[source][3],
+  file:AUDIO_ROOT+"replay-"+String(i+1).padStart(3,"0")+".mp3",
+  available:false
+}));
+function podCard(x){
+  const c=card(
+    localized(x.title),
+    x.host,
+    null,
+    x.category,
+    "pro-max-fm.jpg"
+  );
+  if(x.available){
+    const a=n("audio");
+    a.controls=true;
+    a.preload="none";
+    a.src=x.file;
+    a.addEventListener("play",()=>{
+      document.querySelectorAll("#podcasts audio").forEach(other=>{
+        if(other!==a)other.pause();
+      });
+    });
+    c.append(a);
+  }else{
+    c.append(n("p",t("noAudio"),"tiny"));
+  }
+  return c;
+}
+function renderPodcasts(){
+  filters(
+    "podcastFilters",
+    ["all","news","music","culture","interview","community","special"],
+    podFilter,
+    k=>{
+      podFilter=k;
+      renderPodcasts();
+    }
+  );
+  const q=$("podcastSearch").value.trim();
+  const root=clear("podcastGrid");
+  const rep=clear("replayGrid");
+  episodes.filter(x=>
+    (podFilter==="all"||x.category===podFilter)&&
+    match(Object.values(x.title).join(" ")+" "+x.host,q)
+  ).forEach(x=>root.append(podCard(x)));
+  if(!root.children.length)root.append(empty(t("noNews")));
+  replays.forEach(x=>rep.append(podCard(x)));
+  $("audioCount").textContent=
+    [...episodes,...replays].filter(x=>x.available).length;
+}
+async function checkPodcasts(){
+  await Promise.all(
+    [...episodes,...replays].map(async x=>{
+      const ctrl=new AbortController();
+      const timer=setTimeout(()=>ctrl.abort(),5000);
+      try{
+        const r=await fetch(x.file,{
+          method:"HEAD",
+          signal:ctrl.signal
+        });
+        const mime=(r.headers.get("content-type")||"").toLowerCase();
+        x.available=r.ok&&(
+          mime.startsWith("audio/")||
+          mime.includes("octet-stream")
+        );
+      }catch{
+        x.available=false;
+      }finally{
+        clearTimeout(timer);
+      }
+    })
+  );
+  renderPodcasts();
+}
+$("podcastSearch").addEventListener("input",renderPodcasts);
+
+/* MODULE 05 — MUSIC CENTER */
+const GENRES=[
+  "Kompa","Kompa Love","Reggae","Reggae for Lovers",
+  "Rap Kreyòl","Rabòday","Rara","Racine Mizik",
+  "Hip-Hop","Reggaeton","Ansyèn Mizik",
+  "Tropicana","Septen","Konpa Direct",
+  "Zouk","Afrobeat","Jazz","Gospel"
+];
+function renderMusic(){
+  const root=clear("genreGrid");
+  const q=$("musicSearch").value.trim();
+  GENRES.filter(x=>match(x,q)).forEach(x=>{
+    root.append(
+      card(x,"PRO-MAX FM — MUSIC",null,"music","pro-max-fm.jpg")
+    );
+  });
+  if(!root.children.length)root.append(empty(t("noNews")));
+}
+$("musicSearch").addEventListener("input",renderMusic);
+
+/* MODULE 06 — ARTISTS CENTER */
+const ARTISTS=[
+["Tropicana d'Haïti","Kompa"],
+["Orchestre Septentrional","Kompa"],
+["Tabou Combo","Kompa"],
+["Boukman Eksperyans","Racine"],
+["RAM","Racine"],
+["T-Vice","Kompa"],
+["Zenglen","Kompa"],
+["Nu-Look","Kompa"],
+["Djakout #1","Kompa"],
+["Klass","Kompa"],
+["Harmonik","Kompa"]
+];
+function renderArtists(){
+  filters(
+    "artistFilters",
+    ["all","group","roots"],
+    artistFilter,
+    k=>{
+      artistFilter=k;
+      renderArtists();
+    }
+  );
+  const q=$("artistSearch").value.trim();
+  const root=clear("artistGrid");
+  ARTISTS.filter(x=>
+    (
+      artistFilter==="all"||
+      artistFilter==="group"||
+      (artistFilter==="roots"&&x[1]==="Racine")
+    )&&match(x.join(" "),q)
+  ).forEach(x=>{
+    root.append(
+      card(
+        x[0],
+        x[1],
+        "https://www.youtube.com/results?search_query="+
+          encodeURIComponent(x[0]+" music"),
+        "group",
+        ""
+      )
+    );
+  });
+  if(!root.children.length)root.append(empty(t("noNews")));
+}
+$("artistSearch").addEventListener("input",renderArtists);
+
+/* MODULE 07 — VIDEO CENTER */
+const VIDEOS=[
+["PRO-MAX FM / BSS1815","https://www.youtube.com/@BSS1815PROMAXDMP","community"],
+["Rara Léogâne","https://www.youtube.com/results?search_query=Rara+Leogane","culture"],
+["PRO-MAX FM — Kompa","https://www.youtube.com/results?search_query=Kompa+Haitian+Music","music"],
+["Ti Koze ak TT","https://www.youtube.com/@tikozeaktt1","news"],
+["Access Hollywood","https://www.youtube.com/channel/UCiKGMZZmZXK-RpbKJGXgH3Q","entertainment"]
+];
+function renderVideos(){
+  const root=clear("videoGrid");
+  VIDEOS.forEach(x=>{
+    root.append(
+      card(
+        x[0],
+        "YouTube",
+        x[1],
+        x[2],
+        x[0].includes("BSS1815")?"pro-max-fm.jpg":favicon(x[1])
+      )
+    );
+  });
+}
+
+/* MODULE 08 — EVENTS CENTER */
+const EVENTS=[];
+let month=new Date();
+let chosen="";
+month.setDate(1);
+function dateKey(d){
+  return d.getFullYear()+"-"+
+    String(d.getMonth()+1).padStart(2,"0")+"-"+
+    String(d.getDate()).padStart(2,"0");
+}
+function renderEvents(){
+  const root=clear("calendar");
+  const y=month.getFullYear();
+  const m=month.getMonth();
+  $("monthName").textContent=
+    new Intl.DateTimeFormat(
+      lang==="en"?"en-US":"fr-FR",
+      {month:"long",year:"numeric"}
+    ).format(month);
+  (
+    lang==="en"
+      ?["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+      :["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
+  ).forEach(x=>root.append(n("div",x,"weekday")));
+  for(let i=0;i<new Date(y,m,1).getDay();i++){
+    root.append(n("div",null,"blank"));
+  }
+  for(let d=1;d<=new Date(y,m+1,0).getDate();d++){
+    const date=dateKey(new Date(y,m,d));
+    const b=n("button",d);
+    if(date===dateKey(new Date()))b.classList.add("today");
+    if(date===chosen)b.classList.add("selected");
+    b.onclick=()=>{
+      chosen=date;
+      $("selectedDate").textContent=date+" — "+t("noEvent");
+      renderEvents();
+    };
+    root.append(b);
+  }
+  const events=clear("eventGrid");
+  EVENTS.filter(x=>x.date>=dateKey(new Date())).forEach(x=>{
+    events.append(
+      card(localized(x.title),x.date,x.url,"community",x.image)
+    );
+  });
+  if(!events.children.length)events.append(empty(t("noEvent")));
+}
+$("prevMonth").onclick=()=>{
+  month.setMonth(month.getMonth()-1);
+  chosen="";
+  $("selectedDate").textContent="";
+  renderEvents();
+};
+$("nextMonth").onclick=()=>{
+  month.setMonth(month.getMonth()+1);
+  chosen="";
+  $("selectedDate").textContent="";
+  renderEvents();
+};
+
+/* MODULE 09 — SOCIAL NETWORKS */
+const SOCIAL=[
+["Facebook","f","#1877f2","https://www.facebook.com/share/1By3KvYRrM/"],
+["WhatsApp","◉","#25d366","https://wa.me/50943437488"],
+["TikTok","♪","#fe2c55","https://www.tiktok.com/@maximax1960"],
+["Instagram","◎","#e4405f","https://www.instagram.com/lebaron072/"],
+["Telegram","➤","#229ed9","https://t.me/bss1815dmp"],
+["YouTube","▶","#ff0033","https://www.youtube.com/@BSS1815PROMAXDMP"],
+["Spotify","≋","#1db954","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
+["X","𝕏","#ff8c00","https://x.com/w05g2m"],
+["Truth Social","T","#448aff","https://truthsocial.com/@briyant_soley_1815"],
+["LinkedIn","in","#0a66c2","https://www.linkedin.com/in/maximax-multi-services-075ba2314"]
+];
+function renderSocial(){
+  const brands={
+    Facebook:"fa-facebook-f",
+    WhatsApp:"fa-whatsapp",
+    TikTok:"fa-tiktok",
+    Instagram:"fa-instagram",
+    Telegram:"fa-telegram",
+    YouTube:"fa-youtube",
+    Spotify:"fa-spotify",
+    X:"fa-x-twitter",
+    LinkedIn:"fa-linkedin-in"
+  };
+  for(const id of ["socialGrid","heroSocialGrid"]){
+    const root=clear(id);
+    for(const [name,sym,color,url] of SOCIAL){
+      const a=n("a");
+      a.href=url;
+      a.target="_blank";
+      a.rel="noopener noreferrer";
+      a.setAttribute("aria-label","PRO-MAX FM — "+name);
+      const icon=n("span",null,"social-icon");
+      icon.style.background=color;
+      if(brands[name]){
+        const i=n("i");
+        i.className="fa-brands "+brands[name];
+        i.setAttribute("aria-hidden","true");
+        icon.append(i);
+      }else{
+        icon.append(n("span",sym,"fallback"));
+      }
+      a.append(icon,n("strong",name));
+      root.append(a);
+    }
+  }
+}
+
+/* VIDEO CUSTOMER SERVICE */
+const serviceVideo=$("serviceVideo");
+const serviceVideoSource=$("serviceVideoSource");
+let videoFallbackTried=false;
+
+function videoUnavailable(){
+  const message=$("serviceVideoError");
+  message.textContent=t("videoFileMissing");
+  message.hidden=false;
+}
+serviceVideoSource.addEventListener("error",()=>{
+  if(!videoFallbackTried){
+    videoFallbackTried=true;
+    serviceVideoSource.src="../max-louis-le-baron.mp4";
+    serviceVideo.load();
+  }else{
+    videoUnavailable();
+  }
+});
+serviceVideo.addEventListener("error",videoUnavailable);
+serviceVideo.addEventListener("loadedmetadata",()=>{
+  $("serviceVideoError").hidden=true;
+});
+
+/* CUSTOMER SERVICE — REPONS OTMATIK */
+function supportAnswer(question){
+  const q=normalize(question);
+  const d={
+    fr:{
+      live:"La radio LIVE est dans le Module 01. Cliquez sur ÉCOUTER EN DIRECT pour utiliser le player sur cette page.",
+      shows:"Les émissions et la grille sont dans SHOWS CENTER. Chaque fiche mène au player LIVE.",
+      news:"Les nouvelles, LÉOGÂNE INFO et les sources de presse se trouvent dans NEWS CENTER.",
+      contact:"Contactez PRO-MAX FM en Floride au (407) 640-5166, en Indiana au (317) 538-1150, ou par WhatsApp au +509 4343 7488.",
+      music:"La rubrique MUSIC présente les genres musicaux. Le player LIVE est en haut de la page.",
+      other:"Je peux vous orienter vers LIVE, NEWS, SHOWS, MUSIC, LÉOGÂNE INFO et CONTACT. Pour une demande personnelle, utilisez WhatsApp."
+    },
+    en:{
+      live:"The LIVE station is in Module 01. Select LISTEN LIVE to use the player on this page.",
+      shows:"Program listings are in SHOWS CENTER. Each show links to the LIVE player.",
+      news:"News, LÉOGÂNE INFO and media sources are in NEWS CENTER.",
+      contact:"Contact PRO-MAX FM in Florida at (407) 640-5166, Indiana at (317) 538-1150, or WhatsApp +509 4343 7488.",
+      music:"The MUSIC section lists music genres. The LIVE player is at the top of the page.",
+      other:"I can direct you to LIVE, NEWS, SHOWS, MUSIC, LÉOGÂNE INFO and CONTACT. For personal help, use WhatsApp."
+    },
+    ht:{
+      live:"Radyo LIVE la nan Modil 01. Klike KOUTE AN DIRÈK pou sèvi ak player ki sou paj sa a.",
+      shows:"Emisyon ak orè yo nan SHOWS CENTER. Chak emisyon mennen nan player LIVE la.",
+      news:"Nouvèl, LÉOGÂNE INFO ak sous medya yo nan NEWS CENTER.",
+      contact:"Kontakte PRO-MAX FM nan Florid (407) 640-5166, Indiana (317) 538-1150, oswa WhatsApp +509 4343 7488.",
+      music:"Nan MUSIC ou jwenn kategori mizik yo. Player LIVE la anwo paj la.",
+      other:"Mwen ka gide w nan LIVE, NEWS, SHOWS, MUSIC, LÉOGÂNE INFO ak CONTACT. Pou èd pèsonèl, itilize WhatsApp."
+    }
+  }[lang];
+
+  if(/live|radio|radyo|en direct|an dirèk|stream|play|écouter|koute/.test(q))return d.live;
+  if(/show|émission|emisyon|program|pwogram|gospel|evanj/.test(q))return d.shows;
+  if(/news|nouv|info|léog|leog|journal|media/.test(q))return d.news;
+  if(/music|mizik|kompa|artist|atis|spotify/.test(q))return d.music;
+  if(/contact|whats|phone|tel|telef|adress|agent/.test(q))return d.contact;
+  return d.other;
+}
+let supportBusy=false;
+async function askCentralSupport(question){
+  const q=String(question||"").trim();
+  if(!q||supportBusy)return;
+  const language=lang;
+  const reply=$("supportReply");
+  const controls=[...$("supportForm").querySelectorAll("input,button"),...document.querySelectorAll("#supportTopics button")];
+  const previous=controls.map(e=>e.disabled);
+  const messages={fr:["Connexion à l’IA centrale...","IA centrale indisponible. Orientation locale : "],en:["Connecting to central AI...","Central AI unavailable. Local guidance: "],ht:["Ap konekte ak AI santral la...","AI santral la pa disponib. Oryantasyon lokal: "]}[language];
+  supportBusy=true;
+  controls.forEach(e=>e.disabled=true);
+  reply.textContent=messages[0];
+  try{
+    const integration=window.BSS1815_INTEGRATION;
+    if(!integration||typeof integration.ask!=="function")throw Error("Integration unavailable");
+    const result=await integration.ask({prompt:q,project:"pro-max-fm",language,provider:"openai",tool:"assistant"});
+    if(typeof result?.answer!=="string"||!result.answer.trim())throw Error("Empty response");
+    reply.textContent=result.answer;
+  }catch{
+    reply.textContent=messages[1]+supportAnswer(q);
+  }finally{
+    controls.forEach((e,i)=>e.disabled=previous[i]);
+    supportBusy=false;
+  }
+}
+$("supportForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  askCentralSupport($("supportQuestion").value);
+});
+document.querySelectorAll("#supportTopics button").forEach(b=>{
+  b.addEventListener("click",()=>{
+    $("supportQuestion").value=b.dataset.question;
+    askCentralSupport(b.dataset.question);
+  });
+});
+
+/* INITIALIZATION */
+function renderAll(){
+  renderSources();
+  renderNews();
+  renderShows();
+  renderPodcasts();
+  renderMusic();
+  renderArtists();
+  renderVideos();
+  renderEvents();
+  renderSocial();
+}
+setLanguage("fr");
+$("flashStatus").textContent=t("loading");
+updateNews();
+loadPublished();
+checkPodcasts();
+
+setInterval(()=>{
+  updateNews();
+  loadPublished();
+},300000);
+
+})();
+</script>
+<script src="https://bss1815promaxdmp.com/central-ai-integration.js" defer></script>
+</body>
 </html>
