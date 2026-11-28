@@ -1,244 +1,1306 @@
-<!DOCTYPE html>
-<html lang="ht">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Center | BSS1815 PRO-MAX-DMP</title>
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(135deg,#000,#1a0900,#ff6a00,#000);
-      color:#fff3e6;
-      min-height:100vh;
-      line-height:1.6;
-    }
-    header{
-      text-align:center;
-      padding:45px 20px;
-      background:linear-gradient(135deg,#000,#ff6a00,#000);
-      border-bottom:3px solid #ff7a00;
-    }
-    header h1{
-      font-size:3rem;
-      color:#ff7a00;
-      text-transform:uppercase;
-      letter-spacing:2px;
-    }
-    header p{font-size:1.1rem;color:#ffd2a1;margin-top:10px}
-    nav{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:12px;
-      padding:18px;
-      background:#000;
-      border-bottom:1px solid #ff7a00;
-    }
-    nav a{
-      color:#fff3e6;
-      text-decoration:none;
-      border:1px solid #ff7a00;
-      padding:10px 16px;
-      border-radius:30px;
-      font-weight:bold;
-    }
-    nav a:hover{background:#ff7a00;color:#000}
-    main{
-      width:min(1150px,94%);
-      margin:35px auto;
-    }
-    .intro,.tool-card,.output-box{
-      background:rgba(0,0,0,.78);
-      border:1px solid #ff7a00;
-      border-radius:18px;
-      padding:24px;
-      box-shadow:0 0 20px rgba(255,122,0,.25);
-    }
-    .intro h2,.section-title{color:#ff7a00;text-transform:uppercase;margin-bottom:12px}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:22px;
-      margin-top:28px;
-    }
-    .tool-card h3{color:#ff7a00;margin-bottom:10px}
-    .tool-card p{color:#fff3e6}
-    .tool-card button,.btn{
-      margin-top:15px;
-      background:#ff7a00;
-      color:#000;
-      border:none;
-      padding:11px 15px;
-      border-radius:10px;
-      font-weight:bold;
-      cursor:pointer;
-    }
-    .generator{
-      margin-top:35px;
-      background:rgba(0,0,0,.82);
-      border:1px solid #ff7a00;
-      border-radius:18px;
-      padding:24px;
-    }
-    label{display:block;margin-top:15px;color:#ffd2a1;font-weight:bold}
-    select,textarea,input{
-      width:100%;
-      margin-top:8px;
-      padding:12px;
-      border-radius:10px;
-      border:1px solid #ff7a00;
-      background:#000;
-      color:#fff3e6;
-      font-size:1rem;
-    }
-    textarea{min-height:130px;resize:vertical}
-    .output-box{
-      margin-top:20px;
-      white-space:pre-wrap;
-      min-height:120px;
-    }
-    footer{
-      text-align:center;
-      padding:25px;
-      margin-top:45px;
-      background:#000;
-      border-top:3px solid #ff7a00;
-      color:#ffd2a1;
-    }
-  </style>
+<!DOCTYPE html>
+<html lang="ht" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta name="google" content="notranslate">
+
+<title>BSS1815 PRO-MAX DMP — CENTRAL AI CENTER</title>
+
+<style>
+:root{
+  --orange:#ff7900;
+  --apricot:#ffb36b;
+  --black:#000;
+  --border:#783900;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:radial-gradient(ellipse at top,#351500,#090400 45%,#000);
+  color:var(--apricot);
+  min-height:100vh;
+}
+
+header,footer{
+  text-align:center;
+  padding:28px 15px;
+  background:linear-gradient(135deg,#291000,#000);
+}
+
+header{border-bottom:2px solid var(--orange)}
+footer{border-top:2px solid var(--orange)}
+
+h1,h2,h3{color:var(--orange)}
+
+main{
+  width:min(1200px,94%);
+  margin:auto;
+}
+
+.panel{
+  margin:24px 0;
+  padding:24px;
+  background:linear-gradient(145deg,#201000,#030100);
+  border:1px solid var(--border);
+  border-radius:18px;
+}
+
+.center{text-align:center}
+
+button,select,.btn{
+  font:bold 14px Arial,sans-serif;
+  padding:12px 16px;
+  border:1px solid var(--orange);
+  border-radius:10px;
+  background:#160900;
+  color:var(--apricot);
+  cursor:pointer;
+  text-decoration:none;
+}
+
+button:hover,button.active,.btn:hover{
+  background:var(--orange);
+  color:var(--black);
+}
+
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:16px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:12px;
+}
+
+.grid button{min-height:75px}
+
+video{
+  width:min(100%,650px);
+  background:#000;
+  border:2px solid var(--orange);
+  border-radius:18px;
+}
+
+label{
+  display:block;
+  margin:16px 0 8px;
+  font-weight:bold;
+}
+
+select,textarea{width:100%}
+
+textarea{
+  min-height:160px;
+  resize:vertical;
+  background:#050200;
+  color:var(--apricot);
+  border:1px solid var(--orange);
+  border-radius:12px;
+  padding:16px;
+  font:16px Arial,sans-serif;
+  line-height:1.6;
+}
+
+#aiResponse{
+  min-height:180px;
+  background:#050200;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  line-height:1.7;
+}
+
+#aiStatus{
+  text-align:center;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+#aiStatus.error{
+  border:2px dashed var(--orange);
+}
+
+.history-item{
+  padding:12px;
+  margin:10px 0;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow-wrap:anywhere;
+}
+
+[hidden]{display:none!important}
+
+@media(max-width:600px){
+  .panel{padding:15px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>AI CENTER</h1>
-  <p>BSS1815 PRO-MAX-DMP</p>
-  <p><strong>DEVAN DEVAN NÈT. PARE POU DEMEN.</strong></p>
-</header>
+  <h3>BSS1815 PRO-MAX DMP</h3>
+  <h1>CENTRAL AI CENTER</h1>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="pro-max-fm.html">PRO-MAX FM</a>
-  <a href="latest-news.html">Latest News</a>
-  <a href="ai-center.html">AI Center</a>
-</nav>
+  <p data-text="subtitle">
+    YON SÈL AI CENTER — TOUT PWOJÈ YO
+  </p>
+
+  <div class="actions">
+    <button type="button" data-lang="fr">FRA</button>
+    <button type="button" data-lang="en">ENG</button>
+    <button type="button" data-lang="ht">KRE</button>
+  </div>
+
+  <a class="btn" href="./index.html" data-text="home">
+    AKÈY
+  </a>
+</header>
 
 <main>
 
-  <section class="intro">
-    <h2>🤖 Sant Entèlijans Atifisyèl</h2>
-    <p>
-      AI CENTER se sant dijital BSS1815 PRO-MAX-DMP pou ede admin yo kreye
-      mesaj, anons, script, tradiksyon, dokiman, vwa radyo, ak kontni kominotè.
-    </p>
-  </section>
+<section class="panel center">
 
-  <section class="grid">
+  <h2>PROF AVATAR</h2>
 
-    <div class="tool-card">
-      <h3>AI Assistant</h3>
-      <p>Ede admin yo ekri mesaj, nòt ofisyèl, repons, ak kominikasyon kominotè.</p>
-    </div>
+  <video
+    id="aiProfAvatar"
+    controls
+    playsinline
+    preload="metadata"
+    src="./promax-dmp.mp4">
+  </video>
 
-    <div class="tool-card">
-      <h3>AI Content Generator</h3>
-      <p>Kreye death announcement, birthday message, condolence, event announcement, ak official notice.</p>
-    </div>
+  <div class="actions">
+    <button type="button" id="aiAvatarPlay" data-text="play">
+      ▶ JWE
+    </button>
 
-    <div class="tool-card">
-      <h3>AI Translation</h3>
-      <p>Tradui kontni yo an Kreyòl, English, ak Français pou tout kominote a.</p>
-    </div>
+    <button type="button" id="aiAvatarStop" data-text="stop">
+      ■ KANPE
+    </button>
+  </div>
 
-    <div class="tool-card">
-      <h3>AI Voice Studio</h3>
-      <p>Prepare tèks pou vwa PRO-MAX-DMP FM, podcast, video, ak radio announcement.</p>
-    </div>
+  <p data-text="avatarNote">
+    Videyo ofisyèl avèk vwa entegre.
+  </p>
 
-    <div class="tool-card">
-      <h3>AI FM News Reader</h3>
-      <p>Prepare nouvèl ak anons pou li sou PRO-MAX-DMP FM.</p>
-    </div>
+</section>
 
-    <div class="tool-card">
-      <h3>AI Document Helper</h3>
-      <p>Ede prepare memo, PDF, lèt, kontra, règleman, ak dokiman ofisyèl.</p>
-    </div>
+<section class="panel">
 
-  </section>
+  <h2 class="center" data-text="projects">
+    EKOSISTÈM AI
+  </h2>
 
-  <section class="generator">
-    <h2 class="section-title">AI Content Generator Demo</h2>
+  <div id="projectGrid" class="grid"></div>
 
-    <label for="contentType">Chwazi kalite kontni an</label>
-    <select id="contentType">
-      <option value="official">Official Notice</option>
-      <option value="birthday">Birthday Message</option>
-      <option value="condolence">Condolence Message</option>
-      <option value="event">Event Announcement</option>
-      <option value="fm">PRO-MAX FM Radio Script</option>
-      <option value="emergency">Emergency Alert</option>
+  <div id="schoolField" hidden>
+
+    <label for="school" data-text="school">
+      CHWAZI LEKÒL
+    </label>
+
+    <select id="school">
+      <option value="General Academy">
+        PRO-MAX ACADÉMIE
+      </option>
+
+      <option value="Real Estate School">
+        REAL ESTATE SCHOOL
+      </option>
+
+      <option value="Insurance School">
+        INSURANCE SCHOOL
+      </option>
+
+      <option value="Journalism School">
+        ÉCOLE DE JOURNALISME
+      </option>
+
+      <option value="Beat Maker AI School">
+        BEAT MAKER AI SCHOOL
+      </option>
     </select>
 
-    <label for="language">Chwazi lang lan</label>
-    <select id="language">
-      <option value="ht">Kreyòl</option>
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-    </select>
+  </div>
 
-    <label for="topic">Ekri sijè a</label>
-    <input id="topic" type="text" placeholder="Egzanp: Reyinyon kominotè samdi 7 PM" />
+  <p class="center">
+    <span data-text="activeProject">PWOJÈ AKTIF</span>:
+    <strong id="activeProject"></strong>
+  </p>
 
-    <label for="details">Ajoute detay yo</label>
-    <textarea id="details" placeholder="Mete tout detay admin la bezwen itilize..."></textarea>
+</section>
 
-    <button class="btn" onclick="generateContent()">Generate Content</button>
+<section class="panel">
 
-    <div class="output-box" id="outputBox">
-      Rezilta AI a ap parèt isit la.
+  <h2 class="center" data-text="tools">
+    ZOUTI CENTRAL AI
+  </h2>
+
+  <div id="toolGrid" class="grid"></div>
+
+</section>
+
+<section class="panel">
+
+  <h2 class="center">AI WORKSPACE</h2>
+
+  <label for="provider" data-text="engine">
+    MOTÈ AI
+  </label>
+
+  <select id="provider">
+    <option value="openai">OPENAI</option>
+    <option value="gemini">GOOGLE GEMINI</option>
+    <option value="professor">AI PROFESSOR</option>
+  </select>
+
+  <form id="centralAIForm">
+
+    <label for="aiPrompt" data-text="question">
+      KESYON OU
+    </label>
+
+    <textarea
+      id="aiPrompt"
+      maxlength="8000"
+      required>
+    </textarea>
+
+    <div class="actions">
+
+      <button type="submit" id="sendAI" data-text="send">
+        VOYE BAY AI
+      </button>
+
+      <button type="button" id="clearAI" data-text="clear">
+        EFASE
+      </button>
+
     </div>
-  </section>
+
+  </form>
+
+  <p id="aiStatus" role="status" aria-live="polite"></p>
+
+  <h3 data-text="answer">REPONS AI</h3>
+
+  <div id="aiResponse" aria-live="polite"></div>
+
+  <div class="actions">
+
+    <button type="button" id="copyAI" data-text="copy">
+      KOPYE
+    </button>
+
+    <button type="button" id="retryAI" data-text="retry">
+      ESEYE ANKÒ
+    </button>
+
+  </div>
+
+  <p>PROVIDER: <strong id="activeProvider">—</strong></p>
+
+  <small data-text="privacy">
+    Pa antre modpas oswa enfòmasyon konfidansyèl.
+  </small>
+
+</section>
+
+<section class="panel">
+
+  <h2 data-text="history">ISTWA SESYON</h2>
+
+  <div id="aiHistory"></div>
+
+  <div class="actions">
+
+    <button type="button" id="clearHistory" data-text="clearHistory">
+      EFASE ISTWA
+    </button>
+
+  </div>
+
+</section>
 
 </main>
 
 <footer>
-  <p>© 2026 BSS1815 PRO-MAX-DMP | AI CENTER</p>
-  <p>DEVAN DEVAN NÈT. PARE POU DEMEN.</p>
+
+  <h3>BSS1815 PRO-MAX DMP</h3>
+
+  <p>ONE PLATFORM — ONE AI CENTER</p>
+
+  <p>BATI POU JODI A, PARE POU DEMEN.</p>
+
+  <strong>DEVAN DEVAN NÈT.</strong>
+
+  <p>© <span id="year"></span> BSS1815 PRO-MAX DMP</p>
+
 </footer>
 
 <script>
-  function generateContent() {
-    const type = document.getElementById("contentType").value;
-    const language = document.getElementById("language").value;
-    const topic = document.getElementById("topic").value || "Sijè pa antre";
-    const details = document.getElementById("details").value || "Pa gen detay ajoute.";
-    const output = document.getElementById("outputBox");
+"use strict";
 
-    let title = "";
+(() => {
 
-    if (type === "official") title = "OFFICIAL NOTICE";
-    if (type === "birthday") title = "BIRTHDAY MESSAGE";
-    if (type === "condolence") title = "CONDOLENCE MESSAGE";
-    if (type === "event") title = "EVENT ANNOUNCEMENT";
-    if (type === "fm") title = "PRO-MAX FM RADIO SCRIPT";
-    if (type === "emergency") title = "EMERGENCY ALERT";
+const $ = id => document.getElementById(id);
 
-    output.textContent =
-`${title}
+/* CENTRAL AI BACKEND V1.0.1 */
 
-Platform: BSS1815 PRO-MAX-DMP
-Language: ${language.toUpperCase()}
-Topic: ${topic}
+const ENDPOINTS = Object.freeze({
+  openai:"/.netlify/functions/central-ai",
+  gemini:"/.netlify/functions/central-ai",
+  professor:"/.netlify/functions/central-ai"
+});
 
-Message:
-${details}
+/* CENTRAL ECOSYSTEM */
 
-Prepared by AI CENTER
-DEVAN DEVAN NÈT. PARE POU DEMEN.`;
+const PROJECTS = Object.freeze({
+
+  bss1815:{
+    name:"BSS1815 COMMUNITY",
+    context:"Community, heritage, culture and organizational assistance."
+  },
+
+  "pro-max-fm":{
+    name:"PRO-MAX FM 106.5 FM",
+    context:"Radio programming, broadcasting, podcasts and Haitian music."
+  },
+
+  maximax:{
+    name:"MAXIMAX MULTI SERVICES",
+    context:"Immigration document assistance, notary, taxes, insurance and business services. Do not claim to be an attorney."
+  },
+
+  academy:{
+    name:"PRO-MAX ACADÉMIE",
+    context:"Professional education, lessons, quizzes and student assistance."
+  },
+
+  "beat-lab":{
+    name:"PRO-MAX BEAT LAB",
+    context:"Music composition, lyrics, rhythm and production guidance."
+  },
+
+  "leogane-info":{
+    name:"LÉOGÂNE INFO",
+    context:"Journalism, interviews, community news and fact checking. Do not invent news."
+  },
+
+  ddn:{
+    name:"DEVAN DEVAN NÈT",
+    context:"Digital communication, innovation and information."
   }
+
+});
+
+/* CENTRAL AI TOOLS */
+
+const TOOLS = Object.freeze({
+
+  assistant:{
+    ht:"ASISTAN AI",
+    fr:"ASSISTANT IA",
+    en:"AI ASSISTANT",
+    task:"Provide project-specific assistance."
+  },
+
+  writer:{
+    ht:"EKRIVEN AI",
+    fr:"RÉDACTEUR IA",
+    en:"AI WRITER",
+    task:"Draft professional written content."
+  },
+
+  translator:{
+    ht:"TRADIKSYON AI",
+    fr:"TRADUCTION IA",
+    en:"AI TRANSLATOR",
+    task:"Translate accurately into the requested language."
+  },
+
+  voice:{
+    ht:"SCRIPT VWA",
+    fr:"SCRIPT VOCAL",
+    en:"VOICE SCRIPT",
+    task:"Prepare narration scripts. Do not claim to generate audio files."
+  },
+
+  image:{
+    ht:"PROMPT IMAJ",
+    fr:"PROMPT IMAGE",
+    en:"IMAGE PROMPT",
+    task:"Prepare image prompts. Do not claim to generate image files."
+  },
+
+  analytics:{
+    ht:"ANALIZ AI",
+    fr:"ANALYSE IA",
+    en:"AI ANALYTICS",
+    task:"Analyze supplied information without inventing data."
+  },
+
+  tutor:{
+    ht:"PROFESÈ AI",
+    fr:"PROFESSEUR IA",
+    en:"AI PROFESSOR",
+    task:"Teach clearly with examples and explanations."
+  }
+
+});
+
+/* LANGUAGE SYSTEM */
+
+const TEXT = {
+
+  ht:{
+    subtitle:"YON SÈL AI CENTER — TOUT PWOJÈ YO",
+    home:"AKÈY",
+    play:"▶ JWE",
+    stop:"■ KANPE",
+    avatarNote:"Videyo ofisyèl avèk vwa entegre.",
+    projects:"EKOSISTÈM AI",
+    school:"CHWAZI LEKÒL",
+    activeProject:"PWOJÈ AKTIF",
+    tools:"ZOUTI CENTRAL AI",
+    engine:"MOTÈ AI",
+    question:"KESYON OU",
+    send:"VOYE BAY AI",
+    clear:"EFASE",
+    answer:"REPONS AI",
+    copy:"KOPYE",
+    retry:"ESEYE ANKÒ",
+    privacy:"Pa antre modpas oswa enfòmasyon konfidansyèl.",
+    history:"ISTWA SESYON",
+    clearHistory:"EFASE ISTWA",
+    placeholder:"Ekri kesyon ou...",
+    ready:"PARE POU RESEVWA KESYON",
+    processing:"AI AP TRETE KESYON AN...",
+    success:"REPONS AI RESEVWA",
+    error:"KONEKSYON AI ECHWE",
+    empty:"Ekri yon kesyon.",
+    noHistory:"Pa gen istwa.",
+    copied:"REPONS LAN KOPYE",
+    avatarError:"Videyo a pa chaje.",
+    timeout:"Tan koneksyon an ekspire.",
+    noAnswer:"API a pa retounen tèks."
+  },
+
+  fr:{
+    subtitle:"UN SEUL CENTRE IA — TOUS LES PROJETS",
+    home:"ACCUEIL",
+    play:"▶ LIRE",
+    stop:"■ ARRÊTER",
+    avatarNote:"Vidéo officielle avec voix intégrée.",
+    projects:"ÉCOSYSTÈME IA",
+    school:"CHOISIR UNE ÉCOLE",
+    activeProject:"PROJET ACTIF",
+    tools:"OUTILS IA",
+    engine:"MOTEUR IA",
+    question:"VOTRE QUESTION",
+    send:"ENVOYER",
+    clear:"EFFACER",
+    answer:"RÉPONSE IA",
+    copy:"COPIER",
+    retry:"RÉESSAYER",
+    privacy:"Ne saisissez aucune donnée confidentielle.",
+    history:"HISTORIQUE DE SESSION",
+    clearHistory:"EFFACER L’HISTORIQUE",
+    placeholder:"Écrivez votre question...",
+    ready:"PRÊT À RECEVOIR UNE QUESTION",
+    processing:"TRAITEMENT EN COURS...",
+    success:"RÉPONSE IA REÇUE",
+    error:"ÉCHEC DE CONNEXION IA",
+    empty:"Écrivez une question.",
+    noHistory:"Aucun historique.",
+    copied:"RÉPONSE COPIÉE",
+    avatarError:"La vidéo ne se charge pas.",
+    timeout:"Le délai de connexion a expiré.",
+    noAnswer:"L’API n’a retourné aucun texte."
+  },
+
+  en:{
+    subtitle:"ONE AI CENTER — ALL PROJECTS",
+    home:"HOME",
+    play:"▶ PLAY",
+    stop:"■ STOP",
+    avatarNote:"Official video with prerecorded voice.",
+    projects:"AI ECOSYSTEM",
+    school:"SELECT SCHOOL",
+    activeProject:"ACTIVE PROJECT",
+    tools:"CENTRAL AI TOOLS",
+    engine:"AI ENGINE",
+    question:"YOUR QUESTION",
+    send:"SEND TO AI",
+    clear:"CLEAR",
+    answer:"AI RESPONSE",
+    copy:"COPY",
+    retry:"TRY AGAIN",
+    privacy:"Do not enter confidential information.",
+    history:"SESSION HISTORY",
+    clearHistory:"CLEAR HISTORY",
+    placeholder:"Enter your question...",
+    ready:"READY TO RECEIVE A QUESTION",
+    processing:"AI IS PROCESSING...",
+    success:"AI RESPONSE RECEIVED",
+    error:"AI CONNECTION FAILED",
+    empty:"Enter a question.",
+    noHistory:"No session history.",
+    copied:"RESPONSE COPIED",
+    avatarError:"The video could not load.",
+    timeout:"The connection timed out.",
+    noAnswer:"The API returned no text."
+  }
+
+};
+
+const state = {
+  language:"ht",
+  project:"bss1815",
+  tool:"assistant",
+  busy:false,
+  history:[],
+  lastRequest:null,
+  status:"ready",
+  detail:""
+};
+
+const has = (object,key) =>
+  Object.prototype.hasOwnProperty.call(object,key);
+
+const t = key => TEXT[state.language][key] || key;
+
+/* STATUS SYSTEM */
+
+function status(key,detail=""){
+
+  state.status=key;
+  state.detail=detail;
+
+  $("aiStatus").textContent=
+    t(key)+(detail ? " — "+detail : "");
+
+  $("aiStatus").classList.toggle(
+    "error",
+    ["error","empty","avatarError"].includes(key)
+  );
+
+}
+
+/* PROJECT SELECTOR */
+
+function renderProjects(){
+
+  const grid=$("projectGrid");
+
+  grid.replaceChildren();
+
+  Object.entries(PROJECTS).forEach(([id,project])=>{
+
+    const button=document.createElement("button");
+
+    button.type="button";
+    button.textContent=project.name;
+
+    button.classList.toggle(
+      "active",
+      state.project===id
+    );
+
+    button.setAttribute(
+      "aria-pressed",
+      String(state.project===id)
+    );
+
+    button.addEventListener("click",()=>{
+
+      state.project=id;
+
+      renderProjects();
+
+    });
+
+    grid.appendChild(button);
+
+  });
+
+  $("activeProject").textContent=
+    PROJECTS[state.project].name;
+
+  $("schoolField").hidden=
+    state.project!=="academy";
+
+}
+
+/* AI TOOL SELECTOR */
+
+function renderTools(){
+
+  const grid=$("toolGrid");
+
+  grid.replaceChildren();
+
+  Object.entries(TOOLS).forEach(([id,tool])=>{
+
+    const button=document.createElement("button");
+
+    button.type="button";
+    button.textContent=tool[state.language];
+
+    button.classList.toggle(
+      "active",
+      state.tool===id
+    );
+
+    button.setAttribute(
+      "aria-pressed",
+      String(state.tool===id)
+    );
+
+    button.addEventListener("click",()=>{
+
+      state.tool=id;
+
+      if(id==="tutor"){
+        $("provider").value="professor";
+      }
+
+      renderTools();
+
+    });
+
+    grid.appendChild(button);
+
+  });
+
+}
+
+/* LANGUAGE CONTROL */
+
+function setLanguage(language){
+
+  if(!has(TEXT,language)) return;
+
+  state.language=language;
+
+  document.documentElement.lang=language;
+
+  document.querySelectorAll("[data-text]")
+    .forEach(element=>{
+
+      element.textContent=t(element.dataset.text);
+
+    });
+
+  document.querySelectorAll("[data-lang]")
+    .forEach(button=>{
+
+      const active=button.dataset.lang===language;
+
+      button.classList.toggle("active",active);
+
+      button.setAttribute(
+        "aria-pressed",
+        String(active)
+      );
+
+    });
+
+  $("aiPrompt").placeholder=t("placeholder");
+
+  renderTools();
+  renderHistory();
+  status(state.status,state.detail);
+
+}
+
+/* CREATE AI REQUEST */
+
+function createRequest(){
+
+  return {
+
+    prompt:$("aiPrompt").value.trim(),
+
+    project:state.project,
+
+    tool:state.tool,
+
+    language:state.language,
+
+    provider:$("provider").value,
+
+    school:state.project==="academy"
+      ? $("school").value
+      : ""
+
+  };
+
+}
+
+/* REQUEST VALIDATION */
+
+function validateRequest(request){
+
+  if(typeof request.prompt!=="string" ||
+     !request.prompt.trim() ||
+     request.prompt.length>8000){
+
+    throw new Error(t("empty"));
+
+  }
+
+  if(!has(PROJECTS,request.project) ||
+     !has(TOOLS,request.tool) ||
+     !has(TEXT,request.language) ||
+     !has(ENDPOINTS,request.provider)){
+
+    throw new Error("Invalid AI request.");
+
+  }
+
+}
+
+/* PROJECT CONTEXT */
+
+function buildMessage(request){
+
+  const project=PROJECTS[request.project];
+
+  return [
+
+    "Platform: BSS1815 PRO-MAX DMP",
+
+    "Project: "+project.name,
+
+    "Context: "+project.context,
+
+    "School: "+(request.school || "Not applicable"),
+
+    "Task: "+TOOLS[request.tool].task,
+
+    "Language: "+request.language,
+
+    "Do not invent facts or completed external actions.",
+
+    "User question:",
+
+    request.prompt
+
+  ].join("\n");
+
+}
+
+/* CENTRAL AI CONNECTION */
+
+async function askAI(request){
+
+  validateRequest(request);
+
+  const controller=new AbortController();
+
+  const timer=setTimeout(
+    ()=>controller.abort(),
+    50000
+  );
+
+  try{
+
+    const response=await fetch(
+      ENDPOINTS[request.provider],
+      {
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        signal:controller.signal,
+
+        body:JSON.stringify({
+
+          message:buildMessage(request),
+
+          language:request.language,
+
+          mode:request.tool,
+
+          provider:request.provider,
+
+          project:request.project,
+
+          school:request.school
+
+        })
+
+      }
+    );
+
+    let data;
+
+    try{
+
+      data=await response.json();
+
+    }catch{
+
+      throw new Error(
+        "Invalid API response: HTTP "+response.status
+      );
+
+    }
+
+    if(!data || typeof data!=="object"){
+
+      throw new Error(t("noAnswer"));
+
+    }
+
+    if(!response.ok || data.success!==true){
+
+      const detail=typeof data.error==="string"
+        ? data.error
+        : data.error?.message;
+
+      throw new Error(
+        detail || "HTTP "+response.status
+      );
+
+    }
+
+    const answer=[
+
+      data.answer,
+      data.reply,
+      data.response,
+      data.content,
+      data.text,
+      data.message
+
+    ].find(value=>
+      typeof value==="string" && value.trim()
+    );
+
+    if(!answer){
+
+      throw new Error(t("noAnswer"));
+
+    }
+
+    return {
+
+      answer,
+
+      provider:data.provider ||
+        (
+          {
+            openai:"OpenAI",
+            gemini:"Google Gemini",
+            professor:"AI Professor"
+          }[request.provider]
+        ),
+
+      model:data.model || "",
+
+      date:new Date().toISOString()
+
+    };
+
+  }catch(error){
+
+    if(error.name==="AbortError"){
+
+      throw new Error(t("timeout"));
+
+    }
+
+    throw error;
+
+  }finally{
+
+    clearTimeout(timer);
+
+  }
+
+}
+
+/* WORKSPACE CONTROL */
+
+function setBusy(busy){
+
+  state.busy=busy;
+
+  [
+    "sendAI",
+    "retryAI",
+    "clearAI",
+    "clearHistory",
+    "provider",
+    "school"
+  ].forEach(id=>{
+
+    $(id).disabled=busy;
+
+  });
+
+}
+
+/* EXECUTE CENTRAL AI REQUEST */
+
+async function execute(request){
+
+  if(state.busy) return;
+
+  if(!request.prompt){
+
+    status("empty");
+
+    return;
+
+  }
+
+  state.lastRequest={...request};
+
+  setBusy(true);
+
+  status("processing");
+
+  $("aiResponse").textContent="";
+  $("activeProvider").textContent="—";
+
+  try{
+
+    const result=await askAI(request);
+
+    $("aiResponse").textContent=result.answer;
+
+    $("activeProvider").textContent=
+      result.provider+
+      (result.model ? " / "+result.model : "");
+
+    state.history.unshift({
+
+      request:{...request},
+
+      result
+
+    });
+
+    state.history=state.history.slice(0,20);
+
+    renderHistory();
+
+    status("success");
+
+  }catch(error){
+
+    status("error",error.message);
+
+  }finally{
+
+    setBusy(false);
+
+  }
+
+}
+
+/* SESSION HISTORY */
+
+function renderHistory(){
+
+  const container=$("aiHistory");
+
+  container.replaceChildren();
+
+  if(!state.history.length){
+
+    container.textContent=t("noHistory");
+
+    return;
+
+  }
+
+  state.history.forEach(item=>{
+
+    const card=document.createElement("div");
+
+    card.className="history-item";
+
+    const title=document.createElement("strong");
+
+    title.textContent=
+      PROJECTS[item.request.project].name;
+
+    const prompt=document.createElement("p");
+
+    prompt.textContent=
+      item.request.prompt.slice(0,200);
+
+    const date=document.createElement("small");
+
+    date.textContent=
+      new Date(item.result.date).toLocaleString();
+
+    const button=document.createElement("button");
+
+    button.type="button";
+
+    button.textContent="↗";
+
+    button.addEventListener("click",()=>{
+
+      if(state.busy) return;
+
+      state.project=item.request.project;
+
+      state.tool=item.request.tool;
+
+      $("provider").value=item.request.provider;
+
+      if(item.request.school){
+
+        $("school").value=item.request.school;
+
+      }
+
+      setLanguage(item.request.language);
+
+      renderProjects();
+
+      $("aiPrompt").value=item.request.prompt;
+
+      $("aiResponse").textContent=item.result.answer;
+
+      $("activeProvider").textContent=
+        item.result.provider;
+
+      state.lastRequest={...item.request};
+
+      status("success");
+
+    });
+
+    card.append(title,prompt,date,button);
+
+    container.appendChild(card);
+
+  });
+
+}
+
+/* PROF AVATAR */
+
+const avatar=$("aiProfAvatar");
+
+$("aiAvatarPlay").addEventListener("click",async()=>{
+
+  try{
+
+    await avatar.play();
+
+  }catch{
+
+    status("avatarError");
+
+  }
+
+});
+
+$("aiAvatarStop").addEventListener("click",()=>{
+
+  avatar.pause();
+
+  if(avatar.readyState>0){
+
+    avatar.currentTime=0;
+
+  }
+
+});
+
+avatar.addEventListener("error",()=>{
+
+  status("avatarError");
+
+});
+
+/* BUTTON CONNECTIONS */
+
+document.querySelectorAll("[data-lang]")
+  .forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+      setLanguage(button.dataset.lang);
+
+    });
+
+  });
+
+$("centralAIForm").addEventListener("submit",event=>{
+
+  event.preventDefault();
+
+  execute(createRequest());
+
+});
+
+$("clearAI").addEventListener("click",()=>{
+
+  if(state.busy) return;
+
+  $("aiPrompt").value="";
+  $("aiResponse").textContent="";
+  $("activeProvider").textContent="—";
+
+  state.lastRequest=null;
+
+  status("ready");
+
+});
+
+$("retryAI").addEventListener("click",()=>{
+
+  execute(
+    state.lastRequest
+      ? {...state.lastRequest}
+      : createRequest()
+  );
+
+});
+
+$("copyAI").addEventListener("click",async()=>{
+
+  const answer=$("aiResponse").textContent;
+
+  if(!answer) return;
+
+  try{
+
+    await navigator.clipboard.writeText(answer);
+
+    status("copied");
+
+  }catch{
+
+    const range=document.createRange();
+
+    range.selectNodeContents($("aiResponse"));
+
+    const selection=window.getSelection();
+
+    if(selection){
+
+      selection.removeAllRanges();
+
+      selection.addRange(range);
+
+    }
+
+  }
+
+});
+
+$("clearHistory").addEventListener("click",()=>{
+
+  if(state.busy) return;
+
+  state.history=[];
+
+  renderHistory();
+
+});
+
+/* CENTRAL AI INTERFACE */
+
+window.BSS1815_CENTRAL_AI=Object.freeze({
+
+  ask(options={}){
+
+    return askAI({
+
+      prompt:String(options.prompt || "").trim(),
+
+      project:options.project || state.project,
+
+      tool:options.tool || "assistant",
+
+      language:options.language || state.language,
+
+      provider:options.provider || "openai",
+
+      school:String(options.school || "")
+
+    });
+
+  },
+
+  setLanguage,
+
+  selectProject(project){
+
+    if(!has(PROJECTS,project)) return;
+
+    state.project=project;
+
+    renderProjects();
+
+  }
+
+});
+
+/* INITIALIZATION */
+
+$("year").textContent=new Date().getFullYear();
+
+$("aiPrompt").value="";
+
+const params=new URLSearchParams(window.location.search);
+
+const project=params.get("project");
+
+const language=params.get("lang");
+
+if(project && has(PROJECTS,project)){
+
+  state.project=project;
+
+}
+
+renderProjects();
+
+setLanguage(
+  language && has(TEXT,language)
+    ? language
+    : "ht"
+);
+
+status("ready");
+
+})();
 </script>
 
 </body>
